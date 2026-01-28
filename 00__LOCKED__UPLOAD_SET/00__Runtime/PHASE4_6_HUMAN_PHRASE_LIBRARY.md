@@ -467,19 +467,14 @@ Purpose: Smoothly conclude explanation and prepare the conversation for a natura
 - AR: أكيد — بحوّل طلبك للفريق عشان يساعدونك.
 
 ### MULTI_SERVICE_INTENT_SAFE (PHASE 0–2)
-Usage rule:
-- If vehicle is missing: use EN/AR (ask model + year).
-- If vehicle is present: use EN_ALT/AR_ALT (ask which service to start with).
-
-- EN: Got it — you’re looking at more than one service. What’s the car model and year?
-- AR: تمام — واضح إنك تفكر بأكثر من خدمة. شنو موديل السيارة وأي سنة؟
-
-- EN_ALT: Got it — you’re looking at more than one service. Which service should we start with first?
-- AR_ALT: تمام — واضح إنك تفكر بأكثر من خدمة. أي خدمة نبدأ فيها أول؟
+EN: Got it — you’re looking at more than one service. What’s the car model and year?
+AR: تمام — واضح إنك تفكر بأكثر من خدمة. شنو موديل السيارة وأي سنة؟
+EN_ALT: Got it — you’re looking at more than one service. Which service should we start with first?
+AR_ALT: تمام — واضح إنك تفكر بأكثر من خدمة. أي خدمة نبدأ فيها أول؟
 
 ### LONG_RAMBLING_GROUNDING (PHASE 0–2)
-- EN: I know it can feel a bit confusing — I can help. What’s the car model and year?
-- AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أساعدك. شنو موديل السيارة وأي سنة؟
+EN: I know it can feel confusing — I can help. What’s the car model and year?
+AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أساعدك. شنو موديل السيارة وأي سنة؟
 
 ### L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
 
