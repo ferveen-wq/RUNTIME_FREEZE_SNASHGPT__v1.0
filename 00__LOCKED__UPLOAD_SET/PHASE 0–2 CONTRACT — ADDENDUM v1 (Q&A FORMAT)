@@ -1,0 +1,230 @@
+# PHASE 0–2 CONTRACT — ADDENDUM v1 (Q&A FORMAT)
+
+This addendum amends and clarifies the existing
+PHASE 0–2 CONTRACT — Q&A FORMAT.
+
+It does NOT replace the original contract.
+It MUST be read together with the original contract.
+
+Purpose:
+- Eliminate ambiguity discovered during testing
+- Prevent patch-on-patch drift
+- Lock Phase 0–2 behavior before moving to Phase 3+
+
+No new features are introduced.
+Only clarification, correction, and authority alignment.
+
+────────────────────────────────────────────
+SECTION A — QUESTIONS & CLARIFICATION RULES
+────────────────────────────────────────────
+
+Q1. How many questions may Phase 0–2 ask per response?
+
+[MODIFY]
+
+Phase 0–2 must ask **a maximum of ONE question per response**.
+
+Exception (strictly limited):
+- ONE combined question is allowed to request **two missing fields**
+  ONLY when both fields belong to the same field group
+  (e.g., vehicle model + year).
+
+Disallowed:
+- Two separate questions
+- Branching questions
+- Questions resolving different intents
+- Curiosity, preference probing, or sales framing
+
+Rationale:
+This preserves human flow while preventing interrogation loops
+and authority conflicts across runtime files.
+
+────────────────────────────────────────────
+SECTION B — GREETING & BROWSING BEHAVIOR
+────────────────────────────────────────────
+
+Q2. How must greeting-only messages be handled?
+
+[MODIFY]
+
+Greeting-only messages (e.g., “hi”, “hello”, “السلام عليكم”) must:
+- Respond with a brief welcome
+- Ask ONE combined question requesting vehicle model + year
+
+Greeting responses must NOT:
+- List services
+- Ask service preference
+- Trigger qualification beyond vehicle identity
+
+────────────────────────────────────────────
+
+Q3. How must “just browsing” / low-intent messages be handled?
+
+[MODIFY]
+
+BROWSING_GENERIC messages in Phase 0–2 must:
+- Use a browsing-safe primer (L.0)
+- Ask exactly ONE soft service-selection question
+- Must NOT request vehicle model or year at this stage
+
+Browsing must NOT:
+- Trigger vehicle qualification
+- Trigger service lists tied to pricing or coverage
+- Advance qualification state
+
+────────────────────────────────────────────
+SECTION C — BRAND-FIRST VS SERVICE-FIRST HANDLING
+────────────────────────────────────────────
+
+Q4. How must brand-only mentions be handled (e.g., “XPEL”, “3M”)?
+
+[ADD]
+
+If a brand is mentioned without an explicit service keyword:
+- service_intent MUST remain unknown
+- System MUST ask ONE brand clarifier
+  (e.g., “Are you referring to tint or PPF?”)
+
+Brand-only mentions must NOT:
+- Auto-confirm a service
+- Default to PPF or any other service
+- Ask for vehicle details before clarifying service type
+
+If the customer later confirms the service:
+- Brand context must be preserved
+- Do NOT re-ask the brand again
+
+────────────────────────────────────────────
+SECTION D — VEHICLE REPOSITORY & CARRY-FORWARD RULES
+────────────────────────────────────────────
+
+Q5. How must partial or corrected vehicle information be handled?
+
+[ADD]
+
+If the customer corrects or refines ONLY part of the vehicle identity:
+- Previously provided fields MUST be preserved
+- Already captured year MUST NOT be re-asked
+- State must carry forward implicitly
+
+Example:
+“Jetour T3 2024” → “Jetour T1”
+Final assumed state: Jetour T1 2024
+
+────────────────────────────────────────────
+
+Q6. How must repo-missing / unmapped vehicles be handled?
+
+[MODIFY]
+
+If a vehicle model cannot be confidently matched in the repository:
+- vehicle_repo_missing MUST be set
+- System MUST NOT proceed as VEHICLE_ONLY
+- System MUST ask ONE clarifier for the missing field only
+
+Disallowed:
+- Silent guessing
+- Auto-accepting unknown models
+- Re-asking already provided fields
+- Heavy UX requests (photos, VIN) in Phase 0–2
+
+────────────────────────────────────────────
+SECTION E — COMPARISONS, WARRANTIES & DEPTH LIMITS
+────────────────────────────────────────────
+
+Q7. Are service comparisons allowed in Phase 0–2?
+
+[CLARIFY]
+
+Phase 0–2 must NOT provide free-form comparisons
+(e.g., “ceramic vs PPF explanation”).
+
+If comparison intent is detected:
+- Hold with ONE clarifying question
+- Defer explanation to the allowed comparison route (later phase)
+
+────────────────────────────────────────────
+
+Q8. How are warranty questions handled in Phase 0–2?
+
+[CLARIFY]
+
+Phase 0–2 may provide:
+- High-level, non-committal warranty ranges
+- No detailed conditions or persuasive framing
+
+Deeper warranty explanation belongs to later phases.
+
+────────────────────────────────────────────
+SECTION F — POST-SERVICE SUPPORT & STATE SAFETY
+────────────────────────────────────────────
+
+Q9. How must post-service support requests be handled?
+
+[ADD]
+
+Post-service support intents (invoice, complaint, video, maintenance):
+- Are intake-only in Phase 0–2
+- MUST route to human/admin support
+- MUST NOT mutate qualification or sales state
+
+────────────────────────────────────────────
+
+Q10. How must wrong or mixed transcripts be handled?
+
+[ADD]
+
+If identity integrity is breached (multiple customers mixed):
+- Phase 0–2 MUST halt progression
+- MUST suppress state updates
+- MUST require admin-only reset to continue
+
+Customers must NOT be asked to confirm identity.
+
+────────────────────────────────────────────
+SECTION G — TITLING & OWNERSHIP
+────────────────────────────────────────────
+
+Q11. Who owns Base Title creation?
+
+[MODIFY]
+
+Phase 0–2 owns Base Title creation.
+
+Rules:
+- Base Title is created ONCE after minimum qualification
+- Base Title is immutable thereafter
+- Later phases may add tags/metadata only
+- Base Title string MUST NOT be overwritten
+
+Base Title must be:
+- Human-readable
+- Underscore-separated
+- Cross-platform searchable
+
+If year is uncertain for a new car:
+- Use neutral YEAR_OR_GEN tokens
+- MUST NOT challenge customer’s claim of newness
+
+────────────────────────────────────────────
+SECTION H — AUTHORITY & FREEZE RULE
+────────────────────────────────────────────
+
+Q12. What prevents patch-on-patch drift?
+
+[ADD]
+
+Rules:
+- Every behavior must have a single authoritative owner
+- TEST_BUNDLE is UAT-only and MUST NOT define production behavior
+- Any Phase 0–2 change requires a new contract addendum
+
+FREEZE STATEMENT:
+Once this addendum is applied,
+Phase 0–2 behavior is considered LOCKED.
+No patches, tweaks, or overrides are permitted
+without issuing ADDENDUM v2.
+
+────────────────────────────────────────────
+END OF ADDENDUM v1
+────────────────────────────────────────────

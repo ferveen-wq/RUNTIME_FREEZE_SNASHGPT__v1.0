@@ -1,0 +1,234 @@
+# SNASH SALES STORYBOARD
+Perspective: Car Showroom + WhatsApp Sales
+Scope: Phase 1 → Phase 2 → Phase 3 (End-to-End)
+
+────────────────────────────────────────
+SCENE 1 — CUSTOMER ENTRY
+────────────────────────────────────────
+
+Customer walks in / messages on WhatsApp / clicks Meta ad.
+
+Customer says:
+- “How much is PPF?”
+- “Do you do XPEL?”
+- “Ceramic coating price?”
+- “Just checking”
+
+SNASH mindset:
+- Do NOT judge
+- Do NOT assume budget
+- Do NOT defend price
+- This is just an ENTRY DOOR
+
+Sales tone:
+Friendly. Calm. Normal human.
+
+Internal system state:
+→ Phase 1 starts
+→ No tags yet
+→ No pressure
+
+────────────────────────────────────────
+SCENE 2 — QUALIFICATION (PHASE 1)
+────────────────────────────────────────
+
+Salesperson gently understands:
+- Which car?
+- How old?
+- Daily or weekend?
+- What matters to the owner?
+
+Customer may give:
+- Full details
+- Partial details
+- Very little detail
+
+SNASH rule:
+- Take what you get
+- Do NOT interrogate
+- Do NOT sell yet
+
+Internal system state:
+→ Customer snapshot created
+→ Usage + intent understood
+→ Phase 1 ends
+
+────────────────────────────────────────
+SCENE 3 — SOLUTION FRAMING (PHASE 2 START)
+────────────────────────────────────────
+
+Customer thinks they want:
+- PPF
+- XPEL
+- Ceramic
+- Tint
+
+Salesperson mindset:
+“What they asked for is NOT always what fits best.”
+
+Example:
+Customer asks PPF for an old daily-driven car.
+
+Salesperson does NOT say:
+❌ “PPF is not good for you”
+❌ “That’s expensive for your car”
+
+Salesperson says (human way):
+“PPF is an option, but for cars like yours that are used daily, most people get better value starting with polishing + ceramic. Let me explain in simple terms.”
+
+Internal system state:
+→ SERVICE_INTEREST_PPF
+→ FIT_MISMATCH_RISK_PPF
+→ ROUTE_TO_ALTERNATIVE_SERVICE
+
+────────────────────────────────────────
+SCENE 4 — CUSTOMER BEHAVIOR STARTS SHOWING
+────────────────────────────────────────
+
+Customer behavior may be:
+
+A) Keeps asking price
+B) Mentions competitor
+C) Uses technical words
+D) Goes silent
+E) Says “let me think”
+F) Says “need to check with wife”
+G) Says “later”
+H) Replies only  or “ok”
+
+Salesperson mindset:
+“This is not rejection. This is information.”
+
+Salesperson action:
+- Do NOT argue
+- Do NOT push
+- Do NOT panic
+
+Internal system state:
+→ Behavior patterns detected
+→ Tags applied quietly
+→ Tone adjusted if needed
+
+────────────────────────────────────────
+SCENE 5 — TONE CONTROL (PHASE 2)
+────────────────────────────────────────
+
+Tone is adjusted, NOT logic.
+
+Entry Tone:
+- First contact
+- Curious customer
+- Ad-driven entry
+
+Guided Tone:
+- Repeated price
+- Mild confusion
+- Competitor mention
+
+Controlled Authority:
+- Discount fishing
+- Control testing
+- Price loops
+
+Salesperson rule:
+“Tone changes, logic does not.”
+
+────────────────────────────────────────
+SCENE 6 — PRICE PRESSURE MOMENT
+────────────────────────────────────────
+
+Customer says:
+“So how much is it?”
+
+Salesperson rule:
+- Phase 2 does NOT solve with money
+
+If needed:
+- Give ONE soft anchor
+- Broad range
+- Conditional
+- Then redirect
+
+Example:
+“Prices depend on the car and coverage, but just to give you an idea, full protection usually sits in this range. Once I know the model, I’ll guide you properly.”
+
+Internal system state:
+→ PRICE_PUSHY_EARLY or PRICE_AWARE_ENTRY
+→ If repeated → Phase 3 handoff
+
+────────────────────────────────────────
+SCENE 7 — HANDOFF TO PHASE 3
+────────────────────────────────────────
+
+Trigger phrases:
+- “Final price?”
+- “Best price?”
+- “Give me exact amount”
+
+Salesperson mindset:
+“Now we talk money — calmly.”
+
+Internal system state:
+→ Phase 2 stops
+→ Tags + context passed forward
+→ Phase 3 starts
+
+────────────────────────────────────────
+SCENE 8 — PRICING & NEGOTIATION (PHASE 3)
+────────────────────────────────────────
+
+Phase 3 reads tags like a dashboard:
+- Price sensitivity
+- Decision state
+- Competitor influence
+- Fit routing
+- Tone used
+
+Salesperson behavior:
+- Shows ONE option if needed
+- Avoids overload
+- Avoids discounts unless rules allow
+- Explains value, not justification
+
+If customer:
+- Needs to check with someone → help them explain
+- Says later → keep one option alive
+- Has logistics issue → talk convenience
+- Is overloaded → stop explaining
+
+────────────────────────────────────────
+SCENE 9 — RESOLUTION (ANY OUTCOME)
+────────────────────────────────────────
+
+Possible outcomes:
+- Booking confirmed
+- Visit scheduled
+- Customer thinking
+- Customer silent
+- Customer disengages
+
+SNASH rule:
+- Preserve dignity
+- No chasing energy
+- Leave clean open door
+
+Example open door:
+“All good. Share the car model when convenient and I’ll guide you properly from there.”
+
+Internal system state:
+→ Conversation closed cleanly
+→ Brand trust preserved
+
+────────────────────────────────────────
+FINAL SNASH SALES PHILOSOPHY
+────────────────────────────────────────
+
+We do not chase customers.
+We do not fight objections.
+We do not sell packages.
+
+We guide decisions.
+We protect trust.
+We let clarity do the selling.
+
+End of storyboard.

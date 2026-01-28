@@ -1,0 +1,2144 @@
+SECTION 1 — SCOPE & AUTHORITY OF PHASE 0–2
+
+Q1. What is the primary responsibility of Phase 0–2?
+
+A1. Phase 0–2 is responsible for:
+- Accepting raw customer input
+- Normalizing signals (vehicle, service, intent, context)
+- Performing minimal qualification required to safely proceed
+- Creating a stable conversation foundation for later phases
+
+Phase 0–2 is NOT responsible for selling, persuading, pricing, negotiating, or educating beyond what is strictly required to progress.
+
+---
+
+Q2. What types of customer inputs must Phase 0–2 accept?
+
+A2. Phase 0–2 must accept and normalize, without rejection:
+- New customer messages
+- Returning customer messages
+- Greetings and vague browsing messages
+- Vehicle-only inputs
+- Service-only inputs
+- Brand mentions
+- Competitor mentions
+- Off-scope but real automotive questions
+- Long pasted transcripts
+- Screenshot text / voice note transcripts
+- Multi-channel pasted chats
+- Post-service support signals (invoice, complaint, video, maintenance)
+
+Acceptance does not imply full handling; some inputs are intake-only.
+
+---
+
+Q3. What authority boundaries does Phase 0–2 have?
+
+A3. Phase 0–2 has authority to:
+- Ask clarifying questions strictly required to proceed
+- Normalize and store vehicle/service/context signals
+- Suppress responses when integrity or safety is breached
+- Create the Base Title once minimum qualification is complete
+- Decide whether progression is allowed or must halt
+
+Phase 0–2 does NOT have authority to:
+- Overwrite previously captured valid data
+- Restart qualification without cause
+- Mutate decisions owned by later phases
+- Provide detailed explanations, comparisons, or recommendations
+- Recover from identity or transcript corruption without admin action
+
+---
+
+Q4. How many questions may Phase 0–2 ask per response?
+
+A4. Phase 0–2 may ask a maximum of ONE question per response.
+
+Exception:
+- A single combined question is allowed to request two missing fields
+  only if both fields belong to the same required entity
+  (e.g., vehicle model and year).
+
+Phase 0–2 must never:
+- Ask branching or multi-topic questions
+- Re-ask fields already provided
+- Loop clarification questions
+
+---
+
+Q5. Who owns state changes during Phase 0–2?
+
+A5. Phase 0–2 owns:
+- Initial capture of vehicle identity
+- Initial capture of service intent
+- Signal normalization flags (e.g., ambiguous, repo-missing, off-scope)
+- Creation of Base Title
+- Suppression and halt decisions
+
+Phase 0–2 must not:
+- Roll back state due to late or pasted messages
+- Change state during post-service support intake
+- Change state after identity integrity breach
+
+---
+
+Q6. What is Phase 0–2’s role regarding later phases?
+
+A6. Phase 0–2’s role is preparatory only.
+
+It must:
+- Deliver clean, minimal, correct state
+- Avoid premature depth or persuasion
+- Hand off safely to Phase 3+ once allowed
+
+Phase 0–2 must not:
+- Emulate later-phase behavior
+- Anticipate pricing, negotiation, or objection handling
+- Leak test or debug artifacts into production behavior
+
+---
+
+Q7. How must Phase 0–2 treat test artifacts and non-production files?
+
+A7. Phase 0–2 must treat test-only artifacts as non-authoritative.
+
+Rules:
+- TEST_BUNDLE and test harness files are UAT-only
+- Production behavior must be defined in Phase 0–2 kernel/runtime files
+- No test file may override production logic
+
+---
+
+Q8. What is the guiding principle for Phase 0–2 decisions?
+
+A8. Phase 0–2 must follow:
+- Minimalism over completeness
+- Safety over progress
+- Single ownership per rule
+- No assumptions beyond provided input
+- No recovery without explicit authority
+
+If uncertainty remains after allowed clarification,
+Phase 0–2 must halt or escalate rather than guess.
+
+on the above this was my input as below
+
+Roll back state due to late or pasted messages - what about a returning customer with new car new services etc. at any stage? we discussed this correct? or customer asking anything on the post services support which we rightly captured?
+Change state during post-service support intake- same as above?
+Change state after identity integrity breach? - what about the customer state, negotiation, frustration, booking state etc?
+
+just above concerns. when you give response. then i'll consdier this as confirmed and move to next
+
+and your response on the my input
+
+Good catch — these are legitimate edge cases, and you’re right: if we don’t clarify them now, they’ll become silent contradictions later.
+
+I’ll answer each point precisely, then give you clean replacement wording you can drop into Section 1 so the contract stays correct and future-proof.
+
+⸻
+
+1️⃣ “Roll back state due to late or pasted messages”
+
+What about returning customers, new car, new service?
+
+You are correct: returning customers must be supported.
+
+The intent of that rule was not to freeze the system forever — it was to stop retroactive corruption from pasted history.
+
+Correct interpretation (aligned with what we discussed)
+
+Phase 0–2 must distinguish between:
+
+A. New inbound customer intent (valid state change)
+Examples:
+	•	“I bought a new car”
+	•	“Different vehicle now”
+	•	“New service”
+	•	“New chat / fresh request”
+
+👉 These ARE allowed to reset or reinitialize state cleanly.
+
+B. Late or pasted historical messages (invalid state change)
+Examples:
+	•	Old WhatsApp logs pasted
+	•	Screenshots of previous conversations
+	•	Mixed timestamps inserted after newer turns
+
+👉 These MUST NOT roll back or overwrite current state.
+
+Contract-safe rule
+
+Phase 0–2 may start a new logical context for a returning customer,
+but must never retroactively rewrite an already-established context.
+
+This keeps both cases safe.
+
+⸻
+
+2️⃣ “Must not change state during post-service support intake”
+
+What if customer raises invoice/complaint/maintenance?
+
+Again, you’re right — this needs precision.
+
+Correct intent (what we already agreed)
+
+Post-service support is intake-only, not state-mutating.
+
+That means:
+
+Allowed:
+	•	Tagging post_service_support
+	•	Capturing reference numbers, files, complaints
+	•	Routing to human/admin
+	•	Pausing sales/qualification flow
+
+Not allowed:
+	•	Changing vehicle
+	•	Changing service intent
+	•	Restarting qualification
+	•	Advancing pricing / booking / negotiation state
+
+So yes — customer can message anything, but Phase 0–2 must not advance or reset sales state while handling it.
+
+⸻
+
+3️⃣ “Must not change state after identity integrity breach”
+
+What about frustration, negotiation, booking state, etc.?
+
+Important distinction here 👇
+
+Identity breach ≠ normal customer behavior
+
+An identity integrity breach means:
+	•	Two customers mixed
+	•	Wrong transcript pasted
+	•	Ambiguous ownership of messages
+
+In that situation:
+	•	The system cannot safely trust emotional state, negotiation state, or booking context
+	•	Continuing automatically would be dangerous
+
+Correct handling (as agreed)
+
+When identity integrity is breached:
+	•	Phase 0–2 freezes all progression
+	•	Suppresses customer-facing advancement
+	•	Requires admin reset or confirmation
+	•	After reset → a new clean state may be started
+
+This does not block normal frustration/objections/etc.
+It only applies when identity itself is uncertain.
+
+⸻
+
+✅ CLEAN CONTRACT REPLACEMENT (Drop-in)
+
+You can replace the three lines you flagged with this exact wording:
+
+Phase 0–2 must not retroactively roll back or overwrite an active state due to late, pasted, or historical messages.
+This does not prevent Phase 0–2 from initializing a new clean context for a returning customer with a new vehicle or new service.
+
+Phase 0–2 must not mutate qualification, sales, or booking state during post-service support intake.
+Post-service support handling is intake-only and must route to human/admin without advancing or resetting sales flow.
+
+After an identity integrity breach (mixed customers, wrong transcript, unclear ownership),
+Phase 0–2 must freeze progression and suppress state changes until an admin reset or confirmation occurs.
+Normal customer objections, emotions, or negotiation states are not considered identity breaches.
+
+Where we are now
+	•	Your concerns are valid
+	•	They are now fully resolved without weakening safety
+	•	This aligns with everything previously agreed
+	•	No drift introduced
+	•	No future loopholes created
+
+Next step (your call)
+
+Reply with one of these:
+	•	✅ “Section 1 confirmed with clarifications”
+	•	⚠️ “Minor tweak needed in paragraph ___”
+
+Once you confirm, we move to Section 2 cleanly.
+
+below section 2 what you giave in copy code
+
+SECTION 2 — INPUTS ACCEPTED BY PHASE 0–2
+
+(Q&A Contract Format — Copy Code)
+
+Q: What types of customer inputs must Phase 0–2 accept?
+
+A: Phase 0–2 must accept and normalize the following customer inputs without failure:
+
+1. New customer messages
+   - First-time inbound messages with no prior context
+   - Greetings, browsing, vague inquiries
+
+2. Returning customer messages
+   - Customers re-engaging after silence
+   - Customers with new vehicles or new service requests
+   - Customers continuing an earlier conversation
+
+3. Partial information inputs
+   - Vehicle only (e.g., “BMW X5 2023”)
+   - Service only (e.g., “ceramic”)
+   - Brand only (e.g., “XPEL”)
+   - Mixed or incomplete combinations
+
+4. Long pasted transcripts
+   - Copy-pasted chat history from WhatsApp, Instagram, Meta Business, etc.
+   - Multi-message pastes in a single input
+
+5. Screenshots and OCR-derived text
+   - Text extracted from screenshots
+   - Mixed timestamp formats
+
+6. Voice note transcripts
+   - Treated as normal text once transcribed
+   - No special handling required beyond intake normalization
+
+7. Cross-channel stitched conversations
+   - Messages from multiple platforms combined into one input
+   - Phase 0–2 must preserve order and detect identity conflicts
+
+8. Off-scope automotive questions
+   - Mechanical repair, AC issues, painting, bodywork, etc.
+   - Must be safely routed without inventing services
+
+9. Brand mentions and competitor references
+   - Mentions of brands (e.g., XPEL, 3M)
+   - Mentions of other shops or price comparisons
+   - Must be tagged and routed without debate
+
+10. Post-service support requests
+    - Invoice requests
+    - Complaints
+    - Maintenance questions
+    - Requests for videos, photos, or records
+
+11. Incorrect or unsafe inputs
+    - Wrong transcripts pasted into the wrong chat
+    - Mixed customer identities
+    - Conflicting or ambiguous ownership of messages
+
+    Q: Are any customer inputs rejected by Phase 0–2?
+
+A: No customer input is rejected outright.
+Phase 0–2 must always accept the input, normalize it, and either:
+- Proceed safely,
+- Hold for clarification,
+- Suppress progression, or
+- Route to human/admin support.
+
+Q: How must Phase 0–2 treat historical or pasted messages?
+
+A: Phase 0–2 must:
+- Preserve original content without rewriting
+- Preserve message order using observed_time when available
+- Prevent historical messages from rolling back or overwriting current state
+
+Q: How must Phase 0–2 treat historical or pasted messages?
+
+A: Phase 0–2 must:
+- Preserve original content without rewriting
+- Preserve message order using observed_time when available
+- Prevent historical messages from rolling back or overwriting current state
+
+Q: How must Phase 0–2 treat returning customers?
+
+A: Phase 0–2 must allow returning customers to:
+- Start a new clean context for new vehicles or services
+- Continue an existing context when clearly applicable
+
+Phase 0–2 must not assume continuity if identity, vehicle, or intent is ambiguous.
+
+Q: How must Phase 0–2 treat malformed or mixed inputs?
+
+A: Phase 0–2 must prioritize safety and integrity:
+- Detect identity conflicts
+- Suppress progression when ownership is unclear
+- Require admin reset when identity integrity is breached
+
+my response on the above
+
+3. Partial information inputs - this should include a proper established vehicle repository so that back and forth communications can be avoided. so repository should have a proper logic to understand anything which customer mentions about the car in arabic english with short forms which should be identified closely to the car , model and the model numbers ( aliases) it should be strong enough. anything which doesnt match ( we try to match to the best possible combination in the vehicle repository ( if not then ask clarification question naturally without breaking the trust). this is the important part for now. so even if its not perfect now to move forward, we may use the pro section to have a proper logic in place and to gather maximum car information in the repository file which may be now or later)
+
+simlary the same with service canon - which needs to get the closest service what we have in the global service / product master list what we have. am i correct?
+
+same with brand also.
+
+same with warranty also. these should be in the repositories. so intial questions can be warranty related and the response should reflect the same. but the deeper section like phase 3 can give more informations correct?
+
+only these clarifications needed above before proceeding to section 3
+
+your response and clarifications on my above input
+
+Yes — you’re thinking about this exactly right, and this clarification is important to lock before Section 3.
+I’ll answer point-by-point, confirm what is in scope for Phase 0–2, what is required now, and what is explicitly deferred, so we don’t accidentally overload the contract.
+
+⸻
+
+Clarification & Confirmation — Partial Inputs + Repositories (Phase 0–2)
+
+1️⃣ Vehicle repository — expectation in Phase 0–2
+
+Your understanding is correct, with one critical boundary.
+
+Phase 0–2 REQUIREMENTS (now):
+	•	There must be a vehicle repository (or classification layer) that can:
+	•	Recognize brands, models, generations, aliases
+	•	Handle Arabic + English
+	•	Handle short forms, partial names, informal usage
+	•	e.g. X5, bmw x5, بي ام دبليو اكس فايف
+	•	GX, RX, Jetour T2, T2, etc.
+	•	Matching must be best-effort first, not strict.
+	•	If confidence ≥ threshold → accept silently.
+	•	If confidence < threshold → ask one natural clarification.
+	•	Never loop.
+	•	Never ask for information already provided.
+
+Phase 0–2 does NOT require (now):
+	•	A perfect or complete vehicle database.
+	•	Exhaustive global coverage of every trim.
+	•	VIN-level precision.
+	•	Heavy UX like “upload a photo”.
+
+✅ So yes: strong enough to reduce back-and-forth, not perfect.
+
+👉 The contract should say:
+
+Phase 0–2 uses progressive inference against the vehicle repository and only asks for clarification when confidence is insufficient.
+
+⸻
+
+2️⃣ Repo-missing behavior (important nuance)
+
+You already discovered this in testing, and you’re right to flag it.
+
+Correct Phase 0–2 behavior:
+	•	Try to map input to:
+	•	Brand
+	•	Model
+	•	Generation / year / shape
+	•	If brand matches but model does not exist:
+	•	Set vehicle_repo_missing = true
+	•	Ask one neutral clarification
+	•	Example: “Just to confirm, which exact Jetour model is it?”
+	•	Do not:
+	•	Guess silently
+	•	Re-ask year if already captured
+	•	Continue as VEHICLE_ONLY
+
+This belongs entirely in Phase 0–2, and the logic lives in:
+	•	Vehicle repository
+	•	Qualification engine
+—not in phrasing files.
+
+⸻
+
+3️⃣ Service canon — closest-match logic
+
+You’re also correct here.
+
+Phase 0–2 REQUIREMENTS:
+	•	There must be a global service/product master list.
+	•	Phase 0–2 must:
+	•	Map customer wording → closest canonical service
+	•	e.g. “paint protection” → PPF
+	•	“glass tint” → window tint
+	•	Arabic equivalents included
+	•	Accept approximate language without inventing services.
+	•	If ambiguous:
+	•	Ask one clarifying question
+	•	Do not explain or sell.
+
+Phase 0–2 does NOT:
+	•	Educate deeply
+	•	Compare services
+	•	Recommend packages
+(these are Phase 3+)
+
+So yes — closest service matching first, clarification only if required.
+
+⸻
+
+4️⃣ Brand handling (XPEL, 3M, etc.)
+
+Confirmed and aligned with your earlier decisions.
+
+Phase 0–2:
+	•	Brand mentions are not services.
+	•	Brand mentions must:
+	•	Be tagged
+	•	Route to clarification
+	•	e.g. “Are you asking about tint or PPF?”
+	•	No brand advocacy, no debate, no pricing.
+
+Deeper brand explanation → later phases only.
+
+⸻
+
+5️⃣ Warranty inputs — where they belong
+
+This is the subtle one, and your instinct is right.
+
+Phase 0–2 SHOULD:
+	•	Accept warranty-related questions:
+	•	“Does it have warranty?”
+	•	“How many years?”
+	•	Normalize them as:
+	•	warranty_hint = true
+	•	Respond high-level only, without detail.
+
+Phase 0–2 MUST NOT:
+	•	Quote warranty terms
+	•	Compare warranties
+	•	Make claims beyond canon
+
+So yes:
+	•	Warranty knowledge belongs in repositories.
+	•	Phase 0–2 acknowledges and defers depth to Phase 3+.
+
+⸻
+
+Summary — Locked Clarifications (Before Section 3)
+
+You are correct on all four points.
+
+To be explicit:
+
+✔ Vehicle repository: best-effort inference + one clarifier
+✔ Service canon: closest canonical service, no invention
+✔ Brand: clarification only, no auto-service mapping
+✔ Warranty: acknowledge at intake, defer depth
+
+This DOES NOT require Pro right now.
+Pro can later be used to expand repository coverage, not to redefine Phase 0–2 behavior.
+
+⸻
+
+Status
+	•	These clarifications are confirmed
+	•	They belong in Section 2 (Inputs) + Section 3 (State & Inference Rules)
+	•	No contract conflict
+	•	No patch required yet
+
+If you’re ready, say:
+
+👉 “Proceed to Section 3 — State & Inference Rules”
+
+We’ll lock that next, cleanly and safely.
+
+my response on your inputs
+
+one observation i had was even customer give a correct year, and when the clarification quetion is asked, it tend to forget the year and its asking for the year again. which needs to be avoided.
+
+i assume the wiring for the global product list is missing. and may not be wired witht he phase 6 bundle. we need to check this out. when we fix the 0-2 contract.
+
+Brand handling (XPEL, 3M, etc.)- can we make a minium mention of brand name the customer asked rather than a generic reply . like if the customer asked for xpel. the responses was yes is it tint or ppf. instead can we have yes we do xpel. but are you referring to ppf or tint. again there is a mismatch if the customer asking for xpel and then ppf, or ppf and then xpel then the earlier state on the brand or the service is been asked again. which should be fixed.
+
+Warranty inputs — where they belong - so can we have a generic statement for the services. for instance if he ask for ppf then warranty or vice versa, then we need to have yes we have warranty ranges from 5-10 years. similary for ceramic 1-5 years and tint 4-10 years like that. wrap upto 5 years. so this make sense.
+
+just to clarify on the above before we proceed to section 3
+
+and following is your interpreation / suggestions for my above inputs
+
+Great observations. These are exactly the right things to lock now, before Section 3, because each one affects state carry-forward and authority boundaries. I’ll respond cleanly, confirm what’s accepted, and tell you where it belongs (contract vs later patch), so we don’t drift.
+
+⸻
+
+1️⃣ Year being forgotten during clarification
+
+Customer gives year → clarification asked → system asks year again
+
+Root cause (architectural, not phrasing)
+
+This is not a phrase issue and not a Phase 6 issue.
+
+It happens when:
+	•	Clarification logic rebuilds missing_fields
+	•	Instead of subtracting from existing captured_fields
+
+So yes — your assumption is correct:
+carry-forward wiring is incomplete or overridden, usually inside:
+	•	Qualification Engine
+	•	State update logic (not service canon)
+
+Contract decision (Phase 0–2)
+
+This must be explicitly guaranteed in the contract.
+
+CONFIRMED RULE (to add / clarify):
+	•	If vehicle_year is already captured in session state:
+	•	It must not be re-added to missing fields
+	•	Even if vehicle model is later corrected or refined
+	•	Clarification questions must only ask for truly missing fields
+
+This is a hard rule, not optional.
+
+📌 This will later be enforced by a single patch in the Qualification Engine, not multiple places.
+
+✅ We lock this now in the contract.
+
+⸻
+
+2️⃣ Global product / service canon wiring (Phase 6 bundle)
+
+You’re also right to be cautious here.
+
+Important clarification
+
+This is not required to be fully wired for Phase 0–2 to freeze, but we must ensure:
+	•	Phase 0–2:
+	•	Only uses canonical service identifiers
+	•	Does not depend on detailed Phase 6 explanations
+	•	Phase 6:
+	•	Owns deep explanations, comparisons, education
+
+If Phase 0–2 is accidentally pulling explanation text from Phase 6:
+	•	That’s an authority leak
+	•	And it explains some of the inconsistent behavior you saw
+
+Contract stance
+
+Phase 0–2 contract should say:
+	•	Phase 0–2 may reference the existence of a service
+	•	Phase 0–2 must not depend on Phase 6 content for logic or phrasing
+	•	Phase 6 wiring correctness is out of scope for Phase 0–2 freeze
+
+📌 We’ll audit wiring later, but do not block Section 3 on this.
+
+⸻
+
+3️⃣ Brand handling (XPEL, 3M) — minimal mention + no state reset
+
+This is a very good UX point, and yes — it can be done safely.
+
+Accepted behavior (Phase 0–2)
+
+We refine the rule slightly:
+
+Instead of:
+
+“Are you asking about tint or PPF?”
+
+We allow:
+
+“Yes, we work with XPEL. Are you asking about tint or PPF?”
+
+Guardrails (important)
+	•	Brand mention:
+	•	Must not auto-set service intent
+	•	Must not reset or overwrite previously captured service
+	•	If customer says:
+	•	“XPEL” → clarify
+	•	“PPF” → service set
+	•	“XPEL PPF” → both brand + service set
+	•	If customer later repeats one:
+	•	Do not ask again if already resolved
+
+📌 This is a state-merge rule, not a phrasing trick.
+
+Contract decision
+
+✔ Brand name may be echoed once for acknowledgment
+✔ Brand alone never forces a service
+✔ Brand + service merges, not conflicts
+
+We lock this.
+
+⸻
+
+4️⃣ Warranty inputs — allowing light ranges in Phase 0–2
+
+Your suggestion here is reasonable and safe, with one boundary.
+
+Accepted in Phase 0–2
+
+Yes, we can allow high-level warranty ranges, as long as:
+	•	They are:
+	•	Generic
+	•	Non-promissory
+	•	Canon-backed
+	•	They do not:
+	•	Commit to exact years
+	•	Compare competitors
+	•	Replace formal warranty explanation
+
+Example (acceptable Phase 0–2):
+	•	PPF: “Warranty options typically range from around 5–10 years depending on product.”
+	•	Ceramic: “Usually 1–5 years depending on package.”
+	•	Tint: “Commonly 4–10 years depending on film.”
+	•	Wrap: “Up to around 5 years.”
+
+What’s NOT allowed
+	•	Guarantees
+	•	Brand-specific claims
+	•	Sales framing
+
+Contract decision
+
+✔ Warranty acknowledgment + typical range is allowed
+✔ Full warranty explanation stays Phase 3+
+
+We lock this too.
+
+⸻
+
+✅ Summary — All clarifications CONFIRMED
+
+Before moving to Section 3, we now have these locked:
+	1.	Year carry-forward is mandatory — never re-ask provided fields
+	2.	Phase 0–2 must not depend on Phase 6 wiring (only canonical IDs)
+	3.	Brand names may be minimally acknowledged without forcing service
+	4.	Light warranty ranges are allowed; depth is deferred
+
+None of this requires Pro right now.
+None of this contradicts the original Phase 0–2 contract — it clarifies gaps.
+
+⸻
+
+Ready to proceed
+
+If you’re aligned, say:
+
+👉 “Proceed to Section 3 — State & Inference Rules”
+
+Next section is where we formally lock:
+	•	Carry-forward logic
+	•	Missing vs ambiguous vs repo-missing
+	•	When to halt vs ask vs suppress
+
+  followed by sectin 3 as below
+
+  # PHASE 0–2 CONTRACT — Q&A FORMAT
+## Section 3 — State & Inference Rules (LOCK TARGET)
+
+This section defines exactly how Phase 0–2 updates state from messy real-world inputs without looping, drifting phases, or breaking earlier fixes.
+
+---
+
+### Q3.1 — What is “state” in Phase 0–2?
+**A:** Phase 0–2 maintains a minimal, structured session state used only to:
+1) qualify the lead safely, and  
+2) route the next message correctly.
+
+State is not a sales script and must not contain persuasion outputs.
+
+**Minimum state fields (Phase 0–2):**
+- session_id (internal)
+- channel (WA / IG / FB / etc.)
+- customer_identity_signature (internal fingerprint; may be unknown)
+- identity_integrity_status: CLEAN | SUSPECT | BREACH
+- ingest_time (when assistant pasted / received)
+- observed_time (timestamp from transcript/screenshot if present)
+- vehicle_brand (nullable)
+- vehicle_model (nullable)
+- vehicle_year_or_gen (nullable; may be token, not a year)
+- vehicle_match_status: MATCHED | AMBIGUOUS | REPO_MISSING | UNKNOWN
+- service_intent (nullable; canonical id only)
+- brand_hint (nullable; e.g., XPEL, 3M; does not set service_intent)
+- warranty_hint (boolean)
+- comparison_hint (boolean)
+- post_service_support_hint (boolean)
+- off_scope_hint (boolean)
+- qualification_status: NOT_READY | READY
+- missing_fields (computed; must not include already captured fields)
+- last_customer_message_digest (internal)
+- last_state_update_time (internal)
+
+---
+
+### Q3.2 — What is the single source of truth for state updates?
+**A:** Phase 0–2 must update state ONLY through the Phase 0–2 kernel:
+- Intake rules (classification)
+- Qualification engine (inference + missing fields)
+- Repository match layers (vehicle + product/service canon)
+- Runtime governance rules (timestamp ordering + identity integrity)
+
+No Phase 6/7/8 education or negotiation content is allowed to mutate Phase 0–2 state.
+
+---
+
+### Q3.3 — How does Phase 0–2 handle partial information without looping?
+**A:** Phase 0–2 uses a strict “progressive inference” ladder:
+
+1) Extract candidates from user message (brand/model/year/service/brand_hint).
+2) Attempt repository match (vehicle + service canon).
+3) If match confidence is sufficient → capture fields.
+4) If ambiguous → ask ONE clarifier (or ONE combined question for same field group).
+5) If still ambiguous after allowed clarifier(s) → HALT or ESCALATE (never loop).
+
+**Rule:** Phase 0–2 must never ask the same missing field twice if it is already captured in state.
+
+---
+
+### Q3.4 — What is “carry-forward,” and what must be preserved?
+**A:** Carry-forward means Phase 0–2 must preserve already captured values across future turns, even when the customer refines a related field.
+
+**Carry-forward is mandatory for:**
+- vehicle_year_or_gen
+- vehicle_brand
+- service_intent (once confirmed)
+- brand_hint (once captured)
+- any verified vehicle match tokens
+
+**Critical rule (confirmed):**
+If vehicle_year_or_gen is already captured, it must never be re-requested when:
+- customer corrects only the model (e.g., “Jetour T3 2024” → “Jetour T1”)
+- customer adds brand after alias (“X90” → “Jetour”)
+- customer repeats service/brand keywords later
+
+---
+
+### Q3.5 — What are the allowed question patterns in Phase 0–2?
+**A:** Default: max 1 question per response.
+
+**Allowed exception (if enabled in this contract version):**
+- Up to 2 short questions ONLY if both resolve the same missing field group AND are strictly required to proceed.
+- Example (same group = vehicle identity):
+  - “What’s the car model?” + “Which year is it?”
+
+**Forbidden:**
+- Two questions on different topics (service + budget, service + location).
+- “Follow-up curiosity.”
+- Sales probing (“what’s your budget?”) during qualification.
+- Re-asking fields already captured.
+
+**Combined-question allowance (always allowed):**
+- One sentence asking two fields in one question:
+  - “What’s the car model and year?”
+
+---
+
+### Q3.6 — How does Phase 0–2 decide vehicle_match_status?
+**A:** Vehicle matching is evaluated against the Vehicle Repository.
+
+**MATCHED:**
+- brand + model resolved to a single repo entry (aliases included)
+- year_or_gen may be present or inferred safely
+
+**AMBIGUOUS:**
+- input could match 2+ known repo entries (example: “X90” maps to multiple brands/models)
+- or repo returns multiple close candidates
+
+Action: ask one clarifier that disambiguates brand/model (not year if already present).
+
+**REPO_MISSING:**
+- brand is recognized but model token is not found in the repository,
+- OR model/year combination cannot be confidently mapped to any repo entry.
+
+Action: ask one neutral clarifier for the exact model name (do not ask for year if already captured).
+
+**UNKNOWN:**
+- vehicle info is not present at all.
+
+Action: ask for vehicle model + year (combined question).
+
+---
+
+### Q3.7 — How does Phase 0–2 handle “repo-missing” without heavy UX?
+**A:** Repo-missing must follow “progressive inference before one clarifier.”
+
+Steps:
+1) Try alias normalization (T2/T3, spacing, Arabic transliteration variants).
+2) Try brand-only mapping (if brand known).
+3) If still unmapped → set vehicle_match_status = REPO_MISSING and ask ONE clarifier:
+   - “Just to confirm, which exact model is it?”
+
+**Forbidden:**
+- Guessing a model.
+- Proceeding as if vehicle is valid (no VEHICLE_ONLY fallback).
+- Asking for photo as default.
+- Re-asking year if already captured.
+
+If clarifier still fails → HALT/ESCALATE (admin review).
+
+---
+
+### Q3.8 — How does Phase 0–2 handle service inference and canon matching?
+**A:** Phase 0–2 must map user language to a canonical service id via the Global Product/Service Canon.
+
+**Rules:**
+- Never invent a service.
+- If the user intent matches a known service → capture service_intent.
+- If ambiguous between 2+ services → ask ONE clarifier to choose (no explanations).
+- If user is browsing (low intent) → do not jump into qualification loops.
+
+Phase 0–2 may confirm existence (“Yes, we do ceramic coating.”) but must not educate or compare here.
+
+---
+
+### Q3.9 — How does Phase 0–2 handle brand mentions (XPEL, 3M) without overwriting service?
+**A:** Brand mentions are captured as brand_hint and must not set service_intent unless a service keyword is also present.
+
+**Allowed acknowledgment (confirmed):**
+- “Yes, we work with XPEL — is this for tint or PPF?”
+
+**State merge rules:**
+- If service_intent is already confirmed, and a brand hint arrives later:
+  - add brand_hint, do not reset service_intent
+- If brand_hint is already captured, and user later confirms service:
+  - set service_intent, keep brand_hint
+
+**Forbidden:**
+- Auto-classifying “XPEL” as PPF without a service keyword.
+- Asking the same brand clarifier again if already resolved.
+
+---
+
+### Q3.10 — How does Phase 0–2 handle warranty questions?
+**A:** Warranty questions set warranty_hint = true.
+
+**Allowed in Phase 0–2:**
+- High-level “typical range” response per service (non-promissory), then continue qualification.
+  - PPF: ~5–10 years (depends on film/package)
+  - Ceramic: ~1–5 years (depends on package)
+  - Tint: ~4–10 years (depends on film)
+  - Wrap: up to ~5 years (depends on material/use)
+
+**Forbidden in Phase 0–2:**
+- Exact warranty commitments
+- Competitor comparisons
+- Deep warranty terms
+
+---
+
+### Q3.11 — How does Phase 0–2 handle comparison requests (e.g., “ceramic vs PPF”)?
+**A:** Phase 0–2 must not provide free-form comparisons.
+
+**Correct behavior:**
+- Hold comparison with ONE clarifier that converts it into qualification:
+  - “Are you considering PPF or ceramic for paint protection?”
+
+Deep comparison education belongs to Phase 6+ and only through an explicit allowed route.
+
+---
+
+### Q3.12 — How does Phase 0–2 prevent “state rollback” from pasted/late messages?
+**A:** Phase 0–2 stores BOTH:
+- observed_time (from transcript/screenshot line timestamps)
+- ingest_time (when pasted into chat)
+
+**Ordering rule:**
+- Use observed_time for conversational ordering if present.
+- Otherwise use ingest_time.
+
+**No-rollback rule:**
+- If a late pasted message is older than the current state’s last_observed_time and would change captured fields → do not roll back.
+- Set admin_review_required = true (internal), and suppress state mutation.
+
+Allowed: append-only logging of the pasted content.
+
+---
+
+### Q3.13 — How does Phase 0–2 handle post-service support without contaminating qualification?
+**A:** If post_service_support_hint is detected (invoice/complaint/video/maintenance):
+- Set post_service_support_hint = true
+- Do not mutate qualification fields
+- Route to SUPPORT_HANDOFF (human/admin)
+- Output must stay minimal and non-technical
+
+**Forbidden:**
+- Continuing qualification
+- Asking for vehicle/service again unless required for support triage
+- Providing policy terms or commitments
+
+---
+
+### Q3.14 — How does Phase 0–2 handle identity integrity breaches / wrong transcript?
+**A:** Identity integrity breach means mixed customers/messages are detected in one pasted input or the session.
+
+**Behavior (confirmed):**
+- Set identity_integrity_status = BREACH
+- Suppress qualification progression and suppress state mutations
+- Require ADMIN_RESET gate to continue
+- Do not ask customer to confirm identity
+- Do not expose internal error language to customer in production
+
+UAT may display suppression marker per test harness, but production must not.
+
+---
+
+### Q3.15 — When is qualification_status READY?
+**A:** Phase 0–2 sets qualification_status = READY only when:
+- service_intent is confirmed (canonical id)
+- vehicle_match_status is MATCHED OR (AMBIGUOUS resolved)
+- vehicle_year_or_gen is captured or safely tokenized
+- identity_integrity_status = CLEAN
+
+Once READY:
+- Phase 0–2 must hand off to Phase 3+ routing.
+- Phase 0–2 must not ask preference questions that belong to later phases unless explicitly required by canon.
+
+---
+
+### Q3.16 — What is explicitly disallowed in Phase 0–2 state/inference?
+**A:** Disallowed:
+- loops (same missing question repeatedly)
+- inventing services
+- guessing vehicle models not in repo
+- changing state during identity breach
+- rolling back state due to older pasted messages
+- deep comparisons / education / persuasion
+- negotiation, discounts, pricing ladders
+- emotional escalation scripts beyond basic tone-safe acknowledgments
+
+---
+
+**Section 3 status:** DRAFT LOCK TARGET  
+Next: Section 4 — Output & Response Rules (customer-facing constraints + debug containment)
+
+my input as below on the section 3
+
+customer corrects only the model (e.g., “Jetour T3 2024” → “Jetour T1”) - this was the reason where when we had testing issues. when customer asking with the year and then he confirms the model for instance t1, then we tend to forget the year. so ideally the response of the assumption to carry forward is jetour t1 2024. this was the missing which i mentioned. so we are aligned correct?
+
+same happens with the services especialy on brand mentions.
+
+ok. we are aligned. i think above mentions is already captured in the discussions. lets go tht esection output and responses rules
+
+Yes — we are aligned 👍
+What you described is exactly the carry-forward rule we just locked, and it applies symmetrically to vehicles and services/brands.
+
+To be explicit (so there is zero ambiguity later):
+	•	Vehicle case (your Jetour example)
+Input: Jetour T3 2024 → later correction: Jetour T1
+✅ Correct internal state must become: Jetour T1 2024
+❌ The system must not forget, drop, or re-ask the year.
+	•	Service / brand case
+Input: XPEL → later: PPF
+✅ Correct internal state: service_intent = PPF, brand_hint = XPEL
+❌ Must not ask again “is this PPF or tint?” once resolved
+❌ Must not lose the brand or reset service
+
+This is now formally captured in Section 3 under:
+	•	carry-forward rules
+	•	repo-missing refinement
+	•	brand/service merge rules
+
+So yes — alignment confirmed.
+We can safely proceed.
+
+⸻
+
+Below is Section 4 — Output & Response Rules, written in the same Q&A copy-code contract format, clean, strict, and freeze-ready.
+
+⸻
+followed by section 4 in copy code you gaveme
+
+# PHASE 0–2 CONTRACT — Q&A FORMAT
+## Section 4 — Output & Response Rules (Customer-Facing)
+
+This section defines exactly what Phase 0–2 is allowed to output, how it must sound,
+and what must never appear in customer-facing messages.
+
+---
+
+### Q4.1 — What is the primary goal of Phase 0–2 outputs?
+**A:** Phase 0–2 outputs exist only to:
+1) acknowledge the customer politely, and  
+2) move the conversation toward minimum qualification with **minimal friction**.
+
+Phase 0–2 is **not** responsible for:
+- selling
+- persuading
+- educating deeply
+- negotiating
+- comparing in detail
+
+---
+
+### Q4.2 — What languages and format are allowed?
+**A:** Every customer-facing message must be:
+
+- English first
+- Arabic second
+- No emojis
+- No bullet lists
+- Human, neutral, professional tone
+- One response block only
+
+**Mandatory footer:**
+```html
+<span style="color:#6b7280">Timestamp: YYYY-MM-DD HH:MM (Timezone)</span>
+
+Q4.3 — How many questions may appear in one response?
+
+A:
+Default: Maximum 1 question per response.
+
+Allowed exception (already aligned):
+	•	A single combined question may ask for two missing fields only if:
+	•	both fields belong to the same group (e.g., vehicle identity)
+	•	example: “What’s the car model and year?”
+
+Forbidden:
+	•	Two separate questions
+	•	Branching questions
+	•	Preference probing
+	•	Sales-oriented questions
+
+⸻
+
+Q4.4 — How should greetings be handled?
+
+A: Greeting-only messages (hi, hello, السلام عليكم) must:
+	1.	Respond with a polite welcome
+	2.	Ask for car model and year in one combined question
+
+Example (allowed):
+
+Hi, welcome. What car do you have and which year?
+هلا، حياك. شنو نوع سيارتك وشنو سنة الصنع؟
+
+⸻
+
+Q4.5 — How should browsing / low-intent messages be handled?
+
+A: For BROWSING_GENERIC (e.g., “just browsing”):
+	•	Use a light, neutral service primer
+	•	Ask one soft service-selection question
+	•	Do not ask for vehicle details yet
+
+Example:
+
+We can help with PPF, ceramic coating, tint, wraps, and polishing.
+Which service are you mainly looking at?
+
+⸻
+
+Q4.6 — How should service confirmation responses sound?
+
+A: When a service is clearly mentioned but vehicle is missing:
+	•	Acknowledge service existence
+	•	Ask for vehicle details (model + year combined)
+
+Example:
+
+Yes, we do ceramic coating.
+What car model and year is it?
+
+⸻
+
+Q4.7 — How should brand-only mentions (XPEL, 3M) be handled in output?
+
+A: Brand-only mentions must:
+	•	Acknowledge the brand explicitly
+	•	Not assume a service
+	•	Ask one clarifying question
+
+Example (correct):
+
+Yes, we work with XPEL.
+Are you asking about tint or PPF?
+
+Forbidden:
+	•	“Yes, we do PPF” when only the brand was mentioned
+
+⸻
+
+Q4.8 — Are explanations or comparisons allowed in Phase 0–2?
+
+A: No — except at a very high, neutral level and only when unavoidable.
+
+Allowed:
+	•	One-sentence neutral distinction to unblock qualification
+
+Forbidden:
+	•	Pros/cons lists
+	•	Recommendations
+	•	“Better than”
+	•	Long explanations
+
+Deep comparisons belong to Phase 6+ only.
+
+⸻
+
+Q4.9 — How should warranty questions be answered?
+
+A: Warranty questions may receive high-level, non-committal ranges only.
+
+Example:
+
+Warranty depends on the package, but typically ceramic ranges from 1–5 years.
+
+Must then return to qualification flow.
+
+Forbidden:
+	•	Exact guarantees
+	•	Competitive warranty claims
+	•	Sales framing
+
+⸻
+
+Q4.10 — How should off-scope requests (AC repair, mechanical) be handled?
+
+A: Phase 0–2 must:
+	•	Politely clarify scope
+	•	Redirect to supported services
+	•	Ask one qualification question only if relevant
+
+Example:
+
+We specialize in car protection services like PPF, ceramic, tint, and polishing.
+What car do you have and which year?
+
+⸻
+
+Q4.11 — What must NEVER appear in customer-facing output?
+
+A: Strictly forbidden:
+	•	Emojis
+	•	“Understood” unless customer thanks
+	•	Internal terms (phase, route, intent)
+	•	Debug blocks
+	•	“[ARCHITECTURE VIOLATION]” (production)
+	•	Sales pressure
+	•	Assumptions about budget, driving habits, urgency
+	•	Identity confirmation questions during transcript breach
+
+⸻
+
+Q4.12 — How should wrong transcript / mixed identity situations appear to customers?
+
+A: They must not.
+
+Phase 0–2 must:
+	•	Suppress progression
+	•	Require admin reset
+	•	Remain neutral or silent in production
+
+UAT may display suppression markers for testing only.
+
+⸻
+
+Q4.13 — When must Phase 0–2 stop responding?
+
+A: Phase 0–2 must stop or hand off when:
+	•	identity_integrity_status ≠ CLEAN
+	•	post_service_support_hint is detected
+	•	qualification_status = READY and handoff is triggered
+
+⸻
+
+Q4.14 — What defines a “good” Phase 0–2 response?
+
+A: A correct response is:
+	•	short
+	•	neutral
+	•	polite
+	•	forward-moving
+	•	non-repetitive
+	•	consistent across turns
+
+If a response feels salesy, explanatory, or pushy — it does not belong to Phase 0–2.
+
+⸻
+
+Section 4 status: DRAFT LOCK TARGET
+Next: Section 5 — Title Creation & Runtime Ownership Rules
+
+below my input on the above section 4
+
+just to understand before we proceed. there are outputs for strictly for the 0-2 phase which we know. the customer facing and the non customer faciing outputs. but there are outputs from other engines which may be deeper especially with the non customer facing out puts. for example a long chat transcript pasted in arabic / english should always have an english summary on whats the exact position. plus the last 5 customer and assistants chat translation so its better for the assistants to understand. so this happens at which phase.
+
+similary when the customer returns from silence or later with a new car or service. and when the assistnats paste the chat. there should be an indicative analysis from your side for the assistants `(non customer facing messages) on what exactly happened in the previoius discussions in english for the assistants etc. 
+
+so there are similar non customer facing messages translated in english for the assistants to understand at various stages, various customer customer mood, discussions which may or may not related to the speciic services etc. where these needs to be addressed. here or in the appropriate phases?
+
+this may include signals from customer whether he is price pushy too much negotiating, frustrated, or any issues happend ( the analysis from you what trigged this responses , why he went silent, customer mood shifted, whether he is competitor influenced, technically sound, or serious or non serious customer etc) so this is another area on analysis. should we do it here or as a sperate module
+
+followed by your responses on my aboev input
+
+Excellent question — this is not a small detail, and you’re right to stop here before proceeding.
+
+I’ll answer this cleanly, structurally, and without drifting, and I’ll clearly say where each thing belongs so we don’t contaminate Phase 0–2 again.
+
+⸻
+
+Big picture first (very important)
+
+You are talking about two completely different output planes:
+	1.	Customer-facing outputs
+	2.	Assistant / internal (non-customer-facing) intelligence outputs
+
+Phase 0–2 must strictly limit (1)
+but may generate parts of (2) under very controlled rules.
+
+If we mix these two, drift and patch loops are guaranteed.
+
+So let’s separate them properly.
+
+⸻
+
+1️⃣ Customer-facing vs Non-customer-facing outputs (clear separation)
+
+Customer-facing (already locked)
+
+These are what we just finalized in Section 4:
+	•	English + Arabic
+	•	Timestamp
+	•	Minimal questions
+	•	No analysis, no summaries, no emojis, no sales
+	•	Only what the customer sees
+
+✅ Phase 0–2 owns and enforces this strictly.
+
+⸻
+
+Non-customer-facing (assistant-only / internal)
+
+These are NOT sent to the customer, ever.
+
+They exist to help:
+	•	human assistants
+	•	admins
+	•	later engines (pricing, negotiation, analytics)
+
+This includes exactly what you described:
+	•	English summaries
+	•	transcript interpretation
+	•	mood / intent signals
+	•	silence analysis
+	•	competitor influence
+	•	negotiation pressure
+	•	error detection (wrong transcript, mixed identity)
+
+⚠️ These must never leak into customer output.
+
+⸻
+
+2️⃣ Where do internal / assistant-facing analyses belong?
+
+This is the critical architecture decision 👇
+
+❌ NOT inside Phase 0–2 customer response
+
+Phase 0–2 must not:
+	•	output assistant advice in the same turn
+	•	include “what the customer means”
+	•	include summaries alongside customer replies
+
+We already saw how this causes:
+	•	bot-like tone
+	•	authority conflicts
+	•	assembly map violations
+
+So we do not do this here.
+
+⸻
+
+✅ Correct solution: split by channel, not by phase
+
+Think of it this way:
+
+Output type
+Visible to
+Lives where
+Customer reply
+Customer
+Phase 0–2 output rules
+Assistant summary
+Assistant only
+Internal analysis channel
+Mood / risk signals
+System + admin
+State / analytics layer
+Long transcript interpretation
+Assistant
+Intake analysis layer
+Silence / re-entry explanation
+Assistant
+Lifecycle analysis layer
+
+
+These are parallel outputs, not sequential chat replies.
+
+⸻
+
+3️⃣ Specifically answering your scenarios
+
+A) Long chat transcript pasted (Arabic / English)
+
+What should happen:
+	•	Phase 0–2:
+	•	Accepts the paste
+	•	Normalizes timestamps
+	•	Protects state (no rollback)
+	•	Produces customer-safe next reply only
+	•	Assistant-only analysis (parallel):
+	•	English summary of:
+	•	what happened
+	•	last known vehicle/service
+	•	unresolved questions
+	•	Clean translation (if needed)
+	•	Flags:
+	•	drift
+	•	sales pressure
+	•	early persuasion
+	•	missing qualification
+
+📌 This analysis must not be sent to the customer.
+
+📌 It also must not change qualification state unless explicitly allowed.
+
+Where it belongs:
+➡️ Intake Analysis Module (non-customer-facing)
+➡️ Triggered by: long paste, screenshots, transcripts
+
+⸻
+
+B) Customer returns from silence / new car / new service
+
+What should happen:
+	•	Phase 0–2:
+	•	Detects re-entry
+	•	Preserves past state
+	•	Does not auto-assume continuity
+	•	Asks only what’s required
+	•	Assistant-only analysis:
+	•	Summary of previous interaction
+	•	What was decided vs pending
+	•	Why silence likely occurred (price, uncertainty, comparison)
+	•	Whether this looks like:
+	•	continuation
+	•	reset
+	•	new intent
+
+📌 Customer does not see this analysis.
+
+📌 Assistant sees it to avoid repeating mistakes.
+
+Where it belongs:
+➡️ Conversation Lifecycle Analysis (internal)
+
+⸻
+
+C) Customer mood, negotiation pressure, frustration, competitor signals
+
+This is 100% NOT Phase 0–2 customer output, but it can be detected here.
+
+Correct handling:
+	•	Phase 0–2:
+	•	Tags signals only (internally)
+	•	Does not respond emotionally
+	•	Does not escalate or negotiate
+	•	Internal system:
+	•	Stores flags like:
+	•	price_sensitive
+	•	competitor_influenced
+	•	technically_aware
+	•	frustrated
+	•	high_intent / low_intent
+
+These flags are later used by:
+	•	pricing engine
+	•	negotiation engine
+	•	follow-up logic
+	•	analytics dashboards
+
+Where it belongs:
+➡️ Signal Extraction Layer (internal, cross-phase)
+
+⸻
+
+4️⃣ Do we do this now or later?
+
+Very important answer:
+
+✅ We DEFINE it now
+
+❌ We do NOT IMPLEMENT it fully now
+
+For Phase 0–2 freeze:
+	•	We define that:
+	•	internal analysis outputs exist
+	•	they are non-customer-facing
+	•	they do not mutate state by default
+	•	We do not build the full logic yet
+
+This avoids:
+	•	scope creep
+	•	patch chaos
+	•	premature optimization
+
+⸻
+
+5️⃣ Contract-level decision (what we lock now)
+
+We add a short, explicit rule to the contract:
+
+Phase 0–2 may generate internal, non-customer-facing analytical outputs for assistants and downstream engines (e.g., transcript summaries, mood signals, re-entry context).
+
+These outputs must never appear in customer-facing messages and must not modify qualification state unless explicitly allowed by a later phase.
+
+That’s it.
+No more detail needed at this phase.
+
+⸻
+
+✅ Final alignment check
+	•	You are right to want summaries, translations, assistant guidance
+	•	You are right that they are essential
+	•	They do not belong in Phase 0–2 customer replies
+	•	They do belong as parallel internal outputs starting from Phase 0–2 intake
+
+This keeps the architecture:
+	•	clean
+	•	scalable
+	•	non-drifting
+
+⸻
+
+If you’re comfortable, next we should proceed to:
+
+👉 Section 5 — Title Creation & Runtime Ownership Rules
+
+This is the last major blocker before we can safely freeze Phase 0–2 without repeating the patch-on-patch disaster.
+
+on the above section my input as below
+
+before we proceed to Section 5 — Title Creation & Runtime Ownership Rules
+
+as we discussed there can be baton changes. between chat team and sales team. so basically chat team intakes and do a minimum qualification and then pass the baton to the sales team so the chat platoform may be from facebook meta to whatsapp or vice verca. this was already agreed and factored may be in any of the documents like manifest etc. may be any of the runtime files. so we are taking this to considerations correct. so when the chat is handed over to the sales team he send a reponse which is already fed in the snashgpt and if the customer may not respond, then he may ask the chat team to hook the customer from the other channel for instance facebook meta business. bcoz customers may not use all the channels and we feel he is gone silent or may be for any other reasons. so these can happen, but atleast we make sure all the chat transcript are well fed in the snashgpt for that perticular customer window. we are factoring this correct?
+
+Yes — we are factoring this correctly, and more importantly, we are factoring it in the right place, so it does not break Phase 0–2 or create drift later.
+
+I’ll break this down clearly and confirm alignment.
+
+⸻
+
+✅ Short answer (alignment check)
+
+Yes, baton changes between:
+	•	chat team ↔ sales team
+	•	Meta / Instagram ↔ WhatsApp ↔ other channels
+
+are already compatible with what we’ve locked so far, without adding new logic to Phase 0–2 customer output.
+
+They are handled through:
+	•	intake rules
+	•	transcript stitching
+	•	identity integrity
+	•	internal (non-customer-facing) analysis
+	•	runtime governance (manifest / state)
+
+Not through customer-facing replies.
+
+So we are aligned.
+
+⸻
+
+1️⃣ Baton change is NOT a “new conversation”
+
+This is the most important conceptual point.
+
+A baton change means:
+	•	Same customer
+	•	Same intent (or evolving intent)
+	•	Different human owner / channel
+	•	Same SNASHGPT window of truth
+
+So Phase 0–2 must not reset, not re-qualify, and not ask beginner questions again just because:
+	•	a sales person replied instead of chat team
+	•	the channel switched
+
+This behavior was already discussed earlier and is consistent with what we’ve locked.
+
+⸻
+
+2️⃣ How baton changes are handled architecturally
+
+A) What Phase 0–2 does
+
+Phase 0–2:
+	•	Accepts pasted transcripts from any channel
+	•	Normalizes timestamps
+	•	Preserves state
+	•	Detects:
+	•	silence
+	•	re-entry
+	•	role change (chat → sales)
+	•	Does not care who typed the message
+
+Phase 0–2 never assumes channel continuity = this is correct.
+
+⸻
+
+B) Where baton logic actually lives (important)
+
+Baton change logic belongs to runtime governance, not qualification.
+
+Specifically:
+	•	Runtime Manifest
+	•	Conversation lifecycle handling
+	•	Identity & continuity rules
+
+This means:
+	•	A sales agent replying does not “advance phase”
+	•	A chat agent re-hooking the customer does not “restart phase”
+
+Phase 0–2 just keeps intake safe and consistent.
+
+⸻
+
+3️⃣ Cross-channel re-hooking after silence (Meta → WhatsApp etc.)
+
+Your scenario:
+	•	Sales replies on WhatsApp
+	•	Customer goes silent
+	•	Chat team tries to re-hook via Meta / IG
+
+This is expected behavior, and it is already compatible with the design.
+
+Key points we already locked:
+	•	All transcripts (any channel) must be pasted into the same SNASHGPT window
+	•	Phase 0–2:
+	•	Uses observed_at vs ingested_at
+	•	Does not roll back state
+	•	Internal analysis can explain:
+	•	why silence happened
+	•	what was last pending
+	•	Customer-facing output remains clean and minimal
+
+So yes — this is factored correctly.
+
+⸻
+
+4️⃣ What Phase 0–2 must NOT do during baton changes
+
+This is just as important:
+
+Phase 0–2 must not:
+	•	Say “Welcome” again if already mid-flow
+	•	Re-ask car details already captured
+	•	Restart browsing logic
+	•	Comment on “handover” to customer
+	•	Expose internal baton changes
+
+All baton awareness is internal only.
+
+⸻
+
+5️⃣ Where assistant guidance fits in baton scenarios
+
+This ties back to your previous question.
+
+During baton change, assistant-only analysis is extremely valuable:
+
+Examples:
+	•	“Customer compared prices, went silent after quote”
+	•	“Sales already discussed ceramic vs PPF”
+	•	“Re-hook should not sell; ask if ready to proceed”
+
+But again:
+	•	This is not Phase 0–2 customer output
+	•	This is internal guidance
+
+So we keep this in:
+➡️ Internal analysis / lifecycle layer
+
+⸻
+
+6️⃣ Contract-level confirmation (what we lock)
+
+Before moving to Section 5, we can safely confirm this rule:
+
+Phase 0–2 must support multi-channel and multi-owner conversation continuity.
+Baton changes between chat team and sales team, or between channels, must not reset qualification or alter customer-facing behavior.
+All continuity handling occurs through transcript intake, timestamp normalization, and internal state preservation.
+
+This does not require new patches now — it clarifies intent.
+
+⸻
+
+✅ Final confirmation
+	•	Baton changes ✔️ factored
+	•	Multi-channel continuity ✔️ factored
+	•	Sales ↔ chat transitions ✔️ factored
+	•	Silence + re-hook ✔️ factored
+	•	No Phase 0–2 drift ✔️ protected
+
+We are safe to proceed.
+
+⸻
+
+If you’re comfortable, next step is:
+
+👉 Proceed to Section 5 — Title Creation & Runtime Ownership Rules
+
+This will formally lock:
+	•	BaseTitle vs WindowTitle
+	•	Cross-channel searchability
+	•	Sales/chat continuity without renaming chaos
+
+  based on this you gave me the section 5 as follows
+
+  Perfect. Below is Section 5 — Title Creation & Runtime Ownership Rules, written in the same contract-style, Q&A, copy-code format, and aligned with everything we confirmed so far (baton changes, multi-channel continuity, no drift, no patch chaos).
+
+This section is critical because it prevents future disasters when:
+	•	chat ↔ sales baton changes
+	•	Meta ↔ WhatsApp ↔ IG handovers
+	•	silence + re-entry
+	•	multiple agents touching the same customer
+
+Read it carefully — once this is locked, a lot of your earlier looping issues permanently disappear.
+
+# PHASE 0–2 CONTRACT — Q&A FORMAT
+## Section 5 — Title Creation & Runtime Ownership Rules
+
+This section defines how conversation titles are created, owned, frozen,
+and used across channels, teams, and phases — without drift.
+
+---
+
+### Q5.1 — What is the purpose of the Base Title?
+**A:**  
+The Base Title is a **cross-platform, immutable search identifier** for a single customer conversation.
+
+It exists to:
+- allow fast search across WhatsApp, Meta, IG, CRM, SNASHGPT
+- survive baton changes (chat ↔ sales)
+- survive channel switches
+- avoid confusion between similar cars / customers
+
+It is **not** a UI label or stage indicator.
+
+---
+
+### Q5.2 — Who owns Base Title creation?
+**A:**  
+Base Title creation is **owned exclusively by Phase 0–2**.
+
+- It must be created **once**
+- Only after **minimum qualification is complete**
+- It must never be overwritten
+
+No later phase may modify or regenerate the Base Title.
+
+---
+
+### Q5.3 — When exactly is the Base Title created?
+**A:**  
+The Base Title is created when **all minimum qualification fields are known**, typically:
+
+- Vehicle (model + year or year/gen token)
+- Primary service intent
+- Channel context
+
+It must **not** be created:
+- during greeting
+- during browsing
+- during ambiguity
+- during repo-missing states
+
+If qualification is incomplete → Base Title creation is deferred.
+
+---
+
+### Q5.4 — What is the Base Title format?
+**A:**  
+The Base Title must be:
+
+- underscore-separated
+- deterministic
+- cross-platform searchable
+- human-readable
+
+**Canonical format:**
+
+SNASH_<CHANNEL_SEARCH_KEY><CAR_MODEL><YEAR_OR_GEN><DATE_KEY>
+
+  **Example:**
+
+  SNASH_WA_YOUSIFB_BMW_X5_2023_PPF_20260125_A3F7
+
+  Where:
+- CHANNEL = WA / IG / FB / META etc.
+- CHANNEL_SEARCH_KEY = display name / handle / profile key
+- YEAR_OR_GEN = year OR neutral token (e.g., LATEST_SHAPE)
+- DATE_KEY = observed_at date if available, else ingested_at
+- SHORTID = system-generated, never regenerated
+
+---
+
+### Q5.5 — What if the car is brand new and year is uncertain?
+**A:**  
+Phase 0–2 must **not challenge the customer**.
+
+If year is uncertain or sensitive:
+- Use a neutral token such as `LATEST_SHAPE` or `NEW_MODEL`
+- Do not ask ego-challenging questions
+- Do not guess
+
+The Base Title may still be created using the neutral token.
+
+---
+
+### Q5.6 — Can the Base Title ever be changed later?
+**A:**  
+No.
+
+Base Title is **immutable**.
+
+Later phases may:
+- add internal tags
+- add metadata
+- add stage labels
+- add analytics markers
+
+But must **never** mutate or replace the Base Title string.
+
+---
+
+### Q5.7 — What is the Window Title then?
+**A:**  
+Window Title is a **UI / operational label**.
+
+- It may change
+- It may include stage, urgency, assignee
+- It may be updated by later phases
+
+Window Title and Base Title **coexist** and serve different purposes.
+
+They must never be conflated.
+
+---
+
+### Q5.8 — How does baton change affect titles?
+**A:**  
+Baton changes (chat ↔ sales) do **not** affect the Base Title.
+
+- Same Base Title
+- Same conversation identity
+- Same search key
+
+Only internal metadata (assignee, team, stage) may change.
+
+---
+
+### Q5.9 — How does cross-channel continuation affect titles?
+**A:**  
+If the same customer continues on another channel:
+- Transcripts are stitched
+- State is preserved
+- Base Title remains unchanged
+
+No new Base Title is created unless:
+- identity integrity is broken
+- admin explicitly resets conversation
+
+---
+
+### Q5.10 — What happens on wrong-transcript or mixed identity?
+**A:**  
+If identity integrity is breached:
+
+- Phase 0–2 must halt progression
+- Base Title must NOT be created or updated
+- Admin reset is required
+
+No customer-facing explanation is allowed.
+
+---
+
+### Q5.11 — Where is title authority enforced?
+**A:**  
+Title authority belongs to **runtime governance**, typically:
+
+- RUNTIME_LOAD_MANIFEST
+- State machine / intake governance files
+
+It must NOT be enforced in:
+- phrase libraries
+- Phase 4+ message assembly
+- test bundles
+
+---
+
+### Q5.12 — What problems does this prevent?
+**A:**  
+This rule set prevents:
+
+- patch-on-patch title bugs
+- duplicate chats for same customer
+- lost conversations during baton changes
+- broken search across platforms
+- accidental resets during silence
+- sales vs chat conflicts
+
+---
+
+### Q5.13 — Is this a redesign?
+**A:**  
+No.
+
+This formalizes behavior already discussed and partially implemented,
+and locks it to prevent drift.
+
+---
+
+**Section 5 status:** DRAFT LOCK TARGET  
+Next: Section 6 — Freeze Criteria & Regression Gate
+
+Where we are now (important checkpoint)
+
+You now have five solid, aligned sections:
+	1.	Scope & Authority
+	2.	Inputs & Intake Rules
+	3.	State & Inference Rules
+	4.	Output & Response Rules
+	5.	Title Creation & Runtime Ownership
+
+At this point:
+	•	We are not drifting
+	•	We are not patching yet
+	•	We are building a single source of truth
+
+⸻
+
+Next step (recommended)
+
+👉 Proceed to Section 6 — Freeze Criteria & Regression Gate
+
+This will define:
+	•	exactly when Phase 0–2 is considered “locked”
+	•	what tests must pass
+	•	what is explicitly deferred to later phases
+
+Say the word when ready.
+
+below is my input for the above you gave.
+
+we need to have the title in human readable. the assistants should feel comfortable. so even if we proceed then can we come back and make it more freindly versions even at next phase or even after rollout with out minimal work? let me know and lets proceed to section 6
+
+and your resonses below
+
+Yes — you’re absolutely right to raise this, and the good news is: you’re already safe by design.
+We can make titles more human-friendly later with near-zero work, without breaking anything, without reopening Phase 0–2, and without touching the Base Title contract.
+
+I’ll answer that clearly first, then move straight into Section 6 as requested.
+
+⸻
+
+🔑 Answer to your question (clear + final)
+
+Can we make titles more human-readable later?
+
+Yes. 100%. Safely. Intentionally.
+
+Why this is safe
+
+Because we already separated:
+	•	Base Title → immutable, system/search identity
+	•	Window Title / Display Title → human-facing, flexible
+
+This was the correct architectural decision.
+
+How this works in practice
+	•	Base Title
+	•	Stays ugly-but-powerful
+	•	Never changes
+	•	Used for search, stitching, analytics, CRM sync
+	•	Display / Friendly Title (later phase)
+	•	Can be:
+	•	“BMW X5 2023 – PPF Inquiry”
+	•	“Yousif | New BMW X5 | Ceramic”
+	•	“Genesis GV70 – New Car Protection”
+	•	Can be updated:
+	•	by sales team
+	•	by admin
+	•	automatically by Phase 3+
+	•	Can evolve after rollout with no regression risk
+
+Minimal work later
+
+When you’re ready (Phase 3 or even post-launch):
+	•	Add a simple formatter:
+	•	input: Base Title + metadata
+	•	output: friendly string
+	•	No state migration
+	•	No retesting Phase 0–2
+	•	No contract changes
+
+So yes — we proceed now, knowing we’ll make it nicer later by design, not by patching.
+
+This concern is fully addressed and closed ✅
+
+⸻
+
+Now let’s lock the last critical piece.
+
+⸻
+
+PHASE 0–2 CONTRACT — Q&A FORMAT
+
+Section 6 — Freeze Criteria & Regression Gate
+
+## Section 6 — Freeze Criteria & Regression Gate
+
+This section defines when Phase 0–2 is considered stable,
+what must pass before freeze, and what is explicitly deferred.
+
+---
+
+### Q6.1 — What does “Phase 0–2 frozen” mean?
+**A:**  
+Phase 0–2 is considered frozen when:
+
+- All contract-defined behaviors are implemented
+- All mandatory regression tests pass
+- No known blockers remain
+- Deferred items are explicitly documented
+
+Once frozen:
+- No new logic is added
+- Only critical bug fixes are allowed
+- No behavioral changes without a new phase contract
+
+---
+
+### Q6.2 — What must pass before freeze?
+**A:**  
+The following must pass **end-to-end**, in fresh chat windows:
+
+1. Greeting-only flow
+2. Browsing generic flow
+3. Service-first without vehicle
+4. Vehicle-only without service
+5. Brand-only mention (e.g., XPEL)
+6. Repo-missing vehicle correction
+7. Non-core automotive redirection
+8. Wrong transcript / mixed identity suppression
+
+All tests must demonstrate:
+- correct state carry-forward
+- no repeated questions
+- no phase drift
+- no silent guessing
+
+---
+
+### Q6.3 — What is the required test format?
+**A:**  
+Tests must be:
+
+- Multi-turn
+- Continuous
+- Run in **separate new chat windows**
+- Observed with DEBUG_OUTPUT enabled
+
+Single-turn microtests are insufficient.
+
+---
+
+### Q6.4 — What is a blocker vs non-blocker?
+**A:**  
+
+**Blockers (must fix before freeze):**
+- Repo-missing vehicle accepted as valid
+- Re-asking already provided fields
+- Brand-only setting service_intent
+- Browsing triggering qualification
+- Identity breach without suppression
+
+**Non-blockers (can defer):**
+- Tone refinements
+- Sales phrasing optimization
+- Friendly title formatting
+- Deep service education
+- Negotiation logic
+- Warranty depth explanations
+
+---
+
+### Q6.5 — What is explicitly deferred to later phases?
+**A:**  
+Deferred items include:
+
+- Human-friendly display titles
+- Service comparisons with persuasion
+- Pricing logic
+- Negotiation flows
+- Customer mood analytics
+- Silent re-engagement strategies
+- Cross-car bundle logic
+
+These must **not** be patched into Phase 0–2.
+
+---
+
+### Q6.6 — What files are authoritative for freeze?
+**A:**  
+Only the following are authoritative for Phase 0–2:
+
+- CUSTOMER_CHAT_INTAKE_RULES.md
+- QUALIFICATION_ENGINE.md
+- RUNTIME_LOAD_MANIFEST.md
+- GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+- GLOBAL_PRODUCT / SERVICE CANON files
+
+TEST_BUNDLE is **UAT only** and non-authoritative.
+
+---
+
+### Q6.7 — What is the freeze declaration?
+**A:**  
+Phase 0–2 is frozen when:
+
+- Contract Sections 1–6 are approved
+- Required regressions pass
+- One explicit “Phase 0–2 Freeze” declaration is issued
+
+After this point:
+- No patch-on-patch
+- No silent behavior changes
+- All new work moves to Phase 3+
+
+---
+
+### Q6.8 — What happens after freeze?
+**A:**  
+
+Immediate next steps may include:
+- Phase 3 handoff logic
+- Sales enablement
+- Friendly title layer
+- Analytics & signals
+- Education modules
+
+Phase 0–2 remains stable beneath them.
+
+---
+
+**Section 6 status:** DRAFT LOCK TARGET
+
+Where you are right now (important)
+
+You have successfully:
+	•	Escaped the patch-loop
+	•	Re-centered on the original contract
+	•	Rebuilt alignment before touching code
+	•	Preserved everything that already works
+	•	Created a clean runway for later phases
+
+From here, the next execution steps (when you’re ready) are:
+	1.	Final read-through of Sections 1–6
+	2.	One clean contract approval
+	3.	Single, minimal patch pass (repo-missing + brand routing only)
+	4.	Run regression pack
+	5.	Declare Phase 0–2 freeze
+
+No Pro required unless you want a formal audit stamp.
+
+When you’re ready, say one of:
+	•	“Section 6 confirmed”
+	•	“Small clarification on Section 6”
+	•	“Proceed to patch planning”
+
+We’re finally on solid ground now.
+
+
+
