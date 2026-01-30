@@ -51,6 +51,35 @@ Correct examples:
 
 ---
 
+## 2.1 Alias Map (INPUT Detection Only — Output Must Stay Canonical)
+
+Rule:
+- Aliases/synonyms are allowed ONLY for understanding customer messages (parsing/detection).
+- The assistant MUST NOT output aliases as product names; always output canonical names from this registry.
+- If input is ambiguous, ask a clarification question; do NOT invent a new SKU.
+
+PPF detection aliases (map to service intent PPF / brand hint only):
+- "ppf", "paint protection film", "film", "clear film", "شفاف", "فلم حماية", "حماية بوية", "حماية طلاء"
+- XPEL brand hints: "xpel", "اكسبل", "إكسبل", "stealth", "ستيلث"
+- Global brand hints: "global", "جلوبال"
+
+Ceramic detection aliases (map to service intent CERAMIC_COATING):
+- "ceramic", "ceramic coating", "coating", "nano ceramic", "سيراميك", "سيراميك كوتنغ", "نانو"
+
+Graphene detection aliases (map to service intent GRAPHENE_COATING):
+- "graphene", "جرافين"
+
+Tint detection aliases (map to service intent WINDOW_TINT):
+- "tint", "window tint", "film tint", "sun control", "heat control", "rayban", "ray-ban", "تظليل", "عازل", "عازل حراري", "سولار", "حماية حرارية"
+
+Polishing detection aliases (map to service intent PAINT_POLISHING):
+- "polish", "polishing", "paint correction", "buffing", "compound", "cut and polish", "تلميع", "تلميع بوية", "تصحيح بوية", "بوليش"
+
+Wrap detection aliases (map to service intent VEHICLE_WRAP):
+- "wrap", "vinyl", "ppf color", "color wrap", "تغليف", "تلبيس", "فيلم لون", "راب"
+
+---
+
 ## 3) PAINT PROTECTION FILM (PPF)
 
 ### GLOBAL SERIES
