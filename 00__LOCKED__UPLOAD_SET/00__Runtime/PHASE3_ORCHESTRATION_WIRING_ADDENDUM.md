@@ -35,6 +35,17 @@ Canonical keys use SHOUT_CASE for cross-file consistency:
 - PRICE_LADDER_STATE
 - OBJECTION_SIGNAL
 
+Phase 3A gate keys (canonical):
+- PHASE3A_SCOPE
+- PHASE3A_READY_PPF
+- PPF_COVERAGE_SELECTED
+- PPF_BRAND_INTENT
+- PPF_WARRANTY_INTENT
+- MISSING_DETAILS
+
+Note:
+- Phase 3A gate keys are tag-only control signals. They do not contain pricing.
+
 Control flags (canonical):
 - QUOTE_REQUIRED_FLAG
 - AUTOMATION_ALLOWED_FLAG
@@ -62,6 +73,19 @@ Price Ladder Engine (already canonical / no-op):
 - PRICE_LADDER_STATE          → PRICE_LADDER_STATE
 - QUOTE_REQUIRED_FLAG         → QUOTE_REQUIRED_FLAG
 
+Negotiation Logic Module (native → canonical):
+- qualification_status        → QUALIFICATION_STATUS
+- negotiation_state           → NEGOTIATION_STATE
+- missing_details             → MISSING_DETAILS
+- PHASE3A_SCOPE               → PHASE3A_SCOPE
+- PHASE3A_READY_PPF           → PHASE3A_READY_PPF
+- PPF_COVERAGE_SELECTED       → PPF_COVERAGE_SELECTED
+- PPF_BRAND_INTENT            → PPF_BRAND_INTENT
+- PPF_WARRANTY_INTENT         → PPF_WARRANTY_INTENT
+
+Normalization rule:
+- If missing_details and MISSING_DETAILS both exist, MISSING_DETAILS wins.
+
 Objection Resolution Engine (native → canonical):
 - qualification_status        -> QUALIFICATION_STATUS
 - negotiation_state           -> NEGOTIATION_STATE
@@ -82,6 +106,28 @@ STATUS: LOCKED
 LOCK_REASON:
 - Prevents hidden cross-file bugs due to key naming mismatch
 - Avoids modifying locked engines (Phase 3 engines remain untouched)
+
+## A.2) PHASE 3A GATE ENFORCEMENT (PPF ONLY — BINDING)
+
+Purpose:
+Prevent price ladder execution for PPF unless minimum PPF qualifiers are present.
+
+Binding rule:
+- If SERVICE_INTEREST_PPF is present AND PHASE3A_READY_PPF != true:
+	- The orchestrator MUST NOT call PRICE_LADDER_ENGINE for PPF.
+	- Control must return to clarification using MISSING_DETAILS (or missing_details).
+
+Clarification contract:
+- Ask ONLY ONE clarifier per message (Phase 0–2 / Phase 3 constraints still apply).
+- Use MISSING_DETAILS to choose the single most important missing item.
+
+Recommended missing_details priority (PPF):
+1) vehicle_model_year
+2) ppf_coverage_front_vs_full
+
+Notes:
+- This is a gating rule only. It does NOT change the customer’s chosen service.
+- Brand/warranty intent may be captured but must not block ladder if scope is confirmed.
 
 ## B) CUSTOMER SIGNAL GATE (non-negotiable)
 Update LAST_CUSTOMER_SIGNAL_TIMESTAMP ONLY when:
