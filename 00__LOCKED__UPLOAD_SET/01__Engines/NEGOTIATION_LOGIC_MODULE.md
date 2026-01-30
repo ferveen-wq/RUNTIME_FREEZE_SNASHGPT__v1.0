@@ -353,10 +353,10 @@ Minimum PPF qualifiers for ladder eligibility (prevent misquote):
   - Car make/model/year present (Phase 1 authoritative)
 2) PPF_COVERAGE_CONFIRMED
   - FRONT_ONLY or FULL_BODY (binary lock)
+3) PPF_USAGE_EXPOSURE_CONFIRMED
+  - city / highway / desert / mixed (one-question capture; prevents wrong steering)
 
 Optional PPF qualifiers (nice-to-have; do NOT block ladder if absent):
-3) PPF_USAGE_EXPOSURE
-  - city / highway / desert / mixed (outcome framing)
 4) PPF_BRAND_INTENT
   - XPEL / GLOBAL / UNSPECIFIED
 5) PPF_WARRANTY_HORIZON_INTENT
@@ -384,6 +384,10 @@ IF service interest includes PPF:
     - Set PHASE3A_READY_PPF = false
     - Add "ppf_coverage_front_vs_full" to missing_details[]
     - Set PPF_COVERAGE_SELECTED = UNKNOWN
+  - Else if PPF usage/exposure is missing:
+    - Set PHASE3A_READY_PPF = false
+    - Add "ppf_usage_exposure" to missing_details[]
+    - (Do NOT change PPF_COVERAGE_SELECTED)
   - Else:
     - Set PHASE3A_READY_PPF = true
     - Set PPF_COVERAGE_SELECTED = FRONT_ONLY or FULL_BODY (from Phase 1 resolved intent)
