@@ -333,6 +333,70 @@ This Q&A:
 
 
 ────────────────────────────────────────────────────────────
+SECTION 3C — PHASE 3A GATE (PPF ONLY — PRE-PRICING, TAG-ONLY)
+────────────────────────────────────────────────────────────
+
+Purpose:
+Prevent Phase 3 (Price Ladder) from running on PPF until the minimum
+qualifiers needed to avoid misquoting are present.
+
+Hard rules:
+- Emits TAGS ONLY (no customer-facing text in this module).
+- MUST NOT invent or infer missing values.
+- If missing, it must be expressed via missing_details[] for downstream.
+
+Applies only when:
+- SERVICE_INTEREST_PPF is present OR customer intent includes PPF
+
+Minimum PPF qualifiers for ladder eligibility (prevent misquote):
+1) VEHICLE_MODEL_YEAR_CONFIRMED
+  - Car make/model/year present (Phase 1 authoritative)
+2) PPF_COVERAGE_CONFIRMED
+  - FRONT_ONLY or FULL_BODY (binary lock)
+
+Optional PPF qualifiers (nice-to-have; do NOT block ladder if absent):
+3) PPF_USAGE_EXPOSURE
+  - city / highway / desert / mixed (outcome framing)
+4) PPF_BRAND_INTENT
+  - XPEL / GLOBAL / UNSPECIFIED
+5) PPF_WARRANTY_HORIZON_INTENT
+  - LONG_TERM / PRACTICAL / UNSPECIFIED
+
+Output tags emitted by this gate (internal control only):
+- PHASE3A_SCOPE: PPF
+- PHASE3A_READY_PPF: true|false
+- PPF_COVERAGE_SELECTED: FRONT_ONLY|FULL_BODY|UNKNOWN
+- PPF_BRAND_INTENT: XPEL|GLOBAL|UNSPECIFIED
+- PPF_WARRANTY_INTENT: LONG_TERM|PRACTICAL|UNSPECIFIED
+
+Read-only dependency note:
+- VEHICLE_AGE_BUCKET and VEHICLE_SEGMENT may be read from GLOBAL_CORE_CONTEXT_PARAMETERS
+  but MUST NOT be assigned here if missing.
+
+Gate logic (deterministic):
+IF service interest includes PPF:
+  - Always emit: PHASE3A_SCOPE = PPF
+  - If vehicle model/year is missing:
+    - Set PHASE3A_READY_PPF = false
+    - Add "vehicle_model_year" to missing_details[]
+    - Set PPF_COVERAGE_SELECTED = UNKNOWN
+  - Else if PPF coverage (front vs full) is missing:
+    - Set PHASE3A_READY_PPF = false
+    - Add "ppf_coverage_front_vs_full" to missing_details[]
+    - Set PPF_COVERAGE_SELECTED = UNKNOWN
+  - Else:
+    - Set PHASE3A_READY_PPF = true
+    - Set PPF_COVERAGE_SELECTED = FRONT_ONLY or FULL_BODY (from Phase 1 resolved intent)
+  - Brand + warranty intent:
+    - If customer explicitly states a brand (e.g., XPEL) → PPF_BRAND_INTENT = XPEL
+    - Else if explicitly states Global → PPF_BRAND_INTENT = GLOBAL
+    - Else → PPF_BRAND_INTENT = UNSPECIFIED
+    - If customer explicitly asks for long warranty / many years → PPF_WARRANTY_INTENT = LONG_TERM
+    - Else if explicitly asks for practical/shorter option → PPF_WARRANTY_INTENT = PRACTICAL
+    - Else → PPF_WARRANTY_INTENT = UNSPECIFIED
+
+
+────────────────────────────────────────────────────────────
 SECTION 4 — SIGNAL DETECTION (PATTERN-BASED)
 ────────────────────────────────────────────────────────────
 
@@ -611,6 +675,12 @@ Phase 2 outputs:
 - decision_state_tags[]
 - tone_layer_used
 - missing_details (if any)
+ - phase3a_gate_tags[] (if any)
+
+Phase 3 orchestration rule (binding):
+- If SERVICE_INTEREST_PPF is present AND PHASE3A_READY_PPF != true:
+  - Phase 3 MUST NOT execute price ladder for PPF.
+  - Control must return to clarification using missing_details[].
 
 Phase 2 stops talking after handoff.
 
