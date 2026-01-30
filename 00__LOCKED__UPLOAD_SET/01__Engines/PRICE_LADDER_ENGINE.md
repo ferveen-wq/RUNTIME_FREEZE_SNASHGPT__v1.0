@@ -178,6 +178,22 @@ Notes:
 - This tag is internal (non-customer-facing).
 - This tag does not reveal exact prices.
 
+### 4.2 Customer-facing output template (EN then AR)
+
+EN:
+Based on what you confirmed, here are the two PPF options to check:
+Option A: <SKU_NAME_A>
+Option B: <SKU_NAME_B>
+If you’re aiming for something more cost-effective, we also have a lighter option that focuses on the high-impact areas.
+Which one do you want to check first, A or B?
+
+AR:
+حسب اللي تم تأكيده، هذي خيارين PPF نقدر نبدأ فيهم:
+الخيار A: <SKU_NAME_A>
+الخيار B: <SKU_NAME_B>
+وإذا تبي خيار أوفر، عندنا خيار أخف يركّز على المناطق الأكثر تعرّضاً.
+أي واحد تحب نبدأ فيه، A أو B؟
+
 ---
 
 ## 5. PRICING DISCIPLINE (LOCKED)
@@ -252,6 +268,15 @@ L4 — Boundary Signal
 L5 — Escalation Gate  
 - Stop pricing
 - Route to quote or human
+
+Deterministic selection rules:
+
+Coverage handling rule (business-safe):
+- If PPF_COVERAGE_SELECTED == UNKNOWN:
+  - Do NOT ask "front vs full" automatically.
+  - Default ladder output to FULL-BODY style options (two SKUs) based on brand/warranty intent.
+  - Add ONE soft line that a lighter "high-impact areas" option exists for cost-conscious customers,
+    without naming "front PPF" unless the customer explicitly asks.
 
 ---
 

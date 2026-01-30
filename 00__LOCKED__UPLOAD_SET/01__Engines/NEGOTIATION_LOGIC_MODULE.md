@@ -351,12 +351,12 @@ Applies only when:
 Minimum PPF qualifiers for ladder eligibility (prevent misquote):
 1) VEHICLE_MODEL_YEAR_CONFIRMED
   - Car make/model/year present (Phase 1 authoritative)
-2) PPF_COVERAGE_CONFIRMED
-  - FRONT_ONLY or FULL_BODY (binary lock)
-3) PPF_USAGE_EXPOSURE_CONFIRMED
+2) PPF_USAGE_EXPOSURE_CONFIRMED
   - city / highway / desert / mixed (one-question capture; prevents wrong steering)
 
 Optional PPF qualifiers (nice-to-have; do NOT block ladder if absent):
+3) PPF_COVERAGE_CONFIRMED
+  - FRONT_ONLY or FULL_BODY (ONLY if customer explicitly requested a scope)
 4) PPF_BRAND_INTENT
   - XPEL / GLOBAL / UNSPECIFIED
 5) PPF_WARRANTY_HORIZON_INTENT
@@ -380,17 +380,16 @@ IF service interest includes PPF:
     - Set PHASE3A_READY_PPF = false
     - Add "vehicle_model_year" to missing_details[]
     - Set PPF_COVERAGE_SELECTED = UNKNOWN
-  - Else if PPF coverage (front vs full) is missing:
-    - Set PHASE3A_READY_PPF = false
-    - Add "ppf_coverage_front_vs_full" to missing_details[]
-    - Set PPF_COVERAGE_SELECTED = UNKNOWN
   - Else if PPF usage/exposure is missing:
     - Set PHASE3A_READY_PPF = false
     - Add "ppf_usage_exposure" to missing_details[]
     - (Do NOT change PPF_COVERAGE_SELECTED)
   - Else:
     - Set PHASE3A_READY_PPF = true
-    - Set PPF_COVERAGE_SELECTED = FRONT_ONLY or FULL_BODY (from Phase 1 resolved intent)
+    - Set PPF_COVERAGE_SELECTED based ONLY on explicit customer scope:
+      - If customer said front/partial/high-impact-only → FRONT_ONLY
+      - If customer said full/full-body/whole car → FULL_BODY
+      - Else → UNKNOWN
   - Brand + warranty intent:
     - If customer explicitly states a brand (e.g., XPEL) → PPF_BRAND_INTENT = XPEL
     - Else if explicitly states Global → PPF_BRAND_INTENT = GLOBAL

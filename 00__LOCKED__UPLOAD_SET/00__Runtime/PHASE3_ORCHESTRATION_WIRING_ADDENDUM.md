@@ -123,8 +123,8 @@ Clarification contract:
 
 Recommended missing_details priority (PPF):
 1) vehicle_model_year
-2) ppf_coverage_front_vs_full
-3) ppf_usage_exposure
+2) ppf_usage_exposure
+3) ppf_coverage_front_vs_full (ONLY if customer explicitly asked for front/full scope)
 
 Notes:
 - This is a gating rule only. It does NOT change the customer’s chosen service.
