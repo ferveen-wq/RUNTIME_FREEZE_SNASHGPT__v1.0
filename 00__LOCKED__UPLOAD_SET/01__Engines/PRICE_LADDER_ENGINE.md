@@ -115,6 +115,27 @@ If soft gate is missing:
 - Do NOT block pricing
 - Do NOT repeat usage questions
 
+### Old Vehicle Routing Override (7+ Years)
+
+Rule:
+- If vehicle model year indicates age ≥ 7 years:
+
+Behavior:
+- Usage context (city / highway / desert) becomes OPTIONAL
+- Paint condition becomes the preferred soft gate
+
+Replacement soft gate question (ask once only):
+- “How is the current paint condition — mostly clean, or does it have visible marks/scratches?”
+
+Routing rules:
+- If paint condition is POOR or UNKNOWN:
+  → Allow routing to:
+    - Lower-tier PPF
+    - Front-only PPF
+    - OR alternative services (ceramic / polishing)
+- Do NOT block pricing
+- Do NOT repeat usage questions for old vehicles
+
 ---
 
 ## 3. INPUT SIGNALS (READ-ONLY)
@@ -144,6 +165,39 @@ From Global Core Parameters (canonical names):
 - CUSTOMER_DECISION_STAGE (if present)
 
 ---
+
+### 3.1 Signal Compatibility Bridge (NON-BINDING)
+
+Purpose:
+- Allow downstream pricing behavior to remain stable even if upstream engines emit
+  different-but-equivalent negotiation or pressure tags.
+- This is a READ-ONLY interpretation layer.
+- Canonical fields always win if present.
+
+Compatibility rules (examples):
+
+- If signal_tags[] contains PRICE_PUSHY_EARLY or PRICE_LOOP_RISK:
+  → treat PRICE_PRESSURE_LEVEL as HIGH (if not already set)
+
+- If signal_tags[] contains EXTERNAL_QUOTE_MENTIONED or COMPETITOR_REFERENCE_PRESENT:
+  → set COMPETITOR_QUOTE_STATUS = PRESENT (if not already set)
+
+- If signal_tags[] contains NEEDS_REASSURANCE or DECISION_RISK_HIGH:
+  → allow one reassurance anchor sentence after price (no option expansion)
+
+- If signal_tags[] contains TECH_JARGON_INFLUENCED or SPEC_OVERLOAD_RISK:
+  → suppress feature-heavy explanations; prioritize outcome framing
+
+Rules:
+- This bridge MUST NOT invent new tags
+- This bridge MUST NOT override explicit canonical parameters
+- Unknown tags must be ignored safely
+
+Note on Tag Naming:
+- External documents may refer to conceptual "SIG_*" signals.
+- Runtime MUST NOT emit SIG_* tags.
+- All such concepts must map into the canonical taxonomy defined above.
+- PRICE_LADDER_ENGINE may interpret these tags via its Signal Compatibility Bridge.
 
 ---
 
