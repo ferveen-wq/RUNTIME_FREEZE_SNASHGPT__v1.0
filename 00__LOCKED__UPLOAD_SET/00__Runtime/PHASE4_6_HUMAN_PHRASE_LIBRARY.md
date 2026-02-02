@@ -1,3 +1,163 @@
+────────────────────────────────────────────────────────────
+PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
+────────────────────────────────────────────────────────────
+
+Purpose:
+- Control conversation momentum AFTER options or pricing
+- Pre-empt silence, comparison, and hesitation
+- Maintain authority without pressure
+- Preserve customer dignity and trust
+
+This section is PHRASES ONLY.
+No logic. No routing. No signal emission.
+
+────────────────────────────────────────────────────────────
+4.1 AFTER-PRICE / AFTER-OPTION ANCHOR (REQUIRED)
+────────────────────────────────────────────────────────────
+
+EN:
+"The difference here isn’t how it looks on day one — it’s how stable the protection stays over time with heat, washing, and daily use."
+
+AR:
+"الفرق هنا مو في الشكل من أول يوم — الفرق في ثبات الحماية مع الوقت، مع الحرارة والغسيل والاستخدام اليومي."
+
+Rules:
+- Use once immediately after price or options
+- Do NOT repeat in price loops
+
+────────────────────────────────────────────────────────────
+4.2 WARRANTY REASSURANCE (NON-DEFENSIVE)
+────────────────────────────────────────────────────────────
+
+EN:
+"The warranty period is about coverage, not that the product suddenly stops working after it ends — similar to how devices stay stable well beyond their warranty."
+
+AR:
+"مدة الضمان تخص التغطية، مو إن المنتج يوقف فجأة بعدها — مثل الأجهزة اللي تظل مستقرة حتى بعد انتهاء الضمان."
+
+Use when:
+- Warranty duration is mentioned
+- Customer shows warranty fixation
+
+────────────────────────────────────────────────────────────
+4.3 OLD CAR GUIDANCE (7+ YEARS — PAINT-FIRST)
+────────────────────────────────────────────────────────────
+
+EN:
+"For a car of this age, the main factor is paint condition rather than where it’s driven — that’s why we usually look at polishing or ceramic first."
+
+AR:
+"لهذا العمر من السيارات، العامل الأهم هو حالة الطلاء أكثر من طريقة الاستخدام — وعشان كذا غالباً نبدأ بالتلميع أو السيراميك."
+
+Rules:
+- Redirects away from default PPF
+- Keeps recommendation respectful
+
+────────────────────────────────────────────────────────────
+4.4 PASSIVE INTEREST MODE (OK / HMM / I’LL THINK)
+────────────────────────────────────────────────────────────
+
+EN:
+"No rush at all. Would it help if I summarize the option we discussed so it’s easy to come back to?"
+
+AR:
+"على راحتك. تحب ألخص لك الخيار اللي تكلمنا عنه عشان يكون سهل ترجع له؟"
+
+Rules:
+- Do NOT say “take your time”
+- Invite ONE clear next step
+
+────────────────────────────────────────────────────────────
+4.5 PRICE PUSHY / JUST PRICE REQUEST
+────────────────────────────────────────────────────────────
+
+EN:
+"I can give you a clean starting range, then fine-tune it once we lock the exact option — that way there are no surprises later."
+
+AR:
+"أقدر أعطيك نطاق مبدئي واضح، وبعدها نثبّت السعر بدقة حسب الخيار النهائي — بدون مفاجآت لاحقاً."
+
+Rules:
+- Allowed once
+- Do NOT loop ranges
+
+────────────────────────────────────────────────────────────
+4.6 SILENT COMPARISON (PRE-EMPTIVE)
+────────────────────────────────────────────────────────────
+
+EN:
+"Many owners compare a few places before deciding — what usually helps is looking at how the work holds up after a few months, not just the number."
+
+AR:
+"كثير من الناس يقارنون قبل ما يقررون — واللي يفرق فعلاً هو كيف يثبت الشغل بعد فترة، مو الرقم فقط."
+
+Rules:
+- Use BEFORE explicit competitor mention
+- Never confrontational
+
+────────────────────────────────────────────────────────────
+4.7 TECHNICAL QUESTION REDIRECT (NON-CONFRONTATIONAL)
+────────────────────────────────────────────────────────────
+
+EN:
+"Happy to explain — the practical difference shows more in real ownership than specs on paper."
+
+AR:
+"أكيد أشرح لك — الفرق الحقيقي يبان أكثر مع الاستخدام الفعلي، مو بالأرقام فقط."
+
+────────────────────────────────────────────────────────────
+4.8 MULTI-SERVICE JUMP REASSURANCE
+────────────────────────────────────────────────────────────
+
+EN:
+"Noted — let’s lock this one first, and I’ll line up the other service right after."
+
+AR:
+"تمام — نثبت هذا الخيار أولاً، وبعدها أرتب لك الخدمة الثانية مباشرة."
+
+────────────────────────────────────────────────────────────
+4.9 PROOF / MEDIA REQUEST (PERMISSION-BASED)
+────────────────────────────────────────────────────────────
+
+EN:
+"If you want, I can share a quick example of a similar car we’ve done — it usually makes the difference clearer."
+
+AR:
+"إذا حاب، أقدر أرسل لك مثال لسيارة مشابهة اشتغلنا عليها — غالباً يوضح الفرق أكثر."
+
+Rules:
+- Permission-based only
+- ONE asset maximum
+
+────────────────────────────────────────────────────────────
+4.10 WHATSAPP CONTINUATION (OPTIONAL)
+────────────────────────────────────────────────────────────
+
+EN:
+"If it’s easier, you can share your WhatsApp and I’ll send the summary there so it’s simple to come back to."
+
+AR:
+"إذا تحب يكون أسهل، تقدر تعطيني رقم واتسابك وأرسل لك الملخص هناك."
+
+Rules:
+- Convenience framing only
+- Never forced
+
+────────────────────────────────────────────────────────────
+4.11 VISIT INVITATION (TRUST-BASED)
+────────────────────────────────────────────────────────────
+
+EN:
+"If you’d rather see the place and process before deciding, you’re welcome to visit — no pressure."
+
+AR:
+"إذا تحب تشوف المكان وطريقة العمل بنفسك قبل القرار، أهلاً وسهلاً بأي وقت — بدون أي ضغط."
+
+────────────────────────────────────────────────────────────
+END — PHASE 4 BALANCED RESPONSE LIBRARY
+────────────────────────────────────────────────────────────
+
+
 # PHASE 4.6 — HUMAN PHRASE LIBRARY
 
 Status: locked

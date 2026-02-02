@@ -1,3 +1,99 @@
+# ─────────────────────────────────────────────────────────────
+# PHASE 4 — POST-PRICE / POST-OPTIONS ROUTING OVERLAY (LOCKED)
+# ─────────────────────────────────────────────────────────────
+#
+# Purpose:
+# - Deterministically route post-price/post-options customer behavior to
+#   approved Phase 4 phrases in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+# - This overlay MUST NOT change Phase 0–3 qualification or Phase 3 option selection.
+#
+# Activation rule (must be true):
+# - price_ladder_state != NONE
+#   (Meaning: pricing/options have been exposed OR an anchor/range was provided)
+#
+# Inputs used:
+# - decision_state_tags[]
+# - signal_tags[]
+# - routing_tags[]
+# - objection_signal (from CUSTOMER_CHAT_INTAKE_RULES.md when applicable)
+#
+# Output:
+# - Select exactly ONE Phase 4 phrase block per turn (plus 1 micro-question if the block includes it)
+#
+# Precedence (top wins):
+# 1) Explicit objection_signal paths
+# 2) High-risk decision_state_tags (loop / overload / exit)
+# 3) Competitor + technical influence
+# 4) Passive interest / confusion
+# 5) Service jump / proof / visit / WhatsApp continuation
+#
+# NOTE:
+# - Do NOT use “no rush”, “take your time”, or “whenever you’re ready” phrasing.
+# - Maintain momentum with one clear next input.
+
+## 4.X.1 — PRICE PUSH / LOOP RISK (post-price)
+IF (price_ladder_state != NONE) AND (
+  "PRICE_PUSHY_EARLY" IN decision_state_tags[] OR
+  "PRICE_LOOP_RISK" IN decision_state_tags[] OR
+  objection_signal == "JUST_GIVE_PRICE"
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.5 PRICE PUSHY (ANCHOR + ONE DETAIL)
+
+## 4.X.2 — COMPETITOR INFLUENCE / EXTERNAL QUOTE (post-price)
+IF (price_ladder_state != NONE) AND (
+  "COMPETITOR_REFERENCE_PRESENT" IN decision_state_tags[] OR
+  "EXTERNAL_QUOTE_MENTIONED" IN decision_state_tags[] OR
+  objection_signal == "COMPETITOR_CHEAPER"
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.6 COMPETITOR / PRICE COMPARE (ONE-LINE DIFFERENCE)
+
+## 4.X.3 — TECHNICAL QUESTION REDIRECT (post-price)
+IF (price_ladder_state != NONE) AND (
+  "TECH_JARGON_INFLUENCED" IN decision_state_tags[] OR
+  "SPEC_OVERLOAD_RISK" IN decision_state_tags[] OR
+  "WARRANTY_FIXATION" IN decision_state_tags[] OR
+  objection_signal == "TECHNICAL_QUESTION"
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.7 TECHNICAL QUESTION (OUTCOME-BASED REDIRECT)
+
+## 4.X.4 — PASSIVE INTEREST (ok / hmm / I’ll think) (post-price)
+IF (price_ladder_state != NONE) AND (
+  "TIMING_MISMATCH" IN decision_state_tags[] OR
+  "COGNITIVE_OVERLOAD" IN decision_state_tags[] OR
+  objection_signal == "PASSIVE_INTEREST"
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.3 PASSIVE INTEREST (MOMENTUM SAFE)
+
+## 4.X.5 — “Why are you asking / too many questions” (post-price)
+IF (price_ladder_state != NONE) AND (
+  objection_signal == "CONFUSED_WHY_QUESTIONS" OR
+  objection_signal == "QUESTION_FATIGUE"
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.4 WHY I’M ASKING (ONE-LINE REASON + ONE INPUT)
+
+## 4.X.6 — SERVICE JUMP (customer changes service mid-flow)
+IF (price_ladder_state != NONE) AND (
+  objection_signal == "SERVICE_JUMP" OR
+  "SERVICE_INTEREST_*" IN signal_tags[]  # pattern meaning: more than one service interest present
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.8 SERVICE JUMP (REASSURE + RETURN)
+
+## 4.X.7 — PROOF REQUEST / VISIT INVITE (post-price)
+IF (price_ladder_state != NONE) AND (
+  objection_signal == "PROOF_REQUEST" OR
+  "NEEDS_REASSURANCE" IN decision_state_tags[]
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.9 VISIT INVITE (LOW-PRESSURE)
+
+## 4.X.8 — WHATSAPP CONTINUATION (optional capture)
+IF (price_ladder_state != NONE) AND (
+  objection_signal == "PROOF_REQUEST" OR
+  objection_signal == "PASSIVE_INTEREST" OR
+  objection_signal == "SERVICE_JUMP" OR
+  "RETURNING_CUSTOMER_CONTEXT" IN decision_state_tags[]
+)
+THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.10 WHATSAPP CONTINUATION (OPTIONAL)
+
 # PHASE 4.8 — MESSAGE ASSEMBLY MAP
 
 Status: ACTIVE
