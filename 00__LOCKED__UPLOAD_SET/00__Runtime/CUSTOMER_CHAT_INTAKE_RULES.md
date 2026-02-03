@@ -128,6 +128,19 @@ Handling:
 ---
 
 ## 5) Required Information Extraction
+
+
+### 5.1 Numeric-only model token guard (HARD — global)
+If the customer provides a brand + a token that is digits-only (e.g., "Jetour 52", "Jetour 90"):
+- Do NOT treat the digits-only token as vehicle_model.
+- Mark vehicle_model as missing (do NOT guess).
+- Downstream must treat this as clarification-required (one question only).
+
+Digits-only definition:
+- A token containing only digits (e.g., "52", "90", "300") with no letters.
+
+Notes:
+- This does not block SAFE aliases that include digits but are not digits-only (e.g., "lc300", "f150", "t2").
 From every customer input, try to extract:
 - Car brand
 - Car model

@@ -269,6 +269,39 @@ If TEST_BUNDLE contains logic that is required in production, that logic must be
 - QUALIFICATION_ENGINE.md
 
 ## A4) Vehicle Canonicalization (aliases, arabic/english matching)
+
+### A4.1) Numeric-only model token guard (HARD — global)
+
+Problem this prevents:
+- Customers sometimes write a brand + a number that is NOT a real model token (examples: “Jetour 52”, “Jetour 90”, “BMW 50”).
+- Without a guard, the system may incorrectly treat the digits as a valid vehicle_model and proceed.
+
+Hard rule:
+- A vehicle_model MUST NOT be considered “confirmed” if the model token is numeric-only (digits-only), even if a brand is present.
+- Numeric-only tokens MUST be treated as ambiguous / repo-missing until clarified.
+
+Definition (numeric-only token):
+- A token that contains only digits (e.g., “52”, “90”, “300”), with no letters and no known safe alias mapping.
+
+Required behavior (Phase 0–2):
+1) If the message contains brand + numeric-only token (or numeric-only token alone):
+   - Do NOT set vehicle_model as confirmed.
+   - Set vehicle_repo_missing = true (or equivalent repo-missing signal).
+   - Ask exactly ONE clarification question to get the real model name (e.g., “Which Jetour model is it?”).
+2) If the message contains a known SAFE alias from GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4.1):
+   - That SAFE alias is allowed to normalize even if it includes digits (example: “t2”, “f150”, “lc300”) because it is not numeric-only.
+3) If the message contains an AMBIGUOUS alias from the repository (Section 4.2):
+   - Ask exactly ONE clarification question before mapping.
+
+Non-negotiables:
+- No silent guessing.
+- No “closest model” inference.
+- One-question maximum for clarification (aligns with Assembly Map constraints).
+
+Notes:
+- This rule is GLOBAL and applies to all brands, not Jetour-specific.
+- This rule does not change service routing; it only prevents unsafe vehicle_model confirmation.
+
 - GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
 
 ## A5) Service/Product Canonical Naming

@@ -1,6 +1,42 @@
+────────────────────────────────────────────────────────────
+PPF HANDOFF RULE (PHASE 0–2 → PHASE 3A) — LOCKED
+────────────────────────────────────────────────────────────
+
+Goal:
+Phase 0–2 should capture only the minimum intake needed to safely route.
+For PPF, once vehicle model/year is confirmed, we should hand off to Phase 3A
+instead of asking scope (front vs full) by default.
+
+Rule:
+If SERVICE_INTENT includes PPF AND VEHICLE model/year is confirmed:
+  → set QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+  → do NOT ask "front vs full" unless customer explicitly requested a scope
+
+Explicit scope detection (allowed in Phase 0–2):
+- If the customer explicitly says "front", "front only", "partial", "high-impact areas"
+  → set PPF_COVERAGE_SELECTED = FRONT_ONLY
+- If the customer explicitly says "full", "full body", "whole car"
+  → set PPF_COVERAGE_SELECTED = FULL_BODY
+- Else:
+  → set PPF_COVERAGE_SELECTED = UNKNOWN (do not ask)
+
+Notes:
+- Usage/exposure (city/highway/desert/mixed) is Phase 3A, not Phase 0–2.
+- Brand/warranty intent may be tagged if explicitly stated, but not required for handoff.
 
 
 # QUALIFICATION_ENGINE.md
+
+## Brand intent tagging (PPF)
+
+Rule:
+- If customer text contains "xpel" AND service intent includes PPF:
+  - Emit brand intent tag for downstream engines:
+    - PPF_BRAND_INTENT = XPEL
+  - Do NOT change service selection (still PPF)
+  - Do NOT add pricing
+
+This is tag-only and non-breaking.
 
 Status: LOCK CANDIDATE
 LOCK_SCOPE: PHASE 1 — QUALIFICATION ENGINE ONLY

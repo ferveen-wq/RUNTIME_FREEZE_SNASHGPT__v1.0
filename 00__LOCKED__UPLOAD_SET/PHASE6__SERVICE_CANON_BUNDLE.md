@@ -1,3 +1,23 @@
+────────────────────────────────────────────────────────────
+PPF SCOPE QUESTION SUPPRESSION (LOCKED — BUSINESS-SAFE)
+────────────────────────────────────────────────────────────
+
+Goal:
+Avoid asking "full vs front" by default when customer says "PPF".
+Scope should only be asked if the customer explicitly requests it.
+Otherwise, Phase 0–2 captures vehicle, and Phase 3A captures usage/exposure first.
+
+Rule:
+- If customer explicitly asks for FRONT / PARTIAL / HIGH-IMPACT → allow scope confirmation.
+- If customer explicitly asks for FULL / FULL BODY / WHOLE CAR → allow scope confirmation.
+- Otherwise:
+	- Do NOT ask scope here.
+	- Ask only for vehicle model + year (one question).
+
+Note:
+- This file may be referenced by test harnesses; this suppression prevents scope-first drift.
+
+
 # PHASE 6 — SERVICE CANON BUNDLE
 
 Status: ACTIVE (BUNDLED)
@@ -25,8 +45,8 @@ Approved brand names (Phase 0–2):
 ## PHASE_0_2_MIN
 
 ### PHASE_0_2_MIN__PPF
-EN: Paint Protection Film (PPF) is a clear protective film applied to the paint to help reduce stone chips and light scratches. Do you want full body PPF or front-only coverage?
-AR: حماية PPF هي فيلم شفاف يُركّب على الطلاء ويساعد على تقليل ضربات الحصى والخدوش الخفيفة. تبي حماية كاملة للسيارة أو حماية للواجهة الأمامية فقط؟
+EN: Paint Protection Film (PPF) is a clear protective film applied to the paint to help reduce stone chips and light scratches. What’s the car model and year?
+AR: حماية PPF هي فيلم شفاف يُركّب على الطلاء ويساعد على تقليل ضربات الحصى والخدوش الخفيفة. شنو موديل السيارة وأي سنة؟
 
 ### PHASE_0_2_MIN__PPF_SCOPE_CONFIRMED_NEXT
 EN: Got it. What’s the car model and year?
@@ -53,10 +73,10 @@ AR: التلميع يساعد على تحسين اللمعة وتقليل آثا
 ## PPF — PHASE_0_2_MIN
 EN: Paint Protection Film (PPF) is a clear protective film applied to the paint to help reduce stone chips and light scratches.
 
-Do you want full body PPF or front-only coverage?
+What’s the car model and year?
 AR: حماية PPF هي فيلم شفاف يُركّب على الطلاء ويساعد على تقليل ضربات الحصى والخدوش الخفيفة.
 
-تحب الحماية الكاملة للسيارة، أو حماية الواجهة الأمامية فقط؟
+شنو موديل السيارة وأي سنة؟
 
 ---
 
@@ -98,10 +118,10 @@ Vehicle condition and intent must be clarified before recommendation.
 ### PHASE_0_2_MIN
 EN: Paint Protection Film (PPF) is a clear protective film applied to the paint to help reduce stone chips and light scratches.
 
-Do you want full body PPF or front-only coverage?
+What’s the car model and year?
 AR: حماية PPF هي فيلم شفاف يُركّب على الطلاء ويساعد على تقليل ضربات الحصى والخدوش الخفيفة.
 
-تحب الحماية الكاملة للسيارة، أو حماية الواجهة الأمامية فقط؟
+شنو موديل السيارة وأي سنة؟
 
 ### PHASE_0_2_MIN__PPF_SCOPE_CONFIRMED_NEXT
 EN: Got it. Noted.

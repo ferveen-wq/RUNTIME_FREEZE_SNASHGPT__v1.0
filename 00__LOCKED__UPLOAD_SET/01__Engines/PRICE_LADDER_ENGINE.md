@@ -115,6 +115,38 @@ If soft gate is missing:
 - Do NOT block pricing
 - Do NOT repeat usage questions
 
+Loop guard (price push):
+- If PRICE_PRESSURE_LEVEL is HIGH OR decision_state_tags[] contains PRICE_LOOP_RISK:
+  - Do NOT ask the same soft gate again
+  - Proceed to 2-option preview with a conditional framing sentence
+  - Ask only ONE simple selector question (A/B preference)
+
+Brand persistence (PPF):
+- If customer explicitly requested a brand (e.g., XPEL):
+  - Keep brand acknowledgment in the first line of the PPF options response
+  - Do NOT “drop” brand context after model/year is known
+
+### Old Vehicle Routing Override (7+ Years)
+
+Rule:
+- If vehicle model year indicates age ≥ 7 years:
+
+Behavior:
+- Usage context (city / highway / desert) becomes OPTIONAL
+- Paint condition becomes the preferred soft gate
+
+Replacement soft gate question (ask once only):
+- “How is the current paint condition — mostly clean, or does it have visible marks/scratches?”
+
+Routing rules:
+- If paint condition is POOR or UNKNOWN:
+  → Allow routing to:
+    - Lower-tier PPF
+    - Front-only PPF
+    - OR alternative services (ceramic / polishing)
+- Do NOT block pricing
+- Do NOT repeat usage questions for old vehicles
+
 ---
 
 ## 3. INPUT SIGNALS (READ-ONLY)
@@ -144,6 +176,39 @@ From Global Core Parameters (canonical names):
 - CUSTOMER_DECISION_STAGE (if present)
 
 ---
+
+### 3.1 Signal Compatibility Bridge (NON-BINDING)
+
+Purpose:
+- Allow downstream pricing behavior to remain stable even if upstream engines emit
+  different-but-equivalent negotiation or pressure tags.
+- This is a READ-ONLY interpretation layer.
+- Canonical fields always win if present.
+
+Compatibility rules (examples):
+
+- If signal_tags[] contains PRICE_PUSHY_EARLY or PRICE_LOOP_RISK:
+  → treat PRICE_PRESSURE_LEVEL as HIGH (if not already set)
+
+- If signal_tags[] contains EXTERNAL_QUOTE_MENTIONED or COMPETITOR_REFERENCE_PRESENT:
+  → set COMPETITOR_QUOTE_STATUS = PRESENT (if not already set)
+
+- If signal_tags[] contains NEEDS_REASSURANCE or DECISION_RISK_HIGH:
+  → allow one reassurance anchor sentence after price (no option expansion)
+
+- If signal_tags[] contains TECH_JARGON_INFLUENCED or SPEC_OVERLOAD_RISK:
+  → suppress feature-heavy explanations; prioritize outcome framing
+
+Rules:
+- This bridge MUST NOT invent new tags
+- This bridge MUST NOT override explicit canonical parameters
+- Unknown tags must be ignored safely
+
+Note on Tag Naming:
+- External documents may refer to conceptual "SIG_*" signals.
+- Runtime MUST NOT emit SIG_* tags.
+- All such concepts must map into the canonical taxonomy defined above.
+- PRICE_LADDER_ENGINE may interpret these tags via its Signal Compatibility Bridge.
 
 ---
 
@@ -177,6 +242,22 @@ This engine MUST emit a terminal control tag for downstream orchestration:
 Notes:
 - This tag is internal (non-customer-facing).
 - This tag does not reveal exact prices.
+
+### 4.2 Customer-facing output template (EN then AR)
+
+EN:
+Based on what you confirmed, here are the two PPF options to check:
+Option A: <SKU_NAME_A>
+Option B: <SKU_NAME_B>
+If you’re aiming for something more cost-effective, we also have a lighter option that focuses on the high-impact areas.
+Which one do you want to check first, A or B?
+
+AR:
+حسب اللي تم تأكيده، هذي خيارين PPF نقدر نبدأ فيهم:
+الخيار A: <SKU_NAME_A>
+الخيار B: <SKU_NAME_B>
+وإذا تبي خيار أوفر، عندنا خيار أخف يركّز على المناطق الأكثر تعرّضاً.
+أي واحد تحب نبدأ فيه، A أو B؟
 
 ---
 
@@ -252,6 +333,132 @@ L4 — Boundary Signal
 L5 — Escalation Gate  
 - Stop pricing
 - Route to quote or human
+
+Deterministic selection rules:
+
+Coverage handling rule (business-safe):
+- If PPF_COVERAGE_SELECTED == UNKNOWN:
+  - Do NOT ask "front vs full" automatically.
+  - Default ladder output to FULL-BODY style options (two SKUs) based on brand/warranty intent.
+  - Add ONE soft line that a lighter "high-impact areas" option exists for cost-conscious customers,
+    without naming "front PPF" unless the customer explicitly asks.
+
+────────────────────────────────────────────────────────────
+PHASE 3B — NON-PPF SELECTION RULES (LOCKED — SKU-TRUE)
+────────────────────────────────────────────────────────────
+
+Purpose:
+- Convert Phase 3A readiness + minimal qualifiers into a deterministic SKU shortlist.
+- No invention: only use SKU IDs that exist in GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md.
+- Do not create new SKUs, durations, or “coverage variants” that do not exist in the registry.
+
+Inputs assumed (read-only if present):
+- VEHICLE_CLASS_BAND: ENUM (VCB_1 | VCB_2 | VCB_3)
+- VEHICLE_AGE_BAND: ENUM (0_3 | 3_6 | 7_PLUS)  (optional; if absent, treat as 0_3)
+- SERVICE_INTENT_PRIMARY: ENUM (PPF | CERAMIC_COATING | GRAPHENE_COATING | WINDOW_TINT | PAINT_POLISHING | WRAP)
+- SERVICE_INTENT_SECONDARY: optional list (same enums)
+- BRAND_EXPLICIT_REQUEST: ENUM (NONE | XPEL)  (only if customer explicitly asked)
+- TINT_COVERAGE_SELECTED: ENUM (UNKNOWN | TINT_WINDSHIELD_ONLY | TINT_SIDES_BACK | TINT_FULL_CAR | TINT_FULL_WITH_SUNROOF)
+
+Hard rules:
+1) One service per ladder run:
+   - If multiple services are asked, pick one PRIMARY service to price first.
+   - Do not bundle. Do not merge anchors.
+   - Secondary services remain tagged for later pricing after the primary ladder completes.
+
+2) Brand mention control:
+   - Do NOT surface brands unless the customer explicitly requested a brand (e.g., asked “XPEL?”).
+   - Brand is a selection modifier only.
+
+3) Clarification discipline:
+   - If a required selector is UNKNOWN, ask ONE question only.
+   - If still unknown or customer pushes exact price → escalate per L5 rules.
+
+────────────────────────────────────────────────────────────
+3B.1 — CERAMIC / GRAPHENE SKU DEFAULTS (FULL COVERAGE ONLY)
+────────────────────────────────────────────────────────────
+
+Allowed SKUs:
+- CERAMIC_1Y | CERAMIC_3Y | CERAMIC_5Y
+- GRAPHENE_1Y | GRAPHENE_3Y | GRAPHENE_5Y
+
+Selection defaults (two options max at L2):
+
+A) VEHICLE_AGE_BAND == 0_3 (or missing)
+  - Default option 1: CERAMIC_3Y
+  - Default option 2: CERAMIC_5Y
+  - Upladder 1: GRAPHENE_3Y
+  - Upladder 2: GRAPHENE_5Y
+  - Downladder 1: CERAMIC_1Y
+  - Downladder 2: GRAPHENE_1Y
+
+B) VEHICLE_AGE_BAND == 3_6
+  - Default option 1: CERAMIC_1Y
+  - Default option 2: CERAMIC_3Y
+  - Upladder 1: CERAMIC_5Y
+  - Upladder 2: GRAPHENE_3Y
+  - Downladder 1: GRAPHENE_1Y
+  - Downladder 2: (stay within Ceramic/Graphene only; do not introduce polishing here)
+
+C) VEHICLE_AGE_BAND == 7_PLUS
+  - Default option 1: CERAMIC_1Y
+  - Default option 2: GRAPHENE_1Y
+  - Upladder 1: CERAMIC_3Y
+  - Upladder 2: GRAPHENE_3Y
+  - Downladder: (no “partial ceramic” variants allowed; if customer is not ready → escalate or re-qualify paint condition upstream)
+
+Note (segment tuning):
+- VEHICLE_CLASS_BAND may influence the order (VCB_3 tends to start at 3Y+), but MUST NOT change allowed SKUs.
+- If you later want segment-specific ordering, edit ordering only (no new SKUs).
+
+────────────────────────────────────────────────────────────
+3B.2 — POLISHING SKU DEFAULTS
+────────────────────────────────────────────────────────────
+
+Allowed SKUs:
+- POLISH_SILVER | POLISH_GOLD
+
+Defaults:
+- Default option 1: POLISH_SILVER
+- Default option 2: POLISH_GOLD
+- No invented sub-variants.
+
+────────────────────────────────────────────────────────────
+3B.3 — WINDOW TINT SKU DEFAULTS + COVERAGE SELECTOR
+────────────────────────────────────────────────────────────
+
+Allowed SKUs:
+- Film: TINT_NANO_CERAMIC | TINT_XPEL_XR_PLUS
+- Coverage: TINT_WINDSHIELD_ONLY | TINT_SIDES_BACK | TINT_FULL_CAR | TINT_FULL_WITH_SUNROOF
+
+Film selection:
+- If BRAND_EXPLICIT_REQUEST == XPEL → use TINT_XPEL_XR_PLUS
+- Else → use TINT_NANO_CERAMIC
+
+Coverage selection:
+- If TINT_COVERAGE_SELECTED == UNKNOWN:
+    Ask ONE question: windshield only / sides+back / full car / full with sunroof
+    Map directly to the coverage SKU above.
+
+Output rule:
+- Tint output must include (FILM SKU + COVERAGE SKU) as the selected pair.
+
+────────────────────────────────────────────────────────────
+3B.4 — WRAP SKU DEFAULTS
+────────────────────────────────────────────────────────────
+
+Allowed SKUs:
+- WRAP_GLOSS | WRAP_MATTE | WRAP_SATIN | ROOF_WRAP_BLACK
+
+Defaults:
+- If customer explicitly asked for “roof” or “black roof” → ROOF_WRAP_BLACK
+- Else if finish is unknown:
+    Ask ONE question: gloss / matte / satin
+    Default if customer refuses to choose: WRAP_GLOSS
+
+────────────────────────────────────────────────────────────
+END — PHASE 3B NON-PPF SELECTION RULES
+────────────────────────────────────────────────────────────
 
 ---
 
