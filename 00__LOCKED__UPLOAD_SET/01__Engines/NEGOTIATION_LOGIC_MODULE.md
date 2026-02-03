@@ -348,6 +348,70 @@ Hard rules:
 Applies only when:
 - SERVICE_INTEREST_PPF is present OR customer intent includes PPF
 
+────────────────────────────────────────────────────────────
+3C.0 — OLD VEHICLE OVERRIDE (7+ YEARS) — PAINT-FIRST
+────────────────────────────────────────────────────────────
+
+Intent:
+- For older vehicles, the main pricing/scope driver is paint condition, not usage exposure.
+- This override changes the *gate question* (missing_details) for PPF only.
+- It does NOT add pricing and does NOT change Phase 3B SKU tables.
+
+Definition:
+Definition notes:
+- This gate MUST NOT assume current_year exists unless it can be derived from runtime state.
+- Preferred source: LAST_CUSTOMER_SIGNAL_TIMESTAMP (from RUNTIME_STATE_MACHINE.md)
+
+Canonical:
+- CURRENT_YEAR := YEAR(LAST_CUSTOMER_SIGNAL_TIMESTAMP)  (if available)
+
+OLD_VEHICLE :=
+  (vehicle_year is known)
+  AND (
+    (CURRENT_YEAR is known AND (CURRENT_YEAR - vehicle_year >= 7))
+    OR (CURRENT_YEAR is unknown AND vehicle_year <= 2018)  # safe fallback; does NOT block if wrong
+  )
+
+Rule:
+- IF OLD_VEHICLE == TRUE:
+  - ppf_usage_exposure becomes OPTIONAL (must not block ladder)
+  - Replace missing_details requirement with paint_condition (ask once only)
+
+Missing detail to emit (PPF):
+- Add "paint_condition" to missing_details[] (instead of "ppf_usage_exposure")
+
+Allowed paint condition prompt (customer-facing via phrase library):
+- “How is the current paint condition — mostly clean, or does it have visible marks/scratches?”
+
+Routing note (tag-only):
+- If paint_condition == POOR or UNKNOWN:
+  - Allow recommendation direction tags such as:
+    - ROUTE_TO_ALTERNATIVE_SERVICE (ceramic / polishing)
+    - OR keep lower-tier / front-only PPF as fallback
+
+Hard constraints:
+- Do NOT ask city/highway/desert first for OLD_VEHICLE
+- Do NOT repeat paint_condition if refused
+
+────────────────────────────────────────────────────────────
+3C.0b — PRICE-PUSH LOOP GUARD (PRE-PRICING)
+────────────────────────────────────────────────────────────
+
+Intent:
+- Prevent repeating the same gate question when the customer is price-pushy.
+- Keep dignity + business flow stable.
+
+Rule:
+- If customer triggers PRICE_PUSHY_EARLY AND repeats price request after the gate question:
+  - Do NOT re-ask the same gate question again.
+  - Emit decision_state_tags[] += PRICE_LOOP_RISK
+  - Set missing_details[] to at most ONE item (keep it minimal)
+  - Allow Phase 3 ladder to proceed with a conditional framing (no exact price if missing)
+
+Notes:
+- This does not override Phase 0 hard gates (model + year + service required).
+- This is a loop-prevention rule only.
+
 Minimum PPF qualifiers for ladder eligibility (prevent misquote):
 1) VEHICLE_MODEL_YEAR_CONFIRMED
   - Car make/model/year present (Phase 1 authoritative)
@@ -380,6 +444,11 @@ IF service interest includes PPF:
     - Set PHASE3A_READY_PPF = false
     - Add "vehicle_model_year" to missing_details[]
     - Set PPF_COVERAGE_SELECTED = UNKNOWN
+  - Else if OLD_VEHICLE == TRUE:
+    - Set PHASE3A_READY_PPF = false
+    - Do NOT add "ppf_usage_exposure" to missing_details[]
+    - Add "paint_condition" to missing_details[] (ask once only)
+    - (Do NOT change PPF_COVERAGE_SELECTED)
   - Else if PPF usage/exposure is missing:
     - Set PHASE3A_READY_PPF = false
     - Add "ppf_usage_exposure" to missing_details[]
@@ -397,6 +466,12 @@ IF service interest includes PPF:
     - If customer explicitly asks for long warranty / many years → PPF_WARRANTY_INTENT = LONG_TERM
     - Else if explicitly asks for practical/shorter option → PPF_WARRANTY_INTENT = PRACTICAL
     - Else → PPF_WARRANTY_INTENT = UNSPECIFIED
+
+Old-vehicle exception:
+- If OLD_VEHICLE == TRUE:
+  - paint_condition replaces usage exposure as the gate detail
+  - Do NOT ask city/highway/desert first for OLD_VEHICLE
+  - Ladder may proceed with conditional framing if paint condition is refused
 
 
 ────────────────────────────────────────────────────────────
