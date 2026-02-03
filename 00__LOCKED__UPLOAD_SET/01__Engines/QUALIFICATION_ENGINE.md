@@ -27,6 +27,17 @@ Notes:
 
 # QUALIFICATION_ENGINE.md
 
+## Brand intent tagging (PPF)
+
+Rule:
+- If customer text contains "xpel" AND service intent includes PPF:
+  - Emit brand intent tag for downstream engines:
+    - PPF_BRAND_INTENT = XPEL
+  - Do NOT change service selection (still PPF)
+  - Do NOT add pricing
+
+This is tag-only and non-breaking.
+
 Status: LOCK CANDIDATE
 LOCK_SCOPE: PHASE 1 — QUALIFICATION ENGINE ONLY
 LOCK_REASON: Phase-1 boundaries hardened to prevent drift (no pricing, no negotiation, no tone logic, no silence handling, no customer-facing redirection).
