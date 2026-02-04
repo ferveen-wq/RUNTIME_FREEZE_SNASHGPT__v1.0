@@ -141,6 +141,12 @@ Digits-only definition:
 
 Notes:
 - This does not block SAFE aliases that include digits but are not digits-only (e.g., "lc300", "f150", "t2").
+
+### 5.2 Ambiguous alias guard (HARD — global)
+If the customer provides an alias that is listed as AMBIGUOUS in GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4.2) (e.g., "x90", "s90", "cx", "lc", "v6", "gt", "rs", "amg", "bmw x", "toyota suv", "nissan suv"):
+- Do NOT auto-normalize to any brand/model.
+- Mark vehicle_model as missing (do NOT guess).
+- Downstream must ask exactly ONE clarification question to confirm the exact brand/model before mapping.
 From every customer input, try to extract:
 - Car brand
 - Car model
