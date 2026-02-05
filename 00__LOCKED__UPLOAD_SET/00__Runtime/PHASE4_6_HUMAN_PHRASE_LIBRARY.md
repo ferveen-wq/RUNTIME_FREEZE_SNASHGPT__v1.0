@@ -358,6 +358,30 @@ Purpose: Confirm understanding and reduce friction without advancing the convers
 ## C. GENERIC SERVICE EDUCATION
 Purpose: Explain what the service category is and how to think about it, without selling or overwhelming.
 
+### C.1 PPF EXPLANATION + QUALIFIER (PHASE 0–2)
+
+EN:
+Paint Protection Film (PPF) is like a screen protector for your car’s paint. It helps absorb everyday impacts like stone chips and light scratches, giving you peace of mind and helping the paint stay looking new for years. What’s the car model and year?
+
+AR:
+حماية PPF مثل سكرين بروتكتور لطلاء السيارة. تمتص ضربات الحصى والخدوش الخفيفة اليومية وتعطيك راحة بال وتساعد الطلاء يظل شكله جديد لسنين. شنو موديل السيارة وأي سنة؟
+
+### C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
+
+EN:
+Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, helps reduce wash marks over time, and makes the car easier to clean so it keeps looking fresh for years. To guide you correctly, what’s the car model and year?
+
+AR:
+السيراميك مثل العناية بالبشرة لطلاء السيارة. يحافظ على اللمعة، يقلّل آثار الغسيل مع الوقت، ويخلّي التنظيف أسهل عشان تظل السيارة شكلها فريش لسنين. عشان أوجّهك صح، شنو موديل السيارة وأي سنة؟
+
+### C.3 CERAMIC WASH PATTERN QUALIFIER (PHASE 0–2)
+
+EN:
+To guide this properly, how do you usually wash the car — bucket/hand wash, tunnel/automatic wash, mall waterless wash, or a mix?
+
+AR:
+عشان أوجّهك صح، شلون عادة تغسل السيارة — غسيل يدوي/سطل، غسيل نفق/آلي، غسيل بدون ماء في مواقف المولات، أو خليط؟
+
 - EN: Different car care services exist for different goals.
   AR: توجد خدمات عناية مختلفة بالسيارات حسب الهدف.
 
