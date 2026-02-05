@@ -1,5 +1,6 @@
 # PRICE_LADDER_ENGINE.md
 
+- Pricing authority source: 02__Parameters/PRICE_TABLE_VAT_INCL.md (VAT-included, locked)
 ENGINE_NAME: Price Ladder Execution Engine  
 ENGINE_VERSION: v1.1  
 ENGINE_PHASE: Phase 3  
