@@ -1,3 +1,79 @@
+────────────────────────────────────────────────────────────
+PHASE 0–4 — REQUIRED HUMAN PHRASE BLOCKS (SCOPE ONLY — LOCKED)
+────────────────────────────────────────────────────────────
+
+Purpose:
+This section defines the COMPLETE and FINAL list of human-facing
+phrase blocks that MUST exist before rollout.
+
+This section defines SCOPE ONLY.
+No wording is defined here.
+No engine logic is defined here.
+
+Once locked:
+- No new phrase categories may be added
+- No categories may be removed
+- Only wording refinement is allowed later
+
+────────────────────────────────────────────
+PHASE 0–2 (INTAKE / EARLY FRAMING)
+────────────────────────────────────────────
+
+- Neutral service explanation (PPF)
+- Neutral service explanation (Ceramic)
+- Neutral service explanation (Graphene)
+- Neutral service explanation (Polishing)
+- Brand mention acknowledgment (XPEL / Global) — non-comparative
+- Minimum qualifier question phrasing (vehicle / usage / washing)
+- Soft redirection phrasing (fit mismatch, no correction)
+
+────────────────────────────────────────────
+PHASE 3A (PRE-PRICE — VALUE & DIRECTION)
+────────────────────────────────────────────
+
+- PPF analogy block (screen protector / impact protection)
+- Ceramic analogy block (paint care / maintenance simplification)
+- Graphene uplift explanation (durability framing only)
+- City vs Highway usage framing (non-technical)
+- Matte finish explanation (generic, brand-agnostic)
+- Brand-explicit reassurance phrasing (only if requested)
+
+────────────────────────────────────────────
+PHASE 3B (SELECTION CONFIRMATION — NO PRICING)
+────────────────────────────────────────────
+
+- “Why these two options” justification phrasing
+- Default vs Second option comparison phrasing
+- Upladder explanation phrasing (no pressure)
+- Downladder explanation phrasing (cost-conscious)
+- Service switch confirmation phrasing (PPF ↔ Ceramic)
+
+────────────────────────────────────────────
+PHASE 4 (PRICE DELIVERY & POST-PRICE CONTROL)
+────────────────────────────────────────────
+
+- Pre-price value bridge (generic)
+- Pre-price value bridge (PPF-specific)
+- Pre-price value bridge (Ceramic / Graphene-specific)
+- Controlled price presentation phrasing
+- Post-price reassurance phrasing
+- Sticker-shock stabilization phrasing
+- Price loop boundary phrasing
+- Escalation / inspection invitation phrasing
+
+────────────────────────────────────────────
+GLOBAL RULES (ALL PHASES)
+────────────────────────────────────────────
+
+- SKU IDs are NEVER customer-facing
+- All product facts must defer to GLOBAL_PRODUCT_NAMING_REGISTRY
+- Education depth is gated by customer signal
+- No feature wars, no competitor defense
+- No new phrase categories beyond this list
+
+────────────────────────────────────────────
+END — PHRASE SCOPE LOCK
+────────────────────────────────────────────
 # SNASHGPT_PHASE0–4_ROLLOUT_SOURCE_OF_TRUTH.md
 
 Status: ACTIVE — AUTHORITATIVE  
