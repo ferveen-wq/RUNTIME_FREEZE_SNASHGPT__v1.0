@@ -88,12 +88,75 @@ Wrap detection aliases (map to service intent VEHICLE_WRAP):
 - GLOBAL_SIGNATURE_10Y
 - GLOBAL_MATTE_10Y
 
+### GLOBAL_LUXE_5Y
+- display_name: Global Hitech Film Luxe
+- warranty_label: 5 Years
+- finish_type: gloss
+- positioning_tags: [ENTRY_LEVEL, DAILY_PROTECTION]
+- short_description: Entry-level clear paint protection focused on everyday driving protection.
+
+### GLOBAL_ELITE_8Y
+- display_name: Global Hitech Film Elite
+- warranty_label: 8 Years
+- finish_type: gloss
+- positioning_tags: [BALANCED_PROTECTION, LONG_TERM]
+- short_description: Mid-tier paint protection balancing durability and long-term clarity.
+
+### GLOBAL_SIGNATURE_10Y
+- display_name: Global Hitech Film Signature
+- warranty_label: 10 Years
+- finish_type: gloss
+- positioning_tags: [MAX_DURABILITY, LONG_TERM]
+- short_description: High-durability paint protection designed for long-term ownership.
+
+### GLOBAL_MATTE_10Y
+- display_name: Global Hitech Films Matte
+- warranty_label: 10 Years
+- finish_type: matte
+- positioning_tags: [MATTE_LOOK, STYLE_FOCUSED]
+- short_description: Matte-finish protection film that preserves a satin appearance while protecting paint.
+
 ### XPEL SERIES
 - XPEL_EXO_7Y
 - XPEL_UP_10Y
 - XPEL_UP10_10Y
 - XPEL_FUSION_10Y
 - XPEL_STEALTH_10Y
+
+### XPEL_EXO_7Y
+- display_name: XPEL EXO
+- warranty_label: 7 Years
+- finish_type: gloss
+- positioning_tags: [PREMIUM_BRAND, DAILY_PROTECTION]
+- short_description: Premium clear paint protection focused on daily urban driving conditions.
+
+### XPEL_UP_10Y
+- display_name: XPEL Ultimate Plus
+- warranty_label: 10 Years
+- finish_type: gloss
+- positioning_tags: [PREMIUM_BRAND, HIGH_DURABILITY]
+- short_description: High-performance paint protection film with enhanced durability for demanding use.
+
+### XPEL_FUSION_10Y
+- display_name: XPEL Ultimate Fusion
+- warranty_label: 10 Years
+- finish_type: gloss
+- positioning_tags: [PREMIUM_BRAND, TOP_TIER]
+- short_description: Top-tier XPEL protection combining durability with advanced surface performance.
+
+### XPEL_UP10_10Y
+- display_name: XPEL Ultimate Plus 10
+- warranty_label: 10 Years
+- finish_type: gloss
+- positioning_tags: [PREMIUM_BRAND, EXTREME_PROTECTION]
+- short_description: Advanced long-term protection film designed for maximum impact resistance.
+
+### XPEL_STEALTH_10Y
+- display_name: XPEL Stealth
+- warranty_label: 10 Years
+- finish_type: matte
+- positioning_tags: [MATTE_LOOK, PREMIUM_BRAND]
+- short_description: Matte-finish protection film delivering a stealth appearance with full paint protection.
 
 ### FRONT PPF PACKAGES
 - PPF_FRONT_GLOBAL
@@ -107,6 +170,24 @@ Wrap detection aliases (map to service intent VEHICLE_WRAP):
 - CERAMIC_3Y
 - CERAMIC_5Y
 
+### CERAMIC_1Y
+- display_name: Bronze Ceramic
+- warranty_label: 1 Year
+- positioning_tags: [ENTRY_LEVEL, EASY_MAINTENANCE]
+- short_description: Entry ceramic coating focused on gloss enhancement and easier cleaning.
+
+### CERAMIC_3Y
+- display_name: Silver Ceramic
+- warranty_label: 3 Years
+- positioning_tags: [BALANCED_PROTECTION]
+- short_description: Mid-term ceramic coating offering stable gloss and wash resistance.
+
+### CERAMIC_5Y
+- display_name: Gold Ceramic
+- warranty_label: 5 Years
+- positioning_tags: [LONG_TERM, HIGH_GLOSS]
+- short_description: Long-term ceramic coating designed for sustained gloss and surface protection.
+
 ---
 
 ## 5) GRAPHENE COATING
@@ -114,6 +195,24 @@ Wrap detection aliases (map to service intent VEHICLE_WRAP):
 - GRAPHENE_1Y
 - GRAPHENE_3Y
 - GRAPHENE_5Y
+
+### GRAPHENE_1Y
+- display_name: Bronze Graphene
+- warranty_label: 1 Year
+- positioning_tags: [ENTRY_LEVEL, HEAT_RESISTANCE]
+- short_description: Entry graphene coating with improved heat tolerance and durability.
+
+### GRAPHENE_3Y
+- display_name: Silver Graphene
+- warranty_label: 3 Years
+- positioning_tags: [BALANCED_PROTECTION, HEAT_RESISTANCE]
+- short_description: Mid-term graphene coating providing enhanced durability and thermal stability.
+
+### GRAPHENE_5Y
+- display_name: Gold Graphene
+- warranty_label: 5 Years
+- positioning_tags: [LONG_TERM, MAX_DURABILITY]
+- short_description: Long-term graphene coating engineered for maximum durability and resistance.
 
 ---
 
