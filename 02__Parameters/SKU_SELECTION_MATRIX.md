@@ -1,52 +1,175 @@
-# SKU_SELECTION_MATRIX.md
+# PHASE 3 — SERVICE SELECTION MATRIX (LOCKED)
 
-Purpose (HARD):
-- This file is the ONLY authority for “which SKU should be shown” (ordering + ladders).
-- Engines MUST NOT invent, reorder, or substitute SKUs outside what is listed here.
-- Uses ONLY SKU IDs that exist in GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md.
+Applies to:
+- PPF
+- Ceramic Coating
+- Graphene Coating
+- Polishing (prep-only)
 
-Scope (current):
-- PPF only (CITY/HIGHWAY × VCB_1/2/3 × BRAND_INTENT DEFAULT/XPEL)
+This file defines DEFAULT / SECOND / UPLADDER / DOWNLADDER logic.
+No invention allowed. Use SKUs from GLOBAL_PRODUCT_NAMING_REGISTRY only.
 
-Row contract (HARD):
-- Each row MUST define:
-  - DEFAULT (A)
-  - SECOND (B)
-  - UPLADDER
-  - DOWNLADDER
-- Do NOT add extra variants.
-- If a row is missing, engine must ask 1 clarifier OR fall back to a safe default rule (but must NOT guess new SKUs).
+────────────────────────────────────────────
+1) PPF — PAINT PROTECTION FILM
+────────────────────────────────────────────
 
-Enums:
-- VEHICLE_CLASS_BAND: VCB_1 | VCB_2 | VCB_3
-- DRIVING_PROFILE: CITY | HIGHWAY
-- BRAND_INTENT: DEFAULT | XPEL
+Rules (Global):
+- Coverage default = FULL BODY
+- Front PPF is NEVER named unless customer is cost-conscious or asks
+- Brand is surfaced ONLY if explicitly requested
+- Driving pattern affects ordering (CITY vs HIGHWAY)
 
-Format (LOCKED):
-- Keep as a table (easy to diff + review).
+──────────────
+VCB_1 — DAILY / MID SEGMENT
+──────────────
 
----
+VCB_1 | DEFAULT | CITY
+- Default (A): GLOBAL_LUXE_5Y
+- Second (B): GLOBAL_ELITE_8Y
+- Upladder: GLOBAL_SIGNATURE_10Y
+- Downladder: PPF_FRONT_GLOBAL
 
-## PPF — SKU Selection Matrix
+VCB_1 | DEFAULT | HIGHWAY
+- Default (A): GLOBAL_ELITE_8Y
+- Second (B): GLOBAL_SIGNATURE_10Y
+- Upladder: XPEL_EXO_7Y
+- Downladder: GLOBAL_LUXE_5Y
 
-| VEHICLE_CLASS_BAND | DRIVING_PROFILE | BRAND_INTENT | DEFAULT (A) | SECOND (B) | UPLADDER | DOWNLADDER |
-|---|---|---|---|---|---|---|
-| VCB_1 | CITY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_1 | HIGHWAY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_1 | CITY | XPEL | TBD | TBD | TBD | TBD |
-| VCB_1 | HIGHWAY | XPEL | TBD | TBD | TBD | TBD |
-| VCB_2 | CITY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_2 | HIGHWAY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_2 | CITY | XPEL | TBD | TBD | TBD | TBD |
-| VCB_2 | HIGHWAY | XPEL | TBD | TBD | TBD | TBD |
-| VCB_3 | CITY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_3 | HIGHWAY | DEFAULT | TBD | TBD | TBD | TBD |
-| VCB_3 | CITY | XPEL | TBD | TBD | TBD | TBD |
-| VCB_3 | HIGHWAY | XPEL | TBD | TBD | TBD | TBD |
+VCB_1 | XPEL | CITY
+- Default (A): XPEL_EXO_7Y
+- Second (B): GLOBAL_ELITE_8Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_LUXE_5Y
 
-Notes:
-- “DEFAULT (Global)” = BRAND_INTENT DEFAULT.
-- If customer explicitly requests matte: selection is handled separately as:
-  - DEFAULT → GLOBAL_MATTE_10Y
-  - XPEL → XPEL_STEALTH_10Y
-  (Do NOT mix matte into the rows above unless you want a dedicated matte matrix later.)
+VCB_1 | XPEL | HIGHWAY
+- Default (A): XPEL_EXO_7Y
+- Second (B): GLOBAL_SIGNATURE_10Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_ELITE_8Y
+
+──────────────
+VCB_2 — PREMIUM SEGMENT
+──────────────
+
+VCB_2 | DEFAULT | CITY
+- Default (A): GLOBAL_ELITE_8Y
+- Second (B): GLOBAL_LUXE_5Y
+- Upladder: GLOBAL_SIGNATURE_10Y
+- Downladder: PPF_FRONT_GLOBAL
+
+VCB_2 | DEFAULT | HIGHWAY
+- Default (A): GLOBAL_SIGNATURE_10Y
+- Second (B): GLOBAL_ELITE_8Y
+- Upladder: XPEL_EXO_7Y
+- Downladder: GLOBAL_LUXE_5Y
+
+VCB_2 | XPEL | CITY
+- Default (A): XPEL_EXO_7Y
+- Second (B): GLOBAL_ELITE_8Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_LUXE_5Y
+
+VCB_2 | XPEL | HIGHWAY
+- Default (A): XPEL_EXO_7Y
+- Second (B): GLOBAL_SIGNATURE_10Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_ELITE_8Y
+
+──────────────
+VCB_3 — LUXURY SEGMENT
+──────────────
+
+VCB_3 | DEFAULT | CITY
+- Default (A): GLOBAL_ELITE_8Y
+- Second (B): GLOBAL_SIGNATURE_10Y
+- Upladder: XPEL_EXO_7Y
+- Downladder: GLOBAL_LUXE_5Y
+
+VCB_3 | DEFAULT | HIGHWAY
+- Default (A): GLOBAL_SIGNATURE_10Y
+- Second (B): GLOBAL_ELITE_8Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_LUXE_5Y
+
+VCB_3 | XPEL | CITY
+- Default (A): XPEL_EXO_7Y
+- Second (B): GLOBAL_SIGNATURE_10Y
+- Upladder: XPEL_UP_10Y
+- Downladder: GLOBAL_ELITE_8Y
+
+VCB_3 | XPEL | HIGHWAY
+- Default (A): XPEL_UP_10Y
+- Second (B): XPEL_EXO_7Y
+- Upladder: XPEL_FUSION_10Y
+- Downladder: GLOBAL_SIGNATURE_10Y
+
+──────────────
+MATTE PPF (ALL SEGMENTS)
+──────────────
+- Default: GLOBAL_MATTE_10Y
+- If brand explicitly requested: XPEL_STEALTH_10Y
+
+────────────────────────────────────────────
+2) CERAMIC & GRAPHENE — FULL BODY ONLY
+────────────────────────────────────────────
+
+Rules:
+- No partial variants
+- No polishing bundles
+- Selection influenced by VEHICLE AGE
+- Vehicle segment affects ORDER, not SKUs
+
+──────────────
+Vehicle Age 0–3 Years
+──────────────
+- Default (A): CERAMIC_3Y
+- Second (B): CERAMIC_5Y
+- Upladder: GRAPHENE_3Y
+- Downladder: CERAMIC_1Y
+
+──────────────
+Vehicle Age 3–6 Years
+──────────────
+- Default (A): CERAMIC_1Y
+- Second (B): CERAMIC_3Y
+- Upladder: CERAMIC_5Y
+- Downladder: GRAPHENE_1Y
+
+──────────────
+Vehicle Age 7+ Years
+──────────────
+- Default (A): CERAMIC_1Y
+- Second (B): GRAPHENE_1Y
+- Upladder: CERAMIC_3Y
+- Downladder: NONE (paint correction gate upstream)
+
+────────────────────────────────────────────
+3) POLISHING — PREP ONLY (NOT A SKU LADDER)
+────────────────────────────────────────────
+
+Rules:
+- Polishing is NEVER a standalone upsell
+- Polishing is NEVER priced inside ladder
+- Polishing is introduced as paint preparation only
+
+──────────────
+Vehicle Age 0–3
+──────────────
+- No polishing by default
+- Mention only if swirls / defects are raised
+
+──────────────
+Vehicle Age 3–6
+──────────────
+- Light polishing may be required
+- Framed as bonding & finish prep
+
+──────────────
+Vehicle Age 7+
+──────────────
+- Polishing required for ceramic / graphene
+- If refused → conditional ladder or inspection path
+
+────────────────────────────────────────────
+END OF FILE — LOCKED
+────────────────────────────────────────────
