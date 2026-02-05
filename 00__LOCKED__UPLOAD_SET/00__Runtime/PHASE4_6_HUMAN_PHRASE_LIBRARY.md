@@ -597,6 +597,74 @@ Purpose: Prepare the customer for pricing discussion without quoting, anchoring,
 
 ---
 
+# ------------------------------------------------------------
+# PHASE 4.6 — PRE-PRICE & OPTION FRAMING (NO PRICES)
+# ------------------------------------------------------------
+
+## PRE-PRICE REASSURANCE BRIDGE (VALUE ALIGNMENT)
+Purpose:
+- Summarize customer signals
+- Reassure fit BEFORE pricing
+- Reduce sticker shock
+
+EN:
+Based on how you use and care for the car, this is the option that usually makes the most sense.
+That way, when we look at pricing, it feels logical rather than surprising.
+
+AR:
+بناءً على طريقة استخدامك والعناية بالسيارة، هذا الخيار غالباً هو الأنسب.
+علشان كذا لما نشوف السعر يكون منطقي ومفهوم.
+
+---
+
+## OPTION SELECTION LOGIC (WHY YOU’RE SEEING THESE)
+Purpose:
+- Explain option appearance
+- Avoid feature comparison
+- Maintain authority
+
+EN:
+I’m showing you these two options because they’re the most suitable for this type of car and usage.
+We can narrow further once you see which direction feels right.
+
+AR:
+أعرض لك هالخيارين لأنهم الأنسب لهذا النوع من السيارات وطريقة الاستخدام.
+وبعدها نقدر نضيّق الاختيار حسب اللي يناسبك أكثر.
+
+---
+
+## ANALOGY REINFORCEMENT (SHORT VARIANTS)
+Purpose:
+- Reinforce understanding
+- Use only when helpful
+
+PPF — EN:
+Think of PPF like a screen protector — it’s about peace of mind against everyday impacts.
+
+PPF — AR:
+الـPPF مثل واقي الشاشة — راحة بال ضد الضربات اليومية.
+
+CERAMIC — EN:
+Ceramic is more like skincare — it keeps the paint healthy and looking fresh over time.
+
+CERAMIC — AR:
+السيراميك مثل العناية بالبشرة — يحافظ على الطلاء نظيف ولمّاع مع الوقت.
+
+---
+
+## SOFT VISIT / INSPECTION / CONTINUATION INVITE
+Purpose:
+- Offer next step without pressure
+- Use when scope or confidence needs support
+
+EN:
+If you’d like, we can also do a quick visit or inspection so everything is clear before moving ahead.
+
+AR:
+وإذا حاب، نقدر نسوي زيارة أو فحص بسيط علشان يكون كل شيء واضح قبل ما نكمل.
+
+---
+
 ## L. NEUTRAL TRANSITION STATEMENTS
 
 Purpose: Smoothly conclude explanation and prepare the conversation for a natural next step without prompting, pressure, or hooks.
