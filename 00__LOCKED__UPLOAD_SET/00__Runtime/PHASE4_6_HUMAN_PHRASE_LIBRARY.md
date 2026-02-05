@@ -2,6 +2,32 @@
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
 ────────────────────────────────────────────────────────────
 
+# ────────────────────────────────────────────────────────────
+# PRODUCT METADATA AUTHORITY (HARD RULE)
+# ────────────────────────────────────────────────────────────
+#
+# Human-facing phrases MUST NOT contain:
+# - Product descriptions
+# - Warranty explanations
+# - Technical capability summaries
+#
+# All product facts (name, warranty, capability framing) are sourced from:
+#   02__Repositories/GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+#
+# This file controls:
+# - Tone
+# - Flow
+# - Question sequencing
+# - Value framing
+#
+# Product metadata is injected at runtime via:
+# - display_name
+# - warranty_years
+# - service_type
+#
+# SKU IDs must NEVER be exposed to customers.
+# ────────────────────────────────────────────────────────────
+
 Purpose:
 - Control conversation momentum AFTER options or pricing
 - Pre-empt silence, comparison, and hesitation
