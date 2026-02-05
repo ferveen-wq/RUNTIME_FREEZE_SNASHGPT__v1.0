@@ -444,3 +444,22 @@ This engine is finalized and frozen.
 Any modification requires a version bump (v1.1+) and formal architecture review.
 
 LOCKED_ON: 2026-01-08
+---
+
+## CUSTOMER-FACING LABEL RULE (LOCKED)
+
+When presenting any option(s) to the customer (A/B, upladder/downladder, etc.):
+
+1) DO NOT display raw SKU IDs (e.g., GLOBAL_ELITE_8Y, XPEL_UP_10Y) in customer-facing text.
+2) Instead, render:
+   - display_name (from GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md)
+   - warranty (from GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md)
+   Example format:
+   - Option A: <display_name> — <warranty>
+
+3) short_description may be used ONLY when a single neutral clarification is needed,
+   and must remain one sentence max (no marketing claims).
+
+Single source of truth for these fields:
+- 02__Repositories/GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+
