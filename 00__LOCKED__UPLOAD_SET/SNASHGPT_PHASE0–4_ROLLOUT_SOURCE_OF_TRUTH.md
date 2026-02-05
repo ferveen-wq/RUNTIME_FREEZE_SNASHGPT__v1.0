@@ -281,6 +281,22 @@ Status: ⏳ PENDING
 - No phrase changes required
 
 
+## DEFERRED / LATER-PHASE ITEMS (ACKNOWLEDGED, NOT LOST)
+
+- [DEFERRED] WhatsApp number capture
+  - Triggered ONLY post-price or at closing intent
+  - Optional, convenience-framed (never forced)
+  - Implemented via Phase 4 overlay → Stage 7 handoff
+  - Phrase authority: PHASE4_6_HUMAN_PHRASE_LIBRARY
+  - Decision authority: DECISION_MATRIX / CLOSING_HANDOVER_ENGINE
+
+- [DEFERRED] Visit request / inspection invitation
+  - Triggered after pricing or when proof/reassurance is requested
+  - Never pre-price
+  - Phrase authority: PHASE4_6_HUMAN_PHRASE_LIBRARY
+  - Routing authority: PHASE4_8_MESSAGE_ASSEMBLY_MAP
+
+
 ────────────────────────────────────────────
 SECTION E — ROLLOUT CRITERIA
 ────────────────────────────────────────────
