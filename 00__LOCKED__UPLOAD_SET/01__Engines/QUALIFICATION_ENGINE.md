@@ -1,3 +1,80 @@
+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+
+# PHASE 3A — QUALIFIER-FIRST GATE (HARD)
+# Purpose:
+# - Ask exactly ONE qualifier question per service before Phase 3B pricing/SKU logic.
+# - Must NOT affect Phase 0–2.
+# - Must respect VEHICLE_AGE_BUCKET override for AGE_7_PLUS_YEARS.
+#
+# Emits:
+# - phase3a_required = true|false
+# - phase3a_qualifier_id (string, used by Assembly Map)
+# - phase3a_complete = true|false
+# - phase3a_last_qualifier_id (persisted for 1-turn completion)
+#
+# Notes:
+# - Completion rule is intentionally strict + minimal:
+#   If the last assistant turn asked a Phase3A qualifier, then the next user message
+#   marks Phase3A complete (store raw response; Phase 3B can interpret).
+# - This avoids accidental multi-question loops and keeps Phase 3A deterministic.
+# ============================================================
+
+### 3A.1) PHASE3A_QUALIFIER_FIRST (HARD — Phase 3 only)
+
+Trigger condition:
+- If phase == PHASE_3
+- AND qualification_status == READY (vehicle_model + vehicle_year already known)
+- AND service_intent != unknown
+- AND request_type in [PRICE_REQUEST, SERVICE_CONFIRMED, SERVICE_SWITCH_CONFIRMED, SCOPE_CONFIRMED]
+- AND phase3a_complete != true
+
+Completion short-circuit:
+- If previous_turn.phase3a_required == true
+  AND previous_turn.phase3a_qualifier_id is present
+  AND current_message is a user reply (any content)
+  THEN:
+  - Set phase3a_complete = true
+  - Set phase3a_required = false
+  - Persist phase3a_last_qualifier_id = previous_turn.phase3a_qualifier_id
+  - Persist phase3a_response_raw = current_message.raw_text
+  - Do NOT block Phase 3B
+
+Selection rules (when asking):
+- If VEHICLE_AGE_BUCKET == AGE_7_PLUS_YEARS
+  AND service_intent in [PPF, CERAMIC, WRAP]:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+  - Stop (Phase 3B must wait)
+
+- Else if service_intent == PPF:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
+  - Stop
+
+- Else if service_intent == CERAMIC:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
+  - Stop
+
+- Else if service_intent == TINT:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
+  - Stop
+
+- Else if service_intent == WRAP:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_WRAP_FINISH
+  - Stop
+
+- Else if service_intent == POLISHING:
+  - phase3a_required = true
+  - phase3a_qualifier_id = PHASE3A_Q_POLISHING_SCOPE
+  - Stop
+
+- Else:
+  - phase3a_required = false
+  - phase3a_complete = true
+  - Allow Phase 3B
+
 ────────────────────────────────────────────────────────────
 PPF HANDOFF RULE (PHASE 0–2 → PHASE 3A) — LOCKED
 ────────────────────────────────────────────────────────────
@@ -213,6 +290,47 @@ Emit:
 - service_intent = previous_turn.service_intent
 - active_service_context = previous_turn.service_intent
 
+### 2.46B) VEHICLE_PARTIAL_CARRY_FORWARD (HARD — Phase 0–2)
+
+Trigger condition:
+- Phase is 0–2
+- previous_turn.request_type == VEHICLE_DETAILS_PROVIDED OR SERVICE_CONFIRMED
+- previous_turn.vehicle_year is present
+- previous_turn.missing_fields == [vehicle_model]
+- current message provides vehicle_model (or resolves to a canonical vehicle_model)
+- current message does NOT introduce a new 4-digit year
+
+Behavior:
+- Preserve previous_turn.vehicle_year into current vehicle_year
+- Set missing_fields to only what is still missing after preservation:
+  - If vehicle_model is now valid and vehicle_year is preserved -> missing_fields = []
+  - If vehicle_model is still invalid -> missing_fields = [vehicle_model]
+
+Notes:
+- This rule exists to prevent the “ask year again” loop after an invalid model token with a valid year (e.g., “bmx 2023” → “bmw x5”).
+- No guessing or auto-correction.
+- Applies ONLY in Phase 0–2.
+
+### 2.47) VEHICLE_MODEL_VALIDATION (STRICT — Phase 0–2)
+
+Trigger condition:
+- If vehicle_model is present AND vehicle_year is present
+
+Behavior:
+- Validate vehicle_model against GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY
+- If validation FAILS:
+  - Do NOT clear missing_fields
+  - Preserve vehicle_year (it is already present)
+  - Set missing_fields = [vehicle_model]
+  - Set qualification_state = NOT_READY
+  - Route to L.1 QUALIFICATION CLARIFIER (MODEL_ONLY)
+
+Notes:
+- No guessing or auto-correction
+- No alias invention
+- Repository is the single source of truth
+- This rule applies ONLY in Phase 0–2
+
   2.5) SERVICE_CONFIRMED_PRIORITY (HARD)
 
 Trigger:
@@ -228,8 +346,8 @@ Behavior:
 If minimum vehicle context is missing:
 - Set qualification_state = NOT_READY
 - Populate missing_fields with:
-  - vehicle_model
-  - vehicle_year
+  - vehicle_model (only if missing)
+  - vehicle_year (only if missing)
 - Set allowed_next_actions to include:
   - ask_missing_info
 - Set QUALIFICATION_STATUS = NOT_READY

@@ -1,3 +1,33 @@
+# ============================================================
+# PHASE 3A — QUALIFIER-FIRST OUTPUT ROUTING (HARD)
+# - If Qualification Engine says Phase3A qualifier is required:
+#   output exactly ONE question from Phrase Library and STOP.
+# - This prevents Phase 3B pricing ladders from firing early.
+# ============================================================
+
+### 3A) Phase 3A Qualifier-First Gate (HARD)
+
+IF phase == PHASE_3
+AND phase3a_required == true
+AND phase3a_qualifier_id is present:
+
+  - suppress_hooks = TRUE
+  - Output MUST be:
+    - EN first, then AR
+    - exactly 1 question
+    - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+  - Mapping (phase3a_qualifier_id → Phrase block):
+    - PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+    - PHASE3A_Q_PPF_DRIVING_PATTERN            → PHASE3A_Q_PPF_DRIVING_PATTERN
+    - PHASE3A_Q_CERAMIC_WASH_PATTERN           → PHASE3A_Q_CERAMIC_WASH_PATTERN
+    - PHASE3A_Q_TINT_COVERAGE                  → PHASE3A_Q_TINT_COVERAGE
+    - PHASE3A_Q_WRAP_FINISH                    → PHASE3A_Q_WRAP_FINISH
+    - PHASE3A_Q_POLISHING_SCOPE                → PHASE3A_Q_POLISHING_SCOPE
+
+  - selected_phrase_id MUST equal the phrase block name above.
+  - STOP (do not append any other blocks).
+
 # ─────────────────────────────────────────────────────────────
 # PHASE 4 — POST-PRICE / POST-OPTIONS ROUTING OVERLAY (LOCKED)
 # ─────────────────────────────────────────────────────────────
@@ -106,6 +136,7 @@ Purpose: Deterministic routing from signals → approved phrases.
 Applies when:
 - Phase in {0,1,2}
 - vehicle_model OR vehicle_year is missing
+  OR vehicle_model_validation == FAIL
 Effect:
 - Force response to VEHICLE REQUEST phrase
 - Suppress:
@@ -115,6 +146,12 @@ Effect:
   - competitor resistance explanations
   - technical explanations
   - Phase 6 blocks that do not request vehicle
+
+Hard lock (Phase 0–2):
+- If vehicle_model_validation == FAIL:
+  - Use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIER (V1)
+  - Do NOT add examples (e.g., “X5 / X3 / 3 Series”)
+  - Do NOT restate or “interpret” the invalid model
 
 ### OVERRIDE 2 — CONTINUITY INVARIANT
 Applies when:
@@ -316,7 +353,10 @@ Default trigger condition (any one):
 
 Default output behavior (when no exception applies):
 - Output MUST contain exactly 1 question total.
-- That question MUST be from L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS) using missing_info_ask_count variant (V1/V2/V3).
+- That question MUST be from L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS) and MUST match missing_fields exactly:
+  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
+  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
+  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
 - Output MUST contain ONLY the question line(s) (no prefacing, no acknowledgements, no examples, no extra sentences).
 - Suppress hooks, preferences, education, upsell blocks until QUALIFICATION_STATUS = READY.
 - Do NOT ask preference questions until QUALIFICATION_STATUS = READY.
@@ -329,7 +369,10 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
+- Append exactly 1 question from L.1 that matches missing_fields exactly:
+  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
+  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
+  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
 - Do NOT include any other questions.
 - Suppress hooks.
 
@@ -341,7 +384,10 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
+- Append exactly 1 question from L.1 that matches missing_fields exactly:
+  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
+  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
+  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
 - Do NOT include any other questions.
 - Suppress hooks.
 
@@ -380,6 +426,7 @@ Trigger condition (all must be true):
 - active_service_context != null
 - detected_service_intent_in_message != unknown
 - detected_service_intent_in_message != active_service_context
+- missing_fields is empty
 
 Required output behavior (override Route B):
 - Do NOT route to any PHASE6__SERVICE_* explanation in this turn.

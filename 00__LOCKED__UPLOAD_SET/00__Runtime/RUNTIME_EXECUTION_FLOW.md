@@ -84,6 +84,20 @@ Order of operations (MANDATORY):
 - Resume normal routing ONLY on the next customer reply.
 4) Only after customer explicitly confirms switching services may active_service_context be updated.
 
+### Phase 3A (Qualifier-First) — REQUIRED BEFORE Phase 3B
+
+Order rule (HARD):
+- After Phase 0–2 has produced READY state (vehicle_model + vehicle_year present)
+- And Phase 3 begins (price/scope/objection/compare flows)
+- Run Phase 3A Qualifier-First Gate BEFORE Phase 3B pricing/SKU logic.
+
+If phase3a_required == true:
+- Assembly must output exactly one Phase 3A qualifier question and STOP.
+- Phase 3B must not execute until the customer replies (phase3a_complete == true).
+
+If phase3a_complete == true:
+- Proceed to Phase 3B pricing/SKU selection and subsequent Phase 4 responses.
+
 ### Step 0.5 — Global Silence Gate (Phase-Agnostic)
 
 Purpose:

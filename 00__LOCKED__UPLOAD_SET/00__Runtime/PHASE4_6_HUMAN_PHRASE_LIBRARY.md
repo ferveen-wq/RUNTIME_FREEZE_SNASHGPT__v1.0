@@ -1,3 +1,29 @@
+## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
+
+### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+EN: Before we proceed, has the car had any repaint work or deep scratches?
+AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
+
+### PHASE3A_Q_PPF_DRIVING_PATTERN
+EN: Do you mostly drive in the city, or do you often travel long distances on highways?
+AR: استخدامك أغلبه داخل المدينة، ولا تسافر كثير على الخطوط السريعة؟
+
+### PHASE3A_Q_CERAMIC_WASH_PATTERN
+EN: How do you usually wash the car — hand wash, automatic wash, waterless mall wash, or a mix?
+AR: شلون عادة تغسل السيارة — غسيل يدوي، غسيل آلي، غسيل بدون ماء في المولات، أو خليط؟
+
+### PHASE3A_Q_TINT_COVERAGE
+EN: For tint, do you want front only, sides and rear, or full coverage?
+AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
+
+### PHASE3A_Q_WRAP_FINISH
+EN: For wrap, which finish are you leaning toward — gloss, satin, or matte?
+AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو مطفي؟
+
+### PHASE3A_Q_POLISHING_SCOPE
+EN: For polishing, do you want exterior only, or a full detail that includes interior and engine bay?
+AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل يشمل الداخلي وغرفة المكينة؟
+
 ────────────────────────────────────────────────────────────
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
 ────────────────────────────────────────────────────────────
@@ -305,15 +331,12 @@ AR:
 
 ---
 
-A4 — GREETING + SERVICE CONTEXT (“hi”, “hello”)
+A4 — GREETING (NEUTRAL, NO QUALIFICATION) (“hi”, “hello”, “salam”)
 
-EN:
-Hello.
-How can we help you with your car today?
+### A4_GREETING_SERVICE_CONTEXT
 
-AR:
-مرحباً.
-كيف نقدر نساعدك بخصوص سيارتك؟
+- EN: Hello, welcome. We do PPF, ceramic coating, tint, wrap, and polishing. What’s the car model and year?
+- AR: هلا ومرحباً. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. شنو موديل السيارة وأي سنة؟
 
 ---
 
@@ -374,6 +397,17 @@ Ceramic coating is like skincare for your car’s paint. It keeps the finish glo
 AR:
 السيراميك مثل العناية بالبشرة لطلاء السيارة. يحافظ على اللمعة، يقلّل آثار الغسيل مع الوقت، ويخلّي التنظيف أسهل عشان تظل السيارة شكلها فريش لسنين. عشان أوجّهك صح، شنو موديل السيارة وأي سنة؟
 
+- EN: Ceramic coating involves proper paint preparation before application.
+  AR: طلاء السيراميك يتضمن تجهيز الطلاء بشكل مناسب قبل التطبيق.
+
+- EN: Ceramic coating protects the exterior paint, while interior ceramic focuses separately on interior surfaces.
+  AR: طلاء السيراميك يختص بحماية الطلاء الخارجي، بينما السيراميك الداخلي يركّز بشكل منفصل على الأسطح الداخلية.
+
+### INTERIOR CERAMIC — CORE ANCHOR (PRE-PRICE)
+
+- EN: Interior ceramic is like a non-stick layer for the interior — everyday spills and dirt don’t stick easily, making cleaning much simpler.
+  AR: السيراميك الداخلي يشبه طبقة مانعة للالتصاق داخل السيارة — الأوساخ والسوائل اليومية ما تمسك بسهولة، والتنظيف يصير أسهل.
+
 ### C.3 CERAMIC WASH PATTERN QUALIFIER (PHASE 0–2)
 
 EN:
@@ -381,6 +415,40 @@ To guide this properly, how do you usually wash the car — bucket/hand wash, tu
 
 AR:
 عشان أوجّهك صح، شلون عادة تغسل السيارة — غسيل يدوي/سطل، غسيل نفق/آلي، غسيل بدون ماء في مواقف المولات، أو خليط؟
+
+### TINT — CORE ANCHOR (PRE-PRICE)
+
+- EN: Window tint is about sun protection for your family, not just making the glass dark.
+  AR: تظليل الزجاج يركّز على حماية عائلتك من الشمس، مو بس تعتيم الزجاج.
+
+- EN: Good tint reduces heat, glare, and harmful rays while keeping clear visibility inside the car.
+  AR: التظليل الجيد يقلل الحرارة والوهج والأشعة الضارة مع الحفاظ على وضوح الرؤية داخل السيارة.
+
+- EN: The difference is felt in daily comfort, not in how dark the windows look.
+  AR: الفرق الحقيقي يبان في الراحة اليومية، مو في درجة التظليل فقط.
+
+### TINT — COVERAGE FRAMING (EXPOSURE ZONES)
+
+- EN: Some drivers focus protection on the front for eye comfort, others on the sides and back for privacy, and some prefer full coverage for balanced comfort all around.
+  AR: بعض السائقين يفضّلون حماية الزجاج الأمامي لراحة العين، وآخرين الجوانب والخلفية للخصوصية، والبعض يختار تغطية كاملة لراحة متوازنة داخل السيارة.
+
+### WRAP — CORE ANCHOR (PRE-PRICE)
+
+- EN: Wrap is about presence — like someone who changes the room the moment they arrive, the car is noticed before it’s explained.
+  AR: التغليف يتعلق بالحضور — مثل الشخص الذي يغيّر أجواء المكان عند دخوله، السيارة تُلاحظ قبل ما تحتاج شرح.
+
+- EN: It’s a visual statement that gives the car a distinct character and stand-out appeal.
+  AR: هو تعبير بصري يعطي السيارة شخصية واضحة وحضور لافت.
+
+### WRAP — STYLE DIRECTION (FINISH SELECTION)
+
+- EN: Some prefer a bold, clean gloss look, others go for a muted matte feel, and some choose satin for a balance in between.
+  AR: البعض يفضّل اللمسة اللامعة الجريئة، والبعض يختار المظهر المطفي الهادئ، وآخرون يفضلون الساتان للتوازن بين الاثنين.
+
+### POLISHING — CORE ANCHOR (PRE-PRICE)
+
+- EN: Polishing is like a factory reset for the paint — it brings the finish and gloss back toward how it was meant to look.
+  AR: التلميع يشبه إعادة ضبط المصنع للطلاء — يعيد اللمعة والمظهر أقرب لما كانت عليه السيارة في الأصل.
 
 - EN: Different car care services exist for different goals.
   AR: توجد خدمات عناية مختلفة بالسيارات حسب الهدف.
@@ -522,6 +590,14 @@ Purpose: Explain common objections calmly without argument or pressure.
 - EN: Expectations and usage play a big role in deciding.
   AR: التوقعات وطريقة الاستخدام لها دور كبير في القرار.
 
+### TINT — SPEC & BRAND CONFUSION (SAFE RESPONSE)
+
+- EN: Darkness and percentages don’t always reflect protection — performance comes from the film technology itself.
+  AR: درجة التعتيم أو النسب ما تعكس دائماً مستوى الحماية — الأداء الحقيقي يعتمد على تقنية الفيلم.
+
+- EN: We keep one high heat-rejection standard, and only use specific brands like XPEL when a customer asks for it.
+  AR: نعتمد معيار واحد عالي لعزل الحرارة، ونستخدم علامات مثل XPEL فقط إذا طلبها العميل.
+
 
 
 ## I. NEGOTIATION-SAFE VALUE FRAMING
@@ -595,6 +671,16 @@ Purpose: Prepare the customer for pricing discussion without quoting, anchoring,
 - EN: We can go through the details step by step when you’re ready.
   AR: يمكننا مراجعة التفاصيل خطوة بخطوة عندما تكون جاهزًا.
 
+### TINT — PRICE CONTEXT (NO NUMBERS)
+
+- EN: Tint pricing mainly depends on the coverage area and the film type used, not just darkness.
+  AR: سعر التظليل يعتمد بشكل أساسي على مساحة التغطية ونوع الفيلم، وليس فقط على درجة التعتيم.
+
+### WRAP — PRICE CONTEXT (NO NUMBERS)
+
+- EN: Wrap pricing mainly depends on the finish choice and the amount of coverage needed.
+  AR: سعر التغليف يعتمد بشكل أساسي على نوع اللمسة المختارة ومساحة التغطية المطلوبة.
+
 ---
 
 # ------------------------------------------------------------
@@ -657,11 +743,14 @@ Purpose:
 - Offer next step without pressure
 - Use when scope or confidence needs support
 
-EN:
-If you’d like, we can also do a quick visit or inspection so everything is clear before moving ahead.
+### Z_DEPRECATED__VISIT_SUGGESTION_LINE (DO NOT USE IN PHASE 0–2)
+DEPRECATED.
+Reason:
+- Visit / inspection suggestions belong to Phase 4 (pre-price / decision support).
+- This line must never be selected during Phase 0–2.
 
-AR:
-وإذا حاب، نقدر نسوي زيارة أو فحص بسيط علشان يكون كل شيء واضح قبل ما نكمل.
+EN: If you’d like, we can also do a quick visit or inspection so everything is clear before moving ahead.
+AR: وإذا حاب، نقدر نسوي زيارة أو فحص بسيط علشان يكون كل شيء واضح قبل ما نكمل.
 
 ---
 
@@ -669,13 +758,18 @@ AR:
 
 Purpose: Smoothly conclude explanation and prepare the conversation for a natural next step without prompting, pressure, or hooks.
 
-### L.0 BROWSING SAFE PRIMER (ONE QUESTION)
+### L.0 BROWSING SAFE PRIMER (ONE QUESTION — SERVICE-ANCHORED) (AUTHORITATIVE)
 
-- EN: Kindly tell me which service you’re interested in for your car, and I’ll guide you accordingly.
-- AR: تفضل خبرني أي خدمة مهتم فيها لسيارتك وأنا أوجهك بالشكل المناسب.
+Usage rule:
+- Used ONLY when request_type = BROWSING_GENERIC
+- Used ONLY when no vehicle details are present
+- MUST include exactly 1 soft question (not vehicle qualification)
+- MUST NOT mention prices
+- MUST NOT suggest a specific service
+- MUST NOT trigger qualification
 
-- EN_ALT: Let me know what you’re looking to do for your car, and I’ll help from there.
-- AR_ALT: قلّي شنو حاب تسوي لسيارتك وأنا أساعدك من هناك.
+EN: No problem at all. We do PPF, ceramic coating, tint, wrap, and polishing. Which one are you mainly looking at?
+AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. أي خدمة في بالك أكثر؟
 
 ### SERVICE LIST — PHASE 0–2
 - EN: We can help with PPF, ceramic, tint, wrap, and polishing. What’s the car model and year?
@@ -759,7 +853,11 @@ AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أس�
 - EN: We do Ceramic Coating, PPF (paint protection film), Window Tint, and Wrapping. If you tell me your car model and year, I’ll guide you to the right option.
   AR: خدماتنا تشمل سيراميك، PPF (حماية الطلاء)، تظليل، وتغليف. إذا تعطيني موديل السيارة وسنة الصنع أقدر أرشدك للخيار المناسب.
 
-### L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS)
+### Z_DEPRECATED__L.1_QUALIFICATION_CLARIFIERS__LEGACY_BLOCK (DO NOT USE)
+DEPRECATED — kept for history only.
+Reason:
+- Prevent duplicate selector targets in runtime.
+- Authoritative L.1 (V1/V2/V3) is defined below.
 
 - EN: What’s the car model and year?
   AR: شنو موديل السيارة وسنة الصنع؟
@@ -794,39 +892,36 @@ AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أس�
 
 ---
 
-## L.0 BROWSING SAFE PRIMER (NO QUALIFICATION)
-
-Usage rule:
-- Used ONLY when request_type = BROWSING_GENERIC
-- Used ONLY when no vehicle details are present
-- MUST NOT ask questions
-- MUST NOT mention prices
-- MUST NOT suggest a specific service
-- MUST NOT trigger qualification
-
-EN:
-We offer professional car care and protection services designed for different needs.
-Some focus on long-term paint protection, others on easier maintenance or restoring appearance.
-The right option usually depends on how the car is used and its condition.
-
-AR:
-نقدّم خدمات عناية وحماية للسيارات، وكل خدمة مصمّمة لغرض مختلف.
-بعضها يركّز على حماية الطلاء لفترة طويلة، وبعضها على سهولة العناية أو تحسين المظهر.
-الاختيار الأنسب يعتمد غالباً على استخدام السيارة وحالتها.
-
----
-
-## L1. QUALIFICATION CLARIFIERS (VEHICLE DETAILS)
-
-DEPRECATED — DO NOT USE.
-Use: ## L.1. QUALIFICATION CLARIFIERS (VEHICLE DETAILS) (below)
-
+### Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__SERVICE_ANCHORED (DO NOT USE)
+DEPRECATED — duplicate selector risk.
 Reason:
-- Prevent duplicate selector targets in runtime.
-- Ensure only one authoritative qualification-clarifier block exists.
+- Phase 1–2 browsing is enforced by Assembly Map to use ONLY: "L.0 BROWSING SAFE PRIMER (ONE QUESTION)".
+This block is retained for history only.
+
+Usage rule (LOCKED):
+- Applies when request_type == BROWSING_GENERIC AND service_intent == unknown
+- MUST be business-specific (mention services)
+- MUST ask exactly ONE minimal car question (model + year in one sentence)
+- MUST NOT ask “what’s available”, “inventory”, or anything that sounds like car sales
+- MUST NOT give pricing, durations, or brand pushing
+
+- EN: [DEPRECATED — DO NOT ROUTE IN PHASE 0–2]
+- AR: ما في مشكلة. نشتغل على PPF، السيراميك، التظليل، التغليف، والتلميع. شنو السيارة وأي سنة موديل؟
 
 ---
 
+### Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__ALT (DO NOT USE)
+DEPRECATED — duplicate selector risk. Retained for history only.
+
+- EN: [DEPRECATED — DO NOT ROUTE IN PHASE 0–2]
+- AR: [محذوف — لا يستخدم]
+
+---
+
+### L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS) — V1/V2/V3 (AUTHORITATIVE)
+AUTHORITATIVE — this is the ONLY selectable L.1 block.
+Reason:
+- Assembly Map requires the single-question variant (V1/V2/V3) based on missing_info_ask_count.
 
 Usage rule:
 - Used ONLY when qualification_state = NOT_READY
@@ -845,6 +940,12 @@ AR (V2): سؤال سريع — شنو موديل السيارة وأي سنة؟
 
 EN (V3): Last detail I need: car model and year?
 AR (V3): آخر معلومة أحتاجها: موديل السيارة وأي سنة؟
+
+EN: What’s the exact car model?
+AR: شنو موديل السيارة بالضبط؟
+
+EN: What’s the model year?
+AR: شنو سنة الموديل؟
 
 ---
 
