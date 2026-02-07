@@ -9,8 +9,8 @@ EN: Do you mostly drive in the city, or do you often travel long distances on hi
 AR: استخدامك أغلبه داخل المدينة، ولا تسافر كثير على الخطوط السريعة؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
-EN: How do you usually wash the car — hand wash, automatic wash, waterless mall wash, or a mix?
-AR: شلون عادة تغسل السيارة — غسيل يدوي، غسيل آلي، غسيل بدون ماء في المولات، أو خليط؟
+EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
+AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
 
 ### PHASE3A_Q_TINT_COVERAGE
 EN: For tint, do you want front only, sides and rear, or full coverage?
@@ -23,6 +23,32 @@ AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو �
 ### PHASE3A_Q_POLISHING_SCOPE
 EN: For polishing, do you want exterior only, or a full detail that includes interior and engine bay?
 AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل يشمل الداخلي وغرفة المكينة؟
+
+## PHASE 3B — TRANSITION TO PRICING (ACK)
+
+### PHASE3B_CERAMIC_HAND_WASH
+EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
+
+### PHASE3B_CERAMIC_AUTO_WASH
+EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
+
+### PHASE3B_CERAMIC_WATERLESS
+EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
+
+### PHASE3B_CERAMIC_PRO_WASH
+EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
+
+### PHASE3B_PPF_CITY
+EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
+
+### PHASE3B_PPF_HIGHWAY
+EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ────────────────────────────────────────────────────────────
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
