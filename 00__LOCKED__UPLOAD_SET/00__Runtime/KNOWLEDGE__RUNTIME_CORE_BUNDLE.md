@@ -1,5 +1,15 @@
 # KNOWLEDGE__RUNTIME_CORE_BUNDLE.md
 
+────────────────────────────────────────────────────────────
+SIGNAL COVERAGE GOVERNANCE (HARD)
+────────────────────────────────────────────────────────────
+Rule:
+- Any parameter defined in 02__Parameters/CONVERSATION_DYNAMIC_PARAMETERS.md is a contract signal.
+- Engines may emit only contract signals (no invention).
+- If a contract signal can be emitted, it MUST have a routing coverage line in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
+- If a contract signal is routed, it MUST have at least one phrase ID in PHASE4_6_HUMAN_PHRASE_LIBRARY.md (fallback permitted).
+- If an emitted signal has no routing coverage in test mode → [ARCHITECTURE VIOLATION — RESPONSE SUPPRESSED]
+- In production mode, fallback routing MUST be used (do not hard-break).
 Version: 1.0  
 Scope: Runtime Knowledge Guardrails (Pre-Execution)  
 Phase: 0 – Intake & Control  

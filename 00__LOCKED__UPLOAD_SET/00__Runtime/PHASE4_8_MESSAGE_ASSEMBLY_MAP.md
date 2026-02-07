@@ -5,6 +5,40 @@
 # - This prevents Phase 3B pricing ladders from firing early.
 # ============================================================
 
+────────────────────────────────────────────────────────────
+SIGNAL CONTRACT COVERAGE — FALLBACK ROUTES (SAFE)
+────────────────────────────────────────────────────────────
+Purpose:
+- Ensure any emitted contract signal has at least one safe render path.
+- These are FALLBACKS only — they must not override Phase routing, qualification, pricing, or objection scripts.
+
+Rule:
+- If a signal below is present AND no higher-priority mapped path is active:
+  - Append exactly ONE matching fallback phrase from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Do NOT append a question here.
+
+Fallback routing:
+- If BUDGET_SIGNAL != UNKNOWN → SIG_FALLBACK_BUDGET_SIGNAL
+- If COMPETITOR_INFLUENCE_LEVEL != UNKNOWN → SIG_FALLBACK_COMPETITOR_INFLUENCE_LEVEL
+- If MARKET_TERM_INFLUENCE != UNKNOWN → SIG_FALLBACK_MARKET_TERM_INFLUENCE
+- If MOMENTUM_STATE != UNKNOWN → SIG_FALLBACK_MOMENTUM_STATE
+- If FOLLOWUP_OK != UNKNOWN → SIG_FALLBACK_FOLLOWUP_OK
+- If CUSTOMER_SILENCE_STATE != UNKNOWN → SIG_FALLBACK_CUSTOMER_SILENCE_STATE
+- If ASSISTANT_RESPONSE_LATENCY_STATE != UNKNOWN → SIG_FALLBACK_ASSISTANT_RESPONSE_LATENCY_STATE
+### 3A) Phase 3A Permission Gate (YES/NO — ONE QUESTION)
+
+IF phase in [PHASE_3, PHASE_3A]
+AND request_type == PHASE3A_PERMISSION_GATE:
+
+  - suppress_hooks = TRUE
+  - Output MUST be:
+    - EN first, then AR
+    - exactly 1 question (yes/no)
+    - use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE3A_SOFT_HOLD_YN
+
+  - selected_phrase_id MUST equal PHASE3A_SOFT_HOLD_YN
+  - STOP (do not append any other blocks).
+
 ### 3A) Phase 3A Qualifier-First Gate (HARD)
 
 IF phase == PHASE_3

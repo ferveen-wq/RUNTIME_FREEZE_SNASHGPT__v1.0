@@ -1,5 +1,14 @@
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
+## PHASE 3B — SOFT HOLD (YES / NO) (NEUTRAL)
+### PHASE3B_SOFT_HOLD_YN_NEUTRAL
+EN: One quick yes or no before we continue — is that okay?
+AR: سؤال سريع نعم أو لا قبل ما نكمل — مناسب؟
+
+### PHASE3A_SOFT_HOLD_YN
+EN: Before I price it properly, can I ask one quick yes/no question?
+AR: قبل ما أعطيك تسعير مضبوط، ممكن أسألك سؤال سريع نعم/لا؟
+
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
 EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
@@ -26,9 +35,51 @@ AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل ي�
 
 ## PHASE 3B — TRANSITION TO PRICING (ACK)
 
+### PHASE3B_SOFT_HOLD_YN
+EN: One quick thing I need from you — yes or no?
+AR: بس سؤال سريع أحتاجه منك — نعم أو لا؟
+
 ### PHASE3B_CERAMIC_HAND_WASH
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
+
+────────────────────────────────────────────────────────────
+SIGNAL FALLBACKS — RENDER ONLY (NO ROUTING / NO LOGIC)
+────────────────────────────────────────────────────────────
+Rules:
+- These are neutral stabilizers when a signal is present but no specific script is active.
+- No pricing.
+- No extra questions (unless the active phase already allows 1 question).
+- No service switching suggestions.
+- No re-qualification.
+
+### SIG_FALLBACK_BUDGET_SIGNAL
+EN: No problem. We’ll keep it simple and stick to what fits your comfort level.
+AR: ما في مشكلة. بنخليها بسيطة وبما يناسب راحتك.
+
+### SIG_FALLBACK_COMPETITOR_INFLUENCE_LEVEL
+EN: Understood. We’ll compare on the same basis so the decision stays clear.
+AR: مفهوم. بنقارن على نفس الأساس عشان القرار يكون واضح.
+
+### SIG_FALLBACK_MARKET_TERM_INFLUENCE
+EN: Got it. We’ll keep the comparison clean and aligned to the same scope.
+AR: تم. بنخلي المقارنة واضحة وعلى نفس نطاق العمل.
+
+### SIG_FALLBACK_MOMENTUM_STATE
+EN: Take your time. I’m here when you’re ready to continue.
+AR: خذ راحتك. أنا موجود متى ما حبيت نكمل.
+
+### SIG_FALLBACK_FOLLOWUP_OK
+EN: Noted. If it’s okay, I’ll follow up once to keep it moving.
+AR: تم. إذا مناسب لك، بعمل متابعة واحدة عشان نمشيها بسلاسة.
+
+### SIG_FALLBACK_CUSTOMER_SILENCE_STATE
+EN: No worries at all. Whenever you’re ready, we can continue from where we stopped.
+AR: ولا يهمك. متى ما حبيت نكمل من نفس النقطة.
+
+### SIG_FALLBACK_ASSISTANT_RESPONSE_LATENCY_STATE
+EN: Thanks for your patience. Let’s continue from the last point.
+AR: شكرًا على صبرك. خلّنا نكمل من آخر نقطة.
 
 ### PHASE3B_CERAMIC_AUTO_WASH
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
