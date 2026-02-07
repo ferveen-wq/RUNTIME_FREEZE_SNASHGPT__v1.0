@@ -13,25 +13,49 @@ AR: قبل ما أعطيك تسعير مضبوط، ممكن أسألك سؤال 
 EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
 
+### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH_NUDGE
+EN: Just so I don’t point you the wrong way, has there been any repaint work or deep scratches?
+AR: عشان ما أوجهك غلط، هل فيه رش/صبغ أو خدوش عميقة؟
+
 ### PHASE3A_Q_PPF_DRIVING_PATTERN
 EN: Do you mostly drive in the city, or do you often travel long distances on highways?
 AR: استخدامك أغلبه داخل المدينة، ولا تسافر كثير على الخطوط السريعة؟
+
+### PHASE3A_Q_PPF_DRIVING_PATTERN_NUDGE
+EN: To guide you to the right option without overdoing it, is your driving more city, more highway, or mixed?
+AR: عشان أوجّهك للخيار المناسب بدون مبالغة، قيادتك أكثر مدينة، أكثر خط، أو خليط؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
 
+### PHASE3A_Q_CERAMIC_WASH_PATTERN_NUDGE
+EN: Quick one so I match the right ceramic prep: which wash style do you use most — bucket, tunnel, mall waterless, professional wash center, or mixed?
+AR: سؤال سريع عشان أضبط تجهيز السيراميك: شنو أكثر غسيل تستخدمه — سطل، نفق/آلي، بدون ماء بالمولات، مركز غسيل محترف، أو خليط؟
+
 ### PHASE3A_Q_TINT_COVERAGE
 EN: For tint, do you want front only, sides and rear, or full coverage?
 AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
+
+### PHASE3A_Q_TINT_COVERAGE_NUDGE
+EN: Just to set it up correctly, do you want tint for front only, sides and rear, or full coverage?
+AR: عشان أجهزها لك صح، تبي التظليل للأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
 
 ### PHASE3A_Q_WRAP_FINISH
 EN: For wrap, which finish are you leaning toward — gloss, satin, or matte?
 AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو مطفي؟
 
+### PHASE3A_Q_WRAP_FINISH_NUDGE
+EN: Quick check before I line it up: do you prefer wrap finish gloss, satin, or matte?
+AR: سؤال سريع قبل أجهّزها لك: تفضّل لمسة التغليف لامع، ساتان، أو مطفي؟
+
 ### PHASE3A_Q_POLISHING_SCOPE
 EN: For polishing, do you want exterior only, or a full detail that includes interior and engine bay?
 AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل يشمل الداخلي وغرفة المكينة؟
+
+### PHASE3A_Q_POLISHING_SCOPE_NUDGE
+EN: To match the right polishing package, do you want exterior only, or interior + engine bay included as well?
+AR: عشان أضبط لك باقة التلميع، تبي الخارجي فقط، أو يشمل الداخلي وغرفة المكينة بعد؟
 
 ## PHASE 3B — TRANSITION TO PRICING (ACK)
 
@@ -94,12 +118,16 @@ EN: Got it. I’ll line up the ceramic coating options and move to the pricing s
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### PHASE3B_PPF_CITY
-EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+EN: Got it. I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ### PHASE3B_PPF_HIGHWAY
-EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+EN: Got it. I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
+
+### PHASE3B_ACK_NEUTRAL_UNKNOWN
+EN: No worries. I’ll move to the pricing step with a safe starting option, and we can fine-tune it after.
+AR: ما في مشكلة. بانتقل لخطوة التسعير بخيار مبدئي آمن، ونعدّل التفاصيل بعدها.
 
 ────────────────────────────────────────────────────────────
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)

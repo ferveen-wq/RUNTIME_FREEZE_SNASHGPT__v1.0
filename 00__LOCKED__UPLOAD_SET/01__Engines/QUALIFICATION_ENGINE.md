@@ -18,10 +18,74 @@
 # - This avoids accidental multi-question loops and keeps Phase 3A deterministic.
 # ============================================================
 
+--------------------------------------------------------------------------
+## PHASE 3A — Qualifier pending non-response handling (Option A)
+
+Scope:
+- Applies only when Phase 3A is active AND a qualifier_question_id is already set AND qualifier_answer is not yet captured.
+
+Hard constraints:
+- One question per assistant reply (max).
+- Do not output pricing inside Phase 3A.
+
+Behavior:
+If qualifier is pending and the customer does NOT answer it (examples: “how much”, repeats service, unrelated question):
+1) If qualifier_repeat_count is not yet set OR == 0:
+  - Emit the same qualifier using the *_NUDGE phrase id for that qualifier_question_id.
+  - Set qualifier_repeat_count=1.
+  - Keep next_phase=PHASE_3A (pending).
+
+2) Else (qualifier_repeat_count >= 1):
+  - Set qualifier_answer=UNKNOWN.
+  - Set next_action=HANDOFF_3B.
+  - Set next_phase=PHASE_3B_READY (or equivalent “ready” state in your Phase 3B gate).
+  - Select phrase id: PHASE3B_ACK_NEUTRAL_UNKNOWN.
+
+Qualifier → NUDGE phrase-id mapping:
+- PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH_NUDGE
+- PPF_DRIVING_PATTERN            → PHASE3A_Q_PPF_DRIVING_PATTERN_NUDGE
+- CERAMIC_WASH_PATTERN           → PHASE3A_Q_CERAMIC_WASH_PATTERN_NUDGE
+- TINT_COVERAGE                  → PHASE3A_Q_TINT_COVERAGE_NUDGE
+- WRAP_FINISH                    → PHASE3A_Q_WRAP_FINISH_NUDGE
+- POLISHING_SCOPE                → PHASE3A_Q_POLISHING_SCOPE_NUDGE
+
+Reset rule:
+- Once a qualifier_answer is captured (non-empty), clear qualifier_repeat_count for the next qualifier step.
+
+### 3A.0) PHASE3A_PERMISSION_GATE (SOFT — Phase 3 / 3A)
+
+Goal:
+- If a Phase 3A qualifier is required but the customer asks for price/objects/other messages instead of answering,
+  ask ONE neutral yes/no permission question instead of repeating the same qualifier.
+
+Trigger condition:
+- If phase in [PHASE_3, PHASE_3A]
+- AND phase3a_required == true
+- AND phase3a_complete != true
+- AND phase3a_permission_granted != true
+- AND request_type in [PRICE_REQUEST, COMPETITOR_CHEAPER, COMPETITOR_REFERENCE, SERVICE_CONFIRMED, SERVICE_SWITCH_CONFIRMED]
+
+Behavior:
+- Set request_type = PHASE3A_PERMISSION_GATE
+- Set qualifier_triggered = false
+- Set next_phase = PHASE_3A
+- Preserve service_intent / vehicle fields as-is
+
+Follow-up handling (YES/NO):
+- If previous_turn.request_type == PHASE3A_PERMISSION_GATE:
+  - If current_message is affirmative (yes / ok / sure / تمام / اي / اكيد):
+    - Set phase3a_permission_granted = true
+    - Keep phase3a_required = true
+    - Allow normal Phase 3A qualifier routing on the next assistant turn
+  - If current_message is negative (no / later / not now / لا):
+    - Set phase3a_complete = true
+    - Set phase3a_required = false
+    - Allow Phase 3B to proceed (do not block pricing)
+
 ### 3A.1) PHASE3A_QUALIFIER_FIRST (HARD — Phase 3 only)
 
 Trigger condition:
-- If phase == PHASE_3
+- If phase in [PHASE_3, PHASE_3A]
 - AND qualification_status == READY (vehicle_model + vehicle_year already known)
 - AND service_intent != unknown
 - AND request_type in [PRICE_REQUEST, SERVICE_CONFIRMED, SERVICE_SWITCH_CONFIRMED, SCOPE_CONFIRMED]

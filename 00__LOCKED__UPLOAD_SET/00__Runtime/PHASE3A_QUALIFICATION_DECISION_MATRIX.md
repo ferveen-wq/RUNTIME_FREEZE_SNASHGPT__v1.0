@@ -1,5 +1,181 @@
 # PHASE3A_QUALIFICATION_DECISION_MATRIX.md (LOCKED)
 
+────────────────────────────────────────────────────────────
+PHASE 3A — QUALIFIER-FIRST MATRIX (NO DRIFT SPEC)
+────────────────────────────────────────────────────────────
+
+Purpose:
+- Define the ONE-question qualifier gate behavior for Phase 3A.
+- Define deterministic normalization rules (Answer → Canonical Value).
+- Define sequencing rules for AGE buckets (including the “2nd qualifier” flow).
+- Ensure Phase 3A hands off cleanly into Phase 3B with normalized params.
+
+Hard rules:
+- Max 1 question per assistant turn.
+- Phase 3A must NOT price.
+- Phase 3A must NOT re-ask vehicle details.
+- If the user does NOT answer the qualifier and repeats “how much” or repeats the service:
+  - Repeat the SAME qualifier question (no new question).
+
+Terminology:
+- “Primary qualifier” = service-specific question (PPF/CERAMIC/TINT/WRAP/POLISHING).
+- “Paint-gate qualifier” = repaint/deep-scratch check (used by AGE rules).
+
+────────────────────────────────────────────────────────────
+3A.0 SEQUENCING RULES — VEHICLE_AGE_BUCKET (HARD)
+────────────────────────────────────────────────────────────
+
+Goal:
+- AGE_7_PLUS_YEARS must prioritize paint-gate first (prevents unsafe assumptions).
+- AGE_3_6_YEARS allows a SECOND qualifier (paint-gate) after the primary qualifier answer.
+- AGE_0_3_YEARS goes straight: primary qualifier → Phase 3B.
+
+RULE A — AGE_0_3_YEARS
+- Ask PRIMARY qualifier (PPF/CERAMIC/TINT/WRAP/POLISHING).
+- After answer is normalized → move to PHASE_3B immediately.
+
+RULE B — AGE_3_6_YEARS
+- Ask PRIMARY qualifier first.
+- After answer is normalized:
+  - If PAINT_CONDITION_GATE is UNKNOWN:
+    - Ask paint-gate qualifier (repaint/deep scratches) as the SECOND qualifier (next turn).
+    - Then normalize PAINT_CONDITION_GATE and proceed to PHASE_3B.
+  - If PAINT_CONDITION_GATE already known → proceed to PHASE_3B.
+
+RULE C — AGE_7_PLUS_YEARS
+- Ask paint-gate qualifier FIRST (repaint/deep scratches).
+- If user answers YES (repaint/deep scratches present):
+  - Normalize PAINT_CONDITION_GATE=REQUIRES_REVIEW
+  - Proceed to PHASE_3B, but Phase 3B must treat it as constrained (no confident “prep path” claims).
+  - If your Phase 3B supports an inspection/photo request route, it may trigger there.
+- If user answers NO:
+  - Normalize PAINT_CONDITION_GATE=CLEAR
+  - Ask PRIMARY qualifier next (next turn)
+  - Then proceed to PHASE_3B.
+
+Note:
+- This spec does NOT require adding any new engines.
+- Implementation lives in QUALIFICATION_ENGINE.md (Phase 3A section),
+  using this exact order and using the normalization tables below.
+
+────────────────────────────────────────────────────────────
+3A.1 NORMALIZATION TABLES (HARD) — ANSWER → CANONICAL VALUES
+────────────────────────────────────────────────────────────
+
+These tables are “spec-only” and must be implemented deterministically in QUALIFICATION_ENGINE.md.
+No fuzzy interpretation beyond the listed patterns.
+
+3A.1.1 PAINT CONDITION GATE (REPAINT / DEEP SCRATCHES)
+Parameter: PAINT_CONDITION_GATE
+Allowed Values:
+- CLEAR
+- REQUIRES_REVIEW
+- UNKNOWN
+
+Answer mapping:
+- YES patterns → REQUIRES_REVIEW
+  Examples: "yes", "y", "yeah", "repaint", "رش", "صبغ", "فيه رش", "فيه صبغ", "خدوش عميقة", "scratch", "deep"
+- NO patterns → CLEAR
+  Examples: "no", "n", "never", "ما فيه", "لا", "بدون"
+- Otherwise → UNKNOWN
+
+3A.1.2 PPF DRIVING PATTERN
+Parameter: PPF_DRIVING_PATTERN
+Allowed Values:
+- CITY
+- HIGHWAY
+- MIXED
+- UNKNOWN
+
+Answer mapping:
+- CITY patterns → CITY
+  Examples: "city", "inside city", "mostly city", "المدينة", "داخل المدينة"
+- HIGHWAY patterns → HIGHWAY
+  Examples: "highway", "long distance", "travel", "lines", "خطوط", "سفر", "سريع"
+- MIXED patterns → MIXED
+  Examples: "both", "mix", "sometimes", "اثنين", "خليط"
+- Otherwise → UNKNOWN
+
+3A.1.3 CERAMIC WASH PATTERN
+Parameter: CERAMIC_WASH_PATTERN
+Allowed Values:
+- BUCKET_LOCALITY
+- AUTO_TUNNEL
+- WATERLESS_MALL
+- PRO_WASH_CENTER
+- MIXED
+- UNKNOWN
+
+Answer mapping:
+- BUCKET_LOCALITY patterns → BUCKET_LOCALITY
+  Examples: "bucket", "hand", "manual", "سطل", "يدوي", "في المواقف", "بالمنطقة"
+- AUTO_TUNNEL patterns → AUTO_TUNNEL
+  Examples: "automatic", "tunnel", "machine", "آلي", "نفق"
+- WATERLESS_MALL patterns → WATERLESS_MALL
+  Examples: "waterless", "mall", "بدون ماء", "في المول", "في المولات"
+- PRO_WASH_CENTER patterns → PRO_WASH_CENTER
+  Examples: "professional", "wash center", "detailing", "مركز غسيل", "محترف", "دِتيلنق"
+- MIXED patterns → MIXED
+  Examples: "mix", "both", "sometimes", "خليط"
+- Otherwise → UNKNOWN
+
+3A.1.4 TINT COVERAGE
+Parameter: TINT_COVERAGE
+Allowed Values:
+- FRONT_ONLY
+- SIDES_REAR
+- FULL
+- UNKNOWN
+
+Answer mapping:
+- FRONT_ONLY patterns → FRONT_ONLY
+  Examples: "front", "front only", "windshield only", "الأمامي", "قدام"
+- SIDES_REAR patterns → SIDES_REAR
+  Examples: "sides", "rear", "sides and back", "الجوانب", "الخلف", "الجوانب والخلف"
+- FULL patterns → FULL
+  Examples: "full", "all", "everything", "كامل", "الكل"
+- Otherwise → UNKNOWN
+
+3A.1.5 WRAP FINISH
+Parameter: WRAP_FINISH
+Allowed Values:
+- GLOSS
+- SATIN
+- MATTE
+- UNKNOWN
+
+Answer mapping:
+- GLOSS patterns → GLOSS
+  Examples: "gloss", "shiny", "لامع"
+- SATIN patterns → SATIN
+  Examples: "satin", "ساتان"
+- MATTE patterns → MATTE
+  Examples: "matte", "مطفي"
+- Otherwise → UNKNOWN
+
+3A.1.6 POLISHING PACKAGE SCOPE
+Parameter: POLISHING_PACKAGE
+Allowed Values:
+- SILVER_EXTERIOR_ONLY
+- GOLD_FULL_DETAIL
+- UNKNOWN
+
+Answer mapping:
+- SILVER_EXTERIOR_ONLY patterns → SILVER_EXTERIOR_ONLY
+  Examples: "exterior", "outside", "خارجي", "الخارجي فقط", "silver", "سلفر"
+- GOLD_FULL_DETAIL patterns → GOLD_FULL_DETAIL
+  Examples: "full", "interior", "engine", "inside", "كامل", "داخلي", "غرفة المكينة", "gold", "قولد"
+- Otherwise → UNKNOWN
+
+Implementation note:
+- If any parameter remains UNKNOWN after a user answer:
+  - Phase 3A should repeat the SAME qualifier question once (no new question).
+  - If still UNKNOWN after repetition, allow Phase 3B to proceed with “needs clarification / human follow-up” posture.
+
+────────────────────────────────────────────────────────────
+END OF SPEC BLOCK — BELOW: EXISTING MATRIX CONTENT
+────────────────────────────────────────────────────────────
+
 Role:
 - Phase 3A runs AFTER Phase 0–2 is complete (service_intent + vehicle_model + vehicle_year are known).
 - Phase 3A asks the minimum necessary qualifier question(s) (one question per turn max).
@@ -42,6 +218,17 @@ Normalized output keys (Phase 3A → Phase 3B):
 - photo_requested (true|false)
 - next_action (HANDOFF_3B|ASK_NEXT_QUALIFIER|REQUEST_PHOTO|RECOMMEND_INSPECTION)
 
+## 1.1) Canonical Phase 3A Output Requirements (HARD)
+Phase 3A must emit:
+- phase = PHASE_3A
+- service_intent (canonical)
+- vehicle_age_bucket (canonical)
+- qualifier_triggered = TRUE/FALSE
+- selected_phrase_id (PHASE3A_Q_* if triggered)
+
+When qualifier is answered and normalized:
+- next_phase must become PHASE_3B
+
 --------------------------------------------------------------------------
 ## 0) Global gating (applies to ALL services)
 
@@ -62,6 +249,8 @@ Behavior:
 - Ask paint-risk question FIRST before service-specific qualifier.
 - If paint_risk_flag == RISK → request photo and/or recommend inspection (do not proceed to 3B yet).
 - If paint_risk_flag == OK → proceed to service-specific qualifier next turn.
+- If customer cannot provide photo/details now → allow a controlled handoff with paint_risk_flag=UNKNOWN,
+  inspection_required=true, next_action=HANDOFF_3B (Phase 3B should keep it conservative and may suggest inspection later).
 
 Paint-risk question (single question; one turn):
 - “Before we proceed, is there any repaint work or deep scratches on the panels?”
@@ -70,6 +259,50 @@ Normalization:
 - If customer indicates repaint OR deep scratches → paint_risk_flag=RISK, photo_requested=true, inspection_required=true, next_action=REQUEST_PHOTO (or RECOMMEND_INSPECTION if they refuse photos)
 - If customer indicates no repaint/deep scratches → paint_risk_flag=OK, next_action=ASK_NEXT_QUALIFIER
 - If unclear → paint_risk_flag=UNKNOWN, next_action=REQUEST_PHOTO
+
+--------------------------------------------------------------------------
+## 8) Qualifier non-response handling (Option A — MAX ONE REPEAT)
+
+Goal:
+- Avoid looping the same question endlessly.
+- Keep the customer experience natural while preserving Phase 3A gating.
+
+Rule:
+If a qualifier is pending and the customer:
+- asks “how much / price / cost”
+- repeats only the service word
+- asks an unrelated question without answering the qualifier
+
+Then:
+1) Repeat the qualifier ONCE using a “nudge” variant (justification + same single question).
+2) If still not answered after the nudge:
+  - Set qualifier_answer=UNKNOWN
+  - Set next_action=HANDOFF_3B
+  - Set selected_phrase_id=PHASE3B_ACK_NEUTRAL_UNKNOWN
+
+Notes:
+- One question per turn remains mandatory.
+- This prevents deadlocks and reduces silence risk.
+
+--------------------------------------------------------------------------
+## 2.1) Age Bucket Derivation (HARD)
+If vehicle_year is known:
+- Compute VEHICLE_AGE_BUCKET using GLOBAL_CORE_CONTEXT_PARAMETERS.md allowed values:
+  - AGE_0_3_YEARS
+  - AGE_3_6_YEARS
+  - AGE_7_PLUS_YEARS
+If vehicle_year is missing:
+- VEHICLE_AGE_BUCKET = UNKNOWN
+- Phase 3A must not attempt “age-based gating” (fall back to primary qualifier only).
+
+--------------------------------------------------------------------------
+## 2.2) Phase 3A Sequencing (HARD)
+Apply the sequencing rules in section 3A.0 exactly:
+- AGE_0_3_YEARS: primary qualifier only
+- AGE_3_6_YEARS: primary qualifier then paint-gate as second qualifier (if unknown)
+- AGE_7_PLUS_YEARS: paint-gate first, then primary qualifier
+
+No other sequencing is allowed.
 
 --------------------------------------------------------------------------
 ## 1) PPF — Phase 3A qualifier matrix
@@ -106,6 +339,13 @@ Outputs:
 PPF qualifier question (one question):
 - “Do you mostly drive in the city, or do you often travel long distances on highways?”
 
+### 1.1B) Normalization (PPF Driving Pattern)
+After user answers the PPF driving qualifier:
+- Normalize into PPF_DRIVING_PATTERN using table 3A.1.2
+- If UNKNOWN after answer:
+  - Repeat the same qualifier question once
+  - If still UNKNOWN, proceed to Phase 3B with PPF_DRIVING_PATTERN=UNKNOWN
+
 --------------------------------------------------------------------------
 ## 2) CERAMIC — Phase 3A qualifier matrix
 
@@ -141,6 +381,13 @@ Outputs:
 Ceramic qualifier question (one question):
 - “To guide this properly, how do you usually wash the car — bucket/hand wash, tunnel/automatic wash, mall waterless wash, or a mix?”
 
+### 2.1B) Normalization (Ceramic Wash Pattern)
+After user answers the ceramic wash qualifier:
+- Normalize into CERAMIC_WASH_PATTERN using table 3A.1.3
+- If UNKNOWN after answer:
+  - Repeat the same qualifier question once
+  - If still UNKNOWN, proceed to Phase 3B with CERAMIC_WASH_PATTERN=UNKNOWN
+
 --------------------------------------------------------------------------
 ## 3) TINT — Phase 3A qualifier matrix
 
@@ -159,6 +406,13 @@ Outputs:
 
 Tint qualifier question (one question):
 - “For tint, do you want front only, sides and back, or full coverage?”
+
+### 3.1B) Normalization (Tint Coverage)
+After user answers the tint coverage qualifier:
+- Normalize into TINT_COVERAGE using table 3A.1.4
+- If UNKNOWN after answer:
+  - Repeat the same qualifier question once
+  - If still UNKNOWN, proceed to Phase 3B with TINT_COVERAGE=UNKNOWN
 
 --------------------------------------------------------------------------
 ## 4) WRAP — Phase 3A qualifier matrix
@@ -194,6 +448,13 @@ Outputs:
 
 Wrap finish qualifier question (one question):
 - “For wrap, do you prefer gloss, satin, or matte?”
+
+### 4.1B) Normalization (Wrap Finish)
+After user answers the wrap finish qualifier:
+- Normalize into WRAP_FINISH using table 3A.1.5
+- If UNKNOWN after answer:
+  - Repeat the same qualifier question once
+  - If still UNKNOWN, proceed to Phase 3B with WRAP_FINISH=UNKNOWN
 
 --------------------------------------------------------------------------
 ## 5) POLISHING — Phase 3A qualifier matrix
@@ -231,6 +492,34 @@ Outputs after Step 2:
 - qualifier_question_id=POLISHING_PACKAGE
 - qualifier_answer=EXTERIOR_ONLY|EXTERIOR_INTERIOR_ENGINE|UNKNOWN
 - next_action=HANDOFF_3B
+
+### 5.1B) Normalization (Polishing Package)
+After user answers the polishing scope qualifier:
+- Normalize into POLISHING_PACKAGE using table 3A.1.6
+- If UNKNOWN after answer:
+  - Repeat the same qualifier question once
+  - If still UNKNOWN, proceed to Phase 3B with POLISHING_PACKAGE=UNKNOWN
+
+--------------------------------------------------------------------------
+## 8) Paint Condition Gate (Age Override)
+
+Goal:
+- For older vehicles, do not assume paint is suitable without a repaint/deep-scratch check.
+- This gate must not conflict with the “one question per turn” rule.
+
+### 8.1) Paint Gate Normalization
+After user answers the paint-gate question:
+- Normalize into PAINT_CONDITION_GATE using table 3A.1.1
+- If UNKNOWN after answer:
+  - Repeat the same paint-gate question once
+  - If still UNKNOWN:
+    - Set PAINT_CONDITION_GATE=UNKNOWN
+    - Proceed to Phase 3B (conservative posture; no strong assumptions).
+
+### 8.2) Paint Gate Placement (MUST FOLLOW)
+- AGE_7_PLUS_YEARS: paint-gate first
+- AGE_3_6_YEARS: paint-gate second (after primary qualifier answer), only if unknown
+- AGE_0_3_YEARS: no paint-gate unless customer explicitly raises repaint/scratch concern
 
 --------------------------------------------------------------------------
 ## 6) Phase 3A completion conditions (handoff to Phase 3B)
