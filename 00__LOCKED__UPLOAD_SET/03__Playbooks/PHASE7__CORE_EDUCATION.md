@@ -3955,6 +3955,10 @@ removed when required. Removal is performed using controlled methods that
 protect the original paint when done correctly. This is a normal and expected
 part of the product lifecycle.
 
+### PHASE 5 HANDOFF CLARITY (INTERNAL GUIDANCE)
+
+Detailed explanations, comparisons, and visual walkthroughs (e.g., install steps, brand behavior, pricing structure) are intentionally deferred until the customer explicitly opts in via Phase 4 permission-based questions. Phase 7 educational content serves as the knowledge source from which deeper Phase 5 responses are derived, but Phase 7 itself does not present this depth to the customer.
+
 ## PHASE TRANSITIONS
 ### INSTALLATION DETAIL — PHASE 5 HANDOFF TRIGGER
 
@@ -3975,6 +3979,10 @@ Any installation or product video shown must:
 
 Visual proof is used to reinforce confidence, not to introduce new claims
 or technical depth.
+
+### VISUAL PROOF HANDLING (INTERNAL GUIDANCE)
+
+Visual proof (such as install videos or similar-car examples) may be referenced in Phase 4 as an optional confidence aid. Availability of videos does not block progression — if a video is not shared at the moment, assistants may deliver the explanation verbally and proceed to Phase 5 without requiring video content.
 
 ## PRODUCT CATEGORIES
 ### BRAND FAMILY POSITIONING (HIGH-LEVEL)
