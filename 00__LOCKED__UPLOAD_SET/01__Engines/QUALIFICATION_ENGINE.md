@@ -1,183 +1,6 @@
-#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+
-# PHASE 3A — QUALIFIER-FIRST GATE (HARD)
-# Purpose:
-# - Ask exactly ONE qualifier question per service before Phase 3B pricing/SKU logic.
-# - Must NOT affect Phase 0–2.
-# - Must respect VEHICLE_AGE_BUCKET override for AGE_7_PLUS_YEARS.
-#
-# Emits:
-# - phase3a_required = true|false
-# - phase3a_qualifier_id (string, used by Assembly Map)
-# - phase3a_complete = true|false
-# - phase3a_last_qualifier_id (persisted for 1-turn completion)
-#
-# Notes:
-# - Completion rule is intentionally strict + minimal:
-#   If the last assistant turn asked a Phase3A qualifier, then the next user message
-#   marks Phase3A complete (store raw response; Phase 3B can interpret).
-# - This avoids accidental multi-question loops and keeps Phase 3A deterministic.
-# ============================================================
-
---------------------------------------------------------------------------
-## PHASE 3A — Qualifier pending non-response handling (Option A)
-
-Scope:
-- Applies only when Phase 3A is active AND a qualifier_question_id is already set AND qualifier_answer is not yet captured.
-
-Hard constraints:
-- One question per assistant reply (max).
-- Do not output pricing inside Phase 3A.
-
-Behavior:
-If qualifier is pending and the customer does NOT answer it (examples: “how much”, repeats service, unrelated question):
-1) If qualifier_repeat_count is not yet set OR == 0:
-  - Emit the same qualifier using the *_NUDGE phrase id for that qualifier_question_id.
-  - Set qualifier_repeat_count=1.
-  - Keep next_phase=PHASE_3A (pending).
-
-2) Else (qualifier_repeat_count >= 1):
-  - Set qualifier_answer=UNKNOWN.
-  - Set next_action=HANDOFF_3B.
-  - Set next_phase=PHASE_3B_READY (or equivalent “ready” state in your Phase 3B gate).
-  - Select phrase id: PHASE3B_ACK_NEUTRAL_UNKNOWN.
-
-Qualifier → NUDGE phrase-id mapping:
-- PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH_NUDGE
-- PPF_DRIVING_PATTERN            → PHASE3A_Q_PPF_DRIVING_PATTERN_NUDGE
-- CERAMIC_WASH_PATTERN           → PHASE3A_Q_CERAMIC_WASH_PATTERN_NUDGE
-- TINT_COVERAGE                  → PHASE3A_Q_TINT_COVERAGE_NUDGE
-- WRAP_FINISH                    → PHASE3A_Q_WRAP_FINISH_NUDGE
-- POLISHING_SCOPE                → PHASE3A_Q_POLISHING_SCOPE_NUDGE
-
-Reset rule:
-- Once a qualifier_answer is captured (non-empty), clear qualifier_repeat_count for the next qualifier step.
-
-### 3A.0) PHASE3A_PERMISSION_GATE (SOFT — Phase 3 / 3A)
-
-Goal:
-- If a Phase 3A qualifier is required but the customer asks for price/objects/other messages instead of answering,
-  ask ONE neutral yes/no permission question instead of repeating the same qualifier.
-
-Trigger condition:
-- If phase in [PHASE_3, PHASE_3A]
-- AND phase3a_required == true
-- AND phase3a_complete != true
-- AND phase3a_permission_granted != true
-- AND request_type in [PRICE_REQUEST, COMPETITOR_CHEAPER, COMPETITOR_REFERENCE, SERVICE_CONFIRMED, SERVICE_SWITCH_CONFIRMED]
-
-Behavior:
-- Set request_type = PHASE3A_PERMISSION_GATE
-- Set qualifier_triggered = false
-- Set next_phase = PHASE_3A
-- Preserve service_intent / vehicle fields as-is
-
-Follow-up handling (YES/NO):
-- If previous_turn.request_type == PHASE3A_PERMISSION_GATE:
-  - If current_message is affirmative (yes / ok / sure / تمام / اي / اكيد):
-    - Set phase3a_permission_granted = true
-    - Keep phase3a_required = true
-    - Allow normal Phase 3A qualifier routing on the next assistant turn
-  - If current_message is negative (no / later / not now / لا):
-    - Set phase3a_complete = true
-    - Set phase3a_required = false
-    - Allow Phase 3B to proceed (do not block pricing)
-
-### 3A.1) PHASE3A_QUALIFIER_FIRST (HARD — Phase 3 only)
-
-Trigger condition:
-- If phase in [PHASE_3, PHASE_3A]
-- AND qualification_status == READY (vehicle_model + vehicle_year already known)
-- AND service_intent != unknown
-- AND request_type in [PRICE_REQUEST, SERVICE_CONFIRMED, SERVICE_SWITCH_CONFIRMED, SCOPE_CONFIRMED]
-- AND phase3a_complete != true
-
-Completion short-circuit:
-- If previous_turn.phase3a_required == true
-  AND previous_turn.phase3a_qualifier_id is present
-  AND current_message is a user reply (any content)
-  THEN:
-  - Set phase3a_complete = true
-  - Set phase3a_required = false
-  - Persist phase3a_last_qualifier_id = previous_turn.phase3a_qualifier_id
-  - Persist phase3a_response_raw = current_message.raw_text
-  - Do NOT block Phase 3B
-
-Selection rules (when asking):
-- If VEHICLE_AGE_BUCKET == AGE_7_PLUS_YEARS
-  AND service_intent in [PPF, CERAMIC, WRAP]:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
-  - Stop (Phase 3B must wait)
-
-- Else if service_intent == PPF:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
-  - Stop
-
-- Else if service_intent == CERAMIC:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
-  - Stop
-
-- Else if service_intent == TINT:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
-  - Stop
-
-- Else if service_intent == WRAP:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_WRAP_FINISH
-  - Stop
-
-- Else if service_intent == POLISHING:
-  - phase3a_required = true
-  - phase3a_qualifier_id = PHASE3A_Q_POLISHING_SCOPE
-  - Stop
-
-- Else:
-  - phase3a_required = false
-  - phase3a_complete = true
-  - Allow Phase 3B
-
-────────────────────────────────────────────────────────────
-PPF HANDOFF RULE (PHASE 0–2 → PHASE 3A) — LOCKED
-────────────────────────────────────────────────────────────
-
-Goal:
-Phase 0–2 should capture only the minimum intake needed to safely route.
-For PPF, once vehicle model/year is confirmed, we should hand off to Phase 3A
-instead of asking scope (front vs full) by default.
-
-Rule:
-If SERVICE_INTENT includes PPF AND VEHICLE model/year is confirmed:
-  → set QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
-  → do NOT ask "front vs full" unless customer explicitly requested a scope
-
-Explicit scope detection (allowed in Phase 0–2):
-- If the customer explicitly says "front", "front only", "partial", "high-impact areas"
-  → set PPF_COVERAGE_SELECTED = FRONT_ONLY
-- If the customer explicitly says "full", "full body", "whole car"
-  → set PPF_COVERAGE_SELECTED = FULL_BODY
-- Else:
-  → set PPF_COVERAGE_SELECTED = UNKNOWN (do not ask)
-
-Notes:
-- Usage/exposure (city/highway/desert/mixed) is Phase 3A, not Phase 0–2.
-- Brand/warranty intent may be tagged if explicitly stated, but not required for handoff.
 
 
 # QUALIFICATION_ENGINE.md
-
-## Brand intent tagging (PPF)
-
-Rule:
-- If customer text contains "xpel" AND service intent includes PPF:
-  - Emit brand intent tag for downstream engines:
-    - PPF_BRAND_INTENT = XPEL
-  - Do NOT change service selection (still PPF)
-  - Do NOT add pricing
-
-This is tag-only and non-breaking.
 
 Status: LOCK CANDIDATE
 LOCK_SCOPE: PHASE 1 — QUALIFICATION ENGINE ONLY
@@ -256,6 +79,8 @@ To prevent runtime improvisation, missing_fields MUST use these exact keys when 
 To support Phase 4.8 suppression rules, this engine MUST also emit:
 - request_type: one of
   - BROWSING_GENERIC (customer asking generally: “what do you offer / services?”)
+  - GREETING_ONLY (greeting-only with no other details AND no prior context)
+  - REENTERED_CONTINUE (greeting-like message AND prior context exists; continue without reset)
   - SERVICE_CONFIRMED (explicit service keyword: ceramic / ppf / tint / wrap)
   - SERVICE_INFERRED (implied protection intent without naming a service)
 - service_intent: one of
@@ -274,6 +99,248 @@ Rule (non-overwrite):
 Notes:
 - This is not sales logic. It is routing classification only.
 - This does not set price, package, or recommendations.
+
+--------------------------------------------------------------------------
+## PHASE 3A — SERVICE-SPECIFIC QUALIFIER SEQUENCING (Decision Matrix Aligned)
+
+Hard constraints:
+- Phase 0–2 must remain unchanged.
+- Phase 3A runs only when vehicle_model + vehicle_year are already known.
+- Emit exactly ONE qualifier per turn via:
+  - phase3a_required=true
+  - phase3a_qualifier_id=<PHASE3A_Q_* ID>
+
+PPF Phase 3A (Q1 → Q2 → conditional Q3):
+Q1: PPF_COVERAGE_INTENT  → PHASE3A_Q_PPF_COVERAGE_INTENT
+Q2: PPF_DRIVING_PATTERN  → PHASE3A_Q_PPF_DRIVING_PATTERN
+Q3: PPF_COMPARISON_FOCUS → PHASE3A_Q_PPF_COMPARISON_FOCUS (only if triggered by price/competitor/brand fixation)
+
+CERAMIC Phase 3A:
+Q1: CERAMIC_GOAL        → PHASE3A_Q_CERAMIC_GOAL
+Q2: CERAMIC_WASH_PATTERN→ PHASE3A_Q_CERAMIC_WASH_PATTERN
+
+TINT Phase 3A:
+Q1: TINT_GOAL           → PHASE3A_Q_TINT_GOAL
+Q2: TINT_COVERAGE       → PHASE3A_Q_TINT_COVERAGE
+
+--------------------------------------------------------------------------
+### Phase 3A qualifier selection (PPF)
+# LOCK_METADATA
+# LOCK_STATUS: LOCKED
+# LOCK_SCOPE: PHASE 3A — qualifier selection, single-chain enforcement
+# LOCK_DATE: 2026-02-09
+# LOCK_REASON: Phase 3A UAT passed; prevent overwrite or multi-question regressions
+# CHANGE_CONTROL: Architecture approval required
+
+IF service_intent == PPF
+AND vehicle_model is present
+AND vehicle_year is present:
+
+  - phase3a_required = true
+
+  --------------------------------------------------------------------------
+  # Phase 3A answer capture (HARD)
+  #
+  # Purpose:
+  # - Persist the user's answer to the LAST asked PHASE3A_Q_* question into
+  #   the correct normalized parameter (per PHASE3A_QUALIFICATION_DECISION_MATRIX.md).
+  # - This is REQUIRED so Q1→Q2 sequencing works and we don't keep skipping Q1
+  #   or falling back to legacy single-question behavior.
+  #
+  # Rule:
+  # - If the previous assistant turn asked a PHASE3A_Q_* question,
+  #   attempt normalization from the current user message.
+  # - If the current user message is greeting-only / unrelated and does NOT answer:
+  #   do NOT overwrite; keep the qualifier pending (nudge logic handles interruptions).
+
+  - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+      - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+  # Normalization helper rules (strict, per Decision Matrix):
+  #
+  # PHASE3A_Q_PPF_COVERAGE_INTENT  -> set PPF_COVERAGE_INTENT =
+  #   FULL_BODY | FULL_FRONT | PARTIAL_OR_CUSTOM | UNSURE
+  #
+  # PHASE3A_Q_PPF_DRIVING_PATTERN  -> set PPF_DRIVING_PATTERN =
+  #   CITY | HIGHWAY | MIXED | UNKNOWN
+  #
+  # PHASE3A_Q_PPF_COMPARISON_FOCUS -> set PPF_COMPARISON_FOCUS =
+  #   COVERAGE | FILM_QUALITY | HEADLINE_PRICE | MIXED | UNKNOWN
+  #
+  # NOTE: "missing" MUST treat absent/NULL the same as UNKNOWN.
+
+    - define_missing(x):
+      - return (x is missing) OR (x == UNKNOWN)
+
+    # Phase 3A capture integrity (HARD)
+    # If a value is "defaulted" upstream (commonly UNSURE) but the system has not
+    # actually asked that qualifier yet, we must still ask it.
+    - define_missing_ppf_coverage():
+      - return (PPF_COVERAGE_INTENT is missing)
+      OR (PPF_COVERAGE_INTENT == UNKNOWN)
+      OR (
+        PPF_COVERAGE_INTENT == UNSURE
+        AND phase3a_last_qualifier_id != PHASE3A_Q_PPF_COVERAGE_INTENT
+         )
+
+  # PPF Phase 3A qualifier selection MUST be a single flat exclusive chain.
+  # (Same indentation for IF / ELSE IF / ELSE IF; no nested IF that can overwrite.)
+
+  - IF define_missing_ppf_coverage():
+      - phase3a_qualifier_id = PHASE3A_Q_PPF_COVERAGE_INTENT
+      - STOP
+
+  - ELSE IF define_missing(PPF_DRIVING_PATTERN):
+      - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
+      - STOP
+
+  - ELSE IF (PRICE_PRESSURE_LEVEL == HIGH) OR (COMPETITOR_QUOTE_STATUS in {MENTIONED, HAS_QUOTE_DETAILS}) OR (COMPETITOR_INFLUENCE_LEVEL == HIGH) OR (brand_fixation == true)
+    AND (define_missing(PPF_COMPARISON_FOCUS)):
+      - phase3a_qualifier_id = PHASE3A_Q_PPF_COMPARISON_FOCUS
+      - STOP
+
+  # If we reach here, all required qualifiers are already captured (and conditional Q3 is either not triggered or already known).
+  - phase3a_required = false
+  - phase3a_complete = true
+
+  --------------------------------------------------------------------------
+  ### Phase 3A qualifier selection (CERAMIC)
+
+  IF service_intent == CERAMIC
+  AND vehicle_model is present
+  AND vehicle_year is present:
+
+    - phase3a_required = true
+
+    - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+      - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+    - IF define_missing(CERAMIC_GOAL):
+      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
+      - STOP
+
+    - ELSE IF define_missing(CERAMIC_WASH_PATTERN):
+      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
+      - STOP
+
+    - phase3a_required = false
+    - phase3a_complete = true
+
+  --------------------------------------------------------------------------
+  ### Phase 3A qualifier selection (TINT)
+
+  IF service_intent == TINT
+  AND vehicle_model is present
+  AND vehicle_year is present:
+
+    - phase3a_required = true
+
+    - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+      - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+    - IF define_missing(TINT_GOAL):
+      - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
+      - STOP
+
+    - ELSE IF define_missing(TINT_COVERAGE):
+      - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
+      - STOP
+
+    - phase3a_required = false
+    - phase3a_complete = true
+
+--------------------------------------------------------------------------
+### Phase 3A qualifier selection (CERAMIC)
+
+IF service_intent == CERAMIC
+AND vehicle_model is present
+AND vehicle_year is present:
+
+  - phase3a_required = true
+
+  - IF CERAMIC_GOAL is missing OR CERAMIC_GOAL == UNKNOWN:
+      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
+      - STOP
+
+  - ELSE IF CERAMIC_WASH_PATTERN is missing OR CERAMIC_WASH_PATTERN == UNKNOWN:
+      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
+      - STOP
+
+  - phase3a_required = false
+  - phase3a_complete = true
+
+--------------------------------------------------------------------------
+### Phase 3A qualifier selection (TINT)
+
+IF service_intent == TINT
+AND vehicle_model is present
+AND vehicle_year is present:
+
+  - phase3a_required = true
+
+  - IF TINT_GOAL is missing OR TINT_GOAL == UNKNOWN:
+      - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
+      - STOP
+
+  - ELSE IF TINT_COVERAGE is missing OR TINT_COVERAGE == UNKNOWN:
+      - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
+      - STOP
+
+  - phase3a_required = false
+  - phase3a_complete = true
+
+--------------------------------------------------------------------------
+## PHASE 3A — QUALIFIER-ID RESOLUTION (FINAL AUTHORITY — NO OVERRIDE)
+
+Purpose:
+- Prevent any legacy Phase 3A blocks (older single-question matrices) from overwriting phase3a_qualifier_id.
+- This section MUST be treated as the last writer of: phase3a_required, phase3a_qualifier_id, phase3a_complete.
+
+Hard rule:
+- If this section sets phase3a_qualifier_id, nothing after it may modify it in the same turn.
+
+FINAL OVERRIDE RULE:
+IF phase3a_required == true
+AND phase3a_qualifier_id is present:
+  - STOP
+
+--------------------------------------------------------------------------
+## 2.X) GREETING ROUTING (HARD — Phase-agnostic, no drift)
+
+Purpose:
+- Ensure “hi/hello/السلام عليكم” does NOT get converted into BROWSING_GENERIC.
+- New/unknown context → onboarding greeting (ask model+year).
+- Returning/mid-flow context → treat as re-entry and continue current phase.
+
+Definitions:
+- greeting_only_message == true when the normalized message contains ONLY a greeting token.
+  Examples: "hi", "hello", "hey", "السلام عليكم", "مرحبا", "هلا"
+  (No service keywords, no vehicle tokens, no year, no pricing words.)
+
+- context_exists == true when ANY of the following are present from previous turns:
+  - previous_turn.active_service_context is not null
+  - OR previous_turn.vehicle_model is present
+  - OR previous_turn.vehicle_year is present
+
+Rule:
+IF greeting_only_message == true:
+  IF context_exists == true:
+    - request_type = REENTERED_CONTINUE
+    - Preserve previous_turn.service_intent / active_service_context / missing_fields as-is
+    - Do NOT set BROWSING_GENERIC
+  ELSE:
+    - request_type = GREETING_ONLY
+    - qualification_state = NOT_READY
+    - missing_fields = [vehicle_model, vehicle_year]
+    - allowed_next_actions includes ask_missing_info
+    - QUALIFICATION_STATUS = NOT_READY
+
+Precedence:
+- This rule must run BEFORE any “browsing” / “service inquiry” mapping.
+- If the message includes a service keyword or pricing request, this rule must NOT trigger (not greeting-only).
 
 - constraints: A list of detected constraints that limit downstream behavior (e.g., unknown language, ambiguous target, insufficient identifiers).
 - allowed_next_actions: An ordered list of permitted downstream actions (e.g., proceed, request_minimum_context, route_to_human, hold_for_clarification).
@@ -354,47 +421,6 @@ Emit:
 - service_intent = previous_turn.service_intent
 - active_service_context = previous_turn.service_intent
 
-### 2.46B) VEHICLE_PARTIAL_CARRY_FORWARD (HARD — Phase 0–2)
-
-Trigger condition:
-- Phase is 0–2
-- previous_turn.request_type == VEHICLE_DETAILS_PROVIDED OR SERVICE_CONFIRMED
-- previous_turn.vehicle_year is present
-- previous_turn.missing_fields == [vehicle_model]
-- current message provides vehicle_model (or resolves to a canonical vehicle_model)
-- current message does NOT introduce a new 4-digit year
-
-Behavior:
-- Preserve previous_turn.vehicle_year into current vehicle_year
-- Set missing_fields to only what is still missing after preservation:
-  - If vehicle_model is now valid and vehicle_year is preserved -> missing_fields = []
-  - If vehicle_model is still invalid -> missing_fields = [vehicle_model]
-
-Notes:
-- This rule exists to prevent the “ask year again” loop after an invalid model token with a valid year (e.g., “bmx 2023” → “bmw x5”).
-- No guessing or auto-correction.
-- Applies ONLY in Phase 0–2.
-
-### 2.47) VEHICLE_MODEL_VALIDATION (STRICT — Phase 0–2)
-
-Trigger condition:
-- If vehicle_model is present AND vehicle_year is present
-
-Behavior:
-- Validate vehicle_model against GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY
-- If validation FAILS:
-  - Do NOT clear missing_fields
-  - Preserve vehicle_year (it is already present)
-  - Set missing_fields = [vehicle_model]
-  - Set qualification_state = NOT_READY
-  - Route to L.1 QUALIFICATION CLARIFIER (MODEL_ONLY)
-
-Notes:
-- No guessing or auto-correction
-- No alias invention
-- Repository is the single source of truth
-- This rule applies ONLY in Phase 0–2
-
   2.5) SERVICE_CONFIRMED_PRIORITY (HARD)
 
 Trigger:
@@ -410,8 +436,8 @@ Behavior:
 If minimum vehicle context is missing:
 - Set qualification_state = NOT_READY
 - Populate missing_fields with:
-  - vehicle_model (only if missing)
-  - vehicle_year (only if missing)
+  - vehicle_model
+  - vehicle_year
 - Set allowed_next_actions to include:
   - ask_missing_info
 - Set QUALIFICATION_STATUS = NOT_READY

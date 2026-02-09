@@ -1,109 +1,56 @@
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
+# LOCK_METADATA
+# LOCK_STATUS: LOCKED
+# LOCK_SCOPE: PHASE 3A — qualifier questions (IDs + bilingual phrasing)
+# LOCK_DATE: 2026-02-09
+# LOCK_REASON: Phase 3A UAT passed; phrase drift would break mapping
+# CHANGE_CONTROL: Architecture approval required
 
-## PHASE 3B — SOFT HOLD (YES / NO) (NEUTRAL)
-### PHASE3B_SOFT_HOLD_YN_NEUTRAL
-EN: One quick yes or no before we continue — is that okay?
-AR: سؤال سريع نعم أو لا قبل ما نكمل — مناسب؟
-
-### PHASE3A_SOFT_HOLD_YN
-EN: Before I price it properly, can I ask one quick yes/no question?
-AR: قبل ما أعطيك تسعير مضبوط، ممكن أسألك سؤال سريع نعم/لا؟
+### PHASE3A_Q_PPF_COVERAGE_INTENT
+EN: For PPF, are you thinking full protection, front protection, or still deciding?
+AR: للـ PPF، تفكر بحماية كاملة، حماية أمامية، أو لسه تقرر؟
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
-EN: Before we proceed, has the car had any repaint work or deep scratches?
-AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
-
-### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH_NUDGE
-EN: Just so I don’t point you the wrong way, has there been any repaint work or deep scratches?
-AR: عشان ما أوجهك غلط، هل فيه رش/صبغ أو خدوش عميقة؟
+EN: Before we proceed, is there any repaint work or deep scratches on the panels?
+AR: قبل لا نكمل، هل في رش/صبغ أو خدوش عميقة على القطع؟
 
 ### PHASE3A_Q_PPF_DRIVING_PATTERN
-EN: Do you mostly drive in the city, or do you often travel long distances on highways?
-AR: استخدامك أغلبه داخل المدينة، ولا تسافر كثير على الخطوط السريعة؟
+EN: Is your driving mostly highways/travel (stone chips), or mostly city (parking/contact)?
+AR: استخدامك أكثر على الخطوط/سفر (ضربات حصى)، أو داخل المدينة (مواقف/احتكاك)؟
 
-### PHASE3A_Q_PPF_DRIVING_PATTERN_NUDGE
-EN: To guide you to the right option without overdoing it, is your driving more city, more highway, or mixed?
-AR: عشان أوجّهك للخيار المناسب بدون مبالغة، قيادتك أكثر مدينة، أكثر خط، أو خليط؟
+### PHASE3A_Q_PPF_COMPARISON_FOCUS
+EN: When you compare, is it mainly about coverage, film quality, or headline price?
+AR: لما تقارن، تركيزك أكثر على التغطية، جودة الفيلم، ولا السعر فقط؟
+
+### PHASE3A_Q_CERAMIC_GOAL
+EN: For ceramic, is your main goal easy cleaning and stable gloss long-term, or mainly to make it look fresh again?
+AR: للسيراميك، هدفك تنظيف أسهل ولمعة ثابتة على المدى الطويل، أو بس تخليه يرجع شكله فريش؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
 
-### PHASE3A_Q_CERAMIC_WASH_PATTERN_NUDGE
-EN: Quick one so I match the right ceramic prep: which wash style do you use most — bucket, tunnel, mall waterless, professional wash center, or mixed?
-AR: سؤال سريع عشان أضبط تجهيز السيراميك: شنو أكثر غسيل تستخدمه — سطل، نفق/آلي، بدون ماء بالمولات، مركز غسيل محترف، أو خليط؟
+### PHASE3A_Q_TINT_GOAL
+EN: For tint, is your main goal heat comfort, privacy, or both?
+AR: للتظليل، هدفك الأساسي راحة من الحرارة، خصوصية، أو الاثنين؟
 
 ### PHASE3A_Q_TINT_COVERAGE
-EN: For tint, do you want front only, sides and rear, or full coverage?
-AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
-
-### PHASE3A_Q_TINT_COVERAGE_NUDGE
-EN: Just to set it up correctly, do you want tint for front only, sides and rear, or full coverage?
-AR: عشان أجهزها لك صح، تبي التظليل للأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
+EN: For tint, do you want front only, sides and back, or full coverage?
+AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو كامل؟
 
 ### PHASE3A_Q_WRAP_FINISH
 EN: For wrap, which finish are you leaning toward — gloss, satin, or matte?
 AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو مطفي؟
 
-### PHASE3A_Q_WRAP_FINISH_NUDGE
-EN: Quick check before I line it up: do you prefer wrap finish gloss, satin, or matte?
-AR: سؤال سريع قبل أجهّزها لك: تفضّل لمسة التغليف لامع، ساتان، أو مطفي؟
-
 ### PHASE3A_Q_POLISHING_SCOPE
 EN: For polishing, do you want exterior only, or a full detail that includes interior and engine bay?
 AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل يشمل الداخلي وغرفة المكينة؟
 
-### PHASE3A_Q_POLISHING_SCOPE_NUDGE
-EN: To match the right polishing package, do you want exterior only, or interior + engine bay included as well?
-AR: عشان أضبط لك باقة التلميع، تبي الخارجي فقط، أو يشمل الداخلي وغرفة المكينة بعد؟
-
 ## PHASE 3B — TRANSITION TO PRICING (ACK)
-
-### PHASE3B_SOFT_HOLD_YN
-EN: One quick thing I need from you — yes or no?
-AR: بس سؤال سريع أحتاجه منك — نعم أو لا؟
 
 ### PHASE3B_CERAMIC_HAND_WASH
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
-
-────────────────────────────────────────────────────────────
-SIGNAL FALLBACKS — RENDER ONLY (NO ROUTING / NO LOGIC)
-────────────────────────────────────────────────────────────
-Rules:
-- These are neutral stabilizers when a signal is present but no specific script is active.
-- No pricing.
-- No extra questions (unless the active phase already allows 1 question).
-- No service switching suggestions.
-- No re-qualification.
-
-### SIG_FALLBACK_BUDGET_SIGNAL
-EN: No problem. We’ll keep it simple and stick to what fits your comfort level.
-AR: ما في مشكلة. بنخليها بسيطة وبما يناسب راحتك.
-
-### SIG_FALLBACK_COMPETITOR_INFLUENCE_LEVEL
-EN: Understood. We’ll compare on the same basis so the decision stays clear.
-AR: مفهوم. بنقارن على نفس الأساس عشان القرار يكون واضح.
-
-### SIG_FALLBACK_MARKET_TERM_INFLUENCE
-EN: Got it. We’ll keep the comparison clean and aligned to the same scope.
-AR: تم. بنخلي المقارنة واضحة وعلى نفس نطاق العمل.
-
-### SIG_FALLBACK_MOMENTUM_STATE
-EN: Take your time. I’m here when you’re ready to continue.
-AR: خذ راحتك. أنا موجود متى ما حبيت نكمل.
-
-### SIG_FALLBACK_FOLLOWUP_OK
-EN: Noted. If it’s okay, I’ll follow up once to keep it moving.
-AR: تم. إذا مناسب لك، بعمل متابعة واحدة عشان نمشيها بسلاسة.
-
-### SIG_FALLBACK_CUSTOMER_SILENCE_STATE
-EN: No worries at all. Whenever you’re ready, we can continue from where we stopped.
-AR: ولا يهمك. متى ما حبيت نكمل من نفس النقطة.
-
-### SIG_FALLBACK_ASSISTANT_RESPONSE_LATENCY_STATE
-EN: Thanks for your patience. Let’s continue from the last point.
-AR: شكرًا على صبرك. خلّنا نكمل من آخر نقطة.
 
 ### PHASE3B_CERAMIC_AUTO_WASH
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
@@ -118,16 +65,12 @@ EN: Got it. I’ll line up the ceramic coating options and move to the pricing s
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### PHASE3B_PPF_CITY
-EN: Got it. I’ll line up the PPF options and move to pricing next.
+EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ### PHASE3B_PPF_HIGHWAY
-EN: Got it. I’ll line up the PPF options and move to pricing next.
+EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
-
-### PHASE3B_ACK_NEUTRAL_UNKNOWN
-EN: No worries. I’ll move to the pricing step with a safe starting option, and we can fine-tune it after.
-AR: ما في مشكلة. بانتقل لخطوة التسعير بخيار مبدئي آمن، ونعدّل التفاصيل بعدها.
 
 ────────────────────────────────────────────────────────────
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
@@ -442,6 +385,13 @@ A4 — GREETING (NEUTRAL, NO QUALIFICATION) (“hi”, “hello”, “salam”)
 
 - EN: Hello, welcome. We do PPF, ceramic coating, tint, wrap, and polishing. What’s the car model and year?
 - AR: هلا ومرحباً. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. شنو موديل السيارة وأي سنة؟
+
+---
+
+### A6_REENTERED_CONTINUE
+
+- EN: Welcome back. We can continue from where we stopped.
+- AR: حياك الله من جديد. نكمل من حيث وقفنا.
 
 ---
 

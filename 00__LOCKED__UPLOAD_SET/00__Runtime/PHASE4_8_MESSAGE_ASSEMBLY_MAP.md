@@ -1,206 +1,6 @@
-# ============================================================
-# PHASE 3A — QUALIFIER-FIRST OUTPUT ROUTING (HARD)
-# - If Qualification Engine says Phase3A qualifier is required:
-#   output exactly ONE question from Phrase Library and STOP.
-# - This prevents Phase 3B pricing ladders from firing early.
-# ============================================================
-
-────────────────────────────────────────────────────────────
-SIGNAL CONTRACT COVERAGE — FALLBACK ROUTES (SAFE)
-────────────────────────────────────────────────────────────
-Purpose:
-- Ensure any emitted contract signal has at least one safe render path.
-- These are FALLBACKS only — they must not override Phase routing, qualification, pricing, or objection scripts.
-
-Rule:
-- If a signal below is present AND no higher-priority mapped path is active:
-  - Append exactly ONE matching fallback phrase from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-  - Do NOT append a question here.
-
-Fallback routing:
-- If BUDGET_SIGNAL != UNKNOWN → SIG_FALLBACK_BUDGET_SIGNAL
-- If COMPETITOR_INFLUENCE_LEVEL != UNKNOWN → SIG_FALLBACK_COMPETITOR_INFLUENCE_LEVEL
-- If MARKET_TERM_INFLUENCE != UNKNOWN → SIG_FALLBACK_MARKET_TERM_INFLUENCE
-- If MOMENTUM_STATE != UNKNOWN → SIG_FALLBACK_MOMENTUM_STATE
-- If FOLLOWUP_OK != UNKNOWN → SIG_FALLBACK_FOLLOWUP_OK
-- If CUSTOMER_SILENCE_STATE != UNKNOWN → SIG_FALLBACK_CUSTOMER_SILENCE_STATE
-- If ASSISTANT_RESPONSE_LATENCY_STATE != UNKNOWN → SIG_FALLBACK_ASSISTANT_RESPONSE_LATENCY_STATE
-### 3A) Phase 3A Permission Gate (YES/NO — ONE QUESTION)
-
-IF phase in [PHASE_3, PHASE_3A]
-AND request_type == PHASE3A_PERMISSION_GATE:
-
-  - suppress_hooks = TRUE
-  - Output MUST be:
-    - EN first, then AR
-    - exactly 1 question (yes/no)
-    - use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE3A_SOFT_HOLD_YN
-
-  - selected_phrase_id MUST equal PHASE3A_SOFT_HOLD_YN
-  - STOP (do not append any other blocks).
-
-### 3A) Phase 3A Qualifier-First Gate (HARD)
-
-IF phase == PHASE_3
-AND phase3a_required == true
-AND phase3a_qualifier_id is present:
-
-  - suppress_hooks = TRUE
-  - Output MUST be:
-    - EN first, then AR
-    - exactly 1 question
-    - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-
-  - Mapping (phase3a_qualifier_id → Phrase block):
-    - PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
-    - PHASE3A_Q_PPF_DRIVING_PATTERN            → PHASE3A_Q_PPF_DRIVING_PATTERN
-    - PHASE3A_Q_CERAMIC_WASH_PATTERN           → PHASE3A_Q_CERAMIC_WASH_PATTERN
-    - PHASE3A_Q_TINT_COVERAGE                  → PHASE3A_Q_TINT_COVERAGE
-    - PHASE3A_Q_WRAP_FINISH                    → PHASE3A_Q_WRAP_FINISH
-    - PHASE3A_Q_POLISHING_SCOPE                → PHASE3A_Q_POLISHING_SCOPE
-
-  - selected_phrase_id MUST equal the phrase block name above.
-  - STOP (do not append any other blocks).
-
-# ─────────────────────────────────────────────────────────────
-# PHASE 4 — POST-PRICE / POST-OPTIONS ROUTING OVERLAY (LOCKED)
-# ─────────────────────────────────────────────────────────────
-#
-# Purpose:
-# - Deterministically route post-price/post-options customer behavior to
-#   approved Phase 4 phrases in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-# - This overlay MUST NOT change Phase 0–3 qualification or Phase 3 option selection.
-#
-# Activation rule (must be true):
-# - price_ladder_state != NONE
-#   (Meaning: pricing/options have been exposed OR an anchor/range was provided)
-#
-# Inputs used:
-# - decision_state_tags[]
-# - signal_tags[]
-# - routing_tags[]
-# - objection_signal (from CUSTOMER_CHAT_INTAKE_RULES.md when applicable)
-#
-# Output:
-# - Select exactly ONE Phase 4 phrase block per turn (plus 1 micro-question if the block includes it)
-#
-# Precedence (top wins):
-# 1) Explicit objection_signal paths
-# 2) High-risk decision_state_tags (loop / overload / exit)
-# 3) Competitor + technical influence
-# 4) Passive interest / confusion
-# 5) Service jump / proof / visit / WhatsApp continuation
-#
-# NOTE:
-# - Do NOT use “no rush”, “take your time”, or “whenever you’re ready” phrasing.
-# - Maintain momentum with one clear next input.
-
-## 4.X.1 — PRICE PUSH / LOOP RISK (post-price)
-IF (price_ladder_state != NONE) AND (
-  "PRICE_PUSHY_EARLY" IN decision_state_tags[] OR
-  "PRICE_LOOP_RISK" IN decision_state_tags[] OR
-  objection_signal == "JUST_GIVE_PRICE"
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.5 PRICE PUSHY (ANCHOR + ONE DETAIL)
-
-## 4.X.2 — COMPETITOR INFLUENCE / EXTERNAL QUOTE (post-price)
-IF (price_ladder_state != NONE) AND (
-  "COMPETITOR_REFERENCE_PRESENT" IN decision_state_tags[] OR
-  "EXTERNAL_QUOTE_MENTIONED" IN decision_state_tags[] OR
-  objection_signal == "COMPETITOR_CHEAPER"
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.6 COMPETITOR / PRICE COMPARE (ONE-LINE DIFFERENCE)
-
-## 4.X.3 — TECHNICAL QUESTION REDIRECT (post-price)
-IF (price_ladder_state != NONE) AND (
-  "TECH_JARGON_INFLUENCED" IN decision_state_tags[] OR
-  "SPEC_OVERLOAD_RISK" IN decision_state_tags[] OR
-  "WARRANTY_FIXATION" IN decision_state_tags[] OR
-  objection_signal == "TECHNICAL_QUESTION"
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.7 TECHNICAL QUESTION (OUTCOME-BASED REDIRECT)
-
-## 4.X.4 — PASSIVE INTEREST (ok / hmm / I’ll think) (post-price)
-IF (price_ladder_state != NONE) AND (
-  "TIMING_MISMATCH" IN decision_state_tags[] OR
-  "COGNITIVE_OVERLOAD" IN decision_state_tags[] OR
-  objection_signal == "PASSIVE_INTEREST"
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.3 PASSIVE INTEREST (MOMENTUM SAFE)
-
-## 4.X.5 — “Why are you asking / too many questions” (post-price)
-IF (price_ladder_state != NONE) AND (
-  objection_signal == "CONFUSED_WHY_QUESTIONS" OR
-  objection_signal == "QUESTION_FATIGUE"
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.4 WHY I’M ASKING (ONE-LINE REASON + ONE INPUT)
-
-## 4.X.6 — SERVICE JUMP (customer changes service mid-flow)
-IF (price_ladder_state != NONE) AND (
-  objection_signal == "SERVICE_JUMP" OR
-  "SERVICE_INTEREST_*" IN signal_tags[]  # pattern meaning: more than one service interest present
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.8 SERVICE JUMP (REASSURE + RETURN)
-
-## 4.X.7 — PROOF REQUEST / VISIT INVITE (post-price)
-IF (price_ladder_state != NONE) AND (
-  objection_signal == "PROOF_REQUEST" OR
-  "NEEDS_REASSURANCE" IN decision_state_tags[]
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.9 VISIT INVITE (LOW-PRESSURE)
-
-## 4.X.8 — WHATSAPP CONTINUATION (optional capture)
-IF (price_ladder_state != NONE) AND (
-  objection_signal == "PROOF_REQUEST" OR
-  objection_signal == "PASSIVE_INTEREST" OR
-  objection_signal == "SERVICE_JUMP" OR
-  "RETURNING_CUSTOMER_CONTEXT" IN decision_state_tags[]
-)
-THEN use PHASE4_6_HUMAN_PHRASE_LIBRARY.md :: 4.10 WHATSAPP CONTINUATION (OPTIONAL)
-
 # PHASE 4.8 — MESSAGE ASSEMBLY MAP
 
-Status: ACTIVE
-Purpose: Deterministic routing from signals → approved phrases.
-
----
-## PHASE 0–2 HARD OVERRIDES (v1.0)
-
-### OVERRIDE 1 — VEHICLE-FIRST INVARIANT
-Applies when:
-- Phase in {0,1,2}
-- vehicle_model OR vehicle_year is missing
-  OR vehicle_model_validation == FAIL
-Effect:
-- Force response to VEHICLE REQUEST phrase
-- Suppress:
-  - scope questions (full/front, windows, partial)
-  - price or “check price” language
-  - comparison explanations
-  - competitor resistance explanations
-  - technical explanations
-  - Phase 6 blocks that do not request vehicle
-
-Hard lock (Phase 0–2):
-- If vehicle_model_validation == FAIL:
-  - Use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIER (V1)
-  - Do NOT add examples (e.g., “X5 / X3 / 3 Series”)
-  - Do NOT restate or “interpret” the invalid model
-
-### OVERRIDE 2 — CONTINUITY INVARIANT
-Applies when:
-- Phase in {0,1,2}
-- vehicle already captured
-Effect:
-- Do NOT re-ask vehicle
-- Preserve active service context across:
-  - comparison
-  - brand mention
-  - resistance
-  - silence / “ok”
-
----
-
+Status: ACTIVE / LOCKED BEHAVIOR 
 Phase: 4.8  
 Scope: Message assembly structure, ordering, caps, and slot wiring  
 Dependencies:
@@ -325,6 +125,58 @@ Hard rules:
 - Max questions per response: 1 (total, across whole message)
 - If H1 is a question, the rest of the message must contain 0 questions.
 
+────────────────────────────────────────────────────────────
+GREETING ROUTES (HARD OVERRIDE — NO DRIFT)
+────────────────────────────────────────────────────────────
+
+## GREETING_ONLY (NEW / NO CONTEXT) — ONBOARDING GREETING
+IF request_type == GREETING_ONLY:
+  - suppress_hooks = TRUE
+  - Output MUST use ONLY:
+    - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A4_GREETING_SERVICE_CONTEXT
+  - selected_phrase_id MUST equal A4_GREETING_SERVICE_CONTEXT
+  - STOP (do not append any other blocks).
+
+## REENTERED_CONTINUE (CONTEXT EXISTS) — CONTINUE WITHOUT RESET
+IF request_type == REENTERED_CONTINUE:
+  - suppress_hooks = TRUE
+  - Output MUST use ONLY:
+    - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A6_REENTERED_CONTINUE
+  - selected_phrase_id MUST equal A6_REENTERED_CONTINUE
+  - STOP (do not append any other blocks).
+
+### 3A) Phase 3A Qualifier-First Gate (HARD)
+# LOCK_METADATA
+# LOCK_STATUS: LOCKED
+# LOCK_SCOPE: PHASE 3A — qualifier_id → phrase routing + suppression rules
+# LOCK_DATE: 2026-02-09
+# LOCK_REASON: Phase 3A UAT passed; prevent legacy blocks overriding qualifier flow
+# CHANGE_CONTROL: Architecture approval required
+
+IF phase == PHASE_3
+AND phase3a_required == true
+AND phase3a_qualifier_id is present:
+
+  - suppress_hooks = TRUE
+  - Output MUST be:
+    - exactly 1 question
+    - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+  - Mapping (phase3a_qualifier_id → Phrase block):
+    - PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+    - PHASE3A_Q_PPF_COVERAGE_INTENT             → PHASE3A_Q_PPF_COVERAGE_INTENT
+    - PHASE3A_Q_PPF_DRIVING_PATTERN             → PHASE3A_Q_PPF_DRIVING_PATTERN
+    - PHASE3A_Q_PPF_COMPARISON_FOCUS            → PHASE3A_Q_PPF_COMPARISON_FOCUS
+    - PHASE3A_Q_CERAMIC_GOAL                    → PHASE3A_Q_CERAMIC_GOAL
+    - PHASE3A_Q_CERAMIC_WASH_PATTERN            → PHASE3A_Q_CERAMIC_WASH_PATTERN
+    - PHASE3A_Q_TINT_GOAL                       → PHASE3A_Q_TINT_GOAL
+    - PHASE3A_Q_TINT_COVERAGE                   → PHASE3A_Q_TINT_COVERAGE
+    - PHASE3A_Q_WRAP_FINISH                     → PHASE3A_Q_WRAP_FINISH
+    - PHASE3A_Q_POLISHING_SCOPE                 → PHASE3A_Q_POLISHING_SCOPE
+
+  - selected_phrase_id MUST equal the phrase block name above.
+  - STOP (do not append any other blocks).
+
 ## PHASE 1–2 — PROFESSIONAL PRESENCE MODE (MANDATORY)
 
 Purpose:
@@ -387,10 +239,7 @@ Default trigger condition (any one):
 
 Default output behavior (when no exception applies):
 - Output MUST contain exactly 1 question total.
-- That question MUST be from L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS) and MUST match missing_fields exactly:
-  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
-  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
-  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
+- That question MUST be from L.1 QUALIFICATION CLARIFIERS (VEHICLE DETAILS) using missing_info_ask_count variant (V1/V2/V3).
 - Output MUST contain ONLY the question line(s) (no prefacing, no acknowledgements, no examples, no extra sentences).
 - Suppress hooks, preferences, education, upsell blocks until QUALIFICATION_STATUS = READY.
 - Do NOT ask preference questions until QUALIFICATION_STATUS = READY.
@@ -403,10 +252,7 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 that matches missing_fields exactly:
-  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
-  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
-  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
+- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
 - Do NOT include any other questions.
 - Suppress hooks.
 
@@ -418,10 +264,7 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 that matches missing_fields exactly:
-  - If missing_fields includes vehicle_model AND vehicle_year → ask MODEL+YEAR (L.1 V1/V2/V3)
-  - If missing_fields == [vehicle_model] → ask MODEL ONLY (L.1 MODEL_ONLY)
-  - If missing_fields == [vehicle_year] → ask YEAR ONLY (L.1 YEAR_ONLY)
+- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
 - Do NOT include any other questions.
 - Suppress hooks.
 
@@ -460,7 +303,6 @@ Trigger condition (all must be true):
 - active_service_context != null
 - detected_service_intent_in_message != unknown
 - detected_service_intent_in_message != active_service_context
-- missing_fields is empty
 
 Required output behavior (override Route B):
 - Do NOT route to any PHASE6__SERVICE_* explanation in this turn.
@@ -476,18 +318,6 @@ After clarification:
 - If comparison confirmed → proceed via Phase 8 comparison/education path (if available) on next turn.
 
 ### Approved Routes
-
-Route 0A — Multi-Service Intent (Phase 0–2 safe)
-IF constraints includes multi_service_intent = true:
-- Use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → MULTI_SERVICE_INTENT_SAFE (PHASE 0–2)
-- Output MUST render VERBATIM (select variant by vehicle presence).
-- Suppress hooks, education, pricing, and technical explanations.
-
-Route 0B — Long/Rambling Uncertain (Phase 0–2 grounding)
-IF constraints includes long_rambling_uncertain = true:
-- Use ONLY: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → LONG_RAMBLING_GROUNDING (PHASE 0–2)
-- Output MUST render VERBATIM.
-- Suppress hooks, education, pricing, and technical explanations.
 
 Route 0C — Brand Refinement (service context already active)
 IF constraints includes brand_keyword_detected = true AND active_service_context != null:
@@ -575,7 +405,7 @@ Purpose:
 - Phase 7 must NOT introduce service education, pricing, negotiation, or new wording.
 
 Authority:
-- Execution authority: TEST_BUNDLE.md
+- Execution authority: Production runtime state + routing only (this file + QUALIFICATION_ENGINE.md + RUNTIME_EXECUTION_FLOW.md)
 - Customer-facing wording authority: PHASE4_6_HUMAN_PHRASE_LIBRARY.md only
 - Pricing wording authority: PRICE_LADDER_ENGINE.md only (NOT used in Phase 7)
 
@@ -593,7 +423,7 @@ Assembly rules (unchanged):
 
 ### Phase 7 Eligibility Gate (Hard)
 
-Phase 7 may execute ONLY if a valid Phase 7 entry condition is true (per TEST_BUNDLE.md):
+Phase 7 may execute ONLY if a valid Phase 7 entry condition is true (per production runtime state keys):
 - READY_TO_PROCEED
 - THINKING
 - SILENT
@@ -673,7 +503,7 @@ When multiple constraints apply, precedence is:
 
 ### Phase 7 Override (Hard)
 
-If Phase 7 is active (valid Phase 7 entry condition met per TEST_BUNDLE.md):
+If Phase 7 is active (valid Phase 7 entry condition met per production runtime state keys):
 - Suppress hooks (H1) unconditionally
 - Suppress Phase 6 service explanation blocks
 - Suppress PRICE_LADDER_ENGINE output
