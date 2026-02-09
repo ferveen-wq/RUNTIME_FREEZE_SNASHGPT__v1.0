@@ -216,6 +216,15 @@ Customers choose ceramic for easier maintenance, better shine, and a cleaner loo
 ## What to keep realistic
 Ceramic helps with ease of cleaning and gloss, but it does not prevent stone chips and deep scratches. Proper prep and application matter for the final result.
 
+### CERAMIC MAINTENANCE (CANONICAL ADD-ON)
+Name: Ceramic Refresh / Maintenance Visit
+Purpose:
+- Maintain coating performance and appearance over time in Bahrain conditions.
+Notes (hard constraints):
+- This is a SERVICE CONCEPT entry only.
+- Do NOT promise “free” / “included” / “warranty coverage” unless the warranty policy is separately canonical.
+- Pricing/eligibility is handled later by pricing tables / policy.
+
 ## Next step (qualification)
 [BUNDLE_SOURCE_V1]
 To guide you correctly, we'll need the car model and year.

@@ -3932,4 +3932,86 @@ No urgency.
 No pressure.
 Just clarity, continuity, and trust.
 
+## INSTALLATION PRINCIPLES
+### INSTALLATION ECOSYSTEM — MANUFACTURER-ALIGNED
+
+All installations are carried out using:
+- Manufacturer-approved chemicals and solutions  
+- Certified tools and consumables  
+- Controlled installation methods specific to each film or coating  
+
+The installation process is monitored and standardized. No shortcuts, substitutions,
+or improvised materials are used. This ensures consistency, durability, and
+safe long-term performance of the product.
+
+## PRODUCT LIFECYCLE
+### PRODUCT LIFECYCLE & SAFE REMOVABILITY
+
+Paint protection films, wraps, and coatings are engineered as non-permanent systems.
+
+Warranty periods indicate manufacturer support — not an expiration of usability.
+Even after the warranty period, films and coatings remain stable and can be safely
+removed when required. Removal is performed using controlled methods that
+protect the original paint when done correctly. This is a normal and expected
+part of the product lifecycle.
+
+## PHASE TRANSITIONS
+### INSTALLATION DETAIL — PHASE 5 HANDOFF TRIGGER
+
+When a customer requests deeper understanding, the system may offer:
+- A step-by-step explanation of surface preparation and installation flow
+- A short installation video on a similar vehicle
+
+This transition must be permission-based. Detailed procedures, techniques, and
+product handling are explained only in Phase 5.
+
+## SUPPORTING MATERIALS
+### VISUAL PROOF GOVERNANCE
+
+Any installation or product video shown must:
+- Reflect the actual preparation and installation standards used
+- Match the claims and reassurances stated in earlier phases
+- Demonstrate finish quality, alignment, and surface consistency
+
+Visual proof is used to reinforce confidence, not to introduce new claims
+or technical depth.
+
+## PRODUCT CATEGORIES
+### BRAND FAMILY POSITIONING (HIGH-LEVEL)
+
+Premium protection films and coatings are typically differentiated by:
+- Long-term clarity retention  
+- Self-healing consistency under heat  
+- Adhesive and top-coat stability  
+- Finish behavior (gloss, satin, matte)
+
+Most premium brands use TPU-based materials. Performance differences usually
+appear over time, especially under heat, UV exposure, and frequent washing.
+
+Detailed SKU-level comparisons are handled only when explicitly requested.
+
+## VISUAL CHARACTERISTICS
+### COLOR-SPECIFIC BEHAVIOR
+
+Vehicle color affects how wear and finish changes appear over time.
+
+- Dark colors show swirls, marks, and clarity loss more clearly  
+- Light colors reveal yellowing or UV instability sooner  
+- Protection improves surface stability but does not eliminate visibility differences
+
+Color behavior is a visual characteristic, not a defect.
+
+## ENVIRONMENTAL IMPACTS
+### PARKING & UV EXPOSURE
+
+Frequent outdoor parking increases heat and UV load, which makes film stability,
+top-coat quality, and long-term clarity more important than short-term appearance.
+
+## CLIMATE & LONG-TERM PERFORMANCE
+### REGIONAL CLIMATE CONSIDERATION
+
+While many premium brands perform well globally, long-term behavior can vary by
+climate. Films and coatings selected for the region are chosen based on heat
+exposure, UV intensity, and real-world durability in local conditions.
+
 
