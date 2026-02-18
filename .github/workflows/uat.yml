@@ -30,3 +30,9 @@ jobs:
         run: |
           python runner/run_uat.py
           
+              - name: Upload UAT report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: uat-report
+        path: tests/reports/*.json
