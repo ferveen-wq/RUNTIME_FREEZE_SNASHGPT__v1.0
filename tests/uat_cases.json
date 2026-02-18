@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "ppf_price_request_x5_2025",
+    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_contains": {
+      "arabic": ["PPF", "BMW", "X5"],
+      "english": ["PPF", "BMW", "X5"]
+    }
+  },
+  {
+    "case_id": "greeting_should_not_ask_vehicle",
+    "input": "hi",
+    "expect_debug": {
+      "phase": "PHASE_0"
+    },
+    "expect_not_contains": {
+      "english": ["which car", "model", "year"],
+      "arabic": ["موديل", "سنة", "السيارة"]
+    }
+  }
+]

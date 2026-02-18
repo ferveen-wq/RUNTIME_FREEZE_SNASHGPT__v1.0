@@ -2,3 +2,9 @@
 **/.DS_Store
 Runtime for the uploads/runtime/
 SNASHGPT_PHASE0_4_MEGA_SEQUENCE_TEST.txt
+
+
+.venv/
+__pycache__/
+*.pyc
+tests/reports/
