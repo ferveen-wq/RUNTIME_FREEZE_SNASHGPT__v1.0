@@ -2,6 +2,7 @@ import json
 import os
 from pathlib import Path
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from openai import OpenAI
 
@@ -19,6 +20,12 @@ def load_text(path: Path) -> str:
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_system_prompt() -> str:
+    base = load_text(PROMPT_PATH)
+    now_bh = datetime.now(ZoneInfo("Asia/Bahrain")).strftime("%Y-%m-%d %H:%M")
+    return base.replace("Begin.", f"CURRENT_BAHRAIN_TIME: {now_bh} (Asia/Bahrain)\n\nBegin.")
 
 
 def safe_lower(s: str) -> str:
@@ -163,7 +170,7 @@ def main():
 
     client = OpenAI(api_key=api_key)
 
-    system_prompt = load_text(PROMPT_PATH)
+    system_prompt = load_system_prompt()
     cases_file = os.getenv("UAT_CASES_FILE", "")
     cases_path = Path(cases_file) if cases_file else CASES_PATH
     cases = load_json(cases_path)
@@ -184,12 +191,17 @@ def main():
     for case in cases:
         user_input = case["input"]
 
+        # UAT determinism:
+        # Keep sampling stable to avoid CI flakes from paraphrases / token drops.
+        # This affects ONLY the test runner, not runtime architecture.
         resp = client.responses.create(
             model=MODEL,
             input=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_input}
             ],
+            temperature=0,
+            top_p=1,
         )
 
         # The SDK returns a structured object; simplest is to read output_text
