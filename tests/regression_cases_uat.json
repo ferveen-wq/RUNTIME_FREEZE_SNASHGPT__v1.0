@@ -1,0 +1,43 @@
+[
+  {
+    "case_id": "regression_greeting_no_vehicle_question",
+    "input": "hi",
+    "expect_debug": {
+      "request_type": "GREETING"
+    },
+    "expect_not_contains": {
+      "english": ["which car", "model", "year"],
+      "arabic": ["موديل", "سنة", "السيارة"]
+    }
+  },
+  {
+    "case_id": "regression_ppf_price_request_no_usd_no_dollar",
+    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar", "4500", "7500"],
+      "arabic": ["$", "usd", "دولار", "4500", "7500"]
+    }
+  },
+  {
+    "case_id": "regression_competitor_cheaper_objection",
+    "input": "Another place is cheaper for PPF",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_not_contains": {
+      "english": ["they are bad", "cheap quality", "fake brand"],
+      "arabic": ["سيئين", "جودة سيئة", "مزيف"]
+    }
+  },
+  {
+    "case_id": "regression_brand_only_xpel_no_pricing",
+    "input": "Do you install XPEL?",
+    "expect_not_contains": {
+      "english": ["$", "usd", "bhd", "starts from", "450", "700", "280", "500", "1000"],
+      "arabic": ["دولار", "دينار", "يبدأ من", "٤٥٠", "٧٠٠", "٢٨٠", "٥٠٠", "١٠٠٠"]
+    }
+  }
+]

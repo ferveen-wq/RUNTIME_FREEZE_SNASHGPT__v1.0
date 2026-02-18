@@ -85,6 +85,16 @@ def check_expectations(result: dict, case: dict) -> list:
     arabic = result["arabic"]
     english = result["english"]
 
+    # Remove timestamp line from content checks (to avoid false failures on numbers/dates)
+    def strip_timestamp(s: str) -> str:
+        if not s:
+            return ""
+        lines = [ln for ln in s.splitlines() if "Timestamp:" not in ln]
+        return "\n".join(lines).strip()
+
+    arabic_chk = strip_timestamp(arabic)
+    english_chk = strip_timestamp(english)
+
     # Debug expectations
     for k, v in case.get("expect_debug", {}).items():
         actual = debug.get(k)
@@ -97,19 +107,19 @@ def check_expectations(result: dict, case: dict) -> list:
     # Must contain checks
     exp_contains = case.get("expect_contains", {})
     for word in exp_contains.get("arabic", []):
-        if safe_lower(word) not in safe_lower(arabic):
+        if safe_lower(word) not in safe_lower(arabic_chk):
             failures.append(f"Arabic missing required word: '{word}'")
     for word in exp_contains.get("english", []):
-        if safe_lower(word) not in safe_lower(english):
+        if safe_lower(word) not in safe_lower(english_chk):
             failures.append(f"English missing required word: '{word}'")
 
     # Must not contain checks
     exp_not = case.get("expect_not_contains", {})
     for word in exp_not.get("arabic", []):
-        if safe_lower(word) in safe_lower(arabic):
+        if safe_lower(word) in safe_lower(arabic_chk):
             failures.append(f"Arabic contains forbidden word: '{word}'")
     for word in exp_not.get("english", []):
-        if safe_lower(word) in safe_lower(english):
+        if safe_lower(word) in safe_lower(english_chk):
             failures.append(f"English contains forbidden word: '{word}'")
 
     return failures
@@ -123,7 +133,9 @@ def main():
     client = OpenAI(api_key=api_key)
 
     system_prompt = load_text(PROMPT_PATH)
-    cases = load_json(CASES_PATH)
+    cases_file = os.getenv("UAT_CASES_FILE", "")
+    cases_path = Path(cases_file) if cases_file else CASES_PATH
+    cases = load_json(cases_path)
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
@@ -196,6 +208,7 @@ def main():
                 print("debug:", r.get("debug"))
                 print("arabic:", r.get("arabic"))
                 print("english:", r.get("english"))
+                print("raw:", r.get("raw"))
                 if shown >= 10:
                     break
 
