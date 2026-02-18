@@ -198,7 +198,7 @@ Optional (only if explicitly loaded in RUNTIME_LOAD_MANIFEST.md):
 - PHASE5_2__HANDOVER_WORKFLOW.md
 - PHASE5_3__END_ESCALATE_RULES.md
 - PHASE5_4__YES_LATER_SILENCE_PLAYBOOK.md
-- PHASE5_5__WHATSAPP_NEXT_STEP_TEMPLATES__EN_AR.md
+- PHASE5_5__WHATSAPP_NEXT_STEP_TEMPLATES__EN_AR.md (PHASE 5 ONLY — DO NOT LOAD IN PHASE 0–4 UAT)
 
 Trace visibility is **internal-only** and must never be shown to customers.
 

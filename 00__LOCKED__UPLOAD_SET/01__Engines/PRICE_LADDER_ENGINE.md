@@ -2,7 +2,7 @@
 
 - Pricing authority source: 02__Parameters/PRICE_TABLE_VAT_INCL.md (VAT-included, locked)
 ENGINE_NAME: Price Ladder Execution Engine  
-ENGINE_VERSION: v1.1  
+ENGINE_VERSION: v1.2  
 ENGINE_PHASE: Phase 3  
 ENGINE_STATUS: Locked  
 
@@ -31,7 +31,7 @@ Rules:
 
 ## VERSION_CONTROL
 
-- VERSION: 1.1
+- VERSION: 1.2
 
 - CREATED_ON: 2026-01-06  
 - STATUS: Locked 
@@ -116,38 +116,6 @@ If soft gate is missing:
 - Do NOT block pricing
 - Do NOT repeat usage questions
 
-Loop guard (price push):
-- If PRICE_PRESSURE_LEVEL is HIGH OR decision_state_tags[] contains PRICE_LOOP_RISK:
-  - Do NOT ask the same soft gate again
-  - Proceed to 2-option preview with a conditional framing sentence
-  - Ask only ONE simple selector question (A/B preference)
-
-Brand persistence (PPF):
-- If customer explicitly requested a brand (e.g., XPEL):
-  - Keep brand acknowledgment in the first line of the PPF options response
-  - Do NOT “drop” brand context after model/year is known
-
-### Old Vehicle Routing Override (7+ Years)
-
-Rule:
-- If vehicle model year indicates age ≥ 7 years:
-
-Behavior:
-- Usage context (city / highway / desert) becomes OPTIONAL
-- Paint condition becomes the preferred soft gate
-
-Replacement soft gate question (ask once only):
-- “How is the current paint condition — mostly clean, or does it have visible marks/scratches?”
-
-Routing rules:
-- If paint condition is POOR or UNKNOWN:
-  → Allow routing to:
-    - Lower-tier PPF
-    - Front-only PPF
-    - OR alternative services (ceramic / polishing)
-- Do NOT block pricing
-- Do NOT repeat usage questions for old vehicles
-
 ---
 
 ## 3. INPUT SIGNALS (READ-ONLY)
@@ -178,39 +146,6 @@ From Global Core Parameters (canonical names):
 
 ---
 
-### 3.1 Signal Compatibility Bridge (NON-BINDING)
-
-Purpose:
-- Allow downstream pricing behavior to remain stable even if upstream engines emit
-  different-but-equivalent negotiation or pressure tags.
-- This is a READ-ONLY interpretation layer.
-- Canonical fields always win if present.
-
-Compatibility rules (examples):
-
-- If signal_tags[] contains PRICE_PUSHY_EARLY or PRICE_LOOP_RISK:
-  → treat PRICE_PRESSURE_LEVEL as HIGH (if not already set)
-
-- If signal_tags[] contains EXTERNAL_QUOTE_MENTIONED or COMPETITOR_REFERENCE_PRESENT:
-  → set COMPETITOR_QUOTE_STATUS = PRESENT (if not already set)
-
-- If signal_tags[] contains NEEDS_REASSURANCE or DECISION_RISK_HIGH:
-  → allow one reassurance anchor sentence after price (no option expansion)
-
-- If signal_tags[] contains TECH_JARGON_INFLUENCED or SPEC_OVERLOAD_RISK:
-  → suppress feature-heavy explanations; prioritize outcome framing
-
-Rules:
-- This bridge MUST NOT invent new tags
-- This bridge MUST NOT override explicit canonical parameters
-- Unknown tags must be ignored safely
-
-Note on Tag Naming:
-- External documents may refer to conceptual "SIG_*" signals.
-- Runtime MUST NOT emit SIG_* tags.
-- All such concepts must map into the canonical taxonomy defined above.
-- PRICE_LADDER_ENGINE may interpret these tags via its Signal Compatibility Bridge.
-
 ---
 
 ## 4. OUTPUT CONTRACT
@@ -228,6 +163,17 @@ Format rules:
 Outputs must comply with:
 - OUTPUT_RESPONSE_TEMPLATE.md
 
+### OUTPUT FORMAT RULES
+- When rendering pricing:
+  - If ladder returns multiple valid SKU prices: display a range:
+      FROM {lowest_valid_price} TO {highest_valid_price} BD VAT included.
+  - If ladder returns a single valid SKU price: display that price only:
+      {price} BD VAT included.
+  - Do not fabricate synthetic ranges or invented upper bounds.
+  - All prices must strictly match PRICE_TABLE_VAT_INCL.md.
+- Output pricing for cheapest push:
+  - CONSTRAINT: Use only the lowest SKU price. Do not combine into ranges unless inherent to ladder.
+
 ### 4.1 Emitted Control Tag (REQUIRED)
 
 This engine MUST emit a terminal control tag for downstream orchestration:
@@ -243,22 +189,6 @@ This engine MUST emit a terminal control tag for downstream orchestration:
 Notes:
 - This tag is internal (non-customer-facing).
 - This tag does not reveal exact prices.
-
-### 4.2 Customer-facing output template (EN then AR)
-
-EN:
-Based on what you confirmed, here are the two PPF options to check:
-Option A: <SKU_NAME_A>
-Option B: <SKU_NAME_B>
-If you’re aiming for something more cost-effective, we also have a lighter option that focuses on the high-impact areas.
-Which one do you want to check first, A or B?
-
-AR:
-حسب اللي تم تأكيده، هذي خيارين PPF نقدر نبدأ فيهم:
-الخيار A: <SKU_NAME_A>
-الخيار B: <SKU_NAME_B>
-وإذا تبي خيار أوفر، عندنا خيار أخف يركّز على المناطق الأكثر تعرّضاً.
-أي واحد تحب نبدأ فيه، A أو B؟
 
 ---
 
@@ -293,6 +223,48 @@ If optional Phase 2 signals exist, they modify pricing behavior only:
 
 If signals are absent:
 - Operate using default ladder logic
+
+---
+
+## WRAP — MINIMUM RANGE SUPPORT (TEMPORARY)
+
+STATUS: MINIMAL IMPLEMENTATION (flow stability first)
+GAP NOTE: Finish-specific reordering and richer wrap ladders remain governed by
+SKU_SELECTION_MATRIX.md and can be refined later without changing this engine.
+
+Applies when:
+- service_intent == wrap
+- phase3a_complete == true
+- request_type == PRICE_REQUEST
+
+Inputs:
+- vehicle_segment ∈ {VCB_1, VCB_2, VCB_3}
+- WRAP_SCOPE ∈ {FULL_VEHICLE, UNKNOWN}
+- WRAP_FINISH ∈ {GLOSS, MATTE, SATIN, UNKNOWN}
+
+Steps:
+1) Select SKUs from SKU_SELECTION_MATRIX.md (do NOT implement selection logic here):
+  - WRAP is supported ONLY for FULL VEHICLE:
+    - sku_a = WRAP_DEFAULT_A   (as returned by SKU_SELECTION_MATRIX for WRAP)
+    - sku_b = WRAP_SECOND_B    (as returned by SKU_SELECTION_MATRIX for WRAP)
+
+REPO-SAFETY NOTE (LOCKED):
+- Do NOT hard-code any roof-wrap SKU here. Roof-black styling is fulfilled ONLY by ROOF_PPF_BLACK_GLOSS (PPF), governed by the product registry + routing.
+- Partial/section wrap pricing is not supported by automation (FULL VEHICLE WRAP only).
+
+2) Price lookup:
+  - price_a = PRICE_TABLE_VAT_INCL[sku_a][vehicle_segment]
+  - price_b = PRICE_TABLE_VAT_INCL[sku_b][vehicle_segment]
+
+3) Range:
+  - RANGE_MIN_BD = min(price_a, price_b)
+  - RANGE_MAX_BD = max(price_a, price_b)
+
+Hard rules:
+- No clarifier questions inside the ladder engine.
+- Do not list SKUs.
+- Output range only.
+- If roof-black styling is requested, WRAP ladder must NOT execute. Route to ROOF_PPF_BLACK_GLOSS handling in the PPF path.
 
 ---
 
@@ -335,36 +307,21 @@ L5 — Escalation Gate
 - Stop pricing
 - Route to quote or human
 
-Deterministic selection rules:
-
-Coverage handling rule (business-safe):
-- If PPF_COVERAGE_SELECTED == UNKNOWN:
-  - Do NOT ask "front vs full" automatically.
-  - Default ladder output to FULL-BODY style options (two SKUs) based on brand/warranty intent.
-  - Add ONE soft line that a lighter "high-impact areas" option exists for cost-conscious customers,
-    without naming "front PPF" unless the customer explicitly asks.
-
-────────────────────────────────────────────────────────────
-PHASE 3B — SKU SELECTION AUTHORITY (LOCKED)
-────────────────────────────────────────────────────────────
-
-Selection rules (DEFAULT / SECOND / UPLADDER / DOWNLADDER) are defined ONLY in:
-- 02__Parameters/SKU_SELECTION_MATRIX.md
-
-Hard rule:
-- PRICE_LADDER_ENGINE.md MUST NOT redefine or duplicate SKU defaults here.
-- If SKU ordering needs changes, edit SKU_SELECTION_MATRIX.md only.
-
-────────────────────────────────────────────────────────────
-
 ---
 
 ## ROOF PPF HANDLING NOTE
+- Roof-black styling is fulfilled ONLY by ROOF_PPF_BLACK_GLOSS.
+- Pricing behavior:
+  - price = PRICE_TABLE_VAT_INCL[ROOF_PPF_BLACK_GLOSS][vehicle_segment]
+  - RANGE_MIN_BD = price
+  - RANGE_MAX_BD = price
+- Do NOT treat roof-black as WRAP. Do NOT output roof-wrap pricing.
 
 - ROOF_ONLY PPF is a valid coverage variant
 - Execution may use existing PPF SKUs
 - Dedicated ROOF_PPF SKUs are not required
 - Assistant confirmation or manual mapping is permitted
+- If roof-black styling is requested, use ROOF_PPF_BLACK_GLOSS SKU if present in repositories.
 
 ## 8. MULTI-SERVICE RULE
 
@@ -443,7 +400,17 @@ Lock conditions confirmed:
 This engine is finalized and frozen.
 Any modification requires a version bump (v1.1+) and formal architecture review.
 
-LOCKED_ON: 2026-01-08
+LOCKED_ON: 2026-01-08PHASE 3B — SKU SELECTION AUTHORITY (LOCKED)
+────────────────────────────────────────────────────────────
+
+Selection rules (DEFAULT / SECOND / UPLADDER / DOWNLADDER) are defined ONLY in:
+- 02__Parameters/SKU_SELECTION_MATRIX.md
+
+Hard rule:
+- PRICE_LADDER_ENGINE.md MUST NOT redefine or duplicate SKU defaults here.
+- If SKU ordering needs changes, edit SKU_SELECTION_MATRIX.md only.
+
+
 ---
 
 ## CUSTOMER-FACING LABEL RULE (LOCKED)

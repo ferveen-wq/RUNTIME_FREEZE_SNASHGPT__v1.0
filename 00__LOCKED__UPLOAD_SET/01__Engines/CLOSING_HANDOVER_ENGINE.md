@@ -1,3 +1,15 @@
+# PHASE5_EXECUTION_GUARD (HARD)
+# Purpose: Prevent Phase 5 templates from contaminating Phase 0-4 UAT runs.
+# Rule: If PHASE5_ENABLED is not TRUE, this engine MUST NOT reference or use any PHASE5 templates.
+# Enforced by: Runtime Orchestrator + Assembly routing.
+#
+# HARD STOP:
+# IF PHASE5_ENABLED != TRUE:
+#   - Do NOT load or reference:
+#     - PHASE5_5__WHATSAPP_NEXT_STEP_TEMPLATES__EN_AR.md
+#   - Return control-only output (no customer-facing text)
+#   - STOP
+#
 # PHASE 4 — CLOSING & HANDOVER ENGINE
 Version: 1.0
 Status: Locked

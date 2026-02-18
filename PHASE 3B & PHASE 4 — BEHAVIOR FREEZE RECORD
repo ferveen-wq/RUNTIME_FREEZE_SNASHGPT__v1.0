@@ -1,0 +1,101 @@
+# PHASE 3B & PHASE 4 — BEHAVIOR FREEZE RECORD
+Version: v1.0
+Status: LOCKED (Behavior)
+Date: 2026-02-09
+
+────────────────────────────────────────
+PHASE 3B — PRICING BEHAVIOR (LOCKED)
+────────────────────────────────────────
+
+Purpose:
+- Phase 3B exists to present price logically, not to persuade emotionally.
+
+Allowed:
+- Present price ranges and options
+- Explain price differences factually (coverage, brand, durability)
+- Respond to price pressure with laddering (down or up)
+- Ask ONE clarification question if required by the price ladder
+
+Explicitly NOT allowed:
+- Emotional persuasion
+- Reassurance language
+- Warranty defense
+- Brand advocacy beyond factual comparison
+- Education deep-dives (installation, prep, materials)
+
+Signals handled:
+- PRICE_PRESSURE
+- COMPETITOR_MENTION
+- COVERAGE_SCOPE
+
+Outputs:
+- Neutral price presentation
+- Clear option framing
+- Decision-enabling question (one max)
+
+Note:
+Copy is baseline by design. Optimization is deferred.
+
+────────────────────────────────────────
+PHASE 4 — CONFIDENCE & REASSURANCE LAYER (LOCKED)
+────────────────────────────────────────
+
+Purpose:
+- Phase 4 exists to stabilize confidence AFTER pricing.
+- It does NOT sell, discount, or renegotiate.
+
+Core behavior:
+- Reassurance based on the single dominant customer signal
+- Permission-based education or visual proof
+- Calm normalization of concerns
+
+Allowed:
+- One reassurance statement
+- One permission-based offer (explain OR show)
+- Conditional insert based on dominant signal only
+
+Explicitly NOT allowed:
+- Multiple reassurances in one message
+- Defensiveness or justification stacking
+- Repeating price
+- Discounting or re-laddering
+- Closing language
+
+Signals eligible (one at a time):
+- PRICE_PRESSURE
+- COMPARISON_FOCUS
+- BRAND_FIXATION
+- WARRANTY_SENSITIVITY
+- USAGE_PATTERN (e.g., highway)
+
+Example permission phrasing (pattern only):
+“If you want, I can explain how we prep and install it, or share a short video on a similar car.”
+
+Note:
+Phase 4 copy is baseline and intentionally conservative.
+
+────────────────────────────────────────
+PRO OPTIMIZATION STATUS
+────────────────────────────────────────
+
+- ChatGPT Pro has NOT been run for Phase 3B or Phase 4.
+- No persuasive optimization has been applied.
+- This is intentional to prevent premature overfitting.
+
+Future optimization will occur ONLY after:
+- Phase 5 education layer is live
+- Real customer objections are observed
+- Architecture remains unchanged
+
+────────────────────────────────────────
+CHANGE POLICY
+────────────────────────────────────────
+
+Any change to:
+- Phase 3B persuasion level
+- Phase 4 reassurance scope
+- Signal priority rules
+
+Requires:
+- Update to this document
+- Explicit approval before runtime patches

@@ -252,7 +252,16 @@ Naming constraints:
 - WRAP_GLOSS
 - WRAP_MATTE
 - WRAP_SATIN
-- ROOF_WRAP_BLACK
+
+## 9.1) ROOF BLACK (PPF ONLY)
+- ROOF_PPF_BLACK_GLOSS
+
+Aliases (route to ROOF_PPF_BLACK_GLOSS, do NOT expose as WRAP):
+- "roof wrap"
+- "black roof wrap"
+- "wrap roof black"
+- "تغليف سقف"
+- "تغليف سقف أسود"
 
 ---
 

@@ -60,6 +60,58 @@ These are tags, not customer-facing text.
 
 ---
 
+## 2) Extracted Keys (Runtime Output)
+(This file emits ONLY extracted signals/fields. It does NOT decide phrasing.)
+
+### Price request detection (HARD, same-message)
+- If message contains any explicit price ask:
+  - English: "price?", "price", "how much", "how much?"
+  - Arabic: "بكم", "كم السعر", "كم"
+  - set request_type = PRICE_REQUEST
+
+### PPF scope + driving extraction (HARD, same-message)
+- If message contains any PPF indicator (e.g., "ppf", "paint protection film", Arabic equivalent for PPF):
+  - If message contains any of: "full", "full body", "whole car", "entire car":
+    - set PPF_COVERAGE_INTENT = FULL_BODY
+  - Else if message contains any of: "front", "front only", "front protection", "impact zones":
+    - set PPF_COVERAGE_INTENT = FULL_FRONT
+  - Else:
+    - (do not set PPF_COVERAGE_INTENT here)
+
+  - If message contains "highway" OR "mostly highway" OR Arabic equivalent indicating highway use:
+    - set PPF_DRIVING_PATTERN = HIGHWAY
+  - Else if message contains "city" OR Arabic equivalent indicating city use:
+    - set PPF_DRIVING_PATTERN = CITY
+  - Else:
+    - (do not set PPF_DRIVING_PATTERN here)
+
+  # --------------------------------------------------------------------------
+  # Intake-to-Qualification override (HARD, deterministic)
+  #
+  # Purpose:
+  # - Prevent upstream defaults (UNSURE/UNKNOWN) from forcing Q1/Q2
+  #   when the SAME customer message already explicitly states scope or driving.
+  #
+  # Applies only when service_intent == PPF and we are about to evaluate missing gates.
+
+  - IF service_intent == PPF:
+
+    # Coverage override (same-message explicit)
+    - IF (PPF_COVERAGE_INTENT is missing) OR (PPF_COVERAGE_INTENT == UNKNOWN) OR (PPF_COVERAGE_INTENT == UNSURE):
+      - IF current_user_message contains any of: "full", "full body", "whole car", "entire car":
+        - set PPF_COVERAGE_INTENT = FULL_BODY
+      - ELSE IF current_user_message contains any of: "front", "front only", "front protection", "impact zones":
+        - set PPF_COVERAGE_INTENT = FULL_FRONT
+
+    # Driving override (same-message explicit)
+    - IF (PPF_DRIVING_PATTERN is missing) OR (PPF_DRIVING_PATTERN == UNKNOWN):
+      - IF current_user_message contains "highway" OR "mostly highway" OR Arabic equivalent indicating highway use:
+        - set PPF_DRIVING_PATTERN = HIGHWAY
+      - ELSE IF current_user_message contains "city" OR Arabic equivalent indicating city use:
+        - set PPF_DRIVING_PATTERN = CITY
+
+---
+
 ## 1) Accepted Input Types
 The system may receive customer input as:
 1) Plain text chat (Arabic / English / mixed)
@@ -118,6 +170,10 @@ If critical context is missing:
 Examples:
 - “hi”
 - “price?”
+- “how much”
+- “how much?”
+- “بكم”
+- “كم السعر”
 - “ppf”
 - “السلام عليكم”
 

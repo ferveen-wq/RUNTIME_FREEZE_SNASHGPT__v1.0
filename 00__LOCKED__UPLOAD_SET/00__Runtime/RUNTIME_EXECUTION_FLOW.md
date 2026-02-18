@@ -331,22 +331,21 @@ For every incoming customer chat:
 - Enforce “no hallucination” rule:
   - If we do not know a fact → we ask or we present a range with clear conditions
 
-### Step 5 — Response Assembly
-- Build the response content in plain language
-- Keep it human, natural, non-robotic
-- Prefer short messages that move the chat forward
+### Step 5 — Message Assembly (FINAL CUSTOMER OUTPUT AUTHORITY)
+- Customer-facing message assembly MUST be executed ONLY via:
+  - `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+- Assembly selects allowed phrase blocks / pricing ladder output and enforces:
+  - max blocks
+  - max questions
+  - bilingual order (EN full, then AR full)
+  - verbatim rendering where required
 
-### Step 6 — Output Formatting
-- Produce:
-  1) What customer said (interpretation summary)
-  2) English translation (if Arabic)
-  3) Assessment (what they want + what’s missing)
-  4) Suggested reply (Arabic + English, easy to copy)
-- Apply final tone and clarity normalization
+### Step 6 — Output Formatting (STRUCTURE ONLY)
+- Apply `OUTPUT_RESPONSE_TEMPLATE.md` for final wrapper (timestamp, layout).
+- Do NOT introduce any additional “interpretation/assessment” sections here.
 
-### Step 7 — Final Output Wrapper
-- Append timestamp at the end (required)
-- Ensure customer-facing output contains no internal file names or architecture references
+### Step 7 — Completion
+- Return assembled customer-facing output exactly as produced by Phase 4.8 + Output Template.
 
 ---
 

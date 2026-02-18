@@ -1,0 +1,284 @@
+     1	Status: Locked
+     2	Version: v1.0.1
+     3	Last Updated: 2026-01-10
+     4	Lock Reason: Orchestration stage sealed (Qualification gate enforced; no bypass; no pricing logic)
+     5	
+     6	# RUNTIME_STATE_MACHINE.md
+     7	Status: LOCKED (runtime state authority)
+     8	Role: Defines runtime states, transitions, and failure handling.
+     9	Scope: Control states only (no customer phrasing, no business logic, no pricing).
+    10	
+    11	---
+    12	
+    13	## 0) Purpose
+    14	This file defines:
+    15	- The allowed runtime states
+    16	- The only allowed transitions between states
+    17	- What happens when something fails (load-time vs execution-time)
+    18	- Recovery rules and when to halt
+    19	
+    20	This file does NOT:
+    21	- Define file inventory (manifest owns that)
+    22	- Define response formatting (OUTPUT_RESPONSE_TEMPLATE owns that)
+    23	- Implement engine logic
+    24	
+    25	## RUNTIME STATE — SILENCE CONTROL FIELDS (Phase 3)
+    26	
+    27	These fields are required to support the Global Silence Gate (Execution Flow Step 0.5)
+    28	and `SILENCE_HANDLING_ENGINE.md`.
+    29	
+    30	### Timestamps
+    31	- LAST_COUNTED_OUTBOUND_TIMESTAMP
+    32	  - Meaning: Timestamp of the last outbound message that EXPECTS a customer reply.
+    33	  - Writer: Runtime Orchestrator (on counted outbound send)
+    34	  - Reader: Silence Engine (time delta computation)
+    35	
+    36	- LAST_CUSTOMER_SIGNAL_TIMESTAMP
+    37	  - Meaning: Timestamp of last explicit NEW customer communication signal.
+    38	  - Writer: Intake / Orchestrator (ONLY when new customer signal is detected)
+    39	  - Reader: Silence Engine (silence reset condition)
+    40	
+    41	### Counters
+    42	- FOLLOW_UP_COUNT
+    43	  - Meaning: Number of silence-permitted follow-up actions actually SENT in the current silence cycle.
+    44	  - Writer: Orchestrator / Dispatcher (ONLY when follow-up is sent)
+    45	  - Reader: Silence Engine (cap enforcement)
+    46	
+    47	### Mode / Suppression
+    48	- INPUT_MODE
+    49	  - Allowed: LIVE | BACKFILL_BATCH
+    50	  - Meaning: Whether current processing is live customer interaction or backfilled transcript batch.
+    51	  - Writer: Intake / Orchestrator
+    52	  - Reader: Silence Engine (backfill must not permit actions)
+    53	
+    54	- SILENCE_SUPPRESSED
+    55	  - Allowed: TRUE | FALSE
+    56	  - Meaning: If TRUE, silence actions are blocked (e.g., PIM / visit scheduled / manual hold).
+    57	  - Writer: Orchestrator (based on upstream signals)
+    58	  - Reader: Silence Engine (hard blocker)
+    59	
+    60	- SILENCE_TERMINATED
+    61	  - Allowed: TRUE | FALSE
+    62	  - Meaning: Terminal stop flag after S3 or follow-up cap reached.
+    63	  - Writer: Orchestrator (on EXIT_FLAG) and/or Silence Engine output application
+    64	  - Reader: Orchestrator (prevents repeated silence actions until new customer signal)
+    65	
+    66	### Governance Flags (already used elsewhere, but required for silence gating)
+    67	- AGENT_TAKEOVER_FLAG
+    68	  - Allowed: TRUE | FALSE
+    69	  - Meaning: Human agent takeover; blocks silence actions.
+    70	  - Writer: Runtime / Ops
+    71	  - Reader: Orchestrator + Silence Engine (blocker)
+    72	
+    73	- CONVERSATION_STATUS
+    74	  - Allowed: OPEN | CLOSED | DISQUALIFIED
+    75	  - Meaning: Conversation lifecycle state; non-OPEN blocks silence actions.
+    76	  - Writer: Orchestrator
+    77	  - Reader: Orchestrator + Silence Engine (blocker)
+    78	
+    79	------------------------------------------------------------
+    80	0.6) Phase 4 Terminal Governance (Conversation-Level)
+    81	------------------------------------------------------------
+    82	
+    83	Phase 4 is the only authority that may set terminal outcomes.
+    84	
+    85	Required control flags (produced by Phase 4; enforced by Orchestrator):
+    86	
+    87	- FINAL_CONVERSATION_STATE (ENUM)
+    88	  - Allowed:
+    89	    - CLOSED_SUCCESSFULLY
+    90	    - CLOSED_NO_DECISION
+    91	    - CLOSED_DISQUALIFIED
+    92	    - ESCALATED_TO_HUMAN
+    93	    - TERMINATED_BY_SYSTEM
+    94	    - TERMINATED_BY_CUSTOMER
+    95	
+    96	- AUTOMATION_TERMINATED_FLAG (BOOL)
+    97	  - Allowed: TRUE | FALSE
+    98	  - Meaning: If TRUE, automation must stop immediately (no engines, no phrasing, no follow-ups)
+    99	
+   100	- HANDOVER_REQUIRED_FLAG (BOOL)
+   101	  - Allowed: TRUE | FALSE
+   102	  - Meaning: If TRUE, human takeover is required and automation must stop
+   103	
+   104	Mapping rule (Phase 4 → CONVERSATION_STATUS):
+   105	
+   106	- If FINAL_CONVERSATION_STATE == CLOSED_DISQUALIFIED
+   107	  → CONVERSATION_STATUS = DISQUALIFIED
+   108	
+   109	- If FINAL_CONVERSATION_STATE IN (
+   110	    CLOSED_SUCCESSFULLY,
+   111	    CLOSED_NO_DECISION,
+   112	    ESCALATED_TO_HUMAN,
+   113	    TERMINATED_BY_SYSTEM,
+   114	    TERMINATED_BY_CUSTOMER
+   115	  )
+   116	  → CONVERSATION_STATUS = CLOSED
+   117	
+   118	Hard rule:
+   119	- Once CONVERSATION_STATUS != OPEN, silence actions are blocked.
+   120	- Once AUTOMATION_TERMINATED_FLAG == TRUE, no automation may resume in the same session.
+   121	---
+   122	
+   123	## 1) States (authoritative)
+   124	### S0 — BOOT
+   125	System started, nothing loaded yet.
+   126	
+   127	### S1 — LOAD_MANIFEST
+   128	Load and validate the Runtime Manifest.
+   129	
+   130	### S2 — LOAD_COMPONENTS
+   131	Load doctrine, routing, engines, ops helpers in the order defined by the Execution Flow.
+   132	
+   133	### S3 — VALIDATE_RUNTIME
+   134	Run final validation gate:
+   135	- required files present
+   136	- locks respected
+   137	- checklist expectations satisfied
+   138	- dependencies consistent
+   139	
+   140	#### Required Orchestration Signals (Validation Only)
+   141	During VALIDATE_RUNTIME, confirm the runtime set contains engines/contracts that guarantee these signals can exist when applicable:
+   142	
+   143	- QUALIFICATION_STATUS (from QUALIFICATION_ENGINE)
+   144	- negotiation_state (from NEGOTIATION_LOGIC_MODULE)
+   145	- price_ladder_state (from PRICE_LADDER_ENGINE)
+   146	- objection_signal, objection_repeat_count, customer_response_latency (from CUSTOMER_CHAT_INTAKE_RULES)
+   147	- decision object (from OBJECTION_RESOLUTION_ENGINE)
+   148	
+   149	Note:
+   150	- This state machine does NOT implement these signals.
+   151	- It only validates that the runtime bundle contains the required files/contracts so these signals are possible at execution time.
+   152	
+   153	### S4 — ACTIVE
+   154	Runtime is ready and can process customer messages.
+   155	ACTIVE execution must follow `RUNTIME_EXECUTION_FLOW.md` for every inbound customer message.
+   156	
+   157	Enforcement inside ACTIVE:
+   158	- Apply Intake (`CUSTOMER_CHAT_INTAKE_RULES.md`) → then call Qualification (`QUALIFICATION_ENGINE.md`)
+   159	- Do NOT call Negotiation unless: QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+   160	- If QUALIFICATION_STATUS is missing / incomplete / not-ready → route to clarification or graceful exit (no forward progression)
+   161	
+   162	- Do NOT execute any engine if: CONVERSATION_STATUS != OPEN
+   163	- Do NOT execute any engine if: AUTOMATION_TERMINATED_FLAG == TRUE
+   164	- If HANDOVER_REQUIRED_FLAG == TRUE:
+   165	  - Set AGENT_TAKEOVER_FLAG = TRUE
+   166	  - Stop automation immediately (handover to human; no further system actions)
+   167	
+   168	
+   169	### S5 — DEGRADED
+   170	Runtime can still respond, but with reduced capability (safe mode).
+   171	Allowed only for execution-time issues, not load-time missing required files.
+   172	
+   173	
+   174	### S6 — HALT
+   175	Runtime stopped. No customer message processing allowed.
+   176	
+   177	---
+   178	
+   179	## 2) Allowed Transitions (only these)
+   180	BOOT → LOAD_MANIFEST  
+   181	LOAD_MANIFEST → LOAD_COMPONENTS  
+   182	LOAD_COMPONENTS → VALIDATE_RUNTIME  
+   183	VALIDATE_RUNTIME → ACTIVE  
+   184	
+   185	ACTIVE → DEGRADED  
+   186	DEGRADED → ACTIVE (only after recovery validation passes)
+   187	
+   188	Any state → HALT (only when a hard stop condition is met)
+   189	
+   190	No other transitions are allowed.
+   191	
+   192	---
+   193	
+   194	## 3) Hard Stop Conditions (must HALT)
+   195	If any of the following occurs, transition immediately to HALT:
+   196	1) Manifest missing / unreadable
+   197	2) Any REQUIRED file missing at load-time
+   198	3) Lock conflict with locked doctrine (sequencing-impacting conflict)
+   199	4) Checklist is not PASSED for current build
+   200	5) Validation gate fails in S3
+   201	
+   202	HALT behavior:
+   203	- Stop runtime
+   204	- Emit internal error only (no customer-facing text)
+   205	
+   206	------------------------------------------------------------
+   207	3.1) Customer Re-Engagement After Termination (Session Rule)
+   208	------------------------------------------------------------
+   209	
+   210	If the customer sends a new message after:
+   211	- AUTOMATION_TERMINATED_FLAG == TRUE
+   212	or
+   213	- CONVERSATION_STATUS != OPEN
+   214	
+   215	Then:
+   216	- The prior session remains terminal and immutable
+   217	- Orchestration MUST open a NEW session context (new SESSION_ID)
+   218	- The new session may import a context snapshot for continuity
+   219	- Phase 4 outcomes from the prior session MUST NOT be reversed
+   220	
+   221	---
+   222	
+   223	## 4) Degraded Mode Conditions (execution-time only)
+   224	ACTIVE → DEGRADED is allowed only if:
+   225	- A non-critical engine fails during message processing
+   226	- A non-required support component fails
+   227	- Minor drift detected that does NOT impact locks or safety
+   228	
+   229	DEGRADED rules:
+   230	- Never guess facts
+   231	- Ask 1 clarifying question max
+   232	- Keep response short and safe
+   233	- Continue logging internal errors
+   234	
+   235	## Authority Boundary (non-negotiable)
+   236	This file defines runtime states and allowed transitions only.
+   237	
+   238	This file may:
+   239	- Reference other stages by name (Runtime Manifest / Execution Flow / Output Formatting Stage)
+   240	- Declare hard-stop vs degraded behavior at a control level
+   241	
+   242	This file must NEVER:
+   243	- Implement business logic, pricing logic, or qualification criteria
+   244	- Override the Runtime Manifest, Execution Flow, Decision Matrix, or Output Template
+   245	- Add customer-facing wording or examples
+   246	
+   247	If DEGRADED encounters a hard stop condition → HALT.
+   248	
+   249	---
+   250	
+   251	## 5) Recovery Rules
+   252	### 5.1 DEGRADED → ACTIVE
+   253	Allowed only if:
+   254	- The next execution cycle passes a lightweight validation:
+   255	  - required files still present
+   256	  - locks still respected
+   257	  - engines responding normally
+   258	
+   259	### 5.2 HALT Recovery
+   260	HALT cannot auto-recover.
+   261	Only a full restart can return to BOOT.
+   262	
+   263	---
+   264	
+   265	## 6) Per-Message State Handling
+   266	When in ACTIVE or DEGRADED:
+   267	- Each customer message is processed using the Execution Flow
+   268	- Output must follow the Output Formatting Stage
+   269	
+   270	If execution fails:
+   271	- ACTIVE → DEGRADED (if allowed)
+   272	- Otherwise → HALT (if hard stop)
+   273	
+   274	---
+   275	
+   276	## 7) Definition of Done
+   277	This file is correct when:
+   278	- States are explicit and minimal
+   279	- Transitions are deterministic
+   280	- Hard-stop vs degraded is clearly separated
+   281	- Recovery is strict and non-ambiguous
+   282	
+   283	---
+   284	End.

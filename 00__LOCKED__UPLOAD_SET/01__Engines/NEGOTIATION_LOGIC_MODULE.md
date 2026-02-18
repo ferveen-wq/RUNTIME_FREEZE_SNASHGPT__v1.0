@@ -455,10 +455,13 @@ IF service interest includes PPF:
     - (Do NOT change PPF_COVERAGE_SELECTED)
   - Else:
     - Set PHASE3A_READY_PPF = true
-    - Set PPF_COVERAGE_SELECTED based ONLY on explicit customer scope:
-      - If customer said front/partial/high-impact-only → FRONT_ONLY
-      - If customer said full/full-body/whole car → FULL_BODY
-      - Else → UNKNOWN
+    - Set PPF_COVERAGE_SELECTED deterministically:
+      - If PPF_COVERAGE_INTENT == FULL_BODY → FULL_BODY
+      - Else if PPF_COVERAGE_INTENT == FULL_FRONT → FRONT_ONLY
+      - Else:
+          - If customer said front/partial/high-impact-only → FRONT_ONLY
+          - If customer said full/full-body/whole car → FULL_BODY
+          - Else → UNKNOWN
   - Brand + warranty intent:
     - If customer explicitly states a brand (e.g., XPEL) → PPF_BRAND_INTENT = XPEL
     - Else if explicitly states Global → PPF_BRAND_INTENT = GLOBAL

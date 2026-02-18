@@ -1,0 +1,440 @@
+     1	Status: Locked
+     2	Version: v1.0.0
+     3	Last Updated: 2026-01-06
+     4	Lock Reason: Orchestration stage sealed (Qualification gate enforced; no bypass; no pricing logic)
+     5	
+     6	# RUNTIME_EXECUTION_FLOW.md
+     7	Status: LOCKED (sequencing authority)
+     8	Role: Defines the only allowed runtime load + execution order.
+     9	Scope: Sequencing only (no customer phrasing, no marketing content, no examples).
+    10	
+    11	## Authority Boundary (non-negotiable)
+    12	This file defines sequencing only.
+    13	
+    14	This file may:
+    15	- Reference other stages by name (Manifest / Qualification Stage / Output Formatting Stage)
+    16	- State preconditions and failure handling at a sequencing level
+    17	
+    18	This file must NEVER:
+    19	- Implement business logic, pricing logic, or qualification criteria
+    20	- Override the Runtime Manifest, State Machine, Decision Matrix, or Output Template
+    21	- Add customer-facing wording or examples
+    22	
+    23	---
+    24	
+    25	## Runtime Execution Sequence (Strict)
+    26	
+    27	The following sequence is mandatory and deterministic.
+    28	Any failure at any step MUST immediately stop execution.
+    29	
+    30	### Step 1 — Load Version Contract (Gatekeeper)
+    31	- Load `RUNTIME_VERSION_CONTRACT.md`
+    32	- Validate:
+    33	  - All required runtime files exist
+    34	  - All required versions match exactly
+    35	- If validation fails:
+    36	  - STOP execution
+    37	  - Return version mismatch report
+    38	- No fallback, no partial execution allowed
+    39	
+    40	### Step 2 — Load Runtime Manifest
+    41	- Load `RUNTIME_LOAD_MANIFEST.md`
+    42	- Confirm runtime load order
+    43	- Confirm runtime file count and categories
+    44	- If mismatch with Version Contract:
+    45	  - STOP execution
+    46	
+    47	### Step 3 — Initialize Runtime State Machine
+    48	- Load `RUNTIME_STATE_MACHINE.md`
+    49	- Set initial runtime state
+    50	- Prepare allowed state transitions
+    51	
+    52	### Step 4 — Load Runtime Core Bundle
+    53	- Load `KNOWLEDGE__RUNTIME_CORE_BUNDLE.md`
+    54	- Lock runtime knowledge snapshot for this execution
+    55	### Step 4.5 📚 Load Customer Knowledge Bundle
+    56	- Load `bundles/customer_knowledge/KNOWLEDGE__CUSTOMER_KNOWLEDGE_BUNDLE.md`
+    57	- Merge into active runtime knowledge snapshot (read-only)
+    58	
+    59	### Step 5 — Intake Processing
+    60	- Apply `CUSTOMER_CHAT_INTAKE_RULES.md`
+    61	- Extract structured inputs from raw customer message
+    62	
+    63	### Step 6 — Qualification & Routing
+    64	- Apply `QUALIFICATION_ENGINE.md` (as defined/loaded via the Runtime Manifest)
+    65	- Qualification MUST produce an explicit status signal (e.g., QUALIFICATION_STATUS)
+    66	- Runtime MUST NOT proceed to Negotiation unless QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+    67	
+    68	- Qualification output MUST include (for downstream routing/assembly):
+    69	  - active_service_context
+    70	  - detected_service_intent_in_message
+    71	- These two fields MUST be forwarded into the Phase 4.8 Assembly Input set without mutation.
+    72	
+    73	Order of operations (MANDATORY):
+    74	1) Compute detected_service_intent_in_message from current message.
+    75	2) Preserve active_service_context from conversation state (last confirmed service).
+    76	3) Run Phase 4.8 Service Context Continuity Gate BEFORE any update to active_service_context.
+    77	3A) Service Context Continuity Gate — HARD STOP (MANDATORY)
+    78	- If the Phase 4.8 Service Context Continuity Gate triggers:
+    79	  - STOP the pipeline for this turn (do not execute Phase 6, Phase 3, Phase 7, or hooks).
+    80	  - Output MUST be ONLY:
+    81	    PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.3 SERVICE CONTEXT CLARIFIER (ONE QUESTION)
+    82	  - Do NOT include any service explanations, pricing, or technical answers in the same turn.
+    83	  - Do NOT mutate active_service_context on this turn.
+    84	- Resume normal routing ONLY on the next customer reply.
+    85	4) Only after customer explicitly confirms switching services may active_service_context be updated.
+    86	
+    87	### Phase 3A (Qualifier-First) — REQUIRED BEFORE Phase 3B
+    88	
+    89	Order rule (HARD):
+    90	- After Phase 0–2 has produced READY state (vehicle_model + vehicle_year present)
+    91	- And Phase 3 begins (price/scope/objection/compare flows)
+    92	- Run Phase 3A Qualifier-First Gate BEFORE Phase 3B pricing/SKU logic.
+    93	
+    94	If phase3a_required == true:
+    95	- Assembly must output exactly one Phase 3A qualifier question and STOP.
+    96	- Phase 3B must not execute until the customer replies (phase3a_complete == true).
+    97	
+    98	If phase3a_complete == true:
+    99	- Proceed to Phase 3B pricing/SKU selection and subsequent Phase 4 responses.
+   100	
+   101	### Step 0.5 — Global Silence Gate (Phase-Agnostic)
+   102	
+   103	Purpose:
+   104	- Silence handling applies in ALL phases (Qualification, Negotiation, Pricing, Objection).
+   105	- Silence is time-based only and must not be tied to post-pricing.
+   106	
+   107	Required Runtime State (must exist in State Machine / runtime store):
+   108	- LAST_COUNTED_OUTBOUND_TIMESTAMP
+   109	- LAST_CUSTOMER_SIGNAL_TIMESTAMP
+   110	- FOLLOW_UP_COUNT
+   111	- SILENCE_SUPPRESSED (bool)
+   112	- INPUT_MODE (LIVE | BACKFILL_BATCH)
+   113	- CONVERSATION_STATUS (OPEN | CLOSED | DISQUALIFIED)
+   114	- AGENT_TAKEOVER_FLAG (bool)
+   115	
+   116	Customer Signal Gate (non-negotiable):
+   117	- Update LAST_CUSTOMER_SIGNAL_TIMESTAMP ONLY when there is explicit NEW customer communication:
+   118	  - new customer text
+   119	  - new screenshot containing customer message
+   120	  - confirmed call / visit / whatsapp audio summary containing customer response
+   121	- Do NOT update LAST_CUSTOMER_SIGNAL_TIMESTAMP for:
+   122	  - re-pasted old transcripts
+   123	  - internal drafting / translation / planning / “should we follow up?”
+   124	
+   125	Counted Outbound Rule:
+   126	- Update LAST_COUNTED_OUTBOUND_TIMESTAMP ONLY when the system sends an outbound message
+   127	  that expects a customer reply (quote/question/booking/confirmation request).
+   128	
+   129	Blockers (if any true → do not run silence actions):
+   130	- CONVERSATION_STATUS != OPEN
+   131	- AGENT_TAKEOVER_FLAG == TRUE
+   132	- SILENCE_SUPPRESSED == TRUE (e.g., PIM / visit scheduled / manual hold)
+   133	- INPUT_MODE == BACKFILL_BATCH
+   134	
+   135	Execution:
+   136	- Invoke `SILENCE_HANDLING_ENGINE.md` to compute:
+   137	  - SILENCE_STAGE
+   138	  - ALLOW_ACTION
+   139	  - EXIT_FLAG
+   140	
+   141	Outcomes:
+   142	- If EXIT_FLAG == TRUE → stop outbound actions; mark SILENCE_TERMINATED and exit.
+   143	- If ALLOW_ACTION == TRUE → allow ONE follow-up action via dispatcher.
+   144	- If SILENCE_STAGE == NONE → proceed with normal phase engine selection (Step 6.1+).
+   145	
+   146	
+   147	### Step 6.1 — Negotiation Logic (Phase 2)
+   148	- Execute `NEGOTIATION_LOGIC_MODULE.md`
+   149	- Purpose: determine negotiation stage, pressure signals, and whether a pricing-ladder response is required
+   150	- No customer phrasing is generated here (logic only)
+   151	
+   152	### Step 6.2 — Price Ladder Execution (Phase 3)
+   153	- If Phase 2 indicates pricing response is required:
+   154	  - Execute `PRICE_LADDER_ENGINE.md`
+   155	- The ladder governs pricing expression and escalation only (no solution steering)
+   156	
+   157	### Step 6.3 ▶ Objection Resolution (Post-Pricing)
+   158	
+   159	- Execute `OBJECTION_RESOLUTION_ENGINE.md`
+   160	- Trigger condition:
+   161	  - Price has been exposed via PRICE_LADDER_ENGINE
+   162	- Inputs consumed:
+   163	  - objection_signal
+   164	  - objection_repeat_count
+   165	  - customer_response_latency
+   166	  - price_ladder_state
+   167	  - negotiation_state
+   168	- Purpose:
+   169	  - Decide whether to CONTINUE, PAUSE, ESCALATE, or EXIT
+   170	  - Enforce repeat guardrails (silence handled globally in Step 0.5)
+   171	- Output:
+   172	  - decision object only (no customer-facing text)
+   173	
+   174	  ### Step 6.4 — Closing & Handover (Phase 4)
+   175	- Execute `CLOSING_HANDOVER_ENGINE.md`
+   176	- Trigger condition:
+   177	  - Phase 3 engines have concluded (pricing/objections/silence/PIM outputs are normalized)
+   178	- Inputs consumed (canonical only):
+   179	  - qualification_status
+   180	  - negotiation_state
+   181	  - price_ladder_state
+   182	  - objection_signal
+   183	  - quote_required_flag
+   184	  - automation_allowed_flag
+   185	  - objection_repeat_count
+   186	  - customer_response_latency
+   187	  - commitment_artifact_status
+   188	- Output (control only; no customer-facing text):
+   189	  - final_conversation_state
+   190	  - handover_required_flag
+   191	  - handover_reason
+   192	  - automation_terminated_flag
+   193	  - session_close_reason
+   194	- Enforcement:
+   195	  - If AUTOMATION_TERMINATED_FLAG == TRUE → stop ALL automation immediately (no further engines, no phrasing)
+   196	
+   197	### Step 7 — Execute Runtime Flow
+   198	- Follow `RUNTIME_EXECUTION_FLOW.md` (this file)
+   199	- Respect state transitions defined in State Machine
+   200	
+   201	### Step 8 — Output Formatting
+   202	- Apply `OUTPUT_RESPONSE_TEMPLATE.md`
+   203	- Enforce output structure and constraints
+   204	
+   205	### Step 9 — Completion
+   206	- Return final output
+   207	- End runtime execution cleanly
+   208	
+   209	## 0) Purpose
+   210	This file defines:
+   211	- The exact runtime ordering from startup → response output
+   212	- The separation between load-time and execution-time
+   213	- The gating rules (what must be present before the system can answer)
+   214	- The failure modes and what happens when something is missing
+   215	
+   216	This file does NOT:
+   217	- Implement logic
+   218	- Contain customer-facing phrases
+   219	- Redefine any locked doctrine
+   220	- Duplicate the manifest (manifest is the inventory source of truth)
+   221	
+   222	---
+   223	
+   224	## 1) Hard Preconditions (must be true before runtime starts)
+   225	Runtime can begin only if all are true:
+   226	1. `RUNTIME_LOAD_MANIFEST.md` exists and is LOCKED
+   227	2. `ARCHITECTURE_INTEGRITY_CHECKLIST.md` is PASSED for the current build
+   228	3. All required files listed as REQUIRED in the manifest are accessible
+   229	4. No “draft” or “partial” runtime files are being loaded as active doctrine
+   230	
+   231	If any precondition fails → runtime stops with a single system error message (internal only).
+   232	
+   233	---
+   234	
+   235	## 2) Load vs Execution (strict separation)
+   236	### 2.1 Load-Time
+   237	Load-time is:
+   238	- Reading and validating the runtime file inventory
+   239	- Loading doctrine/engines into memory
+   240	- Establishing runtime guards (locks, priority, allowed overrides)
+   241	
+   242	Load-time must complete successfully before any customer message is processed.
+   243	
+   244	### 2.2 Execution-Time
+   245	Execution-time is:
+   246	- Processing the customer message through the active runtime stack
+   247	- Producing a structured output response
+   248	- Applying the final output wrapper rules (tone, clarity, language, timestamp)
+   249	
+   250	---
+   251	
+   252	## 3) Single Source of Truth for Inventory
+   253	Inventory is not defined here.
+   254	Inventory is defined only in:
+   255	- `RUNTIME_LOAD_MANIFEST.md`
+   256	
+   257	This file references inventory by categories and required ordering only.
+   258	
+   259	---
+   260	
+   261	## 4) Runtime Load Order (authoritative)
+   262	Load order is deterministic and must follow this sequence:
+   263	
+   264	### Phase A — Bootstrap Guards
+   265	1. Load `RUNTIME_LOAD_MANIFEST.md`
+   266	2. Validate manifest format + required sections
+   267	3. Apply LOCK rules from manifest (locked means: cannot be overridden at runtime)
+   268	
+   269	### Phase B — Architecture Control Layer
+   270	4. Load architecture control coordination rules (if present as an active file in manifest)
+   271	5. Enforce “no new files / no drift” constraints where declared
+   272	
+   273	### Phase C — Doctrine Core
+   274	6. Load all CORE doctrine files (in manifest order)
+   275	7. Validate each file against checklist rules (format + role boundaries)
+   276	
+   277	### Phase D — Routing / Sequencing Rules
+   278	8. Load routing rules that decide which engines run and in what order
+   279	9. Validate there is exactly one allowed execution chain (no ambiguous branches unless explicitly defined)
+   280	
+   281	### Phase E — Engines
+   282	10. Load engines in this order (unless manifest defines a stricter order):
+   283	    a) Qualification / intent detection
+   284	    b) Constraint / policy guards
+   285	    c) Response composition / assembly
+   286	    d) Tone / style normalization
+   287	    e) Output structure formatter
+   288	
+   289	### Phase F — Operations / Shadow / Observability
+   290	11. Load operational helpers (logging rules, shadow testing toggles, safe fallbacks)
+   291	12. Confirm shadow mode status (if enabled) does not change customer-facing meaning
+   292	
+   293	### Phase G — Final Validation Gate
+   294	13. Run final “runtime ready” validation:
+   295	    - all required components loaded
+   296	    - no missing dependencies
+   297	    - locks respected
+   298	    - checklist assumptions satisfied
+   299	
+   300	If Phase G passes → runtime is ACTIVE.
+   301	
+   302	---
+   303	
+   304	## 5) Execution Flow (what happens per customer message)
+   305	For every incoming customer chat:
+   306	
+   307	### Step 1 — Input Capture
+   308	- Capture raw customer message
+   309	- Preserve original text (no edits)
+   310	- Detect language (Arabic / English / mixed)
+   311	
+   312	### Step 2 — Interpretation Layer
+   313	- Translate (if needed) into working language for internal processing
+   314	- Extract intent and key entities (car, model, year, service, budget, urgency, location, etc.)
+   315	- Identify missing info required to quote or proceed
+   316	
+   317	### Step 3 — Qualification Engine
+   318	- Run qualification logic via the Qualification Stage (engine defined by the Runtime Manifest)
+   319	- Decide:
+   320	  - Can we answer now?
+   321	  - Do we need a question?
+   322	  - Do we need to propose options?
+   323	
+   324	  ### Step 3.5 — Negotiation Gate (routing only)
+   325	- If QUALIFICATION_STATUS = READY_FOR_NEGOTIATION → call `NEGOTIATION_LOGIC_MODULE.md`
+   326	- If QUALIFICATION_STATUS is missing / incomplete / not-ready → do NOT call negotiation
+   327	  - Route to clarification (ask what’s missing) or gracefully exit
+   328	
+   329	### Step 4 — Guardrails / Policy Checks
+   330	- - Apply any constraints from doctrine (warranty rules, scope limits, safety constraints)
+   331	- Enforce “no hallucination” rule:
+   332	  - If we do not know a fact → we ask or we present a range with clear conditions
+   333	
+   334	### Step 5 — Response Assembly
+   335	- Build the response content in plain language
+   336	- Keep it human, natural, non-robotic
+   337	- Prefer short messages that move the chat forward
+   338	
+   339	### Step 6 — Output Formatting
+   340	- Produce:
+   341	  1) What customer said (interpretation summary)
+   342	  2) English translation (if Arabic)
+   343	  3) Assessment (what they want + what’s missing)
+   344	  4) Suggested reply (Arabic + English, easy to copy)
+   345	- Apply final tone and clarity normalization
+   346	
+   347	### Step 7 — Final Output Wrapper
+   348	- Append timestamp at the end (required)
+   349	- Ensure customer-facing output contains no internal file names or architecture references
+   350	
+   351	---
+   352	
+   353	## 6) Fallback & Failure Modes
+   354	### 6.1 Missing Required File at Load-Time
+   355	If a REQUIRED file is missing:
+   356	- Runtime does not start
+   357	- Return internal error with:
+   358	  - missing file name
+   359	  - manifest section where it was required
+   360	  - last successful phase
+   361	
+   362	### 6.2 Engine Failure at Execution-Time
+   363	If an engine fails during message processing:
+   364	- Do not crash the full runtime
+   365	- Use safe fallback response:
+   366	  - Ask 1 clarifying question
+   367	  - Confirm what we understood
+   368	  - Keep customer engaged
+   369	
+   370	### 6.3 Drift Detection
+   371	If a file content conflicts with locked doctrine:
+   372	- Locked doctrine wins
+   373	- Log drift internally
+   374	- Continue only if drift does not affect safety or core sequencing
+   375	
+   376	---
+   377	
+   378	## 7) Change Control
+   379	Any change to sequencing in this file requires:
+   380	1. Checklist re-run
+   381	2. Manifest version bump (if ordering impacts load categories)
+   382	3. Explicit lock confirmation
+   383	
+   384	---
+   385	## 1) Runtime States (minimal control states)
+   386	
+   387	- INIT
+   388	- LOAD_MANIFEST
+   389	- LOAD_COMPONENTS
+   390	- VALIDATE_RUNTIME
+   391	- ACTIVE
+   392	- INTAKE
+   393	- QUALIFICATION
+   394	- NEGOTIATION_LOGIC
+   395	- PRICE_LADDER
+   396	- OUTPUT_FORMAT
+   397	- COMPLETE
+   398	- DEGRADED
+   399	- HALT
+   400	
+   401	## 2) Allowed Transitions (deterministic)
+   402	
+   403	Startup / load-time:
+   404	- INIT → LOAD_MANIFEST
+   405	- LOAD_MANIFEST → LOAD_COMPONENTS
+   406	- LOAD_COMPONENTS → VALIDATE_RUNTIME
+   407	- VALIDATE_RUNTIME → ACTIVE
+   408	- VALIDATE_RUNTIME → HALT (if hard validation fails)
+   409	
+   410	Execution-time:
+   411	- ACTIVE → INTAKE
+   412	- INTAKE → QUALIFICATION
+   413	
+   414	Qualification gate:
+   415	- QUALIFICATION → OUTPUT_FORMAT (if QUALIFICATION_STATUS != READY_FOR_NEGOTIATION)
+   416	- QUALIFICATION → NEGOTIATION_LOGIC (if QUALIFICATION_STATUS == READY_FOR_NEGOTIATION)
+   417	
+   418	Negotiation / pricing ladder:
+   419	- NEGOTIATION_LOGIC → PRICE_LADDER (if pricing response is required)
+   420	- NEGOTIATION_LOGIC → OUTPUT_FORMAT (if pricing response is not required)
+   421	
+   422	Output / completion:
+   423	- PRICE_LADDER → OUTPUT_FORMAT
+   424	- OUTPUT_FORMAT → COMPLETE
+   425	
+   426	Failure handling:
+   427	- Any state → HALT (hard stop conditions)
+   428	- ACTIVE → DEGRADED (only if explicitly allowed elsewhere)
+   429	- DEGRADED → HALT (if recovery not allowed)
+   430	
+   431	
+   432	## 8) Definition of Done
+   433	This file is correct when:
+   434	- It matches the manifest categories without duplicating inventory
+   435	- It defines one deterministic load order
+   436	- It defines one deterministic per-message execution chain
+   437	- It clearly states what happens when something is missing or fails
+   438	
+   439	---
+   440	End.

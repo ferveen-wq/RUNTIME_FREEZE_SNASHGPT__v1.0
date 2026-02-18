@@ -1,0 +1,309 @@
+================================================================
+PHASE 3A — CANONICAL CUSTOMER-FACING COPY (ALL SERVICES)
+STATUS: FINAL FREEZE — MATRIX & ARCHITECTURE COMPLIANT
+================================================================
+
+GLOBAL PHASE 3A RULES (LOCKED)
+- One question per assistant turn
+- One neutral bridge max (clean answers only)
+- No persuasion, no benefit framing
+- No pricing in Phase 3A
+- Fallback / nudge only once per qualifier
+- If fallback ignored → set qualifier = UNKNOWN → proceed
+- Brand / warranty acknowledged but deferred
+- Comparison captured, not neutralised
+================================================================
+
+
+========================================================
+SERVICE: PPF
+========================================================
+
+Q1 — COVERAGE INTENT
+
+Assistant:
+Just so I guide you correctly and don’t over- or under-quote,
+are you thinking full protection, front protection, or still deciding?
+
+CLEAN ANSWERS:
+Customer: Full / Front / Not sure
+
+Assistant (bridge + Q2):
+That helps narrow the direction.
+How you use the car affects which option makes sense.
+Is your driving mostly highways and travel, or mostly city use?
+
+PRICE INTERRUPTION:
+Customer: How much? / Price?
+
+Assistant (fallback):
+I’ll give you the price — this just helps me make it accurate.
+Are you thinking full protection, front protection, or still deciding?
+
+(If repeated → Coverage = UNKNOWN)
+
+BRAND / WARRANTY:
+Customer: Is it XPEL? / Warranty?
+
+Assistant:
+We can get into brands and warranty shortly — first I want to be sure about the direction.
+Are you thinking full protection, front protection, or still deciding?
+
+COMPARISON:
+Customer: Another place is cheaper.
+
+Assistant:
+I understand comparisons matter — let’s make sure we’re comparing the right scope first.
+Are you thinking full protection, front protection, or still deciding?
+
+
+Q2 — USAGE / RISK FRAMING
+
+Assistant:
+How you use the car affects which option makes sense.
+Is your driving mostly highways and travel, or mostly city use?
+
+CLEAN ANSWERS:
+Customer: Highway / City / Mixed
+
+Assistant (if Q3 triggered):
+That helps clarify the priorities.
+When you’re comparing options, is your focus mainly on coverage, quality, or price?
+
+WHY QUESTION:
+Customer: Why does that matter?
+
+Assistant:
+Because highway and city use affect where wear and exposure usually happen.
+Is your driving more highway-focused or city-focused?
+
+PRICE INTERRUPTION:
+Customer: Just give the price.
+
+Assistant (fallback):
+I’ll price it right after this — usage helps avoid recommending the wrong option.
+Is your driving more highway or city use?
+
+(If repeated → Usage = UNKNOWN)
+
+
+Q3 — COMPARISON FOCUS (CONDITIONAL)
+
+Assistant:
+That makes sense.
+When you’re comparing, is your focus mainly on coverage, quality, or price?
+
+CLEAN ANSWERS:
+Customer: Price / Quality / Coverage / All
+
+Assistant (closure):
+That helps frame the next step.
+
+→ Phase 3A ends
+
+
+========================================================
+SERVICE: CERAMIC
+========================================================
+
+Q1 — PRIMARY GOAL
+
+Assistant:
+Just so I guide you correctly and don’t over- or under-recommend,
+what are you mainly looking for with ceramic coating — easier washing, improved gloss, or still deciding?
+
+CLEAN ANSWERS:
+Customer: Easy wash / Gloss / Not sure
+
+Assistant (bridge + Q2):
+That gives the right context before moving forward.
+How the car is washed and maintained affects which coating option makes sense.
+How do you usually wash the car — hand wash, tunnel wash, or a mix?
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll give you the price — this just helps me make the recommendation accurate.
+Are you mainly looking for easier washing, improved gloss, or still deciding?
+
+(If repeated → Goal = UNKNOWN)
+
+BRAND / WARRANTY:
+Assistant:
+We can get into brands and warranty shortly — first I want to be sure about the goal.
+Are you mainly looking for easier washing, improved gloss, or still deciding?
+
+COMPARISON:
+Assistant:
+I understand comparisons matter — let’s make sure we’re comparing the right result first.
+Are you mainly looking for easier washing, improved gloss, or still deciding?
+
+
+Q2 — WASH / MAINTENANCE PATTERN
+
+Assistant:
+How the car is washed and maintained affects which coating option makes sense.
+How do you usually wash the car — hand wash, tunnel wash, or a mix?
+
+CLEAN ANSWERS:
+Customer: Hand / Tunnel / Mix
+
+Assistant (if Q3 triggered):
+That helps clarify the priorities.
+When you’re comparing ceramic options, is your focus mainly on durability, gloss, or price?
+
+WHY QUESTION:
+Assistant:
+Because different wash methods affect how long the coating performs.
+Do you usually hand wash, tunnel wash, or a mix?
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll price it right after this — wash method helps avoid recommending the wrong coating.
+Do you usually hand wash, tunnel wash, or a mix?
+
+(If repeated → Wash = UNKNOWN)
+
+
+Q3 — COMPARISON FOCUS
+
+Assistant:
+That makes sense.
+When you’re comparing ceramic options, is your focus mainly on durability, gloss, or price?
+
+CLEAN ANSWERS:
+Assistant (closure):
+That gives clear direction.
+
+→ Phase 3A ends
+
+
+========================================================
+SERVICE: TINT
+========================================================
+
+Q1 — PRIMARY GOAL
+
+Assistant:
+Just so I guide you correctly,
+is your main goal with window tint heat reduction, privacy, or both?
+
+CLEAN ANSWERS:
+Customer: Heat / Privacy / Both
+
+Assistant (bridge + Q2):
+That helps narrow the direction.
+Which windows you plan to tint affects what makes sense.
+Are you looking to tint the front only, sides and back, or the full car?
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll give you the price — this just helps make it accurate.
+Is your main goal heat reduction, privacy, or both?
+
+(If repeated → Goal = UNKNOWN)
+
+BRAND / WARRANTY:
+Assistant:
+We can get into brands and warranty shortly — first I want to be sure about the goal.
+Is your main goal heat reduction, privacy, or both?
+
+COMPARISON:
+Assistant:
+I understand comparisons matter — let’s align on coverage first.
+Is your main goal heat reduction, privacy, or both?
+
+
+Q2 — COVERAGE
+
+Assistant:
+Which windows you plan to tint affects what makes sense.
+Are you looking to tint the front only, sides and back, or the full car?
+
+CLEAN ANSWERS:
+Customer: Front / Full / Not sure
+
+Assistant (if Q3 triggered):
+That helps clarify what to compare.
+When you’re comparing tint options, is your focus mainly on heat rejection, shade, or price?
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll price it right after this — coverage helps avoid recommending the wrong setup.
+Are you looking at front only, or full coverage?
+
+(If repeated → Coverage = UNKNOWN)
+
+
+Q3 — COMPARISON FOCUS
+
+Assistant:
+That makes sense.
+When you’re comparing tint options, is your focus mainly on heat rejection, shade, or price?
+
+CLEAN ANSWERS:
+Assistant (closure):
+That helps frame the next step.
+
+→ Phase 3A ends
+
+
+========================================================
+SERVICE: WRAP
+========================================================
+
+Q1 — FINISH INTENT
+
+Assistant:
+Just so I guide you correctly,
+are you mainly looking for a gloss finish, satin, or matte?
+
+CLEAN ANSWERS:
+Customer: Gloss / Satin / Matte
+
+Assistant (bridge):
+That gives a clear direction.
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll give you the price — this just helps me guide it correctly.
+Are you mainly looking for gloss, satin, or matte?
+
+(If repeated → Finish = UNKNOWN)
+
+BRAND / COMPARISON:
+Assistant:
+Let’s align on the finish first, then we can compare options.
+Are you mainly looking for gloss, satin, or matte?
+
+→ Phase 3A ends
+
+
+========================================================
+SERVICE: POLISHING
+========================================================
+
+Q1 — SCOPE
+
+Assistant:
+Just so I guide you correctly,
+are you looking for exterior polishing only or a full detail?
+
+CLEAN ANSWERS:
+Customer: Exterior / Full
+
+Assistant (bridge):
+That helps frame the next step.
+
+PRICE INTERRUPTION:
+Assistant (fallback):
+I’ll give you the price — this just helps make sure I suggest the right scope.
+Are you looking at exterior polishing only or a full detail?
+
+(If repeated → Scope = UNKNOWN)
+
+→ Phase 3A ends
+
+
+================================================================
+END OF PHASE 3A CANONICAL COPY
+================================================================

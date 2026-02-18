@@ -107,3 +107,160 @@ EN:
 AR:
 - التوصيات تعتمد على الالتزام بالأنظمة واحتياجات الراحة والاستخدام.
 - ننصح بخيارات توازن بين السلامة والرؤية والرضا على المدى الطويل.
+
+### END VERBATIM
+
+### TINT — DIFFERENTIATION LAYER (PHASE 3+ CANON, INTERNAL-ONLY)
+
+Purpose:
+- Provide structured, truthful differentiation facts for Phase 3B/4 use.
+- This section is NOT customer-facing copy.
+- Customer wording must be selected from PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+
+Core positioning (canonical):
+
+- Tint value is not darkness alone.
+- Heat comfort depends on:
+	- film construction and material quality
+	- total glass coverage
+	- vehicle cabin size and glass area
+	- installation discipline (clean edges / contamination control)
+
+Customer-safe truths (comparison-safe):
+
+- Darker does not automatically mean cooler.
+- Two films with similar shade can feel different in heat comfort.
+- Installation quality strongly influences long-term appearance.
+
+GCC operating realities:
+
+- High heat + strong sun amplify cabin heat retention.
+- Larger vehicles retain more heat.
+- Windshield angle and panoramic glass affect perceived comfort.
+
+Language guardrails:
+
+- Avoid technical specifications (IR %, UV %, VLT numbers).
+- Avoid legal number claims unless canonized elsewhere.
+- Avoid exaggerated claims (“blocks all heat”, “zero bubbles ever”).
+- Use safe wording: “helps reduce heat”, “improves comfort”.
+
+--------------------------------------------------------------------------
+
+## TINT — STRUCTURAL EXECUTION MODEL (v1.0 LOCKED)
+
+Exposure Model:
+- INTERNAL_ONLY → Never printed directly.
+- PHASE_4_ALLOWED → Simplified customer-safe framing allowed.
+- PHASE_5_ALLOWED → Negotiation / comparison context.
+- PHASE_7_ALLOWED → Structured education modules.
+
+This section defines operational truth for tint service reuse.
+
+────────────────────────────────────────────────────────────
+1) PRODUCT STRUCTURE MODEL
+Exposure: PHASE_4_ALLOWED + PHASE_5_ALLOWED
+
+Canonical:
+
+- Two product families only:
+	- Nano Ceramic Tint
+	- XPEL XR Plus
+
+Internal flags:
+- TINT_NANO
+- TINT_XR_PLUS
+
+Hard constraints:
+- No Global tint references.
+- No XR (non-plus) references.
+- No tier stacking.
+- Warranty phrasing: “official manufacturer-backed warranty” only.
+- Do not mention warranty years unless directly requested.
+
+────────────────────────────────────────────────────────────
+2) SHADE MODEL (CONTROLLED)
+Exposure: PHASE_4_ALLOWED
+
+Customer-facing shade labels:
+- Light
+- Medium
+- Dark
+
+Internal mapping:
+- Light → approx 50%
+- Medium → approx 40%
+- Dark → approx 30%
+
+Hard constraints:
+- Do not promote extreme shades.
+- Do not suggest dark windshield.
+- Avoid percentage discussion unless customer insists.
+
+────────────────────────────────────────────────────────────
+3) PERFORMANCE REALITY MODEL
+Exposure: PHASE_4_ALLOWED + PHASE_7_ALLOWED
+
+Canonical:
+
+- Heat perception is influenced by:
+	- film type
+	- shade
+	- total coverage
+	- vehicle size
+- Darkness ≠ heat performance.
+- Partial tint coverage reduces perceived comfort.
+
+Hard constraints:
+- Do not promise temperature numbers.
+- Do not use exaggerated performance claims.
+
+────────────────────────────────────────────────────────────
+4) INSTALLATION DISCIPLINE MODEL
+Exposure: PHASE_5_ALLOWED + PHASE_7_ALLOWED
+
+Canonical:
+
+- Cleaner environments reduce dust risk.
+- Minor micro-dust can occur in GCC conditions.
+- Edge finishing affects long-term appearance.
+
+Hard constraints:
+- Never promise “zero dust”.
+- Never blame customer.
+- Avoid fear-based language.
+
+────────────────────────────────────────────────────────────
+5) TINT REMOVAL RISK MODEL
+Exposure: PHASE_5_ALLOWED
+
+Canonical:
+
+- Old tint removal depends on prior film type and adhesive condition.
+- GCC heat can affect adhesive bonding strength.
+- Inspection is required before removal commitment.
+
+Hard constraints:
+- Never guarantee perfect removal.
+- No blame framing.
+- Position removal as inspection-dependent.
+
+────────────────────────────────────────────────────────────
+6) AFTERCARE MODEL
+Exposure: PHASE_7_ALLOWED
+
+Canonical:
+
+- Avoid window operation for initial curing period.
+- Light haze in early stage is normal.
+- Avoid harsh chemicals and aggressive tools.
+- Escalate if major distortion or peeling persists.
+
+────────────────────────────────────────────────────────────
+7) EXECUTION RULES (HARD)
+
+- No pricing inside canon.
+- No legal number claims.
+- No exaggerated heat-blocking language.
+- No competitor attack framing.
+- Assembly must NEVER print canon verbatim.

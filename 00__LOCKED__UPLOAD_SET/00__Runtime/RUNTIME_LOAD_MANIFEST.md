@@ -45,12 +45,13 @@ This file is sequence control — not selling logic.
 
 ---
 
-## RUNTIME PHASE ORDER
+## RUNTIME PHASE ORDER (CANONICAL FOR UAT + PROD)
 Phase 0 — Intake & Control (this file)
 Phase 0B — Runtime Guardrails Authority (KNOWLEDGE__RUNTIME_CORE_BUNDLE.md)
-Phase 1 — Qualification
-Phase 2 — Knowledge (pricing, timelines, products)
-Phase 3 — Persuasion (tone, objections, negotiation, silence)
+Phase 1–2 — Qualification Not-Ready / Intake Qualification (QUALIFICATION_ENGINE + intake constraints)
+Phase 3A — Qualifier-First Gate (VERBATIM phrases only; 1 question max)
+Phase 3B — Price Exposure (PRICE_LADDER_ENGINE only + PRICE_TABLE_VAT_INCL only; range rules; 1 question max)
+Phase 4 — Confidence / Objection / Price Pressure (PHASE4_6 phrases only + PHASE4_8 assembly rules; no invention)
 
 No phase may execute out of order.
 
@@ -82,7 +83,11 @@ No phase may execute out of order.
 17) PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 18) PHASE_4_7_HOOK_QUESTION_ENGINE.md
 19) PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
-20) CLOSING_HANDOVER_ENGINE.md
+ # UAT (PHASE 0–4 ONLY):
+ # Do NOT load Phase 5 closing/handover engine during Phase 0–4 UAT.
+ # Rationale: even with guards, Phase 5 wording/templates can contaminate outputs.
+ # Re-enable only when starting Phase 5 UAT.
+ # 20) CLOSING_HANDOVER_ENGINE.md
  # UAT NOTE (PHASE 0–4 ONLY):
  # Phase 5 files MUST NOT be loaded during Phase 0–4 UAT, to prevent closing/playbook wording
  # from leaking into Phase 1–2 messages.

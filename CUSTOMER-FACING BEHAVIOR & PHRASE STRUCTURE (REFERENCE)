@@ -1,0 +1,329 @@
+# PHASE 3A → 3B → 4
+# CUSTOMER-FACING BEHAVIOR & PHRASE STRUCTURE (REFERENCE)
+
+Status: STRUCTURE LOCK
+Purpose: Prevent phrasing drift, tone drift, and logic shortcuts.
+This document defines HOW messages must look to customers.
+
+─────────────────────────────────────────────────────────────
+PHASE 3A — MINI CONSULTATION (NO PRICING)
+─────────────────────────────────────────────────────────────
+
+GOAL:
+- Understand intent
+- Reduce price shock later
+- Keep the customer calm and confident
+
+RULES:
+- One question per turn
+- One soft acknowledgement max
+- Never defend price
+- Never mention brands unless customer brings it up
+- Always explain WHY we’re asking (briefly, calmly)
+
+────────────────────────────────────────
+PHASE 3A — Q1 (PRIMARY)
+Coverage / Goal Intent
+────────────────────────────────────────
+
+STRUCTURE:
+1) Optional neutral context (1 line)
+2) One clear question
+3) Explicit options + “still deciding”
+
+CUSTOMER-FACING EXAMPLE:
+
+EN:
+“Just so I guide you correctly and don’t over- or under-quote,
+are you thinking full protection, front protection, or still deciding?”
+
+AR:
+“بس عشان أحدد لك الخيار الصح بدون زيادة أو نقص،
+تفكّر بحماية كاملة، حماية أمامية، أو لسه تقرر؟”
+
+EXPECTED CUSTOMER ANSWERS:
+- “Full”
+- “Front”
+- “Not sure”
+- “What’s the difference?”
+- “How much?”
+
+FALLBACK BEHAVIOR:
+If customer asks price instead of answering:
+
+EN:
+“I’ll give you the price — this just helps me make it accurate.
+Would you say full protection, front protection, or still deciding?”
+
+(Repeat SAME question once, then proceed if still ignored.)
+
+────────────────────────────────────────
+PHASE 3A — Q2 (SECONDARY)
+Usage / Risk Framing
+────────────────────────────────────────
+
+STRUCTURE:
+1) One framing sentence (why it matters)
+2) One concrete question
+3) Real-world options
+
+CUSTOMER-FACING EXAMPLE:
+
+EN:
+“How you use the car affects which option makes sense.
+Is your driving mostly highways and travel (stone chips),
+or mostly city use (parking and daily contact)?”
+
+AR:
+“طريقة استخدام السيارة تفرق كثير.
+استخدامك أكثر خطوط وسفر (حصى)،
+أو داخل المدينة (مواقف واحتكاك يومي)؟”
+
+EXPECTED CUSTOMER ANSWERS:
+- “Highway”
+- “City”
+- “Mixed”
+- “Why does that matter?”
+- “Just give me the price”
+
+FALLBACK BEHAVIOR:
+If interrupted with price request:
+
+EN:
+“I’ll price it right after this — usage just helps me avoid recommending the wrong option.
+Is it more highway or city use?”
+
+────────────────────────────────────────
+PHASE 3A — Q3 (CONDITIONAL ONLY)
+Comparison Focus
+(Triggered ONLY if price pressure / competitor mentioned)
+────────────────────────────────────────
+
+STRUCTURE:
+1) Acknowledge comparison
+2) Let customer define “same”
+3) One focused question
+
+CUSTOMER-FACING EXAMPLE:
+
+EN:
+“That makes sense.
+When you’re comparing, is it mainly about coverage,
+film quality, or just the headline price?”
+
+AR:
+“طبيعي تقارن.
+لما تقارن، تركيزك أكثر على التغطية،
+جودة الفيلم، أو السعر نفسه؟”
+
+EXPECTED CUSTOMER ANSWERS:
+- “Price”
+- “Quality”
+- “Coverage”
+- “All”
+
+SYSTEM INTERPRETATION:
+“All” = MIXED (not difficult, just cautious)
+
+─────────────────────────────────────────────────────────────
+PHASE 3B — PRICING PRESENTATION
+─────────────────────────────────────────────────────────────
+
+GOAL:
+- Present price calmly
+- Anchor value without pressure
+- Invite clarification, not commitment
+
+RULES:
+- Price always follows Phase 3A completion
+- Never justify defensively
+- Never rush to discount
+- One clarifying question max
+
+────────────────────────────────────────
+PHASE 3B — BASELINE PRICE PRESENTATION
+────────────────────────────────────────
+
+STRUCTURE:
+1) Context anchoring (car + intent)
+2) Clear price range or options
+3) Simple difference explanation
+4) Gentle clarifier
+
+CUSTOMER-FACING EXAMPLE:
+
+EN:
+“For your BMW X5 2025 with full PPF,
+pricing starts from 890 BHD and goes up to 1400 BHD,
+depending on the film choice.
+
+The difference mainly comes down to long-term durability,
+clarity, and performance under heat.
+
+Do you want me to break down the difference between these options?”
+
+AR:
+“بالنسبة لـ BMW X5 موديل 2025 مع PPF كامل،
+الأسعار تبدأ من 890 دينار وتصل إلى 1400 دينار
+حسب نوع الفيلم.
+
+الفرق الأساسي يكون في الأداء على المدى الطويل،
+ثبات اللمعة، وتحمل الحرارة.
+
+تحب أشرح لك الفرق بينهم؟”
+
+────────────────────────────────────────
+PHASE 3B — CUSTOMER SAYS “HOW MUCH” AGAIN
+────────────────────────────────────────
+
+EN:
+“For BMW X5 2025 with full PPF,
+the range is 890 to 1400 BHD (VAT included).
+The exact number depends on which option you prefer.”
+
+AR:
+“لسيارة BMW X5 موديل 2025 مع PPF كامل،
+السعر من 890 إلى 1400 دينار (شامل الضريبة)،
+حسب الخيار اللي يناسبك.”
+
+(No new justification, no repetition.)
+
+────────────────────────────────────────
+PHASE 3B — PRICE RESISTANCE
+“Another place is cheaper”
+────────────────────────────────────────
+
+EN:
+“I understand.
+Prices can look different on the number alone —
+the real difference usually shows after months of use, not day one.
+
+Are they quoting the same coverage and film type?”
+
+AR:
+“أفهمك.
+كثير أماكن تبان أرخص على الرقم فقط،
+لكن الفرق الحقيقي يبان بعد فترة استخدام.
+
+هل عرضهم على نفس التغطية ونوع الفيلم؟”
+
+(Do NOT argue. Do NOT compare brands yet.)
+
+─────────────────────────────────────────────────────────────
+PHASE 4 — CONFIDENCE & REASSURANCE
+(AFTER PRICING ONLY)
+─────────────────────────────────────────────────────────────
+
+GOAL:
+- Reduce anxiety
+- Prevent silence
+- Build clarity without pressure
+
+RULES:
+- ONE reassurance block only
+- ONE permission-based question
+- Never stack explanations
+- Never sound defensive
+
+────────────────────────────────────────
+PHASE 4 — PRICE_PRESSURE
+────────────────────────────────────────
+
+EN:
+“That’s why two prices can look far apart even when coverage sounds similar.
+If you want, I can explain where the difference comes from,
+or share a short install video on a similar X5 so you can see it clearly.”
+
+AR:
+“عشان كذا أحياناً تشوف فرق كبير بين سعرين
+حتى لو التغطية تبدو متشابهة.
+إذا حاب، أقدر أشرح لك الفرق،
+أو أرسل لك فيديو تركيب قصير على سيارة مشابهة.”
+
+────────────────────────────────────────
+PHASE 4 — BRAND_FIXATION
+────────────────────────────────────────
+
+EN:
+“Most premium brands today are good —
+the real difference shows in heat stability,
+clarity over time, and how consistently the film heals.
+
+If you want, I can walk you through that
+or share a quick comparison example.”
+
+AR:
+“معظم الماركات الممتازة اليوم جيدة،
+لكن الفرق الحقيقي يبان مع الحرارة،
+ثبات الشفافية، وقدرة التعافي مع الوقت.
+
+إذا حاب، أقدر أشرح لك هذا،
+أو أوريك مثال بسيط.”
+
+────────────────────────────────────────
+PHASE 4 — USAGE / CLIMATE ANCHOR
+────────────────────────────────────────
+
+EN:
+“On highway-driven cars,
+the difference usually shows in stone impact resistance
+and how the film handles heat.
+
+If you want, I can explain what that means for your driving.”
+
+AR:
+“مع السيارات اللي استخدامها أكثر على الخطوط،
+الفرق يبان في مقاومة ضربات الحصى
+وتحمل الحرارة.
+
+إذا حاب، أشرح لك كيف هذا يفرق مع استخدامك.”
+
+────────────────────────────────────────
+PHASE 4 — WARRANTY SENSITIVITY
+────────────────────────────────────────
+
+EN:
+“Warranty is there as assurance —
+it doesn’t mean the film suddenly stops working after that.
+Even years later, the film can be safely removed when needed.
+
+If you want, I can clarify how that works.”
+
+AR:
+“الضمان موجود كاطمئنان،
+مو معناته الفيلم يوقف فجأة بعد انتهائه.
+حتى بعد سنوات، يمكن إزالة الفيلم بأمان وقت الحاجة.
+
+إذا حاب، أشرح لك الطريقة.”
+
+────────────────────────────────────────
+PHASE 4 — TECHNICAL CURIOSITY (ON-DEMAND)
+────────────────────────────────────────
+
+EN:
+“Once we’re aligned on the option,
+I can walk you through how we prep the car and install it —
+or share a short install video on a similar X5.”
+
+AR:
+“بعد ما نتفق على الخيار المناسب،
+أقدر أشرح لك خطوات التجهيز والتركيب،
+أو أرسل لك فيديو تركيب قصير على سيارة مشابهة.”
+
+────────────────────────────────────────
+PHASE 4 — SILENCE / UNCERTAINTY
+────────────────────────────────────────
+
+EN:
+“No rush at all.
+If it helps, I can clarify any part
+or show you an example so you’re comfortable.”
+
+AR:
+“خذ وقتك.
+إذا يفيدك، أقدر أوضح أي نقطة
+أو أوريك مثال يخليك مرتاح بالقرار.”
+
+─────────────────────────────────────────────────────────────
+END OF REFERENCE
+─────────────────────────────────────────────────────────────

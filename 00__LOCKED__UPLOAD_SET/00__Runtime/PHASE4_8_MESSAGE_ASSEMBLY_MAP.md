@@ -153,7 +153,7 @@ IF request_type == REENTERED_CONTINUE:
 # LOCK_REASON: Phase 3A UAT passed; prevent legacy blocks overriding qualifier flow
 # CHANGE_CONTROL: Architecture approval required
 
-IF phase == PHASE_3
+IF (phase == PHASE_3 OR phase == PHASE_3A)
 AND phase3a_required == true
 AND phase3a_qualifier_id is present:
 
@@ -161,6 +161,7 @@ AND phase3a_qualifier_id is present:
   - Output MUST be:
     - exactly 1 question
     - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+    - VERBATIM ONLY: Copy-paste the selected PHASE4_6_HUMAN_PHRASE_LIBRARY block lines exactly as written, including BOTH EN: and AR: lines. No paraphrase, no rewording, no extra sentences, no alternative phrasing.
 
   - Mapping (phase3a_qualifier_id → Phrase block):
     - PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
@@ -208,33 +209,330 @@ Required output behavior:
 - Suppress hooks (H1)
 
 ## PHASE 1–2 — LOW-INTENT BROWSING (OVERRIDE)
----
 ## PHASE 1–2 GATING RULE (HARD PRE-ROUTE OVERRIDE)
 
 Purpose:
-- Ensure early-stage browsing queries remain light and non-forcing before service intent is clarified.
-- Prevent premature vehicle qualification or service listing during low-intent inquiry phases.
 
 Execution order (HARD):
-- Evaluate PHASE 1–2 trigger conditions BEFORE evaluating SERVICE ROUTING routes.
-- If any PHASE 1–2 condition matches → execute PHASE 1–2 output and suppress SERVICE ROUTING for that turn.
-- If no PHASE 1–2 condition matches → proceed to SERVICE ROUTING.
 
 Rationale:
-- PHASE 1–2 rules are guardrails for exploratory browsing; they must not be overridden by service routing logic.
-- Service Routing assumes service_intent is known or being actively clarified; it cannot bypass PHASE 1–2 protection.
 
 Implementation:
-- At runtime: Check PHASE 1–2 conditions first.
-- Match found → use PHASE 1–2 output only.
-- No match → evaluate SERVICE ROUTING routes normally.
----
 
+====================================================================
+PHASE 3–4 ARCHITECTURE LOCK (GLOBAL, RUNTIME-AUTHORITY)
+====================================================================
+
+LOCK_INTENT:
+- This section is the ONLY active authority for Phase 3A, Phase 3B, and Phase 4 behavior.
+- If any older Phase 3/4 governance exists elsewhere in this file, it is NON-AUTHORITY unless
+  explicitly labeled ACTIVE under this lock.
+
+GLOBAL RULES (LOCKED):
+- One question per assistant turn (hard cap).
+- Phase 3A: NO pricing, NO persuasion, NO benefit framing, NO specs.
+- Phase 3A: One fallback/nudge max per qualifier; if ignored again → set qualifier = UNKNOWN → proceed.
+- Brand / warranty: acknowledge, defer until READY; do not derail qualifier chain.
+- Comparison: capture focus; do not neutralize; do not debate.
+- Phase 3B: pricing may be shown ONLY via PRICE_LADDER_ENGINE output (engine governs wording constraints).
+- Phase 4: reassurance allowed, but must NOT invent new truths, prices, SKUs, warranties, or operational promises.
+
+DEPRECATION RULE (ANTI-CONFLICT):
+- Any legacy blocks inside this file that describe Phase 3A/3B/4 behavior must be labeled:
+  "DEPRECATED_PHASE3A_*" / "DEPRECATED_PHASE3B_*" / "DEPRECATED_PHASE4_*"
+  and must include "DO NOT ROUTE".
+- If any legacy block lacks those markers, treat it as INVALID (do not execute).
+
+ACTIVE ROUTING (UNDER THIS LOCK):
+- Phase 3A: qualifier_id → phrase block mapping remains the only customer-facing wording source.
+- Phase 3B: Route E uses PRICE_LADDER_ENGINE output + the correct PHASE3B_* transition phrase block.
+- Phase 4: signals map to PHASE4_* phrase IDs only (human copy), with no pricing mechanics changes.
+
+====================================================================
+END — PHASE 3–4 ARCHITECTURE LOCK
+====================================================================
+
+------------------------------------------------------------
+LEGACY_PHASE3_4_GOVERNANCE (DEPRECATED — DO NOT ROUTE)
+------------------------------------------------------------
+Any Phase 3A / Phase 3B / Phase 4 governance rules that appear elsewhere
+in this file are considered legacy narrative and MUST NOT be used for routing
+or execution unless they are explicitly labeled:
+ACTIVE_UNDER_PHASE3_4_LOCK: true
+------------------------------------------------------------
+
+# ============================================================
+# PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
+# GLOBAL RUNTIME AUTHORITY — DO NOT OVERRIDE
+# ============================================================
+
+# PHASE 5 PHRASE AUTHORITY (HARD)
+# - Phase 5 must assemble ONLY from PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE5_* blocks.
+# - No pricing, no ranges, no ladder re-run.
+# - One question max (if a question is included at all).
+# - No competitor attacks. No discount talk.
+#
+# Approved Phase 5 phrase IDs (exact):
+#   - PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+#   - PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+#   - PHASE5_PPF_TECHNICAL_DEEPEN_L1
+#   - PHASE5_PPF_NARROW_L2
+#   - PHASE5_PPF_EXIT_FORK_L3
+#   - PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+#   - PHASE5_CERAMIC_DURABILITY_REALISM_DEEPEN_L1
+#   - PHASE5_CERAMIC_NARROW_L2
+#   - PHASE5_CERAMIC_EXIT_FORK_L3
+#   - PHASE5_TINT_COMPARE_DEEPEN_L1
+#   - PHASE5_TINT_NARROW_L2
+#   - PHASE5_TINT_EXIT_FORK_L3
+#   - PHASE5_WRAP_EXPECTATION_DEEPEN_L1
+#   - PHASE5_WRAP_ROOF_BLACK_RULE_DEEPEN_L1
+#   - PHASE5_WRAP_NARROW_L2
+#   - PHASE5_WRAP_EXIT_FORK_L3
+#   - PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+#   - PHASE5_POLISH_NARROW_L2
+#   - PHASE5_POLISH_EXIT_FORK_L3
+#
+# Routing intent (signal → phrase):
+# - If service_intent == ppf:
+#     - price_gap / “cheaper elsewhere” / “too expensive” → PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+#     - brand/warranty fixation → PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+#     - technical/spec fixation → PHASE5_PPF_TECHNICAL_DEEPEN_L1
+# - If service_intent == ceramic:
+#     - price_gap / dealer free / cheaper elsewhere → PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+#     - durability skepticism / “scratch proof?” → PHASE5_CERAMIC_DURABILITY_REALISM_DEEPEN_L1
+# - If service_intent == tint:
+#     - compare/cheaper/“same tint?” → PHASE5_TINT_COMPARE_DEEPEN_L1
+# - If service_intent == wrap:
+#     - expectation mismatch / “wrap protects paint like PPF?” → PHASE5_WRAP_EXPECTATION_DEEPEN_L1
+#     - roof-black requests (“roof wrap”) → PHASE5_WRAP_ROOF_BLACK_RULE_DEEPEN_L1
+# - If service_intent == polishing:
+#     - expectation mismatch / “does it protect?” → PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+
+PURPOSE:
+Phase 5 exists between Phase 4 (confidence) and Phase 7 (closing).
+It allows controlled deepening of conversation WITHOUT:
+- Escalating to closing
+- Introducing new pricing
+- Introducing new product truths
+- Re-running qualification
+- Triggering negotiation loops
+
+Phase 5 is used ONLY when:
+- Customer resists after price
+- Customer repeats objection
+- Customer requests deeper clarification
+- Customer shows hesitation but not rejection
+- Customer needs expectation alignment
+
+------------------------------------------------------------
+ENTRY CONDITIONS (HARD)
+------------------------------------------------------------
+
+Phase 5 may execute ONLY if:
+
+1) QUALIFICATION_STATUS == READY
+2) Phase 3B pricing already shown OR scope already defined
+3) No active Phase 7 trigger
+4) No suppression state blocking deepening
+
+If NOT all conditions met:
+→ DO NOT enter Phase 5
+
+------------------------------------------------------------
+WHAT PHASE 5 IS ALLOWED TO DO
+------------------------------------------------------------
+
+✔ Clarify scope boundaries  
+✔ Clarify expectation limits  
+✔ Clarify comparison structure  
+✔ Reframe misunderstanding  
+✔ Reduce emotional pressure  
+✔ Narrow options (max 2)  
+✔ Inject micro-education (1 concept max)
+
+------------------------------------------------------------
+WHAT PHASE 5 IS NOT ALLOWED TO DO
+------------------------------------------------------------
+
+✘ No new pricing numbers  
+✘ No re-running PRICE_LADDER_ENGINE  
+✘ No introducing new SKUs  
+✘ No brand persuasion  
+✘ No warranty deep dive  
+✘ No service explanation repetition  
+✘ No closing attempts  
+✘ No urgency triggers  
+✘ No discount language  
+
+------------------------------------------------------------
+BLOCK LIMITS (HARD)
+------------------------------------------------------------
+
+Phase 5 may include:
+- Maximum 2 blocks total
+- Maximum 1 question
+- No hooks (H1 suppressed)
+- No Phase 6 explanation blocks
+- No PRICE_LADDER output
+
+------------------------------------------------------------
+PHASE 5 SIGNAL CLUSTERS
+------------------------------------------------------------
+
+1) Repeated price pressure  
+2) Scope confusion  
+3) Unrealistic expectation  
+4) Service mismatch confusion  
+5) “Still thinking” hesitation  
+6) Emotional comparison  
+7) Performance doubt  
+
+------------------------------------------------------------
+PHASE 5 EXIT CONDITIONS
+------------------------------------------------------------
+
+Phase 5 must exit when:
+
+- Customer stabilizes → return to Phase 4 light confidence
+- Customer requests final confirmation → Route to Phase 7
+- Customer re-requests price → Route to Phase 3B (no re-ladder unless required)
+- Customer introduces new service → Reset to Phase 3A
+
+------------------------------------------------------------
+SUPPRESSION PRECEDENCE
+------------------------------------------------------------
+
+If Phase 7 becomes eligible during Phase 5:
+→ Phase 7 overrides Phase 5 immediately.
+
+If suppression precedence blocks hooks or education:
+→ Remove those blocks.
+→ Do NOT rewrite wording.
+
+------------------------------------------------------------
+END — PHASE 5 ARCHITECTURE LOCK
+# ============================================================
+
+# ============================================================
+# PHASE 4 — CONFIDENCE / REASSURANCE (POST-PRICE / POST-OPTIONS)
+# ============================================================
+#
+# ============================================================
+# ROUTE G — PHASE 5 (DEEPENING) ENTRY (RUNTIME-AUTHORITY)
+# ============================================================
+# IMPORTANT:
+# This Phase 5 is the objection/clarification deepening layer (post-price).
+# It is NOT the /01__Engines/PHASE_5__CLOSING_HANDOVER system (closing/handover).
+#
+# Entry Gate (HARD):
+# - QUALIFICATION_STATUS == READY
+# - Phase 3B pricing/options already shown (post-price context)
+# - Phase 7 NOT eligible
+# - Customer shows repeated objection / wants deeper clarification
+#
+# Assembly (HARD):
+# - Use ONLY PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE5_* blocks.
+# - selected_phrase_id MUST equal the PHASE5_* block name.
+# - STOP (do not append any other blocks).
+# - No PRICE_LADDER_ENGINE output.
+# - No Phase 6 service explanation blocks.
+# - No hooks.
+# - Max 1 question (only if the PHASE5_* block contains one).
+
+------------------------------------------------------------
+ROUTING RULES (HARD) — SELECT ONE PHASE5_* BLOCK ONLY
+------------------------------------------------------------
+
+Applies when ALL Entry Gate conditions are true.
+
+Inputs allowed here (no guessing):
+- active_service_context
+- constraints (boolean flags already emitted by runtime)
+- objection_repeat_count (INTEGER; emitted by CUSTOMER_CHAT_INTAKE_RULES.md / OBJECTION_RESOLUTION_ENGINE.md)
+
+Escalation tier (HARD):
+- If objection_repeat_count <= 1 → Tier L1 (deepen)
+- If objection_repeat_count == 2 → Tier L2 (narrow)
+- If objection_repeat_count >= 3 → Tier L3 (exit-fork)
+
+Routing rules (select ONE block only):
+
+1) If active_service_context == ppf:
+  - If constraints includes brand_keyword_detected = true:
+    - If objection_repeat_count <= 1:
+      - Use PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+    - If objection_repeat_count == 2:
+      - Use PHASE5_PPF_NARROW_L2
+    - If objection_repeat_count >= 3:
+      - Use PHASE5_PPF_EXIT_FORK_L3
+  - Else:
+    - If objection_repeat_count <= 1:
+      - Use PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+    - If objection_repeat_count == 2:
+      - Use PHASE5_PPF_NARROW_L2
+    - If objection_repeat_count >= 3:
+      - Use PHASE5_PPF_EXIT_FORK_L3
+
+2) If active_service_context == ceramic:
+  - If objection_repeat_count <= 1:
+    - Use PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - If objection_repeat_count == 2:
+    - Use PHASE5_CERAMIC_NARROW_L2
+  - If objection_repeat_count >= 3:
+    - Use PHASE5_CERAMIC_EXIT_FORK_L3
+
+3) If active_service_context == tint:
+  - If objection_repeat_count <= 1:
+    - Use PHASE5_TINT_COMPARE_DEEPEN_L1
+  - If objection_repeat_count == 2:
+    - Use PHASE5_TINT_NARROW_L2
+  - If objection_repeat_count >= 3:
+    - Use PHASE5_TINT_EXIT_FORK_L3
+
+4) If active_service_context == wrap:
+  - Optional roof-black override (ONLY if these keys exist in runtime output):
+      - IF detected_product_sku == ROOF_PPF_BLACK_GLOSS OR product_alias_route == ROOF_PPF_BLACK_GLOSS:
+          - Use PHASE5_WRAP_ROOF_BLACK_RULE_DEEPEN_L1
+      - Else:
+      - If objection_repeat_count <= 1:
+        - Use PHASE5_WRAP_EXPECTATION_DEEPEN_L1
+      - If objection_repeat_count == 2:
+        - Use PHASE5_WRAP_NARROW_L2
+      - If objection_repeat_count >= 3:
+        - Use PHASE5_WRAP_EXIT_FORK_L3
+
+Hard stop:
+- After selecting the PHASE5_* block, STOP (do not append any other blocks).
+
+------------------------------------------------------------
+PHASE 4 — POLISHING (CONFIDENCE ROUTING)
+------------------------------------------------------------
+
+Applies when:
+- active_service_context == polishing
+
+Routing rules (select ONE block only):
+
+1) Price pressure / “too expensive” / “cheaper elsewhere”:
+  - Use PHASE4_POLISH_PRICE_PRESSURE_L1 (first push)
+  - If repeated pressure → PHASE4_POLISH_PRICE_PRESSURE_L2
+  - If still repeated → PHASE4_POLISH_PRICE_PRESSURE_L3
+
+2) Scope ambiguity / “what’s included” / “full detail or just polish”:
+  - Use PHASE4_POLISH_SCOPE_CLARITY_L1
+
+3) Expectation mismatch / “will it remove everything?” / “make it new?”:
+  - Use PHASE4_POLISH_EXPECTATION_REALISM_L1
+
+4) Polishing vs protection confusion (“is this like ceramic/PPF?”):
+  - Use PHASE4_POLISH_VS_PROTECTION_SIMPLE_L1
+
+5) Silence recovery (post options / post price):
+  - Primary: PHASE4_POLISH_SILENCE_PRIMARY
+  - If still silent / needs a nudge: PHASE4_POLISH_SILENCE_SCOPE_NUDGE
 ## QUALIFICATION NOT-READY SUPPRESSION (HARD)
 
-Default trigger condition (any one):
-- QUALIFICATION_STATUS = NOT_READY
-- missing_fields is not empty
 - allowed_next_actions includes ask_missing_info
 
 Default output behavior (when no exception applies):
@@ -358,15 +656,30 @@ IF request_type == PRICE_REQUEST AND (missing_fields includes vehicle_model OR v
   (That exception provides: Phase 6 service explanation (NO PRICES) + exactly 1 vehicle_model/year question.)
 
 Route E — Price Request while READY (pricing allowed)
-IF request_type == PRICE_REQUEST AND missing_fields is empty:
+IF (phase == PHASE_3 OR phase == PHASE_3B) AND request_type == PRICE_REQUEST AND all qualification fields complete:
+- Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
+- If phase4_anchor_used != true:
+  - Append PHASE4_ANCHOR_AFTER_PRICE_ONCE
+  - Set phase4_anchor_used = true
 - Do NOT add additional questions unless PRICE_LADDER_ENGINE explicitly requires a single clarifier.
 - Suppress hooks unless hook gates pass AND question-cap remains respected.
 
+  ## PHASE 3B — TRANSITION ACKNOWLEDGEMENT (SERVICE STANDARD)
+  (Route E selects the correct PHASE3B_* block based on service)
+    - PHASE3B_PPF_RANGE                       → PHASE3B_PPF_RANGE
+    - PHASE3B_CERAMIC_RANGE                   → PHASE3B_CERAMIC_RANGE
+    - PHASE3B_TINT_RANGE                      → PHASE3B_TINT_RANGE
+    - PHASE3B_POLISHING_RANGE                 → PHASE3B_POLISHING_RANGE
+    - PHASE3B_WRAP_RANGE                      → PHASE3B_WRAP_RANGE
+
 Route F — Price Resistance / Comparison (Phase 7 controlled pricing response)
-IF constraints includes price_resistance = true AND missing_fields is empty:
+IF (PRICE_PRESSURE_LEVEL == HIGH OR DISCOUNT_EXPECTATION_RISK == HIGH):
 
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
+- If phase4_anchor_used != true:
+  - Append PHASE4_ANCHOR_AFTER_PRICE_ONCE
+  - Set phase4_anchor_used = true
 - Require EXACTLY 1 controlled clarifier (coverage / priority) IF the price ladder output requires it.
 - Do NOT end with a comfort-only line.
 - Suppress hooks unless hook gates pass AND question-cap remains respected.
@@ -524,6 +837,11 @@ Assembly must enforce:
 - No repeated structural pattern in consecutive turns when alternatives exist
 
 If safety risk detected → default to minimal build (B1 or B2 only) with no hook.
+
+- Do NOT propose hybrid, layered, "top-up later", or future upgrade service paths unless explicitly defined in:
+  - SKU_SELECTION_MATRIX.md
+  - GLOBAL_PRODUCT_NAMING_REGISTRY.md
+- If such service path is not defined in those files, it is considered invention and must be suppressed.
 
 ---
 

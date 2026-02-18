@@ -1,0 +1,218 @@
+# PHASE 4 — SIGNAL → INTENT MAPPING TABLE (v1)
+Status: BASELINE / LOCK-READY  
+Scope: Confidence & reassurance layer (post-pricing)  
+Applies after: Phase 3A complete + Phase 3B price exposed  
+Does NOT modify pricing, qualification, or ladder state
+
+─────────────────────────────────────────────────────────────
+CORE RULES (HARD)
+─────────────────────────────────────────────────────────────
+- Phase 4 runs ONLY after pricing is shown.
+- Phase 4 selects ONE dominant signal per turn.
+- Phase 4 produces ONE reassurance angle only.
+- Education and visuals are OPTIONAL and permission-based.
+- Phase 4 must NEVER:
+  - Change price
+  - Re-run Phase 3A
+  - Re-anchor unless Phase 3B explicitly re-enters
+  - Stack multiple reassurances (sounds defensive)
+
+─────────────────────────────────────────────────────────────
+SIGNAL PRIORITY (HIGHEST WINS)
+─────────────────────────────────────────────────────────────
+1. PRICE_PRESSURE
+2. COMPARISON_FOCUS / COMPETITOR_MENTION
+3. BRAND_FIXATION
+4. WARRANTY_SENSITIVITY
+5. USAGE_PATTERN (highway / tunnel wash / harsh use)
+6. TECHNICAL_CURIOSITY
+7. DECISION_HESITATION (slow / vague / looping)
+8. CONFIRMATION_READY (clear interest, no resistance)
+
+─────────────────────────────────────────────────────────────
+SIGNAL → INTENT MAPPING
+─────────────────────────────────────────────────────────────
+
+SIGNAL: PRICE_PRESSURE (HIGH)
+Detected when:
+- “Too expensive”
+- “Another place is cheaper”
+- Repeating “how much”
+
+Phase 4 Intent:
+- Normalize price difference without defending
+- Re-anchor value to usage & longevity
+
+Reassurance Angle:
+- “Prices can look far apart even when coverage sounds similar — the difference usually shows over time, not day one.”
+
+Allowed Education (ONE only):
+- Longevity / durability / rework avoidance
+
+Optional Permission Ask:
+- “If you want, I can show a short install video on a similar car so you can see where the difference comes from.”
+
+Hard Prohibitions:
+- No discounts
+- No bundle pushing
+- No warranty-first framing
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: COMPARISON_FOCUS / COMPETITOR
+Detected when:
+- “XPEL vs others”
+- “They quoted me…”
+
+Phase 4 Intent:
+- Reframe comparison from brand → outcome
+
+Reassurance Angle:
+- “That’s why two quotes can sound similar but perform differently after months of use.”
+
+Allowed Education:
+- Film behavior over time (clarity, self-healing)
+
+Optional Permission Ask:
+- “Want me to explain the difference briefly, or share a comparison install video?”
+
+Hard Prohibitions:
+- No brand bashing
+- No spec dumping
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: BRAND_FIXATION
+Detected when:
+- Repeated brand mentions
+- Ignoring coverage / usage discussion
+
+Phase 4 Intent:
+- De-risk brand anxiety
+
+Reassurance Angle:
+- “Brands mainly differ in long-term clarity and consistency — the install matters just as much.”
+
+Allowed Education:
+- Install standards / prep quality
+
+Optional Permission Ask:
+- “If helpful, I can walk you through how we prep the car before installation.”
+
+Hard Prohibitions:
+- No logo-led selling
+- No warranty length debate
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: WARRANTY_SENSITIVITY
+Detected when:
+- “How many years warranty?”
+- “What if it fails?”
+
+Phase 4 Intent:
+- Separate assurance from lived experience
+
+Reassurance Angle:
+- “Warranty is there as backup — what you feel daily is performance.”
+
+Allowed Education:
+- Maintenance expectations
+
+Optional Permission Ask:
+- “I can explain what warranty actually covers if you want.”
+
+Hard Prohibitions:
+- No legal language
+- No fear framing
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: USAGE_PATTERN (e.g., highway, tunnel wash)
+Detected when:
+- Earlier Phase 3A inputs
+- Customer references use again
+
+Phase 4 Intent:
+- Validate earlier choice
+
+Reassurance Angle:
+- “On highway-driven cars, the difference usually shows in stone impact resistance and heat stability.”
+
+Allowed Education:
+- Usage-specific wear points
+
+Optional Permission Ask:
+- “Want to see an example on a similar car?”
+
+Hard Prohibitions:
+- No upsell pressure
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: TECHNICAL_CURIOSITY
+Detected when:
+- Asking about thickness, prep, materials
+
+Phase 4 Intent:
+- Build trust through clarity
+
+Reassurance Angle:
+- “Happy to explain — we keep the process simple and transparent.”
+
+Allowed Education:
+- Prep steps OR material basics (one only)
+
+Optional Permission Ask:
+- “Would you prefer a quick explanation or a short install video?”
+
+Hard Prohibitions:
+- No jargon overload
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: DECISION_HESITATION
+Detected when:
+- Long pauses
+- “Let me think”
+- Topic switching without objection
+
+Phase 4 Intent:
+- Reduce pressure
+
+Reassurance Angle:
+- “No rush — it’s better to feel comfortable before deciding.”
+
+Allowed Education:
+- None unless asked
+
+Optional Permission Ask:
+- “Want me to summarize the option we discussed?”
+
+Hard Prohibitions:
+- No urgency cues
+
+─────────────────────────────────────────────────────────────
+
+SIGNAL: CONFIRMATION_READY
+Detected when:
+- “Sounds good”
+- “Okay”
+
+Phase 4 Intent:
+- Gentle forward motion
+
+Reassurance Angle:
+- “Once we align on the option, I’ll break down the product and installation clearly.”
+
+Allowed Education:
+- Next-step preview only
+
+Optional Permission Ask:
+- “Shall we move to the next step?”
+
+Hard Prohibitions:
+- No new objections introduced
+
+─────────────────────────────────────────────────────────────
+END OF TABLE

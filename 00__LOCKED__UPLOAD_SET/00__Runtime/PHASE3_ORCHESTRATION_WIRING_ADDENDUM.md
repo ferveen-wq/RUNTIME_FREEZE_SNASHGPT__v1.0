@@ -1,20 +1,5 @@
 # PHASE 3 — WIRING ADDENDUM (Silence ↔ Follow-Up ↔ PIM) — v1.0
 
-## A.2) PHASE 3A GATE QUESTION SELECTION (PPF ONLY — BINDING)
-
-Rule:
-- When Phase 3A returns missing_details[], the orchestrator MUST ask exactly ONE missing detail question.
-
-Priority (top wins):
-1) If "paint_condition" is present in missing_details[]:
-	- Ask paint condition (old-vehicle override)
-	- Do NOT ask usage exposure in the same turn
-2) Else if "ppf_usage_exposure" is present in missing_details[]:
-	- Ask usage exposure (city / highway / desert / mixed)
-
-This does NOT change any Phase 3B SKU logic.
-It only ensures the right gate question is asked.
-
 ## A) STATE OWNERSHIP (single source of truth)
 OWNED BY ORCHESTRATOR (write authority):
 - LAST_COUNTED_OUTBOUND_TIMESTAMP
@@ -50,17 +35,6 @@ Canonical keys use SHOUT_CASE for cross-file consistency:
 - PRICE_LADDER_STATE
 - OBJECTION_SIGNAL
 
-Phase 3A gate keys (canonical):
-- PHASE3A_SCOPE
-- PHASE3A_READY_PPF
-- PPF_COVERAGE_SELECTED
-- PPF_BRAND_INTENT
-- PPF_WARRANTY_INTENT
-- MISSING_DETAILS
-
-Note:
-- Phase 3A gate keys are tag-only control signals. They do not contain pricing.
-
 Control flags (canonical):
 - QUOTE_REQUIRED_FLAG
 - AUTOMATION_ALLOWED_FLAG
@@ -88,19 +62,6 @@ Price Ladder Engine (already canonical / no-op):
 - PRICE_LADDER_STATE          → PRICE_LADDER_STATE
 - QUOTE_REQUIRED_FLAG         → QUOTE_REQUIRED_FLAG
 
-Negotiation Logic Module (native → canonical):
-- qualification_status        → QUALIFICATION_STATUS
-- negotiation_state           → NEGOTIATION_STATE
-- missing_details             → MISSING_DETAILS
-- PHASE3A_SCOPE               → PHASE3A_SCOPE
-- PHASE3A_READY_PPF           → PHASE3A_READY_PPF
-- PPF_COVERAGE_SELECTED       → PPF_COVERAGE_SELECTED
-- PPF_BRAND_INTENT            → PPF_BRAND_INTENT
-- PPF_WARRANTY_INTENT         → PPF_WARRANTY_INTENT
-
-Normalization rule:
-- If missing_details and MISSING_DETAILS both exist, MISSING_DETAILS wins.
-
 Objection Resolution Engine (native → canonical):
 - qualification_status        -> QUALIFICATION_STATUS
 - negotiation_state           -> NEGOTIATION_STATE
@@ -121,42 +82,6 @@ STATUS: LOCKED
 LOCK_REASON:
 - Prevents hidden cross-file bugs due to key naming mismatch
 - Avoids modifying locked engines (Phase 3 engines remain untouched)
-
-## A.2) PHASE 3A GATE ENFORCEMENT (PPF ONLY — BINDING)
-
-Purpose:
-Prevent price ladder execution for PPF unless minimum PPF qualifiers are present.
-
-Binding rule:
-- If SERVICE_INTEREST_PPF is present AND PHASE3A_READY_PPF != true:
-	- The orchestrator MUST NOT call PRICE_LADDER_ENGINE for PPF.
-	- Control must return to clarification using MISSING_DETAILS (or missing_details).
-
-Clarification contract:
-- Ask ONLY ONE clarifier per message (Phase 0–2 / Phase 3 constraints still apply).
-- Use MISSING_DETAILS to choose the single most important missing item.
-
-Recommended missing_details priority (PPF):
-1) vehicle_model_year
-2) ppf_usage_exposure
-3) ppf_coverage_front_vs_full (ONLY if customer explicitly asked for front/full scope)
-
-Old vehicle priority override (PPF, 7+ years):
-- If vehicle age >= 7 years:
-	- paint_condition MUST be asked before ppf_usage_exposure
-	- ppf_usage_exposure becomes OPTIONAL (must not block ladder)
-	- Do NOT loop questions if refused
-
-Binding orchestration rule:
-- If SERVICE_INTEREST_PPF is present AND vehicle age >= 7 years:
-	- missing_details priority becomes:
-		1) paint_condition
-		2) (optional) ppf_usage_exposure
-		3) ppf_scope only if explicitly requested
-
-Notes:
-- This is a gating rule only. It does NOT change the customer’s chosen service.
-- Brand/warranty intent may be captured but must not block ladder if scope is confirmed.
 
 ## B) CUSTOMER SIGNAL GATE (non-negotiable)
 Update LAST_CUSTOMER_SIGNAL_TIMESTAMP ONLY when:

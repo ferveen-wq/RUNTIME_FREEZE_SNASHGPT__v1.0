@@ -1,0 +1,152 @@
+# PHASE 3B — LOGIC LOCK & PERSUASION DEFERMENT RECORD
+Version: 1.0
+Status: LOGIC LOCKED / COPY BASELINE
+Date: 2026-02-09
+Owner: SNASHGPT Architecture
+
+────────────────────────────────────────────────────────────
+PURPOSE OF THIS DOCUMENT
+────────────────────────────────────────────────────────────
+
+This document exists to PREVENT MEMORY DRIFT.
+
+It records:
+- What Phase 3B does
+- What is locked
+- What is intentionally NOT done yet
+- What may be refined later using Pro
+- What MUST NOT change when copy is refined
+
+This document is NOT executable.
+This document is the SOURCE OF TRUTH if context is lost.
+
+────────────────────────────────────────────────────────────
+CURRENT PROJECT STATE (FACTUAL)
+────────────────────────────────────────────────────────────
+
+1) Phase 3A
+- Status: FULLY IMPLEMENTED AND LOCKED
+- Behavior:
+  - Mini-consultation per service
+  - Deterministic question order
+  - One question per turn
+  - Safe fallback to Phase 3B if interrupted
+- No further changes allowed unless architecture version bump
+
+2) Phase 3B
+- Status: LOGIC IMPLEMENTED AND UAT-VALIDATED
+- Behavior:
+  - Runs ONLY when:
+    - missing_fields is empty
+    - service_intent is known
+    - phase3a_complete == true
+  - Uses:
+    - SKU_SELECTION_MATRIX.md
+    - PRICE_TABLE_VAT_INCL.md
+    - PRICE_LADDER_ENGINE.md
+  - Handles:
+    - Initial price exposure
+    - Repeated “how much”
+    - Price resistance (“cheaper elsewhere”)
+    - Brand-based price clarification
+    - Service switching post-price
+- Logic correctness confirmed via multi-service UAT
+
+3) Copy / Language State
+- Phase 3B copy is currently:
+  - Neutral
+  - Clear
+  - Business-safe
+- Copy is NOT yet persuasion-optimized
+- This is INTENTIONAL
+
+4) Pro Usage Status
+- Pro master instruction EXISTS
+- Pro has NOT been run
+- NO files have been modified using Pro output
+- Repository remains CLEAN
+
+────────────────────────────────────────────────────────────
+WHAT IS LOCKED (NON-NEGOTIABLE)
+────────────────────────────────────────────────────────────
+
+The following MUST NOT change during future refinement:
+
+- Phase 3A logic
+- Phase 3A question order
+- Phase 3A fallback behavior
+- Phase 3B entry gates
+- Phase 3B state flags:
+  - phase3a_required
+  - phase3a_qualifier_id
+  - phase3a_complete
+- Price ladder sequencing
+- SKU selection logic
+- Suppression rules
+- Service switch detection
+- Multi-vehicle handling
+
+Any change to the above requires:
+- Explicit architecture approval
+- Version bump
+- Fresh UAT
+
+────────────────────────────────────────────────────────────
+WHAT IS INTENTIONALLY DEFERRED
+────────────────────────────────────────────────────────────
+
+The following is DELIBERATELY postponed:
+
+- Persuasive price framing
+- Comparison storytelling
+- Confidence language polish
+- Emotional reassurance copy
+- Value anchoring language
+
+Reason:
+- Logic must remain stable
+- Copy optimization should NOT trigger re-testing of engines
+
+────────────────────────────────────────────────────────────
+FUTURE PLAN (APPROVED, NOT EXECUTED)
+────────────────────────────────────────────────────────────
+
+When explicitly approved, the next step will be:
+
+1) Run Pro ONCE with a master instruction covering:
+   - Phase 3B price presentation
+   - Comparison responses
+   - Education snippets
+   - Objection softening
+   - Brand differentiation framing
+
+2) Scope of Pro output:
+   - PHASE4_6_HUMAN_PHRASE_LIBRARY.md ONLY
+   - Price-related phrase blocks ONLY
+   - No engine edits
+   - No new logic
+   - No new parameters
+   - No new files
+
+3) Application method:
+   - Manual review of Pro output
+   - Selective copy-paste into phrase library
+   - Single clean commit
+
+Until Pro is explicitly run:
+- Current copy is the approved baseline
+- System is production-safe
+
+────────────────────────────────────────────────────────────
+SIGN-OFF
+────────────────────────────────────────────────────────────
+
+Phase 3B is considered:
+✔ Architecturally complete
+✔ UAT-validated
+✔ Safe to proceed to later phases
+✔ Ready for copy refinement when desired
+
+This document is the authority if memory or context is lost.
+
+END OF RECORD

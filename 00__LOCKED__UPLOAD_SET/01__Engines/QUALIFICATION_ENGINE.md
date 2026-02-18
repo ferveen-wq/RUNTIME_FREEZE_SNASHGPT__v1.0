@@ -103,12 +103,171 @@ Notes:
 --------------------------------------------------------------------------
 ## PHASE 3A — SERVICE-SPECIFIC QUALIFIER SEQUENCING (Decision Matrix Aligned)
 
+# ============================================================
+PHASE 3A — EMOTIONAL QUALIFICATION ARCHITECTURE
+GOVERNED BY PHASE 6 CANON
+# ============================================================
+
+PURPOSE:
+Standardize how qualification questions are structured across all services.
+
+Core rule:
+One emotional axis per question.
+Maximum one question per reply.
+Never stack axes.
+
+------------------------------------------------------------
+AXIS 1 — RISK AXIS
+------------------------------------------------------------
+
+Purpose:
+Identify damage anxiety or regret prevention motive.
+
+Used for:
+- PPF
+- Ceramic (light risk)
+- Wrap (fading concerns)
+- Tint (heat discomfort risk)
+
+Example internal mapping:
+PPF → chip anxiety
+Ceramic → washing frustration
+Wrap → durability worry
+Tint → heat discomfort
+
+Never mix with usage in same question.
+
+------------------------------------------------------------
+AXIS 2 — USAGE AXIS
+------------------------------------------------------------
+
+Purpose:
+Understand exposure pattern.
+
+Examples:
+- Highway vs city
+- Outdoor parking vs shaded
+- Daily commute vs weekend car
+
+Used heavily for:
+- PPF
+- Ceramic
+- Tint
+
+Less relevant for:
+- Wrap
+- Polishing
+
+------------------------------------------------------------
+AXIS 3 — PERFORMANCE AXIS
+------------------------------------------------------------
+
+Purpose:
+Clarify outcome expectation.
+
+Examples:
+- “Maximum protection”
+- “Long-term gloss”
+- “Heat reduction priority”
+- “Quick refresh”
+
+Used for:
+- All services
+
+This axis determines ladder width in Phase 3B.
+
+------------------------------------------------------------
+AXIS 4 — INTENT AXIS
+------------------------------------------------------------
+
+Purpose:
+Clarify styling vs preservation vs refresh motive.
+
+Examples:
+- Matte look
+- Black roof
+- Full color change
+- Shine back
+- Comfort upgrade
+
+Primary for:
+- Wrap
+- Tint
+- Polishing
+
+------------------------------------------------------------
+SERVICE → AXIS PRIORITY MAP
+------------------------------------------------------------
+
+PPF:
+1) Risk
+2) Usage
+3) Performance
+
+Ceramic:
+1) Performance
+2) Usage
+
+Polishing:
+1) Intent
+2) Paint condition (inspection)
+
+Tint:
+1) Intent (comfort/privacy)
+2) Performance (heat vs shade)
+
+Wrap:
+1) Intent (finish)
+2) Performance (durability expectation)
+
+Roof-Black (ROOF_PPF_BLACK_GLOSS):
+Only vehicle model/year needed.
+No emotional axis required.
+
+------------------------------------------------------------
+PROHIBITED BEHAVIOR
+------------------------------------------------------------
+
+- No multi-axis questions.
+- No emotional stacking.
+- No technical interrogation.
+- No leading language.
+- No selling inside qualification.
+- No pricing hints.
+
+------------------------------------------------------------
+END OF ARCHITECTURE
+------------------------------------------------------------
+
 Hard constraints:
 - Phase 0–2 must remain unchanged.
 - Phase 3A runs only when vehicle_model + vehicle_year are already known.
+
+PHASE LABELING RULE (LOCKED):
+- Runtime `phase` MUST remain `PHASE_3` throughout Phase 3.
+- Phase 3A vs 3B is represented ONLY by:
+  - phase3a_required / phase3a_complete
+  - price_ladder_state
+- Do NOT emit phase = PHASE_3A or phase = PHASE_3B as runtime phase values.
 - Emit exactly ONE qualifier per turn via:
   - phase3a_required=true
   - phase3a_qualifier_id=<PHASE3A_Q_* ID>
+
+────────────────────────────────────────────────────────────
+ROOF BLACK PPF OVERRIDE (LOCKED — REPO SAFE)
+────────────────────────────────────────────────────────────
+Purpose:
+- If the detected SKU/intent is ROOF_PPF_BLACK_GLOSS, do NOT run standard PPF Phase 3A (coverage/driving/comparison).
+- Treat as a fixed SKU styling request fulfilled via PPF.
+
+IF detected_product_sku == ROOF_PPF_BLACK_GLOSS OR product_alias_route == ROOF_PPF_BLACK_GLOSS:
+  - force service_intent = ppf
+  - set active_service_context = ppf
+  - set PPF_COVERAGE_INTENT = ROOF_ONLY
+  - phase3a_required = true
+  - phase3a_complete = true   # qualifiers are not needed beyond model/year
+  - phase3a_qualifier_id = null
+  - return (skip normal PPF Phase 3A chain)
 
 PPF Phase 3A (Q1 → Q2 → conditional Q3):
 Q1: PPF_COVERAGE_INTENT  → PHASE3A_Q_PPF_COVERAGE_INTENT
@@ -122,6 +281,10 @@ Q2: CERAMIC_WASH_PATTERN→ PHASE3A_Q_CERAMIC_WASH_PATTERN
 TINT Phase 3A:
 Q1: TINT_GOAL           → PHASE3A_Q_TINT_GOAL
 Q2: TINT_COVERAGE       → PHASE3A_Q_TINT_COVERAGE
+
+WRAP Phase 3A (FULL VEHICLE ONLY — LOCKED):
+Q1: WRAP_FINISH → PHASE3A_Q_WRAP_FINISH
+NOTE: Do NOT ask WRAP_SCOPE. Partial/roof wrap is not offered via automation; roof-black is handled via ROOF_PPF_BLACK_GLOSS.
 
 --------------------------------------------------------------------------
 ### Phase 3A qualifier selection (PPF)
@@ -137,6 +300,22 @@ AND vehicle_model is present
 AND vehicle_year is present:
 
   - phase3a_required = true
+
+    # Intake-to-Qualification fallback (HARD, same-message)
+    # Purpose: Prevent asking Q1 when Intake already implied FULL_BODY / FULL_FRONT,
+    # or when the same message clearly states it.
+    # NOTE: Do NOT overwrite if already set.
+    - IF (PPF_COVERAGE_INTENT is missing) OR (PPF_COVERAGE_INTENT == UNKNOWN):
+      - IF current_user_message contains any of: "full", "full body", "whole car", "entire car":
+        - set PPF_COVERAGE_INTENT = FULL_BODY
+      - ELSE IF current_user_message contains any of: "front", "front only", "front protection", "impact zones":
+        - set PPF_COVERAGE_INTENT = FULL_FRONT
+
+    - IF (PPF_DRIVING_PATTERN is missing) OR (PPF_DRIVING_PATTERN == UNKNOWN):
+      - IF current_user_message contains "highway" OR "mostly highway":
+        - set PPF_DRIVING_PATTERN = HIGHWAY
+      - ELSE IF current_user_message contains "city":
+        - set PPF_DRIVING_PATTERN = CITY
 
   --------------------------------------------------------------------------
   # Phase 3A answer capture (HARD)
@@ -204,54 +383,6 @@ AND vehicle_year is present:
   - phase3a_required = false
   - phase3a_complete = true
 
-  --------------------------------------------------------------------------
-  ### Phase 3A qualifier selection (CERAMIC)
-
-  IF service_intent == CERAMIC
-  AND vehicle_model is present
-  AND vehicle_year is present:
-
-    - phase3a_required = true
-
-    - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
-      - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
-      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
-
-    - IF define_missing(CERAMIC_GOAL):
-      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
-      - STOP
-
-    - ELSE IF define_missing(CERAMIC_WASH_PATTERN):
-      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
-      - STOP
-
-    - phase3a_required = false
-    - phase3a_complete = true
-
-  --------------------------------------------------------------------------
-  ### Phase 3A qualifier selection (TINT)
-
-  IF service_intent == TINT
-  AND vehicle_model is present
-  AND vehicle_year is present:
-
-    - phase3a_required = true
-
-    - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
-      - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
-      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
-
-    - IF define_missing(TINT_GOAL):
-      - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
-      - STOP
-
-    - ELSE IF define_missing(TINT_COVERAGE):
-      - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
-      - STOP
-
-    - phase3a_required = false
-    - phase3a_complete = true
-
 --------------------------------------------------------------------------
 ### Phase 3A qualifier selection (CERAMIC)
 
@@ -261,13 +392,17 @@ AND vehicle_year is present:
 
   - phase3a_required = true
 
-  - IF CERAMIC_GOAL is missing OR CERAMIC_GOAL == UNKNOWN:
-      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
-      - STOP
+  - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+    - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
-  - ELSE IF CERAMIC_WASH_PATTERN is missing OR CERAMIC_WASH_PATTERN == UNKNOWN:
-      - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
-      - STOP
+  - IF define_missing(CERAMIC_GOAL):
+    - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
+    - STOP
+
+  - ELSE IF define_missing(CERAMIC_WASH_PATTERN):
+    - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_WASH_PATTERN
+    - STOP
 
   - phase3a_required = false
   - phase3a_complete = true
@@ -281,18 +416,21 @@ AND vehicle_year is present:
 
   - phase3a_required = true
 
-  - IF TINT_GOAL is missing OR TINT_GOAL == UNKNOWN:
-      - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
-      - STOP
+  - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+    - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
-  - ELSE IF TINT_COVERAGE is missing OR TINT_COVERAGE == UNKNOWN:
-      - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
-      - STOP
+  - IF define_missing(TINT_GOAL):
+    - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
+    - STOP
+
+  - ELSE IF define_missing(TINT_COVERAGE):
+    - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
+    - STOP
 
   - phase3a_required = false
   - phase3a_complete = true
 
---------------------------------------------------------------------------
 ## PHASE 3A — QUALIFIER-ID RESOLUTION (FINAL AUTHORITY — NO OVERRIDE)
 
 Purpose:

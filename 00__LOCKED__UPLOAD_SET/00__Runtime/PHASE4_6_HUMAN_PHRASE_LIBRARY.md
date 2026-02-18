@@ -1,76 +1,514 @@
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
-# LOCK_METADATA
-# LOCK_STATUS: LOCKED
-# LOCK_SCOPE: PHASE 3A — qualifier questions (IDs + bilingual phrasing)
-# LOCK_DATE: 2026-02-09
-# LOCK_REASON: Phase 3A UAT passed; phrase drift would break mapping
-# CHANGE_CONTROL: Architecture approval required
-
-### PHASE3A_Q_PPF_COVERAGE_INTENT
-EN: For PPF, are you thinking full protection, front protection, or still deciding?
-AR: للـ PPF، تفكر بحماية كاملة، حماية أمامية، أو لسه تقرر؟
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
-EN: Before we proceed, is there any repaint work or deep scratches on the panels?
-AR: قبل لا نكمل، هل في رش/صبغ أو خدوش عميقة على القطع؟
+EN: Before we proceed, has the car had any repaint work or deep scratches?
+AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
 
-### PHASE3A_Q_PPF_DRIVING_PATTERN
-EN: Is your driving mostly highways/travel (stone chips), or mostly city (parking/contact)?
-AR: استخدامك أكثر على الخطوط/سفر (ضربات حصى)، أو داخل المدينة (مواقف/احتكاك)؟
+### PHASE3A_Q_PPF_COVERAGE_INTENT
+EN: Just so I guide you correctly and don’t over- or under-quote, are you thinking full protection, front protection, or still deciding?
+AR: عشان أوجهك بدقة بدون ما أزيد أو أنقص عليك، تفكر بحماية كاملة، حماية أمامية، أو بعدك تقرر؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
-EN: When you compare, is it mainly about coverage, film quality, or headline price?
-AR: لما تقارن، تركيزك أكثر على التغطية، جودة الفيلم، ولا السعر فقط؟
+EN: That makes sense. When you’re comparing, is your focus mainly on coverage, quality, or price?
+AR: مفهوم. لما تقارن بين الخيارات، تركيزك أكثر على التغطية، الجودة، أو السعر؟
 
-### PHASE3A_Q_CERAMIC_GOAL
-EN: For ceramic, is your main goal easy cleaning and stable gloss long-term, or mainly to make it look fresh again?
-AR: للسيراميك، هدفك تنظيف أسهل ولمعة ثابتة على المدى الطويل، أو بس تخليه يرجع شكله فريش؟
+### PHASE3A_Q_PPF_DRIVING_PATTERN
+EN: That helps narrow the direction. How you use the car affects where chips usually happen. Is your driving mostly highways and travel, or mostly city use?
+AR: تمام — هذا يوضح الاتجاه. طريقة استخدام السيارة تأثر على أماكن ضربات الحصى غالباً. قيادتك أغلبها على الخطوط والسفر، ولا داخل المدينة؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
 
-### PHASE3A_Q_TINT_GOAL
-EN: For tint, is your main goal heat comfort, privacy, or both?
-AR: للتظليل، هدفك الأساسي راحة من الحرارة، خصوصية، أو الاثنين؟
-
 ### PHASE3A_Q_TINT_COVERAGE
-EN: For tint, do you want front only, sides and back, or full coverage?
-AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو كامل؟
+EN: For tint, do you want front only, sides and rear, or full coverage?
+AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
 
 ### PHASE3A_Q_WRAP_FINISH
 EN: For wrap, which finish are you leaning toward — gloss, satin, or matte?
 AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو مطفي؟
 
+### PHASE3A_Q_WRAP_SCOPE
+EN: Are you thinking a full color-change wrap, or only a specific area?
+AR: هل تفكر بتغليف كامل للسيارة بلون جديد، أو فقط جزء معيّن؟
+
 ### PHASE3A_Q_POLISHING_SCOPE
-EN: For polishing, do you want exterior only, or a full detail that includes interior and engine bay?
-AR: للتلميع، تبي الخارجي فقط، أو تلميع كامل يشمل الداخلي وغرفة المكينة؟
+EN: Just to guide you properly — for polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?
+AR: عشان أوجهك صح — للتلميع تبي تصحيح/تلميع خارجي فقط، ولا ديتيلنج كامل يشمل الداخلي وغرفة المحرك؟
 
-## PHASE 3B — TRANSITION TO PRICING (ACK)
+### Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY (DO NOT ROUTE)
+EN: Got it. I’ll line up the suitable wrap options and move to pricing next.
+AR: تم. بجهّز لك خيارات التغليف المناسبة وننتقل للتسعير بعدها.
+EN: Perfect. I’ll arrange the polishing options and move to pricing.
+AR: ممتاز. بجهّز خيارات التلميع وننتقل للسعر.
 
-### PHASE3B_CERAMIC_HAND_WASH
+### PHASE3B_WRAP_FULL_NEUTRAL
+EN: For a full color-change wrap, pricing depends on the film series and finish (gloss, matte, satin). I’ll line up the available options clearly and move to pricing.
+AR: بالنسبة لتغليف كامل بلون جديد، السعر يعتمد على نوع الفيلم واللمسة النهائية (جلوس، مطفي، ساتن). بجهّز لك الخيارات المتوفرة بشكل واضح وننتقل للتسعير.
+
+### PHASE3B_WRAP_FULL_PRICE_SENSITIVE
+EN: With wraps, the difference is usually film quality and edge finishing, not just the look. I’ll show you the structured options clearly and move to pricing.
+AR: في التغليف، الفرق غالباً يكون في جودة الفيلم ودقة إنهاء الحواف، مو بس في الشكل. بعرض لك الخيارات بشكل منظم وننتقل للتسعير.
+
+### ROOF_BLACK_PPF_ONLY (LOCKED)
+EN: For a black roof look, we only do it as ROOF PPF BLACK (gloss). If you’re asking for something else on the roof, we can check it manually after we see the car details.
+AR: لستايل السقف الأسود، عندنا خيار واحد فقط: PPF سقف أسود (لامع). إذا تبي شيء مختلف للسقف، نقدر نراجعه يدويّاً بعد ما تعطينا تفاصيل السيارة.
+
+
+# ============================================================
+# PHASE 4 — PPF (FLATTENED FROM MASTER CANON — LOCKED)
+# ============================================================
+ 
+# PHASE 4 — WRAP (CONFIDENCE / EXPECTATION SETTING — LOCKED)
+
+### PHASE4_WRAP_EXPECTATION_REALISM_L1
+EN: Just to set it clearly — wrap is mainly for styling, and the final look depends on the paint condition and finishing quality. If you share the car model/year (and a quick photo if needed), we’ll guide you to the cleanest result.
+AR: بس للتوضيح بشكل واضح — التغليف للستايل بالأساس، والنتيجة تعتمد على حالة الطلاء ودقة التشطيب. إذا تعطيني موديل السيارة وسنة الصنع (وصورة سريعة إذا احتجنا)، نوجهك لأفضل نتيجة.
+
+### PHASE4_WRAP_VS_PPF_SIMPLE_L1
+EN: Simple difference: wrap changes the color/look, while PPF is the protection layer against chips. So we keep wrap for appearance, and PPF for protection.
+AR: الفرق ببساطة: التغليف يغيّر اللون والشكل، والـPPF طبقة حماية ضد ضربات الحصى. يعني التغليف للمظهر، والـPPF للحماية.
+
+### PHASE4_ROOF_BLACK_PPF_CONFIDENCE_L1
+EN: For a black roof look, Black PPF (gloss) usually gives a cleaner, more consistent finish — that’s why we fulfill roof-black through PPF.
+AR: لستايل السقف الأسود، Black PPF (جلوس) عادة يعطي تشطيب أنظف ومتناسق أكثر — عشان جذي نغطي السقف الأسود عن طريق PPF.
+
+### PHASE4_WRAP_PRICE_PRESSURE_L1
+EN: I understand. With wrap, the difference is usually the film series and edge finishing — not just the color you see. Do you want to keep it more budget-focused, or prioritize cleaner finishing and longer stability?
+AR: مفهوم. بالتغليف الفرق غالباً يكون في فئة الفيلم ودقة إنهاء الحواف — مو بس اللون اللي تشوفه. تبي خيار اقتصادي أكثر، أو تفضل إنهاء أنظف وثبات أطول؟
+
+### PHASE4_WRAP_PRICE_PRESSURE_L2
+EN: Totally fair to compare. Just make sure it’s the same scope (full car vs specific areas) and the same finish (gloss/matte/satin) — that’s usually where “cheaper” vs “more expensive” comes from. If you tell me the finish you want, I’ll keep the comparison clean.
+AR: طبيعي تقارن. بس تأكد إنها نفس التغطية (كامل السيارة أو جزء) ونفس اللمسة (لامع/مطفي/ساتن) — غالباً هنا يطلع فرق “أرخص” و“أغلى”. إذا تقول لي اللمسة اللي تبيها، بخلي المقارنة واضحة.
+
+### PHASE4_WRAP_PRICE_PRESSURE_L3
+EN: No problem. To avoid any mismatch, we keep it aligned by finish first, then we choose the film level based on whether you care more about long-term stability or just the look.
+AR: ما في مشكلة. عشان ما يصير اختلاف بالتوقعات، نخليها أولاً حسب اللمسة، وبعدها نختار مستوى الفيلم حسب إذا يهمك الثبات على المدى الطويل أو بس الشكل.
+
+### PHASE4_WRAP_BRAND_SPEC_CONFUSION_L1
+EN: We can go into film names and specs shortly — first I want to lock the finish, because gloss vs matte vs satin changes the direction even before brand details.
+AR: نقدر ندخل في أسماء الأفلام والمواصفات بعد شوي — بس أول شيء نثبت اللمسة، لأن اللامع/المطفي/الساتن يغيّر الاتجاه حتى قبل تفاصيل الماركة.
+
+### PHASE4_WRAP_SCOPE_CLARITY_L1
+EN: Just to keep expectations clear — are you thinking a full color-change wrap, or only a specific look like accents?
+AR: بس عشان تكون الصورة واضحة — تبي تغليف كامل لتغيير اللون، أو بس لمسة محددة مثل إضافات/أجزاء؟
+
+### PHASE4_WRAP_ROOF_BLACK_RULE_L1
+EN: If what you want is specifically a “black roof” look, we fulfill that as roof PPF film (gloss black) — not wrap — so the scope stays consistent.
+AR: إذا قصدك تحديداً “سقف أسود”، هذي نجهزها كـ PPF للسقف (أسود لامع) — مو تغليف — عشان تكون التغطية واضحة وثابتة.
+
+### PHASE4_WRAP_SILENCE_PRIMARY
+EN: No rush — tell me the finish you prefer (gloss, matte, or satin) and I’ll keep the next step simple.
+AR: خذ راحتك — قولّي شنو اللمسة اللي تفضلها (لامع، مطفي، أو ساتن) وبخلي الخطوة الجاية بسيطة.
+
+### PHASE4_WRAP_SILENCE_SCOPE_NUDGE
+EN: Just to confirm direction — full wrap or accents only?
+AR: بس للتأكيد على الاتجاه — تغليف كامل ولا أجزاء بسيطة؟
+
+# ────────────────────────────────────────────────────────────
+# PHASE 4 — POLISHING (CONFIDENCE / EXPECTATION SETTING — LOCKED)
+# ────────────────────────────────────────────────────────────
+
+### PHASE4_POLISH_EXPECTATION_REALISM_L1
+EN: Just to set expectations correctly — polishing improves clarity and reduces swirls, but it doesn’t create a protective layer like PPF or ceramic.
+AR: عشان تكون التوقعات واضحة — التلميع يحسّن صفاء الطلاء ويخفف السويلز، لكنه ما يعطي طبقة حماية مثل الـPPF أو السيراميك.
+
+### PHASE4_POLISH_SCOPE_CLARITY_L1
+EN: Totally fine — just to keep it aligned, are you aiming for a light refresh, or a deeper correction for heavier swirls?
+AR: تمام — بس عشان نضبطها، تبي إنعاش خفيف ولا تصحيح أعمق للسويلز والخدوش الأوضح؟
+
+### PHASE4_POLISH_PRICE_PRESSURE_L1
+EN: I understand. With polishing, the price difference is mainly how intensive the correction is and how many stages it needs — not just “a quick polish”.
+AR: مفهوم. بالتلميع فرق السعر غالباً يكون في قوة التصحيح وعدد المراحل — مو مجرد “تلميع سريع”.
+
+### PHASE4_POLISH_PRICE_PRESSURE_L2
+EN: Fair to compare. Just make sure it’s the same correction depth and the same scope — some quotes are a light gloss pass, others are true correction.
+AR: طبيعي تقارن. بس تأكد إنها نفس قوة التصحيح ونفس النطاق — بعض العروض مجرد لمعة خفيفة، وبعضها تصحيح فعلي.
+
+### PHASE4_POLISH_PRICE_PRESSURE_L3
+EN: No problem. We’ll keep it aligned by scope first, then match the correction level to what you want to improve — so the result meets expectations.
+AR: ما في مشكلة. نخليها أولاً حسب النطاق، وبعدها نحدد مستوى التصحيح حسب اللي تبي تحسّنه — عشان النتيجة تكون على التوقعات.
+
+### PHASE4_POLISH_VS_PROTECTION_SIMPLE_L1
+EN: If your main worry is chips or ongoing protection, polishing improves the look first — then protection is handled by ceramic or PPF afterward.
+AR: إذا همّك الأساسي الحماية من الحصى أو حماية مستمرة، التلميع يحسّن الشكل أولاً — وبعدها الحماية تكون بالسيراميك أو الـPPF.
+
+### PHASE4_POLISH_SILENCE_PRIMARY
+EN: No rush — when you’re ready, tell me if you want a light refresh or deeper correction and I’ll keep it simple.
+AR: خذ راحتك — لما تجهز، قولي تبي إنعاش خفيف ولا تصحيح أعمق وبخليها بسيطة.
+
+### PHASE4_POLISH_SILENCE_SCOPE_NUDGE
+EN: Just to keep it accurate, is this mainly to reduce swirls, or to restore overall gloss?
+AR: عشان يكون دقيق، هدفك أكثر تخفيف السويلز ولا استرجاع اللمعة بشكل عام؟
+
+### PHASE4_PPF_PRICE_PRESSURE_L1
+EN: I understand — comparing is completely normal.
+EN: Service names describe categories, but process shapes the outcome more than labels, and that difference often becomes visible over time.
+EN: If you’d like, I can explain what typically creates that gap, or share a short install example so you can see the coverage and finish clearly?
+AR: أفهمك — المقارنة شيء طبيعي جداً.
+AR: أسماء الخدمات تصف فئات، لكن طريقة التنفيذ هي اللي تصنع النتيجة، وغالباً الفرق يبان مع الوقت.
+AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أرسل مثال تركيب بسيط عشان تشوف التغطية والتشطيب بوضوح؟
+
+### PHASE4_PPF_PRICE_PRESSURE_L2
+EN: I understand — it’s important to compare properly.
+EN: Cost differences often reflect process, execution consistency, and long-term ownership experience rather than just the material name.
+EN: If you’d like, I can walk you through what defines that difference in real-world use, or show you a finished vehicle example so you can visually compare the result?
+AR: أفهمك — مهم تقارن بشكل صحيح.
+AR: فرق السعر غالباً يكون بسبب طريقة العمل وثبات التنفيذ وتجربة المالك على المدى الطويل، مو بس اسم المادة.
+AR: إذا تحب، أمشي معك بالنقاط اللي تصنع الفرق على أرض الواقع، أو أوريك مثال سيارة منتهية عشان تقارن النتيجة بعينك؟
+
+### PHASE4_PPF_PRICE_PRESSURE_L3
+EN: I understand — it’s good that you’re checking carefully.
+EN: PPF works like a phone screen protector — it shifts daily wear to a replaceable layer instead of the original paint, which changes long-term ownership impact.
+EN: If you’d like, I can explain how that affects durability and resale value, or share a close-up install example so you can see the finish and edge detailing yourself?
+AR: أفهمك — زين إنك تدقق.
+AR: الـPPF مثل حماية شاشة الجوال — ينقل الاستهلاك اليومي إلى طبقة قابلة للاستبدال بدل صبغة السيارة الأصلية، وهذا يفرق على المدى الطويل.
+AR: إذا تحب، أشرح لك شلون يأثر على التحمل وقيمة البيع، أو أرسل لك مثال تركيب قريب عشان تشوف التشطيب والحواف بنفسك؟
+
+### PHASE4_PPF_BRAND_FIXATION_L1
+EN: I understand — brand matters to many people.
+EN: Origin alone does not define performance; how the film behaves in our climate and daily heat exposure plays a major role over time.
+EN: If you’d like, I can explain how climate affects long-term clarity, or show you a similar vehicle example installed in the same conditions?
+AR: أفهمك — الماركة تفرق عند وايد ناس.
+AR: بلد المنشأ بروحه ما يحدد الأداء؛ اللي يفرق فعلاً شلون الفيلم يتصرف مع حرارة جوّنا والاستخدام اليومي.
+AR: إذا تحب، أشرح لك تأثير المناخ على صفاء الفيلم مع الوقت، أو أوريك مثال سيارة مشابهة مركبة بنفس الظروف؟
+
+### PHASE4_PPF_BRAND_FIXATION_L2
+EN: I understand.
+EN: Manufacturer alignment and installation precision usually influence durability and finish consistency more than branding alone.
+EN: If you’d like, I can walk you through how installation impacts long-term appearance, or share a short install example so you can see the detailing around edges and panels?
+AR: أفهمك.
+AR: توافق المواصفات ودقة التركيب عادة تأثر على التحمل وثبات التشطيب أكثر من اسم الماركة بروحه.
+AR: إذا تحب، أشرح لك شلون التركيب يأثر على الشكل مع الوقت، أو أرسل مثال تركيب بسيط عشان تشوف تفاصيل الحواف والقطع؟
+
+### PHASE4_PPF_BRAND_FIXATION_L3
+EN: I understand — it’s good to evaluate carefully.
+EN: Long-term ownership experience depends on real-world performance, maintenance behavior, and support structure, not just the label printed on the box.
+EN: If you’d like, we can focus directly on XPEL as your preference, or compare it side by side with Global based on your usage, and I can also share a finished example for clarity?
+AR: أفهمك — زين إنك تقيم بعناية.
+AR: التجربة على المدى الطويل تعتمد على الأداء الحقيقي وطريقة العناية وخدمة ما بعد البيع، مو بس الاسم على العلبة.
+AR: إذا تحب، نركز مباشرة على XPEL حسب تفضيلك، أو نقارنها مع Global بناءً على استخدامك، وأقدر أرسل مثال منتهٍ للوضوح؟
+
+### PHASE4_PPF_WARRANTY_SENSITIVITY_L1
+EN: Warranty is there as a safety net.
+EN: The number printed on a document does not define the entire ownership experience or how the film performs over time.
+EN: If you’d like, I can explain how warranty works in practice, or show you an example of long-term film condition on a similar car?
+AR: الضمان موجود كشبكة أمان.
+AR: الرقم المكتوب في الورق ما يختصر كل التجربة ولا يحدد شلون الفيلم بيكون مع الوقت.
+AR: إذا تحب، أشرح لك شلون الضمان يشتغل عملياً، أو أوريك مثال حالة فيلم على سيارة مشابهة بعد فترة؟
+
+### PHASE4_PPF_WARRANTY_SENSITIVITY_L2
+EN: I understand — longer coverage can sound reassuring.
+EN: Films remain stable beyond warranty periods and can be safely removed when required without damaging the original paint.
+EN: If you’d like, I can clarify how removal and aftercare work, or share a real example so you can see how the film ages over time?
+AR: أفهمك — مدة أطول تعطي طمأنينة.
+AR: الأفلام تظل مستقرة حتى بعد مدة الضمان، وتقدر تنشال بأمان عند الحاجة بدون ضرر على الصبغة الأصلية.
+AR: إذا تحب، أوضح لك شلون الإزالة والعناية بعد التركيب، أو أرسل مثال حقيقي عشان تشوف شلون الفيلم يشيخ مع الوقت؟
+
+### PHASE4_PPF_WARRANTY_SENSITIVITY_L3
+EN: I understand.
+EN: Consistency of performance over time usually matters more than the duration printed on paper.
+EN: If you’d like, I can explain how that shows in daily driving conditions, or show you a real-world example for clarity?
+AR: أفهمك.
+AR: ثبات الأداء مع الوقت عادة أهم من المدة المكتوبة على الورق.
+AR: إذا تحب، أشرح لك شلون هالشي يبان في الاستخدام اليومي، أو أرسل مثال واقعي للوضوح؟
+
+### PHASE4_PPF_TECHNICAL_L1
+EN: Good question.
+EN: Numbers explain components, but they do not always predict real-world outcomes or long-term performance.
+EN: If you’d like, I can explain how specifications relate to daily use, or show you a finished installation so you can see the practical result?
+AR: سؤال ممتاز.
+AR: الأرقام تشرح المكونات، بس مو دايم تتوقع النتيجة الحقيقية أو الأداء على المدى الطويل.
+AR: إذا تحب، أشرح لك شلون المواصفات ترتبط بالاستخدام اليومي، أو أوريك تركيب منتهٍ عشان تشوف النتيجة عملياً؟
+
+### PHASE4_PPF_TECHNICAL_L2
+EN: I understand.
+EN: Design balance and installation consistency usually matter more than extreme thickness or isolated specifications.
+EN: If you’d like, I can explain how thickness actually behaves in daily driving, or we can focus on selecting the option that best fits your usage, and I can show you an example for reference?
+AR: أفهمك.
+AR: توازن التصميم وثبات التركيب عادة أهم من سماكة مبالغ فيها أو رقم واحد بروحه.
+AR: إذا تحب، أشرح لك شلون السماكة تتصرف فعلياً في الاستخدام اليومي، أو نركز على الخيار الأنسب لاستخدامك، وأقدر أوريك مثال للتوضيح؟
+
+### PHASE4_PPF_USAGE_RISK
+EN: I understand — that’s a valid concern.
+EN: PPF shifts wear to a replaceable protective layer and is designed for sustained exposure such as highway driving and outdoor heat conditions.
+EN: If you’d like, I can explain how it performs in those situations, or share a similar vehicle example so you can see the coverage in practice?
+AR: أفهمك — هذا قلق منطقي.
+AR: الـPPF ينقل الاستهلاك لطبقة حماية قابلة للاستبدال ومصمم لتحمّل مثل الخطوط والحرارة والوقوف برا.
+AR: إذا تحب، أشرح لك شلون أداؤه في هالحالات، أو أرسل مثال سيارة مشابهة عشان تشوف التغطية عملياً؟
+
+### PHASE4_PPF_INSTALLATION_TRUST
+EN: Good question.
+EN: Long-term clarity and edge stability depend heavily on surface preparation and installation precision, not just the film itself.
+EN: If you’d like, I can explain the preparation and finishing steps clearly, or share a short install example so you can see how edges and panels are handled?
+AR: سؤال ممتاز.
+AR: صفاء الفيلم مع الوقت وثبات الحواف يعتمد بشكل كبير على تجهيز السطح ودقة التركيب، مو بس على الفيلم نفسه.
+AR: إذا تحب، أشرح لك خطوات التجهيز والتشطيب بوضوح، أو أرسل مثال تركيب بسيط عشان تشوف شلون نتعامل مع الحواف والقطع؟
+
+### PHASE4_PPF_SILENCE_PRIMARY
+EN: That’s completely understandable — silence often means the decision is being taken seriously.
+EN: Just so I guide you correctly, are you leaning more toward Global, or toward XPEL?
+AR: مفهوم جداً — أحياناً السكوت يعني القرار يُؤخذ بجدية.
+AR: عشان أوجهك صح، تميل أكثر إلى Global ولا إلى XPEL؟
+
+### PHASE4_PPF_SILENCE_COVERAGE_NARROWING
+EN: Understood.
+EN: Would you prefer to keep it full coverage, or start with front protection only?
+AR: تم.
+AR: تفضل نخليها حماية كاملة، ولا نبدأ بحماية أمامية فقط؟
+
+### PHASE4_PPF_SILENCE_COMPARISON_SIMPLIFY
+EN: Of course — choosing the right protection is worth reviewing properly.
+EN: Would you like a quick side-by-side summary, or proceed with one option directly?
+AR: طبعاً — اختيار الحماية الصح يستاهل مراجعة.
+AR: تبي ملخص مقارنة سريع، ولا نكمل على خيار واحد مباشرة؟
+
+
+# ============================================================
+# PHASE 4 — CERAMIC (FLATTENED FROM MASTER CANON — LOCKED)
+# ============================================================
+
+### PHASE4_CERAMIC_PRICE_PRESSURE_L1
+EN: I understand — comparing ceramic pricing is completely normal.
+EN: Ceramic service names describe categories, but preparation and durability tier usually define long-term outcome.
+EN: If you’d like, I can explain what typically creates that difference, or show you an example of how the finish looks after proper curing?
+AR: أفهمك — مقارنة أسعار السيراميك شيء طبيعي جداً.
+AR: أسماء خدمات السيراميك تصف فئات، لكن التحضير ودرجة التحمل هي اللي تحدد النتيجة على المدى الطويل.
+AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أوريك مثال شلون يكون الشكل بعد التصلب الصحيح؟
+
+### PHASE4_CERAMIC_PRICE_PRESSURE_L2
+EN: I understand — price differences often reflect durability level rather than just the word “ceramic.”
+EN: Shorter-term coatings can make sense for mostly city driving, while longer-term tiers are designed for sustained exposure.
+EN: If you’d like, I can walk you through how city vs highway use affects durability choice, or show you a side-by-side gloss example?
+AR: أفهمك — فرق السعر غالباً يعكس مستوى التحمل مو بس كلمة “سيراميك”.
+AR: الخيارات القصيرة تناسب استخدام المدينة غالباً، بينما الدرجات الأطول مصممة لتحمّل التعرض المستمر.
+AR: إذا تحب، أمشي معك شلون استخدام المدينة مقابل الخط يأثر على اختيار التحمل، أو أوريك مثال لمعان مقارنة؟
+
+### PHASE4_CERAMIC_PRICE_PRESSURE_L3
+EN: I understand — it’s worth thinking beyond the initial number.
+EN: Longer durability tiers are designed for extended gloss retention, and periodic maintenance helps keep hydrophobic performance at its best over time.
+EN: If you’d like, I can explain how refresh cycles work, or show you an example of maintained vs non-maintained coating performance?
+AR: أفهمك — يستاهل نفكر أبعد من الرقم الأول.
+AR: الدرجات الأطول مصممة لثبات اللمعة لفترة أطول، والصيانة الدورية تحافظ على الطرد المائي بأفضل أداء مع الوقت.
+AR: إذا تحب، أشرح لك شلون تشتغل دورات الـRefresh، أو أوريك مثال أداء سيراميك مع صيانة وبدون صيانة؟
+
+### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L1
+EN: That’s a fair concern.
+EN: Coating durability depends on maintenance pattern and exposure, and it improves resistance but does not make paint scratch-proof.
+EN: If you’d like, I can clarify what ceramic actually does in real conditions, or show you a water-beading example?
+AR: هذا قلق منطقي.
+AR: تحمل السيراميك يعتمد على طريقة العناية والتعرض، ويزيد المقاومة لكنه ما يخلي الصبغة ضد الخدش بشكل كامل.
+AR: إذا تحب، أوضح لك شنو يسوي السيراميك فعلياً بالواقع، أو أوريك مثال الطرد المائي؟
+
+### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L2
+EN: That makes sense.
+EN: Wash method and frequency directly affect how long gloss and protection remain consistent.
+EN: If you’d like, I can explain how hand wash vs tunnel wash impacts longevity, or show you an example comparison?
+AR: مفهوم.
+AR: طريقة الغسيل وتكراره يأثرون مباشرة على ثبات اللمعة والحماية مع الوقت.
+AR: إذا تحب، أشرح لك شلون الغسيل اليدوي مقابل النفق يأثر على العمر، أو أوريك مثال مقارنة؟
+
+### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L3
+EN: I understand — long-term stability depends heavily on surface preparation and curing control.
+EN: Preparation before coating defines bonding strength and consistency.
+EN: If you’d like, I can walk you through the preparation steps, or show you part of the installation process?
+AR: أفهمك — الثبات على المدى الطويل يعتمد كثير على تجهيز السطح والتحكم بالتصلب.
+AR: التحضير قبل الطلاء هو اللي يحدد قوة الالتصاق وثبات النتيجة.
+AR: إذا تحب، أمشي معك بخطوات التحضير، أو أوريك جزء من عملية التركيب؟
+
+### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L1
+EN: Warranty is there as support, not the only measure of performance.
+EN: Durability in daily conditions matters more than just the printed number.
+EN: If you’d like, I can explain how warranty aligns with durability tiers, or show you an example of long-term coating behavior?
+AR: الضمان موجود كدعم، مو المعيار الوحيد للأداء.
+AR: التحمل في الاستخدام اليومي أهم من الرقم المكتوب.
+AR: إذا تحب، أشرح لك شلون الضمان يرتبط بدرجات التحمل، أو أوريك مثال سلوك سيراميك على المدى الطويل؟
+
+### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L2
+EN: I understand — longer warranty can sound reassuring.
+EN: Performance consistency over time usually matters more than the stated duration.
+EN: If you’d like, I can clarify what typically affects long-term stability, or show you an example from a multi-year coating?
+AR: أفهمك — مدة أطول تعطي طمأنينة.
+AR: ثبات الأداء مع الوقت عادة أهم من المدة المذكورة.
+AR: إذا تحب، أوضح لك شنو عادة يأثر على الثبات على المدى الطويل، أو أوريك مثال من سيراميك لعدة سنوات؟
+
+### PHASE4_CERAMIC_BRAND_FIXATION_L1
+EN: Brand matters to many customers.
+EN: In our climate, heat exposure and curing control often influence long-term gloss more than branding alone.
+EN: If you’d like, I can explain how coatings behave under regional heat, or compare two options side by side?
+AR: الماركة تهم عند وايد عملاء.
+AR: بجوّنا، التعرض للحرارة والتحكم بالتصلب غالباً يأثر على اللمعة مع الوقت أكثر من اسم الماركة بروحه.
+AR: إذا تحب، أشرح لك شلون السيراميك يتصرف مع حرارة المنطقة، أو نقارن خيارين جنباً إلى جنب؟
+
+### PHASE4_CERAMIC_BRAND_FIXATION_L2
+EN: I understand.
+EN: Application consistency and preparation quality usually define durability more than the label itself.
+EN: If you’d like, I can explain how prep impacts performance, or show you the installation process?
+AR: أفهمك.
+AR: ثبات التطبيق وجودة التحضير عادة تحدد التحمل أكثر من اسم المنتج.
+AR: إذا تحب، أشرح لك شلون التحضير يأثر على الأداء، أو أوريك عملية التركيب؟
+
+### PHASE4_CERAMIC_MAINTENANCE_CONFUSION_L1
+EN: Ceramic reduces maintenance effort, but it doesn’t eliminate washing.
+EN: Regular care keeps gloss and hydrophobic performance consistent.
+EN: If you’d like, I can explain a simple maintenance routine, or show how water behavior changes after coating?
+AR: السيراميك يقلل مجهود العناية، لكنه ما يلغي الغسيل.
+AR: العناية المنتظمة تحافظ على اللمعة والطرد المائي بثبات.
+AR: إذا تحب، أشرح لك روتين بسيط للعناية، أو أوريك شلون يتغير سلوك الماء بعد السيراميك؟
+
+### PHASE4_CERAMIC_MAINTENANCE_CONFUSION_L2
+EN: Periodic maintenance helps maintain peak performance over time.
+EN: Refresh services can restore hydrophobic behavior and gloss consistency.
+EN: If you’d like, I can explain how refresh cycles work, or show you a before-and-after example?
+AR: الصيانة الدورية تساعد تحافظ على أفضل أداء مع الوقت.
+AR: خدمات الـRefresh تقدر ترجع الطرد المائي وثبات اللمعة.
+AR: إذا تحب، أشرح لك شلون دورات الـRefresh تشتغل، أو أوريك مثال قبل وبعد؟
+
+### PHASE4_CERAMIC_TECHNICAL_9H
+EN: Hardness ratings describe lab-scale properties, but they don’t mean scratch immunity in daily use.
+EN: If you’d like, I can explain what hardness actually represents, or show how coatings behave under real-world washing?
+AR: تصنيف الصلابة يشرح خصائص بالمختبر، لكنه ما يعني مناعة ضد الخدش في الاستخدام اليومي.
+AR: إذا تحب، أشرح لك شنو تمثل الصلابة فعلياً، أو أوريك شلون السيراميك يتصرف مع الغسيل الحقيقي؟
+
+### PHASE4_CERAMIC_SILENCE_L1
+EN: Totally understandable — ceramic tiers can take a moment to consider.
+EN: Are you leaning more toward short-term protection, or longer durability?
+AR: طبيعي جداً — درجات السيراميك تحتاج شوي تفكير.
+AR: تميل أكثر لحماية قصيرة المدى، ولا تحمل أطول؟
+
+### PHASE4_CERAMIC_SILENCE_L2
+EN: Would you prefer to keep it simple with the 1-year option, or review the longer-lasting tiers?
+AR: تفضل نخليها بسيطة مع خيار سنة، ولا نراجع الدرجات الأطول؟
+
+### PHASE4_CERAMIC_SILENCE_L3
+EN: Should we align it to a lower starting tier, or focus on the longer-lasting option for fewer refresh cycles?
+AR: نضبطها على درجة بداية أقل، ولا نركز على خيار أطول عشان تقل دورات الـRefresh؟
+
+### Z_DEPRECATED__PHASE3B_CERAMIC_HAND_WASH__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
-### PHASE3B_CERAMIC_AUTO_WASH
+### Z_DEPRECATED__PHASE3B_CERAMIC_AUTO_WASH__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
-### PHASE3B_CERAMIC_WATERLESS
+### Z_DEPRECATED__PHASE3B_CERAMIC_WATERLESS__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
-### PHASE3B_CERAMIC_PRO_WASH
+### Z_DEPRECATED__PHASE3B_CERAMIC_PRO_WASH__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
-### PHASE3B_PPF_CITY
+### Z_DEPRECATED__PHASE3B_PPF_CITY__LEGACY (DO NOT ROUTE)
 EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
-### PHASE3B_PPF_HIGHWAY
+### Z_DEPRECATED__PHASE3B_PPF_HIGHWAY__LEGACY (DO NOT ROUTE)
 EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
+
+### PHASE4_TINT_PRICE_PRESSURE_L1
+EN: I understand. With tint, the real difference is usually heat rejection performance and how stable it stays over time — not just how dark it looks. Do you want to keep it more budget-focused, or prioritize stronger heat comfort?
+AR: مفهوم. بالتظليل الفرق الحقيقي غالباً يكون في عزل الحرارة وثبات الأداء مع الوقت — مو بس درجة الغمقان. تبي خيار اقتصادي أكثر، أو تبي راحة وعزل أقوى؟
+
+### PHASE4_TINT_PRICE_PRESSURE_L2
+EN: Totally fair to compare. Just make sure it’s the same coverage and the same performance level — some films look similar but feel very different in daily heat. If you tell me the coverage you want, I’ll keep the options clear and comparable.
+AR: طبيعي تقارن. بس المهم تكون نفس التغطية ونفس مستوى الأداء — بعض الأفلام شكلها قريب لكن فرق الراحة بالحرّ يبان يومياً. إذا تحدد التغطية اللي تبيها، بخلي الخيارات واضحة وقابلة للمقارنة.
+
+### PHASE4_TINT_PRICE_PRESSURE_L3
+EN: No problem. To avoid any mismatch, we’ll keep it strictly aligned by coverage first, then choose the film level based on whether you care more about heat comfort or just basic shading.
+AR: ما في مشكلة. عشان ما يصير اختلاف بالتوقعات، نخليها أولاً حسب التغطية، وبعدها نختار مستوى الفيلم حسب إذا تهمك راحة العزل أو مجرد تعتيم أساسي.
+
+────────────────────────────────────────────────────────────
+PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
+────────────────────────────────────────────────────────────
+
+# PURPOSE (LOCKED):
+# Used when the customer is stuck in “why / compare / convince me” AFTER Phase 3B/4 exposure.
+# This layer deepens clarity WITHOUT discounts, competitor attacks, or long lectures.
+#
+# HARD RULES (LOCKED):
+# - 1 micro-education line max (Phase 6/7 aligned; no new truths)
+# - Permission-based offer (explain clearly OR share an example/video)
+# - One question only
+# - No pricing numbers (pricing remains Route E + ladder only)
+
+### PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+EN: Understood — to compare fairly, it helps to align the same coverage and the same finishing standard. With PPF, the outcome is shaped by prep + edge finishing consistency as much as the film. If you’d like, I can explain what usually creates the gap, or share a short install example so you can see the finish clearly. What coverage are you comparing — full or front?
+AR: مفهوم — عشان تكون المقارنة عادلة لازم نطابق نفس التغطية ونفس مستوى إنهاء الحواف. بالـPPF النتيجة تعتمد على التحضير ودقة الإنهاء بقدر ما تعتمد على الفيلم نفسه. إذا تحب، أشرح لك شنو عادةً يسبب فرق السعر، أو أرسل مثال تركيب قصير عشان تشوف التشطيب بوضوح. شنو التغطية اللي تقارنها — كامل ولا أمامي؟
+
+### PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+EN: Totally fair. Brand and warranty matter, but day-to-day ownership depends a lot on fit, edges, and how stable the finish stays with heat and washing. If you’d like, I can explain how to compare warranty and real-world performance, or share a finished example on a similar car. Are you prioritizing brand, warranty, or the final finish?
+AR: طبيعي. العلامة والضمان مهمين، لكن تجربة الاستخدام اليومية تعتمد كثير على دقة التركيب والحواف وثبات الشكل مع الحرارة والغسيل. إذا تحب، أشرح لك شلون تقارن بين الضمان والأداء الواقعي، أو أرسل مثال سيارة مشابهة بعد التركيب. شنو أولويتك أكثر — البراند، الضمان، ولا التشطيب النهائي؟
+
+### PHASE5_PPF_TECHNICAL_DEEPEN_L1
+EN: Good question. Specs help, but they don’t always predict the result you’ll live with — clarity, edges, and stability over time matter most. If you’d like, I can explain how the key specs translate into real driving, or share a close-up install example. Are you asking mainly about thickness/TPU, or about finish and edge detailing?
+AR: سؤال ممتاز. المواصفات تساعد، لكن مو دائماً تضمن النتيجة اللي بتعيش معها — الأهم وضوح الشكل، الحواف، وثبات الأداء مع الوقت. إذا تحب، أشرح لك شلون المواصفات تنعكس على الاستخدام الحقيقي، أو أرسل مثال تركيب قريب للحواف. سؤالك أكثر عن السماكة/TPU، ولا عن التشطيب والحواف؟
+
+### PHASE5_PPF_NARROW_L2
+EN: Understood. To make it work without stretching the budget, we can narrow it to what matters most: front impact zones vs full coverage. Which matters more for you right now — lower cost, or maximum coverage?
+AR: مفهوم. عشان نضبطها بدون ضغط على الميزانية، نقدر نضيّقها للأهم: حماية أمامية للمناطق الأكثر ضربات أو تغطية كاملة. شنو الأهم عندك حالياً — تقليل التكلفة، ولا أعلى تغطية؟
+
+### PHASE5_PPF_EXIT_FORK_L3
+EN: Got it. Rather than looping on price, we can do one of two clean next steps: (1) lock a front-focused option, or (2) pause and you come back when ready. Which way do you prefer?
+AR: تمام. بدل ما ندور في حلقة السعر، خلّنا ناخذ خطوة واضحة: (1) نثبت خيار حماية أمامية مركزّة، أو (2) نوقف هنا وترجع لي لما تكون جاهز. أي خيار تفضّل؟
+
+### PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+EN: Understood — with ceramic, the biggest differences usually come from preparation + durability tier, not the word “ceramic” alone. If you’d like, I can explain what typically changes between tiers, or share an example of how the finish behaves after proper curing. How do you usually wash the car — hand wash or tunnel wash?
+AR: مفهوم — بالسيراميك أكبر الفروقات عادة تكون في التحضير ودرجة التحمل، مو بس كلمة “سيراميك”. إذا تحب، أشرح لك شنو يتغير غالباً بين المستويات، أو أرسل مثال يوضح النتيجة بعد التصلب الصحيح. شلون عادة تغسل السيارة — يدوي ولا مغسلة/تَنَل؟
+
+### PHASE5_CERAMIC_DURABILITY_REALISM_DEEPEN_L1
+EN: That’s fair. Ceramic improves gloss and makes washing easier, but it doesn’t make paint scratch-proof — durability depends on wash method and exposure. If you’d like, I can explain what “lasting” means in real use, or share a simple example of water behavior. Is your priority durability, gloss, or easy maintenance?
+AR: كلامك صحيح. السيراميك يعطي لمعان ويسهّل الغسيل، لكنه ما يخلي الطلاء ضد الخدش 100% — الثبات يعتمد على طريقة الغسيل والتعرض. إذا تحب، أشرح لك شنو يعني “يعيش” بالواقع، أو أرسل مثال بسيط لسلوك الماء. شنو أولويتك — التحمل، اللمعان، ولا سهولة العناية؟
+
+### PHASE5_CERAMIC_NARROW_L2
+EN: Understood. If budget is the constraint, the clean way is to choose the main target: (1) gloss/appearance, or (2) easier washing and maintenance. Which one are you solving for?
+AR: مفهوم. إذا الميزانية هي العائق، الأفضل نحدد الهدف الأساسي: (1) اللمعة والشكل، أو (2) سهولة الغسيل والعناية. شنو الهدف اللي تبيه بالضبط؟
+
+### PHASE5_CERAMIC_EXIT_FORK_L3
+EN: Clear. To avoid back-and-forth, we can either (1) pause here and you decide later, or (2) keep it simple with the most practical tier for your goal. Which do you prefer?
+AR: واضح. عشان ما نصير في شد وجذب، يا (1) نوقف هنا وتقرر لاحقاً، أو (2) نخليها بسيطة بأكثر مستوى عملي يناسب هدفك. شنو تفضّل؟
+
+### PHASE5_TINT_COMPARE_DEEPEN_L1
+EN: Totally fair to compare. With tint, darkness can look similar while heat comfort feels very different — performance depends on film level and coverage. If you’d like, I can explain what to compare so it stays apples-to-apples, or share a quick example. Which coverage are you comparing — front only or full?
+AR: طبيعي تقارن. بالتظليل ممكن الغمقان يكون متقارب لكن فرق الراحة من الحرارة يكون واضح — الأداء يعتمد على مستوى الفيلم والتغطية. إذا تحب، أشرح لك شنو تقارن بالضبط عشان تكون المقارنة عادلة، أو أرسل مثال سريع. شنو التغطية اللي تقارنها — أمامي فقط ولا كامل؟
+
+### PHASE5_TINT_NARROW_L2
+EN: Understood. To keep it simple, we narrow it to one priority: heat comfort, or the look/darkness. Which one matters more to you?
+AR: مفهوم. خلّنا نبسّطها ونحدد أولوية وحدة: راحة الحرارة، أو الشكل/الغمقان. شنو الأهم عندك؟
+
+### PHASE5_TINT_EXIT_FORK_L3
+EN: Got it. If it still feels high, we can either (1) reduce coverage, or (2) pause and you come back when ready. Which do you prefer?
+AR: تمام. إذا للحين تشوفه عالي، يا (1) نقلل التغطية، أو (2) نوقف وترجع لي لما تكون جاهز. أيهم تفضّل؟
+
+### PHASE5_WRAP_EXPECTATION_DEEPEN_L1
+EN: Understood. With wrap, the differences usually show in finish consistency and edge detailing over time, not just the color on day one. If you’d like, I can explain what to look for in a proper wrap job, or share a finished example. Which finish are you leaning toward — gloss, satin, or matte?
+AR: مفهوم. بالتغليف الفروقات غالباً تبان في ثبات اللمسة ودقة إنهاء الحواف مع الوقت، مو بس اللون من أول يوم. إذا تحب، أشرح لك شنو تركز عليه بالتغليف الصحيح، أو أرسل مثال سيارة بعد التنفيذ. أي لمسة تفضل — لامع، ساتان، أو مطفي؟
+
+### PHASE5_WRAP_ROOF_BLACK_RULE_DEEPEN_L1
+EN: Just to keep it clear — “black roof” styling is fulfilled only as ROOF_PPF_BLACK_GLOSS (PPF), not wrap, so the finish and durability stay consistent. If you’d like, I can explain why we keep it that way, or share a finished roof example. Is it a full wrap you want, or just the black roof look?
+AR: للتوضيح — “سقف أسود” ننفذه فقط كـ ROOF_PPF_BLACK_GLOSS (PPF) وليس تغليف، عشان يكون التشطيب والثبات أفضل. إذا تحب، أشرح لك السبب، أو أرسل مثال سقف بعد التنفيذ. تبي تغليف كامل، ولا بس شكل السقف الأسود؟
+
+### PHASE5_WRAP_NARROW_L2
+EN: Understood. To keep it aligned with budget and expectations, are you aiming for a full color change, or just a specific area like roof/details?
+AR: مفهوم. عشان نضبطها مع الميزانية وتوقعاتك، تبي تغيير لون كامل، ولا جزء محدد مثل السقف/تفاصيل فقط؟
+
+### PHASE5_WRAP_EXIT_FORK_L3
+EN: Clear. Rather than going in circles, we can either (1) lock a minimal scope that achieves the look, or (2) pause and you come back when ready. Which do you prefer?
+AR: واضح. بدل ما ندور في حلقة، يا (1) نثبت نطاق بسيط يحقق الشكل، أو (2) نوقف وترجع لي لما تكون جاهز. أي خيار تفضّل؟
+
+### PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+EN: Understood. Polishing improves clarity by refining the existing paint, but the result depends on current paint condition and the correction level chosen. If you’d like, I can explain what changes between light vs deeper correction, or share a before/after example. Are you aiming for a quick refresh, or deeper swirl reduction?
+AR: مفهوم. التلميع يحسّن صفاء الطلاء لأنه يعالج السطح الموجود، لكن النتيجة تعتمد على حالة الطلاء ومستوى التصحيح المختار. إذا تحب، أشرح لك الفرق بين تلميع خفيف وتصحيح أعمق، أو أرسل مثال قبل/بعد. تبي تحديث سريع، ولا تقليل دوّامات وخدوش بشكل أعمق؟
+
+### PHASE5_POLISH_NARROW_L2
+EN: Understood. If budget is the concern, we can narrow it to either a light refresh, or targeted correction on the worst areas. Which do you prefer?
+AR: مفهوم. إذا الميزانية هي النقطة، نقدر نضيّقها يا تلميع خفيف للتحديث، أو تصحيح مركز على أكثر المناطق المتعبة. شنو تفضّل؟
+
+### PHASE5_POLISH_EXIT_FORK_L3
+EN: Clear. To avoid looping, we can either (1) keep a lighter level that fits budget, or (2) pause and you come back when ready. Which way should we go?
+AR: واضح. عشان ما ندور في حلقة، يا (1) نخليها مستوى أخف يناسب الميزانية، أو (2) نوقف وترجع لي لما تكون جاهز. شنو تختار؟
 
 ────────────────────────────────────────────────────────────
 PHASE 4 — BALANCED RESPONSE LIBRARY (POST-PRICE / POST-OPTIONS)
@@ -124,6 +562,10 @@ AR:
 Rules:
 - Use once immediately after price or options
 - Do NOT repeat in price loops
+
+### PHASE4_ANCHOR_AFTER_PRICE_ONCE
+EN: Clear. If you want, I’ll simplify it into: budget / balanced / highest performance — and you choose what fits.
+AR: واضح. إذا تحب، أرتّبها لك بشكل بسيط: مستوى اقتصادي / مستوى متوازن / مستوى أعلى أداء — وتختار اللي يناسبك.
 
 ────────────────────────────────────────────────────────────
 4.2 WARRANTY REASSURANCE (NON-DEFENSIVE)
@@ -385,13 +827,6 @@ A4 — GREETING (NEUTRAL, NO QUALIFICATION) (“hi”, “hello”, “salam”)
 
 - EN: Hello, welcome. We do PPF, ceramic coating, tint, wrap, and polishing. What’s the car model and year?
 - AR: هلا ومرحباً. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. شنو موديل السيارة وأي سنة؟
-
----
-
-### A6_REENTERED_CONTINUE
-
-- EN: Welcome back. We can continue from where we stopped.
-- AR: حياك الله من جديد. نكمل من حيث وقفنا.
 
 ---
 
@@ -1094,3 +1529,43 @@ Dependencies:
 - Phase 4.5 Tone Engine
 - Phase 4.7 Hook Engine
 - Phase 4.8 Message Assembly Map
+### Z_DEPRECATED__PHASE3B_PPF_RANGE__DUPLICATE (DO NOT ROUTE)
+EN: Perfect — since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
+AR: تمام — بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على ضربات الحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح عشان تختار براحتك.
+
+### Z_DEPRECATED__PHASE3B_CERAMIC_RANGE__DUPLICATE (DO NOT ROUTE)
+EN: Perfect — your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
+AR: تمام — هدفك وطريقة غسيلك يغيّرون أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح عشان تكون المقارنة سهلة.
+
+### Z_DEPRECATED__PHASE3B_TINT_RANGE__DUPLICATE (DO NOT ROUTE)
+EN: Perfect — now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
+AR: تمام — بما إن عرفنا هدفك من التظليل ونطاق التغطية، بعرض لك مستويات الأفلام المناسبة كنطاق سعر واضح عشان تختار اللي يناسبك.
+
+### PHASE3B_WRAP_RANGE
+EN: Perfect — with wrap, the finish and whether it’s full car or a section changes the pricing direction. I’ll present it as a clear price range next so you can decide without confusion.
+AR: تمام — بالتغليف، نوع اللمسة وهل هو كامل السيارة أو جزء يغيّر اتجاه السعر. بعرضه لك كنطاق سعر واضح عشان تقرر بدون لخبطة.
+
+### PHASE3B_ROOF_PPF_BLACK_GLOSS_RANGE
+EN: Perfect — for a black roof look, we do it as Black PPF (gloss). I’ll share the price clearly next.
+AR: تمام — لستايل السقف الأسود، نسويه Black PPF (جلوس). بعطيك السعر بشكل واضح الحين.
+
+### Z_DEPRECATED__PHASE3B_POLISHING_RANGE__DUPLICATE (DO NOT ROUTE)
+EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
+AR: تمام — سعر التلميع يعتمد أكثر شي إذا هو تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح عشان تختار المستوى الصحيح.
+
+### PHASE3B_PPF_RANGE
+EN: Perfect — since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
+AR: تمام — بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على تعرض السيارة للحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.
+
+### PHASE3B_CERAMIC_RANGE
+EN: Perfect — your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
+AR: تمام — هدفك وطريقة غسيلك تفرق في أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
+
+### PHASE3B_TINT_RANGE
+EN: Perfect — now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
+AR: تمام — الحين بعد ما عرفنا هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار اللي يناسبك.
+
+### PHASE3B_POLISHING_RANGE
+EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
+AR: تمام — سعر التلميع يعتمد بالأساس إذا تبيه تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تختار المستوى الصح.
+

@@ -1,72 +1,205 @@
-# PHASE 7 — SECTION 1
-# CORE EDUCATION
-# INTERNAL | FINAL | READY TO PASTE
+# ============================================================
+# PHASE 7 — EDUCATION ARCHITECTURE (STRUCTURAL UPGRADE)
+# GOVERNED BY PHASE 6 CANON
+# ============================================================
 
-====================================================================
-SECTION 0 — GOVERNANCE & USAGE
-====================================================================
+################################################################
+SECTION 0 — GOVERNANCE & DISCIPLINE
+################################################################
 
-Purpose:
-Section 1 provides calm, foundational understanding before any comparison,
-pricing, credibility proof, negotiation handling, or closing logic.
+This document must reflect ONLY truths defined inside:
 
-It answers only:
-- What is this service?
-- How does it work (high level)?
-- What should I expect after the service?
-- What kind of peace of mind does it provide?
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+- PRICE_TABLE_VAT_INCL.md
+- SKU_SELECTION_MATRIX.md
 
 Rules:
-- No pricing, offers, or discounts
-- No brand promotion or proof
-- No competitor references
-- No operational disclaimers
-- No fear or warning language
+- No new claims beyond Phase 6 canon
+- No added technical specifications
+- No pricing numbers
+- No SKU exposure
+- No warranty duration exposure
+- No cross-service contradictions
+- Roof-black styling is fulfilled ONLY via ROOF_PPF_BLACK_GLOSS
 
-Usage:
-- Used only when customers show confusion, curiosity, or early hesitation
-- Delivered in small, conversational parts
-- Never delivered as a long explanation
+Education is:
+- Clarifying
+- Structuring
+- Expectation-aligning
+NOT persuading
+NOT negotiating
+NOT selling
 
-Knowledge intent:
-- Build correct mental models
-- Prepare customers for later comparison and decision-making
-- Reduce misunderstanding early, without persuasion
-
-====================================================================
-PHASE 7 — SECTION 1A
-WHAT THE SERVICE IS (FOUNDATIONAL EDUCATION)
-====================================================================
+################################################################
+SECTION 1 — FOUNDATIONAL IDENTITY (WHAT EACH SERVICE IS)
+################################################################
 
 Purpose:
-This section explains what each core service is,
-in simple, non-technical language.
+- Build mental model
+- Define category boundaries
+- Prevent confusion early
 
-It answers only:
-- What is this service?
-- What does it help with?
-- Why do people choose it?
+Services covered:
+- PPF
+- Ceramic
+- Polishing
+- Tint
+- Wrap
 
-Rules:
-- No pricing
-- No brand promotion
-- No comparisons
-- No urgency
-- No guarantees
+(Existing service explanations remain below and should be placed under this section.)
 
-This section is used early,
-when customers are learning or clarifying.
+################################################################
+SECTION 1B — REALITY & LIMITATION ALIGNMENT
+################################################################
 
-====================================================================
-APPLIES TO ALL CORE SERVICES
-====================================================================
+Purpose:
+- Prevent over-expectation
+- Clarify what each service does NOT do
+- Reduce objection pressure later
 
-The services covered here:
-- Paint Protection Film (PPF)
-- Ceramic Coating
-- Polishing / Paint Correction
-- Window Tint
-- Vehicle Wrap
+Structure per service:
+
+PPF Reality Alignment:
+- Not damage-proof
+- Deep impact may still show
+- Edge wrapping depends on panel geometry
+- Performance shaped by usage & environment
+
+Ceramic Reality Alignment:
+- Not impact protection
+- Not scratch-proof
+- Makes cleaning easier, not unnecessary
+- Surface behavior depends on maintenance
+
+Polishing Reality Alignment:
+- Works with existing paint only
+- Does not add protection
+- Cannot remove deep structural defects
+- Result depends on paint condition
+
+Tint Reality Alignment:
+- Shade ≠ heat performance
+- Darker is not automatically cooler
+- Night visibility depends on shade selection
+- Comfort improvement, not insulation
+
+Wrap Reality Alignment:
+- Styling-first service
+- Not a substitute for PPF protection
+- Surface condition affects result
+- Edge/seam layout depends on panel design
+- Removal safety depends on paint health
+
+Roof-Black Governance:
+- Any “black roof” request is fulfilled ONLY via ROOF_PPF_BLACK_GLOSS
+- Do NOT position roof-black as wrap in education
+
+################################################################
+SECTION 2 — CROSS-SERVICE DECISION ARCHITECTURE
+################################################################
+
+Purpose:
+Clarify differences without comparison pressure.
+
+Decision Axes:
+
+Impact Protection Axis:
+- High: PPF
+- None: Ceramic
+- None: Polishing
+- None: Tint
+- Light surface only: Wrap
+
+Appearance Change Axis:
+- Strong: Wrap
+- Moderate: Tint
+- Gloss enhancement: Ceramic
+- Gloss restoration: Polishing
+- None (transparent): PPF
+
+Maintenance Ease Axis:
+- High: Ceramic
+- Moderate: PPF
+- Moderate: Wrap
+- Neutral: Tint
+- Neutral: Polishing
+
+Styling Intent Axis:
+- High: Wrap
+- Medium: Tint
+- Low: Ceramic
+- Low: Polishing
+- Low: PPF
+
+This section must remain neutral and non-persuasive.
+
+################################################################
+SECTION 3 — OBJECTION EDUCATION (STRUCTURED)
+################################################################
+
+Purpose:
+Pre-empt misunderstandings calmly.
+
+Patterns allowed:
+- “This service improves… but does not replace…”
+- “This works best when…”
+- “This is suitable if…”
+
+Do NOT:
+- Argue
+- Compare competitors
+- Use fear
+- Over-claim
+
+################################################################
+SECTION 4 — MAINTENANCE ALIGNMENT
+################################################################
+
+Purpose:
+Set realistic after-service expectations.
+
+General rules:
+- All surfaces require maintenance
+- Environmental exposure affects behavior
+- Periodic refresh may be required
+- Proper washing habits preserve results
+
+No product claims beyond Phase 6.
+
+################################################################
+SECTION 5 — WARRANTY EDUCATION STRUCTURE
+################################################################
+
+Purpose:
+Clarify warranty logic without exposure.
+
+Allowed:
+- “Official warranty applies”
+- “Warranty covers manufacturing-related issues”
+- “Maintenance affects performance”
+
+Not allowed:
+- Duration numbers
+- Claim guarantees
+- Portal references
+- Registration process explanation
+
+################################################################
+SECTION 6 — SERVICE TRANSITION CLARITY
+################################################################
+
+PPF protects impact.
+Ceramic improves surface behavior.
+Polishing restores clarity.
+Tint improves comfort.
+Wrap changes appearance.
+
+These definitions must not blur.
+
+################################################################
+END OF STRUCTURAL ARCHITECTURE HEADER
+################################################################
 
 ====================================================================
 PAINT PROTECTION FILM (PPF)
@@ -673,6 +806,10 @@ Wraps allow flexibility without permanence.
 Analogy:
 Like changing an outfit —
 style evolves, the foundation remains.
+
+ROOF BLACK (BUSINESS RULE — REPO SAFE)
+- If a customer asks for a “black roof” look, we fulfill it via ROOF_PPF_BLACK_GLOSS (PPF).
+- Do not present roof-black as a wrap product by default.
 
 ====================================================================
 SECTION 1D — CLOSING FRAME

@@ -1,0 +1,195 @@
+# ─────────────────────────────────────────────────────────────
+# PHASE 4 — SIGNAL → INTENT MAPPING TABLE (v1)
+# STRUCTURE ONLY — NO COPY POLISH
+# ─────────────────────────────────────────────────────────────
+
+Purpose:
+- Phase 4 is a CONFIDENCE layer, not a selling layer.
+- It runs ONLY after Phase 3B pricing is presented.
+- It reassures, clarifies, and offers permission-based proof.
+- It must NEVER feel defensive or repetitive.
+
+Hard Rules:
+- Trigger ONLY when Phase 3B has exposed price.
+- Select ONE dominant signal per turn.
+- Emit ONE reassurance block only.
+- Optional micro-education is MENTION-ONLY (1–2 lines max).
+- End with ONE permission-based question only.
+- Never stack reassurances in a single message.
+
+Phase 4 must NOT:
+- Re-price
+- Re-negotiate
+- Re-qualify
+- Repeat Phase 3A questions
+- Introduce new services
+
+────────────────────────────────────────
+GLOBAL SIGNAL PRIORITY (ONE ONLY)
+────────────────────────────────────────
+When multiple signals exist, pick the HIGHEST-RISK signal only:
+
+1) PRICE_PRESSURE
+2) BRAND_FIXATION
+3) USAGE / CLIMATE RISK
+4) WARRANTY_SENSITIVITY
+5) DECISION_UNCERTAINTY
+6) TECHNICAL_CURIOSITY (on-demand only)
+
+────────────────────────────────────────
+BLOCK STRUCTURE (FIXED)
+────────────────────────────────────────
+Each Phase 4 response MUST follow:
+
+C) BASELINE REASSURANCE (1–2 lines)
+D) OPTIONAL MICRO-EDUCATION (mention only)
+E) PERMISSION-BASED QUESTION (ONE ONLY)
+
+────────────────────────────────────────
+BLOCK 1 — PRICE_PRESSURE
+────────────────────────────────────────
+Trigger Signals:
+- PRICE_PRESSURE_LEVEL == HIGH
+- “another place is cheaper”
+- repeated “how much”
+- hesitation after price
+
+Intent:
+- Normalize price difference
+- Reframe value without defending
+- Reduce silence risk
+
+C) Reassurance intent:
+- Price differences exist for valid reasons
+- Not all offers are directly comparable
+
+D) Micro-education (optional):
+- Coverage scope, film behavior, install process differ
+- Long-term performance vs headline price
+
+E) Permission-based question:
+- Ask to explain difference OR show install/video proof
+
+────────────────────────────────────────
+BLOCK 2 — BRAND_FIXATION
+────────────────────────────────────────
+Trigger Signals:
+- Brand name repetition
+- Microns / TPU / brand comparisons
+- “Which brand is better?”
+
+Intent:
+- De-escalate brand anxiety
+- Re-anchor to performance + install quality
+
+C) Reassurance intent:
+- Premium brands are generally good
+- Real-world difference is consistency, clarity, behavior
+
+D) Micro-education (optional):
+- TPU base similarities
+- Top-coat, adhesive, heat response differences
+- Regional climate suitability
+
+E) Permission-based question:
+- Offer explanation OR short install/product video
+
+────────────────────────────────────────
+BLOCK 3 — USAGE / CLIMATE RISK
+────────────────────────────────────────
+Trigger Signals:
+- Highway-heavy usage
+- Heat exposure concerns
+- Daily driving intensity
+
+Intent:
+- Validate customer’s usage reality
+- Justify recommendation contextually
+
+C) Reassurance intent:
+- Usage pattern was considered in pricing
+- Option is aligned to how the car is driven
+
+D) Micro-education (optional):
+- Stone impact vs contact risk
+- Heat stability and clarity over time
+
+E) Permission-based question:
+- Offer usage-based explanation or visual example
+
+────────────────────────────────────────
+BLOCK 4 — WARRANTY_SENSITIVITY
+────────────────────────────────────────
+Trigger Signals:
+- Warranty duration questions
+- Fear of long-term risk
+- “What happens after warranty?”
+
+Intent:
+- De-risk commitment
+- Reframe warranty correctly
+
+C) Reassurance intent:
+- Warranty = manufacturer assurance, not expiry
+- Film remains safe and removable even later
+
+D) Micro-education (optional):
+- Removal safety
+- Manufacturer support vs daily performance
+
+E) Permission-based question:
+- Offer to explain warranty vs real-world use
+
+────────────────────────────────────────
+BLOCK 5 — DECISION_UNCERTAINTY
+────────────────────────────────────────
+Trigger Signals:
+- “Let me think”
+- Pauses after explanation
+- Comparison without objection
+
+Intent:
+- Reduce cognitive load
+- Slow the conversation safely
+
+C) Reassurance intent:
+- No rush
+- Decision can be made step by step
+
+D) Micro-education (optional):
+- What will be clarified next (install, product, visuals)
+
+E) Permission-based question:
+- Ask if they want explanation OR visual proof next
+
+────────────────────────────────────────
+BLOCK 6 — TECHNICAL_CURIOSITY (ON-DEMAND ONLY)
+────────────────────────────────────────
+Trigger Signals:
+- Explicit technical questions
+- Install process curiosity
+- Material or method questions
+
+Intent:
+- Acknowledge expertise interest
+- Defer depth safely to Phase 5
+
+C) Reassurance intent:
+- Installation quality is controlled and standardized
+
+D) Micro-education (optional):
+- Manufacturer-approved tools, chemicals, processes
+
+E) Permission-based question:
+- Ask whether to explain step-by-step or share video
+
+────────────────────────────────────────
+PHASE TRANSITION RULE
+────────────────────────────────────────
+After Phase 4:
+- If customer accepts explanation/video → Phase 5 (Education)
+- If customer asks new comparison → Phase 4 re-evaluates signal
+- If customer asks price again → Phase 3B ladder logic resumes
+- If customer goes silent → Silence Handling Engine
+
+END OF PHASE 4 MAPPING (v1)

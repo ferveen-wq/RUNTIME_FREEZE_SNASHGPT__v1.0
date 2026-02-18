@@ -1,0 +1,138 @@
+============================================================
+PHASE 3B — CANONICAL CUSTOMER-FACING PHRASES
+Dynamic SKU-Based | All Services | Signal-Aligned
+============================================================
+
+
+############################
+PPF — FULL COVERAGE
+############################
+
+--- CASE: Neutral (No Brand Signal) ---
+
+For your {YEAR} {MODEL} with full PPF coverage, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This range includes both Global PPF and XPEL PPF options.
+
+Would you like to review both Global and XPEL options, or keep it to one option?
+
+
+--- CASE: XPEL Brand Mentioned ---
+
+For your {YEAR} {MODEL} with full PPF coverage, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This range includes both Global PPF and XPEL PPF options.
+
+Do you want to proceed with XPEL PPF, or compare it with the Global option?
+
+
+--- CASE: Price-Sensitive Signal ---
+
+For your {YEAR} {MODEL} with full PPF coverage, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This range includes both Global PPF and XPEL PPF options.
+
+Do you want to start with Global PPF, or review both options?
+
+
+--- CASE: Competitor Influence Signal ---
+
+For your {YEAR} {MODEL} with full PPF coverage, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This range includes both Global PPF and XPEL PPF options.
+
+Which option are you comparing against — Global or XPEL?
+
+
+
+############################
+PPF — FRONT COVERAGE
+############################
+
+--- Single SKU (No Brand Fork) ---
+
+For your {YEAR} {MODEL} with front PPF coverage, pricing is {SKU_PRICE} BHD.
+
+Do you want to proceed with front PPF?
+
+
+
+############################
+CERAMIC COATING
+############################
+
+--- CASE: Neutral ---
+
+For your {YEAR} {MODEL} ceramic coating, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes 1-year, 3-year, and 5-year durability options.
+
+Which durability option would you like to proceed with — 1 year, 3 years, or 5 years?
+
+
+--- CASE: Price-Sensitive Signal ---
+
+For your {YEAR} {MODEL} ceramic coating, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes 1-year, 3-year, and 5-year durability options.
+
+Do you want to start with the 1-year option, or review the longer durability options?
+
+
+--- CASE: Quality / Long-Term Signal ---
+
+For your {YEAR} {MODEL} ceramic coating, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes 1-year, 3-year, and 5-year durability options.
+
+Do you want to proceed with the 5-year option, or compare all durability levels?
+
+
+
+############################
+WINDOW TINT
+############################
+
+--- Neutral / No Brand Mention ---
+
+For your {MODEL} window tint, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes Nano Ceramic and XPEL XR Plus options.
+
+Do you want to proceed with Nano Ceramic, or XPEL XR Plus?
+
+
+--- Price-Sensitive Signal ---
+
+For your {MODEL} window tint, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes Nano Ceramic and XPEL XR Plus options.
+
+Do you want to start with Nano Ceramic, or review both tint options?
+
+
+
+############################
+POLISHING
+############################
+
+For your {MODEL} polishing service, pricing ranges from {MIN_SKU} to {MAX_SKU} BHD.
+
+This includes Silver and Gold polishing options.
+
+Do you want Silver polishing, or Gold polishing?
+
+
+
+############################
+ROOF WRAP
+############################
+
+For your {MODEL} roof wrap, pricing is {SKU_PRICE} BHD.
+
+Do you want to proceed with roof wrap black?
+
+
+============================================================
+END OF PHASE 3B CANON
+============================================================
