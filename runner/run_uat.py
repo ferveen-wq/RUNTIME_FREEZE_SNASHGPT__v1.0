@@ -163,14 +163,17 @@ def main():
         else:
             failed += 1
 
-    report["summary"] = {"passed": passed, "failed": failed, "total": passed + failed}
+        report["summary"] = {"passed": passed, "failed": failed, "total": passed + failed}
 
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    report_path.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
 
     print(f"UAT done. Passed={passed}, Failed={failed}, Total={passed+failed}")
     print(f"Report saved: {report_path}")
 
-        if failed > 0:
+    if failed > 0:
         print("\nFAILED TEST DETAILS (first 10):")
         shown = 0
         for r in report["results"]:
@@ -186,9 +189,7 @@ def main():
                 if shown >= 10:
                     break
 
-    if failed > 0:
         raise SystemExit(1)
-
 
 if __name__ == "__main__":
     main()
