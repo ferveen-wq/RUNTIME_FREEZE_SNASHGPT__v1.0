@@ -25,7 +25,7 @@
     "case_id": "regression_competitor_cheaper_objection",
     "input": "Another place is cheaper for PPF",
     "expect_debug": {
-      "request_type": "PRICE_REQUEST"
+      "request_type": "OTHER"
     },
     "expect_not_contains": {
       "english": ["they are bad", "cheap quality", "fake brand"],
@@ -33,8 +33,66 @@
     }
   },
   {
+    "case_id": "bizinfo_location_no_pricing_no_qualification",
+    "input": "Where are you located?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["Nuwaidrat", "Riffa"],
+      "arabic": ["الرفاع"]
+    },
+    "expect_contains_any": {
+      "arabic": ["النويدرات", "النويذرات", "النُويدرات"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+  {
+    "case_id": "bizinfo_hours_no_pricing_no_qualification",
+    "input": "What are your opening hours?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["10:00", "7:00"],
+      "arabic": ["السبت", "الخميس", "10:00", "7:00"]
+    },
+    "expect_contains_any": {
+      "english": ["Sat", "Saturday"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+  {
+    "case_id": "bizinfo_saudi_branch_no_pricing_no_qualification",
+    "input": "Do you have a branch in Saudi?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["Bahrain"],
+      "arabic": ["البحرين"]
+    },
+    "expect_contains_any": {
+      "english": ["No", "do not have", "Bahrain"],
+      "arabic": ["لا", "ليس لدينا", "البحرين"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+  {
     "case_id": "regression_brand_only_xpel_no_pricing",
     "input": "Do you install XPEL?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
     "expect_not_contains": {
       "english": ["$", "usd", "bhd", "starts from", "450", "700", "280", "500", "1000"],
       "arabic": ["دولار", "دينار", "يبدأ من", "٤٥٠", "٧٠٠", "٢٨٠", "٥٠٠", "١٠٠٠"]
