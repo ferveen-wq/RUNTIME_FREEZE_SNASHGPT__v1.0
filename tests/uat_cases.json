@@ -14,7 +14,8 @@
     "case_id": "greeting_should_not_ask_vehicle",
     "input": "hi",
     "expect_debug": {
-      "phase": "PHASE_0"
+      "phase": "0",
+      "request_type": "GREETING"
     },
     "expect_not_contains": {
       "english": ["which car", "model", "year"],

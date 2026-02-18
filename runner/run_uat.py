@@ -26,18 +26,13 @@ def safe_lower(s: str) -> str:
 
 
 def extract_debug_and_messages(full_text: str) -> dict:
-    """
-    We assume your response starts with DEBUG_OUTPUT header.
-    We'll do a simple parse:
-    - debug block: lines until first blank line after DEBUG_OUTPUT (best-effort)
-    - arabic message: first non-debug paragraph
-    - english message: next paragraph (best-effort)
-    Adjust later once your OUTPUT_RESPONSE_TEMPLATE is fully stable.
-    """
+    import re
+
     lines = full_text.splitlines()
     debug = {}
     in_debug = False
 
+    # 1) Parse DEBUG_OUTPUT block (key: value lines)
     for line in lines:
         if "DEBUG_OUTPUT" in line:
             in_debug = True
@@ -45,26 +40,41 @@ def extract_debug_and_messages(full_text: str) -> dict:
         if in_debug:
             if not line.strip():
                 break
-            # very forgiving "key: value" parsing
             if ":" in line:
                 k, v = line.split(":", 1)
                 debug[k.strip()] = v.strip()
 
-    # crude message extraction: remove debug lines, then join remaining
-    cleaned = []
+    # 2) Remove debug lines from body
+    body_lines = []
+    skipping_debug = False
     for line in lines:
         if "DEBUG_OUTPUT" in line:
+            skipping_debug = True
             continue
-        if ":" in line and line.split(":", 1)[0].strip() in debug:
+        if skipping_debug:
+            # stop skipping after first blank line
+            if not line.strip():
+                skipping_debug = False
             continue
-        cleaned.append(line)
+        body_lines.append(line)
 
-    body = "\n".join(cleaned).strip()
-    # split into paragraphs
-    parts = [p.strip() for p in body.split("\n\n") if p.strip()]
+    body = "\n".join([l for l in body_lines if l is not None]).strip()
 
-    arabic = parts[0] if len(parts) >= 1 else ""
-    english = parts[1] if len(parts) >= 2 else ""
+    # 3) Split Arabic vs English by character detection
+    # Arabic unicode range: \u0600-\u06FF plus extended: \u0750-\u077F \u08A0-\u08FF
+    arabic_re = re.compile(r"[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]")
+
+    arabic_lines = []
+    english_lines = []
+    for line in body.splitlines():
+        if arabic_re.search(line):
+            arabic_lines.append(line.strip())
+        else:
+            if line.strip():
+                english_lines.append(line.strip())
+
+    arabic = "\n".join(arabic_lines).strip()
+    english = "\n".join(english_lines).strip()
 
     return {"debug": debug, "arabic": arabic, "english": english, "raw": full_text}
 

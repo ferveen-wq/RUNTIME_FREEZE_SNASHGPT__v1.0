@@ -14,6 +14,11 @@ Rules:
   Max 1 question per reply
 - Always include DEBUG_OUTPUT header first with:
   phase, request_type, objection_signal, objection_repeat_count, selected_phrase_id, QUALIFICATION_STATUS, price_ladder_state
+- DEBUG_OUTPUT must be the first line exactly: DEBUG_OUTPUT
+- Each debug field must be on its own line in the format: key: value
+- DEBUG_OUTPUT must use canonical enums EXACTLY:
+  - request_type must be one of: GREETING, BROWSING, PRICE_REQUEST, BOOKING, LOCATION, OTHER
+  - Do not invent new labels like "pricing inquiry".
 - End every message with:
   <span style="color:#6b7280">Timestamp: YYYY-MM-DD HH:MM (Asia/Bahrain)</span>
 
