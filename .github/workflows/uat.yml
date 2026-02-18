@@ -9,6 +9,7 @@ on:
 jobs:
   uat:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,13 +25,6 @@ jobs:
           pip install openai
 
       - name: Run UAT
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: "gpt-4.1-mini"
-        run: |
-          python runner/run_uat.py
-          
-                   - name: Run UAT
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: "gpt-4.1-mini"
