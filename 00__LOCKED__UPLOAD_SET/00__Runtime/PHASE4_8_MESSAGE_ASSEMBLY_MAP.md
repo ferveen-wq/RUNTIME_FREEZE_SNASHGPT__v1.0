@@ -185,6 +185,20 @@ THEN:
   - suppress: price_ladder=true, qualification_questions=true
   - STOP (do not append any other blocks).
 
+────────────────────────────────────────────────────────────
+SERVICE OFFERINGS ROUTE (HARD OVERRIDE — ANY PHASE)
+────────────────────────────────────────────────────────────
+Purpose:
+- Ensure "What services do you offer?" uses ONLY the approved service overview block (no pricing language).
+
+IF request_type == BROWSING_GENERIC
+AND (current_user_message contains "what services do you offer" OR current_user_message contains "what do you offer" OR current_user_message contains "services"
+     OR current_user_message contains "الخدمات" OR current_user_message contains "خدماتكم" OR current_user_message contains "شنو تقدمون"):
+  - Output MUST use ONLY:
+    - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
+  - selected_phrase_id MUST equal "L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)"
+  - STOP (do not append any other blocks).
+
 ### 3A) Phase 3A Qualifier-First Gate (HARD)
 # LOCK_METADATA
 # LOCK_STATUS: LOCKED
@@ -605,6 +619,22 @@ Required output behavior:
 - Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
 - Do NOT include any other questions.
 - Suppress hooks.
+
+Exception C — Competitor Cheaper / Price Pressure while NOT_READY (pre-price only)
+Applies when ALL are true:
+- allowed_next_actions includes ask_missing_info
+- (price_ladder_state == NONE OR price_ladder_state == NOT_APPLICABLE)
+- current_user_message contains any of:
+  - "cheaper" OR "cheaper elsewhere" OR "too expensive" OR "expensive" OR "price is high"
+  - "أرخص" OR "غالي" OR "السعر عالي" OR "سعر عالي"
+
+Required output behavior:
+- Output MUST use ONLY:
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → COMPETITOR CHEAPER — PHASE 0–2
+- selected_phrase_id MUST equal "COMPETITOR CHEAPER — PHASE 0–2"
+- Output MUST contain exactly 1 question total.
+- Do NOT mention discounts, attacks on competitors, or any pricing numbers.
+- STOP (do not append any other blocks).
 
 ---
 ---

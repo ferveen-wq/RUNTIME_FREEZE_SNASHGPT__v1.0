@@ -480,6 +480,48 @@ Precedence:
 - This rule must run BEFORE any “browsing” / “service inquiry” mapping.
 - If the message includes a service keyword or pricing request, this rule must NOT trigger (not greeting-only).
 
+## 2.Y) SERVICE OFFERINGS / "WHAT DO YOU OFFER" → BROWSING_GENERIC (HARD)
+# Purpose: prevent "What services do you offer?" from falling into OTHER and producing non-canon wording.
+# This is routing classification only.
+IF current_user_message contains any of:
+  - "what services do you offer"
+  - "what do you offer"
+  - "services"
+  - "service list"
+  - "menu"
+  - "شنو تقدمون"
+  - "شنو خدماتكم"
+  - "خدماتكم"
+  - "الخدمات"
+THEN:
+  - request_type = BROWSING_GENERIC
+  - detected_service_intent_in_message = unknown
+  - missing_fields = [vehicle_model, vehicle_year]
+
+## 2.Z) PRICE PRESSURE WITHOUT DIRECT PRICE REQUEST → OTHER (HARD)
+# Purpose: "cheaper elsewhere / too expensive" is NOT a price request unless the user asks "how much/price".
+# This prevents mislabeling as PRICE_REQUEST and preserves correct regression behavior.
+IF current_user_message contains any of:
+  - "cheaper"
+  - "cheaper elsewhere"
+  - "too expensive"
+  - "expensive"
+  - "price is high"
+  - "أرخص"
+  - "غالي"
+  - "السعر عالي"
+  - "سعر عالي"
+AND current_user_message does NOT contain any of:
+  - "how much"
+  - "price"
+  - "pricing"
+  - "cost"
+  - "كم"
+  - "سعر"
+THEN:
+  - request_type = OTHER
+  - constraints += [price_pressure_signal=true]
+
 - constraints: A list of detected constraints that limit downstream behavior (e.g., unknown language, ambiguous target, insufficient identifiers).
 - allowed_next_actions: An ordered list of permitted downstream actions (e.g., proceed, request_minimum_context, route_to_human, hold_for_clarification).
 - confidence: A bounded indicator (low/medium/high) representing certainty of the qualification classification and completeness decision (NOT likelihood of purchase or conversion).
