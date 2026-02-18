@@ -170,6 +170,22 @@ def main():
     print(f"UAT done. Passed={passed}, Failed={failed}, Total={passed+failed}")
     print(f"Report saved: {report_path}")
 
+        if failed > 0:
+        print("\nFAILED TEST DETAILS (first 10):")
+        shown = 0
+        for r in report["results"]:
+            if not r["pass"]:
+                shown += 1
+                print("\n---")
+                print(f"case_id: {r.get('case_id')}")
+                print(f"input: {r.get('input')}")
+                print(f"failures: {r.get('failures')}")
+                print("debug:", r.get("debug"))
+                print("arabic:", r.get("arabic"))
+                print("english:", r.get("english"))
+                if shown >= 10:
+                    break
+
     if failed > 0:
         raise SystemExit(1)
 
