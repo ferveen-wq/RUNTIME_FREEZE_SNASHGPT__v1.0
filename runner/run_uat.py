@@ -25,6 +25,23 @@ def safe_lower(s: str) -> str:
     return (s or "").lower()
 
 
+def normalize_arabic(s: str) -> str:
+    """
+    Remove Arabic diacritics (tashkeel) and normalize for simple contains checks.
+    This avoids brittle test failures like: النويْدِرات vs النويدرات.
+    """
+    if not s:
+        return ""
+    diacritics = [
+        "\u064b", "\u064c", "\u064d", "\u064e", "\u064f", "\u0650", "\u0651", "\u0652",
+        "\u0653", "\u0654", "\u0655", "\u0656", "\u0657", "\u0658", "\u0659", "\u065a",
+        "\u0670"
+    ]
+    for d in diacritics:
+        s = s.replace(d, "")
+    return s
+
+
 def extract_debug_and_messages(full_text: str) -> dict:
     import re
 
@@ -107,11 +124,25 @@ def check_expectations(result: dict, case: dict) -> list:
     # Must contain checks
     exp_contains = case.get("expect_contains", {})
     for word in exp_contains.get("arabic", []):
-        if safe_lower(word) not in safe_lower(arabic_chk):
+        if normalize_arabic(safe_lower(word)) not in normalize_arabic(safe_lower(arabic_chk)):
             failures.append(f"Arabic missing required word: '{word}'")
     for word in exp_contains.get("english", []):
         if safe_lower(word) not in safe_lower(english_chk):
             failures.append(f"English missing required word: '{word}'")
+
+    # Must contain at least one (OR) checks
+    exp_contains_any = case.get("expect_contains_any", {})
+    any_ar = exp_contains_any.get("arabic", [])
+    if any_ar:
+        if not any(
+            normalize_arabic(safe_lower(w)) in normalize_arabic(safe_lower(arabic_chk))
+            for w in any_ar
+        ):
+            failures.append(f"Arabic missing any of: {any_ar}")
+    any_en = exp_contains_any.get("english", [])
+    if any_en:
+        if not any(safe_lower(w) in safe_lower(english_chk) for w in any_en):
+            failures.append(f"English missing any of: {any_en}")
 
     # Must not contain checks
     exp_not = case.get("expect_not_contains", {})

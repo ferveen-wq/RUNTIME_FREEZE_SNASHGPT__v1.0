@@ -710,6 +710,18 @@ Scope:
 - No pricing, negotiation, or persuasion
 
 ## PHASE 0–2 NOTE
+
+### BIZ_LOCATION__ASK_PIN (PHASE 0–2 / BUSINESS INFO)
+AR: نحن موجودون في **النويدرات** (قرب الرفاع) في البحرين. هل تبي أرسل لك اللوكيشن على الخريطة؟
+EN: We’re in **Nuwaidrat** (near Riffa) in Bahrain. Do you want me to send the Google Maps pin?
+
+### BIZ_HOURS__ASK_DAY (PHASE 0–2 / BUSINESS INFO)
+AR: دوامنا **السبت–الخميس** من **10:00 صباحًا** إلى **7:00 مساءً**. تبي دوام اليوم؟
+EN: Our hours are **Sat–Thu** from **10:00am** to **7:00pm**. Do you want today’s hours?
+
+### BIZ_KSA_BRANCH__CONFIRM_COUNTRY (PHASE 0–2 / BUSINESS INFO)
+AR: حاليًا **البحرين فقط** — عندنا **فرع واحد** في **النويدرات قرب الرفاع**. تبي أرسل لك اللوكيشن؟
+EN: Right now we’re **Bahrain only** — **one branch** in **Nuwaidrat near Riffa**. Want the location pin?
 Phrases below may have 2–3 micro-variants.
 All variants are SEMANTICALLY EQUIVALENT and interchangeable.
 No variant may add facts, persuasion, or new intent.
@@ -1301,8 +1313,8 @@ AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظلي
 - AR: نعم، نركّب علامات PPF المعتمدة مثل XPEL وGlobal Hi-Tech Films. شنو موديل السيارة وأي سنة؟
 
 ### COMPETITOR CHEAPER — PHASE 0–2
-- EN: Understood. To compare properly, what’s the car model and year?
-- AR: مفهوم. عشان نقدر نقارن بشكل صحيح، شنو موديل السيارة وأي سنة؟
+- EN: Understood. To compare properly for PPF, what’s the car model and year?
+- AR: مفهوم. عشان نقدر نقارن بشكل صحيح للـPPF، شنو موديل السيارة وأي سنة؟
 
 ### TECHNICAL QUESTION HOLD — PHASE 0–2
 - EN: I can explain it clearly once I know the car details. What’s the car model and year?

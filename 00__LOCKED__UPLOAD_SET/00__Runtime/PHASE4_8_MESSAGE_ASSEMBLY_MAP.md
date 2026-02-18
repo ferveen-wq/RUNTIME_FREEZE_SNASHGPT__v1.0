@@ -145,6 +145,46 @@ IF request_type == REENTERED_CONTINUE:
   - selected_phrase_id MUST equal A6_REENTERED_CONTINUE
   - STOP (do not append any other blocks).
 
+────────────────────────────────────────────────────────────
+BUSINESS INFO ROUTES (HARD OVERRIDE — ANY PHASE)
+────────────────────────────────────────────────────────────
+Purpose:
+- Answer pure business questions (location / hours / branches) without triggering qualification or pricing.
+Hard rules:
+- Use PHASE4_6 business-info phrases only
+- Exactly ONE question
+- Do NOT invoke PRICE_LADDER_ENGINE
+- Do NOT add vehicle qualification questions in the same turn
+- VERBATIM ONLY: Copy-paste the selected PHASE4_6_HUMAN_PHRASE_LIBRARY block lines exactly as written, including BOTH EN: and AR: lines.
+  No paraphrase, no rewording, no extra sentences, no additional facts.
+
+IF current_user_message contains any of:
+- "where are you" OR "location" OR "pin" OR "map" OR "address"
+- "وين" OR "الموقع" OR "لوكيشن" OR "عنوان"
+THEN:
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → BIZ_LOCATION__ASK_PIN
+  - selected_phrase_id MUST equal BIZ_LOCATION__ASK_PIN
+  - suppress: price_ladder=true, qualification_questions=true
+  - STOP (do not append any other blocks).
+
+IF current_user_message contains any of:
+- "open" OR "opening" OR "hours" OR "timing" OR "time"
+- "دوام" OR "ساعات" OR "أوقات" OR "متى تفتحون" OR "متى تفتح"
+THEN:
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → BIZ_HOURS__ASK_DAY
+  - selected_phrase_id MUST equal BIZ_HOURS__ASK_DAY
+  - suppress: price_ladder=true, qualification_questions=true
+  - STOP (do not append any other blocks).
+
+IF current_user_message contains any of:
+- "saudi" OR "ksa" OR "riyadh" OR "dammam" OR "branch in saudi"
+- "السعودية" OR "الرياض" OR "الدمام" OR "عندكم فرع"
+THEN:
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → BIZ_KSA_BRANCH__CONFIRM_COUNTRY
+  - selected_phrase_id MUST equal BIZ_KSA_BRANCH__CONFIRM_COUNTRY
+  - suppress: price_ladder=true, qualification_questions=true
+  - STOP (do not append any other blocks).
+
 ### 3A) Phase 3A Qualifier-First Gate (HARD)
 # LOCK_METADATA
 # LOCK_STATUS: LOCKED
