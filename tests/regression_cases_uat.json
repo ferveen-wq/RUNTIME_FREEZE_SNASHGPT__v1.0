@@ -97,5 +97,91 @@
       "english": ["$", "usd", "bhd", "starts from", "450", "700", "280", "500", "1000"],
       "arabic": ["دولار", "دينار", "يبدأ من", "٤٥٠", "٧٠٠", "٢٨٠", "٥٠٠", "١٠٠٠"]
     }
+  },
+
+  {
+    "case_id": "regression_browsing_services_list_no_pricing",
+    "input": "What services do you offer?",
+    "expect_not_contains": {
+      "english": ["$", "usd", "bhd", "price", "pricing", "starts from", "from "],
+      "arabic": ["دولار", "دينار", "سعر", "أسعار", "يبدأ من"]
+    },
+    "expect_contains_any": {
+      "english": ["PPF", "Ceramic", "Tint", "Wrap", "Wrapping", "Polish", "Polishing"],
+      "arabic": ["PPF", "سيراميك", "تظليل", "تلميع", "راب", "تغليف"]
+    }
+  },
+
+  {
+    "case_id": "regression_browsing_just_browsing_no_pricing",
+    "input": "Just browsing",
+    "expect_not_contains": {
+      "english": ["$", "usd", "bhd", "price", "pricing", "how much"],
+      "arabic": ["دولار", "دينار", "سعر", "أسعار", "كم"]
+    }
+  },
+
+  {
+    "case_id": "regression_new_car_should_not_force_year_question",
+    "input": "I have a new car, what do you recommend?",
+    "expect_not_contains": {
+      "english": ["what year", "which year", "year?"],
+      "arabic": ["أي سنة", "شنو سنة", "سنة السيارة"]
+    }
+  },
+
+  {
+    "case_id": "bizinfo_location_arabic_trigger_no_pricing_no_qualification",
+    "input": "وين موقعكم؟",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["Nuwaidrat", "Riffa"],
+      "arabic": ["الرفاع"]
+    },
+    "expect_contains_any": {
+      "arabic": ["النويدرات", "النويذرات", "النُويدرات"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+
+  {
+    "case_id": "bizinfo_hours_arabic_trigger_no_pricing_no_qualification",
+    "input": "متى تفتحون؟",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["10:00", "7:00"],
+      "arabic": ["السبت", "الخميس", "10:00", "7:00"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+
+  {
+    "case_id": "bizinfo_saudi_branch_arabic_trigger_no_pricing_no_qualification",
+    "input": "عندكم فرع بالسعودية؟",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    },
+    "expect_contains": {
+      "english": ["Bahrain"],
+      "arabic": ["البحرين"]
+    },
+    "expect_contains_any": {
+      "english": ["No", "do not have", "Bahrain"],
+      "arabic": ["لا", "ليس لدينا", "البحرين"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "pricing", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
   }
 ]
