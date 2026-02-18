@@ -24,10 +24,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install openai
 
-      - name: Run UAT
+            - name: Run Core UAT
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: "gpt-4.1-mini"
+        run: |
+          python runner/run_uat.py
+
+      - name: Run Regression UAT
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: "gpt-4.1-mini"
+          UAT_CASES_FILE: "tests/regression_cases_uat.json"
         run: |
           python runner/run_uat.py
 
