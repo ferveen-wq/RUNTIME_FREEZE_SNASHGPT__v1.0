@@ -6,8 +6,16 @@
       "request_type": "GREETING"
     },
     "expect_not_contains": {
-      "english": ["which car", "model", "year"],
-      "arabic": ["موديل", "سنة", "السيارة"]
+      "english": [
+        "which car",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "السيارة"
+      ]
     }
   },
   {
@@ -17,8 +25,20 @@
       "request_type": "PRICE_REQUEST"
     },
     "expect_not_contains": {
-      "english": ["$", "usd", "dollar", "4500", "7500"],
-      "arabic": ["$", "usd", "دولار", "4500", "7500"]
+      "english": [
+        "$",
+        "usd",
+        "dollar",
+        "4500",
+        "7500"
+      ],
+      "arabic": [
+        "$",
+        "usd",
+        "دولار",
+        "4500",
+        "7500"
+      ]
     }
   },
   {
@@ -28,8 +48,16 @@
       "request_type": "OTHER"
     },
     "expect_not_contains": {
-      "english": ["they are bad", "cheap quality", "fake brand"],
-      "arabic": ["سيئين", "جودة سيئة", "مزيف"]
+      "english": [
+        "they are bad",
+        "cheap quality",
+        "fake brand"
+      ],
+      "arabic": [
+        "سيئين",
+        "جودة سيئة",
+        "مزيف"
+      ]
     }
   },
   {
@@ -39,15 +67,35 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["Nuwaidrat", "Riffa"],
-      "arabic": ["الرفاع"]
+      "english": [
+        "Nuwaidrat",
+        "Riffa"
+      ],
+      "arabic": [
+        "الرفاع"
+      ]
     },
     "expect_contains_any": {
-      "arabic": ["النويدرات", "النويذرات", "النُويدرات"]
+      "arabic": [
+        "النويدرات",
+        "النويذرات",
+        "النُويدرات"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
     }
   },
   {
@@ -57,15 +105,37 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["10:00", "7:00"],
-      "arabic": ["السبت", "الخميس", "10:00", "7:00"]
+      "english": [
+        "10:00",
+        "7:00"
+      ],
+      "arabic": [
+        "السبت",
+        "الخميس",
+        "10:00",
+        "7:00"
+      ]
     },
     "expect_contains_any": {
-      "english": ["Sat", "Saturday"]
+      "english": [
+        "Sat",
+        "Saturday"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
     }
   },
   {
@@ -75,16 +145,39 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["Bahrain"],
-      "arabic": ["البحرين"]
+      "english": [
+        "Bahrain"
+      ],
+      "arabic": [
+        "البحرين"
+      ]
     },
     "expect_contains_any": {
-      "english": ["No", "do not have", "Bahrain"],
-      "arabic": ["لا", "ليس لدينا", "البحرين"]
+      "english": [
+        "No",
+        "do not have",
+        "Bahrain"
+      ],
+      "arabic": [
+        "لا",
+        "ليس لدينا",
+        "البحرين"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
     }
   },
   {
@@ -94,42 +187,107 @@
       "request_type": "OTHER"
     },
     "expect_not_contains": {
-      "english": ["$", "usd", "bhd", "starts from", "450", "700", "280", "500", "1000"],
-      "arabic": ["دولار", "دينار", "يبدأ من", "٤٥٠", "٧٠٠", "٢٨٠", "٥٠٠", "١٠٠٠"]
+      "english": [
+        "$",
+        "usd",
+        "bhd",
+        "starts from",
+        "450",
+        "700",
+        "280",
+        "500",
+        "1000"
+      ],
+      "arabic": [
+        "دولار",
+        "دينار",
+        "يبدأ من",
+        "٤٥٠",
+        "٧٠٠",
+        "٢٨٠",
+        "٥٠٠",
+        "١٠٠٠"
+      ]
     }
   },
-
   {
     "case_id": "regression_browsing_services_list_no_pricing",
     "input": "What services do you offer?",
     "expect_not_contains": {
-      "english": ["$", "usd", "bhd", "price", "pricing", "starts from", "from "],
-      "arabic": ["دولار", "دينار", "سعر", "أسعار", "يبدأ من"]
+      "english": [
+        "$",
+        "usd",
+        "bhd",
+        "price",
+        "pricing",
+        "starts from",
+        "from "
+      ],
+      "arabic": [
+        "دولار",
+        "دينار",
+        "سعر",
+        "أسعار",
+        "يبدأ من"
+      ]
     },
     "expect_contains_any": {
-      "english": ["PPF", "Ceramic", "Tint", "Wrap", "Wrapping", "Polish", "Polishing"],
-      "arabic": ["PPF", "سيراميك", "تظليل", "تلميع", "راب", "تغليف"]
+      "english": [
+        "PPF",
+        "Ceramic",
+        "Tint",
+        "Wrap",
+        "Wrapping",
+        "Polish",
+        "Polishing"
+      ],
+      "arabic": [
+        "PPF",
+        "سيراميك",
+        "تظليل",
+        "تلميع",
+        "راب",
+        "تغليف"
+      ]
     }
   },
-
   {
     "case_id": "regression_browsing_just_browsing_no_pricing",
     "input": "Just browsing",
     "expect_not_contains": {
-      "english": ["$", "usd", "bhd", "price", "pricing", "how much"],
-      "arabic": ["دولار", "دينار", "سعر", "أسعار", "كم"]
+      "english": [
+        "$",
+        "usd",
+        "bhd",
+        "price",
+        "pricing",
+        "how much"
+      ],
+      "arabic": [
+        "دولار",
+        "دينار",
+        "سعر",
+        "أسعار",
+        "كم"
+      ]
     }
   },
-
   {
     "case_id": "regression_new_car_should_not_force_year_question",
     "input": "I have a new car, what do you recommend?",
     "expect_not_contains": {
-      "english": ["what year", "which year", "year?"],
-      "arabic": ["أي سنة", "شنو سنة", "سنة السيارة"]
+      "english": [
+        "what year",
+        "which year",
+        "year?"
+      ],
+      "arabic": [
+        "أي سنة",
+        "شنو سنة",
+        "سنة السيارة"
+      ]
     }
   },
-
   {
     "case_id": "bizinfo_location_arabic_trigger_no_pricing_no_qualification",
     "input": "وين موقعكم؟",
@@ -137,18 +295,37 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["Nuwaidrat", "Riffa"],
-      "arabic": ["الرفاع"]
+      "english": [
+        "Nuwaidrat",
+        "Riffa"
+      ],
+      "arabic": [
+        "الرفاع"
+      ]
     },
     "expect_contains_any": {
-      "arabic": ["النويدرات", "النويذرات", "النُويدرات"]
+      "arabic": [
+        "النويدرات",
+        "النويذرات",
+        "النُويدرات"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
     }
   },
-
   {
     "case_id": "bizinfo_hours_arabic_trigger_no_pricing_no_qualification",
     "input": "متى تفتحون؟",
@@ -156,15 +333,33 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["10:00", "7:00"],
-      "arabic": ["السبت", "الخميس", "10:00", "7:00"]
+      "english": [
+        "10:00",
+        "7:00"
+      ],
+      "arabic": [
+        "السبت",
+        "الخميس",
+        "10:00",
+        "7:00"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
     }
   },
-
   {
     "case_id": "bizinfo_saudi_branch_arabic_trigger_no_pricing_no_qualification",
     "input": "عندكم فرع بالسعودية؟",
@@ -172,16 +367,116 @@
       "request_type": "LOCATION"
     },
     "expect_contains": {
-      "english": ["Bahrain"],
-      "arabic": ["البحرين"]
+      "english": [
+        "Bahrain"
+      ],
+      "arabic": [
+        "البحرين"
+      ]
     },
     "expect_contains_any": {
-      "english": ["No", "do not have", "Bahrain"],
-      "arabic": ["لا", "ليس لدينا", "البحرين"]
+      "english": [
+        "No",
+        "do not have",
+        "Bahrain"
+      ],
+      "arabic": [
+        "لا",
+        "ليس لدينا",
+        "البحرين"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "pricing", "how much", "model", "year"],
-      "arabic": ["سعر", "كم", "موديل", "سنة"]
+      "english": [
+        "price",
+        "pricing",
+        "how much",
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "موديل",
+        "سنة"
+      ]
+    }
+  },
+  {
+    "case_id": "regression_ppf_price_request_includes_core_tokens",
+    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_contains": {
+      "english": [
+        "BMW",
+        "X5",
+        "PPF"
+      ],
+      "arabic": [
+        "PPF",
+        "BMW",
+        "X5"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "pricing cannot be calculated",
+        "cannot calculate pricing",
+        "apologize, pricing"
+      ],
+      "arabic": [
+        "لا يمكننا حساب الأسعار",
+        "لا نستطيع حساب الأسعار"
+      ]
+    }
+  },
+  {
+    "case_id": "regression_ppf_price_request_should_not_route_to_phase5_blocker",
+    "input": "BMW X5 2025 full PPF, how much?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_not_contains": {
+      "english": [
+        "pricing cannot be calculated",
+        "booking options"
+      ],
+      "arabic": [
+        "لا يمكننا حساب الأسعار",
+        "خيارات الحجز"
+      ]
+    }
+  },
+  {
+    "case_id": "regression_ppf_price_request_no_currency_leak_under_pressure_words",
+    "input": "BMW X5 2025 PPF how much? too expensive everywhere",
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "usd",
+        "dollar",
+        "$",
+        "450",
+        "700",
+        "280",
+        "1000",
+        "starts from"
+      ],
+      "arabic": [
+        "دينار",
+        "دولار",
+        "$",
+        "٤٥٠",
+        "٧٠٠",
+        "٢٨٠",
+        "١٠٠٠",
+        "يبدأ من"
+      ]
     }
   }
 ]
