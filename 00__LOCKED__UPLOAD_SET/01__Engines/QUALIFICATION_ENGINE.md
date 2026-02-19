@@ -476,9 +476,28 @@ IF greeting_only_message == true:
     - allowed_next_actions includes ask_missing_info
     - QUALIFICATION_STATUS = NOT_READY
 
+
 Precedence:
 - This rule must run BEFORE any “browsing” / “service inquiry” mapping.
 - If the message includes a service keyword or pricing request, this rule must NOT trigger (not greeting-only).
+
+## 2.Y) BRAND-ONLY ROUTING (HARD — Phase-agnostic, pre-browsing)
+Purpose:
+- Prevent brand-only questions (e.g., “Do you install XPEL?”) from being classified as BROWSING_GENERIC/BROWSING.
+- Keep service_intent conservative (do not force a service) while allowing a clean canon response downstream.
+
+Definition:
+- brand_only_message == true when the normalized message contains ONLY a brand token
+  (e.g., "xpel") plus optional install verbs ("install", "do you install", "تركبون", "تركبون", "تركيب")
+  AND contains no vehicle tokens, no year, no pricing words, and no explicit service keyword (ppf/ceramic/tint/wrap/polishing).
+
+IF brand_only_message == true:
+  - request_type = OTHER
+  - QUALIFICATION_STATUS = NOT_QUALIFIED
+  - missing_fields = [vehicle_model, vehicle_year]
+  - allowed_next_actions includes: ask_missing_info
+  - Do NOT set BROWSING_GENERIC
+  - Do NOT invoke price ladder signals
 
 ## 2.Y) SERVICE OFFERINGS / "WHAT DO YOU OFFER" → BROWSING_GENERIC (HARD)
 # Purpose: prevent "What services do you offer?" from falling into OTHER and producing non-canon wording.

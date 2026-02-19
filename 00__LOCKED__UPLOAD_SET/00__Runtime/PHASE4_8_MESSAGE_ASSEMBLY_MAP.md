@@ -135,6 +135,23 @@ IF request_type == GREETING_ONLY:
   - Output MUST use ONLY:
     - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A4_GREETING_SERVICE_CONTEXT
   - selected_phrase_id MUST equal A4_GREETING_SERVICE_CONTEXT
+
+────────────────────────────────────────────────────────────
+BRAND-ONLY ROUTES (HARD OVERRIDE — ANY PHASE)
+────────────────────────────────────────────────────────────
+Purpose:
+- Answer brand-only install questions via canon phrases (no pricing).
+Hard rules:
+- Use PHASE4_6 phrases only
+- Max 1 question
+- Do NOT invoke PRICE_LADDER_ENGINE
+
+IF request_type == OTHER
+AND service_intent == unknown
+AND current_user_message contains "xpel" OR "XPEL" OR "اكسبل" OR "إكس بيل":
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → BRAND DISCLOSURE — PHASE 0–2 (APPROVED)
+  - selected_phrase_id MUST equal BRAND DISCLOSURE — PHASE 0–2 (APPROVED)
+  - suppress: price_ladder=true
   - STOP (do not append any other blocks).
 
 ## REENTERED_CONTINUE (CONTEXT EXISTS) — CONTINUE WITHOUT RESET
@@ -319,6 +336,20 @@ ACTIVE_UNDER_PHASE3_4_LOCK: true
 # PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
 # GLOBAL RUNTIME AUTHORITY — DO NOT OVERRIDE
 # ============================================================
+
+------------------------------------------------------------
+PHASE 5 ENTRY GUARD (HARD — DO NOT DRIFT)
+------------------------------------------------------------
+Purpose:
+- Phase 5 is post-price objection/clarification only.
+- A direct PRICE_REQUEST must NEVER be answered by Phase 5 (Phase 5 cannot price).
+
+Hard rule:
+IF request_type == PRICE_REQUEST:
+  - STOP Phase 5 routing.
+  - Route back to Phase 3B pricing path (PRICE_LADDER_ENGINE) via normal execution flow.
+  - Do NOT use any PHASE5_* "blocked" phrases for PRICE_REQUEST.
+
 
 # PHASE 5 PHRASE AUTHORITY (HARD)
 # - Phase 5 must assemble ONLY from PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE5_* blocks.
