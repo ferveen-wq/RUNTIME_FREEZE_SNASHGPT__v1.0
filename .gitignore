@@ -8,3 +8,6 @@ SNASHGPT_PHASE0_4_MEGA_SEQUENCE_TEST.txt
 __pycache__/
 *.pyc
 tests/reports/github secret key for api
+
+# UAT reports (generated)
+/tests/reports/
