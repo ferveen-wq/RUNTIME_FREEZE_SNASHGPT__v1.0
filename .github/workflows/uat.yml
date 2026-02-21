@@ -23,6 +23,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install openai
 
+      - name: Debug OpenAI key presence (safe)
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY is NOT set"
+            exit 1
+          fi
+          echo "OPENAI_API_KEY is set"
+          echo "Key length: ${#OPENAI_API_KEY}"
+          echo "Key prefix: ${OPENAI_API_KEY:0:7}"
+
       - name: Run Core UAT
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
