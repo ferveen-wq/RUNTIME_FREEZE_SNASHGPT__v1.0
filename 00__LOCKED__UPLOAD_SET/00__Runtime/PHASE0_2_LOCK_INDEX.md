@@ -63,6 +63,7 @@ Lock rules:
   - [vehicle_model, vehicle_year] → ask V1/V2/V3 (model+year)
   - [vehicle_model] → ask MODEL_ONLY
   - [vehicle_year] → ask YEAR_ONLY
+  - [vehicle_year] → ask YEAR_ONLY
 
 ### A2 — SERVICE LIST REQUEST (WHEN CUSTOMER ASKS “what services”)
 Allowed phrase IDs:

@@ -235,7 +235,7 @@ SKU_SELECTION_MATRIX.md and can be refined later without changing this engine.
 Applies when:
 - service_intent == wrap
 - phase3a_complete == true
-- request_type == PRICE_REQUEST
+- PRECONDITION: request_type == PRICE_REQUEST (request_type is written only by QUALIFICATION_ENGINE.md)
 
 Inputs:
 - vehicle_segment ∈ {VCB_1, VCB_2, VCB_3}

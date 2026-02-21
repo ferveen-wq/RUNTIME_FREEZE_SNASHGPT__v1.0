@@ -1,25 +1,482 @@
 [
-  {
-    "case_id": "ppf_price_request_x5_2025",
-    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
-    "expect_debug": {
-      "request_type": "PRICE_REQUEST"
+    {
+        "case_id": "regression_greeting_no_vehicle_question",
+        "input": "hi",
+        "expect_debug": {
+            "request_type": "GREETING_ONLY"
+        },
+        "expect_not_contains": {
+            "english": [
+                "which car",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629",
+                "\u0627\u0644\u0633\u064a\u0627\u0631\u0629"
+            ]
+        }
     },
-    "expect_contains": {
-      "arabic": ["PPF", "BMW", "X5"],
-      "english": ["PPF", "BMW", "X5"]
-    }
-  },
-  {
-    "case_id": "greeting_should_not_ask_vehicle",
-    "input": "hi",
-    "expect_debug": {
-      "phase": "0",
-      "request_type": "GREETING"
+    {
+        "case_id": "regression_ppf_price_request_no_usd_no_dollar",
+        "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST"
+        },
+        "expect_not_contains": {
+            "english": [
+                "$",
+                "usd",
+                "dollar",
+                "4500",
+                "7500"
+            ],
+            "arabic": [
+                "$",
+                "usd",
+                "\u062f\u0648\u0644\u0627\u0631",
+                "4500",
+                "7500"
+            ]
+        }
     },
-    "expect_not_contains": {
-      "english": ["which car", "model", "year"],
-      "arabic": ["موديل", "سنة", "السيارة"]
+    {
+        "case_id": "regression_competitor_cheaper_objection",
+        "input": "Another place is cheaper for PPF",
+        "expect_debug": {
+            "request_type": "SERVICE_CONFIRMED"
+        },
+        "expect_not_contains": {
+            "english": [
+                "they are bad",
+                "cheap quality",
+                "fake brand"
+            ],
+            "arabic": [
+                "\u0633\u064a\u0626\u064a\u0646",
+                "\u062c\u0648\u062f\u0629 \u0633\u064a\u0626\u0629",
+                "\u0645\u0632\u064a\u0641"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_location_no_pricing_no_qualification",
+        "input": "Where are you located?",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "Nuwaidrat",
+                "Riffa"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0631\u0641\u0627\u0639"
+            ]
+        },
+        "expect_contains_any": {
+            "arabic": [
+                "\u0627\u0644\u0646\u0648\u064a\u062f\u0631\u0627\u062a",
+                "\u0627\u0644\u0646\u0648\u064a\u0630\u0631\u0627\u062a",
+                "\u0627\u0644\u0646\u064f\u0648\u064a\u062f\u0631\u0627\u062a"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_hours_no_pricing_no_qualification",
+        "input": "What are your opening hours?",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "10:00",
+                "7:00"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0633\u0628\u062a",
+                "\u0627\u0644\u062e\u0645\u064a\u0633",
+                "10:00",
+                "7:00"
+            ]
+        },
+        "expect_contains_any": {
+            "english": [
+                "Sat",
+                "Saturday"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_saudi_branch_no_pricing_no_qualification",
+        "input": "Do you have a branch in Saudi?",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "Bahrain"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0628\u062d\u0631\u064a\u0646"
+            ]
+        },
+        "expect_contains_any": {
+            "english": [
+                "No",
+                "do not have",
+                "Bahrain"
+            ],
+            "arabic": [
+                "\u0644\u0627",
+                "\u0644\u064a\u0633 \u0644\u062f\u064a\u0646\u0627",
+                "\u0627\u0644\u0628\u062d\u0631\u064a\u0646"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_brand_only_xpel_no_pricing",
+        "input": "Do you install XPEL?",
+        "expect_debug": {
+            "request_type": "OTHER"
+        },
+        "expect_not_contains": {
+            "english": [
+                "$",
+                "usd",
+                "bhd",
+                "starts from",
+                "450",
+                "700",
+                "280",
+                "500",
+                "1000"
+            ],
+            "arabic": [
+                "\u062f\u0648\u0644\u0627\u0631",
+                "\u062f\u064a\u0646\u0627\u0631",
+                "\u064a\u0628\u062f\u0623 \u0645\u0646",
+                "\u0664\u0665\u0660",
+                "\u0667\u0660\u0660",
+                "\u0662\u0668\u0660",
+                "\u0665\u0660\u0660",
+                "\u0661\u0660\u0660\u0660"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_browsing_services_list_no_pricing",
+        "input": "What services do you offer?",
+        "expect_not_contains": {
+            "english": [
+                "$",
+                "usd",
+                "bhd",
+                "price",
+                "pricing",
+                "starts from",
+                "from "
+            ],
+            "arabic": [
+                "\u062f\u0648\u0644\u0627\u0631",
+                "\u062f\u064a\u0646\u0627\u0631",
+                "\u0633\u0639\u0631",
+                "\u0623\u0633\u0639\u0627\u0631",
+                "\u064a\u0628\u062f\u0623 \u0645\u0646"
+            ]
+        },
+        "expect_contains_any": {
+            "english": [
+                "PPF",
+                "Ceramic",
+                "Tint",
+                "Wrap",
+                "Wrapping",
+                "Polish",
+                "Polishing"
+            ],
+            "arabic": [
+                "PPF",
+                "\u0633\u064a\u0631\u0627\u0645\u064a\u0643",
+                "\u062a\u0638\u0644\u064a\u0644",
+                "\u062a\u0644\u0645\u064a\u0639",
+                "\u0631\u0627\u0628",
+                "\u062a\u063a\u0644\u064a\u0641"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_browsing_just_browsing_no_pricing",
+        "input": "Just browsing",
+        "expect_not_contains": {
+            "english": [
+                "$",
+                "usd",
+                "bhd",
+                "price",
+                "pricing",
+                "how much"
+            ],
+            "arabic": [
+                "\u062f\u0648\u0644\u0627\u0631",
+                "\u062f\u064a\u0646\u0627\u0631",
+                "\u0633\u0639\u0631",
+                "\u0623\u0633\u0639\u0627\u0631",
+                "\u0643\u0645"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_new_car_should_not_force_year_question",
+        "input": "I have a new car, what do you recommend?",
+        "expect_not_contains": {
+            "english": [
+                "what year",
+                "which year",
+                "year?"
+            ],
+            "arabic": [
+                "\u0623\u064a \u0633\u0646\u0629",
+                "\u0634\u0646\u0648 \u0633\u0646\u0629",
+                "\u0633\u0646\u0629 \u0627\u0644\u0633\u064a\u0627\u0631\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_location_arabic_trigger_no_pricing_no_qualification",
+        "input": "\u0648\u064a\u0646 \u0645\u0648\u0642\u0639\u0643\u0645\u061f",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "Nuwaidrat",
+                "Riffa"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0631\u0641\u0627\u0639"
+            ]
+        },
+        "expect_contains_any": {
+            "arabic": [
+                "\u0627\u0644\u0646\u0648\u064a\u062f\u0631\u0627\u062a",
+                "\u0627\u0644\u0646\u0648\u064a\u0630\u0631\u0627\u062a",
+                "\u0627\u0644\u0646\u064f\u0648\u064a\u062f\u0631\u0627\u062a"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_hours_arabic_trigger_no_pricing_no_qualification",
+        "input": "\u0645\u062a\u0649 \u062a\u0641\u062a\u062d\u0648\u0646\u061f",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "10:00",
+                "7:00"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0633\u0628\u062a",
+                "\u0627\u0644\u062e\u0645\u064a\u0633",
+                "10:00",
+                "7:00"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "bizinfo_saudi_branch_arabic_trigger_no_pricing_no_qualification",
+        "input": "\u0639\u0646\u062f\u0643\u0645 \u0641\u0631\u0639 \u0628\u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629\u061f",
+        "expect_debug": {
+            "request_type": "LOCATION"
+        },
+        "expect_contains": {
+            "english": [
+                "Bahrain"
+            ],
+            "arabic": [
+                "\u0627\u0644\u0628\u062d\u0631\u064a\u0646"
+            ]
+        },
+        "expect_contains_any": {
+            "english": [
+                "No",
+                "do not have",
+                "Bahrain"
+            ],
+            "arabic": [
+                "\u0644\u0627",
+                "\u0644\u064a\u0633 \u0644\u062f\u064a\u0646\u0627",
+                "\u0627\u0644\u0628\u062d\u0631\u064a\u0646"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "price",
+                "pricing",
+                "how much",
+                "model",
+                "year"
+            ],
+            "arabic": [
+                "\u0633\u0639\u0631",
+                "\u0643\u0645",
+                "\u0645\u0648\u062f\u064a\u0644",
+                "\u0633\u0646\u0629"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_ppf_price_request_includes_core_tokens",
+        "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST"
+        },
+        "expect_contains": {
+            "english": [
+                "BMW",
+                "X5",
+                "PPF"
+            ],
+            "arabic": [
+                "PPF",
+                "BMW",
+                "X5"
+            ]
+        },
+        "expect_not_contains": {
+            "english": [
+                "pricing cannot be calculated",
+                "cannot calculate pricing",
+                "apologize, pricing"
+            ],
+            "arabic": [
+                "\u0644\u0627 \u064a\u0645\u0643\u0646\u0646\u0627 \u062d\u0633\u0627\u0628 \u0627\u0644\u0623\u0633\u0639\u0627\u0631",
+                "\u0644\u0627 \u0646\u0633\u062a\u0637\u064a\u0639 \u062d\u0633\u0627\u0628 \u0627\u0644\u0623\u0633\u0639\u0627\u0631"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_ppf_price_request_should_not_route_to_phase5_blocker",
+        "input": "BMW X5 2025 full PPF, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST"
+        },
+        "expect_not_contains": {
+            "english": [
+                "pricing cannot be calculated",
+                "booking options"
+            ],
+            "arabic": [
+                "\u0644\u0627 \u064a\u0645\u0643\u0646\u0646\u0627 \u062d\u0633\u0627\u0628 \u0627\u0644\u0623\u0633\u0639\u0627\u0631",
+                "\u062e\u064a\u0627\u0631\u0627\u062a \u0627\u0644\u062d\u062c\u0632"
+            ]
+        }
+    },
+    {
+        "case_id": "regression_ppf_price_request_no_currency_leak_under_pressure_words",
+        "input": "BMW X5 2025 PPF how much? too expensive everywhere",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST"
+        },
+        "expect_not_contains": {
+            "english": [
+                "BHD",
+                "usd",
+                "dollar",
+                "$",
+                "450",
+                "700",
+                "280",
+                "1000",
+                "starts from"
+            ],
+            "arabic": [
+                "\u062f\u064a\u0646\u0627\u0631",
+                "\u062f\u0648\u0644\u0627\u0631",
+                "$",
+                "\u0664\u0665\u0660",
+                "\u0667\u0660\u0660",
+                "\u0662\u0668\u0660",
+                "\u0661\u0660\u0660\u0660",
+                "\u064a\u0628\u062f\u0623 \u0645\u0646"
+            ]
+        }
     }
-  }
 ]

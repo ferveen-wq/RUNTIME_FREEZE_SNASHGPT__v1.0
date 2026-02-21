@@ -3,7 +3,7 @@
     "case_id": "regression_greeting_no_vehicle_question",
     "input": "hi",
     "expect_debug": {
-      "request_type": "GREETING"
+      "request_type": "GREETING_ONLY"
     },
     "expect_not_contains": {
       "english": [
@@ -45,7 +45,7 @@
     "case_id": "regression_competitor_cheaper_objection",
     "input": "Another place is cheaper for PPF",
     "expect_debug": {
-      "request_type": "OTHER"
+      "request_type": "SERVICE_CONFIRMED"
     },
     "expect_not_contains": {
       "english": [
@@ -453,7 +453,7 @@
     "case_id": "regression_ppf_price_request_no_currency_leak_under_pressure_words",
     "input": "BMW X5 2025 PPF how much? too expensive everywhere",
     "expect_debug": {
-      "request_type": "OTHER"
+      "request_type": "PRICE_REQUEST"
     },
     "expect_not_contains": {
       "english": [

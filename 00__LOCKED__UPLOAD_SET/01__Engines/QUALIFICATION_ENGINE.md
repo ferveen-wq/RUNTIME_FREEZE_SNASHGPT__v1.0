@@ -1,5 +1,3 @@
-
-
 # QUALIFICATION_ENGINE.md
 
 Status: LOCK CANDIDATE
@@ -517,10 +515,46 @@ THEN:
   - detected_service_intent_in_message = unknown
   - missing_fields = [vehicle_model, vehicle_year]
 
+## 2.Z-1) DIRECT PRICE REQUEST → PRICE_REQUEST (HARD OVERRIDE)
+Purpose:
+- A direct price request MUST classify as PRICE_REQUEST even if price-pressure language is also present
+  in the same message (example: "how much? too expensive").
+Precedence:
+- This rule MUST be evaluated BEFORE any "price pressure" or "competitor cheaper" routing.
+
+IF (
+  (current_user_message contains "how" AND current_user_message contains "much")
+  OR current_user_message contains "how much"
+  OR current_user_message contains "how much?"
+  OR current_user_message contains "how much ?"
+  OR current_user_message contains "how much؟"
+  OR current_user_message contains "price"
+  OR current_user_message contains "pricing"
+  OR current_user_message contains "cost"
+  OR current_user_message contains "كم"
+  OR current_user_message contains "سعر"
+)
+THEN:
+  - request_type = PRICE_REQUEST
+  - constraints += [direct_price_request=true]
+  - STOP
+
 ## 2.Z) PRICE PRESSURE WITHOUT DIRECT PRICE REQUEST → OTHER (HARD)
+Precondition (non-negotiable):
+- This rule MUST NOT trigger if the same message contains ANY direct price token.
 # Purpose: "cheaper elsewhere / too expensive" is NOT a price request unless the user asks "how much/price".
 # This prevents mislabeling as PRICE_REQUEST and preserves correct regression behavior.
-IF current_user_message contains any of:
+IF current_user_message does NOT contain any of:
+  - "how much"
+  - "how much?"
+  - "how much ?"
+  - "how much؟"
+  - "price"
+  - "pricing"
+  - "cost"
+  - "كم"
+  - "سعر"
+AND current_user_message contains any of:
   - "cheaper"
   - "cheaper elsewhere"
   - "too expensive"
@@ -530,13 +564,6 @@ IF current_user_message contains any of:
   - "غالي"
   - "السعر عالي"
   - "سعر عالي"
-AND current_user_message does NOT contain any of:
-  - "how much"
-  - "price"
-  - "pricing"
-  - "cost"
-  - "كم"
-  - "سعر"
 THEN:
   - request_type = OTHER
   - constraints += [price_pressure_signal=true]
@@ -607,6 +634,28 @@ Decisions must be evaluated in the following order, top to bottom. First match w
   - Content class outside system handling scope (as defined by routing governance).
   - Missing capability flags required to proceed.
 
+### VEHICLE ALIAS TOKEN DETECTION (HARD — Phase 0–2 gating)
+Purpose:
+- Ensure shorthand model tokens (SAFE / AMBIGUOUS aliases) are handled deterministically,
+  so downstream "year-only" and "ambiguous clarify" guards trigger reliably.
+
+Trigger:
+- If a vehicle token is present in the user message AND that token matches an alias entry in:
+  00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4)
+
+Behavior:
+- If token matches a SAFE alias (Section 4.1):
+  - Treat vehicle_model as present (canonicalizable).
+  - Do NOT mark vehicle_model missing due to short-form token.
+- If token matches an AMBIGUOUS alias (Section 4.2):
+  - Do NOT treat vehicle_model as confirmed.
+  - Force vehicle_model to remain missing so AMBIGUOUS ALIAS GUARD can fire.
+
+Notes:
+- This rule does NOT choose the final canonical model string itself; it only ensures the token is
+  treated correctly for gating and clarification.
+  (Canonicalization remains governed by the vehicle repository rules.)
+
 ### 2.46) SERVICE_CONFIRMED_CARRY_FORWARD (HARD)
 
 Trigger condition:
@@ -616,7 +665,7 @@ Trigger condition:
 - AND the current message does NOT introduce a new service keyword (ppf/ceramic/tint/wrap/polishing)
 
 Emit:
-- request_type = VEHICLE_DETAILS_PROVIDED
+- request_type = SERVICE_CONFIRMED
 - service_intent = previous_turn.service_intent
 - active_service_context = previous_turn.service_intent
 
@@ -644,6 +693,49 @@ If minimum vehicle context is missing:
 Restrictions:
 - Do NOT ask preference questions
 - Do NOT proceed to pricing or negotiation
+
+### SERVICE_CONFIRMED — PARTIAL VEHICLE CONTEXT (HARD)
+If vehicle_model is present AND vehicle_year is missing AND NOT (vehicle_year_inferred = NEW):
+  - Set qualification_state = NOT_READY
+  - missing_fields = [vehicle_year]
+  - allowed_next_actions includes: ask_missing_info
+  - QUALIFICATION_STATUS = NOT_READY
+
+### AMBIGUOUS ALIAS GUARD (HARD — applies even when service keyword exists)
+If vehicle_model token matches an AMBIGUOUS alias from GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4.2):
+  - Set qualification_state = NOT_READY
+  - Set QUALIFICATION_STATUS = NOT_READY
+  - Add constraint: offscope_non_automotive = false
+  - Add constraint: vehicle_alias_ambiguous = true
+  - Populate missing_fields with:
+      - vehicle_model
+      - vehicle_year
+  - allowed_next_actions must include:
+      - ask_missing_info
+  - STOP (do not proceed as qualified)
+
+### VEHICLE_YEAR_ONLY_MISSING (HARD — Phase 0–2 gating)
+Trigger:
+- service_intent != unknown
+- vehicle_model is present (resolved/canonical)
+- vehicle_year is missing
+Emit:
+- qualification_state = NOT_READY
+- QUALIFICATION_STATUS = NOT_READY
+- missing_fields = [vehicle_year]
+- allowed_next_actions includes ask_missing_info
+- STOP
+  - Do NOT treat it as confirmed vehicle_model
+  - Set qualification_state = NOT_READY
+  - missing_fields = [vehicle_model, vehicle_year]
+  - allowed_next_actions includes: ask_missing_info
+  - QUALIFICATION_STATUS = NOT_READY
+
+### OFFSCOPE — NON-AUTOMOTIVE (HARD)
+If user intent is non-automotive (e.g., job/employment/CV/work requests):
+  - request_type = OTHER
+  - Set constraint: offscope_non_automotive = true
+  - QUALIFICATION_STATUS = QUALIFIED_WITH_CONSTRAINTS
 
 3) AMBIGUOUS_TARGET
 - Trigger if the system cannot identify the minimum target needed to proceed safely, including:

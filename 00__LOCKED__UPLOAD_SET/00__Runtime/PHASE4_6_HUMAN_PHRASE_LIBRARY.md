@@ -1,3 +1,8 @@
+# PHASE 0–2 — NEW CAR RECOMMENDATION (NO MODEL/YEAR)
+PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR:
+AR: أهلاً بك. بشكل عام للسيارات الجديدة ننصح بحماية تعطيك راحة بال من اليوم الأول مثل حماية الطلاء (PPF) للمقدمة أو كاملة حسب استخدامك، ومعها خيار سيراميك للمحافظة على اللمعة وسهولة الغسيل. ما هو هدفك الأساسي: حماية من حصى وخدوش الطرق، أم لمعان وسهولة تنظيف؟
+EN: Welcome. For a new car, we generally recommend starting with paint protection (PPF) for the front end or full coverage depending on your usage, and optionally ceramic coating to maintain gloss and make washing easier. What’s your main goal: protection from road chips/scratches, or gloss and easier cleaning?
+
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
@@ -762,7 +767,7 @@ Languages:
 ## A. OPENING PHRASES
 Purpose: Establish human presence and conversational safety at message start.
 
-### Neutral Openings (Default)
+## Neutral Openings (Default)
 
 - EN: Hello, happy to assist.
   AR: مرحباً، سعيد بمساعدتك.
@@ -776,7 +781,7 @@ Purpose: Establish human presence and conversational safety at message start.
 - EN: Hello.
   AR: مرحباً.
 
-### Regional / Arabic Cultural Opening (Optional)
+## Regional / Arabic Cultural Opening (Optional)
 
 - EN: Peace be upon you.
   AR: السلام عليكم.
@@ -905,7 +910,7 @@ AR:
 - EN: Ceramic coating protects the exterior paint, while interior ceramic focuses separately on interior surfaces.
   AR: طلاء السيراميك يختص بحماية الطلاء الخارجي، بينما السيراميك الداخلي يركّز بشكل منفصل على الأسطح الداخلية.
 
-### INTERIOR CERAMIC — CORE ANCHOR (PRE-PRICE)
+## INTERIOR CERAMIC — CORE ANCHOR (PRE-PRICE)
 
 - EN: Interior ceramic is like a non-stick layer for the interior — everyday spills and dirt don’t stick easily, making cleaning much simpler.
   AR: السيراميك الداخلي يشبه طبقة مانعة للالتصاق داخل السيارة — الأوساخ والسوائل اليومية ما تمسك بسهولة، والتنظيف يصير أسهل.
@@ -918,7 +923,7 @@ To guide this properly, how do you usually wash the car — bucket/hand wash, tu
 AR:
 عشان أوجّهك صح، شلون عادة تغسل السيارة — غسيل يدوي/سطل، غسيل نفق/آلي، غسيل بدون ماء في مواقف المولات، أو خليط؟
 
-### TINT — CORE ANCHOR (PRE-PRICE)
+## TINT — CORE ANCHOR (PRE-PRICE)
 
 - EN: Window tint is about sun protection for your family, not just making the glass dark.
   AR: تظليل الزجاج يركّز على حماية عائلتك من الشمس، مو بس تعتيم الزجاج.
@@ -929,12 +934,12 @@ AR:
 - EN: The difference is felt in daily comfort, not in how dark the windows look.
   AR: الفرق الحقيقي يبان في الراحة اليومية، مو في درجة التظليل فقط.
 
-### TINT — COVERAGE FRAMING (EXPOSURE ZONES)
+## TINT — COVERAGE FRAMING (EXPOSURE ZONES)
 
 - EN: Some drivers focus protection on the front for eye comfort, others on the sides and back for privacy, and some prefer full coverage for balanced comfort all around.
   AR: بعض السائقين يفضّلون حماية الزجاج الأمامي لراحة العين، وآخرين الجوانب والخلفية للخصوصية، والبعض يختار تغطية كاملة لراحة متوازنة داخل السيارة.
 
-### WRAP — CORE ANCHOR (PRE-PRICE)
+## WRAP — CORE ANCHOR (PRE-PRICE)
 
 - EN: Wrap is about presence — like someone who changes the room the moment they arrive, the car is noticed before it’s explained.
   AR: التغليف يتعلق بالحضور — مثل الشخص الذي يغيّر أجواء المكان عند دخوله، السيارة تُلاحظ قبل ما تحتاج شرح.
@@ -942,12 +947,12 @@ AR:
 - EN: It’s a visual statement that gives the car a distinct character and stand-out appeal.
   AR: هو تعبير بصري يعطي السيارة شخصية واضحة وحضور لافت.
 
-### WRAP — STYLE DIRECTION (FINISH SELECTION)
+## WRAP — STYLE DIRECTION (FINISH SELECTION)
 
 - EN: Some prefer a bold, clean gloss look, others go for a muted matte feel, and some choose satin for a balance in between.
   AR: البعض يفضّل اللمسة اللامعة الجريئة، والبعض يختار المظهر المطفي الهادئ، وآخرون يفضلون الساتان للتوازن بين الاثنين.
 
-### POLISHING — CORE ANCHOR (PRE-PRICE)
+## POLISHING — CORE ANCHOR (PRE-PRICE)
 
 - EN: Polishing is like a factory reset for the paint — it brings the finish and gloss back toward how it was meant to look.
   AR: التلميع يشبه إعادة ضبط المصنع للطلاء — يعيد اللمعة والمظهر أقرب لما كانت عليه السيارة في الأصل.
@@ -1092,7 +1097,7 @@ Purpose: Explain common objections calmly without argument or pressure.
 - EN: Expectations and usage play a big role in deciding.
   AR: التوقعات وطريقة الاستخدام لها دور كبير في القرار.
 
-### TINT — SPEC & BRAND CONFUSION (SAFE RESPONSE)
+## TINT — SPEC & BRAND CONFUSION (SAFE RESPONSE)
 
 - EN: Darkness and percentages don’t always reflect protection — performance comes from the film technology itself.
   AR: درجة التعتيم أو النسب ما تعكس دائماً مستوى الحماية — الأداء الحقيقي يعتمد على تقنية الفيلم.
@@ -1173,7 +1178,7 @@ Purpose: Prepare the customer for pricing discussion without quoting, anchoring,
 - EN: We can go through the details step by step when you’re ready.
   AR: يمكننا مراجعة التفاصيل خطوة بخطوة عندما تكون جاهزًا.
 
-### TINT — PRICE CONTEXT (NO NUMBERS)
+## TINT — PRICE CONTEXT (NO NUMBERS)
 
 - EN: Tint pricing mainly depends on the coverage area and the film type used, not just darkness.
   AR: سعر التظليل يعتمد بشكل أساسي على مساحة التغطية ونوع الفيلم، وليس فقط على درجة التعتيم.
@@ -1273,72 +1278,72 @@ Usage rule:
 EN: No problem at all. We do PPF, ceramic coating, tint, wrap, and polishing. Which one are you mainly looking at?
 AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. أي خدمة في بالك أكثر؟
 
-### SERVICE LIST — PHASE 0–2
+## SERVICE LIST — PHASE 0–2
 - EN: We can help with PPF, ceramic, tint, wrap, and polishing. What’s the car model and year?
 - AR: نقدر نخدمك في PPF، سيراميك، تظليل، تغليف، وتلميع. شنو موديل السيارة وأي سنة؟
 
 - EN_ALT: Our services include PPF, ceramic coating, tinting, wrapping, and polishing. What’s the car model and year?
 - AR_ALT: خدماتنا تشمل PPF، سيراميك، تظليل، تغليف، وتلميع. شنو موديل السيارة وأي سنة؟
 
-### SERVICE CONFIRMED — PHASE 0–2
+## SERVICE CONFIRMED — PHASE 0–2
 - EN: Yes, we do that. What’s the car model and year?
 - AR: نعم نقدر نخدمك. شنو موديل السيارة وأي سنة؟
 
 - EN_ALT: Sure. Can you share the car model and year?
 - AR_ALT: أكيد. تقدر تعطيني موديل السيارة وأي سنة؟
 
-### DRIVING PATTERN QUALIFIER — PHASE 0–2 (VEHICLE KNOWN)
+## DRIVING PATTERN QUALIFIER — PHASE 0–2 (VEHICLE KNOWN)
 - EN: Do you mostly drive in the city, or do you often travel long distances on highways?
 - AR: استخدامك أغلبه داخل المدينة، ولا تسافر كثير على الخطوط السريعة؟
 
 - EN_ALT: Is your driving mainly city use, or more highway trips?
 - AR_ALT: قيادتك أكثر داخل المدينة ولا على الخطوط السريعة؟
 
-### PRICE REQUEST HOLD — PHASE 0–2
+## PRICE REQUEST HOLD — PHASE 0–2
 - EN: Pricing depends on the car and coverage. What’s the car model and year?
 - AR: السعر يعتمد على السيارة والتغطية. شنو موديل السيارة وأي سنة؟
 
 - EN_ALT: To guide you properly on pricing, I just need the car model and year.
 - AR_ALT: عشان أوجهك صح بالسعر، أحتاج موديل السيارة وأي سنة؟
 
-### COMPARISON — PHASE 0–2 (VEHICLE KNOWN)
+## COMPARISON — PHASE 0–2 (VEHICLE KNOWN)
 - EN: I can explain it simply: PPF protects against chips and scratches, while ceramic is mainly for gloss and easier washing. Which one do you want to go with?
 - AR: أشرحها لك ببساطة: الـPPF يحمي من ضربات الحصى والخدوش، والسيراميك للّمعان وسهولة الغسيل. شنو تحب تختار؟
 
 - EN_ALT: In short, PPF is for protection, ceramic is more about shine and easy cleaning. Which option would you prefer?
 - AR_ALT: باختصار، الـPPF للحماية، والسيراميك للّمعان وسهولة التنظيف. أي خيار تفضل؟
 
-### BRAND DISCLOSURE — PHASE 0–2 (APPROVED)
+## BRAND DISCLOSURE — PHASE 0–2 (APPROVED)
 - EN: Yes, we work with approved PPF brands like XPEL and Global Hi-Tech Films. What’s the car model and year?
 - AR: نعم، نركّب علامات PPF المعتمدة مثل XPEL وGlobal Hi-Tech Films. شنو موديل السيارة وأي سنة؟
 
-### COMPETITOR CHEAPER — PHASE 0–2
+## COMPETITOR CHEAPER — PHASE 0–2
 - EN: Understood. To compare properly for PPF, what’s the car model and year?
 - AR: مفهوم. عشان نقدر نقارن بشكل صحيح للـPPF، شنو موديل السيارة وأي سنة؟
 
-### TECHNICAL QUESTION HOLD — PHASE 0–2
+## TECHNICAL QUESTION HOLD — PHASE 0–2
 - EN: I can explain it clearly once I know the car details. What’s the car model and year?
 - AR: أقدر أشرح لك بشكل واضح بعد ما أعرف تفاصيل السيارة. شنو موديل السيارة وأي سنة؟
 
-### POST-SERVICE / OFF-SCOPE — PHASE 0–2
+## POST-SERVICE / OFF-SCOPE — PHASE 0–2
 - EN: Noted — the concerned team will respond to you.
 - AR: تم — الفريق المختص بيرد عليك.
 
-### L.3X COMPARISON HOLD (PHASE 0–2)
+## L.3X COMPARISON HOLD (PHASE 0–2)
 - EN: I can explain it simply: PPF protects against chips and scratches, while ceramic is mainly gloss and easier washing. Which one do you want to go with?
 - AR: أشرحها لك ببساطة: الـPPF يحمي من ضربات الحصى والخدوش، والسيراميك للّمعان وسهولة الغسيل. شنو تحب تختار؟
 
-### BRAND DISCLOSURE — PPF (PHASE 0–2)
+## BRAND DISCLOSURE — PPF (PHASE 0–2)
 - EN: Yes, we work with approved PPF brands like XPEL and Global Hi-Tech Films. What’s the car model and year?
 - AR: نعم، نركّب علامات PPF المعتمدة مثل XPEL وGlobal Hi-Tech Films. شنو موديل السيارة وأي سنة؟
 
-### OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)
+## OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)
 - EN: Thanks — I’ll forward this to the concerned team and they will get back to you.
 - AR: شكرًا — بحوّل الموضوع للفريق المختص وراح يرجعون لك.
 
-### POST-SERVICE SUPPORT (PHASE 0–2)
-- EN: Sure — I’ll forward this to the team to assist you.
-- AR: أكيد — بحوّل طلبك للفريق عشان يساعدونك.
+## POST-SERVICE SUPPORT (PHASE 0–2)
+ EN: Sure — I’ll forward this to the team to assist you.
+ AR: أكيد — بحوّل طلبك للفريق عشان يساعدونك.
 
 ### MULTI_SERVICE_INTENT_SAFE (PHASE 0–2)
 EN: Got it — you’re looking at more than one service. What’s the car model and year?
@@ -1350,12 +1355,12 @@ AR_ALT: تمام — واضح إنك تفكر بأكثر من خدمة. أي خ�
 EN: I know it can feel confusing — I can help. What’s the car model and year?
 AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أساعدك. شنو موديل السيارة وأي سنة؟
 
-### L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
+## L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
 
-- EN: We do Ceramic Coating, PPF (paint protection film), Window Tint, and Wrapping. If you tell me your car model and year, I’ll guide you to the right option.
-  AR: خدماتنا تشمل سيراميك، PPF (حماية الطلاء)، تظليل، وتغليف. إذا تعطيني موديل السيارة وسنة الصنع أقدر أرشدك للخيار المناسب.
+- EN: We do Ceramic Coating, PPF (paint protection film), Window Tint, Wrapping, and Polishing / paint correction. If you tell me your car model and year, I’ll guide you to the right option.
+  AR: خدماتنا تشمل سيراميك، PPF (حماية الطلاء)، تظليل، تغليف، وتلميع / تصحيح طلاء. إذا تعطيني موديل السيارة وسنة الصنع أقدر أرشدك للخيار المناسب.
 
-### Z_DEPRECATED__L.1_QUALIFICATION_CLARIFIERS__LEGACY_BLOCK (DO NOT USE)
+## Z_DEPRECATED__L.1_QUALIFICATION_CLARIFIERS__LEGACY_BLOCK (DO NOT USE)
 DEPRECATED — kept for history only.
 Reason:
 - Prevent duplicate selector targets in runtime.
@@ -1384,7 +1389,7 @@ Reason:
 - EN: We can explore this further based on what matters most to you.
   AR: يمكننا التعمق أكثر بناءً على ما يهمك أكثر.
 
-  ### L.3 SERVICE CONTEXT CLARIFIER (ONE QUESTION)
+  ## L.3 SERVICE CONTEXT CLARIFIER (ONE QUESTION)
 
 - EN: Just to confirm — do you want to switch services now, or should we stay on the current one?
   AR: بس للتأكيد — تبي نغيّر الخدمة الحين، ولا نكمل على نفس الخدمة؟
@@ -1394,7 +1399,7 @@ Reason:
 
 ---
 
-### Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__SERVICE_ANCHORED (DO NOT USE)
+## Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__SERVICE_ANCHORED (DO NOT USE)
 DEPRECATED — duplicate selector risk.
 Reason:
 - Phase 1–2 browsing is enforced by Assembly Map to use ONLY: "L.0 BROWSING SAFE PRIMER (ONE QUESTION)".
@@ -1412,7 +1417,7 @@ Usage rule (LOCKED):
 
 ---
 
-### Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__ALT (DO NOT USE)
+## Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__ALT (DO NOT USE)
 DEPRECATED — duplicate selector risk. Retained for history only.
 
 - EN: [DEPRECATED — DO NOT ROUTE IN PHASE 0–2]
@@ -1449,6 +1454,14 @@ AR: شنو موديل السيارة بالضبط؟
 EN: What’s the model year?
 AR: شنو سنة الموديل؟
 
+### L.1 YEAR_ONLY (AUTHORITATIVE — ONE QUESTION)
+Usage rule:
+- Used ONLY when missing_fields == [vehicle_year]
+- Must be 1 question only
+
+EN: What’s the model year?
+AR: شنو سنة الموديل؟
+
 ---
 
 
@@ -1459,36 +1472,23 @@ Usage rule:
 - Used ONLY when vehicle_model/year is missing
 - Must be short (overview + 1 question comes from L.1)
 
-EN:
-We do:
-Ceramic coating
-Paint protection film (PPF)
-Window tint
-Polishing / paint correction
-Interior detailing
-
-AR:
-خدماتنا:
-سيراميك
-حماية PPF
-تظليل
-تلميع / تصحيح طلاء
-تنظيف وحماية داخلي
+EN: We do Ceramic coating, Paint Protection Film (PPF), Window tint, Wrapping, and Polishing / paint correction.
+AR: خدماتنا تشمل سيراميك، حماية PPF، تظليل، تغليف، وتلميع / تصحيح طلاء.
 ---
 
 ## SERVICE MODULE TEMPLATE
 Service Name: [SERVICE_NAME]
 
-### 1. What This Service Is
+## 1. What This Service Is
 [PLACEHOLDER — SERVICE DEFINITION PHRASES]
 
-### 2. What Problem It Solves
+## 2. What Problem It Solves
 [PLACEHOLDER — PROBLEM-SOLUTION PHRASES]
 
-### 3. Typical Use Cases
+## 3. Typical Use Cases
 [PLACEHOLDER — USE CASE PHRASES]
 
-### 4. How It Differs From Other Services
+## 4. How It Differs From Other Services
 [PLACEHOLDER — SERVICE DIFFERENCE PHRASES]
 
 ---

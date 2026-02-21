@@ -67,7 +67,7 @@ These are tags, not customer-facing text.
 - If message contains any explicit price ask:
   - English: "price?", "price", "how much", "how much?"
   - Arabic: "بكم", "كم السعر", "كم"
-  - set request_type = PRICE_REQUEST
+  - constraints += [direct_price_request=true]
 
 ### PPF scope + driving extraction (HARD, same-message)
 - If message contains any PPF indicator (e.g., "ppf", "paint protection film", Arabic equivalent for PPF):
@@ -203,6 +203,11 @@ If the customer provides an alias that is listed as AMBIGUOUS in GLOBAL_VEHICLE_
 - Do NOT auto-normalize to any brand/model.
 - Mark vehicle_model as missing (do NOT guess).
 - Downstream must ask exactly ONE clarification question to confirm the exact brand/model before mapping.
+#
+# Priority rule (HARD):
+#- This ambiguous-alias guard MUST take precedence over any brand-only detection (e.g., XPEL).
+#- Do NOT reinterpret ambiguous vehicle aliases as brands, products, or services.
+
 From every customer input, try to extract:
 - Car brand
 - Car model

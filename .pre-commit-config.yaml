@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.2
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: arch-changelog-gate
+        name: ARCH_CHANGELOG gate (required for runtime/architecture changes)
+        entry: python3 runner/check_arch_changelog.py
+        language: system
+        pass_filenames: false
+      - id: phrase-authority-gate
+        name: Phrase Authority gate (no duplicate AUTHORITATIVE blocks)
+        entry: python3 runner/check_phrase_authority.py
+        language: system
+        pass_filenames: false
+
+      - id: json-validate
+        name: Validate JSON files
+        entry: python3 -m json.tool
+        language: system
+        types: [json]

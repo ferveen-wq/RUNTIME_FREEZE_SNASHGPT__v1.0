@@ -1,3 +1,8 @@
+## OFFSCOPE — NON-AUTOMOTIVE (HARD OVERRIDE)
+IF (constraints includes offscope_non_automotive=true):
+  - selected_phrase_id: "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  - Emit PHASE4_6_HUMAN_PHRASE_LIBRARY.md → OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)
+  - STOP
 # PHASE 4.8 — MESSAGE ASSEMBLY MAP
 
 Status: ACTIVE / LOCKED BEHAVIOR 
@@ -154,6 +159,7 @@ AND current_user_message contains "xpel" OR "XPEL" OR "اكسبل" OR "إكس ب
   - suppress: price_ladder=true
   - STOP (do not append any other blocks).
 
+
 ## REENTERED_CONTINUE (CONTEXT EXISTS) — CONTINUE WITHOUT RESET
 IF request_type == REENTERED_CONTINUE:
   - suppress_hooks = TRUE
@@ -161,6 +167,16 @@ IF request_type == REENTERED_CONTINUE:
     - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A6_REENTERED_CONTINUE
   - selected_phrase_id MUST equal A6_REENTERED_CONTINUE
   - STOP (do not append any other blocks).
+
+## 2.Z-1) DIRECT PRICE REQUEST (READ-ONLY GATE)
+# Purpose:
+# Assembly must NOT classify or set request_type.
+# Qualification Engine is the sole writer of request_type.
+# Assembly may only READ:
+#   - constraints (e.g., direct_price_request=true)
+#   - request_type (already computed upstream)
+# This section exists only to ensure ordering: direct price request should not be
+# suppressed by OTHER-only price-pressure routes.
 
 ────────────────────────────────────────────────────────────
 BUSINESS INFO ROUTES (HARD OVERRIDE — ANY PHASE)
@@ -175,9 +191,21 @@ Hard rules:
 - VERBATIM ONLY: Copy-paste the selected PHASE4_6_HUMAN_PHRASE_LIBRARY block lines exactly as written, including BOTH EN: and AR: lines.
   No paraphrase, no rewording, no extra sentences, no additional facts.
 
-IF current_user_message contains any of:
-- "where are you" OR "location" OR "pin" OR "map" OR "address"
-- "وين" OR "الموقع" OR "لوكيشن" OR "عنوان"
+
+
+## 2.Z+1) PRICE REQUEST FINAL OVERRIDE (READ-ONLY)
+Purpose:
+- If Qualification set constraints direct_price_request=true, Assembly must route via PRICE_REQUEST paths.
+Hard rules:
+- Do NOT write or "force" request_type here.
+
+IF constraints contains direct_price_request=true:
+  - STOP (continue normal PRICE_REQUEST execution flow; do not run OTHER-only price-pressure routes).
+
+IF request_type != PRICE_REQUEST
+AND current_user_message contains any of:
+  - "where are you" OR "location" OR "pin" OR "map" OR "address"
+  - "وين" OR "الموقع" OR "لوكيشن" OR "عنوان"
 THEN:
   - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → BIZ_LOCATION__ASK_PIN
   - selected_phrase_id MUST equal BIZ_LOCATION__ASK_PIN
@@ -268,7 +296,7 @@ Hard Rules:
 
 Enforcement (Hard):
 Trigger condition (ALL must be true):
-- request_type in {BROWSING_GENERIC, SERVICE_INQUIRY}
+- PRECONDITION: request_type in {BROWSING_GENERIC, SERVICE_INQUIRY} (computed by QUALIFICATION_ENGINE.md only; read-only here)
 - service_intent == unknown
 - missing_fields is empty
 
@@ -966,4 +994,47 @@ After lock:
 - Any change requires a version bump and a change-log entry.
 
 ---
+
+############################################
+# PHASE 0–2: MISSING INFO QUESTION SELECTOR
+# (WIRE-UP FOR YEAR_ONLY)
+############################################
+
+# If ONLY the year is missing, we must ask the YEAR_ONLY question (one question).
+# Source of truth for the mapping: PHASE0_2_LOCK_INDEX.md
+IF (missing_fields == [vehicle_year]):
+  - selected_phrase_id: "L.1 YEAR_ONLY (AUTHORITATIVE — ONE QUESTION)"
+  - Append exactly 1 question from PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 YEAR_ONLY
+  - STOP
+
+############################################
+# PHASE 0–2: NEW CAR RECOMMENDATION ROUTE
+############################################
+
+# If the user requests a new car recommendation and no model/year is provided, route to the new car phrase block.
+IF (request_type == NEW_CAR_RECOMMENDATION AND missing_fields includes vehicle_model AND missing_fields includes vehicle_year):
+  - selected_phrase_id: "PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR"
+  - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR
+  - STOP
+
+############################################
+# PHASE 0–2: OFFSCOPE ROUTE (NON-AUTOMOTIVE)
+############################################
+
+# If the user request is off-scope (jobs, non-automotive services), route to the OFFSCOPE phrase.
+IF (request_type == OTHER AND constraints includes offscope_non_automotive):
+  - selected_phrase_id: "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)
+  - STOP
+
+IF request_type == OTHER
+  - Follow OTHER routing rules
+
+### OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2) (HARD)
+# If Qualification flags non-automotive intent, we must use the OFFSCOPE phrase block.
+IF (constraints includes offscope_non_automotive=true):
+  - selected_phrase_id: "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  - Output: PHASE4_6_HUMAN_PHRASE_LIBRARY.md → "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  - Ask: 0 questions (phrase contains none)
+  - STOP
 
