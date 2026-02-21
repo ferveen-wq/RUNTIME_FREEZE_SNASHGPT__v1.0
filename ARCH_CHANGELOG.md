@@ -165,9 +165,11 @@ Files touched:
 
 - Date: 2026-02-21
 - Files:
+  - runner/run_uat.py
   - tests/uat_cases.json
   - tests/regression_cases_uat.json
 - Changed:
+  - Strip whitespace from OPENAI_API_KEY before OpenAI client initialization (CI robustness)
   - Replaced/expanded UAT suite into a Phase 0–2 surface regression pack:
     - greeting-only no vehicle question
     - browsing services list
@@ -179,5 +181,5 @@ Files touched:
 - Why:
   - UAT must enforce the Phase 0–2 contract before Phase 3+ work.
 - UAT:
-  - UAT_CASES_FILE=tests/uat_cases.json python runner/run_uat.py (16/16 green)
+  - UAT_CASES_FILE=MULTIPLE python runner/run_uat.py (16/16 green)
   - Tag: uat_pass_2026-02-21b

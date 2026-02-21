@@ -340,7 +340,7 @@ def main():
         print("UAT aborted: authority lint failed.")
         sys.exit(1)
 
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = (os.getenv("OPENAI_API_KEY") or "").strip()
     if not api_key:
         raise SystemExit("OPENAI_API_KEY is not set. Set it and re-run.")
 
