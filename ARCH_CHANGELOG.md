@@ -11,6 +11,7 @@
 
 ## Entries
 
+
 - Date: 2026-02-21
 - Files: MULTIPLE
 - Changed: Updated UAT runner and context reset prompt during UAT stabilization / tooling hardening
@@ -183,3 +184,13 @@ Files touched:
 - UAT:
   - UAT_CASES_FILE=MULTIPLE python runner/run_uat.py (16/16 green)
   - Tag: uat_pass_2026-02-21b
+
+  - Date: 2026-02-22
+- Files:
+  - tests/regression_switching_p0_2.json
+- Changed:
+  - Added Phase 0–2 switching regression pack (vehicle switch, service switch, bizinfo overlap, competitor objection guard).
+- Why:
+  - Lock routing behavior under vehicle/service switching before Phase 3A qualification expansion.
+- UAT:
+  - UAT_CASES_FILE=tests/regression_switching_p0_2.json python runner/run_uat.py (10/10 green)

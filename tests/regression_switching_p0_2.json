@@ -1,0 +1,95 @@
+[
+  {
+    "case_id": "p0_2_switch_vehicle_same_service_ppf",
+    "input": "PPF for BMW X5 2025 — actually not BMW, it’s Toyota Camry 2005.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["model", "year"],
+      "arabic": ["موديل", "سنة"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p0_2_switch_service_same_vehicle",
+    "input": "BMW X5 2025 PPF. Actually I want tint.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["tint", "window", "film", "shade"]
+    }
+  },
+  {
+    "case_id": "p0_2_switch_vehicle_and_service",
+    "input": "Ceramic for X5 2025. No wait — tint for Patrol 2026.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["tint", "window"],
+      "arabic": ["تينت"]
+    }
+  },
+  {
+    "case_id": "p0_2_brand_only_xpel_install_question",
+    "input": "Do you install XPEL?",
+    "expect_debug": { "request_type": "OTHER" },
+    "expect_not_contains": {
+      "english": ["price", "how much", "cost", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+  {
+    "case_id": "p0_2_competitor_cheaper_no_price_quote",
+    "input": "Another place is cheaper.",
+    "expect_debug": { "request_type": "OTHER" },
+    "expect_not_contains": {
+      "english": ["how much", "cost", "bhd", "bd"],
+      "arabic": ["كم", "دينار"]
+    }
+  },
+  {
+    "case_id": "p0_2_price_request_after_competitor",
+    "input": "Another place is cheaper. How much for PPF X5 2025?",
+    "expect_debug": { "request_type": "PRICE_REQUEST" }
+  },
+  {
+    "case_id": "p0_2_new_car_reco_no_model_year_question",
+    "input": "I have a new car, what do you recommend?",
+    "expect_debug": { "request_type": "OTHER" },
+    "expect_not_contains": {
+      "english": ["model", "year", "which car"],
+      "arabic": ["موديل", "سنة", "أي سيارة"]
+    }
+  },
+  {
+    "case_id": "p0_2_location_bizinfo_english",
+    "input": "Where are you located?",
+    "expect_debug": { "request_type": "LOCATION" },
+    "expect_contains": {
+      "english": ["Nuwaidrat", "Riffa"],
+      "arabic": ["النويدرات", "الرفاع"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "how much", "model", "year"],
+      "arabic": ["سعر", "كم", "موديل", "سنة"]
+    }
+  },
+  {
+    "case_id": "p0_2_location_bizinfo_arabic",
+    "input": "وين موقعكم؟",
+    "expect_debug": { "request_type": "LOCATION" },
+    "expect_contains": {
+      "arabic": ["النويدرات", "الرفاع"],
+      "english": ["Nuwaidrat", "Riffa"]
+    }
+  },
+  {
+    "case_id": "p0_2_arabic_vehicle_switch_same_service",
+    "input": "حماية PPF لسيارة BMW X5 2025، لا غلط كامري 2005.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "arabic": ["موديل", "سنة"],
+      "english": ["model", "year"]
+    }
+  }
+]
