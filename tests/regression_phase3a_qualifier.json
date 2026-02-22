@@ -1,0 +1,120 @@
+[
+  {
+    "case_id": "p3a_ppf_vehicle_known_no_price_should_ask_usage",
+    "input": "I want PPF for BMW X5 2025.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["city", "highway", "usage", "driving"],
+      "arabic": ["داخل", "المدينة", "خط", "سريع", "استخدام"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar", "bd", "bhd"],
+      "arabic": ["$", "usd", "دولار", "دينار", "ب.د"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_vehicle_known_repeated_service_should_still_ask_one_qualifier",
+    "input": "PPF for BMW X5 2025. PPF.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["city", "highway", "driving", "usage"],
+      "arabic": ["المدينة", "خط", "سريع", "استخدام"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_old_vehicle_should_ask_paint_condition_not_usage",
+    "input": "PPF for Toyota Camry 2005.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["paint", "repaint", "original", "bodywork"],
+      "arabic": ["صبغ", "رش", "وكالة", "بودي", "سمكرة", "دهان"]
+    },
+    "expect_not_contains": {
+      "english": ["city", "highway", "driving"],
+      "arabic": ["المدينة", "خط", "سريع", "استخدام"]
+    }
+  },
+  {
+    "case_id": "p3a_ceramic_vehicle_known_should_ask_wash_method",
+    "input": "Ceramic coating for BMW X5 2025.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["hand", "tunnel", "wash"],
+      "arabic": ["غسيل", "يدوي", "نفق", "مغسلة"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_tint_vehicle_known_should_ask_shade_or_preference",
+    "input": "Tint for Nissan Patrol 2026.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["shade", "dark", "light", "privacy", "percent"],
+      "arabic": ["نسبة", "غامق", "خفيف", "خصوصية", "درجة"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_wrap_vehicle_known_should_ask_finish_preference",
+    "input": "Wrap for BMW X5 2025.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["gloss", "matte", "satin", "finish"],
+      "arabic": ["لمعة", "مطفي", "ساتان", "تشطيب"]
+    }
+  },
+  {
+    "case_id": "p3a_multi_service_should_ask_priority_single_question",
+    "input": "BMW X5 2025 — I want PPF and tint.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["first", "priority", "which one"],
+      "arabic": ["أول", "أولوية", "أي", "الخدمتين"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_vehicle_only_should_ask_service_not_price",
+    "input": "BMW X5 2025.",
+    "expect_debug": { "request_type": "OTHER" },
+    "expect_contains_any": {
+      "english": ["which service", "how can we help", "what service"],
+      "arabic": ["أي خدمة", "كيف نقدر", "شنو الخدمة", "تبي أي خدمة"]
+    },
+    "expect_not_contains": {
+      "english": ["how much", "price", "$", "usd", "dollar"],
+      "arabic": ["كم", "سعر", "$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_vehicle_known_explicit_price_should_not_show_usd",
+    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+    "expect_debug": { "request_type": "PRICE_REQUEST" },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_arabic_ppf_vehicle_known_should_ask_usage",
+    "input": "أبي حماية PPF لسيارة BMW X5 2025.",
+    "expect_debug": { "request_type": "SERVICE_CONFIRMED" },
+    "expect_contains_any": {
+      "english": ["city", "highway", "driving", "usage"],
+      "arabic": ["داخل", "المدينة", "خط", "سريع", "استخدام"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  }
+]

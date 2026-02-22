@@ -194,3 +194,13 @@ Files touched:
   - Lock routing behavior under vehicle/service switching before Phase 3A qualification expansion.
 - UAT:
   - UAT_CASES_FILE=tests/regression_switching_p0_2.json python runner/run_uat.py (10/10 green)
+
+  - Date: 2026-02-22
+- Files:
+  - - Files:tests/regression_phase3a_qualifier.json
+- Changed:
+  - Added Phase 3A qualifier-first regression pack (PPF usage gate, old-vehicle paint gate, ceramic wash gate, tint shade preference, wrap finish preference, multi-service priority).
+- Why:
+  - Lock Phase 3A behavior before Phase 3B pricing expansion (prevent qualifier bypass + multi-question drift).
+- UAT:
+  - UAT_CASES_FILE=tests/regression_phase3a_qualifier.json python runner/run_uat.py
