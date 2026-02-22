@@ -9,6 +9,10 @@ on:
 jobs:
   uat:
     runs-on: ubuntu-latest
+    env:
+      # Job-level env so ALL steps (including python) can read it.
+      # Note: Secrets are not available to forked PRs; they are available on push and workflow_dispatch.
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,38 +22,29 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install openai
+          pip install -r requirements.txt
 
-      - name: Debug OpenAI key presence (safe)
+      - name: Check OPENAI_API_KEY presence (safe)
         shell: bash
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          if [ -z "$OPENAI_API_KEY" ]; then
-            echo "OPENAI_API_KEY is NOT set"
+          if [ -z "${OPENAI_API_KEY}" ]; then
+            echo "OPENAI_API_KEY is missing in CI env. Ensure repo secret OPENAI_API_KEY exists and workflow trigger has secret access."
             exit 1
           fi
-          echo "OPENAI_API_KEY is set"
-          echo "Key length: ${#OPENAI_API_KEY}"
-          echo "Key prefix: ${OPENAI_API_KEY:0:7}"
+          echo "OPENAI_API_KEY is present (length=${#OPENAI_API_KEY})."
 
-      - name: Run Core UAT
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: "gpt-4.1-mini"
+      - name: Run UAT
+        shell: bash
         run: |
           python runner/run_uat.py
 
-      - name: Run Regression UAT
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: "gpt-4.1-mini"
-          UAT_CASES_FILE: "tests/regression_cases_uat.json"
+      - name: Run Phase 3A qualifier regression pack
+        shell: bash
         run: |
-          python runner/run_uat.py
+          UAT_CASES_FILE=tests/regression_phase3a_qualifier.json python runner/run_uat.py
 
       - name: Upload UAT reports
         if: always()
