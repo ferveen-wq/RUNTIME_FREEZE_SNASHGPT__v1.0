@@ -11,6 +11,25 @@
 
 ## Entries
 
+- Date: 2026-02-22
+- Files:
+  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/CUSTOMER_CHAT_INTAKE_RULES.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Changed:
+  - Phase 3A gating updated to accept both uppercase and lowercase service_intent values
+    (PPF/ppf, CERAMIC/ceramic, TINT/tint) to prevent Phase 3A bypass.
+  - Added missing Phase 3A qualifier prompts:
+      - PHASE3A_Q_CERAMIC_GOAL
+      - PHASE3A_Q_TINT_GOAL
+  - Ensured Phase 3A qualifier chain activates correctly when vehicle_model + vehicle_year are present.
+- Why:
+  - Runtime emits lowercase service_intent values while Phase 3A gating required uppercase,
+    causing qualifier-first regression failures and preference-question leakage.
+  - Missing phrase IDs referenced by QUALIFICATION_ENGINE prevented proper qualifier execution.
+- UAT:
+  - UAT_CASES_FILE=tests/regression_phase3a_qualifier.json python runner/run_uat.py
+  - Phase 3A qualifier-first pack stabilized.
 
 - Date: 2026-02-21
 - Files: MULTIPLE
