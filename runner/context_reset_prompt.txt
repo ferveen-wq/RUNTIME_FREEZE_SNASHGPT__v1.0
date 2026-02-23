@@ -53,6 +53,7 @@ TOKEN PRESERVATION (HARD):
 - DEBUG_OUTPUT must use canonical enums EXACTLY:
   - request_type must be one of: GREETING, BROWSING, PRICE_REQUEST, BOOKING, LOCATION, OTHER
   - Do not invent new labels like "pricing inquiry".
+  - price_ladder_state must be one of: APPLICABLE, NONE, NOT_APPLICABLE
 - End every message with:
   <span style="color:#6b7280">Timestamp: YYYY-MM-DD HH:MM (Asia/Bahrain)</span>
 
