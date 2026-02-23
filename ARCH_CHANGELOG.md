@@ -272,3 +272,61 @@ Files touched:
   - Lock Phase 3A behavior before Phase 3B pricing expansion (prevent qualifier bypass + multi-question drift).
 - UAT:
   - UAT_CASES_FILE=tests/regression_phase3a_qualifier.json python runner/run_uat.py
+
+
+## 2026-02-23 — Phase 0–3A guardrails + Phase 3B ladder regression (UAT green)
+
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/OUTPUT_RESPONSE_TEMPLATE.md
+  - 02__Parameters/SKU_SELECTION_MATRIX.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - tests/regression_phase3a_chain.json
+  - tests/regression_phase3b_ladder.json
+
+- Changed:
+  - Relaxed acknowledgement rule (allow max 1 natural acknowledgement; blocked when NOT_READY)
+  - Converted polishing from “prep-only” contradiction to standalone priced service (only when service_intent == polishing)
+  - Hardened Phase 3 vehicle-only guard to prevent qualifier override
+  - Restored canonical price_ladder_state enums (APPLICABLE / NONE / NOT_APPLICABLE)
+
+- Why:
+  - Align runtime contract with actual pricing ladder behavior
+  - Remove polishing logic contradiction
+  - Prevent Phase 3A override drift when vehicle-only message is sent
+  - Lock Phase 3B ladder regression before negotiation expansion
+
+- UAT:
+  - UAT_CASES_FILE=tests/regression_phase3a_chain.json python runner/run_uat.py (10/10 green)
+  - UAT_CASES_FILE=tests/regression_phase3b_ladder.json python runner/run_uat.py (3/3 green)
+  - Tag: phase3b_ladder_uat_green_v1
+
+### Summary
+Stabilized output hygiene + Phase 3A vehicle-only routing, aligned polishing pricing logic, and added Phase 3B ladder regression coverage. UAT green after fixes.
+
+### Why
+- Phase 3A regression failed when the user provided only vehicle model+year (no service): system incorrectly asked a PPF qualifier instead of asking which service.
+- Needed a single-source authority update for acknowledgement words (allowed only if natural / non-templated).
+- Polishing logic needed to be explicit: priced only when the customer is asking for polishing; never bundled into other service pricing.
+
+### Changes (files)
+- `00__LOCKED__UPLOAD_SET/00__Runtime/OUTPUT_RESPONSE_TEMPLATE.md`
+  - Updated acknowledgement rule: allowed only if natural/non-templated; max 1 word; do not use when NOT_READY / ask_missing_info; “Thanks” allowed only if customer thanked first.
+- `02__Parameters/SKU_SELECTION_MATRIX.md`
+  - Updated polishing section: polishing is a standalone service priced only when `service_intent == polishing`; never added to ceramic/graphene/ppf/wrap/tint pricing; treat correction as prep/inspection gate when needed for other services.
+- `00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md`
+  - De-templatized Phase 3B transition phrasing (kept meaning; reduced “templated” tone).
+- `00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+  - Enforced Phase 3 vehicle-only (model+year only, no service) hard route to `VEHICLE_ONLY__ASK_SERVICE` (stop, verbatim, 1 question).
+- `tests/manual_single_case.json`
+  - Added a manual single-case UAT for PASS 1 “BMW X5 2025 full PPF, mostly highway, how much?”
+- `tests/regression_phase3b_ladder.json`
+  - Added Phase 3B ladder regression cases (PPF / ceramic / tint) validating selected_phrase_id + `price_ladder_state: APPLICABLE`.
+
+### Verification
+- UAT green: `tests/regression_phase3a_chain.json` (10/10)
+- UAT green: `tests/manual_single_case.json` (1/1)
+- UAT green: `tests/regression_phase3b_ladder.json` (3/3)
+
+### Tags / commits
+- Tag: `phase0_3a_freeze_guardrails_green_v2` (Phase 0–3A guardrails + polishing alignment)
+- Tag: `phase3b_ladder_uat_green_v1` (Phase 3B ladder regression green)
