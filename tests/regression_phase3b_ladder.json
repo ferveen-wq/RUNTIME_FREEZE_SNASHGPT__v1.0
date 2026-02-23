@@ -1,0 +1,29 @@
+[
+    {
+        "case_id": "p3b_ppf_full_highway_price",
+        "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST",
+            "selected_phrase_id": "PHASE3B_PPF_RANGE",
+            "price_ladder_state": "APPLICABLE"
+        }
+    },
+    {
+        "case_id": "p3b_ceramic_goal_wash_price",
+        "input": "BMW X5 2025 ceramic, long term gloss, tunnel wash, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST",
+            "selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+            "price_ladder_state": "APPLICABLE"
+        }
+    },
+    {
+        "case_id": "p3b_tint_full_heat_price",
+        "input": "BMW X5 2025 full tint mainly for heat, how much?",
+        "expect_debug": {
+            "request_type": "PRICE_REQUEST",
+            "selected_phrase_id": "PHASE3B_TINT_RANGE",
+            "price_ladder_state": "APPLICABLE"
+        }
+    }
+]
