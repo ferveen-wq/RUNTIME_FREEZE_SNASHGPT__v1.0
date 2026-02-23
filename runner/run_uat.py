@@ -259,23 +259,34 @@ def main():
     failed = 0
 
     for case in cases:
-        user_input = case["input"]
+        turns = case.get("turns")
+        user_input = case.get("input")
+        if turns is None:
+            # Backward-compatible: single-turn cases use "input"
+            turns = [user_input]
 
-        # UAT determinism:
-        # Keep sampling stable to avoid CI flakes from paraphrases / token drops.
-        # This affects ONLY the test runner, not runtime architecture.
-        resp = client.responses.create(
-            model=MODEL,
-            input=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_input},
-            ],
-            temperature=0,
-            top_p=1,
-        )
+        # Multi-turn simulation:
+        # We must alternate user -> assistant per turn to reflect real runtime behavior.
+        convo = [{"role": "system", "content": system_prompt}]
+        full_text = ""
+        transcript = []
 
-        # The SDK returns a structured object; simplest is to read output_text
-        full_text = resp.output_text
+        for t in turns:
+            convo.append({"role": "user", "content": t})
+            transcript.append({"role": "user", "content": t})
+
+            # UAT determinism:
+            # Keep sampling stable to avoid CI flakes from paraphrases / token drops.
+            resp = client.responses.create(
+                model=MODEL,
+                input=convo,
+                temperature=0,
+                top_p=1,
+            )
+
+            full_text = resp.output_text
+            convo.append({"role": "assistant", "content": full_text})
+            transcript.append({"role": "assistant", "content": full_text})
 
         parsed = extract_debug_and_messages(full_text)
         failures = check_expectations(parsed, case)
@@ -283,6 +294,8 @@ def main():
         case_result = {
             "case_id": case.get("case_id"),
             "input": user_input,
+            "turns": turns,
+            "transcript": transcript,
             "pass": len(failures) == 0,
             "failures": failures,
             "debug": parsed["debug"],
