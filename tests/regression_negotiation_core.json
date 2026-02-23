@@ -1,0 +1,36 @@
+[
+  {
+    "case_id": "neg_ppf_price_then_too_expensive_no_price_repeat",
+    "turns": [
+      "BMW X5 2025 PPF, how much?",
+      "Full coverage.",
+      "Mostly highway.",
+      "Quality.",
+      "Too expensive."
+    ],
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
+    "expect_not_contains": {
+      "english": ["BHD", "BD", "دينار", "range", "from", "$"],
+      "arabic": ["دينار", "د.ب", "BHD", "$"]
+    }
+  },
+  {
+    "case_id": "neg_ppf_price_then_competitor_cheaper_no_price_repeat",
+    "turns": [
+      "BMW X5 2025 PPF, how much?",
+      "Full coverage.",
+      "Mostly highway.",
+      "Quality.",
+      "Another place is cheaper."
+    ],
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
+    "expect_not_contains": {
+      "english": ["BHD", "BD", "دينار", "range", "from", "$"],
+      "arabic": ["دينار", "د.ب", "BHD", "$"]
+    }
+  }
+]

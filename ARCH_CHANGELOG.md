@@ -1,3 +1,54 @@
+## 2026-02-24 — Negotiation Core Stabilization + PRICE_REQUEST carry-forward (Phase 3B E2E fix)
+
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+  - tests/regression_negotiation_core.json
+
+- Changed:
+  - Scoped **Exception C (Competitor Cheaper / Price Pressure while NOT_READY)** to require missing vehicle_model OR vehicle_year.
+    - Prevents Phase 0–2 competitor handling from leaking into post-price flows.
+  - Added **2.47 PRICE_REQUEST_CARRY_FORWARD (HARD)** rule.
+    - Ensures qualifier answers inside an active pricing conversation retain `request_type = PRICE_REQUEST`.
+    - Prevents regression where Phase 3A resumed instead of returning to Phase 3B pricing.
+
+- Why:
+  - Multi-turn E2E regression revealed:
+    1) NOT_READY competitor logic incorrectly triggering after vehicle context was already known.
+    2) `request_type` dropping to `OTHER` on qualifier answers, breaking return-to-pricing behavior.
+  - Required deterministic stabilization of Architecture B:
+    qualification → price ladder → anchor → negotiation.
+
+- UAT Proof:
+  - tests/regression_phase3a_chain.json → 10/10 green
+  - tests/regression_phase3b_ladder.json → 3/3 green
+  - tests/regression_e2e_core.json → 3/3 green
+  - tests/regression_negotiation_core.json → 2/2 green
+
+Status: Stable. Phase 5 negotiation core deterministic.
+## 2026-02-24 — PRICE_REQUEST carry-forward stabilization (Phase 3B E2E fix)
+
+- Files:
+  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+  - tests/regression_negotiation_core.json
+
+- Changed:
+  - Added **2.47 PRICE_REQUEST_CARRY_FORWARD (HARD)** rule.
+  - Ensures qualifier answers inside an active pricing conversation retain `request_type = PRICE_REQUEST`.
+  - Prevents regression where Phase 3A resumed instead of returning to Phase 3B pricing.
+
+- Why:
+  - Multi-turn E2E regression revealed `request_type` dropped to `OTHER` on qualifier answers.
+  - Required deterministic return-to-pricing behavior after qualification completion.
+  - Maintains Architecture B: qualification → price ladder → anchor → negotiation.
+
+- UAT Proof:
+  - `tests/regression_phase3a_chain.json` → 10/10 green
+  - `tests/regression_phase3b_ladder.json` → 3/3 green
+  - `tests/regression_e2e_core.json` → 3/3 green
+  - `tests/regression_negotiation_core.json` → 2/2 green
+
+Status: Stable.
 ## 2026-02-24 — UAT runner CLI + Phase 3B ladder alignment (Architecture B) + Route E pricing gate fix
 
 - Date: 2026-02-24

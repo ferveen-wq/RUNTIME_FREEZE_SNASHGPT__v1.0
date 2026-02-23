@@ -652,9 +652,23 @@ Emit:
   # - AND the current user message does NOT contain any explicit service keyword
   #   (ppf/ceramic/tint/wrap/polishing)
   #
-  # Emit:
-  # - request_type = OTHER (customer has not confirmed a service)
-  # - service_intent = unknown
+
+  ### 2.47) PRICE_REQUEST_CARRY_FORWARD (HARD)
+
+  Trigger condition:
+  - If previous_turn.request_type == PRICE_REQUEST
+  - AND previous_turn.service_intent != unknown
+  - AND the current message does NOT introduce a new service keyword (ppf/ceramic/tint/wrap/polishing)
+
+  Purpose:
+  - When the user is answering Phase 3A qualifier questions inside a pricing conversation,
+    keep request_type as PRICE_REQUEST so the system returns to Phase 3B pricing once qualifiers are complete.
+
+  Emit:
+  - request_type = PRICE_REQUEST
+  - service_intent = previous_turn.service_intent
+  - active_service_context = previous_turn.service_intent
+
   # - detected_service_intent_in_message = unknown
   # - Do NOT start Phase 3A (phase3a_required must remain false here)
   #

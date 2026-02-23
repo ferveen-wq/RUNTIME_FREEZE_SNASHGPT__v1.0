@@ -675,6 +675,7 @@ Required output behavior:
 Exception C — Competitor Cheaper / Price Pressure while NOT_READY (pre-price only)
 Applies when ALL are true:
 - allowed_next_actions includes ask_missing_info
+- missing_fields includes vehicle_model OR vehicle_year
 - (price_ladder_state == NONE OR price_ladder_state == NOT_APPLICABLE)
 - current_user_message contains any of:
   - "cheaper" OR "cheaper elsewhere" OR "too expensive" OR "expensive" OR "price is high"
