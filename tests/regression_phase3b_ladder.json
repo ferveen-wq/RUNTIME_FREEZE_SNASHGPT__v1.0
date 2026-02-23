@@ -13,7 +13,7 @@
         "input": "BMW X5 2025 ceramic, long term gloss, tunnel wash, how much?",
         "expect_debug": {
             "request_type": "PRICE_REQUEST",
-            "selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+            "selected_phrase_id": "PHASE3A_Q_CERAMIC_WASH_PATTERN",
             "QUALIFICATION_STATUS": "NOT_READY",
             "price_ladder_state": "APPLICABLE"
         }
