@@ -1,5 +1,25 @@
 ## 2026-02-24 — Negotiation Core Stabilization + PRICE_REQUEST carry-forward (Phase 3B E2E fix)
 
+## 2026-02-24 — Phase 0–2 greeting + new-car browsing hygiene (Option A contract alignment)
+
+- Files:
+  - runner/context_reset_prompt.txt
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - tests/regression_cases_uat.json
+
+- Changed:
+  - Runner prompt request_type enum set aligned to runtime outputs (kept GREETING_ONLY/BROWSING_GENERIC etc. as-is).
+  - GREETING_ONLY phrase A4_GREETING_SERVICE_CONTEXT updated to be neutral and NOT ask vehicle model/year.
+  - “New car / generic automotive inquiry” redirect updated to avoid forcing model-year question (ask which car only).
+  - Updated regression expectation to match runtime enum (GREETING_ONLY).
+
+- Why:
+  - Prevent Phase 0–2 regressions where greeting-only or new-car browsing incorrectly forces vehicle model/year too early.
+  - Keep runtime contract stable (Option A) while making customer-facing behavior match real reception/showroom flow.
+
+- UAT:
+  - UAT_CASES_FILE=tests/regression_cases_uat.json python runner/run_uat.py (verify greeting + new-car cases)
+
 - Files:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
   - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md

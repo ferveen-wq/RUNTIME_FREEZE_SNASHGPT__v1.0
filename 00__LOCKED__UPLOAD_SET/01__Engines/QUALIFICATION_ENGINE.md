@@ -317,6 +317,29 @@ AND vehicle_year is present:
       - ELSE IF current_user_message contains "city":
         - set PPF_DRIVING_PATTERN = CITY
 
+    # HARD FAST-PATH (PRICE_REQUEST + COMPLETE CONTEXT IN SAME MESSAGE)
+    # Purpose:
+    # - If the user asked for price AND already provided coverage + driving pattern in the SAME message,
+    #   do NOT ask Phase 3A qualifiers.
+    # - This prevents null qualifier-id drift and allows Route E pricing.
+    #
+    # Conditions:
+    # - request_type == PRICE_REQUEST
+    # - coverage intent is known (not missing/UNKNOWN/UNSURE)
+    # - driving pattern is known (not missing/UNKNOWN)
+    # - no competitor/brand fixation gating Q3
+    - IF request_type == PRICE_REQUEST
+      AND (PPF_COVERAGE_INTENT not in {missing, UNKNOWN, UNSURE})
+      AND (PPF_DRIVING_PATTERN not in {missing, UNKNOWN})
+      AND NOT (COMPETITOR_QUOTE_STATUS in {MENTIONED, HAS_QUOTE_DETAILS})
+      AND NOT (COMPETITOR_INFLUENCE_LEVEL == HIGH)
+      AND NOT (brand_fixation == true):
+        - phase3a_required = false
+        - phase3a_complete = true
+        - phase3a_qualifier_id = null
+        - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+        - STOP
+
   --------------------------------------------------------------------------
   # Phase 3A answer capture (HARD)
   #
@@ -398,7 +421,15 @@ AND vehicle_year is present:
       - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
       - STOP
 
-  - ELSE IF (PRICE_PRESSURE_LEVEL == HIGH) OR (COMPETITOR_QUOTE_STATUS in {MENTIONED, HAS_QUOTE_DETAILS}) OR (COMPETITOR_INFLUENCE_LEVEL == HIGH) OR (brand_fixation == true)
+  # Q3 (PPF comparison focus) is conditional.
+  # It MUST NOT trigger on a clean first PRICE_REQUEST alone.
+  # Allow Q3 only for competitor/brand fixation, or for price-pressure on NON-PRICE_REQUEST turns.
+  - ELSE IF (
+      (COMPETITOR_QUOTE_STATUS in {MENTIONED, HAS_QUOTE_DETAILS})
+      OR (COMPETITOR_INFLUENCE_LEVEL == HIGH)
+      OR (brand_fixation == true)
+      OR ((PRICE_PRESSURE_LEVEL == HIGH) AND (request_type != PRICE_REQUEST))
+    )
     AND (define_missing(PPF_COMPARISON_FOCUS)):
       - phase3a_qualifier_id = PHASE3A_Q_PPF_COMPARISON_FOCUS
       - STOP
