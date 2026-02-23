@@ -777,8 +777,12 @@ IF request_type == PRICE_REQUEST AND (missing_fields includes vehicle_model OR v
 - Follow: "Exception B — Price Request while NOT_READY" under QUALIFICATION NOT-READY SUPPRESSION (HARD).
   (That exception provides: Phase 6 service explanation (NO PRICES) + exactly 1 vehicle_model/year question.)
 
-Route E — Price Request while READY (pricing allowed)
-IF (phase == PHASE_3 OR phase == PHASE_3B) AND request_type == PRICE_REQUEST AND all qualification fields complete:
+# NOTE:
+# "all qualification fields complete" can be ambiguous across services.
+# Pricing is allowed when there is no pending Phase 3A qualifier to ask.
+IF (phase == PHASE_3 OR phase == PHASE_3B)
+AND request_type == PRICE_REQUEST
+AND (phase3a_qualifier_id is null):
 - Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
 - If phase4_anchor_used != true:

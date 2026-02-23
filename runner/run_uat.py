@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import sys
 
 from openai import OpenAI
 
@@ -226,16 +227,33 @@ def main():
 
     client = OpenAI(api_key=api_key)
 
+
     system_prompt = build_system_prompt()
     cases_file = os.getenv("UAT_CASES_FILE", "")
-    cases_path = Path(cases_file) if cases_file else CASES_PATH
+
+    # Allow CLI override:
+    #   python runner/run_uat.py tests/regression_phase3a_chain.json
+    # Env var still works and remains higher priority if set.
+    cli_path = None
+    if len(sys.argv) > 1:
+        arg = sys.argv[1].strip()
+        # treat flags like --help as non-path (runner doesn't implement help)
+        if arg and not arg.startswith("-"):
+            cli_path = Path(arg)
+
+    if cases_file:
+        cases_path = Path(cases_file)
+    elif cli_path:
+        cases_path = cli_path
+    else:
+        cases_path = CASES_PATH
     cases = load_json(cases_path)
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     report_path = REPORTS_DIR / f"uat_report_{ts}.json"
 
-    report = {"timestamp_utc": ts, "model": MODEL, "results": []}
+    report = {"timestamp_utc": ts, "model": MODEL, "cases_path": str(cases_path), "results": []}
 
     passed = 0
     failed = 0

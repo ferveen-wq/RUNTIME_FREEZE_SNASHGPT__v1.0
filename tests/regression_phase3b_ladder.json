@@ -13,7 +13,8 @@
         "input": "BMW X5 2025 ceramic, long term gloss, tunnel wash, how much?",
         "expect_debug": {
             "request_type": "PRICE_REQUEST",
-            "selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+            "selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+            "QUALIFICATION_STATUS": "NOT_READY",
             "price_ladder_state": "APPLICABLE"
         }
     },
@@ -22,7 +23,8 @@
         "input": "BMW X5 2025 full tint mainly for heat, how much?",
         "expect_debug": {
             "request_type": "PRICE_REQUEST",
-            "selected_phrase_id": "PHASE3B_TINT_RANGE",
+            "selected_phrase_id": "PHASE3A_Q_TINT_COVERAGE",
+            "QUALIFICATION_STATUS": "NOT_READY",
             "price_ladder_state": "APPLICABLE"
         }
     }

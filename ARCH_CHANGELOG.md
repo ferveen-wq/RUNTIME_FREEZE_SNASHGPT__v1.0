@@ -1,3 +1,33 @@
+## 2026-02-24 — UAT runner CLI + Phase 3B ladder alignment (Architecture B) + Route E pricing gate fix
+
+- Date: 2026-02-24
+
+- Files:
+  - runner/run_uat.py
+  - runner/context_reset_prompt.txt
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - tests/regression_phase3b_ladder.json
+
+- Changed:
+  - Runner: added CLI support to run a specific cases JSON path (kept env var `UAT_CASES_FILE` behavior).
+  - Debug contract: expanded DEBUG_OUTPUT field list in runner prompt to include service/vehicle + Phase 3A fields.
+  - HIGH-RISK (PHASE4_8): Route E pricing gate now allows pricing when `phase3a_qualifier_id` is null (prevents `selected_phrase_id: null` fallthrough on PRICE_REQUEST when no qualifier is pending).
+  - Phase 3B ladder regression: aligned expectations to Architecture B (qualify first for ceramic/tint; price only when truly READY).
+
+- Why:
+  - Prevent accidental default-pack execution (runner ignoring CLI args) and enable deterministic pack runs.
+  - Fix a PRICE_REQUEST fallthrough that produced customer-facing output with `selected_phrase_id: null`.
+  - Align Phase 3B ladder regression coverage with the chosen safer contract: do not auto-capture same-message qualifiers.
+
+- UAT:
+  - python runner/run_uat.py tests/regression_phase3a_chain.json (10/10 green)
+    - Report: tests/reports/uat_report_20260223_204715.json
+  - python runner/run_uat.py tests/regression_phase3b_ladder.json (3/3 green)
+    - Report: tests/reports/uat_report_20260223_212847.json
+
+### Tags / commits
+- Tag: (pending) phase3b_ladder_uat_green_v2
+
 ## 2026-02-23 — Phase 3A drift cleanup (low risk)
 - PHASE4_6_HUMAN_PHRASE_LIBRARY.md: VEHICLE_ONLY__ASK_SERVICE made generic (removed hardcoded model/year).
 - PHASE4_6_HUMAN_PHRASE_LIBRARY.md: removed unreferenced Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY block (mixed EN/AR pairs).
