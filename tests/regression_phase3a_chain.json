@@ -1,0 +1,128 @@
+[
+  {
+    "case_id": "p3a_ppf_vehicle_known_should_ask_coverage_first",
+    "input": "I want PPF for BMW X5 2025.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["front", "full", "coverage"],
+      "arabic": ["أمامي", "كامل", "تغطية"]
+    },
+    "expect_not_contains": {
+      "english": ["$", "usd", "dollar"],
+      "arabic": ["$", "usd", "دولار"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_vehicle_known_repeated_service_should_still_ask_one_qualifier",
+    "input": "PPF for BMW X5 2025. PPF.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["front", "full", "coverage"],
+      "arabic": ["أمامي", "كامل", "تغطية"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_with_highway_in_same_message_should_still_ask_coverage_first",
+    "input": "BMW X5 2025 PPF, mostly highway.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["front", "full", "coverage"],
+      "arabic": ["أمامي", "كامل", "تغطية"]
+    },
+    "expect_not_contains": {
+      "english": ["how much", "price"],
+      "arabic": ["كم", "سعر"]
+    }
+  },
+  {
+    "case_id": "p3a_ppf_old_vehicle_should_ask_paint_condition_repaint",
+    "input": "PPF for Toyota Camry 2005.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["paint", "repaint", "original", "bodywork"],
+      "arabic": ["صبغ", "رش", "وكالة", "سمكرة", "بودي", "دهان"]
+    }
+  },
+  {
+    "case_id": "p3a_ceramic_vehicle_known_should_ask_goal_first",
+    "input": "Ceramic coating for BMW X5 2025.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["gloss", "easy", "clean", "washing", "goal"],
+      "arabic": ["لمعة", "تنظيف", "غسيل", "هدف"]
+    }
+  },
+  {
+    "case_id": "p3a_tint_vehicle_known_should_ask_goal_heat_or_privacy",
+    "input": "Tint for Nissan Patrol 2026.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["heat", "privacy", "comfort"],
+      "arabic": ["حرارة", "خصوصية", "راحة"]
+    },
+    "expect_not_contains": {
+      "english": ["VLT"],
+      "arabic": ["VLT"]
+    }
+  },
+  {
+    "case_id": "p3a_wrap_vehicle_known_should_ask_finish_preference",
+    "input": "Wrap for BMW X5 2025.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["gloss", "matte", "satin", "finish"],
+      "arabic": ["لمعة", "مطفي", "ساتان", "تشطيب"]
+    }
+  },
+  {
+    "case_id": "p3a_multi_service_should_ask_priority_single_question",
+    "input": "BMW X5 2025 — I want PPF and tint.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["first", "priority", "which"],
+      "arabic": ["أول", "أولوية", "أي"]
+    }
+  },
+  {
+    "case_id": "p3a_vehicle_only_should_ask_service_not_price",
+    "input": "BMW X5 2025.",
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
+    "expect_contains_any": {
+      "english": ["which service", "how can we help", "what service"],
+      "arabic": ["أي خدمة", "كيف نقدر", "شنو الخدمة", "تبي أي خدمة"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "how much", "range"],
+      "arabic": ["سعر", "كم", "تقريباً"]
+    }
+  },
+  {
+    "case_id": "p3a_arabic_ppf_vehicle_known_should_ask_coverage_first",
+    "input": "أبي حماية PPF لسيارة BMW X5 2025.",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["front", "full", "coverage"],
+      "arabic": ["أمامي", "كامل", "تغطية"]
+    }
+  }
+]

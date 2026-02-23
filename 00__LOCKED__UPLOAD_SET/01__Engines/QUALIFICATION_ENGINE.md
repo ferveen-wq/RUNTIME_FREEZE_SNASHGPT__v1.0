@@ -338,6 +338,9 @@ AND vehicle_year is present:
 
   # Normalization helper rules (strict, per Decision Matrix):
   #
+  # PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH -> set PAINT_CONDITION_REPAINT_SCRATCH =
+  #   YES | NO | UNKNOWN
+  #
   # PHASE3A_Q_PPF_COVERAGE_INTENT  -> set PPF_COVERAGE_INTENT =
   #   FULL_BODY | FULL_FRONT | PARTIAL_OR_CUSTOM | UNSURE
   #
@@ -352,6 +355,16 @@ AND vehicle_year is present:
     - define_missing(x):
       - return (x is missing) OR (x == UNKNOWN)
 
+      # Old-vehicle pre-check (HARD)
+      # Purpose:
+      # - For older cars, paint/repaint/bodywork condition affects PPF outcomes and quoting accuracy.
+      # - Therefore, ask paint-condition FIRST before PPF coverage/driving qualifiers.
+      #
+      # NOTE:
+      # - This is intentionally conservative and only triggers for clearly older model years.
+      - define_old_vehicle_ppf():
+        - return (vehicle_year is present) AND (vehicle_year <= 2012)
+
     # Phase 3A capture integrity (HARD)
     # If a value is "defaulted" upstream (commonly UNSURE) but the system has not
     # actually asked that qualifier yet, we must still ask it.
@@ -365,6 +378,17 @@ AND vehicle_year is present:
 
   # PPF Phase 3A qualifier selection MUST be a single flat exclusive chain.
   # (Same indentation for IF / ELSE IF / ELSE IF; no nested IF that can overwrite.)
+
+    - IF define_old_vehicle_ppf()
+      AND define_missing(PAINT_CONDITION_REPAINT_SCRATCH):
+        - request_type = SERVICE_CONFIRMED
+        - service_intent = ppf
+        - detected_service_intent_in_message = ppf
+        - active_service_context = ppf
+        - phase3a_required = true
+        - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+        - QUALIFICATION_STATUS = NOT_READY
+        - STOP
 
   - IF define_missing_ppf_coverage():
       - phase3a_qualifier_id = PHASE3A_Q_PPF_COVERAGE_INTENT
@@ -620,6 +644,30 @@ Emit:
 - service_intent = previous_turn.service_intent
 - active_service_context = previous_turn.service_intent
 
+  --------------------------------------------------------------------------
+  ### 2.49) VEHICLE_ONLY_NO_SERVICE (HARD)
+  #
+  # Trigger:
+  # - vehicle_model AND vehicle_year are present in the current message/session capture
+  # - AND the current user message does NOT contain any explicit service keyword
+  #   (ppf/ceramic/tint/wrap/polishing)
+  #
+  # Emit:
+  # - request_type = OTHER (customer has not confirmed a service)
+  # - service_intent = unknown
+  # - detected_service_intent_in_message = unknown
+  # - Do NOT start Phase 3A (phase3a_required must remain false here)
+  #
+  - IF vehicle_model is present
+    AND vehicle_year is present
+    AND define_service_keyword_count(current_user_message) == 0:
+      - request_type = OTHER
+      - service_intent = unknown
+      - detected_service_intent_in_message = unknown
+      - phase3a_required = false
+      - phase3a_complete = false
+      - STOP
+
   2.5) SERVICE_CONFIRMED_PRIORITY (HARD)
 
 Trigger:
@@ -662,6 +710,41 @@ Restrictions:
 
 6) QUALIFIED_READY
 - Trigger if minimum required context is present and no blocking or limiting constraints exist.
+
+  --------------------------------------------------------------------------
+  ## 2.44) MULTI-SERVICE PRIORITY (HARD — Phase 3A gate)
+  #
+  # Purpose:
+  # - If the customer mentions more than one service in the SAME message,
+  #   ask ONE priority question first (do not start a service-specific qualifier chain yet).
+  #
+  # Trigger:
+  # - vehicle_model AND vehicle_year are present
+  # - AND the current message contains 2+ service keywords from:
+  #   {ppf, ceramic, tint, wrap, polishing}
+  #
+  # Emit:
+  # - phase3a_required = true
+  # - phase3a_complete = false
+  # - phase3a_qualifier_id = PHASE3A_Q_SERVICE_PRIORITY
+  # - request_type stays as SERVICE_CONFIRMED (service(s) explicitly mentioned)
+  #
+  - define_service_keyword_count(msg):
+    - count = 0
+    - IF msg contains "ppf": count += 1
+    - IF msg contains "ceramic" OR msg contains "ceramic coating": count += 1
+    - IF msg contains "tint" OR msg contains "window tint": count += 1
+    - IF msg contains "wrap" OR msg contains "vinyl": count += 1
+    - IF msg contains "polishing" OR msg contains "polish": count += 1
+    - return count
+
+  - IF vehicle_model is present
+    AND vehicle_year is present
+    AND define_service_keyword_count(current_user_message) >= 2:
+      - phase3a_required = true
+      - phase3a_complete = false
+      - phase3a_qualifier_id = PHASE3A_Q_SERVICE_PRIORITY
+      - STOP
 
 ### Output Consistency Rules
 - qualification_state must be exactly one state from QUALIFICATION_STATES.

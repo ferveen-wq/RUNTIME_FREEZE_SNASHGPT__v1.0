@@ -1,5 +1,13 @@
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
+### PHASE3A_Q_SERVICE_PRIORITY
+EN: Got it — since you mentioned more than one service, which one do you want to do first (your priority) — PPF or tint?
+AR: تمام — بما أنك ذكرت أكثر من خدمة، أي وحدة تبي نبدأ فيها أول (الأولوية) — PPF ولا التظليل؟
+
+### VEHICLE_ONLY__ASK_SERVICE
+EN: Thanks — for BMW X5 2025, which service do you want help with: PPF, ceramic coating, tint, wrap, or polishing?
+AR: شكرًا — لسيارة BMW X5 2025، تبي المساعدة في أي خدمة: PPF، سيراميك، تظليل، تغليف، ولا تلميع؟
+
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
 EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
@@ -16,9 +24,17 @@ AR: مفهوم. لما تقارن بين الخيارات، تركيزك أكث�
 EN: That helps narrow the direction. How you use the car affects where chips usually happen. Is your driving mostly highways and travel, or mostly city use?
 AR: تمام — هذا يوضح الاتجاه. طريقة استخدام السيارة تأثر على أماكن ضربات الحصى غالباً. قيادتك أغلبها على الخطوط والسفر، ولا داخل المدينة؟
 
+### PHASE3A_Q_CERAMIC_GOAL
+EN: Just to guide you properly — is your main goal more gloss, easier cleaning, or both?
+AR: عشان أوجهك صح — هدفك الأساسي أكثر لمعة، تنظيف أسهل، أو الاثنين معاً؟
+
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
+
+### PHASE3A_Q_TINT_GOAL
+EN: For tint, is your main goal heat reduction, privacy, or both?
+AR: للتظليل، هدفك الأساسي تقليل الحرارة، الخصوصية، أو الاثنين معاً؟
 
 ### PHASE3A_Q_TINT_COVERAGE
 EN: For tint, do you want front only, sides and rear, or full coverage?

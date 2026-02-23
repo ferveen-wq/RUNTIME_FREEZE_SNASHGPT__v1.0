@@ -1,10 +1,48 @@
 import json
-import os
 from pathlib import Path
-from datetime import datetime
-from zoneinfo import ZoneInfo
 
 from openai import OpenAI
+
+# ---- Define ROOT FIRST ----
+ROOT = Path(__file__).resolve().parents[1]
+PROMPT_PATH = ROOT / "runner" / "context_reset_prompt.txt"
+
+# ---- Locked runtime directories ----
+LOCKED_ROOT = ROOT / "00__LOCKED__UPLOAD_SET"
+RUNTIME_DIR = LOCKED_ROOT / "00__Runtime"
+ENGINES_DIR = LOCKED_ROOT / "01__Engines"
+
+# ---- Runtime-authoritative files ----
+QUAL_ENGINE_PATH = ENGINES_DIR / "QUALIFICATION_ENGINE.md"
+ASSEMBLY_MAP_PATH = RUNTIME_DIR / "PHASE4_8_MESSAGE_ASSEMBLY_MAP.md"
+PHRASE_LIB_PATH = RUNTIME_DIR / "PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
+INTAKE_RULES_PATH = RUNTIME_DIR / "CUSTOMER_CHAT_INTAKE_RULES.md"
+
+
+def build_system_prompt() -> str:
+    """
+    Build a single system prompt by concatenating:
+    1) context reset prompt
+    2) runtime-authoritative files (locked)
+    """
+    base = load_text(PROMPT_PATH)
+
+    parts = [
+        "=== RUNTIME AUTHORITIES (LOCKED — DO NOT IGNORE) ===",
+        f"\n--- FILE: {QUAL_ENGINE_PATH.as_posix()} ---\n{load_text(QUAL_ENGINE_PATH)}",
+        f"\n--- FILE: {INTAKE_RULES_PATH.as_posix()} ---\n{load_text(INTAKE_RULES_PATH)}",
+        f"\n--- FILE: {ASSEMBLY_MAP_PATH.as_posix()} ---\n{load_text(ASSEMBLY_MAP_PATH)}",
+        f"\n--- FILE: {PHRASE_LIB_PATH.as_posix()} ---\n{load_text(PHRASE_LIB_PATH)}",
+        "=== END RUNTIME AUTHORITIES ===",
+    ]
+
+    return base + "\n\n" + "\n".join(parts)
+
+
+import os
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPT_PATH = ROOT / "runner" / "context_reset_prompt.txt"
@@ -25,7 +63,9 @@ def load_json(path: Path):
 def load_system_prompt() -> str:
     base = load_text(PROMPT_PATH)
     now_bh = datetime.now(ZoneInfo("Asia/Bahrain")).strftime("%Y-%m-%d %H:%M")
-    return base.replace("Begin.", f"CURRENT_BAHRAIN_TIME: {now_bh} (Asia/Bahrain)\n\nBegin.")
+    return base.replace(
+        "Begin.", f"CURRENT_BAHRAIN_TIME: {now_bh} (Asia/Bahrain)\n\nBegin."
+    )
 
 
 def safe_lower(s: str) -> str:
@@ -40,9 +80,23 @@ def normalize_arabic(s: str) -> str:
     if not s:
         return ""
     diacritics = [
-        "\u064b", "\u064c", "\u064d", "\u064e", "\u064f", "\u0650", "\u0651", "\u0652",
-        "\u0653", "\u0654", "\u0655", "\u0656", "\u0657", "\u0658", "\u0659", "\u065a",
-        "\u0670"
+        "\u064b",
+        "\u064c",
+        "\u064d",
+        "\u064e",
+        "\u064f",
+        "\u0650",
+        "\u0651",
+        "\u0652",
+        "\u0653",
+        "\u0654",
+        "\u0655",
+        "\u0656",
+        "\u0657",
+        "\u0658",
+        "\u0659",
+        "\u065a",
+        "\u0670",
     ]
     for d in diacritics:
         s = s.replace(d, "")
@@ -131,7 +185,9 @@ def check_expectations(result: dict, case: dict) -> list:
     # Must contain checks
     exp_contains = case.get("expect_contains", {})
     for word in exp_contains.get("arabic", []):
-        if normalize_arabic(safe_lower(word)) not in normalize_arabic(safe_lower(arabic_chk)):
+        if normalize_arabic(safe_lower(word)) not in normalize_arabic(
+            safe_lower(arabic_chk)
+        ):
             failures.append(f"Arabic missing required word: '{word}'")
     for word in exp_contains.get("english", []):
         if safe_lower(word) not in safe_lower(english_chk):
@@ -170,7 +226,7 @@ def main():
 
     client = OpenAI(api_key=api_key)
 
-    system_prompt = load_system_prompt()
+    system_prompt = build_system_prompt()
     cases_file = os.getenv("UAT_CASES_FILE", "")
     cases_path = Path(cases_file) if cases_file else CASES_PATH
     cases = load_json(cases_path)
@@ -179,11 +235,7 @@ def main():
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     report_path = REPORTS_DIR / f"uat_report_{ts}.json"
 
-    report = {
-        "timestamp_utc": ts,
-        "model": MODEL,
-        "results": []
-    }
+    report = {"timestamp_utc": ts, "model": MODEL, "results": []}
 
     passed = 0
     failed = 0
@@ -198,7 +250,7 @@ def main():
             model=MODEL,
             input=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_input}
+                {"role": "user", "content": user_input},
             ],
             temperature=0,
             top_p=1,
@@ -218,7 +270,7 @@ def main():
             "debug": parsed["debug"],
             "arabic": parsed["arabic"],
             "english": parsed["english"],
-            "raw": parsed["raw"]
+            "raw": parsed["raw"],
         }
 
         report["results"].append(case_result)
@@ -228,14 +280,17 @@ def main():
         else:
             failed += 1
 
-        report["summary"] = {"passed": passed, "failed": failed, "total": passed + failed}
+        report["summary"] = {
+            "passed": passed,
+            "failed": failed,
+            "total": passed + failed,
+        }
 
     report_path.write_text(
-        json.dumps(report, ensure_ascii=False, indent=2),
-        encoding="utf-8"
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    print(f"UAT done. Passed={passed}, Failed={failed}, Total={passed+failed}")
+    print(f"UAT done. Passed={passed}, Failed={failed}, Total={passed + failed}")
     print(f"Report saved: {report_path}")
 
     if failed > 0:
@@ -256,6 +311,7 @@ def main():
                     break
 
         raise SystemExit(1)
+
 
 if __name__ == "__main__":
     main()

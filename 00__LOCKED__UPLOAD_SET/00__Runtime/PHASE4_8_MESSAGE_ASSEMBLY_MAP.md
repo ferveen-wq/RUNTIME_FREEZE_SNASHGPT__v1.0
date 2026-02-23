@@ -235,6 +235,7 @@ AND phase3a_qualifier_id is present:
     - VERBATIM ONLY: Copy-paste the selected PHASE4_6_HUMAN_PHRASE_LIBRARY block lines exactly as written, including BOTH EN: and AR: lines. No paraphrase, no rewording, no extra sentences, no alternative phrasing.
 
   - Mapping (phase3a_qualifier_id → Phrase block):
+      - PHASE3A_Q_SERVICE_PRIORITY                  → PHASE3A_Q_SERVICE_PRIORITY
     - PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH → PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
     - PHASE3A_Q_PPF_COVERAGE_INTENT             → PHASE3A_Q_PPF_COVERAGE_INTENT
     - PHASE3A_Q_PPF_DRIVING_PATTERN             → PHASE3A_Q_PPF_DRIVING_PATTERN
@@ -248,6 +249,25 @@ AND phase3a_qualifier_id is present:
 
   - selected_phrase_id MUST equal the phrase block name above.
   - STOP (do not append any other blocks).
+
+  --------------------------------------------------------------------------
+  ## PHASE 3 — VEHICLE ONLY (NO SERVICE) → ASK SERVICE (HARD)
+  #
+  # Purpose:
+  # - If the user only provides vehicle model+year (no service keyword),
+  #   do NOT start Phase 3A. Ask which service they want.
+  #
+  IF phase == PHASE_3
+  AND request_type == OTHER
+  AND vehicle_model is present
+  AND vehicle_year is present
+  AND detected_service_intent_in_message == unknown:
+    - suppress_hooks = TRUE
+    - selected_phrase_id = VEHICLE_ONLY__ASK_SERVICE
+    - Output MUST be:
+      - exactly 1 question
+      - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md (VERBATIM)
+    - STOP
 
 ## PHASE 1–2 — PROFESSIONAL PRESENCE MODE (MANDATORY)
 
