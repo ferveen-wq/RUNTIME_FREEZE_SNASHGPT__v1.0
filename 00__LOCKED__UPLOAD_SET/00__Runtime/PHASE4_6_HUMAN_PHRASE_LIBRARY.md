@@ -1255,11 +1255,6 @@ Purpose:
 - Offer next step without pressure
 - Use when scope or confidence needs support
 
-### Z_DEPRECATED__VISIT_SUGGESTION_LINE (DO NOT USE IN PHASE 0–2)
-DEPRECATED.
-Reason:
-- Visit / inspection suggestions belong to Phase 4 (pre-price / decision support).
-- This line must never be selected during Phase 0–2.
 
 EN: If you’d like, we can also do a quick visit or inspection so everything is clear before moving ahead.
 AR: وإذا حاب، نقدر نسوي زيارة أو فحص بسيط علشان يكون كل شيء واضح قبل ما نكمل.
@@ -1422,11 +1417,7 @@ Usage rule (LOCKED):
 
 ---
 
-### Z_DEPRECATED__L0_BROWSING_SAFE_PRIMER__ALT (DO NOT USE)
-DEPRECATED — duplicate selector risk. Retained for history only.
 
-- EN: [DEPRECATED — DO NOT ROUTE IN PHASE 0–2]
-- AR: [محذوف — لا يستخدم]
 
 ---
 
@@ -1551,9 +1542,6 @@ Dependencies:
 - Phase 4.5 Tone Engine
 - Phase 4.7 Hook Engine
 - Phase 4.8 Message Assembly Map
-### Z_DEPRECATED__PHASE3B_PPF_RANGE__DUPLICATE (DO NOT ROUTE)
-EN: Perfect — since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
-AR: تمام — بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على ضربات الحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح عشان تختار براحتك.
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_RANGE__DUPLICATE (DO NOT ROUTE)
 EN: Perfect — your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
