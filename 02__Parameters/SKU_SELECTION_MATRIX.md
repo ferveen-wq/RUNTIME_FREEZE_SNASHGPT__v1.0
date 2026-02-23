@@ -144,13 +144,14 @@ Vehicle Age 7+ Years
 - Downladder: NONE (paint correction gate upstream)
 
 ────────────────────────────────────────────
-3) POLISHING — PREP ONLY (NOT A SKU LADDER)
+3) POLISHING — STANDALONE SERVICE (PRICED ONLY WHEN SELECTED)
 ────────────────────────────────────────────
 
 Rules:
-- Polishing is NEVER a standalone upsell
-- Polishing is NEVER priced inside ladder
-- Polishing is introduced as paint preparation only
+- Polishing may be priced ONLY when service_intent == polishing.
+- Polishing must NOT be added or bundled into ceramic/graphene/ppf/wrap/tint pricing.
+- When ceramic/graphene requires paint correction/prep, treat it as scope readiness (inspection/prep gate), not as a separate polishing line item.
+- Polishing is NEVER used as an upsell inside other service pricing.
 
 ──────────────
 Vehicle Age 0–3

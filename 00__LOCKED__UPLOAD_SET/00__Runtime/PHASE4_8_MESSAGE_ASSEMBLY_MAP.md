@@ -226,7 +226,8 @@ AND (current_user_message contains "what services do you offer" OR current_user_
 
 IF (phase == PHASE_3 OR phase == PHASE_3A)
 AND phase3a_required == true
-AND phase3a_qualifier_id is present:
+AND phase3a_qualifier_id is present
+AND detected_service_intent_in_message != unknown:
 
   - suppress_hooks = TRUE
   - Output MUST be:

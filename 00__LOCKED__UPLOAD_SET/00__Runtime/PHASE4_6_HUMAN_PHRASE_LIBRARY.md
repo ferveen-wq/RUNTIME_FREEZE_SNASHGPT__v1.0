@@ -1,11 +1,11 @@
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
 ### PHASE3A_Q_SERVICE_PRIORITY
-EN: Got it — since you mentioned more than one service, which one do you want to do first (your priority) — PPF or tint?
+EN: Since you mentioned more than one service, which one do you want to do first (your priority) — PPF or tint?
 AR: تمام — بما أنك ذكرت أكثر من خدمة، أي وحدة تبي نبدأ فيها أول (الأولوية) — PPF ولا التظليل؟
 
 ### VEHICLE_ONLY__ASK_SERVICE
-EN: Thanks — which service do you want help with: PPF, ceramic coating, tint, wrap, or polishing?
+EN: Which service do you want help with: PPF, ceramic coating, tint, wrap, or polishing?
 AR: شكرًا — تبي المساعدة في أي خدمة: PPF، سيراميك، تظليل، تغليف، ولا تلميع؟
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
@@ -262,9 +262,7 @@ AR: مفهوم جداً — أحياناً السكوت يعني القرار ي
 AR: عشان أوجهك صح، تميل أكثر إلى Global ولا إلى XPEL؟
 
 ### PHASE4_PPF_SILENCE_COVERAGE_NARROWING
-EN: Understood.
 EN: Would you prefer to keep it full coverage, or start with front protection only?
-AR: تم.
 AR: تفضل نخليها حماية كاملة، ولا نبدأ بحماية أمامية فقط؟
 
 ### PHASE4_PPF_SILENCE_COMPARISON_SIMPLIFY
@@ -395,27 +393,27 @@ EN: Should we align it to a lower starting tier, or focus on the longer-lasting 
 AR: نضبطها على درجة بداية أقل، ولا نركز على خيار أطول عشان تقل دورات الـRefresh؟
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_HAND_WASH__LEGACY (DO NOT ROUTE)
-EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+EN: I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_AUTO_WASH__LEGACY (DO NOT ROUTE)
-EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+EN: I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_WATERLESS__LEGACY (DO NOT ROUTE)
-EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+EN: I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_PRO_WASH__LEGACY (DO NOT ROUTE)
-EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
+EN: I’ll line up the ceramic coating options and move to the pricing step next.
 AR: تم. بجهّز لك خيارات السيراميك وبننتقل لخطوة التسعير بعدها.
 
 ### Z_DEPRECATED__PHASE3B_PPF_CITY__LEGACY (DO NOT ROUTE)
-EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+EN: Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ### Z_DEPRECATED__PHASE3B_PPF_HIGHWAY__LEGACY (DO NOT ROUTE)
-EN: Got it. Based on your driving habits, I’ll line up the PPF options and move to pricing next.
+EN: Based on your driving habits, I’ll line up the PPF options and move to pricing next.
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ### PHASE4_TINT_PRICE_PRESSURE_L1
@@ -461,7 +459,7 @@ EN: Understood. To make it work without stretching the budget, we can narrow it 
 AR: مفهوم. عشان نضبطها بدون ضغط على الميزانية، نقدر نضيّقها للأهم: حماية أمامية للمناطق الأكثر ضربات أو تغطية كاملة. شنو الأهم عندك حالياً — تقليل التكلفة، ولا أعلى تغطية؟
 
 ### PHASE5_PPF_EXIT_FORK_L3
-EN: Got it. Rather than looping on price, we can do one of two clean next steps: (1) lock a front-focused option, or (2) pause and you come back when ready. Which way do you prefer?
+EN: Rather than looping on price, we can take one of two clean next steps: (1) lock a front-focused option, or (2) pause and you come back when ready. Which way do you prefer?
 AR: تمام. بدل ما ندور في حلقة السعر، خلّنا ناخذ خطوة واضحة: (1) نثبت خيار حماية أمامية مركزّة، أو (2) نوقف هنا وترجع لي لما تكون جاهز. أي خيار تفضّل؟
 
 ### PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
@@ -489,7 +487,7 @@ EN: Understood. To keep it simple, we narrow it to one priority: heat comfort, o
 AR: مفهوم. خلّنا نبسّطها ونحدد أولوية وحدة: راحة الحرارة، أو الشكل/الغمقان. شنو الأهم عندك؟
 
 ### PHASE5_TINT_EXIT_FORK_L3
-EN: Got it. If it still feels high, we can either (1) reduce coverage, or (2) pause and you come back when ready. Which do you prefer?
+EN: If it still feels high, we can either (1) reduce coverage, or (2) pause and you come back when ready. Which do you prefer?
 AR: تمام. إذا للحين تشوفه عالي، يا (1) نقلل التغطية، أو (2) نوقف وترجع لي لما تكون جاهز. أيهم تفضّل؟
 
 ### PHASE5_WRAP_EXPECTATION_DEEPEN_L1
@@ -1346,7 +1344,7 @@ AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظلي
 - AR: أكيد — بحوّل طلبك للفريق عشان يساعدونك.
 
 ### MULTI_SERVICE_INTENT_SAFE (PHASE 0–2)
-EN: Got it — you’re looking at more than one service. What’s the car model and year?
+EN: You’re looking at more than one service. What’s the car model and year?
 AR: تمام — واضح إنك تفكر بأكثر من خدمة. شنو موديل السيارة وأي سنة؟
 EN_ALT: Got it — you’re looking at more than one service. Which service should we start with first?
 AR_ALT: تمام — واضح إنك تفكر بأكثر من خدمة. أي خدمة نبدأ فيها أول؟
@@ -1552,30 +1550,30 @@ EN: Perfect — now that we know what you want from tint and the coverage, I’l
 AR: تمام — بما إن عرفنا هدفك من التظليل ونطاق التغطية، بعرض لك مستويات الأفلام المناسبة كنطاق سعر واضح عشان تختار اللي يناسبك.
 
 ### PHASE3B_WRAP_RANGE
-EN: Perfect — with wrap, the finish and whether it’s full car or a section changes the pricing direction. I’ll present it as a clear price range next so you can decide without confusion.
-AR: تمام — بالتغليف، نوع اللمسة وهل هو كامل السيارة أو جزء يغيّر اتجاه السعر. بعرضه لك كنطاق سعر واضح عشان تقرر بدون لخبطة.
+EN: With wrap, the finish and whether it’s full car or a section changes the pricing direction. I’ll present it as a clear price range next so you can decide without confusion.
+AR: بالتغليف، نوع اللمسة وهل هو كامل السيارة أو جزء يغيّر اتجاه السعر. بعرضه لك كنطاق سعر واضح عشان تقرر بدون لخبطة.
 
 ### PHASE3B_ROOF_PPF_BLACK_GLOSS_RANGE
-EN: Perfect — for a black roof look, we do it as Black PPF (gloss). I’ll share the price clearly next.
-AR: تمام — لستايل السقف الأسود، نسويه Black PPF (جلوس). بعطيك السعر بشكل واضح الحين.
+EN: For a black roof look, we do it as Black PPF (gloss). I’ll share the price clearly next.
+AR: لستايل السقف الأسود، نسويه Black PPF (جلوس). بعطيك السعر بشكل واضح الحين.
 
 ### Z_DEPRECATED__PHASE3B_POLISHING_RANGE__DUPLICATE (DO NOT ROUTE)
 EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
 AR: تمام — سعر التلميع يعتمد أكثر شي إذا هو تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح عشان تختار المستوى الصحيح.
 
 ### PHASE3B_PPF_RANGE
-EN: Perfect — since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
-AR: تمام — بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على تعرض السيارة للحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.
+EN: Since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
+AR: بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على تعرض السيارة للحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.
 
 ### PHASE3B_CERAMIC_RANGE
-EN: Perfect — your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
-AR: تمام — هدفك وطريقة غسيلك تفرق في أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
+EN: Your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
+AR: هدفك وطريقة غسيلك تفرق في أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
 
 ### PHASE3B_TINT_RANGE
-EN: Perfect — now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
-AR: تمام — الحين بعد ما عرفنا هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار اللي يناسبك.
+EN: Now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
+AR: الحين بعد ما عرفنا هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار اللي يناسبك.
 
 ### PHASE3B_POLISHING_RANGE
-EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
-AR: تمام — سعر التلميع يعتمد بالأساس إذا تبيه تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تختار المستوى الصح.
+EN: Polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
+AR: سعر التلميع يعتمد بالأساس إذا تبيه تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تختار المستوى الصح.
 
