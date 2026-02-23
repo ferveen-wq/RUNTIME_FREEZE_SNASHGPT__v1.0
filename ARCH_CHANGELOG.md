@@ -1,3 +1,6 @@
+## 2026-02-23 — Phase 3A drift cleanup (low risk)
+- PHASE4_6_HUMAN_PHRASE_LIBRARY.md: VEHICLE_ONLY__ASK_SERVICE made generic (removed hardcoded model/year).
+- PHASE4_6_HUMAN_PHRASE_LIBRARY.md: removed unreferenced Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY block (mixed EN/AR pairs).
 # ARCH_CHANGELOG
 
 ## 2026-02-23 — Phase 3A Freeze (tag: phase3a_uat_green_v1)

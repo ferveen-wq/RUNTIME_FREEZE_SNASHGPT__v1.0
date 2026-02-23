@@ -5,8 +5,8 @@ EN: Got it — since you mentioned more than one service, which one do you want 
 AR: تمام — بما أنك ذكرت أكثر من خدمة، أي وحدة تبي نبدأ فيها أول (الأولوية) — PPF ولا التظليل؟
 
 ### VEHICLE_ONLY__ASK_SERVICE
-EN: Thanks — for BMW X5 2025, which service do you want help with: PPF, ceramic coating, tint, wrap, or polishing?
-AR: شكرًا — لسيارة BMW X5 2025، تبي المساعدة في أي خدمة: PPF، سيراميك، تظليل، تغليف، ولا تلميع؟
+EN: Thanks — which service do you want help with: PPF, ceramic coating, tint, wrap, or polishing?
+AR: شكرًا — تبي المساعدة في أي خدمة: PPF، سيراميك، تظليل، تغليف، ولا تلميع؟
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
 EN: Before we proceed, has the car had any repaint work or deep scratches?
@@ -51,12 +51,6 @@ AR: هل تفكر بتغليف كامل للسيارة بلون جديد، أو 
 ### PHASE3A_Q_POLISHING_SCOPE
 EN: Just to guide you properly — for polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?
 AR: عشان أوجهك صح — للتلميع تبي تصحيح/تلميع خارجي فقط، ولا ديتيلنج كامل يشمل الداخلي وغرفة المحرك؟
-
-### Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY (DO NOT ROUTE)
-EN: Got it. I’ll line up the suitable wrap options and move to pricing next.
-AR: تم. بجهّز لك خيارات التغليف المناسبة وننتقل للتسعير بعدها.
-EN: Perfect. I’ll arrange the polishing options and move to pricing.
-AR: ممتاز. بجهّز خيارات التلميع وننتقل للسعر.
 
 ### PHASE3B_WRAP_FULL_NEUTRAL
 EN: For a full color-change wrap, pricing depends on the film series and finish (gloss, matte, satin). I’ll line up the available options clearly and move to pricing.
