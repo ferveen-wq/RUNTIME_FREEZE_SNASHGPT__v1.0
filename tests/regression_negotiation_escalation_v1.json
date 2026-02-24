@@ -1,0 +1,55 @@
+[
+  {
+    "case_id": "neg_ppf_repeat_price_pressure_escalate_to_l3",
+    "turns": [
+      "BMW X5 2025 full PPF, mostly highway, how much?",
+      "Too expensive.",
+      "Still expensive.",
+      "Price is high."
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "selected_phrase_id": "PHASE5_PPF_EXIT_FORK_L3"
+    },
+    "expect_not_contains": {
+      "english": [
+        "discount",
+        "%",
+        "off",
+        "coupon"
+      ],
+      "arabic": [
+        "خصم",
+        "٪",
+        "كوبون"
+      ]
+    }
+  },
+  {
+    "case_id": "neg_ppf_competitor_has_quote_details_should_deepen_not_requote",
+    "turns": [
+      "BMW X5 2025 full PPF, mostly highway, how much?",
+      "Another place quoted me 450 BHD for full coverage. Can you match?",
+      "No, that's their final."
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "selected_phrase_id": "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+    },
+    "expect_not_contains": {
+      "english": [
+        "match",
+        "discount",
+        "%",
+        "off",
+        "coupon"
+      ],
+      "arabic": [
+        "نطابق",
+        "خصم",
+        "٪",
+        "كوبون"
+      ]
+    }
+  }
+]
