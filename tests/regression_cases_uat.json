@@ -3,7 +3,7 @@
     "case_id": "regression_greeting_no_vehicle_question",
     "input": "hi",
     "expect_debug": {
-      "request_type": "GREETING"
+        "request_type": "GREETING_ONLY"
     },
     "expect_not_contains": {
       "english": ["which car", "model", "year"],
@@ -124,6 +124,9 @@
   {
     "case_id": "regression_new_car_should_not_force_year_question",
     "input": "I have a new car, what do you recommend?",
+    "expect_debug": {
+      "selected_phrase_id": "A1_NEW_CAR_RECO"
+    },
     "expect_not_contains": {
       "english": ["what year", "which year", "year?"],
       "arabic": ["أي سنة", "شنو سنة", "سنة السيارة"]

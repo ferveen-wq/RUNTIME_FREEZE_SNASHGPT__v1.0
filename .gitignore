@@ -11,3 +11,4 @@ tests/reports/github secret key for api
 
 # UAT reports (generated)
 /tests/reports/
+.githooks/

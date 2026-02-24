@@ -208,6 +208,26 @@ SERVICE OFFERINGS ROUTE (HARD OVERRIDE — ANY PHASE)
 Purpose:
 - Ensure "What services do you offer?" uses ONLY the approved service overview block (no pricing language).
 
+
+# NEW CAR RECOMMENDATION ROUTE (HARD OVERRIDE — ANY PHASE)
+# Purpose: If user is browsing and mentions a new car, use only the new car recommendation block.
+# IMPORTANT: Do NOT override generic browsing/service-offerings routing; only intercept explicit new-car signals.
+IF request_type == BROWSING_GENERIC
+AND service_intent == unknown
+AND current_user_message contains any of:
+  - "new car"
+  - "brand new"
+  - "0 km"
+  - "from dealership"
+  - "just bought"
+  - "سيارة جديدة"
+  - "وكالة"
+  - "صفر":
+  - Output MUST use ONLY:
+    - PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A1_NEW_CAR_RECO
+  - selected_phrase_id MUST equal A1_NEW_CAR_RECO
+  - STOP
+
 IF request_type == BROWSING_GENERIC
 AND (current_user_message contains "what services do you offer" OR current_user_message contains "what do you offer" OR current_user_message contains "services"
      OR current_user_message contains "الخدمات" OR current_user_message contains "خدماتكم" OR current_user_message contains "شنو تقدمون"):

@@ -805,6 +805,11 @@ Handle first-contact questions about services in a neutral, human way, and guide
 
 A1 — GENERIC SERVICE INQUIRY (UNKNOWN / BROAD)
 
+### A1_NEW_CAR_RECO
+
+- EN: Congrats on the new car. The clean starting point is usually protection for impact areas and a coating for easier cleaning. What matters most to you right now: chip protection, easier cleaning/gloss, heat/privacy, or styling?
+- AR: مبروك على السيارة الجديدة. غالباً البداية تكون حماية لمناطق ضربات الحصى مع طبقة حماية تسهّل التنظيف. شنو الأهم عندك حالياً: حماية من الحصى، تنظيف أسهل/لمعة، تقليل حرارة/خصوصية، أو ستايل؟
+
 EN:
 We offer paint protection and appearance services like ceramic coating, PPF, tint, wrap, and paint correction.
 Which car is this for, and what model year?
@@ -845,20 +850,22 @@ A4 — GREETING (NEUTRAL, NO QUALIFICATION) (“hi”, “hello”, “salam”)
 
 ### A4_GREETING_SERVICE_CONTEXT
 
-- EN: Hello, welcome. We do PPF, ceramic coating, tint, wrap, and polishing. What’s the car model and year?
-- AR: هلا ومرحباً. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. شنو موديل السيارة وأي سنة؟
+- EN: Hello, welcome. How can we help you today?
+- AR: هلا ومرحباً. شلون نقدر نساعدك اليوم؟
 
 ---
 
 A5 — NON-SPECIFIC AUTOMOTIVE INQUIRY (SAFE REDIRECT)
 
+
 EN:
 We focus on paint protection and appearance services.
-If it’s about improving or protecting your car, let me know the model and year.
+If it’s about improving or protecting your car, tell me which car it is.
+
 
 AR:
 نحن نختص بخدمات حماية ومظهر السيارة.
-إذا كان الموضوع يخص حماية أو تحسين شكل سيارتك، ما الموديل وسنة الصنع؟
+إذا كان الموضوع يخص حماية أو تحسين شكل سيارتك، شنو نوع السيارة؟
 
 ## B. CONTEXT ACKNOWLEDGEMENT
 Purpose: Confirm understanding and reduce friction without advancing the conversation.

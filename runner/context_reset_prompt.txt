@@ -51,7 +51,10 @@ TOKEN PRESERVATION (HARD):
 - DEBUG_OUTPUT must be the first line exactly: DEBUG_OUTPUT
 - Each debug field must be on its own line in the format: key: value
 - DEBUG_OUTPUT must use canonical enums EXACTLY:
-  - request_type must be one of: GREETING, BROWSING, PRICE_REQUEST, BOOKING, LOCATION, OTHER
+  - request_type must be one of:
+    GREETING_ONLY, BROWSING_GENERIC, SERVICE_CONFIRMED, SERVICE_INFERRED,
+    PRICE_REQUEST, BOOKING, LOCATION, OTHER,
+    VEHICLE_DETAILS_PROVIDED, REENTERED_CONTINUE
   - Do not invent new labels like "pricing inquiry".
   - price_ladder_state must be one of: APPLICABLE, NONE, NOT_APPLICABLE
 - End every message with:

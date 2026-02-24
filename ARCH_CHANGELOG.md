@@ -1,3 +1,22 @@
+## 2026-02-24 — PPF PRICE_REQUEST fast-path (null Phase3A qualifier guard) (UAT green)
+
+- Files:
+  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+
+- Changed:
+  - Added a HARD fast-path for PPF when request_type == PRICE_REQUEST and the same message already contains:
+    - PPF_COVERAGE_INTENT (known) AND PPF_DRIVING_PATTERN (known)
+  - Prevents Phase 3A from triggering with phase3a_required=true while phase3a_qualifier_id is null.
+  - Preserves conditional comparison-focus behavior by excluding competitor/brand-fixation triggers from the fast-path.
+
+- Why:
+  - Regression: Phase 3B ladder pack intermittently routed into Phase 3A with a null qualifier-id, blocking Route E pricing even when the user already gave full + highway context.
+  - This aligns runtime behavior with Architecture B (price progression when qualification is already satisfied in-message).
+
+- UAT:
+  - python runner/run_uat.py tests/regression_phase3b_ladder.json (3/3 green)
+  - python runner/run_uat.py tests/regression_e2e_core.json (3/3 green)
+  - UAT_CASES_FILE=tests/regression_cases_uat.json python runner/run_uat.py (13/13 green)
 ## 2026-02-24 — Negotiation Core Stabilization + PRICE_REQUEST carry-forward (Phase 3B E2E fix)
 
 ## 2026-02-24 — Phase 0–2 greeting + new-car browsing hygiene (Option A contract alignment)
