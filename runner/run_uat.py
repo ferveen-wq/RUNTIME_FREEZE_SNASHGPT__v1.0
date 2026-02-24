@@ -179,17 +179,42 @@ def compute_request_type_uat(user_input: str) -> str:
     return "OTHER"
 
 
-def inject_readonly_runtime_signals(system_prompt: str, user_input: str) -> str:
-    req = compute_request_type_uat(user_input)
+def inject_readonly_runtime_signals(
+    system_prompt: str, user_input: str, extra_signals: dict = None
+) -> str:
+    extra_signals = extra_signals or {}
+
+    # Allow tests to override request_type (needed for silence / special routing).
+    # If not provided, fall back to UAT heuristic.
+    req = extra_signals.get("request_type")
+    if req is None:
+        req = compute_request_type_uat(user_input)
+
+    # Optional silence/test harness signals (do not guess defaults here)
+    # Only inject if explicitly provided by the test case.
+    silence_lines = ""
+    for key in [
+        "OUTBOUND_AGE_HOURS",
+        "FOLLOW_UP_COUNT",
+        "SILENCE_SUPPRESSED",
+        "SILENCE_STAGE",
+        "customer_response_latency",
+        "silence_state",
+    ]:
+        if key in extra_signals and extra_signals[key] is not None:
+            silence_lines += f"- {key}: {extra_signals[key]}\n"
+
     injected = (
         "RUNTIME_SIGNALS (READ-ONLY; DO NOT MODIFY):\n"
         f"- request_type: {req}\n"
+        f"{silence_lines}"
         "\n"
         "HARD RULE:\n"
         "- In DEBUG_OUTPUT, you MUST print request_type EXACTLY as provided above.\n"
         "- Do NOT output any other request_type value (e.g., PRICE is invalid).\n"
         "\n"
     )
+
     return injected + system_prompt
 
 
@@ -361,8 +386,13 @@ def main():
 
     for case in cases:
         user_input = case["input"]
-        system_prompt_with_signals = inject_readonly_runtime_signals(system_prompt, user_input)
 
+        # Pull optional runtime_signals from the current case
+        extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
+
+        system_prompt_with_signals = inject_readonly_runtime_signals(
+            system_prompt, user_input, extra
+        )
         resp = client.responses.create(
             model=MODEL,
             input=[
