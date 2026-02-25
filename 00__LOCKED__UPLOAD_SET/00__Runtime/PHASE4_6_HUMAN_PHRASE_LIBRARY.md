@@ -29,6 +29,10 @@ AR: للسيراميك، هدفك الأساسي سهولة تنظيف ولمع�
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
 
+### PHASE3A_Q_TINT_GOAL
+EN: For tint, is your main goal heat comfort, privacy, or both?
+AR: للتظليل، هدفك الأساسي الراحة من الحرارة، الخصوصية، أو الاثنين معاً؟
+
 ### PHASE3A_Q_TINT_COVERAGE
 EN: For tint, do you want front only, sides and rear, or full coverage?
 AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
