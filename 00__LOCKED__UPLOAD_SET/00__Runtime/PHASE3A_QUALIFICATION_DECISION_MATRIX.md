@@ -183,5 +183,72 @@ Ask (one question):
 Phase 3B READY for TINT when:
 - TINT_COVERAGE known (or UNKNOWN)
 
+
+────────────────────────────────────────────────────────────
+3A.4 WRAP — FINISH FIRST, THEN SCOPE
+────────────────────────────────────────────────────────────
+
+WRAP qualifiers:
+Q1) WRAP_FINISH (PRIMARY)
+Q2) WRAP_SCOPE (REQUIRED for pricing)
+
+Q1 — WRAP_FINISH
+Allowed values:
+- GLOSS
+- SATIN
+- MATTE
+- UNKNOWN
+
+Ask (one question):
+- “For wrap, which finish are you leaning toward — gloss, satin, or matte?”
+
+Fallback:
+- One nudge max, then UNKNOWN and proceed to scope.
+
+Q2 — WRAP_SCOPE
+Allowed values:
+- FULL_COLOR_CHANGE
+- PARTIAL_AREA
+- UNKNOWN
+
+Ask (one question):
+- “Are you thinking a full color-change wrap, or only a specific area?”
+
+Phase 3B READY for WRAP when:
+- WRAP_SCOPE known (or UNKNOWN)
+
+────────────────────────────────────────────────────────────
+3A.5 POLISHING — SCOPE FIRST, THEN PAINT HISTORY
+────────────────────────────────────────────────────────────
+
+POLISHING qualifiers:
+Q1) POLISHING_SCOPE (PRIMARY)
+Q2) PAINT_CONDITION_REPAINT_SCRATCH (SECOND)
+
+Q1 — POLISHING_SCOPE
+Allowed values:
+- EXTERIOR_ONLY
+- FULL_DETAILING
+- UNKNOWN
+
+Ask (one question):
+- “For polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?”
+
+Fallback:
+- One nudge max, then UNKNOWN and proceed.
+
+Q2 — PAINT_CONDITION_REPAINT_SCRATCH
+Allowed values:
+- YES
+- NO
+- UNKNOWN
+
+Ask (one question):
+- “Before we proceed, has the car had any repaint work or deep scratches?”
+
+Phase 3B READY for POLISHING when:
+- POLISHING_SCOPE known (or UNKNOWN)
+- PAINT_CONDITION_REPAINT_SCRATCH known (or UNKNOWN)
+
 ────────────────────────────────────────────────────────────
 END
