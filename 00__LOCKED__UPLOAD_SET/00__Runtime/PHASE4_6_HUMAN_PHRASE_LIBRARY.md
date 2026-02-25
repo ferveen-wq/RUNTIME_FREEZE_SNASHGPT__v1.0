@@ -10,16 +10,16 @@ EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
 
 ### PHASE3A_Q_PPF_COVERAGE_INTENT
-EN: Just so I guide you correctly and don’t over- or under-quote, are you thinking full protection, front protection, or still deciding?
-AR: عشان أوجهك بدقة بدون ما أزيد أو أنقص عليك، تفكر بحماية كاملة، حماية أمامية، أو بعدك تقرر؟
+EN: To guide you properly for PPF, do you prefer full-body protection, front protection, or are you still deciding?
+AR: عشان أوجهك بدقة للـ PPF، تبي حماية كاملة، حماية أمامية، أو بعدك تقرر؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
 EN: That makes sense. When you’re comparing, is your focus mainly on coverage, quality, or price?
 AR: مفهوم. لما تقارن بين الخيارات، تركيزك أكثر على التغطية، الجودة، أو السعر؟
 
 ### PHASE3A_Q_PPF_DRIVING_PATTERN
-EN: That helps narrow the direction. How you use the car affects where chips usually happen. Is your driving mostly highways and travel, or mostly city use?
-AR: تمام — هذا يوضح الاتجاه. طريقة استخدام السيارة تأثر على أماكن ضربات الحصى غالباً. قيادتك أغلبها على الخطوط والسفر، ولا داخل المدينة؟
+EN: Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?
+AR: قيادتك أغلبها على الخطوط/السفر (حصى أكثر)، ولا داخل المدينة (مواقف/احتكاك أكثر)؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
