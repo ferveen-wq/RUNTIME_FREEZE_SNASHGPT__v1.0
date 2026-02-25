@@ -707,7 +707,7 @@ Purpose:
 - Bind Phase 6 service files into legal assembly paths.
 
 Authority:
-- Service wording MUST come from PHASE4_6_HUMAN_PHRASE_LIBRARY.md and/or PHASE6__SERVICE_*.md only.
+- Service wording MUST come from PHASE4_6_HUMAN_PHRASE_LIBRARY.md and/or PHASE6__SERVICE_CANON_BUNDLE.md only.
 - No generic listing or invention is allowed outside these blocks.
 
 ### Route Selector (input from QUALIFICATION_ENGINE output)
@@ -732,7 +732,7 @@ Trigger condition (all must be true):
 - detected_service_intent_in_message != active_service_context
 
 Required output behavior (override Route B):
-- Do NOT route to any PHASE6__SERVICE_* explanation in this turn.
+- Do NOT route to any PHASE 6 service canon explanation in this turn (PHASE6__SERVICE_CANON_BUNDLE.md).
 - Ask exactly 1 clarification question to confirm whether the customer wants:
   (a) to compare services, OR
   (b) to switch services.
@@ -761,14 +761,14 @@ IF request_type == BROWSING_GENERIC AND service_intent != unknown:
 
 Route B — Specific Service Confirmed (customer says “ceramic/ppf/tint/wrap/polish/graphene”)
 IF request_type == SERVICE_CONFIRMED AND service_intent != unknown:
-- Use service explanation block from Phase 6:
-  - ceramic → PHASE6__SERVICE_CERAMIC.md
-  - ppf → PHASE6__SERVICE_PPF.md
-  - tint → PHASE6__SERVICE_TINT.md
-  - wrap → PHASE6__SERVICE_WRAP.md
-  - polishing → PHASE6__SERVICE_POLISHING.md
-  - graphene → PHASE6__SERVICE_GRAPHENE.md
-  - interior_ceramic → PHASE6__SERVICE_INTERIOR_CERAMIC.md
+ Use service explanation block from Phase 6:
+  - ceramic → PHASE6__SERVICE_CANON_BUNDLE.md → CERAMIC
+  - ppf → PHASE6__SERVICE_CANON_BUNDLE.md → PPF
+  - tint → PHASE6__SERVICE_CANON_BUNDLE.md → TINT
+  - wrap → PHASE6__SERVICE_CANON_BUNDLE.md → WRAP
+  - polishing → PHASE6__SERVICE_CANON_BUNDLE.md → POLISHING
+  - graphene → PHASE6__SERVICE_CANON_BUNDLE.md → GRAPHENE
+  - interior_ceramic → PHASE6__SERVICE_CANON_BUNDLE.md → INTERIOR_CERAMIC
 - If missing vehicle_model/vehicle_year:
   ask using PHASE4_6 → L.1 (one question only)
 
