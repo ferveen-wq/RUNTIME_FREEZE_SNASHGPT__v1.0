@@ -147,20 +147,22 @@ EN: Just to keep it accurate, is this mainly to reduce swirls, or to restore ove
 AR: عشان يكون دقيق، هدفك أكثر تخفيف السويلز ولا استرجاع اللمعة بشكل عام؟
 
 ### PHASE4_PPF_PRICE_PRESSURE_L1
-EN: I understand — comparing is completely normal.
-EN: Service names describe categories, but process shapes the outcome more than labels, and that difference often becomes visible over time.
-EN: If you’d like, I can explain what typically creates that gap, or share a short install example so you can see the coverage and finish clearly?
-AR: أفهمك — المقارنة شيء طبيعي جداً.
-AR: أسماء الخدمات تصف فئات، لكن طريقة التنفيذ هي اللي تصنع النتيجة، وغالباً الفرق يبان مع الوقت.
+EN: I understand - comparing is completely normal.
+EN: With PPF, the headline name matters less than the execution: surface prep, edge finishing, and consistency.
+EN: That is usually where "cheaper" vs "more expensive" shows up over time.
+EN: If you'd like, I can explain what typically creates that gap, or share a short install example so you can see the coverage and finish clearly?
+AR: أفهمك - المقارنة شيء طبيعي جداً.
+AR: بالـPPF اسم الخدمة بروحه أقل من طريقة التنفيذ: تجهيز السطح، تشطيب الحواف، وثبات التركيب.
+AR: وغالباً هنا يطلع فرق "أرخص" و"أغلى" مع الوقت.
 AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أرسل مثال تركيب بسيط عشان تشوف التغطية والتشطيب بوضوح؟
 
 ### PHASE4_PPF_PRICE_PRESSURE_L2
-EN: I understand — it’s important to compare properly.
-EN: Cost differences often reflect process, execution consistency, and long-term ownership experience rather than just the material name.
-EN: If you’d like, I can walk you through what defines that difference in real-world use, or show you a finished vehicle example so you can visually compare the result?
-AR: أفهمك — مهم تقارن بشكل صحيح.
-AR: فرق السعر غالباً يكون بسبب طريقة العمل وثبات التنفيذ وتجربة المالك على المدى الطويل، مو بس اسم المادة.
-AR: إذا تحب، أمشي معك بالنقاط اللي تصنع الفرق على أرض الواقع، أو أوريك مثال سيارة منتهية عشان تقارن النتيجة بعينك؟
+EN: Totally fair to compare.
+EN: The clean way is to match the same coverage and the same finishing standard - not just the brand name.
+EN: If you want, tell me what you're comparing (full vs front), and I'll keep the comparison aligned and simple.
+AR: طبيعي جداً تقارن.
+AR: المقارنة العادلة تكون بتطابق نفس التغطية ونفس مستوى التشطيب - مو بس اسم الماركة.
+AR: إذا تحب، قولّي شنو قاعد تقارن (كامل ولا أمامي)، وبخلي المقارنة واضحة وبسيطة.
 
 ### PHASE4_PPF_PRICE_PRESSURE_L3
 EN: I understand — it’s good that you’re checking carefully.
