@@ -91,8 +91,8 @@ EN: I understand. With wrap, the difference is usually the film series and edge 
 AR: مفهوم. بالتغليف الفرق غالباً يكون في فئة الفيلم ودقة إنهاء الحواف — مو بس اللون اللي تشوفه. تبي خيار اقتصادي أكثر، أو تفضل إنهاء أنظف وثبات أطول؟
 
 ### PHASE4_WRAP_PRICE_PRESSURE_L2
-EN: Totally fair to compare. Just make sure it’s the same scope (full car vs specific areas) and the same finish (gloss/matte/satin) — that’s usually where “cheaper” vs “more expensive” comes from. If you tell me the finish you want, I’ll keep the comparison clean.
-AR: طبيعي تقارن. بس تأكد إنها نفس التغطية (كامل السيارة أو جزء) ونفس اللمسة (لامع/مطفي/ساتن) — غالباً هنا يطلع فرق “أرخص” و“أغلى”. إذا تقول لي اللمسة اللي تبيها، بخلي المقارنة واضحة.
+EN: Totally fair to compare. Just make sure it’s the same scope (full car vs specific areas) and the same finish (gloss/matte/satin) — that’s usually where “cheaper” vs “more expensive” comes from. If you tell me the scope you want (full car vs accents), I’ll keep the comparison clean.
+AR: طبيعي تقارن. بس تأكد إنها نفس التغطية (كامل السيارة أو جزء) ونفس اللمسة (لامع/مطفي/ساتن) — غالباً هنا يطلع فرق “أرخص” و“أغلى”. إذا تقول لي شنو النطاق اللي تبيه (كامل السيارة ولا إضافات/أجزاء)، بخلي المقارنة واضحة.
 
 ### PHASE4_WRAP_PRICE_PRESSURE_L3
 EN: No problem. To avoid any mismatch, we keep it aligned by finish first, then we choose the film level based on whether you care more about long-term stability or just the look.
