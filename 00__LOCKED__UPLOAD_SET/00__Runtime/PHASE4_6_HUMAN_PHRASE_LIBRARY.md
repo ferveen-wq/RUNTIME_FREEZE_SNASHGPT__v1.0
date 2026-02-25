@@ -1,7 +1,7 @@
 # PHASE 0–2 — NEW CAR RECOMMENDATION (NO MODEL/YEAR)
 PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR:
 AR: أهلاً بك. بشكل عام للسيارات الجديدة ننصح بحماية تعطيك راحة بال من اليوم الأول مثل حماية الطلاء (PPF) للمقدمة أو كاملة حسب استخدامك، ومعها خيار سيراميك للمحافظة على اللمعة وسهولة الغسيل. ما هو هدفك الأساسي: حماية من حصى وخدوش الطرق، أم لمعان وسهولة تنظيف؟
-EN: Welcome. For a new car, we generally recommend starting with paint protection (PPF) for the front end or full coverage depending on your usage, and optionally ceramic coating to maintain gloss and make washing easier. What’s your main goal: protection from road chips/scratches, or gloss and easier cleaning?
+EN: Welcome. For a new car, we generally recommend starting with paint protection (PPF) for the front end or full coverage depending on your usage, and optionally ceramic coating to maintain gloss and make washing easier. What’s your main goal: protection against road chips/scratches, or gloss and easier cleaning?
 
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
@@ -334,7 +334,7 @@ AR: إذا تحب، أشرح لك شلون الضمان يرتبط بدرجات 
 ### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L2
 EN: I understand — longer warranty can sound reassuring.
 EN: Performance consistency over time usually matters more than the stated duration.
-EN: If you’d like, I can clarify what typically affects long-term stability, or show you an example from a multi-year coating?
+EN: If you’d like, I can clarify what typically affects long-term stability, or show you an example of a multi-year coating?
 AR: أفهمك — مدة أطول تعطي طمأنينة.
 AR: ثبات الأداء مع الوقت عادة أهم من المدة المذكورة.
 AR: إذا تحب، أوضح لك شنو عادة يأثر على الثبات على المدى الطويل، أو أوريك مثال من سيراميك لعدة سنوات؟
@@ -462,7 +462,7 @@ EN: Got it. Rather than looping on price, we can do one of two clean next steps:
 AR: تمام. بدل ما ندور في حلقة السعر، خلّنا ناخذ خطوة واضحة: (1) نثبت خيار حماية أمامية مركزّة، أو (2) نوقف هنا وترجع لي لما تكون جاهز. أي خيار تفضّل؟
 
 ### PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
-EN: Understood — with ceramic, the biggest differences usually come from preparation + durability tier, not the word “ceramic” alone. If you’d like, I can explain what typically changes between tiers, or share an example of how the finish behaves after proper curing. How do you usually wash the car — hand wash or tunnel wash?
+EN: Understood — with ceramic, the biggest differences usually are driven by preparation + durability tier, not the word “ceramic” alone. If you’d like, I can explain what typically changes between tiers, or share an example of how the finish behaves after proper curing. How do you usually wash the car — hand wash or tunnel wash?
 AR: مفهوم — بالسيراميك أكبر الفروقات عادة تكون في التحضير ودرجة التحمل، مو بس كلمة “سيراميك”. إذا تحب، أشرح لك شنو يتغير غالباً بين المستويات، أو أرسل مثال يوضح النتيجة بعد التصلب الصحيح. شلون عادة تغسل السيارة — يدوي ولا مغسلة/تَنَل؟
 
 ### PHASE5_CERAMIC_DURABILITY_REALISM_DEEPEN_L1
@@ -724,7 +724,7 @@ EN: We’re in **Nuwaidrat** (near Riffa) in Bahrain. Do you want me to send the
 
 ### BIZ_HOURS__ASK_DAY (PHASE 0–2 / BUSINESS INFO)
 AR: دوامنا **السبت–الخميس** من **10:00 صباحًا** إلى **7:00 مساءً**. تبي دوام اليوم؟
-EN: Our hours are **Sat–Thu** from **10:00am** to **7:00pm**. Do you want today’s hours?
+EN: Our hours are **Sat–Thu** **10:00am–7:00pm**. Do you want today’s hours?
 
 ### BIZ_KSA_BRANCH__CONFIRM_COUNTRY (PHASE 0–2 / BUSINESS INFO)
 AR: حاليًا **البحرين فقط** — عندنا **فرع واحد** في **النويدرات قرب الرفاع**. تبي أرسل لك اللوكيشن؟
@@ -1101,7 +1101,7 @@ Purpose: Explain common objections calmly without argument or pressure.
 
 ## TINT — SPEC & BRAND CONFUSION (SAFE RESPONSE)
 
-- EN: Darkness and percentages don’t always reflect protection — performance comes from the film technology itself.
+- EN: Darkness and percentages don’t always reflect protection — performance is driven by the film technology itself.
   AR: درجة التعتيم أو النسب ما تعكس دائماً مستوى الحماية — الأداء الحقيقي يعتمد على تقنية الفيلم.
 
 - EN: We keep one high heat-rejection standard, and only use specific brands like XPEL when a customer asks for it.
@@ -1147,7 +1147,7 @@ Purpose: Build confidence through neutrality and industry-normal language.
 - EN: Clear communication is important to us.
   AR: التواصل الواضح مهم بالنسبة لنا.
 
-- EN: We prefer to keep expectations clear from the start.
+- EN: We prefer to keep expectations clear at the start.
   AR: نحرص على وضوح التوقعات من البداية.
 
 - EN: You can ask anything if you need clarity.
@@ -1552,7 +1552,7 @@ EN: Perfect — your goal and how you wash the car change which ceramic level ho
 AR: تمام — هدفك وطريقة غسيلك يغيّرون أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح عشان تكون المقارنة سهلة.
 
 ### Z_DEPRECATED__PHASE3B_TINT_RANGE__DUPLICATE (DO NOT ROUTE)
-EN: Perfect — now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
+EN: Perfect — now that we know what you want out of tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
 AR: تمام — بما إن عرفنا هدفك من التظليل ونطاق التغطية، بعرض لك مستويات الأفلام المناسبة كنطاق سعر واضح عشان تختار اللي يناسبك.
 
 ### PHASE3B_WRAP_RANGE
@@ -1576,7 +1576,7 @@ EN: Perfect — your goal and how you wash the car change which ceramic level ho
 AR: تمام — هدفك وطريقة غسيلك تفرق في أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
 
 ### PHASE3B_TINT_RANGE
-EN: Perfect — now that we know what you want from tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
+EN: Perfect — now that we know what you want out of tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
 AR: تمام — الحين بعد ما عرفنا هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار اللي يناسبك.
 
 ### PHASE3B_POLISHING_RANGE
