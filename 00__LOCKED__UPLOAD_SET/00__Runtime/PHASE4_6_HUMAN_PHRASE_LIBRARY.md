@@ -436,6 +436,72 @@ EN: No problem. To avoid any mismatch, we’ll keep it strictly aligned by cover
 AR: ما في مشكلة. عشان ما يصير اختلاف بالتوقعات، نخليها أولاً حسب التغطية، وبعدها نختار مستوى الفيلم حسب إذا تهمك راحة العزل أو مجرد تعتيم أساسي.
 
 ────────────────────────────────────────────────────────────
+
+### PHASE4_TINT_HEAT_PERFORMANCE_SKEPTICISM_L1
+EN: Fair question.
+EN: With tint, real heat comfort comes from the film performance level, not the darkness alone, and in GCC heat the difference shows up fast.
+EN: If you want, I can keep it simple and recommend the right level for your goal.
+EN: Is your priority heat comfort, privacy, or both?
+AR: سؤال منطقي.
+AR: بالتظليل، راحة العزل تعتمد على مستوى أداء الفيلم مو بس الغمقان، ومع حرارة الخليج الفرق يبان بسرعة.
+AR: إذا تحب، أبسطها لك وأرشح المستوى المناسب لهدفك.
+AR: أولويتك العزل الحراري، الخصوصية، أو الاثنين معاً؟
+
+### PHASE4_TINT_DARKNESS_PERCENT_CONFUSION_L1
+EN: Understood.
+EN: Percentages and darkness don’t always equal better heat rejection.
+EN: The clean way is: pick coverage first, then choose the film level based on heat comfort vs basic shading.
+EN: Which coverage do you want — front only, sides and rear, or full?
+AR: مفهوم.
+AR: النِسَب والغمقان مو دايم تعني عزل حرارة أعلى.
+AR: الطريقة الواضحة: نحدد التغطية أول، وبعدها نختار مستوى الفيلم حسب العزل أو مجرد تعتيم بسيط.
+AR: شنو التغطية اللي تبيها — أمامي فقط، الجوانب والخلف، أو كامل؟
+
+### PHASE4_TINT_LEGALITY_CONCERN_L1
+EN: Totally fair.
+EN: To keep it safe and clear, we’ll align the recommendation with what’s appropriate locally, and focus on comfort and visibility.
+EN: Do you want it more heat-comfort focused, or more privacy focused?
+AR: طبيعي.
+AR: عشان تكون الأمور آمنة وواضحة، نخلي الترشيح مناسب محلياً ونركز على الراحة والرؤية.
+AR: تبيها أكثر تركيز على العزل، ولا على الخصوصية؟
+
+### PHASE4_TINT_BRAND_FIXATION_L1
+EN: I understand — brand matters.
+EN: With tint, what you feel day-to-day is performance stability with heat and glare, plus clean installation.
+EN: If you tell me your coverage, I’ll keep the options comparable and simple.
+EN: What coverage do you want — front only, sides and rear, or full?
+AR: أفهمك — الماركة تفرق.
+AR: بالتظليل اللي تحسه يومياً هو ثبات الأداء مع الحرارة والوهج، مع تركيب نظيف.
+AR: إذا تحدد التغطية، بخلي الخيارات واضحة وقابلة للمقارنة.
+AR: شنو التغطية اللي تبيها — أمامي فقط، الجوانب والخلف، أو كامل؟
+
+### PHASE4_TINT_INSTALLATION_TRUST_L1
+EN: Good point.
+EN: A clean tint result depends a lot on glass prep, dust control, and edge finishing — not just the film.
+EN: If you want, I can explain the install steps briefly so expectations stay clear.
+EN: Is your main concern the finish quality, or heat comfort?
+AR: نقطة مهمة.
+AR: نتيجة التظليل النظيفة تعتمد كثير على تجهيز الزجاج، التحكم بالغبار، وتشطيب الحواف — مو بس على الفيلم.
+AR: إذا تحب، أوضح لك خطوات التركيب باختصار عشان تكون التوقعات واضحة.
+AR: قلقك الأساسي التشطيب، ولا راحة العزل؟
+
+### PHASE4_TINT_SILENCE_L1
+EN: Totally understandable — choosing tint can take a moment.
+EN: Do you want to decide goal first (heat vs privacy), or decide coverage first?
+AR: طبيعي جداً — اختيار التظليل يحتاج شوي تفكير.
+AR: تبي نحدد الهدف أول (عزل ولا خصوصية)، ولا نحدد التغطية أول؟
+
+### PHASE4_TINT_SILENCE_L2
+EN: Understood.
+EN: Would you like to keep it simple with front only, or go with full coverage?
+AR: تم.
+AR: تبيها بسيطة أمامي فقط، ولا تفضل تغطية كاملة؟
+
+### PHASE4_TINT_SILENCE_L3
+EN: No problem.
+EN: Should we keep it budget-focused, or prioritize stronger heat comfort?
+AR: ما في مشكلة.
+AR: نخليها خيار اقتصادي، ولا نركز على عزل أقوى وراحة أكثر؟
 PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
 ────────────────────────────────────────────────────────────
 
