@@ -63,7 +63,7 @@ Allowed values:
 - UNSURE
 
 Ask (one question):
-- “For PPF, are you thinking full protection, front protection, or still deciding?”
+- “To guide you properly for PPF, do you prefer full-body protection, front protection, or are you still deciding?”
 
 Normalize:
 - “full / كامل” → FULL_BODY
@@ -82,7 +82,7 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “Is your driving mostly highways/travel (stone chips), or mostly city (parking/contact)?”
+- “Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?”
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed.
