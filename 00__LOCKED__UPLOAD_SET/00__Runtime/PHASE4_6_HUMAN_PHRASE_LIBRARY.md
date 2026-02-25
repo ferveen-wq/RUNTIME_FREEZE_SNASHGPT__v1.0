@@ -439,7 +439,7 @@ AR: ما في مشكلة. عشان ما يصير اختلاف بالتوقعات
 
 ### PHASE4_TINT_HEAT_PERFORMANCE_SKEPTICISM_L1
 EN: Fair question.
-EN: With tint, real heat comfort comes from the film performance level, not the darkness alone, and in GCC heat the difference shows up fast.
+EN: With tint, real heat comfort comes through the film performance level, not the darkness alone, and in GCC heat the difference shows up fast.
 EN: If you want, I can keep it simple and recommend the right level for your goal.
 EN: Is your priority heat comfort, privacy, or both?
 AR: سؤال منطقي.
