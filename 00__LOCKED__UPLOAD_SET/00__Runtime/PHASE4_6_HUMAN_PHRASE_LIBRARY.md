@@ -253,10 +253,10 @@ AR: صفاء الفيلم مع الوقت وثبات الحواف يعتمد ب�
 AR: إذا تحب، أشرح لك خطوات التجهيز والتشطيب بوضوح، أو أرسل مثال تركيب بسيط عشان تشوف شلون نتعامل مع الحواف والقطع؟
 
 ### PHASE4_PPF_SILENCE_PRIMARY
-EN: That’s completely understandable — silence often means the decision is being taken seriously.
-EN: Just so I guide you correctly, are you leaning more toward Global, or toward XPEL?
-AR: مفهوم جداً — أحياناً السكوت يعني القرار يُؤخذ بجدية.
-AR: عشان أوجهك صح، تميل أكثر إلى Global ولا إلى XPEL؟
+EN: That’s completely understandable — silence often means you’re weighing it properly.
+EN: To keep the next step simple, do you want to decide coverage first (full vs front), or focus on the finishing standard first?
+AR: مفهوم جداً — أحياناً السكوت يعني إنك قاعد توازن القرار بشكل صحيح.
+AR: عشان نخلي الخطوة الجاية بسيطة، تبي نحدد التغطية أول (كامل ولا أمامي)، ولا نركز على مستوى التشطيب أول؟
 
 ### PHASE4_PPF_SILENCE_COVERAGE_NARROWING
 EN: Understood.
