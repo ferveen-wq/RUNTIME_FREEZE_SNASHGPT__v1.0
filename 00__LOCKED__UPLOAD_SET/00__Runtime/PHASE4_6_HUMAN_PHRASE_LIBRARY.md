@@ -1642,12 +1642,12 @@ EN: Perfect — polishing price depends mainly on whether it’s exterior correc
 AR: تمام — سعر التلميع يعتمد أكثر شي إذا هو تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح عشان تختار المستوى الصحيح.
 
 ### PHASE3B_PPF_RANGE
-EN: Perfect — since you want full protection and your driving style affects chip exposure, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
-AR: تمام — بما إنك تبي حماية كاملة وطريقة استخدامك تأثر على تعرض السيارة للحصى، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.
+EN: Perfect — based on your usage and protection preference, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.
+AR: تمام — بناءً على استخدامك وتفضيلك للحماية، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.
 
 ### PHASE3B_CERAMIC_RANGE
-EN: Perfect — your goal and how you wash the car change which ceramic level holds its gloss best. I’ll share the options as a clear price range next so it’s easy to compare.
-AR: تمام — هدفك وطريقة غسيلك تفرق في أي مستوى سيراميك يثبت لمعته أفضل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
+EN: Perfect — based on your goal and wash pattern, I’ll present the ceramic levels as a clear price range next so it’s easy to compare.
+AR: تمام — بناءً على هدفك وطريقة غسيلك، بعرض لك مستويات السيراميك كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
 
 ### PHASE3B_TINT_RANGE
 EN: Perfect — now that we know what you want out of tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
