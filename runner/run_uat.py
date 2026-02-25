@@ -67,6 +67,70 @@ def normalize_for_contains(s: str) -> str:
 
 def compute_request_type_uat(user_input: str) -> str:
     msg = normalize_for_contains(user_input)
+    # VEHICLE-ONLY GUARD:
+    # If input is just vehicle brand + year (no service keywords),
+    # classify as OTHER (prevents false SERVICE_CONFIRMED).
+    vehicle_only_brands = [
+        "bmw",
+        "toyota",
+        "nissan",
+        "lexus",
+        "mercedes",
+        "audi",
+        "kia",
+        "hyundai",
+        "honda",
+        "ford",
+        "chevrolet",
+        "chevy",
+        "gmc",
+        "tesla",
+        "porsche",
+        "land rover",
+        "range rover",
+        "volkswagen",
+        "vw",
+        "skoda",
+        "seat",
+        "peugeot",
+        "renault",
+        "mg",
+        "geely",
+        "changan",
+        "haval",
+        "gwm",
+        "byd",
+        "jetour",
+        "isuzu",
+        "mitsubishi",
+        "suzuki",
+        "mazda",
+        "subaru",
+        "infiniti",
+        "cadillac",
+        "lincoln",
+        "volvo",
+    ]
+
+    has_year = any(str(y) in msg for y in range(2000, 2031))
+    has_brand = any(b in msg for b in vehicle_only_brands)
+
+    service_keywords = [
+        "ppf",
+        "ceramic",
+        "tint",
+        "wrap",
+        "polishing",
+        "تظليل",
+        "عازل",
+        "تلميع",
+        "تلماع",
+        "سيراميك",
+        "حماية",
+    ]
+
+    if has_brand and has_year and not any(s in msg for s in service_keywords):
+        return "OTHER"
 
     # 1) Greeting-only (Phase 0)
     # Keep this tight: short greetings / salutations with no service/vehicle intent.
@@ -395,6 +459,7 @@ def main():
         )
         resp = client.responses.create(
             model=MODEL,
+            temperature=0,
             input=[
                 {"role": "system", "content": system_prompt_with_signals},
                 {"role": "user", "content": user_input},
