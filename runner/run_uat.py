@@ -282,6 +282,29 @@ def inject_readonly_runtime_signals(
     return injected + system_prompt
 
 
+def build_case_constraints(case: dict) -> str:
+    lines = []
+
+    ar_any = case.get("arabic_must_contain_any")
+    en_any = case.get("english_must_contain_any")
+    ar_all = case.get("arabic_must_contain_all")
+    en_all = case.get("english_must_contain_all")
+
+    if ar_any:
+        lines.append(f"- Arabic MUST include at least one of: {ar_any}")
+    if en_any:
+        lines.append(f"- English MUST include at least one of: {en_any}")
+    if ar_all:
+        lines.append(f"- Arabic MUST include all of: {ar_all}")
+    if en_all:
+        lines.append(f"- English MUST include all of: {en_all}")
+
+    if not lines:
+        return ""
+
+    return "UAT_CASE_CONSTRAINTS (HARD; MUST SATISFY):\n" + "\n".join(lines) + "\n\n"
+
+
 def extract_debug_and_messages(full_text: str) -> dict:
     lines = full_text.splitlines()
     debug = {}
@@ -453,9 +476,10 @@ def main():
 
         # Pull optional runtime_signals from the current case
         extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
-
+        constraints = build_case_constraints(case) if isinstance(case, dict) else ""
+        system_prompt_case = constraints + system_prompt
         system_prompt_with_signals = inject_readonly_runtime_signals(
-            system_prompt, user_input, extra
+            system_prompt_case, user_input, extra
         )
         resp = client.responses.create(
             model=MODEL,
