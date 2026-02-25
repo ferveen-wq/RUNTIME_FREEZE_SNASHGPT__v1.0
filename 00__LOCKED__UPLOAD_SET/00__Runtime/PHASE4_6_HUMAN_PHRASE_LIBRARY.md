@@ -280,20 +280,20 @@ AR: تبي ملخص مقارنة سريع، ولا نكمل على خيار وا
 # ============================================================
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L1
-EN: I understand — comparing ceramic pricing is completely normal.
-EN: Ceramic service names describe categories, but preparation and durability tier usually define long-term outcome.
-EN: If you’d like, I can explain what typically creates that difference, or show you an example of how the finish looks after proper curing?
-AR: أفهمك — مقارنة أسعار السيراميك شيء طبيعي جداً.
-AR: أسماء خدمات السيراميك تصف فئات، لكن التحضير ودرجة التحمل هي اللي تحدد النتيجة على المدى الطويل.
-AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أوريك مثال شلون يكون الشكل بعد التصلب الصحيح؟
+EN: Totally fair to compare ceramic prices.
+EN: With ceramic, the outcome depends more on preparation and curing control than the label itself - especially in GCC heat.
+EN: That's usually where "cheaper" vs "more expensive" shows up over time (gloss stability and water behavior).
+EN: If you'd like, I can explain what typically creates that gap, or share a quick real example after proper curing?
+AR: طبيعي جداً تقارن أسعار السيراميك.
+AR: مع السيراميك، النتيجة تعتمد أكثر على تجهيز السطح والتحكم بالتصلب أكثر من الاسم - خصوصاً مع حرارة الخليج.
+AR: وغالباً هنا يطلع فرق "أرخص" و"أغلى" مع الوقت (ثبات اللمعة وسلوك الطرد المائي).
+AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أوريك مثال سريع بعد التصلب الصحيح؟
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L2
-EN: I understand — price differences often reflect durability level rather than just the word “ceramic.”
-EN: Shorter-term coatings can make sense for mostly city driving, while longer-term tiers are designed for sustained exposure.
-EN: If you’d like, I can walk you through how city vs highway use affects durability choice, or show you a side-by-side gloss example?
-AR: أفهمك — فرق السعر غالباً يعكس مستوى التحمل مو بس كلمة “سيراميك”.
-AR: الخيارات القصيرة تناسب استخدام المدينة غالباً، بينما الدرجات الأطول مصممة لتحمّل التعرض المستمر.
-AR: إذا تحب، أمشي معك شلون استخدام المدينة مقابل الخط يأثر على اختيار التحمل، أو أوريك مثال لمعان مقارنة؟
+EN: The clean comparison is to match the same durability tier and the same finishing standard - not just "ceramic" as a word.
+EN: If you tell me what you're comparing (and how you wash), I'll keep the comparison aligned and simple.
+AR: المقارنة العادلة تكون بتطابق نفس درجة التحمل ونفس مستوى التشطيب - مو بس كلمة "سيراميك".
+AR: إذا تقولّي شنو قاعد تقارن (وشلون تغسل)، بخلي المقارنة واضحة وبسيطة.
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L3
 EN: I understand — it’s worth thinking beyond the initial number.
