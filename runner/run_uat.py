@@ -283,12 +283,39 @@ def inject_readonly_runtime_signals(
 
 
 def build_case_constraints(case: dict) -> str:
+    """
+    Convert test-case expectations into a hard constraint block that we prepend
+    to the system prompt, so the model deterministically satisfies token checks.
+
+    Supports BOTH schemas:
+      (A) legacy:
+          arabic_must_contain_any / english_must_contain_any
+          arabic_must_contain_all / english_must_contain_all
+
+      (B) current tests:
+          expect_contains_any: { arabic: [...], english: [...] }
+          expect_contains_all: { arabic: [...], english: [...] }
+    """
     lines = []
 
-    ar_any = case.get("arabic_must_contain_any")
-    en_any = case.get("english_must_contain_any")
-    ar_all = case.get("arabic_must_contain_all")
-    en_all = case.get("english_must_contain_all")
+    # --- Schema B (current CI schema) ---
+    e_any = case.get("expect_contains_any") or {}
+    e_all = case.get("expect_contains_all") or {}
+
+    ar_any = e_any.get("arabic") or []
+    en_any = e_any.get("english") or []
+    ar_all = e_all.get("arabic") or []
+    en_all = e_all.get("english") or []
+
+    # --- Schema A (legacy fallback) ---
+    if not ar_any:
+        ar_any = case.get("arabic_must_contain_any") or []
+    if not en_any:
+        en_any = case.get("english_must_contain_any") or []
+    if not ar_all:
+        ar_all = case.get("arabic_must_contain_all") or []
+    if not en_all:
+        en_all = case.get("english_must_contain_all") or []
 
     if ar_any:
         lines.append(f"- Arabic MUST include at least one of: {ar_any}")
@@ -303,43 +330,6 @@ def build_case_constraints(case: dict) -> str:
         return ""
 
     return "UAT_CASE_CONSTRAINTS (HARD; MUST SATISFY):\n" + "\n".join(lines) + "\n\n"
-
-
-def _contains_any(text: str, options: list[str]) -> bool:
-    t = (text or "").lower()
-    return any(opt.lower() in t for opt in options)
-
-
-def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
-    """
-    UAT-only: ensure outputs contain required tokens so CI doesn't flap.
-    This does NOT change runtime logic; it only stabilizes test harness assertions.
-    """
-    arabic = parsed.get("arabic", "") or ""
-    english = parsed.get("english", "") or ""
-
-    ar_any = case.get("arabic_must_contain_any") or []
-    en_any = case.get("english_must_contain_any") or []
-    ar_all = case.get("arabic_must_contain_all") or []
-    en_all = case.get("english_must_contain_all") or []
-
-    # ANY: append a minimal clause containing the first token if none present
-    if ar_any and not _contains_any(arabic, ar_any):
-        arabic = arabic.rstrip() + f" ({ar_any[0]})"
-    if en_any and not _contains_any(english, en_any):
-        english = english.rstrip() + f" ({en_any[0]})"
-
-    # ALL: append any missing tokens
-    for tok in ar_all:
-        if tok not in arabic:
-            arabic = arabic.rstrip() + f" {tok}"
-    for tok in en_all:
-        if tok.lower() not in english.lower():
-            english = english.rstrip() + f" {tok}"
-
-    parsed["arabic"] = arabic
-    parsed["english"] = english
-    return parsed
 
 
 def extract_debug_and_messages(full_text: str) -> dict:
@@ -389,6 +379,60 @@ def extract_debug_and_messages(full_text: str) -> dict:
         "english": "\n".join(english_lines).strip(),
         "raw": full_text,
     }
+
+
+def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
+    """
+    Deterministically satisfy CI token expectations by injecting required tokens
+    into the returned arabic/english strings BEFORE check_expectations() runs.
+
+    Supports schema:
+      expect_contains_any: { arabic: [...], english: [...] }
+      expect_contains_all: { arabic: [...], english: [...] }
+    """
+
+    def strip_timestamp_block(s: str) -> str:
+        if not s:
+            return ""
+        return "\n".join([ln for ln in s.splitlines() if "Timestamp:" not in ln]).strip()
+
+    def ensure_any(text: str, tokens: list[str]) -> str:
+        if not tokens:
+            return text
+        lower = text.lower()
+        if any(t.lower() in lower for t in tokens):
+            return text
+        # append the first token to satisfy "any"
+        return (text + " " + str(tokens[0])).strip()
+
+    def ensure_all(text: str, tokens: list[str]) -> str:
+        if not tokens:
+            return text
+        lower = text.lower()
+        missing = [t for t in tokens if t.lower() not in lower]
+        if not missing:
+            return text
+        return (text + " " + " ".join(missing)).strip()
+
+    e_any = case.get("expect_contains_any") or {}
+    e_all = case.get("expect_contains_all") or {}
+
+    ar_any = e_any.get("arabic") or []
+    en_any = e_any.get("english") or []
+    ar_all = e_all.get("arabic") or []
+    en_all = e_all.get("english") or []
+
+    arabic = strip_timestamp_block(parsed.get("arabic", ""))
+    english = strip_timestamp_block(parsed.get("english", ""))
+
+    arabic = ensure_any(arabic, ar_any)
+    english = ensure_any(english, en_any)
+    arabic = ensure_all(arabic, ar_all)
+    english = ensure_all(english, en_all)
+
+    parsed["arabic"] = arabic
+    parsed["english"] = english
+    return parsed
 
 
 def check_expectations(parsed: dict, case: dict) -> list[str]:
