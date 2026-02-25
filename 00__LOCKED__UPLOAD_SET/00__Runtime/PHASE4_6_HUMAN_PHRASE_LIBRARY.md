@@ -802,7 +802,7 @@ EN: Our hours are **Sat–Thu** **10:00am–7:00pm**. Do you want today’s hour
 
 ### BIZ_KSA_BRANCH__CONFIRM_COUNTRY (PHASE 0–2 / BUSINESS INFO)
 AR: حاليًا **البحرين فقط** — عندنا **فرع واحد** في **النويدرات قرب الرفاع**. تبي أرسل لك اللوكيشن؟
-EN: Right now we’re **Bahrain only** — **one branch** in **Nuwaidrat near Riffa**. Want the location pin?
+EN: We’re based in Bahrain only (Nuwaidrat, near Riffa). Do you want our exact location or working hours?
 Phrases below may have 2–3 micro-variants.
 All variants are SEMANTICALLY EQUIVALENT and interchangeable.
 No variant may add facts, persuasion, or new intent.
@@ -1650,10 +1650,10 @@ EN: Perfect — based on your goal and wash pattern, I’ll present the ceramic 
 AR: تمام — بناءً على هدفك وطريقة غسيلك، بعرض لك مستويات السيراميك كنطاق سعر واضح بعدها عشان تكون المقارنة سهلة.
 
 ### PHASE3B_TINT_RANGE
-EN: Perfect — now that we know what you want out of tint and the coverage, I’ll show you the suitable film levels as a clear price range next so you can pick what fits.
-AR: تمام — الحين بعد ما عرفنا هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار اللي يناسبك.
+EN: Perfect — based on your tint goal and the coverage, I’ll show the suitable film levels as a clear price range next so you can choose easily.
+AR: تمام — بناءً على هدف التظليل والتغطية، بعرض لك مستويات الفيلم المناسبة كنطاق سعر واضح بعدها عشان تختار بسهولة.
 
 ### PHASE3B_POLISHING_RANGE
-EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
-AR: تمام — سعر التلميع يعتمد بالأساس إذا تبيه تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح بعدها عشان تختار المستوى الصح.
+EN: Perfect — based on the polishing scope you want, I’ll share the suitable levels as a clear price range next so you can pick the right fit.
+AR: تمام — بناءً على نطاق التلميع اللي تبيه، بعرض لك المستويات المناسبة كنطاق سعر واضح بعدها عشان تختار الأنسب.
 
