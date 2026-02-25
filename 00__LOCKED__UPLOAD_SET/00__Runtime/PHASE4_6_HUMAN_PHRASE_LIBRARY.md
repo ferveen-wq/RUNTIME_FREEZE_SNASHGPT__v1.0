@@ -21,6 +21,10 @@ AR: مفهوم. لما تقارن بين الخيارات، تركيزك أكث�
 EN: Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?
 AR: قيادتك أغلبها على الخطوط/السفر (حصى أكثر)، ولا داخل المدينة (مواقف/احتكاك أكثر)؟
 
+### PHASE3A_Q_CERAMIC_GOAL
+EN: For ceramic, is your main goal easy cleaning and stable gloss long-term, or mainly to make it look fresh again?
+AR: للسيراميك، هدفك الأساسي سهولة تنظيف ولمعة ثابتة على المدى الطويل، ولا أكثر شيء تبيها بس ترجع السيارة شكلها نظيف وجديد؟
+
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
 EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
 AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
