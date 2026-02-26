@@ -1499,28 +1499,28 @@ Usage rule:
   - 2 = V2
   - 3 = V3 (final attempt)
 
-EN (V1): To guide you correctly, what’s the car model and year?
-AR (V1): عشان أوجهك صح، شنو موديل السيارة وأي سنة؟
+EN (V1): Sure — to guide you correctly, what’s the car model and year?
+AR (V1): أكيد — عشان أوجهك صح، شنو موديل السيارة وأي سنة؟
 
-EN (V2): Quick check — what’s the car model and year?
-AR (V2): سؤال سريع — شنو موديل السيارة وأي سنة؟
+EN (V2): Just a quick check — what’s the car model and year?
+AR (V2): بس سؤال سريع — شنو موديل السيارة وأي سنة؟
 
-EN (V3): Last detail I need: car model and year?
-AR (V3): آخر معلومة أحتاجها: موديل السيارة وأي سنة؟
+EN (V3): Last detail I need — what’s the car model and year?
+AR (V3): آخر معلومة أحتاجها — موديل السيارة وأي سنة؟
 
-EN: What’s the exact car model?
-AR: شنو موديل السيارة بالضبط؟
+EN: Sure — what’s the exact car model?
+AR: أكيد — شنو موديل السيارة بالضبط؟
 
-EN: What’s the model year?
-AR: شنو سنة الموديل؟
+EN: Sure — what’s the model year?
+AR: أكيد — شنو سنة الموديل؟
 
 ### L.1 YEAR_ONLY (AUTHORITATIVE — ONE QUESTION)
 Usage rule:
 - Used ONLY when missing_fields == [vehicle_year]
 - Must be 1 question only
 
-EN: What’s the model year?
-AR: شنو سنة الموديل؟
+EN: Sure — what’s the model year?
+AR: أكيد — شنو سنة الموديل؟
 
 ---
 
