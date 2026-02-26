@@ -26,8 +26,8 @@ EN: For ceramic, is your main goal easy cleaning and stable gloss long-term, or 
 AR: للسيراميك، هدفك الأساسي سهولة تنظيف ولمعة ثابتة على المدى الطويل، ولا أكثر شيء تبيها بس ترجع السيارة شكلها نظيف وجديد؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
-EN: How do you usually wash the car — normal bucket washing in the locality/public parking, automatic tunnel wash, waterless washing at malls, a professional washing center, or a mix?
-AR: شلون عادة تغسل السيارة — غسيل عادي بالسطل في المنطقة/المواقف العامة، غسيل نفق/آلي، غسيل بدون ماء في المولات، مركز غسيل محترف، أو خليط؟
+EN: How do you usually arrange the car wash — bucket/hand wash, a brush/tunnel (automatic) wash, waterless wash, a professional wash center, or a mix?
+AR: شلون عادة ترتّب غسيل السيارة — غسيل يدوي/سطل، غسيل نفق/آلي (فرش/رول)، غسيل بدون ماء، مركز غسيل محترف، أو خليط؟
 
 ### PHASE3A_Q_TINT_GOAL
 EN: For tint, is your main goal heat comfort, privacy, or both?
@@ -797,8 +797,8 @@ AR: نحن موجودون في **النويدرات** (قرب الرفاع) في
 EN: We’re in **Nuwaidrat** (near Riffa) in Bahrain. Do you want me to send the Google Maps pin?
 
 ### BIZ_HOURS__ASK_DAY (PHASE 0–2 / BUSINESS INFO)
-AR: دوامنا **السبت–الخميس** من **10:00 صباحًا** إلى **7:00 مساءً**. تبي دوام اليوم؟
-EN: Our hours are **Sat–Thu** **10:00am–7:00pm**. Do you want today’s hours?
+AR: دوامنا **السبت–الخميس** من **10:00 صباحًا** إلى **7:00 مساءً**. إذا تحتاج وقت ثاني خبرنا ونحاول نرتّب أحد يستقبلك. أي يوم ناوي تمر؟
+EN: Our hours are **Sat–Thu** **10:00am–7:00pm**. If you need another time, tell us and we’ll try to arrange someone to receive you. What day are you planning to come?
 
 ### BIZ_KSA_BRANCH__CONFIRM_COUNTRY (PHASE 0–2 / BUSINESS INFO)
 AR: حاليًا **البحرين فقط** — عندنا **فرع واحد** في **النويدرات قرب الرفاع**. تبي أرسل لك اللوكيشن؟
@@ -974,22 +974,8 @@ AR:
 
 ### C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
 
-EN:
-Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, helps reduce wash marks over time, and makes the car easier to clean so it keeps looking fresh for years. To guide you correctly, what’s the car model and year?
-
+EN: Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, makes washing easier, and helps the car stay looking newer for longer. To guide you correctly, what’s the car model and year?
 AR:
-السيراميك مثل العناية بالبشرة لطلاء السيارة. يحافظ على اللمعة، يقلّل آثار الغسيل مع الوقت، ويخلّي التنظيف أسهل عشان تظل السيارة شكلها فريش لسنين. عشان أوجّهك صح، شنو موديل السيارة وأي سنة؟
-
-- EN: Ceramic coating involves proper paint preparation before application.
-  AR: طلاء السيراميك يتضمن تجهيز الطلاء بشكل مناسب قبل التطبيق.
-
-- EN: Ceramic coating protects the exterior paint, while interior ceramic focuses separately on interior surfaces.
-  AR: طلاء السيراميك يختص بحماية الطلاء الخارجي، بينما السيراميك الداخلي يركّز بشكل منفصل على الأسطح الداخلية.
-
-## INTERIOR CERAMIC — CORE ANCHOR (PRE-PRICE)
-
-- EN: Interior ceramic is like a non-stick layer for the interior — everyday spills and dirt don’t stick easily, making cleaning much simpler.
-  AR: السيراميك الداخلي يشبه طبقة مانعة للالتصاق داخل السيارة — الأوساخ والسوائل اليومية ما تمسك بسهولة، والتنظيف يصير أسهل.
 
 ### C.3 CERAMIC WASH PATTERN QUALIFIER (PHASE 0–2)
 
@@ -1422,10 +1408,8 @@ AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظلي
  AR: أكيد — بحوّل طلبك للفريق عشان يساعدونك.
 
 ### MULTI_SERVICE_INTENT_SAFE (PHASE 0–2)
-EN: Got it — you’re looking at more than one service. What’s the car model and year?
-AR: تمام — واضح إنك تفكر بأكثر من خدمة. شنو موديل السيارة وأي سنة؟
-EN_ALT: Got it — you’re looking at more than one service. Which service should we start with first?
-AR_ALT: تمام — واضح إنك تفكر بأكثر من خدمة. أي خدمة نبدأ فيها أول؟
+EN: Sure — we can take them one by one and keep it simple. What’s the car model and year?
+AR: أكيد — نقدر ناخذهم واحد واحد وبكل بساطة. شنو موديل السيارة وأي سنة؟
 
 ### LONG_RAMBLING_GROUNDING (PHASE 0–2)
 EN: I know it can feel confusing — I can help. What’s the car model and year?
