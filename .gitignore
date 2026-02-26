@@ -11,3 +11,7 @@ tests/reports/github secret key for api
 
 # UAT reports (generated)
 /tests/reports/
+
+# local review artifacts
+/tools/PHASE0_2_PHRASES_REVIEW.md
+/tools/phrase_shape_snapshot_before.json
