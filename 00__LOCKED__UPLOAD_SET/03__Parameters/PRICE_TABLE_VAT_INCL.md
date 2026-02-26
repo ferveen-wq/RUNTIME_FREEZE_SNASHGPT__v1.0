@@ -8,8 +8,8 @@
 | SKU | VCB_1 | VCB_2 | VCB_3 |
 |---|---:|---:|---:|
 | GLOBAL_LUXE_5Y | 550 | 630 | 730 |
-| GLOBAL_ELITE_8Y | 715 | 770 | 880 |
-| GLOBAL_SIGNATURE_10Y | 750 | 790 | 890 |
+| GLOBAL_ELITE_8Y | 750 | 790 | 890 |
+| GLOBAL_SIGNATURE_10Y | 800 | 880 | 990 |
 | XPEL_EXO_7Y | 920 | 1040 | 1100 |
 | XPEL_UP_10Y | 1320 | 1340 | 1400 |
 | XPEL_FUSION_10Y | 1420 | 1440 | 1500 |
@@ -38,7 +38,7 @@
 
 | SKU | VCB_1 | VCB_2 | VCB_3 |
 |---|---:|---:|---:|
-| INTERIOR_CERAMIC | 25 | 30 | 35 |
+| INTERIOR_CERAMIC | 35 | 40 | 50 |
 
 ## WINDOW TINT
 
@@ -59,6 +59,6 @@
 | SKU | VCB_1 | VCB_2 | VCB_3 |
 |---|---:|---:|---:|
 | ROOF_PPF_BLACK_GLOSS | 60 | 90 | 130 |
-| WRAP_GLOSS | 650 | 700 | 780 |
-| WRAP_MATTE | 700 | 750 | 850 |
-| WRAP_SATIN | 750 | 800 | 920 |
+| WRAP_GLOSS | 700 | 750 | 800 |
+| WRAP_MATTE | 700 | 750 | 800 |
+| WRAP_SATIN | 700 | 750 | 800 |
