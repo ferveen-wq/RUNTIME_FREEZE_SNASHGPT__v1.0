@@ -1,7 +1,7 @@
-# PHASE3A_QUALIFICATION_DECISION_MATRIX.md (LOCKED)
+# PHASE3A_QUALIFICATION_DECISION_MATRIX.md
 # LOCK_METADATA
 # LOCK_STATUS: LOCKED
-# LOCK_SCOPE: PHASE 3A — Decision Matrix (qualifier order + gating logic)
+# LOCK_SCOPE: PHASE 3A - Decision Matrix (qualifier order + gating logic)
 # LOCK_DATE: 2026-02-09
 # LOCK_REASON: Phase 3A UAT passed; prevent qualifier drift or reordering
 # CHANGE_CONTROL: Architecture approval required
@@ -24,7 +24,7 @@
 #
 
 ────────────────────────────────────────────────────────────
-3A.0 GLOBAL SEQUENCING — VEHICLE_AGE_BUCKET (HARD)
+3A.0 GLOBAL SEQUENCING - VEHICLE_AGE_BUCKET (HARD)
 ────────────────────────────────────────────────────────────
 
 PAINT CONDITION GATE PARAM:
@@ -39,7 +39,7 @@ AGE_0_3_YEARS / AGE_3_6_YEARS:
 - No forced paint gate first unless customer mentions repaint/deep scratches.
 
 PAINT CONDITION GATE QUESTION (one question):
-- “Before we guide the price, is there any repaint work or deep scratches on the panels?”
+- "Before we guide the price, is there any repaint work or deep scratches on the panels?"
 
 Normalization (strict):
 - YES patterns → REQUIRES_REVIEW
@@ -47,7 +47,7 @@ Normalization (strict):
 - Otherwise → UNKNOWN
 
 ────────────────────────────────────────────────────────────
-3A.1 PPF — MINI-CONSULTATION (BENCHMARK BEHAVIOR)
+3A.1 PPF - MINI-CONSULTATION (BENCHMARK BEHAVIOR)
 ────────────────────────────────────────────────────────────
 
 PPF qualifiers (max 2 core + 1 conditional):
@@ -55,7 +55,7 @@ Q1) Coverage intent (PRIMARY)
 Q2) Driving pattern (SECOND)
 Q3) Comparison focus (CONDITIONAL only if price/competitor pressure)
 
-Q1 — PPF_COVERAGE_INTENT (required before pricing posture)
+Q1 - PPF_COVERAGE_INTENT (required before pricing posture)
 Allowed values:
 - FULL_BODY
 - FULL_FRONT
@@ -63,18 +63,18 @@ Allowed values:
 - UNSURE
 
 Ask (one question):
-- “To guide you properly for PPF, do you prefer full-body protection, front protection, or are you still deciding?”
+- "To guide you properly for PPF, do you prefer full-body protection, front protection, or are you still deciding?"
 
 Normalize:
-- “full / كامل” → FULL_BODY
-- “front / front only / قدام / أمامي” → FULL_FRONT
+- "full / كامل" → FULL_BODY
+- "front / front only / قدام / أمامي" → FULL_FRONT
 - custom panels list → PARTIAL_OR_CUSTOM
 - otherwise → UNSURE (or UNKNOWN if totally unclear)
 
 Fallback:
 - One nudge max, then set UNSURE and proceed.
 
-Q2 — PPF_DRIVING_PATTERN
+Q2 - PPF_DRIVING_PATTERN
 Allowed values:
 - CITY
 - HIGHWAY
@@ -82,14 +82,14 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?”
+- "Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?"
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed.
 
-Q3 — PPF_COMPARISON_FOCUS (only if triggered)
+Q3 - PPF_COMPARISON_FOCUS (only if triggered)
 Trigger if ANY:
-- repeated “how much”
+- repeated "how much"
 - competitor cheaper / quote mention
 - film thickness / brand fixation
 
@@ -101,39 +101,39 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “When you compare, is it mainly about coverage, film quality, or headline price?”
+- "When you compare, is it mainly about coverage, film quality, or headline price?"
 
-If “all” → MIXED.
+If "all" → MIXED.
 
 Phase 3B READY for PPF when:
 - PPF_COVERAGE_INTENT is known (or UNSURE)
 - PPF_DRIVING_PATTERN is known (or UNKNOWN)
 
 ────────────────────────────────────────────────────────────
-3A.2 CERAMIC — MAINTENANCE-OUTCOME LED
+3A.2 CERAMIC - MAINTENANCE-OUTCOME LED
 ────────────────────────────────────────────────────────────
 
 CERAMIC qualifiers:
 Q1) CERAMIC_GOAL (PRIMARY)
 Q2) CERAMIC_WASH_PATTERN (SECOND)
 
-Q1 — CERAMIC_GOAL
+Q1 - CERAMIC_GOAL
 Allowed values:
 - EASY_CLEAN_LONG_TERM
 - LOOKS_FRESH_SHORT_TERM
 - UNKNOWN
 
 Ask (one question):
-- “For ceramic, is your main goal easy cleaning + stable gloss long-term, or mainly to make it look fresh again?”
+- "For ceramic, is your main goal easy cleaning + stable gloss long-term, or mainly to make it look fresh again?"
 
 Immediately after Q1 (spec note for phrasing layer, not pricing):
-- Mention “6-month refresh approach” ONLY as a maintenance concept,
+- Mention "6-month refresh approach" ONLY as a maintenance concept,
   and ONLY because it is a canonical service add-on (see Service Canon patch).
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed.
 
-Q2 — CERAMIC_WASH_PATTERN
+Q2 - CERAMIC_WASH_PATTERN
 Allowed values:
 - BUCKET_LOCALITY
 - AUTO_TUNNEL
@@ -143,21 +143,21 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “How do you usually wash — bucket/hand wash, tunnel/automatic, mall waterless, wash center, or mixed?”
+- "How do you usually wash - bucket/hand wash, tunnel/automatic, mall waterless, wash center, or mixed?"
 
 Phase 3B READY for CERAMIC when:
 - CERAMIC_GOAL known (or UNKNOWN)
 - CERAMIC_WASH_PATTERN known (or UNKNOWN)
 
 ────────────────────────────────────────────────────────────
-3A.3 TINT — OUTCOME FIRST, THEN COVERAGE
+3A.3 TINT - OUTCOME FIRST, THEN COVERAGE
 ────────────────────────────────────────────────────────────
 
 TINT qualifiers:
 Q1) TINT_GOAL (PRIMARY)
 Q2) TINT_COVERAGE (REQUIRED for pricing)
 
-Q1 — TINT_GOAL
+Q1 - TINT_GOAL
 Allowed values:
 - HEAT_COMFORT
 - PRIVACY
@@ -165,12 +165,12 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “For tint, is your main goal heat comfort, privacy, or both?”
+- "For tint, is your main goal heat comfort, privacy, or both?"
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed to coverage.
 
-Q2 — TINT_COVERAGE
+Q2 - TINT_COVERAGE
 Allowed values:
 - FRONT_ONLY
 - SIDES_REAR
@@ -178,21 +178,21 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “For tint coverage, do you want front only, sides and back, or full?”
+- "For tint coverage, do you want front only, sides and back, or full?"
 
 Phase 3B READY for TINT when:
 - TINT_COVERAGE known (or UNKNOWN)
 
 
 ────────────────────────────────────────────────────────────
-3A.4 WRAP — FINISH FIRST, THEN SCOPE
+3A.4 WRAP - FINISH FIRST, THEN SCOPE
 ────────────────────────────────────────────────────────────
 
 WRAP qualifiers:
 Q1) WRAP_FINISH (PRIMARY)
 Q2) WRAP_SCOPE (REQUIRED for pricing)
 
-Q1 — WRAP_FINISH
+Q1 - WRAP_FINISH
 Allowed values:
 - GLOSS
 - SATIN
@@ -200,51 +200,51 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- “For wrap, which finish are you leaning toward — gloss, satin, or matte?”
+- "For wrap, which finish are you leaning toward - gloss, satin, or matte?"
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed to scope.
 
-Q2 — WRAP_SCOPE
+Q2 - WRAP_SCOPE
 Allowed values:
 - FULL_COLOR_CHANGE
 - PARTIAL_AREA
 - UNKNOWN
 
 Ask (one question):
-- “Are you thinking a full color-change wrap, or only a specific area?”
+- "Are you thinking a full color-change wrap, or only a specific area?"
 
 Phase 3B READY for WRAP when:
 - WRAP_SCOPE known (or UNKNOWN)
 
 ────────────────────────────────────────────────────────────
-3A.5 POLISHING — SCOPE FIRST, THEN PAINT HISTORY
+3A.5 POLISHING - SCOPE FIRST, THEN PAINT HISTORY
 ────────────────────────────────────────────────────────────
 
 POLISHING qualifiers:
 Q1) POLISHING_SCOPE (PRIMARY)
 Q2) PAINT_CONDITION_REPAINT_SCRATCH (SECOND)
 
-Q1 — POLISHING_SCOPE
+Q1 - POLISHING_SCOPE
 Allowed values:
 - EXTERIOR_ONLY
 - FULL_DETAILING
 - UNKNOWN
 
 Ask (one question):
-- “For polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?”
+- "For polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?"
 
 Fallback:
 - One nudge max, then UNKNOWN and proceed.
 
-Q2 — PAINT_CONDITION_REPAINT_SCRATCH
+Q2 - PAINT_CONDITION_REPAINT_SCRATCH
 Allowed values:
 - YES
 - NO
 - UNKNOWN
 
 Ask (one question):
-- “Before we proceed, has the car had any repaint work or deep scratches?”
+- "Before we proceed, has the car had any repaint work or deep scratches?"
 
 Phase 3B READY for POLISHING when:
 - POLISHING_SCOPE known (or UNKNOWN)
@@ -252,3 +252,4 @@ Phase 3B READY for POLISHING when:
 
 ────────────────────────────────────────────────────────────
 END
+
