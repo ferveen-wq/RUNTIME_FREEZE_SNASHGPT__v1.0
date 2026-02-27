@@ -15,3 +15,5 @@ tests/reports/github secret key for api
 # local review artifacts
 /tools/PHASE0_2_PHRASES_REVIEW.md
 /tools/phrase_shape_snapshot_before.json
+/tools/PHASE0_2_CLEAN_REFERENCE.md
+*.save
