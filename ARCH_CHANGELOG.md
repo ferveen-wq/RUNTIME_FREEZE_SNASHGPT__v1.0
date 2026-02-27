@@ -223,3 +223,48 @@ Files touched:
   - Lock Phase 3A behavior before Phase 3B pricing expansion (prevent qualifier bypass + multi-question drift).
 - UAT:
   - UAT_CASES_FILE=tests/regression_phase3a_qualifier.json python runner/run_uat.py
+- Date: 2026-02-26
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Changed:
+  - Phase 0–2 L.1 vehicle info question softening:
+    - Added a consistent polite preface to L.1 variants (V1/V2/V3) and YEAR_ONLY question to reduce directness.
+- Why:
+  - Improve customer-facing tone in Phase 0–2 while keeping routing/assembly behavior unchanged (one-question rule preserved).
+- UAT:
+  - for f in tests/regression_*.json; do python runner/run_uat.py "$f" || exit 1; done (16/16 green across packs)
+- Tag:
+  - runtime_release_20260226_l1soften_v1
+
+
+- Date: 2026-02-27
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Changed:
+  - Phase 0–2 ceramic education completeness:
+    - Filled AR line for "C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)" (previously empty).
+- Why:
+  - Ensure EN/AR parity for Phase 0–2 ceramic education without altering runtime logic or selector wiring.
+- UAT:
+  - for f in tests/regression_*.json; do python runner/run_uat.py "$f" || exit 1; done (16/16 green across packs)
+- Tag:
+  - runtime_release_20260227_p0_2_c2ar_v1
+
+
+- Date: 2026-02-27
+- Files:
+  - tools/gen_phase0_2_clean_reference_v1.py
+  - tools/patch_phase0_2_c2_ar_fill_v1.py
+  - tools/patch_phase0_2_polite_prefix_optionA_v1.py
+  - .gitignore
+- Changed:
+  - Added Phase 0–2 utilities:
+    - Generator for a read-only Phase 0–2 clean reference doc.
+    - Patch helpers for Phase 0–2 text-only edits.
+  - Ignored generated artifacts (clean reference output + *.save).
+- Why:
+  - Provide reproducible tooling and keep generated/local artifacts out of git history.
+- UAT:
+  - No runtime behavior changes (tools-only). Runtime packs previously green.
+- Tag:
+  - tools_release_20260227_phase0_2_utils_v1
