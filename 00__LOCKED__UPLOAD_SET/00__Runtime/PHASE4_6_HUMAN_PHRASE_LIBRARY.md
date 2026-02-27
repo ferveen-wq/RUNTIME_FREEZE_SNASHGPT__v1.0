@@ -975,7 +975,7 @@ AR:
 ### C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
 
 EN: Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, makes washing easier, and helps the car stay looking newer for longer. To guide you correctly, what’s the car model and year?
-AR:
+AR: السيراميك مثل العناية ببشرة طلاء السيارة. يعطي لمعة ثابتة، ويسهّل الغسيل، ويساعد السيارة تظل شكلها أحدث لفترة أطول. عشان أوجهك صح، شنو موديل السيارة وأي سنة؟
 
 ### C.3 CERAMIC WASH PATTERN QUALIFIER (PHASE 0–2)
 
