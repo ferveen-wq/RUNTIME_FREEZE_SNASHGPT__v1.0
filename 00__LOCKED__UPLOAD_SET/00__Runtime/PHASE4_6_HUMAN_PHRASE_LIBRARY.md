@@ -794,15 +794,15 @@ Scope:
 
 ### BIZ_LOCATION__ASK_PIN (PHASE 0–2 / BUSINESS INFO)
 AR: نحن موجودون في **النويدرات** (قرب الرفاع) في البحرين. هل تبي أرسل لك اللوكيشن على الخريطة؟
-EN: We’re in **Nuwaidrat** (near Riffa) in Bahrain. Do you want me to send the Google Maps pin?
+EN: Sure — We’re in **Nuwaidrat** (near Riffa) in Bahrain. Do you want me to send the Google Maps pin?
 
 ### BIZ_HOURS__ASK_DAY (PHASE 0–2 / BUSINESS INFO)
 AR: دوامنا **السبت–الخميس** من **10:00 صباحًا** إلى **7:00 مساءً**. إذا تحتاج وقت ثاني خبرنا ونحاول نرتّب أحد يستقبلك. أي يوم ناوي تمر؟
-EN: Our hours are **Sat–Thu** **10:00am–7:00pm**. If you need another time, tell us and we’ll try to arrange someone to receive you. What day are you planning to come?
+EN: Sure — Our hours are **Sat–Thu** **10:00am–7:00pm**. If you need another time, tell us and we’ll try to arrange someone to receive you. What day are you planning to come?
 
 ### BIZ_KSA_BRANCH__CONFIRM_COUNTRY (PHASE 0–2 / BUSINESS INFO)
 AR: حاليًا **البحرين فقط** — عندنا **فرع واحد** في **النويدرات قرب الرفاع**. تبي أرسل لك اللوكيشن؟
-EN: We’re based in Bahrain only (Nuwaidrat, near Riffa). Do you want our exact location or working hours?
+EN: Sure — We’re based in Bahrain only (Nuwaidrat, near Riffa). Do you want our exact location or working hours?
 Phrases below may have 2–3 micro-variants.
 All variants are SEMANTICALLY EQUIVALENT and interchangeable.
 No variant may add facts, persuasion, or new intent.
@@ -974,7 +974,7 @@ AR:
 
 ### C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
 
-EN: Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, makes washing easier, and helps the car stay looking newer for longer. To guide you correctly, what’s the car model and year?
+EN: Sure — Ceramic coating is like skincare for your car’s paint. It keeps the finish glossy, makes washing easier, and helps the car stay looking newer for longer. To guide you correctly, what’s the car model and year?
 AR: السيراميك مثل العناية ببشرة طلاء السيارة. يعطي لمعة ثابتة، ويسهّل الغسيل، ويساعد السيارة تظل شكلها أحدث لفترة أطول. عشان أوجهك صح، شنو موديل السيارة وأي سنة؟
 
 ### C.3 CERAMIC WASH PATTERN QUALIFIER (PHASE 0–2)
@@ -1337,7 +1337,7 @@ Usage rule:
 - MUST NOT suggest a specific service
 - MUST NOT trigger qualification
 
-EN: No problem at all. We do PPF, ceramic coating, tint, wrap, and polishing. Which one are you mainly looking at?
+EN: Sure — No problem at all. We do PPF, ceramic coating, tint, wrap, and polishing. Which one are you mainly looking at?
 AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. أي خدمة في بالك أكثر؟
 
 ## SERVICE LIST — PHASE 0–2
@@ -1412,7 +1412,7 @@ EN: Sure — we can take them one by one and keep it simple. What’s the car mo
 AR: أكيد — نقدر ناخذهم واحد واحد وبكل بساطة. شنو موديل السيارة وأي سنة؟
 
 ### LONG_RAMBLING_GROUNDING (PHASE 0–2)
-EN: I know it can feel confusing — I can help. What’s the car model and year?
+EN: Sure — I know it can feel confusing — I can help. What’s the car model and year?
 AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أساعدك. شنو موديل السيارة وأي سنة؟
 
 ## L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
