@@ -109,6 +109,26 @@ MATTE PPF (ALL SEGMENTS)
 - Default: GLOBAL_MATTE_10Y
 - If brand explicitly requested: XPEL_STEALTH_10Y
 
+--------------------------------------------------------------------
+# MATTE FINISH ROUTING (Additive — Does Not Modify Gloss Routing)
+
+IF service_intent == PPF
+AND PPF_FINISH_INTENT == MATTE:
+
+  IF PPF_COVERAGE_INTENT == FULL_BODY:
+
+      IF brand explicitly requested OR message contains "stealth":
+          → XPEL_STEALTH_10Y
+      ELSE:
+          → GLOBAL_MATTE_10Y
+
+  IF PPF_COVERAGE_INTENT == FULL_FRONT:
+
+      → GLOBAL_MATTE_FRONT_10Y
+
+--------------------------------------------------------------------
+
+
 ────────────────────────────────────────────
 2) CERAMIC & GRAPHENE — FULL BODY ONLY
 ────────────────────────────────────────────
