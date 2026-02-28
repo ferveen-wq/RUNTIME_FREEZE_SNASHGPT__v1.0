@@ -306,7 +306,7 @@ AND vehicle_year is present:
     - IF (PPF_COVERAGE_INTENT is missing) OR (PPF_COVERAGE_INTENT == UNKNOWN):
       - IF current_user_message contains any of: "full", "full body", "whole car", "entire car":
         - set PPF_COVERAGE_INTENT = FULL_BODY
-      - ELSE IF current_user_message contains any of: "front", "front only", "front protection", "impact zones":
+      - ELSE IF current_user_message contains any of: "front", "front only", "front protection":
         - set PPF_COVERAGE_INTENT = FULL_FRONT
 
     - IF (PPF_DRIVING_PATTERN is missing) OR (PPF_DRIVING_PATTERN == UNKNOWN):
