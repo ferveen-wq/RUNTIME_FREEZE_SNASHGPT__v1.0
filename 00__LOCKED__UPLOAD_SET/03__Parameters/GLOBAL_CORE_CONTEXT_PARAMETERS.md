@@ -430,3 +430,19 @@ Used By:
 ---
 
 ## END OF FILE
+--------------------------------------------------------------------
+### PARAMETER: PPF_FINISH_INTENT
+Allowed:
+- GLOSS
+- MATTE
+- UNKNOWN
+
+Default:
+- UNKNOWN
+
+Notes:
+- Set only when customer explicitly mentions matte / stealth / satin / مطفي.
+- Does NOT introduce new qualification questions.
+- Purely passive dimension for SKU routing.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
