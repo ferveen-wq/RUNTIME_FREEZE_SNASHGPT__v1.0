@@ -268,3 +268,43 @@ Files touched:
   - No runtime behavior changes (tools-only). Runtime packs previously green.
 - Tag:
   - tools_release_20260227_phase0_2_utils_v1
+
+- Date: 2026-02-28
+- Files:
+  - 00__LOCKED__UPLOAD_SET/03__Parameters/GLOBAL_CORE_CONTEXT_PARAMETERS.md
+  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+  - 00__LOCKED__UPLOAD_SET/03__Parameters/SKU_SELECTION_MATRIX.md
+  - 00__LOCKED__UPLOAD_SET/03__Parameters/PRICE_TABLE_VAT_INCL.md
+  - 00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - tests/regression_ppf_matte_audit.json
+  - tests/regression_cases_uat__ppf_matte_audit.json
+- Changed:
+  - Added passive finish dimension for PPF:
+    - Introduced PPF_FINISH_INTENT (GLOSS|MATTE|UNKNOWN) as a non-qualifier routing dimension.
+    - Added silent matte/stealth/satin detection without adding any new Phase 3A questions.
+  - Matte PPF SKU routing:
+    - Full-body matte routes to GLOBAL_MATTE_10Y by default; XPEL_STEALTH_10Y only when explicitly requested / “stealth” mentioned.
+    - Matte front routes to GLOBAL_MATTE_FRONT_10Y (GLOBAL only for front matte).
+  - Pricing:
+    - Added PRICE_TABLE_VAT_INCL row for GLOBAL_MATTE_FRONT_10Y.
+  - Registry alignment:
+    - Added GLOBAL_MATTE_FRONT_10Y to GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md.
+  - Scope inference hardening:
+    - Removed “impact zones” alias from PPF_COVERAGE_INTENT silent inference to prevent unintended FULL_FRONT selection.
+  - Matte front install note:
+    - Added PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE and wired it to append after pricing on Route E (READY) and Route F (price pressure) when PPF_FINISH_INTENT==MATTE and coverage==FULL_FRONT.
+  - Tests:
+    - Added a dedicated PPF matte behavioral audit suite (finish discipline + scope discipline + objection/downladder safety).
+- Why:
+  - Enforce matte discipline end-to-end (finish → SKU routing → pricing → reassurance note) without introducing new qualifiers or changing gloss routing.
+  - Prevent unintended front-scope inference from ambiguous phrasing.
+  - Add regression coverage so these behaviors cannot drift silently.
+- UAT:
+  - for f in tests/*.json; do python runner/run_uat.py "$f" || exit 1; done (all packs green)
+- Tags:
+  - runtime_release_20260228_matte_v2_texture_note
+  - runtime_release_20260228_matte_v1_impactzones_fix
+  - runtime_freeze_checkpoint_20260228_alltests_green
+
