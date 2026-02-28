@@ -316,6 +316,20 @@ AND vehicle_year is present:
         - set PPF_DRIVING_PATTERN = CITY
 
   --------------------------------------------------------------------------
+  # Matte Finish Silent Detection (Additive — Regression Safe)
+  # Purpose: Detect matte/stealth finish without adding new qualifier
+  # Does NOT affect existing gloss routing.
+  --------------------------------------------------------------------------
+
+    - IF (PPF_FINISH_INTENT is missing) OR (PPF_FINISH_INTENT == UNKNOWN):
+      - IF current_user_message contains any of:
+          "matte", "matt", "stealth", "satin",
+          "مطفي", "مطفّي", "ستيلث", "ساتان":
+        - set PPF_FINISH_INTENT = MATTE
+      - ELSE:
+        - set PPF_FINISH_INTENT = GLOSS
+
+  --------------------------------------------------------------------------
   # Phase 3A answer capture (HARD)
   #
   # Purpose:
