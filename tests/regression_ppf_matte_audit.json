@@ -1,0 +1,94 @@
+[
+  {
+    "case_id": "ppf_matte_full_price_request_should_not_offer_gloss",
+    "input": "Mazda CX90 2026 full ppf matte how much",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_not_contains": {
+      "english": [
+        "gloss",
+        "ultimate plus",
+        "exo",
+        "fusion",
+        "clear film"
+      ],
+      "arabic": [
+        "لامع",
+        "جلوس",
+        "ألتيميت",
+        "اكسو",
+        "فيوجن",
+        "شفاف"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_matte_front_price_request_should_include_texture_note",
+    "input": "Mazda CX90 2026 front ppf matte how much",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_contains_any": {
+      "english": [
+        "texture",
+        "matching"
+      ],
+      "arabic": [
+        "الملمس",
+        "تطابق"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_matte_front_xpel_request_should_not_return_gloss_xpel_front",
+    "input": "Mazda CX90 2026 front ppf matte xpel how much",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_not_contains": {
+      "english": [
+        "exo",
+        "ultimate plus",
+        "fusion",
+        "gloss"
+      ],
+      "arabic": [
+        "اكسو",
+        "ألتيميت",
+        "فيوجن",
+        "لامع",
+        "جلوس"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_matte_missing_vehicle_should_ask_model_year_not_assume_scope_or_price",
+    "input": "My car is matte. How much now?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_contains_any": {
+      "english": [
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "VCB_",
+        "BD",
+        "BHD",
+        "din"
+      ],
+      "arabic": [
+        "دينار",
+        "د.ب"
+      ]
+    }
+  }
+]
