@@ -788,6 +788,9 @@ Route E — Price Request while READY (pricing allowed)
 IF (phase == PHASE_3 OR phase == PHASE_3B) AND request_type == PRICE_REQUEST AND all qualification fields complete:
 - Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
+- If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:
+  - Append PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE
+  - Do NOT add extra questions.
 - If phase4_anchor_used != true:
   - Append PHASE4_ANCHOR_AFTER_PRICE_ONCE
   - Set phase4_anchor_used = true
@@ -806,6 +809,9 @@ Route F — Price Resistance / Comparison (Phase 7 controlled pricing response)
 IF (PRICE_PRESSURE_LEVEL == HIGH OR DISCOUNT_EXPECTATION_RISK == HIGH):
 
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
+- If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:
+  - Append PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE
+  - Do NOT add extra questions.
 - If phase4_anchor_used != true:
   - Append PHASE4_ANCHOR_AFTER_PRICE_ONCE
   - Set phase4_anchor_used = true

@@ -1641,3 +1641,7 @@ AR: تمام — بناءً على هدف التظليل والتغطية، بع
 EN: Perfect — based on the polishing scope you want, I’ll share the suitable levels as a clear price range next so you can pick the right fit.
 AR: تمام — بناءً على نطاق التلميع اللي تبيه، بعرض لك المستويات المناسبة كنطاق سعر واضح بعدها عشان تختار الأنسب.
 
+
+### PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE
+EN: For matte finishes, we confirm texture matching during installation so the front blends cleanly with the rest of the vehicle.
+AR: للسيارات المطفي، نتأكد من تطابق الملمس وقت التركيب عشان تكون المقدمة متناسقة مع باقي السيارة.
