@@ -47,6 +47,7 @@ Correct examples:
 - GLOBAL_ELITE_8Y
 - XPEL_FUSION_10Y
 - GLOBAL_MATTE_10Y
+- GLOBAL_MATTE_FRONT_10Y
 - CERAMIC_5Y
 
 ---
@@ -87,6 +88,7 @@ Wrap detection aliases (map to service intent VEHICLE_WRAP):
 - GLOBAL_ELITE_8Y
 - GLOBAL_SIGNATURE_10Y
 - GLOBAL_MATTE_10Y
+- GLOBAL_MATTE_FRONT_10Y
 
 ### GLOBAL_LUXE_5Y
 - display_name: Global Hitech Film Luxe
@@ -110,6 +112,15 @@ Wrap detection aliases (map to service intent VEHICLE_WRAP):
 - short_description: High-durability paint protection designed for long-term ownership.
 
 ### GLOBAL_MATTE_10Y
+
+### GLOBAL_MATTE_FRONT_10Y
+- display_name: Global Hitech Films Matte (Front Package)
+- warranty_label: 10 Years
+- finish_type: matte
+- positioning_tags: [MATTE_LOOK, FRONT_PACKAGE]
+- short_description: Matte-finish front protection package designed to preserve satin texture on high-impact zones.
+
+
 - display_name: Global Hitech Films Matte
 - warranty_label: 10 Years
 - finish_type: matte
