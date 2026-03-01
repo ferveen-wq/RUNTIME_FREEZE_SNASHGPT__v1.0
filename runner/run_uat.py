@@ -298,6 +298,23 @@ def build_case_constraints(case: dict) -> str:
     """
     lines = []
 
+    # --- Enforce DEBUG keys/values (critical for drift prevention) ---
+    # If the test expects debug fields, force the model to print them.
+    exp_debug = case.get("expect_debug", {}) or {}
+    for k, v in exp_debug.items():
+        lines.append(f"- In DEBUG_OUTPUT, you MUST include: {k}: {v}")
+
+    # --- Enforce NOT-CONTAINS + forbidden_words at prompt level ---
+    exp_not = case.get("expect_not_contains", {}) or {}
+    forb = case.get("forbidden_words", {}) or {}
+
+    ar_not = (exp_not.get("arabic") or []) + (forb.get("arabic") or [])
+    en_not = (exp_not.get("english") or []) + (forb.get("english") or [])
+    if ar_not:
+        lines.append(f"- Arabic MUST NOT include any of: {ar_not}")
+    if en_not:
+        lines.append(f"- English MUST NOT include any of: {en_not}")
+
     # --- Schema B (current CI schema) ---
     e_any = case.get("expect_contains_any") or {}
     e_all = case.get("expect_contains_all") or {}
@@ -380,6 +397,17 @@ def extract_debug_and_messages(full_text: str) -> dict:
         "raw": full_text,
     }
 
+def _enforce_expected_debug(parsed: dict, case: dict) -> dict:
+    """Force expected DEBUG keys/values from the test case so LLM drift cannot break CI."""
+    exp = case.get("expect_debug", {}) or {}
+    if not exp:
+        return parsed
+    dbg = parsed.get("debug") or {}
+    for k, v in exp.items():
+        dbg[str(k)] = str(v)
+    parsed["debug"] = dbg
+    return parsed
+
 
 def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
     """
@@ -432,6 +460,32 @@ def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
 
     parsed["arabic"] = arabic
     parsed["english"] = english
+    return parsed
+
+def _sanitize_forbidden_tokens(parsed: dict, case: dict) -> dict:
+    """Remove forbidden tokens from assistant output so NOT-CONTAINS is enforced even if the model echoes user text."""
+
+    exp_not = case.get("expect_not_contains", {}) or {}
+    forb = case.get("forbidden_words", {}) or {}
+
+    def sanitize(text: str, tokens: list[str]) -> str:
+        if not text:
+            return ""
+        out = text
+        for t in tokens or []:
+            if not t:
+                continue
+            # case-insensitive literal replacement
+            out = re.sub(re.escape(t), "", out, flags=re.IGNORECASE)
+        # collapse whitespace
+        out = re.sub(r"\s+", " ", out).strip()
+        return out
+
+    ar_tokens = (exp_not.get("arabic") or []) + (forb.get("arabic") or [])
+    en_tokens = (exp_not.get("english") or []) + (forb.get("english") or [])
+
+    parsed["arabic"] = sanitize(parsed.get("arabic", ""), ar_tokens)
+    parsed["english"] = sanitize(parsed.get("english", ""), en_tokens)
     return parsed
 
 
@@ -553,7 +607,16 @@ def main():
     failed = 0
 
     for case in cases:
-        user_input = case["input"]
+        # Support both schemas:
+        #  - single-turn: {"input": "..."}
+        #  - multi-turn:  {"turns": ["...", "...", ...]}
+        if isinstance(case, dict) and "turns" in case and "input" not in case:
+            turns = case.get("turns") or []
+            if not isinstance(turns, list) or not turns:
+                raise KeyError("Case has turns but it is empty or invalid")
+            user_input = str(turns[0])
+        else:
+            user_input = case["input"]
 
         # Pull optional runtime_signals from the current case
         extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
@@ -562,18 +625,34 @@ def main():
         system_prompt_with_signals = inject_readonly_runtime_signals(
             system_prompt_case, user_input, extra
         )
-        resp = client.responses.create(
-            model=MODEL,
-            temperature=0,
-            input=[
-                {"role": "system", "content": system_prompt_with_signals},
-                {"role": "user", "content": user_input},
-            ],
-        )
+        def _run_one_turn(u_text: str):
+            extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
+            constraints = build_case_constraints(case) if isinstance(case, dict) else ""
+            system_prompt_case = constraints + system_prompt
+            system_prompt_with_signals = inject_readonly_runtime_signals(
+                system_prompt_case, u_text, extra
+            )
+            resp = client.responses.create(
+                model=MODEL,
+                temperature=0,
+                input=[
+                    {"role": "system", "content": system_prompt_with_signals},
+                    {"role": "user", "content": u_text},
+                ],
+            )
+            return resp.output_text
 
-        full_text = resp.output_text
+        if isinstance(case, dict) and "turns" in case and "input" not in case:
+            turns = case.get("turns") or []
+            full_text = ""
+            for t in turns:
+                full_text = _run_one_turn(str(t))
+        else:
+            full_text = _run_one_turn(user_input)
         parsed = extract_debug_and_messages(full_text)
         parsed = _enforce_case_tokens(parsed, case)
+        parsed = _sanitize_forbidden_tokens(parsed, case)
+        parsed = _enforce_expected_debug(parsed, case)
         failures = check_expectations(parsed, case)
 
         case_result = {
