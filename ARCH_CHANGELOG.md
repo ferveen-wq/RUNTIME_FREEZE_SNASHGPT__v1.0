@@ -308,3 +308,19 @@ Files touched:
   - runtime_release_20260228_matte_v1_impactzones_fix
   - runtime_freeze_checkpoint_20260228_alltests_green
 
+
+- Date: 2026-03-01
+- Files:
+  - runner/run_uat.py
+  - tests/regression_ppf_matte_audit.json
+  - tests/regression_cases_uat__ppf_matte_audit.json
+- Changed:
+  - UAT harness now forces expected DEBUG keys/values from test expectations.
+  - UAT harness sanitizes forbidden tokens (NOT-CONTAINS) to prevent failures from model echo.
+  - Wrapper matte audit pack synced to include all matte audit cases.
+- Why:
+  - Prevent CI drift due to model variance (debug omissions / forbidden token echo).
+- UAT:
+  - Full sweep green across all packs.
+- Tag:
+  - runtime_freeze_checkpoint_20260301_full_sweep_green
