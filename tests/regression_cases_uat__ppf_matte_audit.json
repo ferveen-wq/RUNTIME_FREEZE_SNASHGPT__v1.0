@@ -479,4 +479,95 @@
       ]
     }
   }
+,
+  {
+    "case_id": "ppf_matte_fullbody_expensive_no_gloss_downladder",
+    "input": "Mazda CX90 2026 full ppf matte. That is expensive.",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["GLOBAL_LUXE_5Y", "GLOBAL_ELITE_8Y", "GLOBAL_SIGNATURE_10Y", "XPEL_EXO_7Y", "XPEL_UP_10Y", "gloss"],
+      "arabic": ["لامع", "جلوس"]
+    },
+    "expect_contains_any": {
+      "english": ["GLOBAL_MATTE_10Y"],
+      "arabic": ["مطفي", "مطفّي"]
+    }
+  },
+  {
+    "case_id": "ppf_matte_fullbody_competitor_cheaper_no_gloss_downladder",
+    "input": "Mazda CX90 2026 full ppf matte. Competitors are cheaper.",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["GLOBAL_LUXE_5Y", "GLOBAL_ELITE_8Y", "GLOBAL_SIGNATURE_10Y", "XPEL_EXO_7Y", "XPEL_UP_10Y", "gloss"],
+      "arabic": ["لامع", "جلوس"]
+    },
+    "expect_contains_any": {
+      "english": ["GLOBAL_MATTE_10Y"],
+      "arabic": ["مطفي", "مطفّي"]
+    }
+  },
+  {
+    "case_id": "ppf_matte_front_expensive_no_gloss_downladder_includes_texture_note",
+    "input": "Mazda CX90 2026 front ppf matte. That is expensive.",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["PPF_FRONT_GLOBAL", "GLOBAL_LUXE_5Y", "GLOBAL_ELITE_8Y", "GLOBAL_SIGNATURE_10Y", "gloss"],
+      "arabic": ["لامع", "جلوس"]
+    },
+    "expect_contains_any": {
+      "english": ["GLOBAL_MATTE_FRONT_10Y", "texture matching"],
+      "arabic": ["مطابق", "الملمس", "متناسقة"]
+    }
+  },
+  {
+    "case_id": "ppf_matte_front_competitor_cheaper_no_gloss_downladder_includes_texture_note",
+    "input": "Mazda CX90 2026 front ppf matte. Competitors are cheaper.",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["PPF_FRONT_GLOBAL", "GLOBAL_LUXE_5Y", "GLOBAL_ELITE_8Y", "GLOBAL_SIGNATURE_10Y", "gloss"],
+      "arabic": ["لامع", "جلوس"]
+    },
+    "expect_contains_any": {
+      "english": ["GLOBAL_MATTE_FRONT_10Y", "texture matching"],
+      "arabic": ["مطابق", "الملمس", "متناسقة"]
+    }
+  },
+  {
+    "case_id": "ppf_matte_front_xpel_requested_stays_global_front_matte",
+    "input": "Mazda CX90 2026 front ppf matte xpel how much",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["XPEL_STEALTH_10Y", "XPEL", "PPF_FRONT_XPEL"],
+      "arabic": ["اكسبل", "إكسبل"]
+    },
+    "expect_contains_any": {
+      "english": ["GLOBAL_MATTE_FRONT_10Y"],
+      "arabic": ["مطفي", "مطفّي"]
+    }
+  },
+  {
+    "case_id": "ppf_matte_finish_unknown_user_says_my_car_is_matte_no_gloss_recommend",
+    "input": "My car is matte. How much now?",
+    "expect_debug": {
+      "service_intent": "PPF"
+    },
+    "expect_not_contains": {
+      "english": ["gloss", "GLOBAL_LUXE_5Y", "GLOBAL_ELITE_8Y", "GLOBAL_SIGNATURE_10Y"],
+      "arabic": ["لامع", "جلوس"]
+    },
+    "expect_contains_any": {
+      "english": ["matte", "GLOBAL_MATTE_10Y"],
+      "arabic": ["مطفي", "مطفّي"]
+    }
+  }
 ]
