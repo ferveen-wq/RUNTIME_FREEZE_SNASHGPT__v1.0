@@ -1,3 +1,20 @@
+
+- Date: 2026-03-01
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/SNASHGPT_MASTER_GOVERNANCE.md
+- Changed:
+  - Added a master governance ledger (NOT wired to runtime) to track:
+    - behavioral risks
+    - pricing/ladder integrity
+    - matte/finish discipline
+    - tone/trust guardrails
+    - UAT packs + risk coverage mapping
+    - backlog priorities and completion status
+- Why:
+  - Prevent drift by keeping a single, versioned source of truth inside freeze bundles.
+- UAT:
+  - No runtime behavior changes; informational ledger only.
+
 # ARCH_CHANGELOG.md
 
 ## Format (required)
