@@ -1,11 +1,6 @@
 [
   {
     "case_id": "neg_ceramic_repeat_price_pressure_escalate_to_l2_narrow",
-    "turns": [
-      "BMW X5 2025 ceramic coating, I want long-term gloss, I do tunnel wash, how much?",
-      "Too expensive.",
-      "Still expensive."
-    ],
     "expect_debug": {
       "phase": "PHASE_5",
       "selected_phrase_id": "PHASE5_CERAMIC_NARROW_L2"
@@ -22,15 +17,15 @@
         "٪",
         "كوبون"
       ]
-    }
+    },
+    "input": "BMW X5 2025 ceramic coating, I want long-term gloss, I do tunnel wash, how much?",
+    "followups": [
+      "Too expensive.",
+      "Still expensive."
+    ]
   },
   {
     "case_id": "neg_tint_repeat_price_pressure_escalate_to_l2_narrow",
-    "turns": [
-      "BMW X5 2025 tint, I want heat rejection and privacy, how much?",
-      "Too expensive.",
-      "Still expensive."
-    ],
     "expect_debug": {
       "phase": "PHASE_5",
       "selected_phrase_id": "PHASE5_TINT_NARROW_L2"
@@ -47,6 +42,11 @@
         "٪",
         "كوبون"
       ]
-    }
+    },
+    "input": "BMW X5 2025 tint, I want heat rejection and privacy, how much?",
+    "followups": [
+      "Too expensive.",
+      "Still expensive."
+    ]
   }
 ]
