@@ -324,3 +324,15 @@ Files touched:
   - Full sweep green across all packs.
 - Tag:
   - runtime_freeze_checkpoint_20260301_full_sweep_green
+
+- Date: 2026-03-01
+- Files:
+  - tests/regression_negotiation_escalation_cross_v1.json
+- Changed:
+  - Migrated negotiation cross pack from turns[] to input + followups schema.
+- Why:
+  - Keep UAT packs consistent with the current harness schema for full-sweep runs.
+- UAT:
+  - Full sweep green across all packs.
+- Tag:
+  - runtime_freeze_checkpoint_20260301_full_sweep_green_v2
