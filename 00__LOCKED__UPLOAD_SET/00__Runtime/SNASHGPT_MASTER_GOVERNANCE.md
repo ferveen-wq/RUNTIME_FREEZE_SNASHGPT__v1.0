@@ -452,3 +452,45 @@ Use this table to track completion (do NOT rely on memory).
 | 7 | Services | Wrap expansion pipeline | MED | NO | NO | - | BACKLOG |
 | 8 | Services | Polishing expansion pipeline | MED | NO | NO | - | BACKLOG |
 | 9 | Services | Interior ceramic expansion | MED | NO | NO | - | BACKLOG |
+
+---
+
+### Silence State Pack (Behavioral Handling Layer)
+
+Date: 2026-03-04
+
+Purpose:
+Introduce structured handling for conversational silence states to prevent
+dead conversational zones and maintain natural engagement.
+
+Triggers Approved:
+A. Silence after price reveal
+B. Silence after option presentation
+C. Silence after customer clarification question
+
+Behavioral Principles:
+- Silence must not trigger pressure or aggressive follow-up.
+- Response tone must remain calm, observational, and neutral.
+- No social proof or popularity language may be used.
+- Do not assume customer intent during silence.
+
+Runtime Integration Targets:
+- PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- QUALIFICATION_ENGINE.md
+
+New Behavioral States:
+- silence_after_price
+- silence_after_options
+- silence_after_question
+
+UAT Coverage Required:
+- tests/behavioral/silence_state_pack.json
+
+Constraints:
+- Silence responses must not introduce new SKUs
+- Silence responses must not calculate price
+- Silence responses must not downladder automatically
+
+Status:
+Design Approved — Implementation Pending
