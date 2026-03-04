@@ -57,6 +57,12 @@ and `SILENCE_HANDLING_ENGINE.md`.
   - Writer: Orchestrator (based on upstream signals)
   - Reader: Silence Engine (hard blocker)
 
+  - SILENCE_SUPPRESSION_REASON
+    - Allowed: (see PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md enum list)
+    - Meaning: Why silence actions are blocked when SILENCE_SUPPRESSED == TRUE.
+    - Writer: Orchestrator (based on upstream signals / notes)
+    - Reader: Audit / Governance / (optional) Message Assembly for reporting only
+
 - SILENCE_TERMINATED
   - Allowed: TRUE | FALSE
   - Meaning: Terminal stop flag after S3 or follow-up cap reached.

@@ -40,6 +40,15 @@ Signal: detected_service_intent_in_message
   - READERS: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
 
 Signal: objection_signal, objection_repeat_count
+
+
+Signal: SILENCE_SUPPRESSION_REASON
+- Writer: ORCHESTRATOR (only)
+- Readers:
+  - SILENCE_HANDLING_ENGINE.md (for audit context only; blocker remains SILENCE_SUPPRESSED boolean)
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md (optional reporting; MUST NOT create new routing signals)
+- Notes:
+  - Enum values defined in PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
   - WRITER: 00__Runtime/CUSTOMER_CHAT_INTAKE_RULES.md
   - READERS: NEGOTIATION_LOGIC_MODULE.md, OBJECTION_RESOLUTION_ENGINE.md, PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
 
