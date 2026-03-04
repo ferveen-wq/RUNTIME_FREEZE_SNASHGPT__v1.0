@@ -21,3 +21,8 @@ repos:
         entry: python3 runner/check_phrase_authority.py
         language: system
         pass_filenames: false
+      - id: runtime-diff-sentinel
+        name: Runtime Diff Sentinel (block large deletions)
+        entry: python3 runner/runtime_diff_sentinel.py
+        language: system
+        pass_filenames: false
