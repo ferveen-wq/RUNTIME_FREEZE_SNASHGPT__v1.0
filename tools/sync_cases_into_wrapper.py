@@ -21,14 +21,14 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Set
+from typing import Any
 
 
-def _load_json_array(path: Path) -> List[Dict[str, Any]]:
+def _load_json_array(path: Path) -> list[dict[str, Any]]:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except Exception as e:
-        raise ValueError(f"Failed to parse JSON: {path} ({e})")
+        raise ValueError(f"Failed to parse JSON: {path} ({e})") from e
     if not isinstance(data, list):
         raise ValueError(f"Expected a JSON array at: {path}")
     for i, item in enumerate(data):
@@ -37,8 +37,8 @@ def _load_json_array(path: Path) -> List[Dict[str, Any]]:
     return data  # type: ignore[return-value]
 
 
-def _index_case_ids(cases: List[Dict[str, Any]], path: Path) -> Set[str]:
-    ids: Set[str] = set()
+def _index_case_ids(cases: list[dict[str, Any]], path: Path) -> set[str]:
+    ids: set[str] = set()
     for i, c in enumerate(cases):
         cid = c.get("case_id")
         if not isinstance(cid, str) or not cid.strip():
@@ -73,7 +73,6 @@ def main() -> int:
     try:
         source_cases = _load_json_array(source_path)
         wrapper_cases = _load_json_array(wrapper_path)
-        source_ids = _index_case_ids(source_cases, source_path)
         wrapper_ids = _index_case_ids(wrapper_cases, wrapper_path)
     except ValueError as e:
         print(f"ERROR: {e}", file=sys.stderr)

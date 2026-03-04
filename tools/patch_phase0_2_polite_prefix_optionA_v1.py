@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 p = Path("00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md")
 s = p.read_text(encoding="utf-8")
@@ -92,7 +92,7 @@ for line in lines:
 out_lines = []
 in_phase3a = False
 
-for line, editable in zip(lines, editable_line_flags):
+for line, editable in zip(lines, editable_line_flags, strict=False):
     # Track Phase 3A block and do not edit inside it
     if PHASE3A_HEADER_RE.match(line):
         in_phase3a = True
