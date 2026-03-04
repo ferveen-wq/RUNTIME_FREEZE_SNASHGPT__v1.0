@@ -36,6 +36,94 @@ Last Updated:
 
 ---
 
+## 1.3 Behavioral Case Log (Real Transcript Derived)
+
+This section logs real-world conversation risks identified from assistant transcripts.
+Each case must map to:
+- Sensitivity Type
+- Risk Category
+- Required Patch Type
+- UAT Requirement
+
+--------------------------------------------------------------------
+CASE 001 — Brand-First Price Request Before Scope Lock
+--------------------------------------------------------------------
+
+Transcript Summary:
+- Customer: Chrysler 300C 2021
+- Asked: “What is price of XPEL and the other product?”
+- Assistant immediately exposed full pricing (Global + XPEL tiers)
+- Qualification (city/highway) was asked AFTER pricing
+
+Sensitivity Type:
+- CONTROL_SENSITIVE
+- FINANCIAL_SENSITIVE (mild)
+
+Risk Category:
+- Pricing / Ladder Integrity Risk
+- Scope confirmation bypass
+
+Issue:
+- Coverage (FULL_BODY vs FULL_FRONT) was not confirmed before price exposure.
+- Violates ideal Phase 3A → Phase 3B sequencing discipline.
+
+Required Patch:
+- If brand comparison requested AND coverage not locked:
+  → Force coverage clarification before price ladder output.
+
+Status:
+- BACKLOG
+
+UAT Required:
+- New Pack: brand_price_before_scope_lock.json
+
+--------------------------------------------------------------------
+CASE 002 — Social Proof Misuse on Rare / Performance Vehicle
+--------------------------------------------------------------------
+
+Transcript Summary:
+- Vehicle: Audi RS4 Avant 2014 (V8, enthusiast)
+- Customer emotionally attached (“They don't make V8's anymore.”)
+- Assistant said: “Most RS4 owners in similar condition…”
+- Customer challenged: “There is only 1 RS4 in Bahrain.”
+
+Sensitivity Type:
+- IDENTITY_SENSITIVE
+- EMOTIONAL_SENSITIVE
+- PERFORMANCE_ENTHUSIAST_SIGNAL
+
+Risk Category:
+- Tone / Trust Guardrail Failure
+- Social proof misuse
+- Credibility fracture risk
+
+Issue:
+- Phrase “most owners” implies fabricated local volume experience.
+- Dangerous for rare / collector / performance vehicles.
+
+Hard Rule (To Implement):
+- When IDENTITY_SENSITIVE or rare/performance signal detected:
+  - Block phrases:
+    - “most owners”
+    - “many customers”
+    - “popular choice”
+    - “everyone usually”
+  - Replace with:
+    - Condition-based recommendation framing
+    - Preservation-based framing
+    - Usage-based logic
+
+Required Patch:
+- CUSTOMER_SENSITIVITY_GUARD v1 (Identity + Emotional layer)
+
+Priority:
+- HIGH
+
+UAT Required:
+- New Pack: rare_vehicle_no_social_proof.json
+
+---
+
 ## 1) Behavioral Risks
 
 ### 1.1 Rare / Limited Vehicle Guardrail (Social Proof Risk)

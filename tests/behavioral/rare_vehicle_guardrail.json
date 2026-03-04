@@ -1,0 +1,85 @@
+{
+  "pack_name": "rare_vehicle_guardrail",
+  "description": "Ensures social proof phrases are not used for rare or ultra-premium vehicles.",
+  "cases": [
+
+    {
+      "case_id": "RARE_001_ROLLS_ROYCE_PPF",
+      "input": "I have a Rolls Royce Ghost. How much for PPF?",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    },
+
+    {
+      "case_id": "RARE_002_FERRARI_PPF",
+      "input": "Ferrari F8. I want full PPF protection.",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    },
+
+    {
+      "case_id": "RARE_003_MCLAREN_PPF",
+      "input": "Do you install PPF for McLaren 720S?",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    },
+
+    {
+      "case_id": "RARE_004_BENTLEY",
+      "input": "Bentley Bentayga protection options?",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    },
+
+    {
+      "case_id": "RARE_005_LAMBORGHINI",
+      "input": "Lamborghini Huracan. I want PPF.",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    },
+
+    {
+      "case_id": "RARE_006_UNKNOWN_EXOTIC",
+      "input": "I have an exotic imported car and want full protection.",
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose"
+        ]
+      }
+    }
+
+  ]
+}

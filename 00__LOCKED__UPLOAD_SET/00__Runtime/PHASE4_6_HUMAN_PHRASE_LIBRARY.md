@@ -186,7 +186,7 @@ EN: Origin alone does not define performance; how the film behaves in our climat
 EN: If you’d like, I can explain how climate affects long-term clarity, or show you a similar vehicle example installed in the same conditions?
 AR: أفهمك — الماركة تفرق عند وايد ناس.
 AR: بلد المنشأ بروحه ما يحدد الأداء؛ اللي يفرق فعلاً شلون الفيلم يتصرف مع حرارة جوّنا والاستخدام اليومي.
-AR: إذا تحب، أشرح لك تأثير المناخ على صفاء الفيلم مع الوقت، أو أوريك مثال سيارة مشابهة مركبة بنفس الظروف؟
+AR: إذا تحب، أشرح لك شلون تأثير المناخ على صفاء الفيلم مع الوقت، أو أوريك مثال سيارة مشابهة مركبة بنفس الظروف؟
 
 ### PHASE4_PPF_BRAND_FIXATION_L2
 EN: I understand.
@@ -266,7 +266,7 @@ EN: To keep the next step simple, do you want to decide coverage first (full vs 
 AR: مفهوم جداً — أحياناً السكوت يعني إنك قاعد توازن القرار بشكل صحيح.
 AR: عشان نخلي الخطوة الجاية بسيطة، تبي نحدد التغطية أول (كامل ولا أمامي)، ولا نركز على مستوى التشطيب أول؟
 
-### PHASE4_PPF_SILENCE_COVERAGE_NARROWING
+### PHASE4_PPF_SILENCE_COVERAGE_NARROW
 EN: Understood.
 EN: Would you prefer to keep it full coverage, or start with front protection only?
 AR: تم.
@@ -1338,7 +1338,7 @@ Usage rule:
 - MUST NOT trigger qualification
 
 EN: Sure — No problem at all. We do PPF, ceramic coating, tint, wrap, and polishing. Which one are you mainly looking at?
-AR: ما في مشكلة. خدماتنا PPF، السيراميك، التظليل، التغليف، والتلميع. أي خدمة في بالك أكثر؟
+AR: ما في مشكلة. نشتغل على PPF، السيراميك، التظليل، التغليف، والتلميع. أي خدمة في بالك أكثر؟
 
 ## SERVICE LIST — PHASE 0–2
 - EN: We can help with PPF, ceramic, tint, wrap, and polishing. What’s the car model and year?
@@ -1418,7 +1418,7 @@ AR: أفهم إن الموضوع ممكن يكون محيّر — أقدر أس�
 ## L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)
 
 - EN: We do Ceramic Coating, PPF (paint protection film), Window Tint, Wrapping, and Polishing / paint correction. If you tell me your car model and year, I’ll guide you to the right option.
-  AR: خدماتنا تشمل سيراميك، PPF (حماية الطلاء)، تظليل، تغليف، وتلميع / تصحيح طلاء. إذا تعطيني موديل السيارة وسنة الصنع أقدر أرشدك للخيار المناسب.
+  AR: خدماتنا تشمل سيراميك، حماية PPF، تظليل، تغليف، وتلميع / تصحيح طلاء. إذا تعطيني موديل السيارة وسنة الصنع أقدر أرشدك للخيار المناسب.
 
 ## Z_DEPRECATED__L.1_QUALIFICATION_CLARIFIERS__LEGACY_BLOCK (DO NOT USE)
 DEPRECATED — kept for history only.
@@ -1645,3 +1645,35 @@ AR: تمام — بناءً على نطاق التلميع اللي تبيه، �
 ### PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE
 EN: For matte finishes, we confirm texture matching during installation so the front blends cleanly with the rest of the vehicle.
 AR: للسيارات المطفي، نتأكد من تطابق الملمس وقت التركيب عشان تكون المقدمة متناسقة مع باقي السيارة.
+
+
+# ────────────────────────────────────────────────────────────
+# SOCIAL PROOF GUARDRAIL — RARE VEHICLE SAFETY
+# ────────────────────────────────────────────────────────────
+#
+# Purpose:
+# Prevent incorrect social proof statements (e.g., "most customers choose") in
+# contexts where the vehicle is rare / ultra-premium and majority behavior is
+# not reliable.
+#
+# Rule:
+# If vehicle_class is RARE (or unknown exotic / ultra-premium context),
+# DO NOT use social-proof phrasing.
+# Default to neutral advisory phrasing.
+#
+# Disallowed social proof patterns (examples):
+# - "most customers choose"
+# - "most owners prefer"
+# - "usually people go with"
+# - "normally people choose"
+#
+# Neutral alternatives (approved):
+# AR: عادةً الخيار يعتمد على طريقة استخدام السيارة ومستوى الحماية الذي تفضله.
+# EN: Usually the choice depends on how the car will be used and the level of protection you prefer.
+#
+# AR: نقدر نوضح لك الخيارات المختلفة وبعدها تختار الأنسب لسيارتك.
+# EN: We can walk you through the different protection options and you can decide what suits your car best.
+#
+# Note:
+# This is a phrasing guardrail only. No SKU selection / pricing / qualification changes.
+#
