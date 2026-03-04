@@ -1,8 +1,8 @@
 import json
 import os
 import re
-import sys
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -11,10 +11,6 @@ from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNNER_DIR = ROOT / "runner"
-if str(RUNNER_DIR) not in sys.path:
-    sys.path.insert(0, str(RUNNER_DIR))
-
-import lint_authority
 
 PROMPT_PATH = ROOT / "runner" / "context_reset_prompt.txt"
 CASES_PATH = ROOT / "tests" / "uat_cases.json"
@@ -597,6 +593,11 @@ def main():
         return 2
 
     # Authority lint gate (must pass)
+    runner_dir = ROOT / "runner"
+    if str(runner_dir) not in sys.path:
+        sys.path.insert(0, str(runner_dir))
+    import lint_authority
+
     rc = lint_authority.main()
     if rc != 0:
         print("UAT aborted: authority lint failed.")
@@ -633,18 +634,16 @@ def main():
         else:
             user_input = case["input"]
 
-        # Pull optional runtime_signals from the current case
-        extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
-        constraints = build_case_constraints(case) if isinstance(case, dict) else ""
-        system_prompt_case = constraints + system_prompt
-        system_prompt_with_signals = inject_readonly_runtime_signals(
-            system_prompt_case, user_input, extra
-        )
-
-        def _run_one_turn(u_text: str):
-            extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
-            constraints = build_case_constraints(case) if isinstance(case, dict) else ""
-            system_prompt_case = constraints + system_prompt
+        def _run_one_turn(u_text: str, case_snapshot=case):
+            extra = (
+                case_snapshot.get("runtime_signals", {})
+                if isinstance(case_snapshot, dict)
+                else {}
+            )
+            system_prompt_case = (
+                (build_case_constraints(case_snapshot) if isinstance(case_snapshot, dict) else "")
+                + system_prompt
+            )
             system_prompt_with_signals = inject_readonly_runtime_signals(
                 system_prompt_case, u_text, extra
             )
