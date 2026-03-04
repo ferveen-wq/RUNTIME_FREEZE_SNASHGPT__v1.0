@@ -7,6 +7,25 @@ OWNED BY ORCHESTRATOR (write authority):
 - FOLLOW_UP_COUNT
 - INPUT_MODE (LIVE | BACKFILL_BATCH)
 - SILENCE_SUPPRESSED (bool) + SILENCE_SUPPRESSION_REASON (enum)
+
+## A.2) SILENCE SUPPRESSION REASON (ENUM) (LOCKED)
+
+SILENCE_SUPPRESSED is owned by ORCHESTRATOR.
+When SILENCE_SUPPRESSED == TRUE, ORCHESTRATOR MUST also set SILENCE_SUPPRESSION_REASON.
+
+Allowed enum values (canonical):
+- PIM_TRAVELLING                 # customer travelling / out of country / not available
+- PIM_CHECKING_WITH_SPOUSE       # "I'll check with my wife/husband"
+- PIM_CAR_UNAVAILABLE            # car in garage / workshop / not with customer
+- PIM_TIMING_NOT_READY           # "not now", "later", "next month"
+- VISIT_SCHEDULED                # visit booking or scheduling active
+- MANUAL_HOLD                    # internal manual hold / ops hold
+- OTHER                          # last resort, must be explainable in notes
+
+Rules:
+- This enum is for audit + governance only.
+- Silence Engine reads only SILENCE_SUPPRESSED (boolean) as a hard blocker.
+
 - CONVERSATION_STATUS (OPEN/CLOSED/DISQUALIFIED)
 - AGENT_TAKEOVER_FLAG
 
