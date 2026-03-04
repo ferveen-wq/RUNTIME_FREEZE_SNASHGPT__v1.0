@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import sys
+import subprocess
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -8,6 +10,12 @@ from zoneinfo import ZoneInfo
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
+RUNNER_DIR = ROOT / "runner"
+if str(RUNNER_DIR) not in sys.path:
+    sys.path.insert(0, str(RUNNER_DIR))
+
+import lint_authority
+
 PROMPT_PATH = ROOT / "runner" / "context_reset_prompt.txt"
 CASES_PATH = ROOT / "tests" / "uat_cases.json"
 REPORTS_DIR = ROOT / "tests" / "reports"
@@ -397,6 +405,7 @@ def extract_debug_and_messages(full_text: str) -> dict:
         "raw": full_text,
     }
 
+
 def _enforce_expected_debug(parsed: dict, case: dict) -> dict:
     """Force expected DEBUG keys/values from the test case so LLM drift cannot break CI."""
     exp = case.get("expect_debug", {}) or {}
@@ -461,6 +470,7 @@ def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
     parsed["arabic"] = arabic
     parsed["english"] = english
     return parsed
+
 
 def _sanitize_forbidden_tokens(parsed: dict, case: dict) -> dict:
     """Remove forbidden tokens from assistant output so NOT-CONTAINS is enforced even if the model echoes user text."""
@@ -576,16 +586,21 @@ def check_expectations(parsed: dict, case: dict) -> list[str]:
 
 
 def main():
-    import subprocess
-    import sys
+    # Phrase library structural validation (fail fast before lint/UAT)
+    try:
+        subprocess.run(
+            [sys.executable, "runner/phrase_library_validator.py"],
+            check=True,
+        )
+    except subprocess.CalledProcessError:
+        print("UAT aborted: phrase library validation failed.")
+        return 2
 
-    lint_cmd = [sys.executable, os.path.join(os.path.dirname(__file__), "lint_authority.py")]
-    lint = subprocess.run(lint_cmd, capture_output=True, text=True)
-    print(lint.stdout)
-    if lint.returncode != 0:
-        print(lint.stderr)
+    # Authority lint gate (must pass)
+    rc = lint_authority.main()
+    if rc != 0:
         print("UAT aborted: authority lint failed.")
-        sys.exit(1)
+        return rc
 
     api_key = (os.getenv("OPENAI_API_KEY") or "").strip()
     if not api_key:
@@ -625,6 +640,7 @@ def main():
         system_prompt_with_signals = inject_readonly_runtime_signals(
             system_prompt_case, user_input, extra
         )
+
         def _run_one_turn(u_text: str):
             extra = case.get("runtime_signals", {}) if isinstance(case, dict) else {}
             constraints = build_case_constraints(case) if isinstance(case, dict) else ""
