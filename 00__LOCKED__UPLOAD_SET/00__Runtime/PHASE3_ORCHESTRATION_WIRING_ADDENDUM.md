@@ -8,6 +8,30 @@ OWNED BY ORCHESTRATOR (write authority):
 - INPUT_MODE (LIVE | BACKFILL_BATCH)
 - SILENCE_SUPPRESSED (bool) + SILENCE_SUPPRESSION_REASON (enum)
 
+## SILENCE_SUPPRESSION_REASON — ENUM VALUES (LOCKED CATALOG)
+
+Purpose:
+- Standardize why silence follow-ups are blocked.
+- Orchestrator is the single authority that sets SILENCE_SUPPRESSED + SILENCE_SUPPRESSION_REASON.
+- Silence Engine remains unchanged (it only blocks when SILENCE_SUPPRESSED == TRUE).
+
+Allowed values:
+- NONE
+- PIM_THINKING              # “I’ll think about it / let me decide / I will get back to you”
+- PIM_CHECK_WITH_PARTNER     # “I’ll check with my wife/husband/family”
+- PIM_TRAVELLING             # “I am travelling / out of country / busy days”
+- PIM_CAR_NOT_AVAILABLE      # “Car is in garage / not with me / not received yet”
+- PIM_TIMING_LATER           # “Next month / after salary / later this year”
+- VISIT_SCHEDULED            # visit scheduling already active
+- MANUAL_HOLD                # internal hold by ops/agent
+- AGENT_TAKEOVER             # human takeover in progress
+- CONVERSATION_NOT_OPEN      # closed/disqualified
+
+Notes:
+- PIM_* reasons are used when customer intent is still positive/neutral but timing is deferred.
+- If multiple reasons apply, choose the strongest blocker in this order:
+  VISIT_SCHEDULED > MANUAL_HOLD > AGENT_TAKEOVER > PIM_* > NONE
+
 ## A.2) SILENCE SUPPRESSION REASON (ENUM) (LOCKED)
 
 SILENCE_SUPPRESSED is owned by ORCHESTRATOR.
