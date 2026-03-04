@@ -1677,3 +1677,29 @@ AR: للسيارات المطفي، نتأكد من تطابق الملمس وق
 # Note:
 # This is a phrasing guardrail only. No SKU selection / pricing / qualification changes.
 #
+
+### PHASE4_SILENCE_AFTER_PRICE
+EN: No rush at all — take your time.
+EN: If you want, I can guide you to a protection plan that stays within a comfortable budget without compromising the essentials.
+EN: What matters most to you: stone-chip protection, easier cleaning, or keeping the car looking new?
+
+AR: ما في استعجال أبداً — خذ وقتك.
+AR: إذا تحب، أوجهك لخطة حماية تكون ضمن ميزانية مريحة بدون ما نضيع الأساسيات.
+AR: شنو الأهم عندك: حماية من الحصى والخدوش، تنظيف أسهل، ولا شكل السيارة يبقى جديد؟
+
+
+### PHASE4_SILENCE_AFTER_OPTIONS
+EN: No problem — it’s normal to pause when there are choices.
+EN: If you tell me your main goal, I can simplify the options for you.
+
+AR: عادي جداً — طبيعي الواحد يوقف شوي لما تكون الخيارات كثيرة.
+AR: إذا تقول لي هدفك الأساسي، أقدر أبسّط لك الخيارات.
+
+
+### PHASE4_SILENCE_AFTER_QUESTION
+EN: Whenever you can, just share that detail and I’ll guide you properly.
+EN: No rush.
+
+AR: متى ما تقدر، عطِني هالمعلومة وأنا أوجهك بالشكل الصحيح.
+AR: بدون استعجال.
+
