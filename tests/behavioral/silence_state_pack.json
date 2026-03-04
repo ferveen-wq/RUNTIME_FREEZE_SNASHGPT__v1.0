@@ -1,0 +1,97 @@
+{
+  "pack_name": "silence_state_pack",
+  "description": "Ensures silence handling is calm, non-pushy, and does not introduce pricing, SKUs, or social proof. Covers A) after price, B) after options, C) after clarification question.",
+  "cases": [
+
+    {
+      "case_id": "SILENCE_A_001_AFTER_PRICE",
+      "turns": [
+        "I want full PPF for my car. Can you share the price?",
+        "Okay",
+        ""
+      ],
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose",
+          "BD",
+          "BHD",
+          "price is",
+          "discount",
+          "offer",
+          "SKU"
+        ],
+        "must_contain_any": [
+          "no rush",
+          "take your time",
+          "when you're ready",
+          "happy to help",
+          "if you want, tell me",
+          "what matters most",
+          "full or front"
+        ]
+      }
+    },
+
+    {
+      "case_id": "SILENCE_B_001_AFTER_OPTIONS",
+      "turns": [
+        "I’m deciding between PPF and ceramic. What do you recommend?",
+        "Okay explain both",
+        ""
+      ],
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose",
+          "BD",
+          "BHD",
+          "price is",
+          "SKU"
+        ],
+        "must_contain_any": [
+          "no problem",
+          "take your time",
+          "when you’re ready",
+          "your goal",
+          "daily driving",
+          "budget",
+          "long term"
+        ]
+      }
+    },
+
+    {
+      "case_id": "SILENCE_C_001_AFTER_CLARIFICATION",
+      "turns": [
+        "Do you do PPF for Jetour T2?",
+        "Yes we do. What year model is it?",
+        ""
+      ],
+      "checks": {
+        "must_not_contain": [
+          "most customers",
+          "most owners",
+          "usually people",
+          "normally people choose",
+          "BD",
+          "BHD",
+          "price is",
+          "SKU"
+        ],
+        "must_contain_any": [
+          "when you can",
+          "just tell me",
+          "what year",
+          "no rush",
+          "whenever you’re ready"
+        ]
+      }
+    }
+
+  ]
+}

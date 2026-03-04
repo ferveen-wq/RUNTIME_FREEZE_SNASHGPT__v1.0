@@ -89,6 +89,24 @@ Assembly evaluates these inputs only (no mutation):
 
 ---
 
+## GLOBAL SILENCE ROUTING (MINIMAL; NO NEW SIGNALS) (ACTIVE)
+
+Goal:
+- Ensure silence behavior is consistent across services.
+- Emit exactly ONE silence phrase when silence is active.
+- Respect suppression authority.
+
+Routing (HARD):
+IF (SILENCE_SUPPRESSED == TRUE):
+  - Do not emit silence blocks here.
+  - Continue normal assembly.
+
+ELSE IF (SILENCE_ACTIVE == TRUE):
+  - selected_phrase_id: PHASE4_PPF_SILENCE_PRIMARY
+  - STOP (silence response becomes the message; no hooks, no extra blocks)
+
+---
+
 ## MESSAGE BLOCK MODEL (STRUCTURE)
 
 A response is assembled from 0–3 blocks, chosen contextually:
