@@ -107,6 +107,35 @@ ELSE IF (SILENCE_ACTIVE == TRUE):
 
 ---
 
+## BASIC MICRO-EDUCATION ROUTING (PRE-PRICE; TAG-DRIVEN) (ACTIVE)
+
+Goal:
+- When the system detects the customer lacks understanding (EDUCATION_NEEDED_BASIC),
+  allow ONE short education block before pricing.
+- Use ONLY existing Phase 4.6 wording (no new phrases).
+- Keep question-cap safe (Phase 0–2 qualifiers are allowed here).
+
+Gate (HARD):
+Applies ONLY when ALL are true:
+- constraints includes EDUCATION_NEEDED_BASIC = true
+- allowed_next_actions includes ask_missing_info   # (NOT_READY flow)
+- SILENCE_SUPPRESSED != TRUE
+- SILENCE_ACTIVE != TRUE
+
+Routing (HARD) — select ONE block only:
+- If detected_service_intent_in_message == ppf OR active_service_context == ppf:
+  - selected_phrase_id: C.1 PPF EXPLANATION + QUALIFIER (PHASE 0–2)
+  - STOP
+
+- If detected_service_intent_in_message == ceramic OR active_service_context == ceramic:
+  - selected_phrase_id: C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
+  - STOP
+
+Fallback:
+- If no route matches → proceed with normal assembly (no education injected here).
+
+---
+
 ## MESSAGE BLOCK MODEL (STRUCTURE)
 
 A response is assembled from 0–3 blocks, chosen contextually:
