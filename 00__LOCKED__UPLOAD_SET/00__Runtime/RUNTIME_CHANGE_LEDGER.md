@@ -61,8 +61,8 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PATCH_PROTOCOL.md
 - STATUS: VALIDATED_LOCAL
 - VALIDATION: Present in local validated runtime state
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED: runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Default all runtime patch commands to zsh-safe format
   - VC Codex only for large or risky multi-file edits
@@ -74,8 +74,8 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
 - STATUS: VALIDATED_LOCAL
 - VALIDATION: Present in local validated runtime state
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED: runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Governs layman-first phrasing, mixed-answer safety, no false binary, no early front-PPF exposure
 
@@ -86,8 +86,8 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
 - STATUS: VALIDATED_LOCAL
 - VALIDATION: Present in local validated runtime state
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED: runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Tracks discussed vs patched vs merged vs frozen changes
 
@@ -132,8 +132,8 @@ Each change must record:
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED: runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Patched locally only
   - New phrasing invites clarification instead of coverage-first narrowing
@@ -143,14 +143,15 @@ Each change must record:
 - GOAL: Refine PHASE4_PPF_SILENCE_COVERAGE_NARROW to avoid early front-PPF emphasis
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: VALIDATED_LOCAL
+- STATUS: TAGGED_GREEN
 - VALIDATION:
   - phrase_library_validator: passed
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Patched locally and validated
   - Keeps full protection as main path and avoids direct front-only push
@@ -160,14 +161,15 @@ Each change must record:
 - GOAL: Refine PHASE4_PPF_SILENCE_COMPARISON_SIMPLIFY to reopen comparison safely without creating loops
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: VALIDATED_LOCAL
+- STATUS: TAGGED_GREEN
 - VALIDATION:
   - phrase_library_validator: passed
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Patched locally and validated
   - Must follow silence recovery order
@@ -242,8 +244,9 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - STATUS: IN_PROGRESS
 - VALIDATION: Partial
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Phase 4 / 5 phrase tightening in progress
   - Keep SKU ladder unchanged
@@ -254,14 +257,15 @@ Each change must record:
 - GOAL: Refine PHASE5_PPF_NARROW_L2 to keep affordable full-body emphasis before front PPF fallback
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: VALIDATED_LOCAL
+- STATUS: TAGGED_GREEN
 - VALIDATION:
   - phrase_library_validator: passed
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Patched locally and validated
   - Keeps full-body coverage as the main path
@@ -272,14 +276,15 @@ Each change must record:
 - GOAL: Refine PHASE5_PPF_EXIT_FORK_L3 so front PPF appears only as final budget fallback
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: VALIDATED_LOCAL
+- STATUS: TAGGED_GREEN
 - VALIDATION:
   - phrase_library_validator: passed
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Patched locally and validated
   - Uses budget framing, not comfort framing
