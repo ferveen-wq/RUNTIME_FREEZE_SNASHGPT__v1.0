@@ -261,22 +261,22 @@ AR: صفاء الفيلم مع الوقت وثبات الحواف يعتمد ب�
 AR: إذا تحب، أشرح لك خطوات التجهيز والتشطيب بوضوح، أو أرسل مثال تركيب بسيط عشان تشوف شلون نتعامل مع الحواف والقطع؟
 
 ### PHASE4_PPF_SILENCE_PRIMARY
-EN: That’s completely understandable — silence often means you’re weighing it properly.
-EN: To keep the next step simple, do you want to decide coverage first (full vs front), or focus on the finishing standard first?
-AR: مفهوم جداً — أحياناً السكوت يعني إنك قاعد توازن القرار بشكل صحيح.
-AR: عشان نخلي الخطوة الجاية بسيطة، تبي نحدد التغطية أول (كامل ولا أمامي)، ولا نركز على مستوى التشطيب أول؟
+EN: That’s completely understandable — sometimes a little silence just means you’re thinking it through.
+EN: If it helps, we can keep it simple — I can explain the protection options clearly, or you can ask me anything that still feels unclear.
+AR: مفهوم جداً — أحياناً شوي سكوت يعني إنك قاعد تفكر في الموضوع بهدوء.
+AR: إذا تحب، نقدر نخليها بسيطة — أشرح لك خيارات الحماية بشكل واضح، أو اسألني عن أي شيء للحين مو واضح لك.
 
 ### PHASE4_PPF_SILENCE_COVERAGE_NARROW
 EN: Understood.
-EN: Would you prefer to keep it full coverage, or start with front protection only?
+EN: Would you prefer to keep the full protection approach, or start with protection on the most exposed areas first?
 AR: تم.
-AR: تفضل نخليها حماية كاملة، ولا نبدأ بحماية أمامية فقط؟
+AR: تفضّل نحافظ على الحماية الكاملة، أو نبدأ أول بالمناطق الأكثر تعرضاً؟
 
 ### PHASE4_PPF_SILENCE_COMPARISON_SIMPLIFY
 EN: Of course — choosing the right protection is worth reviewing properly.
-EN: Would you like a quick side-by-side summary, or proceed with one option directly?
-AR: طبعاً — اختيار الحماية الصح يستاهل مراجعة.
-AR: تبي ملخص مقارنة سريع، ولا نكمل على خيار واحد مباشرة؟
+EN: If it helps, tell me what you'd like to understand first — the protection options, the film brands, or the pricing.
+AR: طبعاً — اختيار الحماية المناسبة يستاهل مراجعة.
+AR: إذا تحب، قولّي شنو تبي تفهم أول — خيارات الحماية، أنواع الأفلام أو الماركات، أو السعر.
 
 
 # ============================================================
@@ -528,12 +528,12 @@ EN: Good question. Specs help, but they don’t always predict the result you’
 AR: سؤال ممتاز. المواصفات تساعد، لكن مو دائماً تضمن النتيجة اللي بتعيش معها — الأهم وضوح الشكل، الحواف، وثبات الأداء مع الوقت. إذا تحب، أشرح لك شلون المواصفات تنعكس على الاستخدام الحقيقي، أو أرسل مثال تركيب قريب للحواف. سؤالك أكثر عن السماكة/TPU، ولا عن التشطيب والحواف؟
 
 ### PHASE5_PPF_NARROW_L2
-EN: Understood. To make it work without stretching the budget, we can narrow it to what matters most: front impact zones vs full coverage. Which matters more for you right now — lower cost, or maximum coverage?
-AR: مفهوم. عشان نضبطها بدون ضغط على الميزانية، نقدر نضيّقها للأهم: حماية أمامية للمناطق الأكثر ضربات أو تغطية كاملة. شنو الأهم عندك حالياً — تقليل التكلفة، ولا أعلى تغطية؟
+EN: Understood. If the price feels a bit high, we can adjust the protection level while keeping full-body coverage — that’s usually how most customers make it work comfortably. Would you prefer to review the protection levels first?
+AR: مفهوم. إذا السعر حاسس إنه مرتفع شوي، نقدر نضبط مستوى الحماية مع بقاء التغطية كاملة — وهذي الطريقة اللي أغلب العملاء يختارونها عشان تبقى الحماية مريحة في الميزانية. تبي نراجع مستويات الحماية أول؟
 
 ### PHASE5_PPF_EXIT_FORK_L3
-EN: Got it. Rather than looping on price, we can do one of two clean next steps: (1) lock a front-focused option, or (2) pause and you come back when ready. Which way do you prefer?
-AR: تمام. بدل ما ندور في حلقة السعر، خلّنا ناخذ خطوة واضحة: (1) نثبت خيار حماية أمامية مركزّة، أو (2) نوقف هنا وترجع لي لما تكون جاهز. أي خيار تفضّل؟
+EN: I understand — if the full coverage is stretching the budget right now, another option is to start with protection on the main impact areas first, and you can always expand it later if you decide. Or we can pause here and you can revisit it anytime. Which would you prefer?
+AR: أفهمك — إذا التغطية الكاملة حالياً تضغط على الميزانية، نقدر نبدأ بحماية المناطق الأكثر تعرضاً أولاً، وبعدها تقدر توسّعها لاحقاً إذا حبيت. أو نوقف هنا وترجع لها في الوقت اللي يناسبك. أي خيار تفضّل؟
 
 ### PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
 EN: Understood — with ceramic, the biggest differences usually are driven by preparation + durability tier, not the word “ceramic” alone. If you’d like, I can explain what typically changes between tiers, or share an example of how the finish behaves after proper curing. How do you usually wash the car — hand wash or tunnel wash?
