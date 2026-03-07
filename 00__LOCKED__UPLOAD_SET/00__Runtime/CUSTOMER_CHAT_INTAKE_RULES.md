@@ -63,6 +63,13 @@ These are tags, not customer-facing text.
 ## 2) Extracted Keys (Runtime Output)
 (This file emits ONLY extracted signals/fields. It does NOT decide phrasing.)
 
+
+### Comparison confusion detection (HARD, same-message)
+- If message contains any vague comparison / recommendation ask:
+  - English: "difference", "which one", "which should", "what do you recommend", "recommend", "better", "compare"
+  - Arabic: "شنو الفرق", "وش الفرق", "أيهم", "أيهما", "تنصح", "مقارنة"
+  - constraints += [comparison_confusion_request=true]
+
 ### Price request detection (HARD, same-message)
 - If message contains any explicit price ask:
   - English: "price?", "price", "how much", "how much?"
