@@ -285,59 +285,57 @@ AR: إذا تحب، قولّي شنو تبي تفهم أول — خيارات ا
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L1
 EN: Totally fair to compare ceramic prices.
-EN: With ceramic, the outcome depends more on preparation and curing control than the label itself - especially in GCC heat.
-EN: That's usually where "cheaper" vs "more expensive" shows up over time (gloss stability and water behavior).
-EN: If you'd like, I can explain what typically creates that gap, or share a quick real example after proper curing?
+EN: With ceramic coating, long-term gloss depends mostly on proper surface preparation, controlled curing, and the coating used — especially in dusty and sandy climates like ours.
+EN: When these are done correctly, the finish stays glossy longer and is supported by our scheduled coating refresh service to keep the surface performing consistently.
+EN: If you'd like, I can briefly explain what usually creates that difference.
 AR: طبيعي جداً تقارن أسعار السيراميك.
-AR: مع السيراميك، النتيجة تعتمد أكثر على تجهيز السطح والتحكم بالتصلب أكثر من الاسم - خصوصاً مع حرارة الخليج.
-AR: وغالباً هنا يطلع فرق "أرخص" و"أغلى" مع الوقت (ثبات اللمعة وسلوك الطرد المائي).
-AR: إذا تحب، أشرح لك شنو عادة يسبب فرق السعر، أو أوريك مثال سريع بعد التصلب الصحيح؟
+AR: مع السيراميك، ثبات اللمعة يعتمد أكثر على تجهيز السطح بشكل صحيح، والتحكم بالتصلب، ونوعية المادة المستخدمة — خصوصاً في الأجواء المغبرة والرملية عندنا.
+AR: ولما هالأشياء تنعمل صح، اللمعة تدوم أطول ويكون الأداء مدعوم بخدمة تجديد السيراميك المجدولة للحفاظ على ثبات النتيجة.
+AR: إذا تحب، أقدر أوضح لك بسرعة شنو اللي عادة يصنع هالفرق.
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L2
-EN: The clean comparison is to match the same durability tier and the same finishing standard - not just "ceramic" as a word.
-EN: If you tell me what you're comparing (and how you wash), I'll keep the comparison aligned and simple.
-AR: المقارنة العادلة تكون بتطابق نفس درجة التحمل ونفس مستوى التشطيب - مو بس كلمة "سيراميك".
-AR: إذا تقولّي شنو قاعد تقارن (وشلون تغسل)، بخلي المقارنة واضحة وبسيطة.
+EN: The easiest way to compare ceramic properly is to match the durability level, preparation quality, and the scheduled coating refresh service — not just the word “ceramic”.
+EN: That refresh support is what helps the gloss stay stable so the car keeps looking newer for longer.
+EN: If you tell me what you're comparing, I can keep the comparison clear and simple.
+AR: أسهل طريقة تقارن فيها السيراميك بشكل صحيح هي إنك تطابق درجة التحمل وجودة التجهيز وخدمة تجديد السيراميك المجدولة — مو بس كلمة "سيراميك".
+AR: هالدعم هو اللي يساعد اللمعة تبقى ثابتة والسيارة تبقى شكلها كأنها أحدث لفترة أطول.
+AR: إذا تقول لي شنو قاعد تقارن، بخلي المقارنة واضحة وبسيطة.
 
 ### PHASE4_CERAMIC_PRICE_PRESSURE_L3
-EN: I understand — it’s worth thinking beyond the initial number.
-EN: Longer durability tiers are designed for extended gloss retention, and periodic maintenance helps keep hydrophobic performance at its best over time.
-EN: If you’d like, I can explain how refresh cycles work, or show you an example of maintained vs non-maintained coating performance?
-AR: أفهمك — يستاهل نفكر أبعد من الرقم الأول.
-AR: الدرجات الأطول مصممة لثبات اللمعة لفترة أطول، والصيانة الدورية تحافظ على الطرد المائي بأفضل أداء مع الوقت.
-AR: إذا تحب، أشرح لك شلون تشتغل دورات الـRefresh، أو أوريك مثال أداء سيراميك مع صيانة وبدون صيانة؟
+EN: Longer durability packages are designed to keep the gloss stable for years.
+EN: They also include our scheduled coating refresh service, which helps remove environmental buildup and restore the surface so the gloss stays consistent.
+EN: If you'd like, I can explain how the refresh cycle works.
+AR: الباقات الأطول مصممة علشان تحافظ على اللمعة ثابتة لسنوات.
+AR: وهي تشمل أيضاً خدمة تجديد السيراميك المجدولة التي تساعد على إزالة التراكمات البيئية وإرجاع السطح حتى تبقى اللمعة ثابتة.
+AR: إذا تحب، أشرح لك شلون تمشي دورة التجديد.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L1
-EN: That’s a fair concern.
-EN: Coating durability depends on maintenance pattern and exposure, and it improves resistance but does not make paint scratch-proof.
-EN: If you’d like, I can clarify what ceramic actually does in real conditions, or show you a water-beading example?
-AR: هذا قلق منطقي.
-AR: تحمل السيراميك يعتمد على طريقة العناية والتعرض، ويزيد المقاومة لكنه ما يخلي الصبغة ضد الخدش بشكل كامل.
-AR: إذا تحب، أوضح لك شنو يسوي السيراميك فعلياً بالواقع، أو أوريك مثال الطرد المائي؟
+EN: That’s a fair question.
+EN: Ceramic coating mainly helps the paint keep its gloss longer, stay cleaner for longer, and become easier to manage.
+EN: With our scheduled coating refresh service, the surface is restored so the finish continues looking newer over time.
+AR: هذا سؤال في محله.
+AR: السيراميك يساعد الطلاء يحافظ على لمعته لفترة أطول ويتوسخ بشكل أبطأ ويصير أسهل في العناية.
+AR: ومع خدمة تجديد السيراميك المجدولة يتم إعادة تنشيط السطح حتى يبقى الشكل كأنه أحدث مع الوقت.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L2
-EN: That makes sense.
-EN: Wash method and frequency directly affect how long gloss and protection remain consistent.
-EN: If you’d like, I can explain how hand wash vs tunnel wash impacts longevity, or show you an example comparison?
-AR: مفهوم.
-AR: طريقة الغسيل وتكراره يأثرون مباشرة على ثبات اللمعة والحماية مع الوقت.
-AR: إذا تحب، أشرح لك شلون الغسيل اليدوي مقابل النفق يأثر على العمر، أو أوريك مثال مقارنة؟
+EN: Wash style and frequency still play a role in how long the gloss stays consistent.
+EN: Our scheduled coating refresh service helps restore the surface over time so the finish stays glossy and stable for longer.
+AR: طريقة الغسيل وتكراره لهم تأثير على ثبات اللمعة.
+AR: وخدمة تجديد السيراميك المجدولة تساعد على إعادة تنشيط السطح مع الوقت حتى تبقى اللمعة ثابتة لفترة أطول.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L3
-EN: I understand — long-term stability depends heavily on surface preparation and curing control.
-EN: Preparation before coating defines bonding strength and consistency.
-EN: If you’d like, I can walk you through the preparation steps, or show you part of the installation process?
-AR: أفهمك — الثبات على المدى الطويل يعتمد كثير على تجهيز السطح والتحكم بالتصلب.
-AR: التحضير قبل الطلاء هو اللي يحدد قوة الالتصاق وثبات النتيجة.
-AR: إذا تحب، أمشي معك بخطوات التحضير، أو أوريك جزء من عملية التركيب؟
+EN: Surface preparation and curing control determine how well the coating bonds to the paint.
+EN: When these steps are done correctly, the coating stays more stable and is supported by our scheduled coating refresh service to maintain the finish over time.
+AR: تجهيز السطح والتحكم بالتصلب هم اللي يحددون مدى تماسك السيراميك مع الطلاء.
+AR: ولما هالخطوات تنعمل صح تكون النتيجة أثبت وتدعمها خدمة تجديد السيراميك المجدولة للحفاظ على ثبات النتيجة مع الوقت.
 
 ### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L1
-EN: Warranty is there as support, not the only measure of performance.
-EN: Durability in daily conditions matters more than just the printed number.
-EN: If you’d like, I can explain how warranty aligns with durability tiers, or show you an example of long-term coating behavior?
-AR: الضمان موجود كدعم، مو المعيار الوحيد للأداء.
-AR: التحمل في الاستخدام اليومي أهم من الرقم المكتوب.
-AR: إذا تحب، أشرح لك شلون الضمان يرتبط بدرجات التحمل، أو أوريك مثال سلوك سيراميك على المدى الطويل؟
+EN: Warranty is there as support, but what matters more is how the ceramic performs in daily use.
+EN: With proper preparation and the right maintenance, the gloss and finish can stay consistent for a long time.
+EN: I can also explain how warranty usually aligns with durability levels.
+AR: الضمان موجود كدعم، لكن الأهم هو شلون يكون أداء السيراميك في الاستخدام اليومي.
+AR: ومع التجهيز الصحيح والصيانة المناسبة، تقدر اللمعة والشكل يظلون ثابتين لفترة طويلة.
+AR: أقدر أيضاً أوضح لك شلون يرتبط الضمان بدرجات التحمل.
 
 ### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L2
 EN: I understand — longer warranty can sound reassuring.

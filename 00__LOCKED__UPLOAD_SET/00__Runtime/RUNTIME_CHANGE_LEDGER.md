@@ -375,6 +375,109 @@ Each change must record:
 
 ---
 
+### CHANGE_ID: CER_002
+- AREA: Phase 4 Ceramic Objection Phrases
+- GOAL: Refine ceramic Phase 4 phrasing to emphasize long-term gloss stability, dusty/sandy climate context, and scheduled coating refresh service
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: VALIDATED_LOCAL
+- VALIDATION:
+  - phrase_library_validator: passed
+  - pre-commit: passed
+  - regression_phase3a_chain: passed
+  - silence_state_pack: passed
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Replaced vague "maintenance" wording with scheduled coating refresh service
+  - Emphasizes long-term gloss retention and periodic coating rejuvenation
+  - Adapted environmental framing to dusty / sandy climate instead of heat-only context
+
+### CHANGE_ID: GAP_001
+- AREA: Education Mapping
+- GOAL: Audit service-by-service linkage between invitation phrases and existing PHASE7__CORE_EDUCATION.md content
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/03__Playbooks/PHASE7__CORE_EDUCATION.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - No new education file to be added
+  - Use existing Phase 7 education source only
+
+### CHANGE_ID: GAP_002
+- AREA: Question Friction
+- GOAL: Audit customer annoyance from too many questions and review suppression / shortening opportunities
+- FILES:
+  - runtime-wide phrase and routing files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Review where fewer questions or shorter explanations are needed
+
+### CHANGE_ID: GAP_003
+- AREA: Customer-Facing Readability
+- GOAL: Audit long sentences and long paragraph blocks in customer-facing phrases
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - other customer-facing runtime wording files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Focus on layman readability and mobile chat suitability
+
+### CHANGE_ID: GAP_004
+- AREA: Pricing Output Discipline
+- GOAL: Audit cases where runtime may surface more than 2 price points and confirm output discipline
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/01__Engines/PRICE_LADDER_ENGINE.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - related pricing phrasing / output files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Confirm runtime stays within intended pricing presentation rules
+
+### CHANGE_ID: GAP_005
+- AREA: Silence Revoking Tools
+- GOAL: Audit silence revoking tools consistency across services and confirm correct recovery order
+- FILES:
+  - silence-related runtime files
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PATCH_PROTOCOL.md
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Clarification first
+  - hook question second
+  - contextual guidance after hook
+
+### CHANGE_ID: GAP_006
+- AREA: Tone / Humanization
+- GOAL: Audit tone-engine alignment so customer-facing phrasing stays natural, signal-aware, emoji-free, and concise
+- FILES:
+  - tone-related runtime files
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Review natural phrasing based on customer signals
+  - No emoji use
+  - Avoid heavy paragraphing
+
 ## RULES FOR UPDATING THIS LEDGER
 
 Before any runtime patch:
@@ -451,4 +554,11 @@ This section should be updated before moving to a different runtime topic.
   - Phase 5 negotiation phrasing
   - conversion / visit refinement if needed
   - Phase 7 snippet trigger mapping inside existing enforced files / ledger notes (no separate governance file unless later required)
+  - service-by-service education linkage audit using existing PHASE7__CORE_EDUCATION.md only
+  - too-many-questions / customer-annoyance audit and suppression logic review
+  - long sentence / long paragraph audit for customer-facing phrasing
+  - tone-engine alignment audit so phrasing feels natural based on customer signals
+  - no-emoji compliance audit across customer-facing runtime phrases
+  - price output count audit to ensure runtime does not surface more than 2 prices when not intended
+  - silence revoking tools consistency audit across services
 
