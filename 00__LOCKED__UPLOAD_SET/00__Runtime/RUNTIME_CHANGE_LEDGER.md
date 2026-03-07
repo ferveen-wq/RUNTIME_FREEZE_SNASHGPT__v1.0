@@ -291,23 +291,22 @@ Each change must record:
   - Keeps front PPF as the last fallback after full-body options
 
 ### CHANGE_ID: PPF_005
-- AREA: PPF Architecture Audit
-- GOAL: Audit ladder, negotiation, matte, XPEL/Global interplay, conversion path
+- AREA: Phase 3A PPF Qualifier Phrasing
+- GOAL: Refine PHASE3A_Q_PPF_COMPARISON_FOCUS to detect brand/quality vs coverage vs price more naturally
 - FILES:
-  - 00__LOCKED__UPLOAD_SET/03__Parameters/SKU_SELECTION_MATRIX.md
-  - 00__LOCKED__UPLOAD_SET/03__Parameters/PRICE_TABLE_VAT_INCL.md
-  - 00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
-  - 00__LOCKED__UPLOAD_SET/01__Engines/NEGOTIATION_LOGIC_MODULE.md
-  - 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
-  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3A_QUALIFICATION_DECISION_MATRIX.md
-  - 00__LOCKED__UPLOAD_SET/03__Parameters/GLOBAL_CORE_CONTEXT_PARAMETERS.md
-- STATUS: AUDITED_ONLY
-- VALIDATION: Audit completed
-- MERGED: Not applicable
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: VALIDATED_LOCAL
+- VALIDATION:
+  - phrase_library_validator: passed
+  - pre-commit: passed
+  - regression_phase3a_chain: passed
+  - silence_state_pack: passed
+- MERGED: No
 - TAGGED: None
 - NOTES:
-  - Conclusion: core ladder logic remains intact
-  - Main remaining drift is phrase-layer wording, not ladder structure
+  - Replaces vague 'quality' wording with 'film brand/quality'
+  - Keeps existing decision-matrix logic unchanged
+  - Improves real-world PPF comparison detection
 
 ---
 

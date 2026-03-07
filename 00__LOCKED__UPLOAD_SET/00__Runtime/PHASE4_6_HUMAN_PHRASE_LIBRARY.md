@@ -14,8 +14,8 @@ EN: To guide you properly for PPF, would you prefer maximum protection for the w
 AR: عشان أوجهك بشكل أدق للـ PPF، تفضّل حماية قصوى للسيارة بالكامل، أو حماية عملية تركز على المناطق الأمامية الأكثر تعرضاً، أو بعدك تقرر؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
-EN: That makes sense. When you’re comparing, is your focus mainly on coverage, quality, or price?
-AR: مفهوم. لما تقارن بين الخيارات، تركيزك أكثر على التغطية، الجودة، أو السعر؟
+EN: That makes sense. When you're comparing options, what matters most to you right now — the film brand/quality, the coverage level, or keeping the price lower?
+AR: مفهوم. لما تقارن بين الخيارات، شنو الأهم عندك حالياً — نوع الفيلم/الماركة، مستوى التغطية، أو تقليل السعر؟
 
 ### PHASE3A_Q_PPF_DRIVING_PATTERN
 EN: Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?
