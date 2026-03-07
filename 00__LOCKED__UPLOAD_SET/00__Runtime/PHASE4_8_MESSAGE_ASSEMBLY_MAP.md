@@ -791,6 +791,32 @@ After clarification:
 - If switch confirmed → update active_service_context and proceed with Route B on next turn.
 - If comparison confirmed → proceed via Phase 8 comparison/education path (if available) on next turn.
 
+
+## PHASE 8 — SERVICE COMPARISON / EDUCATION ROUTING (MINIMAL) (ACTIVE)
+
+Goal:
+- When service comparison is explicitly confirmed, route to ONE existing comparison block.
+- Use ONLY existing Phase 4.6 phrase authority.
+- Do NOT introduce pricing, hooks, or technical deep dives here.
+
+Gate (HARD):
+Applies when ALL are true:
+- comparison confirmed on prior clarification turn
+- active_service_context != null
+- detected_service_intent_in_message != unknown
+- detected_service_intent_in_message != active_service_context
+- SILENCE_SUPPRESSED != TRUE
+- SILENCE_ACTIVE != TRUE
+
+Routing (HARD):
+- selected_phrase_id: COMPARISON — PHASE 0–2 (VEHICLE KNOWN)
+- STOP
+
+Fallback:
+- If gate is not met → proceed with normal Approved Routes.
+
+---
+
 ### Approved Routes
 
 Route 0C — Brand Refinement (service context already active)
