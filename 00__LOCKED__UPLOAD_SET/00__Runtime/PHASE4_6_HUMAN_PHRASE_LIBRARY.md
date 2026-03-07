@@ -10,8 +10,8 @@ EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
 
 ### PHASE3A_Q_PPF_COVERAGE_INTENT
-EN: To guide you properly for PPF, do you prefer full-body protection, front protection, or are you still deciding?
-AR: عشان أوجهك بدقة للـ PPF، تبي حماية كاملة، حماية أمامية، أو بعدك تقرر؟
+EN: To guide you properly for PPF, would you prefer maximum protection for the whole car, a more practical protection focused on the front impact areas, or are you still deciding?
+AR: عشان أوجهك بشكل أدق للـ PPF، تفضّل حماية قصوى للسيارة بالكامل، أو حماية عملية تركز على المناطق الأمامية الأكثر تعرضاً، أو بعدك تقرر؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
 EN: That makes sense. When you’re comparing, is your focus mainly on coverage, quality, or price?
