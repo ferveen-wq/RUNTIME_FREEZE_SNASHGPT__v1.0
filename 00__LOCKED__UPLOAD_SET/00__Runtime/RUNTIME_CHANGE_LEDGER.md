@@ -310,6 +310,25 @@ Each change must record:
 
 ---
 
+### CHANGE_ID: CER_001
+- AREA: Phase 3A Ceramic Qualifier
+- GOAL: Refine PHASE3A_Q_CERAMIC_GOAL wording to emphasize long-term gloss and maintenance instead of cosmetic refresh framing
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3A_QUALIFICATION_DECISION_MATRIX.md
+- STATUS: VALIDATED_LOCAL
+- VALIDATION:
+  - phrase_library_validator: passed
+  - pre-commit: passed
+  - regression_phase3a_chain: passed
+  - silence_state_pack: passed
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Keeps decision matrix values unchanged
+  - Aligns ceramic framing with maintenance-backed service model
+
+---
 ### CHANGE_ID: MATTE_001
 - AREA: Matte PPF Audit
 - GOAL: Verify matte / stealth / matte-front routing

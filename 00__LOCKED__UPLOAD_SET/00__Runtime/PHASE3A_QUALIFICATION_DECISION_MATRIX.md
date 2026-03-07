@@ -124,7 +124,7 @@ Allowed values:
 - UNKNOWN
 
 Ask (one question):
-- "For ceramic, is your main goal easy cleaning + stable gloss long-term, or mainly to make it look fresh again?"
+- "For ceramic, is your main goal long-term gloss and easier maintenance, or mainly to refresh the look for now?"
 
 Immediately after Q1 (spec note for phrasing layer, not pricing):
 - Mention "6-month refresh approach" ONLY as a maintenance concept,
