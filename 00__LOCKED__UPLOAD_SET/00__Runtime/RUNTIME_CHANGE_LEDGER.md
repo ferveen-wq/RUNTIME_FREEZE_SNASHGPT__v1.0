@@ -301,8 +301,9 @@ Each change must record:
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_phase3a_ceramic_goal_v1
 - NOTES:
   - Replaces vague 'quality' wording with 'film brand/quality'
   - Keeps existing decision-matrix logic unchanged
@@ -316,7 +317,7 @@ Each change must record:
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3A_QUALIFICATION_DECISION_MATRIX.md
-- STATUS: VALIDATED_LOCAL
+- STATUS: TAGGED_GREEN
 - VALIDATION:
   - phrase_library_validator: passed
   - pre-commit: passed
