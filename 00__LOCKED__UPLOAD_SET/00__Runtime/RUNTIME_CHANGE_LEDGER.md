@@ -323,8 +323,9 @@ Each change must record:
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
-- TAGGED: None
+- MERGED: Yes
+- TAGGED:
+  - runtime_ceramic_phase4_phrase_refinement_v1
 - NOTES:
   - Keeps decision matrix values unchanged
   - Aligns ceramic framing with maintenance-backed service model
