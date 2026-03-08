@@ -972,3 +972,19 @@ STATUS:
 ACTIVE AUDIT TARGET
 ----------------------------------------------------------------
 
+
+
+### CHANGE_ID: POLISH_PHASE3A_PHRASE_AUDIT_001
+- AREA: Phase 3A Polishing Qualification
+- GOAL: Refine PHASE3A_Q_POLISHING_SCOPE wording for layman clarity and phrase-governance compliance
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: DISCUSSED
+- VALIDATION: Pending
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Replace "paint correction" technical wording
+  - Keep one-question rule
+  - Prevent ceramic upgrade drift
+  - Maintain clear scope detection between exterior polishing vs full detailing
