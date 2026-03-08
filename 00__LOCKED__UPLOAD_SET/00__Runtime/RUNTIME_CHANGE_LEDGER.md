@@ -778,6 +778,23 @@ Each change must record:
   - Softened 9H technical phrasing to avoid technical debate and keep real-world explanation simple
   - Refined ceramic silence L2 to reduce binary pressure and keep the message easier to answer
 
+
+### CHANGE_ID: PHASE5_PPF_CERAMIC_AUDIT_001
+- AREA: Phase 5 PPF / Ceramic Conversion and Narrowing Phrasing
+- GOAL: Audit Phase 5 PPF and Ceramic phrases for conversion safety, phrase-governance compliance, ladder safety, and momentum control before any patching
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: DISCUSSED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Review PPF Phase 5 deepen / narrow / exit phrases for front-PPF reintroduction risk
+  - Review PPF Phase 5 brand, technical, and price deepen blocks for over-technical or comparison-loop wording
+  - Review Ceramic Phase 5 phrases for negative realism wording and insufficient refresh-cycle reassurance
+  - Keep Phase 5 focused on narrowing and conversion momentum, not reopening large technical debates
+  - Patch PPF Phase 5 first, validate, then continue to Ceramic Phase 5
+
 ## RULES FOR UPDATING THIS LEDGER
 
 Before any runtime patch:
