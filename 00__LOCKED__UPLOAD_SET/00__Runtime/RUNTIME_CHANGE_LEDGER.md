@@ -988,3 +988,18 @@ ACTIVE AUDIT TARGET
   - Keep one-question rule
   - Prevent ceramic upgrade drift
   - Maintain clear scope detection between exterior polishing vs full detailing
+
+
+### CHANGE_ID: POLISH_PHASE4_PHRASE_AUDIT_001
+- AREA: Phase 4 Polishing Expectation / Price Framing
+- GOAL: Replace detailing jargon and simplify expectation phrasing for polishing
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: APPROVED_FOR_PATCH
+- VALIDATION: Pending
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Replace “clarity” with restoring original gloss
+  - Replace “correction” wording with swirl removal
+  - Remove cross-service mention (PPF / ceramic) to avoid service trigger drift
