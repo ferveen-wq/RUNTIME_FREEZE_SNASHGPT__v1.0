@@ -123,15 +123,15 @@ AR: بس للتأكيد على الاتجاه — تغليف كامل ولا أ�
 # ────────────────────────────────────────────────────────────
 
 ### PHASE4_POLISH_EXPECTATION_REALISM_L1
-EN: Just to set expectations correctly — polishing improves clarity and reduces swirls, but it doesn’t create a protective layer like PPF or ceramic.
+EN: Just to set expectations clearly — polishing helps remove swirl marks and bring the paint back closer to its original gloss.
 AR: عشان تكون التوقعات واضحة — التلميع يحسّن صفاء الطلاء ويخفف السويلز، لكنه ما يعطي طبقة حماية مثل الـPPF أو السيراميك.
 
 ### PHASE4_POLISH_SCOPE_CLARITY_L1
-EN: Totally fine — just to keep it aligned, are you aiming for a light refresh, or a deeper correction for heavier swirls?
+EN: Totally fine — just to keep it aligned, are you aiming for a light refresh, or deeper swirl removal for heavier marks?
 AR: تمام — بس عشان نضبطها، تبي إنعاش خفيف ولا تصحيح أعمق للسويلز والخدوش الأوضح؟
 
 ### PHASE4_POLISH_PRICE_PRESSURE_L1
-EN: I understand. With polishing, the price difference is mainly how intensive the correction is and how many stages it needs — not just “a quick polish”.
+EN: I understand. With polishing, the price difference mainly depends on how much swirl removal is needed and how many stages it takes — not just “a quick polish”.
 AR: مفهوم. بالتلميع فرق السعر غالباً يكون في قوة التصحيح وعدد المراحل — مو مجرد “تلميع سريع”.
 
 ### PHASE4_POLISH_PRICE_PRESSURE_L2
