@@ -708,6 +708,7 @@ Each change must record:
   - Maintained full-body protection anchor
   - Avoided early front-PPF exposure
   - Added visual proof invitation language
+  - Clarified PPF thickness explanation using layman framing (thickness vs real-world performance)
 
 ## RULES FOR UPDATING THIS LEDGER
 
