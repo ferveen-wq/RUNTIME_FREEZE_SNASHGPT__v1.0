@@ -603,6 +603,9 @@ Each change must record:
   - Guide toward next step without sounding pushy
   - Support booking / visit momentum before conversation energy drops
   - Architecture guidance for later stage
+  - Apply practical conversation progression principles such as the 5-message conversion rule
+  - Encourage forward momentum within early conversation steps
+  - Avoid extended explanation loops before pricing or next-step guidance
 
 ### CHANGE_ID: GAP_015
 - AREA: Visual Proof / Education Layer
@@ -709,6 +712,43 @@ Each change must record:
   - Avoided early front-PPF exposure
   - Added visual proof invitation language
   - Clarified PPF thickness explanation using layman framing (thickness vs real-world performance)
+
+
+
+### CHANGE_ID: GAP_020
+- AREA: GCC PPF Objection Prioritization
+- GOAL: Capture and later harden the 3 PPF objections that most often kill conversion in GCC chats
+- FILES:
+  - Phase 4 PPF objection phrasing
+  - phrase library
+  - objection handling files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Brand fixation / origin-risk objection
+  - Price shock / fairness objection
+  - Front-only / partial-protection objection
+  - Must be handled without weakening full-body-first ladder logic
+
+### CHANGE_ID: GAP_021
+- AREA: Conversation Drop-Off Mapping
+- GOAL: Audit where automotive sales chats most often lose momentum or silently die, and later refine phrasing/routing to reduce drop-off
+- FILES:
+  - silence-related runtime files
+  - phase 3A / phase 4 customer-facing phrases
+  - pricing / conversion phrasing
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Check drop-off after first reply
+  - Check drop-off after explanation
+  - Check drop-off after pricing
+  - Check drop-off after too many options or questions
+  - Use later with energy / trust / signal-map work
 
 ## RULES FOR UPDATING THIS LEDGER
 
