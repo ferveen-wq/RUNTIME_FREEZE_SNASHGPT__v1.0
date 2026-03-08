@@ -339,7 +339,7 @@ Each change must record:
   - related matte logic files
 - STATUS: AUDITED_ONLY
 - VALIDATION: Audit completed
-- MERGED: Not applicable
+- MERGED: Yest applicable
 - TAGGED: None
 - NOTES:
   - No new patch applied in this sequence
@@ -368,7 +368,7 @@ Each change must record:
   - related visit / orchestration files
 - STATUS: AUDITED_ONLY
 - VALIDATION: Audit completed
-- MERGED: Not applicable
+- MERGED: Yest applicable
 - TAGGED: None
 - NOTES:
   - Conversion bridge exists
@@ -387,7 +387,7 @@ Each change must record:
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Replaced vague "maintenance" wording with scheduled coating refresh service
@@ -403,7 +403,7 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - No new education file to be added
@@ -416,7 +416,7 @@ Each change must record:
   - runtime-wide phrase and routing files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Review where fewer questions or shorter explanations are needed
@@ -429,7 +429,7 @@ Each change must record:
   - other customer-facing runtime wording files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Focus on layman readability and mobile chat suitability
@@ -443,7 +443,7 @@ Each change must record:
   - related pricing phrasing / output files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Confirm runtime stays within intended pricing presentation rules
@@ -457,7 +457,7 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PATCH_PROTOCOL.md
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Clarification first
@@ -472,7 +472,7 @@ Each change must record:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Review natural phrasing based on customer signals
@@ -488,7 +488,7 @@ Each change must record:
   - tone / signal files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Short / impatient customers may need fewer questions
@@ -503,7 +503,7 @@ Each change must record:
   - customer-facing phrase files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Short customer replies should receive shorter replies
@@ -518,7 +518,7 @@ Each change must record:
   - tone / routing / output files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Focus on layman readability
@@ -537,7 +537,7 @@ Each change must record:
   - customer-facing explanation blocks
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Identify phrases that move customers from comparison mode to trust mode
@@ -551,7 +551,7 @@ Each change must record:
   - runtime documentation layer
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Diagram should show the full runtime flow from customer entry to conversion
@@ -567,7 +567,7 @@ Each change must record:
   - phase 4 objection phrasing
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Apply 3-second reply rule where relevant
@@ -582,7 +582,7 @@ Each change must record:
   - recommendation / routing files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Includes Customer Psychology Ladder
@@ -597,7 +597,7 @@ Each change must record:
   - message assembly / pricing / silence files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Guide toward next step without sounding pushy
@@ -616,7 +616,7 @@ Each change must record:
   - education invitation logic
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - No new runtime file required now
@@ -635,7 +635,7 @@ Each change must record:
   - phrase library
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Detect short vs elaborate customer responses
@@ -650,7 +650,7 @@ Each change must record:
   - phrase governance references
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Avoid framing like "budget vs long-lasting"
@@ -666,7 +666,7 @@ Each change must record:
   - phrase library
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Map common objections for PPF, ceramic, tint, and polishing
@@ -681,7 +681,7 @@ Each change must record:
   - education invitation phrasing
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Could include educational pages explaining protection services
@@ -702,7 +702,7 @@ Each change must record:
   - lint passed
   - UAT regression passed
   - silence state pack passed
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Simplified layman wording
@@ -728,7 +728,7 @@ Each change must record:
   - objection handling files
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Brand fixation / origin-risk objection
@@ -745,7 +745,7 @@ Each change must record:
   - pricing / conversion phrasing
 - STATUS: DEFERRED
 - VALIDATION: None
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Check drop-off after first reply
@@ -766,7 +766,7 @@ Each change must record:
   - lint passed
   - UAT regression passed
   - silence state pack passed
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Simplified ceramic durability skepticism phrasing
@@ -790,7 +790,7 @@ Each change must record:
   - pre-commit: passed
   - regression_phase3a_chain: passed
   - silence_state_pack: passed
-- MERGED: No
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Refined PPF Phase 5 deepen phrasing to reduce comparison loops and technical debate
@@ -980,8 +980,8 @@ ACTIVE AUDIT TARGET
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - STATUS: MERGED_MAIN
-- VALIDATION: Pending
-- MERGED: No
+- VALIDATION: phrase_library_validator passed
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Replace "paint correction" technical wording
@@ -1010,9 +1010,9 @@ ACTIVE AUDIT TARGET
 - GOAL: Align polishing expectation and price phrasing with product canon and remove terminology conflict with coating preparation
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: APPROVED_FOR_PATCH
-- VALIDATION: Pending
-- MERGED: No
+- STATUS: MERGED_MAIN
+- VALIDATION: phrase_library_validator passed
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Replace swirl-severity pricing explanation with scope/process explanation
