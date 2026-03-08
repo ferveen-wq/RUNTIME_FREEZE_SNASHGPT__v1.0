@@ -123,7 +123,7 @@ AR: بس للتأكيد على الاتجاه — تغليف كامل ولا أ�
 # ────────────────────────────────────────────────────────────
 
 ### PHASE4_POLISH_EXPECTATION_REALISM_L1
-EN: Just to set expectations clearly — polishing helps remove swirl marks and bring the paint back closer to its original gloss.
+EN: Just to set expectations clearly — polishing focuses on restoring the paint’s appearance by removing swirl marks, light fading, and surface contaminants, bringing the gloss closer to its original condition.
 AR: عشان تكون التوقعات واضحة — التلميع يحسّن صفاء الطلاء ويخفف السويلز، لكنه ما يعطي طبقة حماية مثل الـPPF أو السيراميك.
 
 ### PHASE4_POLISH_SCOPE_CLARITY_L1
@@ -1620,7 +1620,7 @@ EN: Perfect — for a black roof look, we do it as Black PPF (gloss). I’ll sha
 AR: تمام — لستايل السقف الأسود، نسويه Black PPF (جلوس). بعطيك السعر بشكل واضح الحين.
 
 ### Z_DEPRECATED__PHASE3B_POLISHING_RANGE__DUPLICATE (DO NOT ROUTE)
-EN: Perfect — polishing price depends mainly on whether it’s exterior correction only or full detailing. I’ll share the options as a clear price range next so you can choose the right level.
+EN: Perfect — polishing packages mainly differ based on whether it’s exterior polishing only or a full detailing package. I’ll share the options as a clear price range next so you can choose the right level.
 AR: تمام — سعر التلميع يعتمد أكثر شي إذا هو تصحيح خارجي فقط أو ديتيلنج كامل. بعرض لك الخيارات كنطاق سعر واضح عشان تختار المستوى الصحيح.
 
 ### PHASE3B_PPF_RANGE
