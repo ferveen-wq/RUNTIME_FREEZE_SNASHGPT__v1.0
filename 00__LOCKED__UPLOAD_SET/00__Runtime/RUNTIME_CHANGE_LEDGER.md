@@ -1003,3 +1003,19 @@ ACTIVE AUDIT TARGET
   - Replace “clarity” with restoring original gloss
   - Replace “correction” wording with swirl removal
   - Remove cross-service mention (PPF / ceramic) to avoid service trigger drift
+
+
+### CHANGE_ID: POLISH_PHRASE_GOVERNANCE_FIX_002
+- AREA: Polishing Phrase Governance
+- GOAL: Align polishing expectation and price phrasing with product canon and remove terminology conflict with coating preparation
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: APPROVED_FOR_PATCH
+- VALIDATION: Pending
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Replace swirl-severity pricing explanation with scope/process explanation
+  - Remove service-drift phrasing referencing PPF or ceramic
+  - Use appearance-restoration language for polishing to avoid conflict with coating preparation terminology
+  - Remove engine-room reference from polishing runtime scope
