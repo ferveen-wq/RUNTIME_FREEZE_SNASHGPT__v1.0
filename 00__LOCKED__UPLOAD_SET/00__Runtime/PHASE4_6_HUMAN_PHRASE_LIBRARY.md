@@ -46,8 +46,8 @@ EN: Are you thinking a full color-change wrap, or only a specific area?
 AR: هل تفكر بتغليف كامل للسيارة بلون جديد، أو فقط جزء معيّن؟
 
 ### PHASE3A_Q_POLISHING_SCOPE
-EN: Just to guide you properly — for polishing, are you looking for exterior paint correction only, or full detailing including interior and engine bay?
-AR: عشان أوجهك صح — للتلميع تبي تصحيح/تلميع خارجي فقط، ولا ديتيلنج كامل يشمل الداخلي وغرفة المحرك؟
+EN: Just to understand your goal — are you mainly looking to improve the gloss of the exterior paint, or a full detailing that also includes the interior?
+AR: بس عشان أفهم هدفك — تبي تحسين لمعان الطلاء الخارجي فقط، أو ديتيلنج كامل يشمل الداخلي؟
 
 ### Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the suitable wrap options and move to pricing next.
