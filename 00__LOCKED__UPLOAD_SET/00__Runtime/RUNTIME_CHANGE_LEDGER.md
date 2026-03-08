@@ -781,19 +781,24 @@ Each change must record:
 
 ### CHANGE_ID: PHASE5_PPF_CERAMIC_AUDIT_001
 - AREA: Phase 5 PPF / Ceramic Conversion and Narrowing Phrasing
-- GOAL: Audit Phase 5 PPF and Ceramic phrases for conversion safety, phrase-governance compliance, ladder safety, and momentum control before any patching
+- GOAL: Audit and refine Phase 5 PPF and Ceramic phrases for conversion safety, phrase-governance compliance, ladder safety, and momentum control
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: DISCUSSED
-- VALIDATION: None
+- STATUS: VALIDATED_LOCAL
+- VALIDATION:
+  - phrase_library_validator: passed
+  - pre-commit: passed
+  - regression_phase3a_chain: passed
+  - silence_state_pack: passed
 - MERGED: No
 - TAGGED: None
 - NOTES:
-  - Review PPF Phase 5 deepen / narrow / exit phrases for front-PPF reintroduction risk
-  - Review PPF Phase 5 brand, technical, and price deepen blocks for over-technical or comparison-loop wording
-  - Review Ceramic Phase 5 phrases for negative realism wording and insufficient refresh-cycle reassurance
-  - Keep Phase 5 focused on narrowing and conversion momentum, not reopening large technical debates
-  - Patch PPF Phase 5 first, validate, then continue to Ceramic Phase 5
+  - Refined PPF Phase 5 deepen phrasing to reduce comparison loops and technical debate
+  - Kept full-protection path as the primary PPF narrowing path
+  - Removed premature front-only style fallback from the PPF exit path
+  - Refined Ceramic Phase 5 price-gap phrasing to remove technical wording
+  - Reframed Ceramic durability realism with reassurance and refresh-cycle support
+  - Refined Ceramic narrowing and exit phrasing to reduce false binary pressure and keep conversion flow simple
 
 ## RULES FOR UPDATING THIS LEDGER
 

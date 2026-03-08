@@ -182,83 +182,87 @@ AR: إذا تحب، أشرح لك شلون يأثر على التحمل وقيم
 
 ### PHASE4_PPF_BRAND_FIXATION_L1
 EN: I understand — brand matters to many people.
-EN: Origin alone does not define performance; how the film behaves in our climate and daily heat exposure plays a major role over time.
-EN: If you’d like, I can explain how climate affects long-term clarity, or show you a similar vehicle example installed in the same conditions?
+EN: With protection films, long-term clarity usually depends on how the film behaves in real driving conditions, especially in dusty and hot climates like ours.
+EN: If you like, I can explain how films perform over time in these conditions, or show you a similar car installed in the same environment.
 AR: أفهمك — الماركة تفرق عند وايد ناس.
-AR: بلد المنشأ بروحه ما يحدد الأداء؛ اللي يفرق فعلاً شلون الفيلم يتصرف مع حرارة جوّنا والاستخدام اليومي.
-AR: إذا تحب، أشرح لك شلون تأثير المناخ على صفاء الفيلم مع الوقت، أو أوريك مثال سيارة مشابهة مركبة بنفس الظروف؟
+AR: مع أفلام الحماية، صفاء الفيلم على المدى الطويل يعتمد أكثر على شلون يتصرف مع الاستخدام الحقيقي خصوصاً في الجو الحار والمغبر مثل عندنا.
+AR: إذا تحب، أشرح لك شلون أداء الأفلام مع الوقت في هالظروف، أو أوريك مثال سيارة مركبة بنفس البيئة.
 
 ### PHASE4_PPF_BRAND_FIXATION_L2
 EN: I understand.
-EN: Manufacturer alignment and installation precision usually influence durability and finish consistency more than branding alone.
-EN: If you’d like, I can walk you through how installation impacts long-term appearance, or share a short install example so you can see the detailing around edges and panels?
+EN: With PPF, the final result usually depends on the quality of preparation and the precision of installation, not just the name of the film.
+EN: If you like, I can briefly explain how installation affects the long-term finish, or show you an example so you can see how the edges and panels look after installation.
 AR: أفهمك.
-AR: توافق المواصفات ودقة التركيب عادة تأثر على التحمل وثبات التشطيب أكثر من اسم الماركة بروحه.
-AR: إذا تحب، أشرح لك شلون التركيب يأثر على الشكل مع الوقت، أو أرسل مثال تركيب بسيط عشان تشوف تفاصيل الحواف والقطع؟
+AR: في الـPPF النتيجة النهائية تعتمد غالباً على تجهيز السطح ودقة التركيب، مو فقط على اسم الفيلم.
+AR: إذا تحب، أشرح لك باختصار شلون التركيب يأثر على الشكل مع الوقت، أو أوريك مثال تركيب عشان تشوف شكل الحواف والقطع بعد التنفيذ.
 
 ### PHASE4_PPF_BRAND_FIXATION_L3
-EN: I understand — it’s good to evaluate carefully.
-EN: Long-term ownership experience depends on real-world performance, maintenance behavior, and support structure, not just the label printed on the box.
-EN: If you’d like, we can focus directly on XPEL as your preference, or compare it side by side with Global based on your usage, and I can also share a finished example for clarity?
-AR: أفهمك — زين إنك تقيم بعناية.
-AR: التجربة على المدى الطويل تعتمد على الأداء الحقيقي وطريقة العناية وخدمة ما بعد البيع، مو بس الاسم على العلبة.
-AR: إذا تحب، نركز مباشرة على XPEL حسب تفضيلك، أو نقارنها مع Global بناءً على استخدامك، وأقدر أرسل مثال منتهٍ للوضوح؟
+EN: I understand — it’s good to review properly before deciding.
+EN: What usually matters most is how the film performs over time, how it is installed, and the support you receive after installation.
+EN: If you like, we can focus on the option that fits your usage best, and I can also show you a finished example for reference.
+AR: أفهمك — زين إنك تراجع الموضوع قبل القرار.
+AR: اللي يفرق عادة هو أداء الفيلم مع الوقت، وطريقة تركيبه، والدعم بعد التركيب.
+AR: إذا تحب، نركز على الخيار الأنسب لاستخدامك، وأقدر أيضاً أوريك مثال سيارة بعد التنفيذ.
+
 
 ### PHASE4_PPF_WARRANTY_SENSITIVITY_L1
-EN: Warranty is there as a safety net.
-EN: The number printed on a document does not define the entire ownership experience or how the film performs over time.
-EN: If you’d like, I can explain how warranty works in practice, or show you an example of long-term film condition on a similar car?
-AR: الضمان موجود كشبكة أمان.
-AR: الرقم المكتوب في الورق ما يختصر كل التجربة ولا يحدد شلون الفيلم بيكون مع الوقت.
-AR: إذا تحب، أشرح لك شلون الضمان يشتغل عملياً، أو أوريك مثال حالة فيلم على سيارة مشابهة بعد فترة؟
+EN: Warranty mainly acts as manufacturer-backed reassurance, similar to warranties on other products.
+EN: What matters just as much is how the film stays clear and stable over time on the car.
+EN: If you like, I can explain how warranty works in practice, or show you a similar car so you can see how the film looks after long-term use.
+AR: الضمان يكون عادة من الشركة المصنعة ويعطي راحة بال مثل ضمان أي منتج آخر.
+AR: والأهم بعد شلون يظل الفيلم ثابت وواضح على السيارة مع الوقت.
+AR: إذا تحب، أشرح لك شلون الضمان يشتغل عملياً، أو أوريك مثال سيارة مشابهة عشان تشوف شكل الفيلم بعد استخدام طويل.
 
 ### PHASE4_PPF_WARRANTY_SENSITIVITY_L2
-EN: I understand — longer coverage can sound reassuring.
-EN: Films remain stable beyond warranty periods and can be safely removed when required without damaging the original paint.
-EN: If you’d like, I can clarify how removal and aftercare work, or share a real example so you can see how the film ages over time?
-AR: أفهمك — مدة أطول تعطي طمأنينة.
-AR: الأفلام تظل مستقرة حتى بعد مدة الضمان، وتقدر تنشال بأمان عند الحاجة بدون ضرر على الصبغة الأصلية.
-AR: إذا تحب، أوضح لك شلون الإزالة والعناية بعد التركيب، أو أرسل مثال حقيقي عشان تشوف شلون الفيلم يشيخ مع الوقت؟
+EN: I understand — a longer warranty period can feel reassuring.
+EN: In practice, films often perform well beyond the warranty period when installed properly.
+EN: And when required, they can also be removed safely without affecting the original paint.
+AR: أفهمك — مدة الضمان الأطول تعطي طمأنينة عند كثير من الناس.
+AR: في الواقع كثير من الأفلام تستمر بأداء جيد حتى بعد فترة الضمان إذا تم تركيبها بشكل صحيح.
+AR: وإذا احتجت مستقبلاً يمكن إزالة الفيلم بأمان بدون التأثير على الصبغة الأصلية.
 
 ### PHASE4_PPF_WARRANTY_SENSITIVITY_L3
 EN: I understand.
-EN: Consistency of performance over time usually matters more than the duration printed on paper.
-EN: If you’d like, I can explain how that shows in daily driving conditions, or show you a real-world example for clarity?
+EN: What usually matters more is how consistently the film performs over time in daily driving conditions.
+EN: If you like, I can explain how that appears in real-world use, or show you a practical example.
 AR: أفهمك.
-AR: ثبات الأداء مع الوقت عادة أهم من المدة المكتوبة على الورق.
-AR: إذا تحب، أشرح لك شلون هالشي يبان في الاستخدام اليومي، أو أرسل مثال واقعي للوضوح؟
+AR: اللي يفرق غالباً هو ثبات أداء الفيلم مع الوقت في الاستخدام اليومي.
+AR: إذا تحب، أشرح لك شلون يبان هالشي في الاستخدام الحقيقي، أو أوريك مثال عملي.
+
 
 ### PHASE4_PPF_TECHNICAL_L1
 EN: Good question.
-EN: Numbers explain components, but they do not always predict real-world outcomes or long-term performance.
-EN: If you’d like, I can explain how specifications relate to daily use, or show you a finished installation so you can see the practical result?
+EN: Numbers can explain part of the film, but they do not always show how it will behave on the car over time.
+EN: If you like, I can explain how these details relate to daily use, or show you a finished example so you can see the result in practice.
 AR: سؤال ممتاز.
-AR: الأرقام تشرح المكونات، بس مو دايم تتوقع النتيجة الحقيقية أو الأداء على المدى الطويل.
-AR: إذا تحب، أشرح لك شلون المواصفات ترتبط بالاستخدام اليومي، أو أوريك تركيب منتهٍ عشان تشوف النتيجة عملياً؟
+AR: الأرقام تشرح جزء من الفيلم، لكن مو دايم تبين شلون بيكون على السيارة مع الوقت.
+AR: إذا تحب، أشرح لك شلون هالتفاصيل ترتبط بالاستخدام اليومي، أو أوريك مثال منتهٍ عشان تشوف النتيجة عملياً.
 
 ### PHASE4_PPF_TECHNICAL_L2
 EN: I understand.
-EN: Design balance and installation consistency usually matter more than extreme thickness or isolated specifications.
-EN: If you’d like, I can explain how thickness actually behaves in daily driving, or we can focus on selecting the option that best fits your usage, and I can show you an example for reference?
+EN: With PPF, the real difference is not usually in one number alone.
+EN: What matters more is how the film behaves on the car and how it is installed.
+EN: If you like, I can briefly explain that, or show you a similar car for reference.
 AR: أفهمك.
-AR: توازن التصميم وثبات التركيب عادة أهم من سماكة مبالغ فيها أو رقم واحد بروحه.
-AR: إذا تحب، أشرح لك شلون السماكة تتصرف فعلياً في الاستخدام اليومي، أو نركز على الخيار الأنسب لاستخدامك، وأقدر أوريك مثال للتوضيح؟
+AR: في الـPPF الفرق الحقيقي مو غالباً في رقم واحد بروحه.
+AR: اللي يفرق أكثر هو شلون يتصرف الفيلم على السيارة وشلون يتم تركيبه.
+AR: إذا تحب، أشرح لك هالشي باختصار، أو أوريك سيارة مشابهة كمرجع.
 
 ### PHASE4_PPF_USAGE_RISK
 EN: I understand — that’s a valid concern.
-EN: PPF shifts wear to a replaceable protective layer and is designed for sustained exposure such as highway driving and outdoor heat conditions.
-EN: If you’d like, I can explain how it performs in those situations, or share a similar vehicle example so you can see the coverage in practice?
-AR: أفهمك — هذا قلق منطقي.
-AR: الـPPF ينقل الاستهلاك لطبقة حماية قابلة للاستبدال ومصمم لتحمّل مثل الخطوط والحرارة والوقوف برا.
-AR: إذا تحب، أشرح لك شلون أداؤه في هالحالات، أو أرسل مثال سيارة مشابهة عشان تشوف التغطية عملياً؟
+EN: PPF works by taking the wear on a replaceable protective layer, helping the original paint stay protected during daily driving, highway use, and outdoor parking in dusty or sandy conditions.
+EN: If you'd like, I can explain how it behaves in those situations, or show you a similar car we protected so you can see how the coverage works in practice.
+AR: أفهمك — هذا قلق طبيعي.
+AR: فكرة الـPPF إنه ينقل الاستهلاك إلى طبقة حماية قابلة للاستبدال، وهذا يساعد الطلاء الأصلي يبقى محمي مع الاستخدام اليومي والخطوط والوقوف برا في الأجواء المغبرة والرملية.
+AR: وإذا تحب، أشرح لك شلون يتصرف في هالحالات، أو أوريك مثال سيارة سوينا لها الحماية عشان تشوف التغطية عملياً.
 
 ### PHASE4_PPF_INSTALLATION_TRUST
 EN: Good question.
-EN: Long-term clarity and edge stability depend heavily on surface preparation and installation precision, not just the film itself.
-EN: If you’d like, I can explain the preparation and finishing steps clearly, or share a short install example so you can see how edges and panels are handled?
+EN: For PPF, long-term clarity and clean edges mostly come from careful surface preparation and proper installation, not just the film itself.
+EN: If you like, I can briefly explain how the preparation and installation work, or show you a similar car so you can see how the edges and panels look after installation.
 AR: سؤال ممتاز.
-AR: صفاء الفيلم مع الوقت وثبات الحواف يعتمد بشكل كبير على تجهيز السطح ودقة التركيب، مو بس على الفيلم نفسه.
-AR: إذا تحب، أشرح لك خطوات التجهيز والتشطيب بوضوح، أو أرسل مثال تركيب بسيط عشان تشوف شلون نتعامل مع الحواف والقطع؟
+AR: في الـPPF، صفاء الفيلم مع الوقت ونظافة الحواف يعتمد أكثر على تجهيز السطح والتركيب الصحيح، مو بس على نوع الفيلم.
+AR: إذا تحب، أشرح لك باختصار شلون يتم التجهيز والتركيب، أو أوريك مثال سيارة سوينا لها الحماية عشان تشوف شكل الحواف والقطع بعد التركيب.
 
 ### PHASE4_PPF_SILENCE_PRIMARY
 EN: That’s completely understandable — sometimes a little silence just means you’re thinking it through.
@@ -268,9 +272,9 @@ AR: إذا تحب، نقدر نخليها بسيطة — أشرح لك خيار�
 
 ### PHASE4_PPF_SILENCE_COVERAGE_NARROW
 EN: Understood.
-EN: Would you prefer to keep the full protection approach, or start with protection on the most exposed areas first?
+EN: Would you prefer to keep it around the full protection approach, or should I simplify the options first?
 AR: تم.
-AR: تفضّل نحافظ على الحماية الكاملة، أو نبدأ أول بالمناطق الأكثر تعرضاً؟
+AR: تفضّل نبقيها حول فكرة الحماية الكاملة، أو أبسط لك الخيارات أول؟
 
 ### PHASE4_PPF_SILENCE_COMPARISON_SIMPLIFY
 EN: Of course — choosing the right protection is worth reviewing properly.
@@ -311,91 +315,71 @@ AR: إذا تحب، أشرح لك شلون تمشي دورة التجديد.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L1
 EN: That’s a fair question.
-EN: Ceramic coating mainly helps the paint keep its gloss longer, stay cleaner for longer, and become easier to manage.
-EN: With our scheduled coating refresh service, the surface is restored so the finish continues looking newer over time.
+EN: Ceramic mainly helps the paint keep its gloss longer and makes the car easier to keep clean.
+EN: With our scheduled coating refresh service, the surface can be restored over time so the finish continues looking fresh.
 AR: هذا سؤال في محله.
-AR: السيراميك يساعد الطلاء يحافظ على لمعته لفترة أطول ويتوسخ بشكل أبطأ ويصير أسهل في العناية.
-AR: ومع خدمة تجديد السيراميك المجدولة يتم إعادة تنشيط السطح حتى يبقى الشكل كأنه أحدث مع الوقت.
+AR: السيراميك يساعد الطلاء يحافظ على لمعته لفترة أطول ويخلي السيارة أسهل في التنظيف.
+AR: ومع خدمة تجديد السيراميك المجدولة نقدر نعيد تنشيط السطح مع الوقت حتى يبقى الشكل محافظ على لمعته.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L2
-EN: Wash style and frequency still play a role in how long the gloss stays consistent.
-EN: Our scheduled coating refresh service helps restore the surface over time so the finish stays glossy and stable for longer.
-AR: طريقة الغسيل وتكراره لهم تأثير على ثبات اللمعة.
-AR: وخدمة تجديد السيراميك المجدولة تساعد على إعادة تنشيط السطح مع الوقت حتى تبقى اللمعة ثابتة لفترة أطول.
+EN: How the car is washed can still influence how long the gloss stays consistent.
+EN: That’s why our scheduled coating refresh service helps restore the surface so the finish keeps looking glossy over time.
+AR: طريقة الغسيل ممكن تأثر على ثبات اللمعة مع الوقت.
+AR: لذلك خدمة تجديد السيراميك المجدولة تساعد على إعادة تنشيط السطح حتى تبقى اللمعة ثابتة لفترة أطول.
 
 ### PHASE4_CERAMIC_DURABILITY_SKEPTICISM_L3
-EN: Surface preparation and curing control determine how well the coating bonds to the paint.
-EN: When these steps are done correctly, the coating stays more stable and is supported by our scheduled coating refresh service to maintain the finish over time.
-AR: تجهيز السطح والتحكم بالتصلب هم اللي يحددون مدى تماسك السيراميك مع الطلاء.
-AR: ولما هالخطوات تنعمل صح تكون النتيجة أثبت وتدعمها خدمة تجديد السيراميك المجدولة للحفاظ على ثبات النتيجة مع الوقت.
+EN: Proper preparation is what helps the coating bond well to the paint.
+EN: When applied correctly, the coating stays stable and our scheduled coating refresh service helps maintain the finish over the years.
+AR: التحضير الصحيح هو اللي يساعد السيراميك يتماسك مع الطلاء بشكل جيد.
+AR: ولما يتم التطبيق بشكل صحيح تبقى النتيجة مستقرة، وخدمة تجديد السيراميك المجدولة تساعد تحافظ على اللمعة مع السنين.
 
-### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L1
-EN: Warranty is there as support, but what matters more is how the ceramic performs in daily use.
-EN: With proper preparation and the right maintenance, the gloss and finish can stay consistent for a long time.
-EN: I can also explain how warranty usually aligns with durability levels.
-AR: الضمان موجود كدعم، لكن الأهم هو شلون يكون أداء السيراميك في الاستخدام اليومي.
-AR: ومع التجهيز الصحيح والصيانة المناسبة، تقدر اللمعة والشكل يظلون ثابتين لفترة طويلة.
-AR: أقدر أيضاً أوضح لك شلون يرتبط الضمان بدرجات التحمل.
 
-### PHASE4_CERAMIC_WARRANTY_SENSITIVITY_L2
-EN: I understand — longer warranty can sound reassuring.
-EN: Performance consistency over time usually matters more than the stated duration.
-EN: If you’d like, I can clarify what typically affects long-term stability, or show you an example of a multi-year coating?
-AR: أفهمك — مدة أطول تعطي طمأنينة.
-AR: ثبات الأداء مع الوقت عادة أهم من المدة المذكورة.
-AR: إذا تحب، أوضح لك شنو عادة يأثر على الثبات على المدى الطويل، أو أوريك مثال من سيراميك لعدة سنوات؟
 
-### PHASE4_CERAMIC_BRAND_FIXATION_L1
-EN: Brand matters to many customers.
-EN: In our climate, heat exposure and curing control often influence long-term gloss more than branding alone.
-EN: If you’d like, I can explain how coatings behave under regional heat, or compare two options side by side?
-AR: الماركة تهم عند وايد عملاء.
-AR: بجوّنا، التعرض للحرارة والتحكم بالتصلب غالباً يأثر على اللمعة مع الوقت أكثر من اسم الماركة بروحه.
-AR: إذا تحب، أشرح لك شلون السيراميك يتصرف مع حرارة المنطقة، أو نقارن خيارين جنباً إلى جنب؟
+
 
 ### PHASE4_CERAMIC_BRAND_FIXATION_L2
 EN: I understand.
-EN: Application consistency and preparation quality usually define durability more than the label itself.
-EN: If you’d like, I can explain how prep impacts performance, or show you the installation process?
+EN: With ceramic, the preparation and application usually matter more than the name on the bottle.
+EN: If you like, I can explain that simply, or show you how the application works.
 AR: أفهمك.
-AR: ثبات التطبيق وجودة التحضير عادة تحدد التحمل أكثر من اسم المنتج.
-AR: إذا تحب، أشرح لك شلون التحضير يأثر على الأداء، أو أوريك عملية التركيب؟
+AR: مع السيراميك عادة تجهيز السطح وطريقة التطبيق هم اللي يفرقون أكثر من اسم المنتج.
+AR: إذا تحب، أشرح لك هالشي ببساطة، أو أوريك شلون يتم التطبيق.
 
 ### PHASE4_CERAMIC_MAINTENANCE_CONFUSION_L1
-EN: Ceramic reduces maintenance effort, but it doesn’t eliminate washing.
-EN: Regular care keeps gloss and hydrophobic performance consistent.
-EN: If you’d like, I can explain a simple maintenance routine, or show how water behavior changes after coating?
-AR: السيراميك يقلل مجهود العناية، لكنه ما يلغي الغسيل.
-AR: العناية المنتظمة تحافظ على اللمعة والطرد المائي بثبات.
-AR: إذا تحب، أشرح لك روتين بسيط للعناية، أو أوريك شلون يتغير سلوك الماء بعد السيراميك؟
+EN: Ceramic makes the car easier to keep clean, but normal washing is still part of regular care.
+EN: That regular care helps the gloss and water behavior stay consistent.
+EN: If you like, I can explain a simple care routine, or show you how the surface behaves after coating.
+AR: السيراميك يخلي السيارة أسهل في التنظيف، لكن الغسيل العادي يظل جزء من العناية الطبيعية.
+AR: وهالعناية تساعد اللمعة وسلوك الماء يظلون ثابتين.
+AR: إذا تحب، أشرح لك روتين بسيط للعناية، أو أوريك شلون يتصرف السطح بعد السيراميك.
 
 ### PHASE4_CERAMIC_MAINTENANCE_CONFUSION_L2
-EN: Periodic maintenance helps maintain peak performance over time.
-EN: Refresh services can restore hydrophobic behavior and gloss consistency.
-EN: If you’d like, I can explain how refresh cycles work, or show you a before-and-after example?
-AR: الصيانة الدورية تساعد تحافظ على أفضل أداء مع الوقت.
-AR: خدمات الـRefresh تقدر ترجع الطرد المائي وثبات اللمعة.
-AR: إذا تحب، أشرح لك شلون دورات الـRefresh تشتغل، أو أوريك مثال قبل وبعد؟
+EN: Periodic care helps the coating stay at its best over time.
+EN: Refresh services can restore the water-repelling effect and gloss.
+EN: If you like, I can explain how the refresh cycle works, or show you a before-and-after example.
+AR: العناية الدورية تساعد السيراميك يظل بأفضل حال مع الوقت.
+AR: وخدمات الـRefresh تقدر ترجع تأثير طرد الماء وثبات اللمعة.
+AR: إذا تحب، أشرح لك شلون تمشي دورة الـRefresh، أو أوريك مثال قبل وبعد.
 
 ### PHASE4_CERAMIC_TECHNICAL_9H
-EN: Hardness ratings describe lab-scale properties, but they don’t mean scratch immunity in daily use.
-EN: If you’d like, I can explain what hardness actually represents, or show how coatings behave under real-world washing?
-AR: تصنيف الصلابة يشرح خصائص بالمختبر، لكنه ما يعني مناعة ضد الخدش في الاستخدام اليومي.
-AR: إذا تحب، أشرح لك شنو تمثل الصلابة فعلياً، أو أوريك شلون السيراميك يتصرف مع الغسيل الحقيقي؟
+EN: Hardness ratings come from lab tests, but they do not mean the coating is scratch-proof in daily use.
+EN: If you like, I can explain what that rating really means, or show you how coatings behave with normal washing.
+AR: تصنيف الصلابة يأتي من اختبارات مختبرية، لكنه ما يعني أن السيراميك يمنع الخدوش تماماً في الاستخدام اليومي.
+AR: إذا تحب، أشرح لك شنو يعني هالتصنيف فعلياً، أو أوريك شلون يتصرف السيراميك مع الغسيل العادي.
 
 ### PHASE4_CERAMIC_SILENCE_L1
-EN: Totally understandable — ceramic tiers can take a moment to consider.
-EN: Are you leaning more toward short-term protection, or longer durability?
-AR: طبيعي جداً — درجات السيراميك تحتاج شوي تفكير.
-AR: تميل أكثر لحماية قصيرة المدى، ولا تحمل أطول؟
+EN: Totally understandable — ceramic options can take a moment to think through.
+EN: If anything still feels unclear, I can keep it simple.
+AR: طبيعي جداً — خيارات السيراميك أحياناً تحتاج شوي وقت للتفكير.
+AR: إذا في شيء مو واضح، أقدر أبسطه لك.
 
 ### PHASE4_CERAMIC_SILENCE_L2
-EN: Would you prefer to keep it simple with the 1-year option, or review the longer-lasting tiers?
-AR: تفضل نخليها بسيطة مع خيار سنة، ولا نراجع الدرجات الأطول؟
+EN: If you like, I can keep it simple and focus on the practical ceramic option, or explain how the longer gloss stability packages work.
+AR: إذا تحب، أقدر أخليها بسيطة وأركز على الخيار العملي للسيراميك، أو أشرح لك شلون تشتغل الباقات الأطول من ناحية ثبات اللمعة.
 
 ### PHASE4_CERAMIC_SILENCE_L3
-EN: Should we align it to a lower starting tier, or focus on the longer-lasting option for fewer refresh cycles?
-AR: نضبطها على درجة بداية أقل، ولا نركز على خيار أطول عشان تقل دورات الـRefresh؟
+EN: If it helps, I can also show a similar car we coated, or explain how the scheduled coating refresh service helps keep the finish looking fresh over the years.
+AR: وإذا تحب، أقدر أوريك مثال سيارة سوينا لها السيراميك، أو أشرح لك شلون خدمة تجديد السيراميك المجدولة تحافظ على الشكل الجديد مع السنين.
 
 ### Z_DEPRECATED__PHASE3B_CERAMIC_HAND_WASH__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the ceramic coating options and move to the pricing step next.
@@ -514,40 +498,56 @@ PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
 # - No pricing numbers (pricing remains Route E + ladder only)
 
 ### PHASE5_PPF_PRICE_GAP_DEEPEN_L1
-EN: Understood — to compare fairly, it helps to align the same coverage and the same finishing standard. With PPF, the outcome is shaped by prep + edge finishing consistency as much as the film. If you’d like, I can explain what usually creates the gap, or share a short install example so you can see the finish clearly. What coverage are you comparing — full or front?
-AR: مفهوم — عشان تكون المقارنة عادلة لازم نطابق نفس التغطية ونفس مستوى إنهاء الحواف. بالـPPF النتيجة تعتمد على التحضير ودقة الإنهاء بقدر ما تعتمد على الفيلم نفسه. إذا تحب، أشرح لك شنو عادةً يسبب فرق السعر، أو أرسل مثال تركيب قصير عشان تشوف التشطيب بوضوح. شنو التغطية اللي تقارنها — كامل ولا أمامي؟
+EN: Understood — the fair comparison is to keep the same coverage in view first.
+EN: With PPF, the difference usually comes from the film, the preparation behind it, and how clean the result looks after installation.
+EN: If you like, I can explain what usually creates that gap, or show you a finished example for reference.
+AR: مفهوم — المقارنة العادلة تبدأ أول شيء من نفس التغطية.
+AR: بالـPPF الفرق عادة يجي من الفيلم نفسه، والتحضير اللي وراه، وشكل النتيجة بعد التركيب.
+AR: إذا تحب، أشرح لك شنو عادة يسوي هالفرق، أو أوريك مثال منتهٍ كمرجع.
 
 ### PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
-EN: Totally fair. Brand and warranty matter, but day-to-day ownership depends a lot on fit, edges, and how stable the finish stays with heat and washing. If you’d like, I can explain how to compare warranty and real-world performance, or share a finished example on a similar car. Are you prioritizing brand, warranty, or the final finish?
-AR: طبيعي. العلامة والضمان مهمين، لكن تجربة الاستخدام اليومية تعتمد كثير على دقة التركيب والحواف وثبات الشكل مع الحرارة والغسيل. إذا تحب، أشرح لك شلون تقارن بين الضمان والأداء الواقعي، أو أرسل مثال سيارة مشابهة بعد التركيب. شنو أولويتك أكثر — البراند، الضمان، ولا التشطيب النهائي؟
+EN: Totally fair. Brand and warranty matter, but what most people live with daily is how clean the result looks and how stable it stays over time.
+EN: If you like, I can explain how to compare warranty with real-world use, or show you a similar finished car for reference.
+AR: طبيعي. البراند والضمان مهمين، لكن اللي يعيشه أغلب الناس يومياً هو شكل النتيجة وثباتها مع الوقت.
+AR: إذا تحب، أشرح لك شلون تقارن بين الضمان والاستخدام الواقعي، أو أوريك سيارة مشابهة بعد التنفيذ كمرجع.
 
 ### PHASE5_PPF_TECHNICAL_DEEPEN_L1
-EN: Good question. Specs help, but they don’t always predict the result you’ll live with — clarity, edges, and stability over time matter most. If you’d like, I can explain how the key specs translate into real driving, or share a close-up install example. Are you asking mainly about thickness/TPU, or about finish and edge detailing?
-AR: سؤال ممتاز. المواصفات تساعد، لكن مو دائماً تضمن النتيجة اللي بتعيش معها — الأهم وضوح الشكل، الحواف، وثبات الأداء مع الوقت. إذا تحب، أشرح لك شلون المواصفات تنعكس على الاستخدام الحقيقي، أو أرسل مثال تركيب قريب للحواف. سؤالك أكثر عن السماكة/TPU، ولا عن التشطيب والحواف؟
+EN: Good question. Specs help, but they do not always show the result you will live with on the car.
+EN: What usually matters more is how the film looks, sits, and stays stable over time.
+EN: If you like, I can explain that simply, or show you a close example for reference.
+AR: سؤال ممتاز. المواصفات تساعد، لكنها مو دايم تبين النتيجة اللي بتعيش معها على السيارة.
+AR: اللي يفرق غالباً هو شلون يكون شكل الفيلم على السيارة وثباته مع الوقت.
+AR: إذا تحب، أشرح لك هالشي ببساطة، أو أوريك مثال قريب كمرجع.
 
 ### PHASE5_PPF_NARROW_L2
 EN: Understood. If the price feels a bit high, we can adjust the protection level while keeping full-body coverage — that’s usually how most customers make it work comfortably. Would you prefer to review the protection levels first?
 AR: مفهوم. إذا السعر حاسس إنه مرتفع شوي، نقدر نضبط مستوى الحماية مع بقاء التغطية كاملة — وهذي الطريقة اللي أغلب العملاء يختارونها عشان تبقى الحماية مريحة في الميزانية. تبي نراجع مستويات الحماية أول؟
 
 ### PHASE5_PPF_EXIT_FORK_L3
-EN: I understand — if the full coverage is stretching the budget right now, another option is to start with protection on the main impact areas first, and you can always expand it later if you decide. Or we can pause here and you can revisit it anytime. Which would you prefer?
-AR: أفهمك — إذا التغطية الكاملة حالياً تضغط على الميزانية، نقدر نبدأ بحماية المناطق الأكثر تعرضاً أولاً، وبعدها تقدر توسّعها لاحقاً إذا حبيت. أو نوقف هنا وترجع لها في الوقت اللي يناسبك. أي خيار تفضّل؟
+EN: I understand — if you do not want to decide now, we can keep it simple and pause here, and you can come back anytime when ready.
+EN: Or, if you prefer, we can first keep the discussion around the full-protection path and simplify it step by step.
+AR: أفهمك — إذا ما تبي تقرر الحين، نقدر نخليها بسيطة ونوقف هنا، وترجع بأي وقت لما تكون جاهز.
+AR: أو إذا تفضّل، نكمل أول على مسار الحماية الكاملة ونبسطه لك خطوة خطوة.
 
 ### PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
-EN: Understood — with ceramic, the biggest differences usually are driven by preparation + durability tier, not the word “ceramic” alone. If you’d like, I can explain what typically changes between tiers, or share an example of how the finish behaves after proper curing. How do you usually wash the car — hand wash or tunnel wash?
-AR: مفهوم — بالسيراميك أكبر الفروقات عادة تكون في التحضير ودرجة التحمل، مو بس كلمة “سيراميك”. إذا تحب، أشرح لك شنو يتغير غالباً بين المستويات، أو أرسل مثال يوضح النتيجة بعد التصلب الصحيح. شلون عادة تغسل السيارة — يدوي ولا مغسلة/تَنَل؟
+EN: Understood — with ceramic, the difference usually comes from the preparation behind it and how stable the finish stays over time, not just the word “ceramic”.
+EN: If you like, I can explain what usually creates that difference, or show you a simple example of the result.
+AR: مفهوم — بالسيراميك الفرق غالباً يجي من التحضير اللي يصير قبل التطبيق وثبات النتيجة مع الوقت، مو بس كلمة “سيراميك”.
+AR: إذا تحب، أشرح لك ببساطة شنو عادة يسوي هالفرق، أو أوريك مثال على النتيجة.
 
 ### PHASE5_CERAMIC_DURABILITY_REALISM_DEEPEN_L1
-EN: That’s fair. Ceramic improves gloss and makes washing easier, but it doesn’t make paint scratch-proof — durability depends on wash method and exposure. If you’d like, I can explain what “lasting” means in real use, or share a simple example of water behavior. Is your priority durability, gloss, or easy maintenance?
-AR: كلامك صحيح. السيراميك يعطي لمعان ويسهّل الغسيل، لكنه ما يخلي الطلاء ضد الخدش 100% — الثبات يعتمد على طريقة الغسيل والتعرض. إذا تحب، أشرح لك شنو يعني “يعيش” بالواقع، أو أرسل مثال بسيط لسلوك الماء. شنو أولويتك — التحمل، اللمعان، ولا سهولة العناية؟
+EN: That’s a fair point. Ceramic mainly helps the paint keep its gloss longer and makes the car easier to wash and maintain.
+EN: With normal care and our refresh service over time, the finish can stay looking clean and consistent for much longer.
+AR: كلامك صحيح. السيراميك يساعد الطلاء يحافظ على لمعته لفترة أطول ويخلي الغسيل والعناية أسهل.
+AR: ومع العناية الطبيعية وخدمة تجديد السيراميك مع الوقت، يبقى الشكل نظيف وثابت لفترة أطول.
 
 ### PHASE5_CERAMIC_NARROW_L2
-EN: Understood. If budget is the constraint, the clean way is to choose the main target: (1) gloss/appearance, or (2) easier washing and maintenance. Which one are you solving for?
-AR: مفهوم. إذا الميزانية هي العائق، الأفضل نحدد الهدف الأساسي: (1) اللمعة والشكل، أو (2) سهولة الغسيل والعناية. شنو الهدف اللي تبيه بالضبط؟
+EN: Understood. If the budget is the concern, we can keep the ceramic approach simple and focus on the most practical option that still gives long-term gloss and easier maintenance. Would you like to see that option first?
+AR: مفهوم. إذا الميزانية هي النقطة الأساسية، نقدر نخلي خيار السيراميك بسيط ونركز على الخيار العملي اللي يعطي لمعان ثابت ويسهّل العناية لفترة طويلة. تبي نبدأ بهالخيار؟
 
 ### PHASE5_CERAMIC_EXIT_FORK_L3
-EN: Clear. To avoid back-and-forth, we can either (1) pause here and you decide later, or (2) keep it simple with the most practical tier for your goal. Which do you prefer?
-AR: واضح. عشان ما نصير في شد وجذب، يا (1) نوقف هنا وتقرر لاحقاً، أو (2) نخليها بسيطة بأكثر مستوى عملي يناسب هدفك. شنو تفضّل؟
+EN: No problem. We can keep it simple and pause here for now, and you can always revisit it later. Or if you prefer, I can show you the most practical ceramic option and keep it straightforward.
+AR: ما في مشكلة. نقدر نخليها بسيطة ونوقف هنا حالياً، وتقدر ترجع لها بأي وقت. أو إذا تحب، أوريك الخيار العملي للسيراميك ونخليها مباشرة وبسيطة.
 
 ### PHASE5_TINT_COMPARE_DEEPEN_L1
 EN: Totally fair to compare. With tint, darkness can look similar while heat comfort feels very different — performance depends on film level and coverage. If you’d like, I can explain what to compare so it stays apples-to-apples, or share a quick example. Which coverage are you comparing — front only or full?
