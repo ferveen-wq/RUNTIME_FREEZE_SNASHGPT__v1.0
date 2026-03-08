@@ -714,6 +714,8 @@ Each change must record:
   - Clarified PPF thickness explanation using layman framing (thickness vs real-world performance)
   - Refined PPF warranty sensitivity phrasing with manufacturer-backed reassurance, long-term film stability, and safe-removal clarity
   - Duplicate authoritative warranty block was caught by validation and removed cleanly before final validation
+  - Refined technical clarification phrases to avoid specification debate and maintain layman-first explanation style
+  - Ensured specification discussions redirect toward real-world behaviour and visual proof instead of technical comparison loops
 
 
 
