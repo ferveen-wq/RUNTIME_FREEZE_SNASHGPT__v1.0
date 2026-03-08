@@ -479,6 +479,236 @@ Each change must record:
   - No emoji use
   - Avoid heavy paragraphing
 
+### CHANGE_ID: GAP_007
+- AREA: Adaptive Qualification Friction
+- GOAL: Audit whether non-essential qualifier questions and hooks can be suppressed for impatient / low-friction customers while safely using architecture-approved defaults
+- FILES:
+  - qualification-related runtime files
+  - negotiation / routing files
+  - tone / signal files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Short / impatient customers may need fewer questions
+  - Use existing safe defaults where architecture already permits
+  - Avoid slowing the path to pricing when customer intent is already clear
+
+### CHANGE_ID: GAP_008
+- AREA: Response Length Matching
+- GOAL: Audit whether runtime phrasing and explanation depth should adapt to customer style (short vs elaborate)
+- FILES:
+  - tone-related runtime files
+  - customer-facing phrase files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Short customer replies should receive shorter replies
+  - Elaborative customers can receive fuller explanations
+  - Must remain natural and signal-aware
+
+### CHANGE_ID: GAP_009
+- AREA: End-to-End Phrase Validation
+- GOAL: Audit customer-facing runtime phrases end-to-end for simple wording, low jargon, natural flow, and business impact
+- FILES:
+  - customer-facing runtime phrase files
+  - tone / routing / output files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Focus on layman readability
+  - Reduce technical jargon
+  - Keep phrasing impactful, concise, and mobile-friendly
+
+
+
+
+### CHANGE_ID: GAP_010
+- AREA: Customer Trust Development
+- GOAL: Audit conversation phrasing and sequencing to support the transition from price comparison to trust formation (Customer Trust Curve)
+- FILES:
+  - Phase 4 objection phrasing
+  - education invitation phrases
+  - customer-facing explanation blocks
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Identify phrases that move customers from comparison mode to trust mode
+  - Avoid defensive responses during price comparisons
+  - Emphasize calm expertise, process clarity, and practical examples
+
+### CHANGE_ID: GAP_011
+- AREA: Runtime Architecture Visualization
+- GOAL: Create a simple visual diagram of the SnashGPT runtime conversation engine to improve maintainability and onboarding
+- FILES:
+  - runtime documentation layer
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Diagram should show the full runtime flow from customer entry to conversion
+  - Helps developers understand where phrase libraries, decision matrices, education snippets, and pricing engines interact
+  - Documentation only
+
+### CHANGE_ID: GAP_012
+- AREA: Conversation Energy Management
+- GOAL: Audit and improve runtime phrase structure to maintain conversation momentum and prevent energy drop after pricing, explanations, or silence
+- FILES:
+  - customer-facing phrase files
+  - silence-related runtime files
+  - phase 4 objection phrasing
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Apply 3-second reply rule where relevant
+  - Reduce decision friction and information dumping
+  - Support recovery after hesitation and silence
+
+### CHANGE_ID: GAP_013
+- AREA: Service Gravity / Customer Psychology
+- GOAL: Audit whether service recommendation logic should later reflect car age, ownership mindset, and customer psychology (PPF vs ceramic vs polish)
+- FILES:
+  - qualifier-related runtime files
+  - recommendation / routing files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Includes Customer Psychology Ladder
+  - Includes Service Gravity Model
+  - Guidance for future recommendation logic only
+
+### CHANGE_ID: GAP_014
+- AREA: Conversion Momentum
+- GOAL: Audit whether the runtime should later apply the 5-message conversion rule and conversion-pressure balance model
+- FILES:
+  - conversion-related runtime files
+  - message assembly / pricing / silence files
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Guide toward next step without sounding pushy
+  - Support booking / visit momentum before conversation energy drops
+  - Architecture guidance for later stage
+
+### CHANGE_ID: GAP_015
+- AREA: Visual Proof / Education Layer
+- GOAL: Plan optional video / visual proof triggers for education, trust-building, comparison support, and silence recovery using controlled links later
+- FILES:
+  - future visual proof / education layer
+  - phase 4 phrase library
+  - education invitation logic
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - No new runtime file required now
+  - Could later use controlled or trust-gated links
+  - Separate project possible after runtime stabilization
+
+
+
+
+### CHANGE_ID: GAP_016
+- AREA: Customer Signal Map
+- GOAL: Evaluate runtime capability to adjust response length, questioning depth, and pricing progression based on detected customer signals
+- FILES:
+  - tone-related runtime files
+  - qualification / routing files
+  - phrase library
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Detect short vs elaborate customer responses
+  - Allow suppression of non-essential questions for impatient users
+  - Support faster move to pricing when intent is already clear
+
+### CHANGE_ID: GAP_017
+- AREA: Phrase Framing / Hidden Phrase Traps
+- GOAL: Audit runtime phrasing to eliminate subtle sales traps that reduce conversion or create unintended negative framing
+- FILES:
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - phrase governance references
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Avoid framing like "budget vs long-lasting"
+  - Avoid phrases implying inferior options
+  - Maintain perception of affordability and durability together
+  - Ensure options feel practical rather than conflicting
+
+### CHANGE_ID: GAP_018
+- AREA: Objection Heat Map
+- GOAL: Identify the most common objections in automotive protection services and confirm runtime coverage for them
+- FILES:
+  - Phase 4 objection phrasing
+  - phrase library
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Map common objections for PPF, ceramic, tint, and polishing
+  - Verify runtime responses address these objections naturally
+  - Ensure phrasing reduces friction rather than escalating technical debate
+
+### CHANGE_ID: GAP_019
+- AREA: Customer Education / Qualification Webpage Flow
+- GOAL: Explore optional architecture for sending controlled education links that explain services, installation process, and qualification questions
+- FILES:
+  - future education / visual proof layer
+  - education invitation phrasing
+- STATUS: DEFERRED
+- VALIDATION: None
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Could include educational pages explaining protection services
+  - May include video demonstrations and installation overview
+  - Links may be trust-triggered to prevent competitor scraping
+  - Helps customers understand qualification questions without long chat explanations
+
+
+
+### CHANGE_ID: PPF_PHASE4_PHRASE_AUDIT_001
+- AREA: Phase 4 PPF Objection / Silence Phrasing
+- GOAL: Align Phase 4 PPF phrases with Phrase Governance and full-body-first ladder strategy
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: PATCHED_LOCAL
+- VALIDATION:
+  - phrase_library_validator passed
+  - lint passed
+  - UAT regression passed
+  - silence state pack passed
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Simplified layman wording
+  - Reinforced GCC dusty / sandy climate context
+  - Removed technical installer jargon
+  - Maintained full-body protection anchor
+  - Avoided early front-PPF exposure
+  - Added visual proof invitation language
+
 ## RULES FOR UPDATING THIS LEDGER
 
 Before any runtime patch:
@@ -562,4 +792,7 @@ This section should be updated before moving to a different runtime topic.
   - no-emoji compliance audit across customer-facing runtime phrases
   - price output count audit to ensure runtime does not surface more than 2 prices when not intended
   - silence revoking tools consistency audit across services
+  - adaptive qualifier / hook suppression for impatient customers using safe defaults
+  - response length matching based on customer style (short vs elaborate)
+  - end-to-end phrase validation for simple, low-jargon, high-impact customer language
 
