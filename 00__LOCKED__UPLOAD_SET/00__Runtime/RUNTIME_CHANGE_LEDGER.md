@@ -995,9 +995,9 @@ ACTIVE AUDIT TARGET
 - GOAL: Replace detailing jargon and simplify expectation phrasing for polishing
 - FILES:
   - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: APPROVED_FOR_PATCH
-- VALIDATION: Pending
-- MERGED: No
+- STATUS: MERGED_MAIN
+- VALIDATION: phrase_library_validator passed
+- MERGED: Yes
 - TAGGED: None
 - NOTES:
   - Replace “clarity” with restoring original gloss
