@@ -773,6 +773,10 @@ Each change must record:
   - Reduced warning-like tone around washing impact
   - Reinforced scheduled coating refresh service as the reassurance path
   - Kept layman-first phrasing and confidence-preserving tone
+  - Simplified ceramic brand-fixation phrasing to keep brand discussion natural and non-technical
+  - Replaced technical maintenance wording with layman phrases around water behavior and refresh support
+  - Softened 9H technical phrasing to avoid technical debate and keep real-world explanation simple
+  - Refined ceramic silence L2 to reduce binary pressure and keep the message easier to answer
 
 ## RULES FOR UPDATING THIS LEDGER
 
