@@ -754,6 +754,26 @@ Each change must record:
   - Check drop-off after too many options or questions
   - Use later with energy / trust / signal-map work
 
+
+### CHANGE_ID: CER_PHASE4_PHRASE_AUDIT_001
+- AREA: Phase 4 Ceramic Objection / Durability Phrasing
+- GOAL: Align Phase 4 ceramic phrases with Phrase Governance, layman clarity, GCC practicality, and refresh-cycle reassurance
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: PATCHED_LOCAL
+- VALIDATION:
+  - phrase_library_validator passed
+  - lint passed
+  - UAT regression passed
+  - silence state pack passed
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Simplified ceramic durability skepticism phrasing
+  - Reduced warning-like tone around washing impact
+  - Reinforced scheduled coating refresh service as the reassurance path
+  - Kept layman-first phrasing and confidence-preserving tone
+
 ## RULES FOR UPDATING THIS LEDGER
 
 Before any runtime patch:
