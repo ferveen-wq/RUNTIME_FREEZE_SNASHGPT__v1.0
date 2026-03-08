@@ -712,6 +712,8 @@ Each change must record:
   - Avoided early front-PPF exposure
   - Added visual proof invitation language
   - Clarified PPF thickness explanation using layman framing (thickness vs real-world performance)
+  - Refined PPF warranty sensitivity phrasing with manufacturer-backed reassurance, long-term film stability, and safe-removal clarity
+  - Duplicate authoritative warranty block was caught by validation and removed cleanly before final validation
 
 
 
