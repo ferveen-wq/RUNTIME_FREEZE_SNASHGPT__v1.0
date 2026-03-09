@@ -1,0 +1,166 @@
+# PHASE 7 — EDUCATION SNIPPETS
+# Purpose: Provide reusable knowledge explanations that phrases can reference.
+
+# IMPORTANT GOVERNANCE RULES
+
+1. Phrases must not duplicate explanation text.
+2. Phrases reference snippets using {{EDU_SNIPPET_NAME}}.
+3. Snippets must remain bilingual (EN + AR).
+4. Snippet library should remain under 30 entries.
+5. Snippets must follow Phrase Governance rules.
+
+---------------------------------------------------------------------
+
+# PROTECTION EXPLANATIONS
+
+### EDU_PPF_PROTECTION
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_CERAMIC_LIMITATIONS
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_TINT_HEAT_REJECTION
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_WRAP_STYLING
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_POLISH_PAINT_CORRECTION
+EN:
+TBD
+
+AR:
+TBD
+
+
+---------------------------------------------------------------------
+
+# SERVICE COMPARISON
+
+### EDU_PPF_VS_CERAMIC
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_WRAP_VS_PPF
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_TINT_DARKNESS_VS_HEAT
+EN:
+TBD
+
+AR:
+TBD
+
+
+---------------------------------------------------------------------
+
+# CUSTOMER TRUST
+
+### EDU_DURABILITY_REALISM
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_WARRANTY_REALISM
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_MAINTENANCE_REALITY
+EN:
+TBD
+
+AR:
+TBD
+
+
+---------------------------------------------------------------------
+
+# DECISION GUIDANCE
+
+### EDU_PROTECTION_LEVELS
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_COVERAGE_DECISION
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_RECOMMENDATION_FRAME
+EN:
+TBD
+
+AR:
+TBD
+
+
+---------------------------------------------------------------------
+
+# QUALITY FACTORS
+
+### EDU_FILM_QUALITY_FACTORS
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_INSTALLATION_COMPLEXITY
+EN:
+TBD
+
+AR:
+TBD
+
+
+### EDU_PAINT_CONDITION_IMPACT
+EN:
+TBD
+
+AR:
+TBD
+
