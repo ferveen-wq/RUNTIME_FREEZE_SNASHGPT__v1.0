@@ -801,8 +801,6 @@ Prevention rule introduced:
 
 This ledger entry documents the discovery and governance reinforcement.
 
-# ...existing code...
-
 ## RULES FOR UPDATING THIS LEDGER
 
 Before any runtime patch:
@@ -1046,3 +1044,163 @@ No SKU / product canon impact
 
 STATUS:
 Planned — pending phrase patch
+
+
+--------------------------------------------------------------------
+SECTION: CONVERSATION ANALYSIS & OPTIMIZATION TOOLING (PLANNED)
+--------------------------------------------------------------------
+
+Purpose:
+After SnashGPT begins handling real customer conversations, a set of
+analysis tools will be used to evaluate conversation performance and
+identify patterns that improve or reduce conversion quality.
+
+These tools are NOT part of runtime logic and will be used only for
+analysis, auditing, and phrase optimization.
+
+
+PLANNED ANALYSIS TOOLS
+----------------------
+
+1. Conversation Pattern Analyzer
+
+Purpose:
+Analyze large sets of real customer conversations to detect patterns.
+
+Outputs:
+
+• winning phrases (phrases correlated with successful conversions)
+• losing phrases (phrases correlated with drop-off)
+• confusion triggers
+• common objection sequences
+• service misinterpretation patterns
+
+Use:
+Helps refine phrase library and conversation flow.
+
+
+2. Phrase Effectiveness Tracker
+
+Purpose:
+Measure how specific phrases influence customer response behavior.
+
+Metrics may include:
+
+• response engagement
+• follow-up questions
+• objection reduction
+• service clarification success
+
+Output:
+
+List of high-performing phrases and phrases that cause confusion.
+
+
+3. Customer Signal Detector
+
+Purpose:
+Detect recurring customer signals in conversations.
+
+Examples:
+
+• price pressure signals
+• competitor influence
+• brand fixation
+• misunderstanding of services
+• incorrect assumptions (e.g., ceramic prevents scratches)
+
+Use:
+Helps strengthen Phase4 education and Phase5 decision support.
+
+
+4. Conversation Simulation Framework
+
+Purpose:
+Generate simulated customers with varying behavior patterns.
+
+Examples:
+
+• price sensitive customer
+• competitor influenced customer
+• brand obsessed customer
+• confused new car owner
+• “just price” customer
+
+Use:
+Stress-test conversation routing before deploying phrase updates.
+
+
+5. Conversation Drift Simulator
+
+Purpose:
+Run large numbers of simulated conversations to detect runtime drift.
+
+Detects:
+
+• phase skipping
+• early price leakage
+• incorrect service routing
+• accidental down-selling
+• incorrect objection handling
+
+
+6. Phrase Entropy Monitor
+
+Purpose:
+Monitor phrase library growth and detect when phrase duplication
+or overlap becomes excessive.
+
+Trigger:
+
+If phrase library exceeds ~2500 entries,
+review conversation phase compression architecture.
+
+
+7. Conversation Phase Compression (future architecture)
+
+Purpose:
+Reduce phrase duplication by grouping explanation logic into clusters.
+
+Example:
+
+Instead of multiple tint explanation phrases:
+
+PHASE4_TINT_HEAT_L1
+PHASE4_TINT_HEAT_L2
+PHASE4_TINT_HEAT_L3
+
+Use:
+
+PHASE4_TINT_EXPLAIN_CLUSTER
+→ references reusable education snippet.
+
+
+IMPLEMENTATION STATUS
+---------------------
+
+These systems are planned for later development once:
+
+• Phase7 education snippets are implemented
+• real conversation data becomes available
+• phrase library grows beyond current scope
+
+
+NEXT ARCHITECTURE MILESTONE
+---------------------------
+
+Phase7 Education Snippets
+
+Reusable explanation fragments designed to:
+
+• reduce phrase duplication
+• improve clarity during Phase4 education
+• support Phase5 decision making
+
+
+NOTE
+----
+
+These tools are analysis systems and will NOT directly modify runtime
+behavior. Any improvements discovered through these tools will be
+applied through normal patch protocol and documented in the runtime
+change ledger.
