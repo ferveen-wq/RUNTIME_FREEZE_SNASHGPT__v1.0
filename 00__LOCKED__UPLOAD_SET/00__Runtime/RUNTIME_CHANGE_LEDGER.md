@@ -1518,3 +1518,80 @@ Completed Implementations section.
 
 END ENTRY
 
+
+====================================================================
+LEDGER CLEANUP PASS — ROADMAP PRIORITY GOVERNANCE
+====================================================================
+
+Purpose:
+
+As the runtime architecture expands, the roadmap must remain ordered
+and deterministic to prevent development drift.
+
+
+DEPRECATION MARKER SYSTEM
+------------------------------------------------
+
+Deprecated entries must not be deleted.
+
+Instead they must be marked using:
+
+STATUS: DEPRECATED
+REPLACED BY: <new system>
+
+
+Example:
+
+STATUS: DEPRECATED
+REPLACED BY: Phase7 Education Snippets
+
+
+ROADMAP PRIORITY SEQUENCE
+------------------------------------------------
+
+The following roadmap order is established for future development.
+
+
+PRIORITY 1
+
+Phase7 Education Snippets
+
+
+PRIORITY 2
+
+Phase8 Media Layer
+
+
+PRIORITY 3
+
+Phase9 Brand Persuasion Layer
+
+
+PRIORITY 4
+
+Conversation Simulation Framework
+
+
+PRIORITY 5
+
+Conversation Drift Simulator
+
+
+PRIORITY 6
+
+Phrase Entropy Monitoring
+
+
+PRIORITY 7
+
+Conversation Phase Compression
+
+
+RULE
+
+Development should proceed in the above order unless a governance
+patch explicitly changes the sequence.
+
+
+END ENTRY
+
