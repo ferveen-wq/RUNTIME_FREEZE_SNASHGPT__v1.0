@@ -94,11 +94,11 @@ EN: For a black roof look, Black PPF (gloss) usually gives a cleaner, more consi
 AR: لستايل السقف الأسود، Black PPF (جلوس) عادة يعطي تشطيب أنظف ومتناسق أكثر — عشان جذي نغطي السقف الأسود عن طريق PPF.
 
 ### PHASE4_WRAP_PRICE_PRESSURE_L1
-EN: I understand. With wrap, the difference is usually the film series and edge finishing — not just the color you see. Do you want to keep it more budget-focused, or prioritize cleaner finishing and longer stability?
+EN: I understand. With wrap, the difference is usually the film series and edge finishing — not just the color you see. Do you want to keep it more simpler protection approach, or prioritize cleaner finishing and longer stability?
 AR: مفهوم. بالتغليف الفرق غالباً يكون في فئة الفيلم ودقة إنهاء الحواف — مو بس اللون اللي تشوفه. تبي خيار اقتصادي أكثر، أو تفضل إنهاء أنظف وثبات أطول؟
 
 ### PHASE4_WRAP_PRICE_PRESSURE_L2
-EN: Totally fair to compare. Just make sure it’s the same scope (full car vs specific areas) and the same finish (gloss/matte/satin) — that’s usually where “cheaper” vs “more expensive” comes from. If you tell me the scope you want (full car vs accents), I’ll keep the comparison clean.
+EN: Totally fair to compare. Just make sure it’s the same scope (full car vs specific areas) and the same finish (gloss/matte/satin) — that’s usually where “more affordable” vs “more expensive” comes from. If you tell me the scope you want (full car vs accents), I’ll keep the comparison clean.
 AR: طبيعي تقارن. بس تأكد إنها نفس التغطية (كامل السيارة أو جزء) ونفس اللمسة (لامع/مطفي/ساتن) — غالباً هنا يطلع فرق “أرخص” و“أغلى”. إذا تقول لي شنو النطاق اللي تبيه (كامل السيارة ولا إضافات/أجزاء)، بخلي المقارنة واضحة.
 
 ### PHASE4_WRAP_PRICE_PRESSURE_L3
@@ -164,7 +164,7 @@ AR: عشان يكون دقيق، هدفك أكثر تخفيف السويلز و�
 ### PHASE4_PPF_PRICE_PRESSURE_L1
 EN: I understand - comparing is completely normal.
 EN: With PPF, the headline name matters less than the execution: surface prep, edge finishing, and consistency.
-EN: That is usually where "cheaper" vs "more expensive" shows up over time.
+EN: That is usually where "more affordable" vs "more expensive" shows up over time.
 EN: If you'd like, I can explain what usually creates that difference, or show a short installation example so you can see the finish clearly.
 EN: Which would you prefer?
 AR: أفهمك - المقارنة شيء طبيعي جداً.
@@ -415,7 +415,7 @@ EN: Got it. Based on your driving habits, I’ll line up the PPF options and mov
 AR: تم. بناءً على عادات قيادتك، بجهّز لك خيارات الـPPF وبننتقل للتسعير بعدها.
 
 ### PHASE4_TINT_PRICE_PRESSURE_L1
-EN: I understand. With tint, the real difference is usually heat rejection performance and how stable it stays over time — not just how dark it looks. Do you want to keep it more budget-focused, or prioritize stronger heat comfort?
+EN: I understand. With tint, the real difference is usually heat rejection performance and how stable it stays over time — not just how dark it looks. Do you want to keep it more simpler protection approach, or prioritize stronger heat comfort?
 AR: مفهوم. بالتظليل الفرق الحقيقي غالباً يكون في عزل الحرارة وثبات الأداء مع الوقت — مو بس درجة الغمقان. تبي خيار اقتصادي أكثر، أو تبي راحة وعزل أقوى؟
 
 ### PHASE4_TINT_PRICE_PRESSURE_L2
@@ -490,7 +490,7 @@ AR: تبيها بسيطة أمامي فقط، ولا تفضل تغطية كام�
 
 ### PHASE4_TINT_SILENCE_L3
 EN: No problem.
-EN: Should we keep it budget-focused, or prioritize stronger heat comfort?
+EN: Should we keep it simpler protection approach, or prioritize stronger heat comfort?
 AR: ما في مشكلة.
 AR: نخليها خيار اقتصادي، ولا نركز على عزل أقوى وراحة أكثر؟
 PHASE 5 — STRUCTURED DEEPENING (OBJECTION / CLARIFICATION LAYER)
@@ -551,7 +551,7 @@ AR: كلامك صحيح. السيراميك يساعد الطلاء يحافظ �
 AR: ومع العناية الطبيعية وخدمة تجديد السيراميك مع الوقت، يبقى الشكل نظيف وثابت لفترة أطول.
 
 ### PHASE5_CERAMIC_NARROW_L2
-EN: Understood. If the budget is the concern, we can keep the ceramic approach simple and focus on the most practical option that still gives long-term gloss and easier maintenance. Would you like to see that option first?
+EN: Understood. If the practical option is the concern, we can keep the ceramic approach simple and focus on the most practical option that still gives long-term gloss and easier maintenance. Would you like to see that option first?
 AR: مفهوم. إذا الميزانية هي النقطة الأساسية، نقدر نخلي خيار السيراميك بسيط ونركز على الخيار العملي اللي يعطي لمعان ثابت ويسهّل العناية لفترة طويلة. تبي نبدأ بهالخيار؟
 
 ### PHASE5_CERAMIC_EXIT_FORK_L3
@@ -579,7 +579,7 @@ EN: Just to keep it clear — “black roof” styling is fulfilled only as ROOF
 AR: للتوضيح — “سقف أسود” ننفذه فقط كـ ROOF_PPF_BLACK_GLOSS (PPF) وليس تغليف، عشان يكون التشطيب والثبات أفضل. إذا تحب، أشرح لك السبب، أو أرسل مثال سقف بعد التنفيذ. تبي تغليف كامل، ولا بس شكل السقف الأسود؟
 
 ### PHASE5_WRAP_NARROW_L2
-EN: Understood. To keep it aligned with budget and expectations, are you aiming for a full color change, or just a specific area like roof/details?
+EN: Understood. To keep it aligned with practical option and expectations, are you aiming for a full color change, or just a specific area like roof/details?
 AR: مفهوم. عشان نضبطها مع الميزانية وتوقعاتك، تبي تغيير لون كامل، ولا جزء محدد مثل السقف/تفاصيل فقط؟
 
 ### PHASE5_WRAP_EXIT_FORK_L3
@@ -591,11 +591,11 @@ EN: Understood. Polishing improves clarity by refining the existing paint, but t
 AR: مفهوم. التلميع يحسّن صفاء الطلاء لأنه يعالج السطح الموجود، لكن النتيجة تعتمد على حالة الطلاء ومستوى التصحيح المختار. إذا تحب، أشرح لك الفرق بين تلميع خفيف وتصحيح أعمق، أو أرسل مثال قبل/بعد. تبي تحديث سريع، ولا تقليل دوّامات وخدوش بشكل أعمق؟
 
 ### PHASE5_POLISH_NARROW_L2
-EN: Understood. If budget is the concern, we can narrow it to either a light refresh, or targeted correction on the worst areas. Which do you prefer?
+EN: Understood. If practical option is the concern, we can narrow it to either a light refresh, or targeted correction on the worst areas. Which do you prefer?
 AR: مفهوم. إذا الميزانية هي النقطة، نقدر نضيّقها يا تلميع خفيف للتحديث، أو تصحيح مركز على أكثر المناطق المتعبة. شنو تفضّل؟
 
 ### PHASE5_POLISH_EXIT_FORK_L3
-EN: Clear. To avoid looping, we can either (1) keep a lighter level that fits budget, or (2) pause and you come back when ready. Which way should we go?
+EN: Clear. To avoid looping, we can either (1) keep a lighter level that fits practical option, or (2) pause and you come back when ready. Which way should we go?
 AR: واضح. عشان ما ندور في حلقة، يا (1) نخليها مستوى أخف يناسب الميزانية، أو (2) نوقف وترجع لي لما تكون جاهز. شنو تختار؟
 
 ────────────────────────────────────────────────────────────
@@ -652,7 +652,7 @@ Rules:
 - Do NOT repeat in price loops
 
 ### PHASE4_ANCHOR_AFTER_PRICE_ONCE
-EN: Clear. If you want, I’ll simplify it into: budget / balanced / highest performance — and you choose what fits.
+EN: Clear. If you want, I’ll simplify it into: practical option / balanced / highest performance — and you choose what fits.
 AR: واضح. إذا تحب، أرتّبها لك بشكل بسيط: مستوى اقتصادي / مستوى متوازن / مستوى أعلى أداء — وتختار اللي يناسبك.
 
 ────────────────────────────────────────────────────────────
@@ -1687,7 +1687,7 @@ AR: للسيارات المطفي، نتأكد من تطابق الملمس وق
 
 ### PHASE4_SILENCE_AFTER_PRICE
 EN: No rush at all — take your time.
-EN: If you want, I can guide you to a protection plan that stays within a comfortable budget without compromising the essentials.
+EN: If you want, I can guide you to a protection plan that stays within a comfortable practical option without compromising the essentials.
 EN: What matters most to you: stone-chip protection, easier cleaning, or keeping the car looking new?
 
 AR: ما في استعجال أبداً — خذ وقتك.
