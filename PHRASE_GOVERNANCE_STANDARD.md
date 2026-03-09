@@ -58,3 +58,22 @@ This prevents silent bilingual drift during phrase refinement.
 
 - Encourage feedback and suggestions for improving bilingual phrases.
 - Regularly update and refine phrases to enhance clarity, accuracy, and cultural relevance.
+
+EDUCATION SNIPPET DESIGN RULES
+
+Education snippets must follow this structure:
+
+EXPLANATION
+OPTIONAL VISUAL PROOF
+RETURN_PROMPT
+
+Purpose:
+Ensure education does not interrupt sales momentum.
+
+Education snippets must represent reusable concepts,
+not individual customer questions.
+
+All snippets must be referenced inside the
+EDUCATION_TRIGGER_MATRIX.md.
+
+Maximum snippet count target: <20.
