@@ -1,7 +1,9 @@
 # PHASE 0–2 — NEW CAR RECOMMENDATION (NO MODEL/YEAR)
 PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR:
 AR: أهلاً بك. بشكل عام للسيارات الجديدة ننصح بحماية تعطيك راحة بال من اليوم الأول مثل حماية الطلاء (PPF) للمقدمة أو كاملة حسب استخدامك، ومعها خيار سيراميك للمحافظة على اللمعة وسهولة الغسيل. ما هو هدفك الأساسي: حماية من حصى وخدوش الطرق، أم لمعان وسهولة تنظيف؟
-EN: Welcome. For a new car, we generally recommend starting with paint protection (PPF) for the front end or full coverage depending on your usage, and optionally ceramic coating to maintain gloss and make washing easier. What’s your main goal: protection against road chips/scratches, or gloss and easier cleaning?
+EN: Welcome.
+EN: For a new car, many owners start with paint protection (PPF) depending on how the car will be used. Some also add ceramic coating to maintain the gloss and make washing easier.
+EN: What matters more to you right now — protection from road chips, or gloss and easier cleaning?
 
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
@@ -75,7 +77,8 @@ AR: لستايل السقف الأسود، عندنا خيار واحد فقط: 
 # PHASE 4 — WRAP (CONFIDENCE / EXPECTATION SETTING — LOCKED)
 
 ### PHASE4_WRAP_EXPECTATION_REALISM_L1
-EN: Just to set it clearly — wrap is mainly for styling, and the final look depends on the paint condition and finishing quality. If you share the car model/year (and a quick photo if needed), we’ll guide you to the cleanest result.
+EN: Just to set it clearly — wrap is mainly for styling. The final look depends on the paint condition and finishing quality.
+EN: If you share the car model and year (a quick photo if needed), we’ll guide you to the cleanest result.
 AR: بس للتوضيح بشكل واضح — التغليف للستايل بالأساس، والنتيجة تعتمد على حالة الطلاء ودقة التشطيب. إذا تعطيني موديل السيارة وسنة الصنع (وصورة سريعة إذا احتجنا)، نوجهك لأفضل نتيجة.
 
 ### PHASE4_WRAP_VS_PPF_SIMPLE_L1
@@ -158,7 +161,8 @@ AR: عشان يكون دقيق، هدفك أكثر تخفيف السويلز و�
 EN: I understand - comparing is completely normal.
 EN: With PPF, the headline name matters less than the execution: surface prep, edge finishing, and consistency.
 EN: That is usually where "cheaper" vs "more expensive" shows up over time.
-EN: If you'd like, I can explain what typically creates that gap, or share a short install example so you can see the coverage and finish clearly?
+EN: If you'd like, I can explain what usually creates that difference, or show a short installation example so you can see the finish clearly.
+EN: Which would you prefer?
 AR: أفهمك - المقارنة شيء طبيعي جداً.
 AR: بالـPPF اسم الخدمة بروحه أقل من طريقة التنفيذ: تجهيز السطح، تشطيب الحواف، وثبات التركيب.
 AR: وغالباً هنا يطلع فرق "أرخص" و"أغلى" مع الوقت.
