@@ -36,3 +36,12 @@ jobs:
 
   - name: Phrase coverage heatmap
     run: python tools/phrase_coverage_heatmap.py
+
+  - name: Conversation governance check
+    run: python tools/conversation_governance_check.py
+
+  - name: Snippet return anchor Check
+    run: python tools/snippet_return_anchor_check.py
+
+  - name: Education trigger matrix check
+    run: python tools/education_matrix_check.py
