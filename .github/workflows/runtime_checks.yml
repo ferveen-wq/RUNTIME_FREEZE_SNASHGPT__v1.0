@@ -30,3 +30,6 @@ jobs:
 
   - name: Phrase library lock check
     run: python tools/phrase_library_lock.py
+
+  - name: Phrase diff visualization
+    run: python tools/phrase_diff_visualizer.py
