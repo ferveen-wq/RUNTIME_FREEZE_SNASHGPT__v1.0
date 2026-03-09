@@ -1595,3 +1595,17 @@ patch explicitly changes the sequence.
 
 END ENTRY
 
+
+
+
+## OBJECTION MAP (AUTOMOTIVE PROTECTION)
+
+Purpose:
+Map real customer objections to runtime architecture layers so future development stays aligned.
+
+Price pressure → PHASE4_*_PRICE_PRESSURE → EDU_PPF_PRICE_GAP
+Durability skepticism → PHASE4_*_DURABILITY_SKEPTICISM → EDU_PPF_DURABILITY_REALITY
+Brand fixation → PHASE4_*_BRAND_FIXATION → EDU_PPF_INSTALL_QUALITY
+Coverage confusion → PHASE3A_PPF_COVERAGE_INTENT → EDU_PPF_COVERAGE_LOGIC
+Maintenance confusion → PHASE4_CERAMIC_MAINTENANCE_CONFUSION → EDU_CERAMIC_MAINTENANCE
+Decision paralysis → PHASE5_*_NARROW → EDU_PROTECTION_PLAN_SIMPLIFIER
