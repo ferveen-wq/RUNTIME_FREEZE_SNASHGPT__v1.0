@@ -33,3 +33,6 @@ jobs:
 
   - name: Phrase diff visualization
     run: python tools/phrase_diff_visualizer.py
+
+  - name: Phrase coverage heatmap
+    run: python tools/phrase_coverage_heatmap.py
