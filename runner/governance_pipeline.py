@@ -6,7 +6,8 @@ checks = [
     "python tools/phrase_risk_audit.py",
     "python tools/snippet_return_anchor_check.py",
     "python tools/education_matrix_check.py",
-    "python tools/bilingual_phrase_audit.py"
+    "python tools/bilingual_phrase_audit.py",
+    "python tools/runtime_guardian.py"
 ]
 
 print("Running governance validation pipeline...\n")
