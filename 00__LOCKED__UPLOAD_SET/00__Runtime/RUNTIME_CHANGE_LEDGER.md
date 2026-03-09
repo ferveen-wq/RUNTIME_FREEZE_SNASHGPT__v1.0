@@ -1204,3 +1204,94 @@ These tools are analysis systems and will NOT directly modify runtime
 behavior. Any improvements discovered through these tools will be
 applied through normal patch protocol and documented in the runtime
 change ledger.
+
+--------------------------------------------------------------------
+ARCHITECTURE ENTRY — EDUCATION / MEDIA / BRAND LAYERS
+--------------------------------------------------------------------
+
+DATE: 2026-03-09
+TYPE: Architecture Design Lock
+RUNTIME IMPACT: None (documentation only)
+
+
+PHASE7_EDUCATION_LAYER_DESIGN
+------------------------------------------------
+
+Purpose:
+Introduce reusable education snippets that allow phrases to reference
+explanations without duplicating content across the phrase library.
+
+Architecture Role:
+
+Phase0–5   Conversation routing
+Phase6     Human phrase library
+Phase7     Education snippets (knowledge explanations)
+Phase8     Media layer (visual demonstrations)
+Phase9     Brand persuasion layer (SNASH positioning)
+
+Rule:
+Conversation phrases must NOT contain long explanations.
+
+Instead phrases may reference snippets:
+
+{{EDU_SNIPPET_NAME}}
+
+Example:
+
+"Just to explain it simply — {{EDU_PPF_PROTECTION}}"
+
+
+PHASE8_MEDIA_LAYER_DESIGN
+------------------------------------------------
+
+Purpose:
+Allow conversations to reference visual proof when deeper explanation
+is required.
+
+Media references include demonstration videos.
+
+Reference format:
+
+{{VIDEO_REFERENCE_NAME}}
+
+Example:
+
+"If you'd like, I can show a quick example."
+
+{{VIDEO_PPF_STONE_CHIP_TEST}}
+
+Design principle:
+
+Text explains.
+Video demonstrates.
+
+Videos may include:
+
+VIDEO_PPF_STONE_CHIP_TEST
+VIDEO_PPF_SELF_HEALING
+VIDEO_TINT_HEAT_TEST
+VIDEO_CERAMIC_WATER_BEHAVIOR
+VIDEO_WRAP_FINISH_COMPARISON
+VIDEO_PPF_INSTALLATION_PROCESS
+
+
+PHASE9_BRAND_PERSUASION_LAYER
+------------------------------------------------
+
+Purpose:
+Allow SNASH positioning without polluting neutral education logic.
+
+Examples:
+
+EDU_SNASH_INSTALLATION_STANDARD
+EDU_SNASH_FILM_SELECTION_PHILOSOPHY
+EDU_SNASH_PROTECTION_APPROACH
+EDU_SNASH_INSTALLER_EXPERIENCE
+
+Principle:
+
+Brand persuasion should emphasize standards and expertise rather
+than aggressive product comparison.
+
+END ENTRY
+
