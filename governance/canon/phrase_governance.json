@@ -1,0 +1,27 @@
+{
+  "forbidden_words": [
+    "cheap",
+    "low quality",
+    "inferior"
+  ],
+
+  "downgrade_language": [
+    "budget",
+    "entry level",
+    "cheap option"
+  ],
+
+  "technical_jargon": [
+    "coating hardness",
+    "nano layer technology"
+  ],
+
+  "front_bias_words": [
+    "front only"
+  ],
+
+  "price_words": [
+    "price",
+    "cost"
+  ]
+}

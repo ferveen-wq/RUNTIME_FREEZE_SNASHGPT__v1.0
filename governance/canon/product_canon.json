@@ -1,0 +1,55 @@
+{
+  "services": [
+    "PPF",
+    "CERAMIC",
+    "TINT",
+    "WRAP",
+    "POLISH"
+  ],
+
+  "ppf": {
+    "purpose": [
+      "paint protection",
+      "chip protection",
+      "scratch protection"
+    ],
+    "invalid_claims": [
+      "ppf prevents accidents",
+      "ppf makes paint permanent"
+    ]
+  },
+
+  "ceramic": {
+    "purpose": [
+      "gloss",
+      "easy cleaning",
+      "hydrophobic effect"
+    ],
+    "invalid_claims": [
+      "ceramic stops stone chips",
+      "ceramic prevents scratches"
+    ]
+  },
+
+  "tint": {
+    "purpose": [
+      "heat rejection",
+      "glare reduction",
+      "uv protection"
+    ]
+  },
+
+  "wrap": {
+    "purpose": [
+      "color change",
+      "styling"
+    ]
+  },
+
+  "polish": {
+    "purpose": [
+      "swirl removal",
+      "gloss restoration"
+    ]
+  }
+}

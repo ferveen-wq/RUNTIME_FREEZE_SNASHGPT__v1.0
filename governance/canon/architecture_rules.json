@@ -1,0 +1,19 @@
+{
+  "education_rules": {
+    "max_snippets": 20,
+    "require_return_prompt": true
+  },
+
+  "phrase_rules": {
+    "require_bilingual": true
+  },
+
+  "patch_protocol": {
+    "ledger_required": true
+  },
+
+  "branch_rules": {
+    "protected_branch": "main",
+    "require_pr": true
+  }
+}
