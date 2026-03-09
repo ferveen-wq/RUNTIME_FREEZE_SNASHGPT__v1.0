@@ -1627,3 +1627,19 @@ Framework includes:
 Purpose:
 
 Ensure Phase4 objection handling and Phase7 education snippets remain aligned with real automotive protection customer behavior.
+
+### CHANGE_ID: EDU_002
+- AREA: Phase 7 Education Snippets
+- GOAL: Populate runtime snippet library using existing Phase7 architecture
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
+- STATUS: APPROVED_FOR_PATCH
+- VALIDATION: Pending
+- MERGED: No
+- TAGGED: None
+- NOTES:
+  - Populate Phase7 snippet explanations using existing architecture categories
+  - Visual proof field will remain optional (None) until Phase8 media layer rollout
+  - Snippet count must remain under 20
+  - Snippets must reconnect to Phase5 narrowing
+
