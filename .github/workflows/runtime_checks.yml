@@ -27,3 +27,6 @@ jobs:
 
   - name: Phrase governance scan
     run: python tools/governance_phrase_scan.py
+
+  - name: Phrase library lock check
+    run: python tools/phrase_library_lock.py
