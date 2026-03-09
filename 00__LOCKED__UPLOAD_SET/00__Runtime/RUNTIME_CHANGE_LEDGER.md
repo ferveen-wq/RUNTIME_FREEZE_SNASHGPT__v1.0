@@ -1295,3 +1295,104 @@ than aggressive product comparison.
 
 END ENTRY
 
+
+--------------------------------------------------------------------
+ARCHITECTURE ENTRY — EDUCATION SNIPPET MAP GOVERNANCE
+--------------------------------------------------------------------
+
+DATE: 2026-03-09
+TYPE: Architecture Scaling Control
+RUNTIME IMPACT: None (documentation only)
+
+
+EDUCATION_SNIPPET_MAP_ARCHITECTURE
+------------------------------------------------
+
+Purpose:
+Ensure the education snippet system remains structured and does not
+grow uncontrollably as the runtime phrase library expands.
+
+Without governance, snippet libraries may grow beyond 100+ entries,
+creating duplication and inconsistent explanations.
+
+
+SNIPPET CATEGORIES
+------------------------------------------------
+
+Protection Explanations
+
+EDU_PPF_PROTECTION
+EDU_CERAMIC_LIMITATIONS
+EDU_TINT_HEAT_REJECTION
+EDU_WRAP_STYLING
+EDU_POLISH_PAINT_CORRECTION
+
+
+Service Comparison
+
+EDU_PPF_VS_CERAMIC
+EDU_WRAP_VS_PPF
+EDU_TINT_DARKNESS_VS_HEAT
+
+
+Customer Trust
+
+EDU_DURABILITY_REALISM
+EDU_WARRANTY_REALISM
+EDU_MAINTENANCE_REALITY
+
+
+Decision Guidance
+
+EDU_PROTECTION_LEVELS
+EDU_COVERAGE_DECISION
+EDU_RECOMMENDATION_FRAME
+
+
+Quality Factors
+
+EDU_FILM_QUALITY_FACTORS
+EDU_INSTALLATION_COMPLEXITY
+EDU_PAINT_CONDITION_IMPACT
+
+
+SCALING RULE
+------------------------------------------------
+
+Education snippets must remain under 30 entries total.
+
+If explanations exceed this number, architecture should shift toward
+clustered reusable explanations or Phase Compression.
+
+This prevents uncontrolled snippet growth.
+
+
+SNIPPET USAGE RULE
+------------------------------------------------
+
+Phrases may reference snippets using:
+
+{{EDU_SNIPPET_NAME}}
+
+Phrases must NOT duplicate snippet explanations.
+
+
+MEDIA INTEGRATION
+------------------------------------------------
+
+Education snippets may optionally reference visual demonstrations.
+
+Example mapping:
+
+EDU_PPF_PROTECTION
+→ VIDEO_PPF_STONE_CHIP_TEST
+
+
+GOVERNANCE RULE
+------------------------------------------------
+
+Any new snippet addition must follow the patch protocol and must be
+recorded in the Runtime Change Ledger.
+
+END ENTRY
+
