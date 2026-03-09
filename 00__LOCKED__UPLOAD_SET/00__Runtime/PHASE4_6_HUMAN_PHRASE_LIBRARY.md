@@ -1,6 +1,8 @@
 # PHASE 0–2 — NEW CAR RECOMMENDATION (NO MODEL/YEAR)
 PHASE0_2_NEW_CAR_RECO__NO_MODEL_YEAR:
-AR: أهلاً بك. بشكل عام للسيارات الجديدة ننصح بحماية تعطيك راحة بال من اليوم الأول مثل حماية الطلاء (PPF) للمقدمة أو كاملة حسب استخدامك، ومعها خيار سيراميك للمحافظة على اللمعة وسهولة الغسيل. ما هو هدفك الأساسي: حماية من حصى وخدوش الطرق، أم لمعان وسهولة تنظيف؟
+AR: أهلاً بك.
+AR: كثير من ملاك السيارات الجديدة يبدأون بحماية الطلاء (PPF) حسب طريقة استخدام السيارة. وبعضهم يضيف السيراميك للمحافظة على اللمعة وتسهيل الغسيل.
+AR: ما الذي يهمك أكثر الآن — الحماية من ضربات الحصى، أم اللمعة وسهولة التنظيف؟
 EN: Welcome.
 EN: For a new car, many owners start with paint protection (PPF) depending on how the car will be used. Some also add ceramic coating to maintain the gloss and make washing easier.
 EN: What matters more to you right now — protection from road chips, or gloss and easier cleaning?
@@ -12,8 +14,8 @@ EN: Before we proceed, has the car had any repaint work or deep scratches?
 AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
 
 ### PHASE3A_Q_PPF_COVERAGE_INTENT
-EN: To guide you properly for PPF, would you prefer maximum protection for the whole car, a more practical protection focused on the front impact areas, or are you still deciding?
-AR: عشان أوجهك بشكل أدق للـ PPF، تفضّل حماية قصوى للسيارة بالكامل، أو حماية عملية تركز على المناطق الأمامية الأكثر تعرضاً، أو بعدك تقرر؟
+EN: To guide you properly for PPF, are you mainly looking for full protection for the whole car, or are you still comparing options?
+AR: عشان أوجهك بشكل أدق للـ PPF، هل هدفك حماية كاملة للسيارة بالكامل، أو ما زلت تقارن بين الخيارات؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
 EN: That makes sense. When you're comparing options, what matters most to you right now — the film brand/quality, the coverage level, or keeping the price lower?
@@ -79,7 +81,9 @@ AR: لستايل السقف الأسود، عندنا خيار واحد فقط: 
 ### PHASE4_WRAP_EXPECTATION_REALISM_L1
 EN: Just to set it clearly — wrap is mainly for styling. The final look depends on the paint condition and finishing quality.
 EN: If you share the car model and year (a quick photo if needed), we’ll guide you to the cleanest result.
-AR: بس للتوضيح بشكل واضح — التغليف للستايل بالأساس، والنتيجة تعتمد على حالة الطلاء ودقة التشطيب. إذا تعطيني موديل السيارة وسنة الصنع (وصورة سريعة إذا احتجنا)، نوجهك لأفضل نتيجة.
+AR: بس للتوضيح — التغليف هدفه الأساسي تغيير الشكل والستايل.
+AR: النتيجة النهائية تعتمد على حالة الطلاء وجودة التشطيب.
+AR: إذا تعطيني موديل السيارة وسنة الصنع (وصورة سريعة إذا احتجنا)، نوجهك لأفضل نتيجة ممكنة.
 
 ### PHASE4_WRAP_VS_PPF_SIMPLE_L1
 EN: Simple difference: wrap changes the color/look, while PPF is the protection layer against chips. So we keep wrap for appearance, and PPF for protection.
@@ -198,7 +202,8 @@ EN: With PPF, the final result usually depends on the quality of preparation and
 EN: If you like, I can briefly explain how installation affects the long-term finish, or show you an example so you can see how the edges and panels look after installation.
 AR: أفهمك.
 AR: في الـPPF النتيجة النهائية تعتمد غالباً على تجهيز السطح ودقة التركيب، مو فقط على اسم الفيلم.
-AR: إذا تحب، أشرح لك باختصار شلون التركيب يأثر على الشكل مع الوقت، أو أوريك مثال تركيب عشان تشوف شكل الحواف والقطع بعد التنفيذ.
+AR: إذا تحب، أشرح لك باختصار شنو اللي يسبب هذا الفرق عادة، أو أوريك مثال تركيب عشان تشوف النتيجة بشكل واضح.
+AR: أي خيار تفضّل؟
 
 ### PHASE4_PPF_BRAND_FIXATION_L3
 EN: I understand — it’s good to review properly before deciding.
