@@ -1019,3 +1019,27 @@ ACTIVE AUDIT TARGET
   - Remove service-drift phrasing referencing PPF or ceramic
   - Use appearance-restoration language for polishing to avoid conflict with coating preparation terminology
   - Remove engine-room reference from polishing runtime scope
+
+--------------------------------------------------
+READABILITY_PATCH_BUNDLE_001 — Customer readability improvement
+--------------------------------------------------
+
+AREA:
+Phase0 introduction and selected explanation phrases
+
+GOAL:
+Improve WhatsApp readability for long introduction phrases
+while preserving routing selectors and conversation structure.
+
+CHANGES PLANNED:
+• Split Phase0 new-car introduction into shorter sentences
+• Normalize offer + question phrasing
+• Simplify one tint comparison explanation
+
+SAFETY:
+No selector changes
+No routing logic changes
+No SKU / product canon impact
+
+STATUS:
+Planned — pending phrase patch
