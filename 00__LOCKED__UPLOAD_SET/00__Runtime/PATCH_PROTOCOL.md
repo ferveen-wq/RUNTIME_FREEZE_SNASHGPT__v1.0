@@ -92,3 +92,19 @@ Before patching any silence-related phrase or recovery path:
    - 00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
    - 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
 
+
+
+
+
+## PATCH REVIEW CHECKLIST
+
+Before approving any phrase or education snippet patch confirm:
+
+✓ Does not introduce over-education  
+✓ Does not introduce early price anchoring  
+✓ Does not introduce defensive brand positioning  
+✓ Does not exceed education snippet compression limits  
+✓ Supports at least one defined customer type  
+✓ Maps to existing objection framework  
+✓ Maps to buying signal framework  
+✓ Does not bypass phase routing logic

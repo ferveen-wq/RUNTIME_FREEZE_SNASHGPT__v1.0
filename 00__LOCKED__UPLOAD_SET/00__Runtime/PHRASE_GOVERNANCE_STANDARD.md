@@ -327,3 +327,43 @@ Important:
 - Silence recovery must not introduce new product narrowing prematurely.
 - It must not trigger front-PPF fallback early.
 - The objective is to reopen the conversation naturally, not force a decision.
+
+
+
+
+## CONVERSATION ARCHITECTURE RULES
+
+Customer Type Awareness
+
+All phrases and education snippets must support the following behavioral profiles:
+
+- Researcher
+- Price Anchor
+- Visual Buyer
+- Convenience Buyer
+
+Conversation Trap Prevention
+
+Phrase design must avoid:
+
+- Over-education (excessive explanation)
+- Early price anchoring before scope clarity
+- Defensive brand positioning
+
+Education Snippet Compression
+
+Education snippets must represent **concepts**, not individual questions.
+
+Example:
+
+Correct:
+EDU_PRICE_GAP
+
+Incorrect:
+EDU_PPF_PRICE
+EDU_WRAP_PRICE
+EDU_TINT_PRICE
+
+Target limit:
+
+Total Phase7 education snippets < 20

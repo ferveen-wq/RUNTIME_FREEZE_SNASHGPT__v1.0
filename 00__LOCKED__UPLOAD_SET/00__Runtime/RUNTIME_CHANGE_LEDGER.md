@@ -1609,3 +1609,21 @@ Brand fixation → PHASE4_*_BRAND_FIXATION → EDU_PPF_INSTALL_QUALITY
 Coverage confusion → PHASE3A_PPF_COVERAGE_INTENT → EDU_PPF_COVERAGE_LOGIC
 Maintenance confusion → PHASE4_CERAMIC_MAINTENANCE_CONFUSION → EDU_CERAMIC_MAINTENANCE
 Decision paralysis → PHASE5_*_NARROW → EDU_PROTECTION_PLAN_SIMPLIFIER
+
+
+
+
+## ARCHITECTURE GOVERNANCE ADDITION
+
+Conversation Design Model introduced.
+
+Framework includes:
+
+- 4 customer behavior types
+- 7 sales-driving questions
+- 15 common objections
+- 8 buying signals
+
+Purpose:
+
+Ensure Phase4 objection handling and Phase7 education snippets remain aligned with real automotive protection customer behavior.
