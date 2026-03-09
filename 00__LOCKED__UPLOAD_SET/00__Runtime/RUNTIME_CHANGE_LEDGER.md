@@ -779,26 +779,29 @@ Each change must record:
   - Refined ceramic silence L2 to reduce binary pressure and keep the message easier to answer
 
 
-### CHANGE_ID: PHASE5_PPF_CERAMIC_AUDIT_001
-- AREA: Phase 5 PPF / Ceramic Conversion and Narrowing Phrasing
-- GOAL: Audit and refine Phase 5 PPF and Ceramic phrases for conversion safety, phrase-governance compliance, ladder safety, and momentum control
-- FILES:
-  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- STATUS: VALIDATED_LOCAL
-- VALIDATION:
-  - phrase_library_validator: passed
-  - pre-commit: passed
-  - regression_phase3a_chain: passed
-  - silence_state_pack: passed
-- MERGED: Yes
-- TAGGED: None
-- NOTES:
-  - Refined PPF Phase 5 deepen phrasing to reduce comparison loops and technical debate
-  - Kept full-protection path as the primary PPF narrowing path
-  - Removed premature front-only style fallback from the PPF exit path
-  - Refined Ceramic Phase 5 price-gap phrasing to remove technical wording
-  - Reframed Ceramic durability realism with reassurance and refresh-cycle support
-  - Refined Ceramic narrowing and exit phrasing to reduce false binary pressure and keep conversion flow simple
+## READABILITY_PATCH_BUNDLE_001 — BILINGUAL DRIFT DISCOVERY
+
+During the readability refinement of the human phrase library, it was observed that
+some English phrases were updated while the corresponding Arabic phrases remained
+in the previous structure.
+
+This does NOT affect runtime execution because routing and selector logic are
+language-agnostic. However, it can introduce **bilingual drift**, which may
+confuse maintainers and translators during future edits.
+
+Corrective action applied:
+
+- Arabic phrases aligned with the updated English structure.
+- Phrase governance standard strengthened to require EN–AR symmetry for edits.
+
+Prevention rule introduced:
+
+- Any modification to an `EN:` phrase MUST verify the adjacent `AR:` phrase.
+- Structural changes (splitting lines / adding questions) must be mirrored in both languages.
+
+This ledger entry documents the discovery and governance reinforcement.
+
+# ...existing code...
 
 ## RULES FOR UPDATING THIS LEDGER
 
