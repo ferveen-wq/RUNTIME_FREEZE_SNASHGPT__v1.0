@@ -11,46 +11,39 @@ repos:
 
   - repo: local
     hooks:
+
+      - id: auto-arch-changelog
+        name: Generate ARCH_CHANGELOG entry
+        entry: python runner/generate_arch_changelog.py
+        language: system
+        pass_filenames: false
+
       - id: arch-changelog-gate
         name: ARCH_CHANGELOG gate (must update changelog)
         entry: python3 runner/check_arch_changelog.py
         language: system
         pass_filenames: false
+
       - id: phrase-authority-gate
         name: Phrase Authority gate (no duplicate AUTHORITATIVE blocks)
         entry: python3 runner/check_phrase_authority.py
         language: system
         pass_filenames: false
+
       - id: runtime-diff-sentinel
         name: Runtime Diff Sentinel (block large deletions)
         entry: python3 runner/runtime_diff_sentinel.py
         language: system
         pass_filenames: false
+
       - id: snash-governance
         name: SNASH Governance Pipeline
         entry: python runner/governance_pipeline.py
         language: system
         pass_filenames: false
 
-  - repo: local
-    hooks:
       - id: phrase-diff-visualizer
         name: Phrase Diff Visualizer
         entry: python runner/phrase_diff_visualizer.py
-        language: system
-        pass_filenames: false
-
-  - repo: local
-    hooks:
-
-      - id: phrase-diff-visualizer
-        name: Phrase Diff Visualizer
-        entry: python runner/phrase_diff_visualizer.py
-        language: system
-        pass_filenames: false
-
-      - id: auto-arch-changelog
-        name: Generate ARCH_CHANGELOG entry
-        entry: python runner/generate_arch_changelog.py
         language: system
         pass_filenames: false

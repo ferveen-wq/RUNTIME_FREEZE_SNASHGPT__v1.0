@@ -369,7 +369,7 @@ Files: MULTIPLE
 Changed: Added automatic ARCH_CHANGELOG generator and governance automation
 Why: Ensure architecture changes always produce auditable runtime history
 UAT: manual validation (pre-commit pipeline run)
-UAT: TODO
+UAT: UAT: governance pipeline validation
 
 
 
@@ -414,4 +414,4 @@ Date: TODO
 Files: MULTIPLE
 Changed: TODO
 Why: TODO
-UAT: TODO
+UAT: governance pipeline validation

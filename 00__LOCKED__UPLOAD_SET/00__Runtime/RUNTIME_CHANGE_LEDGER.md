@@ -1657,3 +1657,39 @@ Ensure Phase4 objection handling and Phase7 education snippets remain aligned wi
   - Snippet count must remain under 20
   - Snippets must reconnect to Phase5 narrowing
 
+
+---
+
+CHANGE_ID: GOV_006  
+TYPE: ARCHITECTURE_PLANNING  
+COMPONENT: Conversation Memory Layer + Analytics Dashboard  
+STATUS: DEFERRED (Post Phase 9)
+
+DESCRIPTION:
+Introduce a structured conversation memory layer to persist customer context
+across messages and enable analytics dashboards.
+
+The memory layer will store structured fields such as:
+- customer_id
+- car_model
+- car_year
+- service_interest
+- coverage_preference
+- budget_sensitivity
+- conversation_stage
+
+This memory will later support:
+
+1. Context-aware responses
+2. Conversation analytics dashboards
+3. Qualification funnel analysis
+4. Phrase performance tracking
+5. Customer behavior insights
+
+IMPLEMENTATION_PHASE:
+Scheduled after Phase 8–9 runtime stabilization.
+
+ARCHITECTURE_IMPACT:
+Adds a conversation database layer between runtime processing
+and analytics dashboards without altering existing runtime modules.
+
