@@ -37,10 +37,14 @@ AR:
 
 ### EDU_TINT_HEAT_REJECTION
 EN:
-TBD
+Window tint helps reduce sunlight, heat, and UV entering the car.
+Different films use different technologies to block heat while keeping the cabin comfortable.
+Many owners install tint mainly to make daily driving cooler and more comfortable.
 
 AR:
-TBD
+تظليل النوافذ يساعد على تقليل دخول أشعة الشمس والحرارة والأشعة فوق البنفسجية إلى داخل السيارة.
+تختلف الأفلام في تقنيتها لتقليل الحرارة مع الحفاظ على راحة المقصورة.
+كثير من المالكين يركبون التظليل لجعل القيادة اليومية أكثر برودة وراحة.
 
 
 ### EDU_WRAP_STYLING
