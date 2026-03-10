@@ -189,10 +189,18 @@ AR:
 
 ### EDU_COVERAGE_DECISION
 EN:
-TBD
+Protection coverage can vary depending on how the vehicle is used and the level of protection the owner prefers.
+
+Some owners choose protection for high-impact areas like the front bumper, hood, and mirrors.
+
+Others prefer full vehicle coverage for more complete protection.
 
 AR:
-TBD
+يمكن أن تختلف تغطية الحماية حسب طريقة استخدام السيارة ومستوى الحماية الذي يفضله المالك.
+
+بعض المالكين يختارون حماية للمناطق الأكثر تعرضاً مثل الصدام الأمامي وغطاء المحرك والمرايا.
+
+بينما يفضل آخرون تغطية كاملة للسيارة للحصول على حماية أشمل.
 
 
 ### EDU_RECOMMENDATION_FRAME
