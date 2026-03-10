@@ -125,10 +125,18 @@ AR:
 
 ### EDU_DURABILITY_REALISM
 EN:
-TBD
+The durability of protection products can vary depending on usage, climate, and maintenance.
+
+Regular washing and proper care help keep the protection performing well for longer.
+
+Many owners choose maintenance routines to keep the results looking their best over time.
 
 AR:
-TBD
+تعتمد مدة بقاء الحماية على عدة عوامل مثل الاستخدام والظروف المناخية وطريقة العناية بالسيارة.
+
+يساعد الغسيل المنتظم والعناية الصحيحة في الحفاظ على أداء الحماية لفترة أطول.
+
+كثير من المالكين يحرصون على الصيانة الدورية للحفاظ على أفضل نتيجة ممكنة مع مرور الوقت.
 
 
 ### EDU_WARRANTY_REALISM
