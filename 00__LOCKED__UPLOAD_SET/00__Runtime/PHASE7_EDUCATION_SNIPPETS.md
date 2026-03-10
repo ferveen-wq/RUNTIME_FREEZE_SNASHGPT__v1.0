@@ -49,10 +49,14 @@ AR:
 
 ### EDU_WRAP_STYLING
 EN:
-TBD
+Car wrapping is mainly used to change the appearance of the vehicle without repainting it.
+Different colors, finishes, and styles can be applied while keeping the original paint underneath.
+Many owners choose wrapping when they want a different look or a more personalized style.
 
 AR:
-TBD
+تغليف السيارة يُستخدم بشكل أساسي لتغيير مظهر السيارة دون إعادة طلاءها.
+يمكن تطبيق ألوان وأنماط وتشطيبات مختلفة مع بقاء الطلاء الأصلي تحت الفيلم.
+كثير من المالكين يختارون التغليف عندما يرغبون في مظهر مختلف أو أسلوب أكثر تميزاً.
 
 
 ### EDU_POLISH_PAINT_CORRECTION
