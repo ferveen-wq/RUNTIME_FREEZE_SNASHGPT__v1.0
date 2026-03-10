@@ -363,3 +363,13 @@ Files touched:
 - Changed: Added automated patch executor (runner/apply_patch.py) and updated runtime change ledger.
 - Why: Enforce governance-controlled patch execution instead of manual patching.
 - UAT: governance pipeline commit test (pre-commit hooks passed)
+
+DDate: 2026-03-10
+Files: MULTIPLE
+Changed: Added automatic ARCH_CHANGELOG generator and governance automation
+Why: Ensure architecture changes always produce auditable runtime history
+UAT: manual validation (pre-commit pipeline run)
+UAT: TODO
+
+
+

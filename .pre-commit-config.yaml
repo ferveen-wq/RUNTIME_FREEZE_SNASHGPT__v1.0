@@ -39,3 +39,18 @@ repos:
         entry: python runner/phrase_diff_visualizer.py
         language: system
         pass_filenames: false
+
+  - repo: local
+    hooks:
+
+      - id: phrase-diff-visualizer
+        name: Phrase Diff Visualizer
+        entry: python runner/phrase_diff_visualizer.py
+        language: system
+        pass_filenames: false
+
+      - id: auto-arch-changelog
+        name: Generate ARCH_CHANGELOG entry
+        entry: python runner/generate_arch_changelog.py
+        language: system
+        pass_filenames: false
