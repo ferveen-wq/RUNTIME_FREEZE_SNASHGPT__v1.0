@@ -241,10 +241,18 @@ AR:
 
 ### EDU_INSTALLATION_COMPLEXITY
 EN:
-TBD
+Installing protection films requires careful preparation and precise application.
+
+The process often involves cleaning, surface preparation, and accurate alignment of the film.
+
+Attention to detail helps ensure the film fits properly and maintains a clean appearance.
 
 AR:
-TBD
+يتطلب تركيب أفلام الحماية تحضيراً دقيقاً وتطبيقاً بعناية.
+
+وغالباً ما تشمل العملية تنظيف السطح وتجهيزه ثم تركيب الفيلم بمحاذاة دقيقة.
+
+يساعد الاهتمام بالتفاصيل في ضمان تركيب صحيح ومظهر نظيف للفيلم.
 
 
 ### EDU_PAINT_CONDITION_IMPACT
