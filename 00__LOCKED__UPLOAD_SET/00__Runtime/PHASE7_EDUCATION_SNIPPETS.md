@@ -89,10 +89,18 @@ AR:
 
 ### EDU_WRAP_VS_PPF
 EN:
-TBD
+Car wrap and PPF serve different purposes.
+
+Wrap is mainly used to change the appearance of the vehicle with different colors or finishes.
+
+PPF is designed to help reduce damage from small stone chips, road debris, and everyday scratches during driving.
 
 AR:
-TBD
+التغليف (Wrap) و فيلم حماية الطلاء (PPF) لهما استخدامات مختلفة.
+
+التغليف يُستخدم بشكل أساسي لتغيير مظهر السيارة من حيث اللون أو التشطيب.
+
+أما فيلم حماية الطلاء فيهدف إلى تقليل تأثير الحصى والخدوش البسيطة الناتجة عن القيادة اليومية.
 
 
 ### EDU_TINT_DARKNESS_VS_HEAT
