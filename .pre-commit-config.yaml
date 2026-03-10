@@ -31,3 +31,11 @@ repos:
         entry: python runner/governance_pipeline.py
         language: system
         pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: phrase-diff-visualizer
+        name: Phrase Diff Visualizer
+        entry: python runner/phrase_diff_visualizer.py
+        language: system
+        pass_filenames: false
