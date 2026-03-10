@@ -1,0 +1,35 @@
+name: Runtime Freeze Automation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  governance-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Run UAT
+        run: |
+          python runner/run_uat.py
+
+      - name: Create runtime freeze tag
+        if: success()
+        run: |
+          TAG="runtime_freeze_$(date +'%Y_%m_%d_%H%M')"
+          git config --global user.name "runtime-bot"
+          git config --global user.email "runtime@snash.ai"
+          git tag $TAG
+          git push origin $TAG
