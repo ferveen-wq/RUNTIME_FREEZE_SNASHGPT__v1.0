@@ -105,10 +105,18 @@ AR:
 
 ### EDU_TINT_DARKNESS_VS_HEAT
 EN:
-TBD
+Window tint darkness and heat reduction are not always the same.
+
+Modern tint films can block heat and UV even when the shade is lighter.
+
+Many drivers choose the tint level they like visually while still benefiting from heat reduction technology.
 
 AR:
-TBD
+درجة التظليل وقوة تقليل الحرارة ليست دائماً الشيء نفسه.
+
+بعض أفلام التظليل الحديثة يمكنها تقليل الحرارة والأشعة فوق البنفسجية حتى مع درجات تظليل أخف.
+
+لذلك كثير من السائقين يختارون درجة التظليل التي يفضلون شكلها مع الاستفادة من تقنيات تقليل الحرارة.
 
 
 ---------------------------------------------------------------------
