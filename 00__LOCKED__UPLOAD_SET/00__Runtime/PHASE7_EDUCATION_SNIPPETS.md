@@ -15,10 +15,12 @@
 
 ### EDU_PPF_PROTECTION
 EN:
-TBD
+Paint Protection Film (PPF) is a transparent layer installed on top of the vehicle’s paint.
+It helps reduce damage from small stone chips, road debris, and everyday scratches during driving.
 
 AR:
-TBD
+فيلم حماية الطلاء (PPF) هو طبقة شفافة تُركّب فوق طلاء السيارة.
+يساعد على تقليل تأثير الحصى والخدوش الناتجة عن الاستخدام اليومي أثناء القيادة.
 
 
 ### EDU_CERAMIC_LIMITATIONS
