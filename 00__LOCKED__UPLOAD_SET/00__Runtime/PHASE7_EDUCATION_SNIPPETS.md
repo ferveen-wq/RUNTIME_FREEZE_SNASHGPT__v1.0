@@ -157,10 +157,18 @@ AR:
 
 ### EDU_MAINTENANCE_REALITY
 EN:
-TBD
+Regular washing and proper care help keep the vehicle looking its best after protection services.
+
+Simple maintenance routines help maintain the appearance and performance of the finish over time.
+
+Many owners follow basic care guidelines to keep the results looking fresh for longer.
 
 AR:
-TBD
+يساعد الغسيل المنتظم والعناية الصحيحة في الحفاظ على أفضل مظهر للسيارة بعد خدمات الحماية.
+
+كما تساعد خطوات الصيانة البسيطة في الحفاظ على أداء ومظهر الطلاء مع مرور الوقت.
+
+كثير من المالكين يتبعون إرشادات العناية الأساسية للحفاظ على النتيجة لفترة أطول.
 
 
 ---------------------------------------------------------------------
