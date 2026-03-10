@@ -141,10 +141,18 @@ AR:
 
 ### EDU_WARRANTY_REALISM
 EN:
-TBD
+A warranty usually confirms the quality and reliability of the product when it is installed and maintained properly.
+
+The exact coverage depends on the manufacturer and the conditions of use.
+
+Many customers choose products with warranty coverage for added peace of mind.
 
 AR:
-TBD
+الضمان عادةً يعكس جودة المنتج وموثوقيته عند تركيبه والعناية به بالشكل الصحيح.
+
+وتختلف تفاصيل التغطية حسب الشركة المصنعة وظروف الاستخدام.
+
+كثير من العملاء يفضلون المنتجات التي تأتي مع ضمان لمزيد من الاطمئنان.
 
 
 ### EDU_MAINTENANCE_REALITY
