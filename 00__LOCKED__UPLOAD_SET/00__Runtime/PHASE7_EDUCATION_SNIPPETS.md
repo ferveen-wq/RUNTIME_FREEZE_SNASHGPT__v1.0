@@ -61,10 +61,14 @@ AR:
 
 ### EDU_POLISH_PAINT_CORRECTION
 EN:
-TBD
+Polishing is used to improve the appearance of the paint by reducing swirl marks, light scratches, and dullness.
+It restores gloss and clarity to the paint surface.
+Many owners choose polishing when they want the car to look cleaner and more reflective again.
 
 AR:
-TBD
+التلميع يُستخدم لتحسين مظهر الطلاء عن طريق تقليل آثار الدوامات والخدوش الخفيفة والبهتان.
+يساعد على استعادة اللمعان وصفاء الطلاء.
+كثير من المالكين يختارون التلميع عندما يريدون أن تبدو السيارة أنظف وأكثر لمعاناً مرة أخرى.
 
 
 ---------------------------------------------------------------------
