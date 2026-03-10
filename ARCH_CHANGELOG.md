@@ -73,7 +73,7 @@ tail -n 30 ARCH_CHANGELOG.md
 - Why: Browsing UAT exposed contamination where the model introduced VLT without user input. This patch locks Phase 0–2 service surface to canonical services only.
 - UAT: tests/uat_cases.json → p0_browsing_generic_services (Passed 6/6)
 
-Date: 2026-02-21
+- Date: 2026-02-21
 - Files: tests/uat_cases.json
 - Changed: Added SAFE/AMBIGUOUS/digits-only vehicle alias Phase 0–2 UAT coverage
 - Why: Protect vehicle repo rules (no guessing) + prevent regressions
@@ -85,13 +85,17 @@ Date: 2026-02-21
 - Why: Prevent patch drift and ensure Phase 0–2 routing remains stable (greeting/browsing/service-confirmed/price-hold/vehicle alias behavior).
 - UAT: UAT_CASES_FILE=tests/uat_cases.json python runner/run_uat.py
 
-	Date: 2026-02-21
+- Date: 2026-02-21
 - Files: MULTIPLE
 - Changed: Added phrase-authority-gate (pre-commit) + checker script to prevent duplicate (AUTHORITATIVE) blocks in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
 - Why: Prevent multiple “official SOP” script blocks from causing inconsistent routing and customer responses (patch drift control).
 - UAT: pre-commit run phrase-authority-gate (and UAT_CASES_FILE=tests/uat_cases.json python runner/run_uat.py)
 
+
+
 ## 2026-02-21 — Phase 0–2 Stabilization + UAT Harness Hardening
+
+
 
 ### Runtime
 - Added Phase 0–2 NEW CAR override under request_type=OTHER:
@@ -353,3 +357,9 @@ Files touched:
   - Full sweep green across all packs.
 - Tag:
   - runtime_freeze_checkpoint_20260301_full_sweep_green_v2
+
+- Date: 2026-03-10
+- Files: MULTIPLE
+- Changed: Added automated patch executor (runner/apply_patch.py) and updated runtime change ledger.
+- Why: Enforce governance-controlled patch execution instead of manual patching.
+- UAT: governance pipeline commit test (pre-commit hooks passed)

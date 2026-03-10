@@ -1,3 +1,6 @@
+
+
+
 # RUNTIME_CHANGE_LEDGER.md
 
 Status: ACTIVE
@@ -40,6 +43,7 @@ Each change must record:
 ---
 
 ## CHANGES
+
 
 ### CHANGE_ID: GOV_001
 - AREA: Governance
@@ -90,6 +94,16 @@ Each change must record:
 - TAGGED: runtime_ppf_phrase_rebalance_v1
 - NOTES:
   - Tracks discussed vs patched vs merged vs frozen changes
+
+### CHANGE_ID: GOV_005
+- AREA: Governance Automation
+- GOAL: Add automated patch executor for governance-controlled patch application
+- FILES: MULTIPLE
+- STATUS: PATCHED_LOCAL
+- VALIDATION: Pending
+- MERGED: No
+- TAGGED: No
+- NOTES: Enables controlled patch execution aligned with governance pipeline
 
 ---
 
