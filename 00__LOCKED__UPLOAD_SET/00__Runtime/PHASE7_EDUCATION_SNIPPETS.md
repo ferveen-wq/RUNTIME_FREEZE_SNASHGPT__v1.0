@@ -129,10 +129,14 @@ TBD
 
 ### EDU_PROTECTION_LEVELS
 EN:
-TBD
+Vehicle protection can focus on different priorities depending on how the car is used.
+Some owners focus on protecting the paint during daily driving, while others focus more on maintaining gloss and easier cleaning.
+The right option usually depends on how you use the car and what matters most to you.
 
 AR:
-TBD
+حماية السيارة يمكن أن تركز على أولويات مختلفة حسب طريقة استخدام السيارة.
+بعض المالكين يركزون على حماية الطلاء أثناء القيادة اليومية، بينما يركز آخرون أكثر على الحفاظ على اللمعان وسهولة التنظيف.
+الخيار المناسب يعتمد غالباً على طريقة استخدام السيارة وما يهمك أكثر.
 
 
 ### EDU_COVERAGE_DECISION
