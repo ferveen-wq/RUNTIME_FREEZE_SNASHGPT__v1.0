@@ -257,8 +257,16 @@ AR:
 
 ### EDU_PAINT_CONDITION_IMPACT
 EN:
-TBD
+The condition of the paint can influence how protection services perform.
+
+If the surface already has swirl marks, scratches, or oxidation, these may still be visible under the protection layer.
+
+Preparing the paint properly helps achieve a cleaner and more consistent final appearance.
 
 AR:
-TBD
+يمكن أن تؤثر حالة الطلاء على نتيجة خدمات الحماية.
+
+فإذا كان السطح يحتوي على خدوش أو علامات دائرية أو بهتان فقد تبقى ظاهرة تحت طبقة الحماية.
+
+يساعد تجهيز الطلاء بالشكل الصحيح في الحصول على نتيجة أكثر نظافة وتناسقاً.
 
