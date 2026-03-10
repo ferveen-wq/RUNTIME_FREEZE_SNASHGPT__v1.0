@@ -69,10 +69,14 @@ TBD
 
 ### EDU_PPF_VS_CERAMIC
 EN:
-TBD
+Paint Protection Film and ceramic coating focus on different aspects of paint care.
+PPF is commonly chosen when drivers want added protection from road wear during daily driving.
+Ceramic coating is often chosen when the goal is easier maintenance and long-lasting gloss.
 
 AR:
-TBD
+فيلم حماية الطلاء والطلاء الخزفي يركزان على جوانب مختلفة من العناية بطلاء السيارة.
+يُختار فيلم الحماية غالباً عندما يرغب المالك في حماية إضافية أثناء القيادة اليومية.
+بينما يُختار الطلاء الخزفي عادةً عندما يكون الهدف سهولة التنظيف والحفاظ على اللمعان لفترة طويلة.
 
 
 ### EDU_WRAP_VS_PPF
