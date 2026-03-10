@@ -25,10 +25,14 @@ AR:
 
 ### EDU_CERAMIC_LIMITATIONS
 EN:
-TBD
+Ceramic coating is designed to protect the paint surface from dirt, chemicals, and environmental exposure.
+It creates a smooth surface that helps keep the car glossy and easier to wash.
+Many drivers choose ceramic coating when they want the car to stay clean and shiny with less effort.
 
 AR:
-TBD
+الطلاء الخزفي مصمم لحماية سطح الطلاء من الأوساخ والمواد الكيميائية والعوامل البيئية.
+كما يكوّن سطحاً ناعماً يساعد في الحفاظ على لمعان السيارة ويجعل الغسيل أسهل.
+كثير من السائقين يختارونه عندما يريدون الحفاظ على نظافة ولمعان السيارة بسهولة أكبر.
 
 
 ### EDU_TINT_HEAT_REJECTION
