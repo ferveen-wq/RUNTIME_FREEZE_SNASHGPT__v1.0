@@ -30,6 +30,12 @@ repos:
         language: system
         pass_filenames: false
 
+      - id: phrase-trigger-conflict
+        name: Phrase Trigger Conflict Detector
+        entry: python runner/check_phrase_trigger_conflicts.py
+        language: system
+        pass_filenames: false
+
       - id: runtime-diff-sentinel
         name: Runtime Diff Sentinel (block large deletions)
         entry: python3 runner/runtime_diff_sentinel.py
