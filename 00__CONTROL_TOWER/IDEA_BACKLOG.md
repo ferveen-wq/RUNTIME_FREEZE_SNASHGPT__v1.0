@@ -260,3 +260,6 @@ visual router must select videos based on vehicle model, color, segment, service
 
 ### 2026-03-12 00:40
 video routing must follow hierarchical fallback: exact model+color → model → segment → color → generic service
+
+### 2026-03-12 00:40
+Phase 8 video taxonomy includes service explanation, proof tests, installation process, results showcase, testimonials, brand credibility, maintenance education, long term reality, mistake prevention, booking confidence, technical questions, price objections and authenticity verification
