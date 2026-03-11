@@ -254,3 +254,6 @@ video responses must never end a conversation; every video must be followed by a
 
 ### 2026-03-12 00:23
 define the 7 high-converting detailing video categories and map them into Phase 8 visual intelligence routing
+
+### 2026-03-12 00:40
+visual router must select videos based on vehicle model, color, segment, service, conversation phase and customer concern
