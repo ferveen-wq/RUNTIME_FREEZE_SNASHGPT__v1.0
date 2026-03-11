@@ -287,3 +287,6 @@ videos should only be triggered in appropriate conversation phases (technical vi
 
 ### 2026-03-12 00:41
 video library should support bilingual assets (EN/AR) to match conversation language
+
+### 2026-03-12 00:42
+video library should map videos to services such as PPF, ceramic coating, tint and educational comparisons
