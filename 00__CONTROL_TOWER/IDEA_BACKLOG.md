@@ -269,3 +269,6 @@ video responses must follow delivery format: short explanation + video + follow 
 
 ### 2026-03-12 00:40
 maximum one video should be delivered per conversation segment
+
+### 2026-03-12 00:40
+education snippets from Phase 7 should trigger visual demonstrations in Phase 8
