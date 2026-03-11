@@ -266,3 +266,6 @@ Phase 8 video taxonomy includes service explanation, proof tests, installation p
 
 ### 2026-03-12 00:40
 video responses must follow delivery format: short explanation + video + follow up question
+
+### 2026-03-12 00:40
+maximum one video should be delivered per conversation segment
