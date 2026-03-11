@@ -239,3 +239,6 @@ context aware hook questions after video
 
 ### 2026-03-11 21:38
 test idea capture system
+
+### 2026-03-11 22:15
+video responses must always include a context-aware hook question to prevent conversational dead ends
