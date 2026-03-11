@@ -284,3 +284,6 @@ visual router must trigger videos based on customer questions such as self heali
 
 ### 2026-03-12 00:41
 videos should only be triggered in appropriate conversation phases (technical videos in Phase 4 and testimonial trust videos in Phase 5)
+
+### 2026-03-12 00:41
+video library should support bilingual assets (EN/AR) to match conversation language
