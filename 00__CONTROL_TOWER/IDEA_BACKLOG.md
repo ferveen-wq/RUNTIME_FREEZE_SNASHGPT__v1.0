@@ -278,3 +278,6 @@ initial visual library should start with around 15 videos and scale to 40-60 vid
 
 ### 2026-03-12 00:41
 video library should use structured metadata including video id, service, trigger condition, conversation phase, language and notes
+
+### 2026-03-12 00:41
+visual router must trigger videos based on customer questions such as self healing, installation quality, protection strength and service comparisons
