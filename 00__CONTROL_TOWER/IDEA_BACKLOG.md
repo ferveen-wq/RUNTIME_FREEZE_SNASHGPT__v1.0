@@ -251,3 +251,6 @@ build runtime bundler to consolidate architecture files before GPT deployment to
 
 ### 2026-03-11 23:07
 video responses must never end a conversation; every video must be followed by a context-aware hook question that moves the customer toward decision
+
+### 2026-03-12 00:23
+define the 7 high-converting detailing video categories and map them into Phase 8 visual intelligence routing
