@@ -263,3 +263,6 @@ video routing must follow hierarchical fallback: exact model+color → model →
 
 ### 2026-03-12 00:40
 Phase 8 video taxonomy includes service explanation, proof tests, installation process, results showcase, testimonials, brand credibility, maintenance education, long term reality, mistake prevention, booking confidence, technical questions, price objections and authenticity verification
+
+### 2026-03-12 00:40
+video responses must follow delivery format: short explanation + video + follow up question
