@@ -236,3 +236,6 @@ IDEA
 
 ### 2026-03-11 21:35
 context aware hook questions after video
+
+### 2026-03-11 21:38
+test idea capture system
