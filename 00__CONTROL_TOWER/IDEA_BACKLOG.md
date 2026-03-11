@@ -242,3 +242,6 @@ test idea capture system
 
 ### 2026-03-11 22:15
 video responses must always include a context-aware hook question to prevent conversational dead ends
+
+### 2026-03-11 22:17
+phase8: define the 7 high-converting detailing video types used by the visual routing engine
