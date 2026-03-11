@@ -275,3 +275,6 @@ education snippets from Phase 7 should trigger visual demonstrations in Phase 8
 
 ### 2026-03-12 00:40
 initial visual library should start with around 15 videos and scale to 40-60 videos without architecture modification
+
+### 2026-03-12 00:41
+video library should use structured metadata including video id, service, trigger condition, conversation phase, language and notes
