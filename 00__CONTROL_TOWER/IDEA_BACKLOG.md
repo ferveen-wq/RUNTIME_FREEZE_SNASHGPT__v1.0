@@ -248,3 +248,6 @@ phase8: define the 7 high-converting detailing video types used by the visual ro
 
 ### 2026-03-11 22:49
 build runtime bundler to consolidate architecture files before GPT deployment to meet file limits
+
+### 2026-03-11 23:07
+video responses must never end a conversation; every video must be followed by a context-aware hook question that moves the customer toward decision
