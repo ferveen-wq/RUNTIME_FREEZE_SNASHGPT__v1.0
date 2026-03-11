@@ -233,3 +233,6 @@ anchor pricing for partial qualification
 Status:
 IDEA
 
+
+### 2026-03-11 21:35
+context aware hook questions after video
