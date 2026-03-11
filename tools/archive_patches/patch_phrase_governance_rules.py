@@ -46,7 +46,7 @@ if not os.path.exists(path):
     print("File not found:", path)
     exit()
 
-with open(path, "r", encoding="utf-8") as f:
+with open(path, encoding="utf-8") as f:
     content = f.read()
 
 if "CONVERSATION ARCHITECTURE RULES" in content:

@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 FILE = "00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
 

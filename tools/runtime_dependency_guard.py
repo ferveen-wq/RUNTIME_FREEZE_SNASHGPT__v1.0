@@ -13,10 +13,25 @@ with open(MANIFEST, encoding="utf-8") as f:
         match = re.search(r"([A-Za-z0-9_\/\-]+\.md)", line)
         if match:
             file = match.group(1)
-            path = os.path.join(ROOT, file)
+            runtime_paths = [
+                "",
+                "00__LOCKED__UPLOAD_SET/00__Runtime/",
+                "00__LOCKED__UPLOAD_SET/01__Engines/",
+                "00__LOCKED__UPLOAD_SET/03__Parameters/",
+                "00__LOCKED__UPLOAD_SET/02__Repositories/",
+            ]
 
-            if not os.path.exists(path):
+            found = False
+            for base in runtime_paths:
+                 if os.path.exists(base + file):
+                     found = True
+                     break
+
+            if not found:
                 missing.append(file)
+
+            
+                
 
 if missing:
     print("Missing files referenced in manifest:\n")

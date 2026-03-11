@@ -23,8 +23,6 @@ for name, pattern in RISK_PATTERNS.items():
 print("\nAudit complete.\n")
 
 
-import re
-from pathlib import Path
 
 FILE = "00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
 
@@ -38,7 +36,7 @@ RISK_PATTERNS = {
 
 print("\n=== PHRASE RISK AUDIT ===\n")
 
-with open(FILE, "r", encoding="utf-8") as f:
+with open(FILE, encoding="utf-8") as f:
     lines = f.readlines()
 
 for risk_name, pattern in RISK_PATTERNS.items():

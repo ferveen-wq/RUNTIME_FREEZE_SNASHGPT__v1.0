@@ -293,3 +293,18 @@ video library should map videos to services such as PPF, ceramic coating, tint a
 
 ### 2026-03-12 01:10
 introduce runtime architecture consolidation layer to reduce file count by merging compatible runtime authorities without breaking separation of concerns
+
+### 2026-03-12 02:15
+Add GitHub CI governance pipeline
+
+### 2026-03-12 02:15
+Reduce runtime architecture files from 28 to ~18
+
+### 2026-03-12 02:15
+Idea lifecycle tracker for automatic DONE tagging
+
+### 2026-03-12 02:17
+Add architecture visualization map showing runtime, engines, parameters, and dependency graph
+
+### 2026-03-12 02:19
+Add architecture visualization map showing runtime, engines, parameters, and dependency graph

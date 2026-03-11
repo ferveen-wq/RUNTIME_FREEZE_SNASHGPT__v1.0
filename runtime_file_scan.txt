@@ -1,0 +1,606 @@
+./# PHASE 7 — SUMMARY Q&A (DISCUSSION CONS.md
+./.DS_Store
+./.github/workflows/governance.yml
+./.github/workflows/runtime_checks.yml
+./.github/workflows/runtime_freeze.yml
+./.github/workflows/uat.yml
+./.gitignore
+./.pre-commit-config.yaml
+./.ruff_cache/.gitignore
+./.ruff_cache/0.15.2/12117380269577235225
+./.ruff_cache/0.15.2/17470253703689474435
+./.ruff_cache/0.15.2/5489929182035860850
+./.ruff_cache/0.15.2/5967152555140651291
+./.ruff_cache/0.15.2/9153269543417746223
+./.ruff_cache/CACHEDIR.TAG
+./00__LOCKED__UPLOAD_SET/# PHASE 6 & PHASE 7 FINALIZATION PLAN
+./00__LOCKED__UPLOAD_SET/.DS_Store
+./00__LOCKED__UPLOAD_SET/00__Runtime/ARCHITECTURE_ROADMAP.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/AUTHORITY_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/CUSTOMER_CHAT_INTAKE_RULES.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/EDUCATION_TRIGGER_MATRIX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/GLOBAL_RUNTIME_FLOW_MAP.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/KNOWLEDGE__RUNTIME_CORE_BUNDLE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/MANIFEST.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/OUTPUT_RESPONSE_TEMPLATE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PATCH_PROTOCOL.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE0_2_LOCK_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE0_LOCK_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3A_QUALIFICATION_DECISION_MATRIX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3_LOCK_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_LOCK_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE6__SERVICE_CANON_BUNDLE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE7__CORE_EDUCATION.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VISUAL_INTELLIGENCE_MAP.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_INDEX.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CORE_BUNDLE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_EXECUTION_FLOW.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_LOAD_MANIFEST.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_STATE_MACHINE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/SNASHGPT_MASTER_GOVERNANCE.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/VISUAL_PLAYBOOK.md
+./00__LOCKED__UPLOAD_SET/00__Runtime/image.png
+./00__LOCKED__UPLOAD_SET/01__Engines/CLOSING_HANDOVER_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/NEGOTIATION_LOGIC_MODULE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/OBJECTION_RESOLUTION_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE3_LOCK_INDEX.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_2_CHANGE_LOG.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_4_7_HOOK_QUESTION_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_0__OVERVIEW.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_1__CLOSING_STATE_MACHINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_2__HANDOVER_WORKFLOW.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_3__END_ESCALATE_RULES.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_4__YES_LATER_SILENCE_PLAYBOOK.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_5__WHATSAPP_NEXT_STEP_TEMPLATES__EN_AR.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_LOCK.md
+./00__LOCKED__UPLOAD_SET/01__Engines/PRICE_LADDER_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/SILENCE_HANDLING_ENGINE.md
+./00__LOCKED__UPLOAD_SET/01__Engines/image.png
+./00__LOCKED__UPLOAD_SET/01__Engines/phase_4_5_tone_engine.md
+./00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+./00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+./00__LOCKED__UPLOAD_SET/02__Repositories/PHASE 0 – GOVERNANCE.ini
+./00__LOCKED__UPLOAD_SET/02__Repositories/PRODUCT_SERVICE_CANON.md
+./00__LOCKED__UPLOAD_SET/03__Parameters/CONVERSATION_DYNAMIC_PARAMETERS.md
+./00__LOCKED__UPLOAD_SET/03__Parameters/GLOBAL_CORE_CONTEXT_PARAMETERS.md
+./00__LOCKED__UPLOAD_SET/03__Parameters/PRICE_TABLE_VAT_INCL.md
+./00__LOCKED__UPLOAD_SET/03__Parameters/SKU_SELECTION_MATRIX.md
+./00__LOCKED__UPLOAD_SET/03__Playbooks/PART 2 — Phase 1 STORY FRAMING (Human me.ini
+./00__LOCKED__UPLOAD_SET/03__Playbooks/PHASE0_TO_PHASE3__HUMAN_READABLE_MENTAL_MAP.md
+./00__LOCKED__UPLOAD_SET/03__Playbooks/PHASE0__ONE_SCREEN_VISUAL_MENTAL_MAP.md
+./00__LOCKED__UPLOAD_SET/03__Playbooks/PHASE7__CORE_EDUCATION.md
+./00__LOCKED__UPLOAD_SET/03__Playbooks/SNASH SALES STORYBOARD phase 0-3
+./00__LOCKED__UPLOAD_SET/03__Playbooks/SNASH_PHASE_0_TO_3_VISUAL_MENTAL_MODEL.md
+./00__LOCKED__UPLOAD_SET/03__Playbooks/SNASH_PHASE_0_TO_3_VISUAL_MINDMAP.png
+./00__LOCKED__UPLOAD_SET/03__Playbooks/Untitled diagram-2026-01-05-184035.png
+./00__LOCKED__UPLOAD_SET/03__Playbooks/Visual mind map - phase 0-phase 2.pages
+./00__LOCKED__UPLOAD_SET/PHASE 0–2 CONTRACT — ADDENDUM v1 (Q&A FORMAT)
+./00__LOCKED__UPLOAD_SET/PHASE 0–2 — SINGLE SOURCE OF TRUTH (CONTRACT + ADDENDUM + FILE MAP).md
+./00__LOCKED__UPLOAD_SET/PHASE0_2_MASTER_LOG.md
+./00__LOCKED__UPLOAD_SET/PHASE6__OVERVIEW.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_CERAMIC.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_GRAPHENE.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_INTERIOR_CERAMIC.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_POLISHING.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_PPF.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_PPF__ARCHIVED_PRE_CANON.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_TINT.md
+./00__LOCKED__UPLOAD_SET/PHASE6__SERVICE_WRAP.md
+./00__LOCKED__UPLOAD_SET/SNASHGPT_PHASE0–4_ROLLOUT_SOURCE_OF_TRUTH.md
+./00__LOCKED__UPLOAD_SET/discussions on contract 0-2 updates
+./00__LOCKED__UPLOAD_SET__MATTE_BACKUP_20260228_043718/.DS_Store
+./02__Parameters/CONVERSATION_DYNAMIC_PARAMETERS.md
+./02__Parameters/GLOBAL_CORE_CONTEXT_PARAMETERS.md
+./02__Parameters/PRICE_TABLE_VAT_INCL.md
+./02__Parameters/SKU_SELECTION_MATRIX.md
+./3B — CANONICAL CUSTOMER-FACING PHRASES
+./99__ARCHIVE__LEGACY_IMPORTS/QUALIFICATION_DECISION_MATRIX.md
+./99__ARCHIVE__LEGACY_IMPORTS/deprated_tone_engine.md
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review.html
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/02EDA032-5AAA-4885-B366-AE0907876C86.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/05BB9723-8322-4FEF-AD07-17D9FF2DFFCA.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/09897843-D175-4339-B4DE-7053FC2AAD27.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/11BCBE2F-456D-4D3C-9DB0-3375428F4BA2.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/1592410_Graphic2_031523.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/160B5D46-1C3C-46EF-926A-4525EC784CEB.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/264D2075-9CE4-41D8-B8EF-FB5B46793C9E.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/2E67B965-3DDC-4C52-B25A-C84EDDB9037A.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/33E2A9AA-6E60-4F76-A2CB-09B6FCE3FB44.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/345C7D23-D53F-4306-8979-E4AF07489D95.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/3B0CCBE6-4C7B-4A42-A92E-10E97468FA20.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/490846BF-0A76-47C9-8596-E7E1DF5B43FF.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/5D2A3C05-41AE-44A6-9FEC-471018A807DC.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/630357D4-B232-4D17-B652-C870D40D2594.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/68ba0a1d6d7f833eda6e6c95_65173c3032d268ad239daa3c_Detailed%20sales%20flowchart.svg
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/798D379A-22D2-4EF1-BBCE-6C24C3CEFC86.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/847EE642-D5D0-417D-8EF6-3DD3C9672A7B.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/91D8F110-0D7C-491D-BBA8-3144A3F9BA53.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/925641F6-8E57-4C37-B7FC-325D97FF7806.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/9CFA893A-D7F5-4C64-AC33-9C4060CDFACC.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/9EAF1AD4-3E2E-48BF-A8FE-50F54DF23DA1.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/A5C20A1F-06F9-4416-9ABB-B9D37B0FF2A2.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/C1D2918C-280B-42FE-BC32-1DB5908032FC.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/C61E5271-9BB1-41F4-B0CC-41F8DB9A54C5.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/C86723A3-86FD-4DC6-B8E7-3E4D2AEBABB7.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/CC611CFC-E2BB-471E-8DA7-0144174EA223.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/D627ACB7-E103-43B0-A058-643C9CAD1BC7.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/D760E16A-4C74-4BE8-B9F4-7BCFA0BF70B7.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/E3B85E8C-2FF0-44E3-A63F-494EB3F9101A.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/E6798854-6D64-4447-93AB-32ECF93FF766.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/E8AD86C2-2A6A-4793-81FE-A833C0692A84.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/EADF7671-E094-4348-A8C4-D174127F4F71.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/F8146ADE-5E68-4D1F-A4E0-C716FA5024F2.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/FA26C752-122B-4061-BAFE-2437A2543656.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/FormattedText-fam2v8ob.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/In-the-Know-of-your-Lead-Flow.png
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/Sales Negotiation Process.jpg
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/ansi-1f6vhsjh.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/conversation-small-332fs9rk.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/cot-message-g4jkzz65.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/cross_functional_work_flowchart_for_client_intake_process_slide01.jpg
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/decision_tree.jpg
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/fullsizeoutput_8db-1024x575.jpeg
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/joh0bg5g2
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/js
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/map-with-entities-ejapwmw2.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/product-variants-pcfu1bfm.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/root-ipvq9zhe.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/sales-process-4-20250214-9973286.webp
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/saved_resource.html
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/silk-hq-lutwos9z.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/table-components-gjyj5koo.css
+./99__ARCHIVE__LEGACY_IMPORTS/runtime- manifest and corebundle - Knowledge Area File Review_files/unnamed.jpg
+./ARCH_CHANGELOG.md
+./CERAMIC — PHASE 4 MASTER CANON feb12 - 4-48
+./CUSTOMER-FACING BEHAVIOR & PHRASE STRUCTURE (REFERENCE)
+./PATCH_PROTOCOL.md
+./PHASE 3A — CANONICAL CUSTOMER-FACING COPY (ALL SERVICES)
+./PHASE 3A — CANONICAL CUSTOMER-FACING COPY (ALL SERVICES) feb12 - 4-12am
+./PHASE 3B & PHASE 4 — BEHAVIOR FREEZE RECORD
+./PHASE 3B — CANONICAL CUSTOMER-FACING PHRASES feb 12 - 4-31am
+./PHASE 3B — LOGIC LOCK & PERSUASION DEFERMENT RECORD
+./PHASE 3–4 ARCHITECTURE LOCK v2 - 16feb 23-30
+./PHASE 4 — SIGNAL → INTENT MAPPING TABLE (v1)
+./PHASE 4 — SIGNAL → INTENT MAPPING TABLE v2
+./PHASE0_LOCK_INDEX__ARCHIVED_POINTER.md
+./PHASE4_SIGNAL_INTENT_MAPPING_v1.1.md
+./PHASE_0_2_CONTRACT_QA.md
+./PHRASE_GOVERNANCE_STANDARD.md
+./PPF PHASE 4 MASTER CANON (FULL LOCK VERSION)
+./Phase 3A–4 STRUCTURE LOCK - 12feb - 04-02 am 
+./Phase 3–4 Coverage Checklist.pages
+./Runtime for the uploads/.DS_Store
+./Runtime for the uploads/archive/PHASE4_8_MESSAGE_ASSEMBLY_MAP_ARCHIVED_PRE_V!.md
+./Runtime for the uploads/archive/TEST_BUNDLE_archived_prev1.md
+./Runtime for the uploads/runtime/CUSTOMER_CHAT_INTAKE_RULES.md
+./SNASHGPT_PHASE0_4_MEGA_SEQUENCE_TEST.txt
+./bundles/.DS_Store
+./bundles/runtime/TEST_BUNDLE.md
+./docs/RUNTIME_ARCHITECTURE_MAP.md
+./flow_dump.txt
+./governance/canon/architecture_rules.json
+./governance/canon/phrase_governance.json
+./governance/canon/product_canon.json
+./phase 01-02 -03 mermaid diagram.png
+./prompt for new chat
+./pyproject.toml
+./requirements.txt
+./runner/apply_patch.py
+./runner/check_arch_changelog.py
+./runner/check_phrase_authority.py
+./runner/check_phrase_trigger_conflicts.py
+./runner/context_reset_prompt.txt
+./runner/generate_arch_changelog.py
+./runner/governance_pipeline.py
+./runner/lint_authority.py
+./runner/phrase_diff_visualizer.py
+./runner/phrase_library_validator.py
+./runner/run_uat.py
+./runner/runtime_diff_sentinel.py
+./runner/runtime_trace.py
+./runtime_file_scan.txt
+./snashgpt phase1-2 test observattioins
+./snashgtp-runtime-folder/.gitattributes
+./state_dump.txt
+./tests/behavioral/rare_vehicle_guardrail.json
+./tests/behavioral/silence_state_pack.json
+./tests/regression_cases_uat.json
+./tests/regression_cases_uat__ppf_matte_audit.json
+./tests/regression_negotiation_escalation_cross_v1.json
+./tests/regression_negotiation_escalation_v1.json
+./tests/regression_phase3a_qualifier.json
+./tests/regression_ppf_matte_audit.json
+./tests/regression_switching_p0_2.json
+./tests/reports/uat_report_20260224_004422.json
+./tests/reports/uat_report_20260224_085524.json
+./tests/reports/uat_report_20260224_111953.json
+./tests/reports/uat_report_20260224_140329.json
+./tests/reports/uat_report_20260224_150916.json
+./tests/reports/uat_report_20260224_151124.json
+./tests/reports/uat_report_20260224_151816.json
+./tests/reports/uat_report_20260224_152331.json
+./tests/reports/uat_report_20260224_183842.json
+./tests/reports/uat_report_20260224_184157.json
+./tests/reports/uat_report_20260224_184338.json
+./tests/reports/uat_report_20260224_184553.json
+./tests/reports/uat_report_20260224_185121.json
+./tests/reports/uat_report_20260224_185408.json
+./tests/reports/uat_report_20260224_185632.json
+./tests/reports/uat_report_20260224_192025.json
+./tests/reports/uat_report_20260224_193116.json
+./tests/reports/uat_report_20260224_193401.json
+./tests/reports/uat_report_20260224_193639.json
+./tests/reports/uat_report_20260224_193855.json
+./tests/reports/uat_report_20260224_194013.json
+./tests/reports/uat_report_20260224_194126.json
+./tests/reports/uat_report_20260224_194328.json
+./tests/reports/uat_report_20260224_194716.json
+./tests/reports/uat_report_20260224_195046.json
+./tests/reports/uat_report_20260224_195307.json
+./tests/reports/uat_report_20260224_195627.json
+./tests/reports/uat_report_20260224_214818.json
+./tests/reports/uat_report_20260224_215038.json
+./tests/reports/uat_report_20260224_220231.json
+./tests/reports/uat_report_20260224_221628.json
+./tests/reports/uat_report_20260224_221839.json
+./tests/reports/uat_report_20260224_230156.json
+./tests/reports/uat_report_20260224_230726.json
+./tests/reports/uat_report_20260224_232007.json
+./tests/reports/uat_report_20260224_232254.json
+./tests/reports/uat_report_20260224_232605.json
+./tests/reports/uat_report_20260224_234728.json
+./tests/reports/uat_report_20260224_235751.json
+./tests/reports/uat_report_20260224_235940.json
+./tests/reports/uat_report_20260225_000039.json
+./tests/reports/uat_report_20260225_003646.json
+./tests/reports/uat_report_20260225_003806.json
+./tests/reports/uat_report_20260225_003920.json
+./tests/reports/uat_report_20260225_005639.json
+./tests/reports/uat_report_20260225_005840.json
+./tests/reports/uat_report_20260225_005936.json
+./tests/reports/uat_report_20260225_020248.json
+./tests/reports/uat_report_20260225_021029.json
+./tests/reports/uat_report_20260225_021118.json
+./tests/reports/uat_report_20260225_021151.json
+./tests/reports/uat_report_20260225_021247.json
+./tests/reports/uat_report_20260225_022600.json
+./tests/reports/uat_report_20260225_022654.json
+./tests/reports/uat_report_20260225_022732.json
+./tests/reports/uat_report_20260225_022826.json
+./tests/reports/uat_report_20260225_085444.json
+./tests/reports/uat_report_20260225_085555.json
+./tests/reports/uat_report_20260225_085631.json
+./tests/reports/uat_report_20260225_085730.json
+./tests/reports/uat_report_20260225_100200.json
+./tests/reports/uat_report_20260225_100258.json
+./tests/reports/uat_report_20260225_100327.json
+./tests/reports/uat_report_20260225_100424.json
+./tests/reports/uat_report_20260225_125950.json
+./tests/reports/uat_report_20260225_130056.json
+./tests/reports/uat_report_20260225_130131.json
+./tests/reports/uat_report_20260225_130227.json
+./tests/reports/uat_report_20260225_132305.json
+./tests/reports/uat_report_20260225_134938.json
+./tests/reports/uat_report_20260225_135025.json
+./tests/reports/uat_report_20260225_135100.json
+./tests/reports/uat_report_20260225_135816.json
+./tests/reports/uat_report_20260225_145351.json
+./tests/reports/uat_report_20260225_145447.json
+./tests/reports/uat_report_20260225_145524.json
+./tests/reports/uat_report_20260225_151611.json
+./tests/reports/uat_report_20260225_152738.json
+./tests/reports/uat_report_20260225_152903.json
+./tests/reports/uat_report_20260225_153457.json
+./tests/reports/uat_report_20260225_154357.json
+./tests/reports/uat_report_20260225_154453.json
+./tests/reports/uat_report_20260225_154531.json
+./tests/reports/uat_report_20260225_154951.json
+./tests/reports/uat_report_20260225_155042.json
+./tests/reports/uat_report_20260225_155111.json
+./tests/reports/uat_report_20260225_155753.json
+./tests/reports/uat_report_20260225_155855.json
+./tests/reports/uat_report_20260225_155926.json
+./tests/reports/uat_report_20260225_162331.json
+./tests/reports/uat_report_20260225_164956.json
+./tests/reports/uat_report_20260225_165656.json
+./tests/reports/uat_report_20260225_165802.json
+./tests/reports/uat_report_20260225_165837.json
+./tests/reports/uat_report_20260225_170637.json
+./tests/reports/uat_report_20260225_171440.json
+./tests/reports/uat_report_20260225_171536.json
+./tests/reports/uat_report_20260225_171611.json
+./tests/reports/uat_report_20260225_171914.json
+./tests/reports/uat_report_20260225_172008.json
+./tests/reports/uat_report_20260225_172040.json
+./tests/reports/uat_report_20260225_173055.json
+./tests/reports/uat_report_20260225_173156.json
+./tests/reports/uat_report_20260225_173226.json
+./tests/reports/uat_report_20260225_174712.json
+./tests/reports/uat_report_20260225_174813.json
+./tests/reports/uat_report_20260225_174849.json
+./tests/reports/uat_report_20260225_175029.json
+./tests/reports/uat_report_20260225_180109.json
+./tests/reports/uat_report_20260225_180214.json
+./tests/reports/uat_report_20260225_180256.json
+./tests/reports/uat_report_20260225_180356.json
+./tests/reports/uat_report_20260225_180806.json
+./tests/reports/uat_report_20260225_180905.json
+./tests/reports/uat_report_20260225_180940.json
+./tests/reports/uat_report_20260225_181035.json
+./tests/reports/uat_report_20260225_181606.json
+./tests/reports/uat_report_20260225_181807.json
+./tests/reports/uat_report_20260225_181856.json
+./tests/reports/uat_report_20260225_181929.json
+./tests/reports/uat_report_20260225_182023.json
+./tests/reports/uat_report_20260225_182732.json
+./tests/reports/uat_report_20260225_182820.json
+./tests/reports/uat_report_20260225_182912.json
+./tests/reports/uat_report_20260225_183013.json
+./tests/reports/uat_report_20260225_183113.json
+./tests/reports/uat_report_20260225_183218.json
+./tests/reports/uat_report_20260225_190105.json
+./tests/reports/uat_report_20260225_190204.json
+./tests/reports/uat_report_20260225_190302.json
+./tests/reports/uat_report_20260225_190356.json
+./tests/reports/uat_report_20260225_190445.json
+./tests/reports/uat_report_20260225_190544.json
+./tests/reports/uat_report_20260225_191256.json
+./tests/reports/uat_report_20260225_191353.json
+./tests/reports/uat_report_20260225_191453.json
+./tests/reports/uat_report_20260225_191552.json
+./tests/reports/uat_report_20260225_191647.json
+./tests/reports/uat_report_20260225_191741.json
+./tests/reports/uat_report_20260226_155950.json
+./tests/reports/uat_report_20260226_160054.json
+./tests/reports/uat_report_20260226_160215.json
+./tests/reports/uat_report_20260226_160328.json
+./tests/reports/uat_report_20260226_160435.json
+./tests/reports/uat_report_20260226_160540.json
+./tests/reports/uat_report_20260226_172051.json
+./tests/reports/uat_report_20260226_172152.json
+./tests/reports/uat_report_20260226_172246.json
+./tests/reports/uat_report_20260226_172336.json
+./tests/reports/uat_report_20260226_172423.json
+./tests/reports/uat_report_20260226_172513.json
+./tests/reports/uat_report_20260226_222501.json
+./tests/reports/uat_report_20260226_222554.json
+./tests/reports/uat_report_20260226_222643.json
+./tests/reports/uat_report_20260226_222730.json
+./tests/reports/uat_report_20260226_222815.json
+./tests/reports/uat_report_20260226_222859.json
+./tests/reports/uat_report_20260226_230057.json
+./tests/reports/uat_report_20260226_230210.json
+./tests/reports/uat_report_20260226_230314.json
+./tests/reports/uat_report_20260226_230414.json
+./tests/reports/uat_report_20260226_230529.json
+./tests/reports/uat_report_20260226_230643.json
+./tests/reports/uat_report_20260227_002744.json
+./tests/reports/uat_report_20260227_002842.json
+./tests/reports/uat_report_20260227_002937.json
+./tests/reports/uat_report_20260227_003034.json
+./tests/reports/uat_report_20260227_003130.json
+./tests/reports/uat_report_20260227_003223.json
+./tests/reports/uat_report_20260227_004340.json
+./tests/reports/uat_report_20260227_004439.json
+./tests/reports/uat_report_20260227_005436.json
+./tests/reports/uat_report_20260227_005653.json
+./tests/reports/uat_report_20260227_005743.json
+./tests/reports/uat_report_20260227_005837.json
+./tests/reports/uat_report_20260227_005927.json
+./tests/reports/uat_report_20260227_010019.json
+./tests/reports/uat_report_20260227_010113.json
+./tests/reports/uat_report_20260227_013007.json
+./tests/reports/uat_report_20260227_013349.json
+./tests/reports/uat_report_20260227_013444.json
+./tests/reports/uat_report_20260227_013536.json
+./tests/reports/uat_report_20260227_013629.json
+./tests/reports/uat_report_20260227_013725.json
+./tests/reports/uat_report_20260227_013824.json
+./tests/reports/uat_report_20260227_233057.json
+./tests/reports/uat_report_20260228_013905.json
+./tests/reports/uat_report_20260228_020636.json
+./tests/reports/uat_report_20260228_154720.json
+./tests/reports/uat_report_20260228_155503.json
+./tests/reports/uat_report_20260228_160855.json
+./tests/reports/uat_report_20260228_162936.json
+./tests/reports/uat_report_20260228_170130.json
+./tests/reports/uat_report_20260228_170815.json
+./tests/reports/uat_report_20260228_205703.json
+./tests/reports/uat_report_20260228_213336.json
+./tests/reports/uat_report_20260228_220402.json
+./tests/reports/uat_report_20260228_220737.json
+./tests/reports/uat_report_20260228_230954.json
+./tests/reports/uat_report_20260228_231047.json
+./tests/reports/uat_report_20260228_231138.json
+./tests/reports/uat_report_20260228_231222.json
+./tests/reports/uat_report_20260228_231307.json
+./tests/reports/uat_report_20260228_231353.json
+./tests/reports/uat_report_20260228_231438.json
+./tests/reports/uat_report_20260228_231523.json
+./tests/reports/uat_report_20260228_232402.json
+./tests/reports/uat_report_20260228_232446.json
+./tests/reports/uat_report_20260228_232539.json
+./tests/reports/uat_report_20260228_232621.json
+./tests/reports/uat_report_20260228_232706.json
+./tests/reports/uat_report_20260228_232748.json
+./tests/reports/uat_report_20260228_232829.json
+./tests/reports/uat_report_20260228_233102.json
+./tests/reports/uat_report_20260301_001414.json
+./tests/reports/uat_report_20260301_001624.json
+./tests/reports/uat_report_20260301_001920.json
+./tests/reports/uat_report_20260301_002009.json
+./tests/reports/uat_report_20260301_002100.json
+./tests/reports/uat_report_20260301_002148.json
+./tests/reports/uat_report_20260301_002236.json
+./tests/reports/uat_report_20260301_002332.json
+./tests/reports/uat_report_20260301_002424.json
+./tests/reports/uat_report_20260301_002512.json
+./tests/reports/uat_report_20260301_004306.json
+./tests/reports/uat_report_20260301_004522.json
+./tests/reports/uat_report_20260301_004610.json
+./tests/reports/uat_report_20260301_004703.json
+./tests/reports/uat_report_20260301_004753.json
+./tests/reports/uat_report_20260301_004838.json
+./tests/reports/uat_report_20260301_004924.json
+./tests/reports/uat_report_20260301_005013.json
+./tests/reports/uat_report_20260301_010931.json
+./tests/reports/uat_report_20260301_012332.json
+./tests/reports/uat_report_20260301_012811.json
+./tests/reports/uat_report_20260301_013338.json
+./tests/reports/uat_report_20260301_013825.json
+./tests/reports/uat_report_20260301_015437.json
+./tests/reports/uat_report_20260301_020520.json
+./tests/reports/uat_report_20260301_020932.json
+./tests/reports/uat_report_20260301_021020.json
+./tests/reports/uat_report_20260301_100333.json
+./tests/reports/uat_report_20260301_101244.json
+./tests/reports/uat_report_20260301_101724.json
+./tests/reports/uat_report_20260301_101809.json
+./tests/reports/uat_report_20260301_104310.json
+./tests/reports/uat_report_20260301_104357.json
+./tests/reports/uat_report_20260301_105401.json
+./tests/reports/uat_report_20260301_105923.json
+./tests/reports/uat_report_20260301_110010.json
+./tests/reports/uat_report_20260301_110153.json
+./tests/reports/uat_report_20260301_111001.json
+./tests/reports/uat_report_20260301_111323.json
+./tests/reports/uat_report_20260301_111409.json
+./tests/reports/uat_report_20260301_111533.json
+./tests/reports/uat_report_20260301_111540.json
+./tests/reports/uat_report_20260301_111600.json
+./tests/reports/uat_report_20260301_111626.json
+./tests/reports/uat_report_20260301_111656.json
+./tests/reports/uat_report_20260301_111722.json
+./tests/reports/uat_report_20260301_151228.json
+./tests/reports/uat_report_20260301_151329.json
+./tests/reports/uat_report_20260301_151522.json
+./tests/reports/uat_report_20260301_151530.json
+./tests/reports/uat_report_20260301_151553.json
+./tests/reports/uat_report_20260301_151623.json
+./tests/reports/uat_report_20260301_151654.json
+./tests/reports/uat_report_20260301_151727.json
+./tests/reports/uat_report_20260301_152207.json
+./tests/reports/uat_report_20260301_152346.json
+./tests/reports/uat_report_20260301_152434.json
+./tests/reports/uat_report_20260301_152608.json
+./tests/reports/uat_report_20260301_152614.json
+./tests/reports/uat_report_20260301_152637.json
+./tests/reports/uat_report_20260301_152705.json
+./tests/reports/uat_report_20260301_152737.json
+./tests/reports/uat_report_20260301_152810.json
+./tests/reports/uat_report_20260301_172240.json
+./tests/reports/uat_report_20260301_172333.json
+./tests/reports/uat_report_20260301_172517.json
+./tests/reports/uat_report_20260301_172523.json
+./tests/reports/uat_report_20260301_172548.json
+./tests/reports/uat_report_20260301_172619.json
+./tests/reports/uat_report_20260301_172650.json
+./tests/reports/uat_report_20260301_172719.json
+./tests/reports/uat_report_20260304_004045.json
+./tests/reports/uat_report_20260304_004306.json
+./tests/reports/uat_report_20260304_010925.json
+./tests/reports/uat_report_20260304_014642.json
+./tests/reports/uat_report_20260304_021231.json
+./tests/reports/uat_report_20260304_195532.json
+./tests/reports/uat_report_20260304_195731.json
+./tests/reports/uat_report_20260304_202238.json
+./tests/reports/uat_report_20260304_202325.json
+./tests/reports/uat_report_20260304_204808.json
+./tests/reports/uat_report_20260304_204904.json
+./tests/reports/uat_report_20260304_212143.json
+./tests/reports/uat_report_20260304_212237.json
+./tests/reports/uat_report_20260304_212525.json
+./tests/reports/uat_report_20260305_002556.json
+./tests/reports/uat_report_20260305_003351.json
+./tests/reports/uat_report_20260305_014359.json
+./tests/reports/uat_report_20260305_014445.json
+./tests/reports/uat_report_20260306_235948.json
+./tests/reports/uat_report_20260307_000049.json
+./tests/reports/uat_report_20260307_001558.json
+./tests/reports/uat_report_20260307_001653.json
+./tests/reports/uat_report_20260307_012244.json
+./tests/reports/uat_report_20260307_012400.json
+./tests/reports/uat_report_20260307_012444.json
+./tests/reports/uat_report_20260307_013755.json
+./tests/reports/uat_report_20260307_013850.json
+./tests/reports/uat_report_20260307_033450.json
+./tests/reports/uat_report_20260307_033544.json
+./tests/reports/uat_report_20260307_121436.json
+./tests/reports/uat_report_20260307_121528.json
+./tests/reports/uat_report_20260307_152533.json
+./tests/reports/uat_report_20260307_152633.json
+./tests/reports/uat_report_20260307_154038.json
+./tests/reports/uat_report_20260307_154137.json
+./tests/reports/uat_report_20260307_155929.json
+./tests/reports/uat_report_20260307_160020.json
+./tests/reports/uat_report_20260307_162312.json
+./tests/reports/uat_report_20260307_162402.json
+./tests/reports/uat_report_20260307_165839.json
+./tests/reports/uat_report_20260307_165929.json
+./tests/reports/uat_report_20260307_211307.json
+./tests/reports/uat_report_20260307_211359.json
+./tests/reports/uat_report_20260307_213044.json
+./tests/reports/uat_report_20260307_213133.json
+./tests/reports/uat_report_20260307_235650.json
+./tests/reports/uat_report_20260307_235740.json
+./tests/reports/uat_report_20260308_001010.json
+./tests/reports/uat_report_20260308_001052.json
+./tests/reports/uat_report_20260308_001851.json
+./tests/reports/uat_report_20260308_001939.json
+./tests/reports/uat_report_20260308_013111.json
+./tests/reports/uat_report_20260308_013204.json
+./tests/reports/uat_report_20260308_014310.json
+./tests/reports/uat_report_20260308_014357.json
+./tests/reports/uat_report_20260308_015429.json
+./tests/reports/uat_report_20260308_015512.json
+./tests/reports/uat_report_20260308_022202.json
+./tests/reports/uat_report_20260308_022243.json
+./tests/reports/uat_report_20260308_022904.json
+./tests/reports/uat_report_20260308_022940.json
+./tests/reports/uat_report_20260308_024214.json
+./tests/reports/uat_report_20260308_024255.json
+./tests/reports/uat_report_20260308_153309.json
+./tests/reports/uat_report_20260308_153355.json
+./tests/reports/uat_report_20260308_163434.json
+./tests/reports/uat_report_20260308_163523.json
+./tests/reports/uat_report_20260308_182311.json
+./tests/reports/uat_report_20260308_182359.json
+./tests/reports/uat_report_20260308_215439.json
+./tests/reports/uat_report_20260308_215540.json
+./tests/runtime_regression/test_conversation_flow_presence.py
+./tests/runtime_regression/test_phrase_selector_integrity.py
+./tests/runtime_regression/test_polish_phrase_integrity.py
+./tests/runtime_regression/test_service_anchor_integrity.py
+./tests/uat_cases.json
+./tools/PHASE0_2_PHRASES_REVIEW.md
+./tools/README_tests_sync.md
+./tools/bilingual_phrase_audit.py
+./tools/conversation_governance_check.py
+./tools/education_matrix_check.py
+./tools/gen_phase0_2_clean_reference_v1.py
+./tools/governance_phrase_scan.py
+./tools/ledger_objection_map_patch.py
+./tools/patch_education_architecture.py
+./tools/patch_patch_protocol_checklist.py
+./tools/patch_phase0_2_c2_ar_fill_v1.py
+./tools/patch_phase0_2_l1_soften_v1.py
+./tools/patch_phase0_2_phrase_refine_v2.py
+./tools/patch_phase0_2_polite_prefix_optionA_v1.py
+./tools/patch_phrase_governance_rules.py
+./tools/patch_price_table_v1.py
+./tools/patch_runtime_ledger_architecture.py
+./tools/phrase_coverage_heatmap.py
+./tools/phrase_diff_visualizer.py
+./tools/phrase_library_lock.py
+./tools/phrase_risk_audit.py
+./tools/phrase_shape_snapshot_before.json
+./tools/runtime_guardian.py
+./tools/snippet_return_anchor_check.py
+./tools/sync_cases_into_wrapper.py

@@ -22,7 +22,7 @@ if not os.path.exists(ledger_path):
     print("Ledger file not found.")
     exit()
 
-with open(ledger_path, "r", encoding="utf-8") as f:
+with open(ledger_path, encoding="utf-8") as f:
     content = f.read()
 
 if block_header in content:

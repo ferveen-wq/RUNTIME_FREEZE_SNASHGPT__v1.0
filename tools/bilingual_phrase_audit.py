@@ -27,7 +27,6 @@ if issues == 0:
     print("No EN/AR symmetry issues detected.")
 
 print("\nAudit complete.\n")
-from pathlib import Path
 
 FILE = "00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
 
@@ -41,7 +40,7 @@ for i, line in enumerate(lines):
 
     if line.strip().startswith("EN:"):
         window = lines[i+1:i+6]
-        if not any(l.strip().startswith("AR:") for l in window):
+        if not any(line_item.strip().startswith("AR:") for line_item in window):
             print(f"Possible missing AR near line {i+1}")
             print(line.strip())
             print("")
@@ -49,7 +48,7 @@ for i, line in enumerate(lines):
 
     if line.strip().startswith("AR:"):
         window = lines[max(i-5,0):i]
-        if not any(l.strip().startswith("EN:") for l in window):
+        if not any(line_item.strip().startswith("EN:") for line_item in window):
             print(f"Possible missing EN near line {i+1}")
             print(line.strip())
             print("")

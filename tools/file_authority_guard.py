@@ -6,7 +6,7 @@ MAX_RUNTIME_FILES = 40
 
 runtime_files = []
 
-for root, _dirs, files in os.walk(ROOT):
+for root, _dirs, files in os.walk("00__LOCKED__UPLOAD_SET/00__Runtime"):
     for f in files:
         if f.endswith(".md"):
             runtime_files.append(os.path.join(root, f))

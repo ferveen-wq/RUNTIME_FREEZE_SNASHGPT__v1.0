@@ -11,10 +11,10 @@ if not os.path.exists(snippet_file):
 if not os.path.exists(matrix_file):
     raise Exception("Education trigger matrix missing.")
 
-with open(snippet_file, "r") as f:
+with open(snippet_file) as f:
     snippets = re.findall(r"### (EDU_[A-Z_]+)", f.read())
 
-with open(matrix_file, "r") as f:
+with open(matrix_file) as f:
     matrix = f.read()
 
 missing = []
