@@ -257,3 +257,6 @@ define the 7 high-converting detailing video categories and map them into Phase 
 
 ### 2026-03-12 00:40
 visual router must select videos based on vehicle model, color, segment, service, conversation phase and customer concern
+
+### 2026-03-12 00:40
+video routing must follow hierarchical fallback: exact model+color → model → segment → color → generic service
