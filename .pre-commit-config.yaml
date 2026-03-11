@@ -53,3 +53,9 @@ repos:
         entry: python runner/phrase_diff_visualizer.py
         language: system
         pass_filenames: false
+
+      - id: snash-control-tower
+        name: SNASH Control Tower
+        entry: python tools/control_tower.py --commit
+        language: system
+        pass_filenames: false
