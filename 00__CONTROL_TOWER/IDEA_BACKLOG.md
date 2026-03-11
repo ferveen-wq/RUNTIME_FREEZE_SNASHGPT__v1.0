@@ -281,3 +281,6 @@ video library should use structured metadata including video id, service, trigge
 
 ### 2026-03-12 00:41
 visual router must trigger videos based on customer questions such as self healing, installation quality, protection strength and service comparisons
+
+### 2026-03-12 00:41
+videos should only be triggered in appropriate conversation phases (technical videos in Phase 4 and testimonial trust videos in Phase 5)
