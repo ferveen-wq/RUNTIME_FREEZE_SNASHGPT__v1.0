@@ -168,3 +168,65 @@ This phase may be marked LOCKED when:
 1. Phase 4.6 remains unchanged
 2. Phase 4.5 confirms hook-safe tone states
 3. Phase 4.8 confirms hook slot definition
+------------------------------------------------------------
+MULTI QUESTION HANDLER — PREPROCESSING RULE
+------------------------------------------------------------
+
+Purpose:
+Handle customer messages containing multiple questions without breaking phase routing.
+
+Examples:
+"How much is PPF and is it self healing?"
+"Ceramic or PPF which is better and how much does it cost?"
+
+Detection Rule:
+If a message contains multiple questions or combined intents
+(e.g. multiple '?' or keywords such as 'and', 'also', 'plus'),
+the system must decompose the message into separate intents.
+
+Processing Rules:
+
+1. Split detected intents internally.
+
+2. Classify each intent using existing engines:
+   - Qualification → QUALIFICATION_ENGINE
+   - Education → PHASE7_EDUCATION_SNIPPETS
+   - Persuasion → OBJECTION_RESOLUTION_ENGINE
+   - Pricing → PRICE_LADDER_ENGINE
+
+3. Apply phase priority order:
+
+   Qualification
+   Education
+   Persuasion
+   Price
+
+4. Respond using the highest-priority phase first.
+
+5. Limit response to a maximum of TWO answered intents.
+
+6. If more than two intents are detected,
+   answer the two highest priority intents and ask the customer
+   which remaining detail they want clarified next.
+
+Example Response Pattern:
+
+Customer:
+"How much is PPF and is it self healing?"
+
+System Response Structure:
+
+Education Answer
+↓
+Visual Proof (optional)
+↓
+Qualification Bridge
+↓
+Hook Question
+
+This preserves conversation flow and prevents premature pricing.
+
+Governance Rule:
+This handler only performs intent decomposition and routing.
+It must not introduce new pricing logic or override existing engines.
+
