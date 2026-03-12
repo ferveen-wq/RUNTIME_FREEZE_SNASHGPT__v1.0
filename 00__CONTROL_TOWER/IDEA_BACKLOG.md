@@ -338,3 +338,6 @@ Assistant-assisted visual review workflow: assistant tags customer photo conditi
 
 ### 2026-03-12 04:42
 Conversation Simulation Framework for automated scenario testing
+
+### 2026-03-12 04:42
+Conversation Drift Simulator for detecting phase skipping and down-selling
