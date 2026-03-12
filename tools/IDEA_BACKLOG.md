@@ -142,3 +142,62 @@ Rules:
 Status: BACKLOG
 Priority: MEDIUM
 
+
+------------------------------------------------------------
+IDEA: PHASE8 STARTER VIDEO LIBRARY (15 CORE ASSETS)
+------------------------------------------------------------
+
+Purpose:
+Define the initial visual production set that will cover
+approximately 80% of customer persuasion scenarios.
+
+Videos follow the Visual Priority Ladder.
+
+LEVEL 1 — TECHNICAL PROOF
+
+VIDEO_PROOF_PPF_SELF_HEAL
+VIDEO_PROOF_STONE_IMPACT_TEST
+VIDEO_PROOF_CERAMIC_HYDROPHOBIC
+VIDEO_PROOF_TINT_HEAT_REJECTION
+
+
+LEVEL 2 — INSTALLATION TRANSPARENCY
+
+VIDEO_INSTALL_PPF_PROCESS
+VIDEO_INSTALL_CERAMIC_PROCESS
+VIDEO_INSTALL_TINT_PROCESS
+
+
+LEVEL 3 — RESULT SHOWCASE
+
+VIDEO_RESULT_WHITE_SUV_PPF
+VIDEO_RESULT_BLACK_SUV_CERAMIC
+VIDEO_RESULT_LUXURY_POLISH
+
+
+LEVEL 4 — CUSTOMER TESTIMONIALS
+
+VIDEO_TESTIMONIAL_PPF_CUSTOMER
+VIDEO_TESTIMONIAL_CERAMIC_CUSTOMER
+
+
+LEVEL 5 — BRAND CREDIBILITY
+
+VIDEO_SHOP_TOUR
+VIDEO_TEAM_EXPERTISE
+VIDEO_DAY_OF_INSTALLATION_PROCESS
+
+
+Notes:
+
+• Videos should be 20–40 seconds.
+• Follow production structure:
+
+3 sec  — problem
+10 sec — demonstration
+10 sec — result
+5 sec  — closing shot
+
+Status: BACKLOG
+Priority: HIGH
+
