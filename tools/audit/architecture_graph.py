@@ -1,51 +1,36 @@
-import os
+from graphviz import Digraph
 
-ROOT = "00__LOCKED__UPLOAD_SET"
+dot = Digraph(comment="SNASHGPT Architecture")
 
-sections = {
-    "Runtime": [],
-    "Engines": [],
-    "Parameters": [],
-    "Repositories": [],
-    "Playbooks": [],
-    "Other": []
-}
+# Core Runtime
+dot.node("Runtime", "Runtime Core")
 
-for root, _dirs, files in os.walk(ROOT):
+# Engines
+dot.node("QualEngine", "Qualification Engine")
+dot.node("MsgAssembly", "Message Assembly")
 
-    for f in files:
-        if not f.endswith(".md"):
-            continue
+# Phrase Library
+dot.node("PhraseLib", "Human Phrase Library")
 
-        path = os.path.join(root, f)
+# Governance
+dot.node("ControlTower", "Control Tower")
+dot.node("RuntimeGuard", "Runtime Guard")
+dot.node("Simulator", "Edge Case Simulator")
 
-        if "/00__Runtime/" in path:
-            sections["Runtime"].append(path)
+# Database
+dot.node("DB", "Conversation Database")
 
-        elif "/01__Engines/" in path:
-            sections["Engines"].append(path)
+# Relationships
+dot.edges(
+    [
+        ("Runtime", "QualEngine"),
+        ("Runtime", "MsgAssembly"),
+        ("MsgAssembly", "PhraseLib"),
+        ("Runtime", "ControlTower"),
+        ("Runtime", "RuntimeGuard"),
+        ("Runtime", "Simulator"),
+        ("Runtime", "DB"),
+    ]
+)
 
-        elif "/03__Parameters/" in path:
-            sections["Parameters"].append(path)
-
-        elif "/02__Repositories/" in path:
-            sections["Repositories"].append(path)
-
-        elif "/03__Playbooks/" in path:
-            sections["Playbooks"].append(path)
-
-        else:
-            sections["Other"].append(path)
-
-
-print("\nSNASHGPT FULL ARCHITECTURE GRAPH\n")
-
-for k,v in sections.items():
-
-    print("\n" + k.upper())
-    print("-"*40)
-
-    for f in v:
-        print(f)
-
-    print("\nCOUNT:", len(v))
+dot.render("snash_architecture_graph", format="png", view=True)
