@@ -1,4 +1,3 @@
-
 print("\nSNASHGPT CONVERSATION SIMULATOR V2\n")
 
 conversations = [
@@ -20,7 +19,27 @@ conversations = [
         "Price for Global and XPEL PPF?",
         "Car is BMW X5 2022",
         "Does PPF self heal?"
+    ],
+
+    [
+        "just price",
+        "don't ask questions just price",
+        "how much full PPF",
+        "my car is 2023 Land Cruiser"
+    ],
+
+    [
+        "Is XPEL better than other brands?",
+        "My friend said Suntek is same but cheaper",
+        "Why should I choose XPEL then?"
+    ],
+
+    [
+        "PPF vs ceramic vs tint what is best?",
+        "Which one protects the paint?",
+        "Which one lasts longer?"
     ]
+
 ]
 
 phase = "Phase0"
@@ -62,8 +81,6 @@ def simulate_message(msg):
 
     if "202" in msg_lower:
         update_phase("Phase4")
-
-    return
 
 
 for conv in conversations:
