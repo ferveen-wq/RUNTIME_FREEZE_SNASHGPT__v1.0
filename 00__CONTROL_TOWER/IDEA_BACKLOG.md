@@ -308,3 +308,6 @@ Add architecture visualization map showing runtime, engines, parameters, and dep
 
 ### 2026-03-12 02:19
 Add architecture visualization map showing runtime, engines, parameters, and dependency graph
+
+### 2026-03-12 03:18
+Make architecture_graph auto-discover repo structure instead of manual node definition
