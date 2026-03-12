@@ -317,3 +317,6 @@ Make architecture graph auto-discover repo structure
 
 ### 2026-03-12 03:28
 Build SNASHGPT conversation interface connected to database
+
+### 2026-03-12 03:28
+Add runtime architecture drift detection
