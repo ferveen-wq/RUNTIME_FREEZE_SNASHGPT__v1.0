@@ -352,3 +352,93 @@ PHASE8_VIDEO_LIBRARY.md
 
 
 END PATCH
+
+------------------------------------------------------------
+SECTION 11 — VISUAL PRIORITY LADDER
+------------------------------------------------------------
+
+Purpose:
+Ensures the correct order of visual persuasion during conversations.
+
+When multiple visual assets are eligible, the router must follow
+the priority ladder below.
+
+VISUAL PRIORITY ORDER
+
+LEVEL 1 — TECHNICAL PROOF
+
+Demonstrates real performance of the service.
+
+Examples:
+
+VIDEO_PROOF_PPF_SELF_HEAL
+VIDEO_PROOF_STONE_IMPACT_TEST
+VIDEO_PROOF_CERAMIC_HYDROPHOBIC
+VIDEO_PROOF_TINT_HEAT_REJECTION
+
+
+LEVEL 2 — INSTALLATION TRANSPARENCY
+
+Shows how the service is professionally installed.
+
+Examples:
+
+VIDEO_INSTALL_PPF_PROCESS
+VIDEO_INSTALL_CERAMIC_PROCESS
+VIDEO_INSTALL_TINT_PROCESS
+VIDEO_INSTALL_POLISH_PROCESS
+
+
+LEVEL 3 — RESULT SHOWCASE
+
+Shows the final result on real vehicles.
+
+Examples:
+
+VIDEO_RESULT_WHITE_SUV_PPF
+VIDEO_RESULT_LUXURY_POLISH
+VIDEO_RESULT_BLACK_SUV_CERAMIC
+
+
+LEVEL 4 — CUSTOMER TESTIMONIALS
+
+Provides social proof from real customers.
+
+Examples:
+
+VIDEO_TESTIMONIAL_PPF_CUSTOMER
+VIDEO_TESTIMONIAL_CERAMIC_CUSTOMER
+VIDEO_TESTIMONIAL_TINT_CUSTOMER
+
+
+LEVEL 5 — BRAND CREDIBILITY
+
+Builds trust in the shop and installation standards.
+
+Examples:
+
+VIDEO_TEAM_EXPERTISE
+VIDEO_SHOP_TOUR
+VIDEO_BRAND_XPEL_TECHNOLOGY
+VIDEO_BRAND_GLOBAL_FILM_OVERVIEW
+
+
+LEVEL 6 — BOOKING CONFIDENCE
+
+Final reassurance before scheduling service.
+
+Examples:
+
+VIDEO_DAY_OF_INSTALLATION_PROCESS
+VIDEO_INSTALLATION_FACILITY
+
+
+RULES
+
+1. Always prefer the highest-priority visual available.
+2. Do not show more than one visual per response segment.
+3. Technical proof should always appear before testimonials or brand content.
+4. Brand credibility visuals should appear only after technical proof or installation transparency.
+
+END VISUAL PRIORITY LADDER
+
