@@ -270,3 +270,26 @@ AR:
 
 يساعد تجهيز الطلاء بالشكل الصحيح في الحصول على نتيجة أكثر نظافة وتناسقاً.
 
+
+
+### EDU_PPF_SELF_HEAL
+
+Purpose:
+Explain the self-healing behavior of modern PPF in simple terms so
+customers understand what it does and what its limits are.
+
+Education:
+Modern paint protection films have a flexible top layer that can
+self-heal light surface marks when exposed to heat such as sunlight
+or warm water.
+
+This means small swirl marks or light scratches can disappear over
+time, helping the film maintain a cleaner appearance.
+
+However, deeper scratches or sharp impacts will not disappear,
+because the film still absorbs real damage to protect the paint.
+
+Hook:
+If you'd like, I can also show a short example of how the self-healing
+effect works on the surface.
+

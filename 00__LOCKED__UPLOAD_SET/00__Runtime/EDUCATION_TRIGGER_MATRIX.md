@@ -35,3 +35,29 @@ EDU_FILM_QUALITY_FACTORS → customer compares film brands
 EDU_INSTALLATION_COMPLEXITY → customer asks about installation process
 EDU_PAINT_CONDITION_IMPACT → vehicle paint condition affects service
 
+
+
+------------------------------------------------------------
+EDU_PPF_SELF_HEAL
+------------------------------------------------------------
+
+Triggers:
+- "self heal"
+- "self healing"
+- "does ppf heal"
+- "does ppf self heal"
+- "scratch disappear"
+
+Intent:
+Explain the self-healing behavior of modern paint protection film.
+
+Phase:
+Phase7 Education
+
+Linked Visual (optional Phase8):
+VIDEO_PROOF_PPF_SELF_HEAL
+
+Notes:
+Used when customers question whether PPF can repair light scratches.
+
+
