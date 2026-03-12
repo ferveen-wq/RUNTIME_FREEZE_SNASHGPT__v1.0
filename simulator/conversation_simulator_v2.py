@@ -38,6 +38,15 @@ conversations = [
         "PPF vs ceramic vs tint what is best?",
         "Which one protects the paint?",
         "Which one lasts longer?"
+    ],
+
+    [
+        "hi",
+        "price?",
+        "2023 patrol",
+        "ppf good?",
+        "xpel better?",
+        "how much?"
     ]
 
 ]
