@@ -1117,3 +1117,59 @@ IF (constraints includes offscope_non_automotive=true):
   - Ask: 0 questions (phrase contains none)
   - STOP
 
+
+############################################
+# PHASE 8 — VISUAL ATTACHMENT ROUTING
+############################################
+
+Purpose:
+Allows Phase 7 education snippets to optionally attach a visual proof asset.
+
+Visual attachments must follow the delivery constraints defined in:
+PHASE8_VISUAL_INTELLIGENCE_MAP.md
+
+RULES:
+
+1. Visuals are optional.
+2. Maximum: 1 visual per response segment.
+3. Visual must follow the explanation sentence.
+4. Visual must precede the follow-up question.
+
+ASSEMBLY ORDER:
+
+EXPLANATION_SENTENCE
+→ OPTIONAL_EDUCATION_SNIPPET (Phase 7)
+→ OPTIONAL_VISUAL_ATTACHMENT (Phase 8)
+→ FOLLOW_UP_QUESTION
+
+VISUAL TRIGGER SOURCE:
+
+Education trigger matrix may reference a visual asset.
+
+Example mapping:
+
+EDU_PPF_PROTECTION
+→ VIDEO_PROOF_PPF_SELF_HEAL
+
+EDU_CERAMIC_LIMITATIONS
+→ VIDEO_PROOF_CERAMIC_HYDROPHOBIC
+
+EDU_TINT_HEAT_REJECTION
+→ VIDEO_PROOF_TINT_HEAT_REJECTION
+
+DELIVERY FORMAT:
+
+1 short explanation sentence  
+1 visual asset (optional)  
+1 follow-up question  
+
+Example output:
+
+"Many high-quality PPF films can recover from light scratches with heat."
+
+[VIDEO_PROOF_PPF_SELF_HEAL]
+
+"Which car model are you planning to protect?"
+
+END VISUAL ATTACHMENT RULES
+
