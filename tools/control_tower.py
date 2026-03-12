@@ -23,9 +23,14 @@ elif mode == "--commit":
 
 elif mode == "--audit":
     print("Running full architecture audit...\n")
+
     run("python tools/audit/runtime_architecture_map.py")
     run("python tools/audit/dev_tools_inventory.py")
     run("python tools/audit/architecture_graph.py")
+
+    # Phase 7 architecture verification
+    run("python tools/audit/phase7_wiring_check.py")
+
     run("python tools/runtime_dependency_guard.py")
     run("python tools/file_authority_guard.py")
     run("python runtime_guard/test_phase_drift.py")
@@ -35,7 +40,7 @@ elif mode == "--ci":
     run("python tools/runtime_dependency_guard.py")
     run("python tools/file_authority_guard.py")
 
-# --- IDEA GOVERNANCE CHECK ---------------------------------
+# ---- IDEA GOVERNANCE CHECK --------------------------------------------------
 
 BACKLOG = "00__CONTROL_TOWER/IDEA_BACKLOG.md"
 
@@ -49,12 +54,14 @@ if os.path.exists(BACKLOG):
         print("Capture architecture ideas using:")
         print('python tools/capture_idea.py "Idea description"')
 
-# --- PHASE ARCHITECTURE REGISTRY CHECK -------------------------
+
+# ---- PHASE ARCHITECTURE REGISTRY CHECK -------------------------------------
 
 PHASE_REGISTRY = "00__CONTROL_TOWER/SNASH_PHASE_REGISTRY.md"
 
 
 def check_phase_registry():
+
     if not os.path.exists(PHASE_REGISTRY):
         print("⚠ Phase registry missing.")
         return
@@ -77,9 +84,9 @@ def check_phase_registry():
     missing = [p for p in required_phases if p not in registry]
 
     if missing:
-        print("⚠ Phase registry incomplete:")
+        print("\n⚠ Phase registry incomplete:")
         for m in missing:
-            print(" -", m)
+            print("-", m)
     else:
         print("Phase architecture registry verified.")
 
