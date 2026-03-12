@@ -326,3 +326,15 @@ This file does NOT duplicate system-control fields to avoid drift.
 ---
 
 ## END OF FILE
+############################################
+# CONVERSATION PROGRESS TRACKING
+############################################
+
+# Highest phase reached in the current conversation.
+# Prevents phase regression when customers ask follow-up questions.
+# Example: if conversation reached Phase5 and customer asks an
+# educational question, the system should answer with Phase7 snippet
+# and return to Phase5 rather than restarting Phase3/4 routing.
+
+conversation_phase_max: None
+
