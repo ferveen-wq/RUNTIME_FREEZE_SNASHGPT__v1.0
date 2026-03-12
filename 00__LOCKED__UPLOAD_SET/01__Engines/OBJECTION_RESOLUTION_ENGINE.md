@@ -384,3 +384,50 @@ LOCK_SCOPE:
 - No pricing, tone, phrasing, or silence logic permitted here
 
 ---
+
+------------------------------------------------------------
+PHASE 9 — PERSUASION TIMING GUARD
+------------------------------------------------------------
+
+Purpose:
+Prevent persuasion from triggering before the customer
+has received sufficient education or expressed comparison intent.
+
+Persuasion (Phase 9) may only activate if at least one
+of the following conditions is true:
+
+1. Customer comparison intent detected
+   Example signals:
+   - "better"
+   - "vs"
+   - "difference"
+   - "which brand"
+
+2. Customer objection detected
+   Example signals:
+   - "cheaper"
+   - "expensive"
+   - "why should I choose"
+
+3. Education phase already executed
+   If Phase7 education has been delivered earlier
+   in the conversation.
+
+Guard rule:
+
+IF Phase9_trigger == TRUE
+AND (
+    comparison_intent == TRUE
+    OR objection_detected == TRUE
+    OR previous_phase == Phase7
+)
+
+THEN allow Phase9 persuasion
+
+ELSE
+defer persuasion and continue education or qualification.
+
+Governance rule:
+This guard controls activation timing only.
+It does not modify phrase content or persuasion logic.
+
