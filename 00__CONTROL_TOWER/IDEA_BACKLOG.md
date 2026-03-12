@@ -329,3 +329,6 @@ Restructure SNASHGPT database schema into customers, conversations, and messages
 
 ### 2026-03-12 03:53
 Assistant Dashboard interface (Phase 8.1 prototype implemented — UI connected to database, conversation viewer and runtime integration pending)
+
+### 2026-03-12 03:57
+Future visual recognition engine: analyze customer photos to detect paint defects and trigger runtime recommendations
