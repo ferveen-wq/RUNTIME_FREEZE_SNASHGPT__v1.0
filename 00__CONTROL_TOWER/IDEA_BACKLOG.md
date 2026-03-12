@@ -323,3 +323,6 @@ Add runtime architecture drift detection
 
 ### 2026-03-12 03:32
 Design SNASHGPT conversation interface architecture (assistant UI + runtime + database integration)
+
+### 2026-03-12 03:48
+Restructure SNASHGPT database schema into customers, conversations, and messages tables for scalable conversation history and analytics
