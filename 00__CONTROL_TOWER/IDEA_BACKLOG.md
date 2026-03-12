@@ -332,3 +332,6 @@ Assistant Dashboard interface (Phase 8.1 prototype implemented — UI connected 
 
 ### 2026-03-12 03:57
 Future visual recognition engine: analyze customer photos to detect paint defects and trigger runtime recommendations
+
+### 2026-03-12 03:57
+Assistant-assisted visual review workflow: assistant tags customer photo conditions (scratches, swirl marks, matte paint) to assist runtime decision logic
