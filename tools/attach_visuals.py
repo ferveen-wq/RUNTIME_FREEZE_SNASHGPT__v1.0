@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from phrase_resolver import resolve_phrase
 from video_followup_selector import select_video_followup
 from visual_education_engine import find_visual
 
@@ -31,6 +32,7 @@ def attach_visual(
             "message": message,
             "video": None,
             "followup": followup,
+            "followup_text": None,
         }
 
     visual = find_visual(
@@ -41,11 +43,16 @@ def attach_visual(
         category=category,
     )
 
+    followup_text = None
+    if followup["next_question_source"] == "phase3a" and followup["next_question_id"]:
+        followup_text = resolve_phrase(followup["next_question_id"], language or "EN")
+
     if not visual:
         return {
             "message": message,
             "video": None,
             "followup": followup,
+            "followup_text": followup_text,
         }
 
     visual_block = f"""
@@ -55,10 +62,15 @@ Visual:
 {visual['link']}
 """
 
+    final_message = message + visual_block
+    if followup_text:
+        final_message += f"\n{followup_text}"
+
     return {
-        "message": message + visual_block,
+        "message": final_message,
         "video": visual,
         "followup": followup,
+        "followup_text": followup_text,
     }
 
 
