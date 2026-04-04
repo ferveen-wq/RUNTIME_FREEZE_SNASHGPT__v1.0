@@ -415,3 +415,15 @@ Files: MULTIPLE
 Changed: TODO
 Why: TODO
 UAT: governance pipeline validation
+
+- Date: 2026-04-04
+- Files:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/SNASHGPT_MASTER_GOVERNANCE.md
+- Changed:
+  - Added a Working Session Enforcement Mode section for future re-anchoring.
+  - Kept the guidance in an existing non-runtime governance file to avoid duplicate-purpose file creation.
+  - Clarified session discipline around file minimization, phase safety, implementation method, and validation awareness.
+- Why:
+  - Reduce chat-session drift without changing runtime logic or creating a new governance file.
+- UAT:
+  - No runtime behavior changes; governance-only reference update.

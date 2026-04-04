@@ -494,3 +494,55 @@ Constraints:
 
 Status:
 Design Approved — Implementation Pending
+
+## Working Session Enforcement Mode
+
+Purpose:
+- Re-anchor future working sessions quickly without changing runtime behavior.
+- Keep discussion discipline aligned with repo governance.
+- Reduce drift without creating duplicate governance files.
+
+Scope:
+- Human governance only.
+- Not wired to runtime.
+- Does not override:
+  - PATCH_PROTOCOL.md
+  - RUNTIME_CHANGE_LEDGER.md
+  - AUTHORITY_INDEX.md
+  - RUNTIME_LOAD_MANIFEST.md
+  - SNASH_PHASE_REGISTRY.md
+
+Session rules:
+- Prefer existing files over new files.
+- Do not create duplicate-purpose documents.
+- Classify work first:
+  - runtime
+  - control tower
+  - backlog
+  - draft
+  - governance
+- Use the smallest safe patch possible.
+- Do not rely on chat memory alone for sequencing.
+- Keep runtime files minimal.
+- Treat video sheets as draft until intentionally promoted.
+
+Phase safety:
+- Phase7 = education
+- Phase8 = visual support
+- Phase9 = trust / testimonial / credibility
+- Phase5 = decision support
+
+Implementation method:
+- Small exact edit = terminal patch / cat / here-doc
+- Structured repeated update = python
+- Larger risky multi-file edit = assisted patch
+- Do not choose manual editing if a safer structured method exists.
+
+Validation discipline:
+- Choose validation based on changed file scope.
+- Governance-only edits should be reviewed before commit.
+- Runtime-sensitive edits must follow normal lint / pre-commit / UAT discipline.
+
+End note:
+- This section is a working-session reminder only.
+- It exists to reduce drift and speed re-anchoring in future sessions.
