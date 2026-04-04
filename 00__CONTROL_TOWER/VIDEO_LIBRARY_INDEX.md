@@ -1,170 +1,1145 @@
-SNASHGPT VIDEO LIBRARY INDEX
-============================
+# VIDEO LIBRARY INDEX
 
-Purpose
--------
+Purpose:
+- Central registry of all approved visual assets
+- Control Tower layer only (non-runtime)
+- Supports Phase7 (education), Phase8 (visual), Phase9 (trust), Phase5 (decision)
 
-This document lists all videos that can be used
-by the Visual Routing Engine during conversations.
-
-
-
-VIDEO STRUCTURE
----------------
-
-Each video entry should contain:
-
-Video ID
-Service
-Trigger Condition
-Conversation Phase
-Language
-Notes
-
-
-
-VIDEO REGISTRY
---------------
-
-
+---
 
 VIDEO 001
 ---------
 
-Video ID:
-PPF_SELF_HEALING_DEMO
+VIDEO_ID:
+VID_001
 
-Service:
+VIDEO_NAME:
+PPF__PROOF__EN__SELF_HEAL__v1
+
+SERVICE:
 PPF
 
-Trigger Condition:
-Customer asks about self healing
-or scratch healing capability
+PRIMARY_TRIGGER:
+PPF_SELF_HEAL_QUESTION
 
-Conversation Phase:
-Phase4
+PHASE_DEFAULT:
+Phase7
 
-Language:
-EN / AR
+SECONDARY_PHASE:
+Phase8
 
-Notes:
-Shows scratch disappearing when heat is applied.
+CATEGORY:
+PROOF
 
+LANGUAGE:
+EN
 
+LINK:
+https://youtube.com/shorts/2RCywqarMxI?feature=share
+
+STATUS:
+APPROVED
+
+NOTES:
+Self-healing proof demonstration.
+
+---
 
 VIDEO 002
 ---------
 
-Video ID:
-PPF_INSTALLATION_PROCESS
+VIDEO_ID:
+VID_002
 
-Service:
+VIDEO_NAME:
+PPF__PROOF__EN__STONE_CHIP__NONE__v1
+
+SERVICE:
 PPF
 
-Trigger Condition:
-Customer asks about installation quality
-or how PPF is installed.
+PRIMARY_TRIGGER:
+PPF_PROTECTION_STRENGTH_QUESTION
 
-Conversation Phase:
-Phase4
+PHASE_DEFAULT:
+Phase7
 
-Language:
-EN / AR
+SECONDARY_PHASE:
+Phase8
 
-Notes:
-Shows surface preparation and film installation.
+CATEGORY:
+PROOF
 
+LANGUAGE:
+EN
 
+LINK:
+https://youtube.com/shorts/l-iRfdr2R-A
+
+STATUS:
+APPROVED
+
+NOTES:
+Stone chip resistance proof.
+
+---
 
 VIDEO 003
 ---------
 
-Video ID:
-PPF_STONE_CHIP_PROTECTION_TEST
+VIDEO_ID:
+VID_003
 
-Service:
-PPF
+VIDEO_NAME:
+MULTI__EDUCATION__EN__PPF_VS_CERAMIC__NONE__v1
 
-Trigger Condition:
-Customer asks about protection strength
-or stone chip protection.
+SERVICE:
+MULTI
 
-Conversation Phase:
-Phase4
+PRIMARY_TRIGGER:
+PPF_VS_CERAMIC_CONFUSION
 
-Language:
-EN / AR
+PHASE_DEFAULT:
+Phase7
 
-Notes:
-Demonstrates impact resistance.
+SECONDARY_PHASE:
+Phase8
 
+CATEGORY:
+COMPARISON
 
+LANGUAGE:
+EN
+
+LINK:
+https://youtube.com/shorts/EIWx8oRrsvo
+
+STATUS:
+APPROVED
+
+NOTES:
+Comparison between PPF and ceramic.
+
+---
 
 VIDEO 004
 ---------
 
-Video ID:
-CERAMIC_COATING_PROCESS
+VIDEO_ID:
+VID_004
 
-Service:
-Ceramic Coating
+VIDEO_NAME:
+PPF__PROCESS__AR__INSTALLATION__v1
 
-Trigger Condition:
-Customer asks how ceramic coating works.
+SERVICE:
+PPF
 
-Conversation Phase:
-Phase4
+PRIMARY_TRIGGER:
+PPF_INSTALLATION_QUALITY_QUESTION
 
-Language:
-EN / AR
+PHASE_DEFAULT:
+Phase8
 
-Notes:
-Explains coating process and curing.
+SECONDARY_PHASE:
+Phase9
 
+CATEGORY:
+PROCESS
 
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/0pspfYY6UsA
+
+STATUS:
+APPROVED
+
+NOTES:
+Installation quality process explanation.
+
+---
 
 VIDEO 005
 ---------
 
-Video ID:
-PPF_VS_CERAMIC_DIFFERENCE
+VIDEO_ID:
+VID_005
 
-Service:
-Education
+VIDEO_NAME:
+PPF__TRUST__AR__XPEL_CREDIBILITY__v1
 
-Trigger Condition:
-Customer asks difference between
-PPF and ceramic coating.
+SERVICE:
+PPF
 
-Conversation Phase:
-Phase4
+PRIMARY_TRIGGER:
+PPF_BRAND_QUALITY_QUESTION
 
-Language:
-EN / AR
+PHASE_DEFAULT:
+Phase9
 
-Notes:
-Explains protection vs gloss function.
+SECONDARY_PHASE:
 
+CATEGORY:
+TRUST
 
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/Dll_nK_AlAk
+
+STATUS:
+APPROVED
+
+NOTES:
+Brand credibility reinforcement.
+
+---
 
 VIDEO 006
 ---------
 
-Video ID:
-CUSTOMER_TESTIMONIAL
+VIDEO_ID:
+VID_006
 
-Service:
-Multiple
+VIDEO_NAME:
+GENERAL__TRUST__AR__GLOBAL_BRAND__NONE__v1
 
-Trigger Condition:
-Customer evaluating trust
-or asking about experience.
+SERVICE:
+PPF
 
-Conversation Phase:
+PRIMARY_TRIGGER:
+PPF_DEFAULT_BRAND_TRUST
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+
+CATEGORY:
+TRUST
+
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/ihcvBTj3U1A
+
+STATUS:
+APPROVED
+
+NOTES:
+General brand trust fallback.
+
+---
+
+VIDEO 007
+---------
+
+VIDEO_ID:
+VID_007
+
+VIDEO_NAME:
+PPF__EDUCATION__AR__PAINT_DAMAGE__NONE__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PAINT_DAMAGE_CONCERN
+
+PHASE_DEFAULT:
+Phase7
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+EDUCATION
+
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/SikiKu07Ijw
+
+STATUS:
+APPROVED
+
+NOTES:
+Paint damage awareness.
+
+---
+
+VIDEO 008
+---------
+
+VIDEO_ID:
+VID_008
+
+VIDEO_NAME:
+CERAMIC__PROCESS__AR__INSTALLATION__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_PROCESS_VALUE_QUESTION
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+PROCESS
+
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/dyCWzg2ih6w
+
+STATUS:
+APPROVED
+
+NOTES:
+Ceramic installation process.
+
+---
+
+VIDEO 009
+---------
+
+VIDEO_ID:
+VID_009
+
+VIDEO_NAME:
+POLISH__PROCESS__AR__CHEMICAL_PROCESS__NONE__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_PRICE_JUSTIFICATION
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+PROCESS
+
+LANGUAGE:
+AR
+
+LINK:
+https://youtube.com/shorts/dE253SHSrxI
+
+STATUS:
+APPROVED
+
+NOTES:
+Polishing chemical process explanation.
+
+---
+
+VIDEO 010
+---------
+
+VIDEO_ID:
+VID_010
+
+VIDEO_NAME:
+POLISH__EDUCATION__EN__PAINT_CORRECTION__NONE__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+PAINT_DAMAGE_AWARENESS
+
+PHASE_DEFAULT:
+Phase7
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+EDUCATION
+
+LANGUAGE:
+EN
+
+LINK:
+https://youtube.com/shorts/gCemNl_bCGY
+
+STATUS:
+APPROVED
+
+NOTES:
+Paint correction explanation.
+
+---
+
+VIDEO 011
+---------
+
+VIDEO_ID:
+VID_011
+
+VIDEO_NAME:
+MULTI__EDUCATION__EN__PROTECTION_OPTIONS__NONE__v1
+
+SERVICE:
+MULTI
+
+PRIMARY_TRIGGER:
+CUSTOMER_UNSURE_PROTECTION
+
+PHASE_DEFAULT:
+Phase7
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+EDUCATION
+
+LANGUAGE:
+EN
+
+LINK:
+https://youtube.com/shorts/S99V29r_0xA
+
+STATUS:
+APPROVED
+
+NOTES:
+Protection options overview.
+
+---
+
+VIDEO 012
+---------
+
+VIDEO_ID:
+VID_012
+
+VIDEO_NAME:
+PPF__DECISION__EN__HOW_TO_CHOOSE__NONE__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_DECISION_CONFUSION
+
+PHASE_DEFAULT:
 Phase5
 
-Language:
-EN / AR
+SECONDARY_PHASE:
+Phase9
 
-Notes:
-Customer speaking about their experience.
+CATEGORY:
+DECISION
+
+LANGUAGE:
+EN
+
+LINK:
+https://youtube.com/shorts/_xtDv8iVeJI
+
+STATUS:
+APPROVED
+
+NOTES:
+Decision support for choosing PPF correctly.
+
+---
+
+VIDEO 013
+---------
+
+VIDEO_ID:
+VID_013
+
+VIDEO_NAME:
+POLISH__TESTIMONIAL__AR__CUSTOMER_FEEDBACK__MAZDA_GRAY_OLD__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_TRUST_VALIDATION
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+AR
+
+LINK:
+https://www.instagram.com/reels/DHtAZTWBn_Y/
+
+STATUS:
+APPROVED
+
+NOTES:
+Arabic customer feedback for polishing.
+
+---
+
+VIDEO 014
+---------
+
+VIDEO_ID:
+VID_014
+
+VIDEO_NAME:
+POLISH__TESTIMONIAL__EN__CUSTOMER_FEEDBACK__JEEP_WRANGLER_GRAY_SUV__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_TRUST_VALIDATION
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/ChrzjBdpDtO/
+
+STATUS:
+APPROVED
+
+NOTES:
+English customer feedback for polishing.
+
+---
+
+VIDEO 015
+---------
+
+VIDEO_ID:
+VID_015
+
+VIDEO_NAME:
+POLISH__RESULT__EN__GLOSS_SHOWCASE__GTR_RED_SPORTS__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DHveLEOh7hg/
+
+STATUS:
+APPROVED
+
+NOTES:
+Gloss showcase result video.
+
+---
+
+VIDEO 016
+---------
+
+VIDEO_ID:
+VID_016
+
+VIDEO_NAME:
+POLISH__RESULT__EN__BEFORE_AFTER_EXPLAINED__BMW_440I_BLACK_LUXURY__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_RESULT_EXPLANATION
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/C1uUqKTphPH/
+
+STATUS:
+APPROVED
+
+NOTES:
+Before and after result with explanation.
+
+---
+
+VIDEO 017
+---------
+
+VIDEO_ID:
+VID_017
+
+VIDEO_NAME:
+POLISH__RESULT__EN__BEFORE_AFTER__BLACK_UNKNOWN__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/C35Q6_wpc7E/
+
+STATUS:
+APPROVED
+
+NOTES:
+Before and after visual proof.
+
+---
+
+VIDEO 018
+---------
+
+VIDEO_ID:
+VID_018
+
+VIDEO_NAME:
+POLISH__RESULT__EN__BEFORE_AFTER__SIENNA_BLACK_FAMILY__v1
+
+SERVICE:
+POLISHING
+
+PRIMARY_TRIGGER:
+POLISH_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/DJ1koApJUS3/
+
+STATUS:
+APPROVED
+
+NOTES:
+Before and after family car result.
+
+---
+
+VIDEO 019
+---------
+
+VIDEO_ID:
+VID_019
+
+VIDEO_NAME:
+CERAMIC__TESTIMONIAL__AR__CUSTOMER_EXPERIENCE__LEXUS_LS600HL_BEIGE_LUXURY__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+AR
+
+LINK:
+https://www.instagram.com/reels/DHgVNJZB1R8/
+
+STATUS:
+APPROVED
+
+NOTES:
+Arabic customer experience with strong result emphasis.
+
+---
+
+VIDEO 020
+---------
+
+VIDEO_ID:
+VID_020
+
+VIDEO_NAME:
+CERAMIC__TESTIMONIAL__EN__CUSTOMER_EXPERIENCE__PORSCHE_WHITE_SPORTS__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_TRUST_VALIDATION
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DJ9UJWPBPmf/
+
+STATUS:
+APPROVED
+
+NOTES:
+English customer experience for ceramic.
+
+---
+
+VIDEO 021
+---------
+
+VIDEO_ID:
+VID_021
+
+VIDEO_NAME:
+CERAMIC__RESULT__EN__PAINT_CORRECTION_BEFORE_AFTER__LEXUS_LS430_BLACK_LUXURY__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_PAINT_DEFECT_CONCERN
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/C_InIavSumh/
+
+STATUS:
+APPROVED
+
+NOTES:
+Before and after ceramic-related finish improvement.
+
+---
+
+VIDEO 022
+---------
+
+VIDEO_ID:
+VID_022
+
+VIDEO_NAME:
+CERAMIC__PROCESS__EN__CORRECTION_TO_FINISH__DURANGO_RED_SUV__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_PROCESS_VALUE_QUESTION
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/DL9VhiNJ6_K/
+
+STATUS:
+APPROVED
+
+NOTES:
+Correction-to-finish result-focused ceramic asset.
+
+---
+
+VIDEO 023
+---------
+
+VIDEO_ID:
+VID_023
+
+VIDEO_NAME:
+CERAMIC__RESULT__EN__GLOSS_SHOWCASE__CLASSIC_TRUCK_WHITE_VINTAGE__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/CTwFicdJ0UU/
+
+STATUS:
+APPROVED
+
+NOTES:
+Vintage gloss showcase.
+
+---
+
+VIDEO 024
+---------
+
+VIDEO_ID:
+VID_024
+
+VIDEO_NAME:
+CERAMIC__RESULT__EN__GLOSS_SHOWCASE__JETOUR_T2_GRAY_SUV__v1
+
+SERVICE:
+CERAMIC
+
+PRIMARY_TRIGGER:
+CERAMIC_RESULT_VISUAL_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/p/DAYfdSmyxNc/
+
+STATUS:
+APPROVED
+
+NOTES:
+Modern SUV gloss showcase.
+
+---
+
+VIDEO 025
+---------
+
+VIDEO_ID:
+VID_025
+
+VIDEO_NAME:
+PPF__TESTIMONIAL__AR__CUSTOMER_EXPERIENCE_INSTALL__PATROL_WHITE_SUV__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_TRUST_AND_INSTALL_CONFIDENCE
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+AR
+
+LINK:
+https://www.instagram.com/reels/DKNDgsiB26N/
+
+STATUS:
+APPROVED
+
+NOTES:
+Arabic testimonial with installation confidence.
+
+---
+
+VIDEO 026
+---------
+
+VIDEO_ID:
+VID_026
+
+VIDEO_NAME:
+PPF__TESTIMONIAL__EN__CUSTOMER_EXPERIENCE__MUSTANG_BLACK_SPORTS__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_TRUST_CUSTOMER_VALIDATION
+
+PHASE_DEFAULT:
+Phase9
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+TESTIMONIAL
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DNh8vZEsktY/
+
+STATUS:
+APPROVED
+
+NOTES:
+English testimonial for trust validation.
+
+---
+
+VIDEO 027
+---------
+
+VIDEO_ID:
+VID_027
+
+VIDEO_NAME:
+PPF__SHOWCASE__EN__INSTALL_TO_RESULT__URUS_BLUE_LUXURY_SUV__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_VISUAL_DESIRE_TRIGGER
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DM7Lxx6p3-O/
+
+STATUS:
+APPROVED
+
+NOTES:
+Install-to-result premium showcase.
+
+---
+
+VIDEO 028
+---------
+
+VIDEO_ID:
+VID_028
+
+VIDEO_NAME:
+PPF__SHOWCASE__EN__TRANSFORMATION_TO_RESULT__YELLOW_SPORTS__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_TRANSFORMATION_PROOF
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DMCu5hOsE0I/
+
+STATUS:
+APPROVED
+
+NOTES:
+Transformation-driven result showcase.
+
+---
+
+VIDEO 029
+---------
+
+VIDEO_ID:
+VID_029
+
+VIDEO_NAME:
+PPF__RESULT__EN__GLOSS_SHOWCASE__JAGUAR_BLUE_LUXURY_SUV__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_FINAL_LOOK_VISUALIZATION
+
+PHASE_DEFAULT:
+Phase8
+
+SECONDARY_PHASE:
+Phase9
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DN2W39YQkE_/
+
+STATUS:
+APPROVED
+
+NOTES:
+Final-look gloss showcase.
+
+---
+
+VIDEO 030
+---------
+
+VIDEO_ID:
+VID_030
+
+VIDEO_NAME:
+PPF__SHOWCASE__EN__RESULT_WITH_OPTIONS__CORVETTE_YELLOW_SPORTS__v1
+
+SERVICE:
+PPF
+
+PRIMARY_TRIGGER:
+PPF_PACKAGE_DECISION_SUPPORT
+
+PHASE_DEFAULT:
+Phase5
+
+SECONDARY_PHASE:
+Phase8
+
+CATEGORY:
+RESULT
+
+LANGUAGE:
+EN
+
+LINK:
+https://www.instagram.com/reels/DPYk34hDOXP/
+
+STATUS:
+APPROVED
+
+NOTES:
+Decision-stage result showcase with options context.
+
