@@ -1143,3 +1143,192 @@ APPROVED
 NOTES:
 Decision-stage result showcase with options context.
 
+
+---
+
+# VIDEO SELECTION RULES
+
+Purpose:
+- Define how approved videos should be selected from this registry.
+- Keep visual-selection policy structured before runtime integration.
+- Prevent drift between draft inventory and future visual routing logic.
+
+Scope:
+- Control Tower guidance only.
+- Not runtime-wired.
+- Does not override runtime authority files.
+- Does not attach videos by itself.
+
+## 1. Core Selection Principle
+
+The system should not select videos only because a video exists.
+
+A video should be selected only when:
+- a known trigger is present,
+- the current phase allows visual support,
+- the service matches,
+- and the category supports the conversation goal.
+
+Selection flow:
+
+TRIGGER
+-> PHASE GATE
+-> SERVICE FILTER
+-> CATEGORY PREFERENCE
+-> BEST MATCH
+
+## 2. Trigger Gate
+
+A video should only be considered when a defined PRIMARY_TRIGGER is present.
+
+Examples:
+- PPF_SELF_HEAL_QUESTION
+- PPF_VS_CERAMIC_CONFUSION
+- PPF_BRAND_QUALITY_QUESTION
+- CERAMIC_TRUST_VALIDATION
+- POLISH_RESULT_VISUAL_PROOF
+
+If no valid trigger is active:
+- no video should be selected from this index.
+
+## 3. Phase Gate
+
+Video selection must respect conversation phase.
+
+### Phase7
+Purpose:
+- education
+- proof
+- awareness
+- comparison clarification
+
+Preferred categories:
+- PROOF
+- EDUCATION
+- COMPARISON
+
+### Phase8
+Purpose:
+- visual reinforcement
+- process transparency
+- result demonstration
+
+Preferred categories:
+- PROCESS
+- RESULT
+
+### Phase9
+Purpose:
+- trust building
+- testimonial support
+- credibility reinforcement
+
+Preferred categories:
+- TESTIMONIAL
+- TRUST
+
+### Phase5
+Purpose:
+- decision support near conversion
+
+Preferred categories:
+- DECISION
+- RESULT (only when decision support is strengthened by visual proof)
+
+## 4. Service Filter
+
+Selection priority must be:
+
+1. Exact SERVICE match
+2. MULTI fallback if exact service match is not available
+
+Examples:
+- PPF request -> prefer PPF
+- Ceramic request -> prefer CERAMIC
+- Protection confusion -> MULTI allowed
+
+## 5. Category Preference Rule
+
+When multiple videos match the same trigger, phase decides category priority.
+
+Preferred category order:
+
+- Phase7:
+  - PROOF
+  - EDUCATION
+  - COMPARISON
+
+- Phase8:
+  - PROCESS
+  - RESULT
+
+- Phase9:
+  - TESTIMONIAL
+  - TRUST
+
+- Phase5:
+  - DECISION
+  - RESULT
+
+## 6. Secondary Phase Rule
+
+SECONDARY_PHASE is a fallback support layer.
+
+Use:
+- when the conversation moves naturally into the adjacent phase,
+- or when the same video remains relevant after the primary use case.
+
+Do not use SECONDARY_PHASE to force a video early.
+
+## 7. Auto-Attach Safety Rule
+
+A video must not be attached automatically in every matching case.
+
+Automatic visual support should be avoided when:
+- qualification is incomplete,
+- the user asked only for basic pricing,
+- silence recovery is active,
+- a clarifier is still pending,
+- the conversation is overloaded,
+- the same video was already shown recently.
+
+## 8. Visual Repetition Rule
+
+This index assumes future visual memory support.
+
+Target future rule:
+- do not show the same video repeatedly in the same conversation,
+- prefer progressive proof instead of repetition.
+
+This rule is a design requirement and not yet runtime-enforced by this file.
+
+## 9. Runtime Boundary
+
+This file may define:
+- approved inventory
+- trigger support
+- phase support
+- category preference guidance
+
+This file must not define:
+- runtime state transitions
+- phrase text
+- message assembly logic
+- customer-facing copy
+- pricing behavior
+- silence handling behavior
+
+## 10. Implementation Direction
+
+Future tooling may read this registry and return one best-match video candidate using:
+
+- PRIMARY_TRIGGER
+- PHASE_DEFAULT
+- SECONDARY_PHASE
+- SERVICE
+- CATEGORY
+- LANGUAGE
+- LINK
+
+This file remains the approved source inventory for that tooling.
+
