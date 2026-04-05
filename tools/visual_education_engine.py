@@ -141,7 +141,7 @@ def find_visual(
         language=language,
         category=category,
     )
-    return select_best_visual(candidates)
+    return select_best_visual(candidates, conversation_phase=phase)
 
 
 if __name__ == "__main__":
