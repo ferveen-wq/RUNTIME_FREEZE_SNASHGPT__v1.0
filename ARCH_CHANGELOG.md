@@ -416,14 +416,15 @@ Changed: TODO
 Why: TODO
 UAT: governance pipeline validation
 
-- Date: 2026-04-04
+- Date: 2026-04-05
 - Files:
-  - 00__LOCKED__UPLOAD_SET/00__Runtime/SNASHGPT_MASTER_GOVERNANCE.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VISUAL_INTELLIGENCE_MAP.md
 - Changed:
-  - Added a Working Session Enforcement Mode section for future re-anchoring.
-  - Kept the guidance in an existing non-runtime governance file to avoid duplicate-purpose file creation.
-  - Clarified session discipline around file minimization, phase safety, implementation method, and validation awareness.
+  - Added deferred visual release rules.
+  - Added visual memory / no-repeat rules.
+  - Added phase-based visual priority rules.
+  - Added service vs MULTI resolution rules.
 - Why:
-  - Reduce chat-session drift without changing runtime logic or creating a new governance file.
+  - Promote validated visual tool-layer logic into Phase 8 runtime authority without changing qualification, silence, or pricing engines.
 - UAT:
-  - No runtime behavior changes; governance-only reference update.
+  - governance pipeline commit test (pre-commit hooks passed)
