@@ -4,6 +4,7 @@ from deferred_video_manager import manage_deferred_video
 from phrase_resolver import resolve_phrase
 from video_followup_selector import select_video_followup
 from visual_education_engine import find_visual
+from visual_memory import update_visual_memory
 
 
 def attach_visual(
@@ -22,6 +23,7 @@ def attach_visual(
     silence_active: bool = False,
     silence_suppressed: bool = False,
     existing_deferred_trigger: str | None = None,
+    visuals_already_shown: list[str] | None = None,
     language: str | None = None,
     category: str | None = None,
 ) -> dict:
@@ -45,7 +47,6 @@ def attach_visual(
     if deferred["release_now"]:
         trigger_to_use = deferred["deferred_trigger"]
         force_video_display = True
-
     elif deferred["store_deferred"]:
         return {
             "message": message,
@@ -53,8 +54,10 @@ def attach_visual(
             "followup": None,
             "followup_text": None,
             "deferred_state": deferred,
+            "visual_memory": update_visual_memory(
+                None, visuals_already_shown
+            ),
         }
-
     else:
         trigger_to_use = primary_trigger
 
@@ -87,6 +90,21 @@ def attach_visual(
             followup["next_question_id"], language or "EN"
         )
 
+    current_video_id = visual["video_id"] if visual else None
+    visual_memory = update_visual_memory(
+        current_video_id, visuals_already_shown
+    )
+
+    if visual_memory["video_already_shown"]:
+        return {
+            "message": message,
+            "video": None,
+            "followup": followup,
+            "followup_text": followup_text,
+            "deferred_state": deferred,
+            "visual_memory": visual_memory,
+        }
+
     if not visual:
         return {
             "message": message,
@@ -94,9 +112,11 @@ def attach_visual(
             "followup": followup,
             "followup_text": followup_text,
             "deferred_state": deferred,
+            "visual_memory": visual_memory,
         }
 
     visual_block = f"""
+
 Visual:
 {visual['video_name']}
 {visual['link']}
@@ -113,11 +133,12 @@ Visual:
         "followup": followup,
         "followup_text": followup_text,
         "deferred_state": deferred,
+        "visual_memory": visual_memory,
     }
 
 
 if __name__ == "__main__":
-    result = attach_visual(
+    state_1 = attach_visual(
         message="PPF can self-heal light scratches with heat.",
         service="PPF",
         conversation_phase="Phase4",
@@ -125,5 +146,18 @@ if __name__ == "__main__":
         topic_previously_discussed=True,
         comparison_intent=True,
         language="EN",
+        visuals_already_shown=[],
     )
-    print(result)
+    print(state_1)
+
+    state_2 = attach_visual(
+        message="PPF can self-heal light scratches with heat.",
+        service="PPF",
+        conversation_phase="Phase4",
+        primary_trigger="PPF_SELF_HEAL_QUESTION",
+        topic_previously_discussed=True,
+        comparison_intent=True,
+        language="EN",
+        visuals_already_shown=state_1["visual_memory"]["visuals_already_shown"],
+    )
+    print(state_2)
