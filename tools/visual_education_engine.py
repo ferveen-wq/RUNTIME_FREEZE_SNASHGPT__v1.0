@@ -3,6 +3,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from visual_selector import select_best_visual
+
 VIDEO_INDEX_PATH = Path("00__CONTROL_TOWER/VIDEO_LIBRARY_INDEX.md")
 
 
@@ -12,10 +14,10 @@ def _norm(value: str) -> str:
 
 def _extract_field(block: str, field: str) -> str:
     pattern = rf"^{re.escape(field)}:\s*\n(.+?)(?:\n\s*\n|\n[A-Z_ ]+:\s*\n|\Z)"
-    m = re.search(pattern, block, flags=re.MULTILINE | re.DOTALL)
-    if not m:
+    match = re.search(pattern, block, flags=re.MULTILINE | re.DOTALL)
+    if not match:
         return ""
-    return m.group(1).strip()
+    return match.group(1).strip()
 
 
 def _parse_video_index(path: Path = VIDEO_INDEX_PATH) -> list[dict[str, str]]:
@@ -50,16 +52,16 @@ def _parse_video_index(path: Path = VIDEO_INDEX_PATH) -> list[dict[str, str]]:
     return videos
 
 
-def find_visual(
+def find_visual_candidates(
     service_name: str,
     primary_trigger: str | None = None,
     phase: str | None = None,
     language: str | None = None,
     category: str | None = None,
-) -> dict[str, str] | None:
+) -> list[dict[str, str]]:
     videos = _parse_video_index()
     if not videos:
-        return None
+        return []
 
     svc = _norm(service_name)
     trig = _norm(primary_trigger or "")
@@ -122,41 +124,31 @@ def find_visual(
             if video_service in {svc, "multi"}:
                 candidates.append(video)
 
-    if not candidates:
-        return None
+    return candidates
 
-    def score(video: dict[str, str]) -> tuple:
-        video_trigger = _norm(video["primary_trigger"])
-        video_phase_default = _norm(video["phase_default"])
-        video_phase_secondary = _norm(video["secondary_phase"])
-        video_language = _norm(video["language"])
-        video_category = _norm(video["category"])
-        video_service = _norm(video["service"])
 
-        return (
-            1 if trig and video_trigger == trig else 0,
-            1 if ph and video_phase_default == ph else 0,
-            1 if ph and video_phase_secondary == ph else 0,
-            1 if lang and video_language == lang else 0,
-            1 if cat and video_category == cat else 0,
-            1 if video_service == svc else 0,
-            1 if video_service == "multi" else 0,
-        )
-
-    candidates.sort(key=score, reverse=True)
-    return candidates[0]
+def find_visual(
+    service_name: str,
+    primary_trigger: str | None = None,
+    phase: str | None = None,
+    language: str | None = None,
+    category: str | None = None,
+) -> dict[str, str] | None:
+    candidates = find_visual_candidates(
+        service_name=service_name,
+        primary_trigger=primary_trigger,
+        phase=phase,
+        language=language,
+        category=category,
+    )
+    return select_best_visual(candidates)
 
 
 if __name__ == "__main__":
-    sample = find_visual(
+    result = find_visual(
         service_name="PPF",
         primary_trigger="PPF_SELF_HEAL_QUESTION",
         phase="Phase7",
         language="EN",
     )
-    if sample:
-        print("Visual found:")
-        for k, v in sample.items():
-            print(f"{k}: {v}")
-    else:
-        print("No visual available")
+    print(result)
