@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from deferred_video_manager import manage_deferred_video
 from phrase_resolver import resolve_phrase
 from video_followup_selector import select_video_followup
 from visual_education_engine import find_visual
@@ -14,38 +15,77 @@ def attach_visual(
     phase3a_required: bool = False,
     phase3a_qualifier_id: str | None = None,
     video_already_shown: bool = False,
+    topic_previously_discussed: bool = False,
+    comparison_intent: bool = False,
+    objection_signal: str | None = None,
+    trust_or_risk_doubt: bool = False,
+    silence_active: bool = False,
+    silence_suppressed: bool = False,
+    existing_deferred_trigger: str | None = None,
     language: str | None = None,
     category: str | None = None,
 ) -> dict:
+    deferred = manage_deferred_video(
+        conversation_phase=conversation_phase,
+        service=service,
+        primary_trigger=primary_trigger,
+        topic_previously_discussed=topic_previously_discussed,
+        comparison_intent=comparison_intent,
+        objection_signal=objection_signal,
+        trust_or_risk_doubt=trust_or_risk_doubt,
+        video_already_shown=video_already_shown,
+        silence_active=silence_active,
+        silence_suppressed=silence_suppressed,
+        existing_deferred_trigger=existing_deferred_trigger,
+    )
+
+    trigger_to_use = None
+    force_video_display = False
+
+    if deferred["release_now"]:
+        trigger_to_use = deferred["deferred_trigger"]
+        force_video_display = True
+
+    elif deferred["store_deferred"]:
+        return {
+            "message": message,
+            "video": None,
+            "followup": None,
+            "followup_text": None,
+            "deferred_state": deferred,
+        }
+
+    else:
+        trigger_to_use = primary_trigger
+
     followup = select_video_followup(
         service=service,
         conversation_phase=conversation_phase,
-        primary_trigger=primary_trigger,
+        primary_trigger=trigger_to_use,
         qualification_ready=qualification_ready,
         phase3a_required=phase3a_required,
         phase3a_qualifier_id=phase3a_qualifier_id,
         video_already_shown=video_already_shown,
     )
 
-    if not followup["show_video_now"]:
-        return {
-            "message": message,
-            "video": None,
-            "followup": followup,
-            "followup_text": None,
-        }
-
-    visual = find_visual(
-        service_name=service,
-        primary_trigger=primary_trigger,
-        phase=conversation_phase,
-        language=language,
-        category=category,
-    )
+    visual = None
+    if force_video_display or followup["show_video_now"]:
+        visual = find_visual(
+            service_name=service,
+            primary_trigger=trigger_to_use,
+            phase=conversation_phase,
+            language=language,
+            category=category,
+        )
 
     followup_text = None
-    if followup["next_question_source"] == "phase3a" and followup["next_question_id"]:
-        followup_text = resolve_phrase(followup["next_question_id"], language or "EN")
+    if (
+        followup["next_question_source"] == "phase3a"
+        and followup["next_question_id"]
+    ):
+        followup_text = resolve_phrase(
+            followup["next_question_id"], language or "EN"
+        )
 
     if not visual:
         return {
@@ -53,16 +93,17 @@ def attach_visual(
             "video": None,
             "followup": followup,
             "followup_text": followup_text,
+            "deferred_state": deferred,
         }
 
     visual_block = f"""
-
 Visual:
 {visual['video_name']}
 {visual['link']}
 """
 
     final_message = message + visual_block
+
     if followup_text:
         final_message += f"\n{followup_text}"
 
@@ -71,19 +112,18 @@ Visual:
         "video": visual,
         "followup": followup,
         "followup_text": followup_text,
+        "deferred_state": deferred,
     }
 
 
 if __name__ == "__main__":
     result = attach_visual(
-        message="Many high quality PPF films can recover from light scratches with heat.",
+        message="PPF can self-heal light scratches with heat.",
         service="PPF",
-        conversation_phase="Phase7",
+        conversation_phase="Phase4",
         primary_trigger="PPF_SELF_HEAL_QUESTION",
-        qualification_ready=False,
-        phase3a_required=True,
-        phase3a_qualifier_id="PHASE3A_Q_PPF_DRIVING_PATTERN",
-        video_already_shown=False,
+        topic_previously_discussed=True,
+        comparison_intent=True,
         language="EN",
     )
     print(result)
