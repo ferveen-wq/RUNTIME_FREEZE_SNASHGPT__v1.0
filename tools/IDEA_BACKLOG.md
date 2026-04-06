@@ -201,3 +201,152 @@ Notes:
 Status: BACKLOG
 Priority: HIGH
 
+
+------------------------------------------------------------
+IDEA: PRE-PATCH DUE DILIGENCE CHECKLIST
+------------------------------------------------------------
+
+ID: IDEA_ARCH_PREPATCH_DUE_DILIGENCE
+
+Description:
+Define a lightweight pre-patch checklist that must be reviewed before
+any runtime or control-tower patch is applied.
+
+Purpose:
+
+• reduce duplicate logic
+• reduce wrong-file patching
+• improve architecture safety
+• keep patching disciplined during rollout preparation
+
+Proposed checklist items:
+
+• confirm target file role
+• inspect surrounding section before patch
+• inspect adjacent authority file if relevant
+• confirm logic is missing (not already present)
+• define validation path before commit
+
+Status: BACKLOG
+Priority: HIGH
+
+
+------------------------------------------------------------
+IDEA: ROLLOUT TESTING AND AUDIT FRAMEWORK
+------------------------------------------------------------
+
+ID: IDEA_ROLLOUT_TEST_AUDIT_FRAMEWORK
+
+Description:
+Define a practical rollout-readiness framework for validating the
+architecture with limited resources before assistant adoption.
+
+Purpose:
+
+• improve rollout confidence
+• test phase flow and state carry-forward
+• detect behavior drift before production usage
+• create a repeatable audit path for future releases
+
+Suggested components:
+
+• must-pass rollout pack
+• golden multi-turn chat pack
+• assistant shadow-use review
+• phase coverage map
+• mismatch / drift review checklist
+
+Status: BACKLOG
+Priority: HIGH
+
+
+------------------------------------------------------------
+IDEA: ARCHITECTURE-AWARE PATCH AUDIT TOOL
+------------------------------------------------------------
+
+ID: IDEA_ARCH_PATCH_AUDIT_TOOL
+
+Description:
+Future helper tool that checks whether a proposed patch may duplicate,
+overlap, or conflict with existing authority across runtime and
+control-tower files.
+
+Purpose:
+
+• detect competing logic before patching
+• improve enforcement beyond formatting and governance checks
+• support safer rollout and future maintenance
+
+Possible checks:
+
+• similar rule already exists elsewhere
+• stronger authority file already owns the logic
+• runtime vs control-tower boundary conflict
+• duplicate selection or routing behavior
+• missing validation / UAT path
+
+Status: BACKLOG
+Priority: MEDIUM
+
+
+------------------------------------------------------------
+ITEM: Asset Schema Expansion (Post-Rollout)
+------------------------------------------------------------
+
+Purpose:
+Expand current rollout asset schema into full scalable asset-routing system.
+
+Includes:
+- Support for multiple asset types (VIDEO / LINK / DOC / MAP)
+- Advanced metadata routing:
+  - BRAND
+  - TEXTURE
+  - WARRANTY_TIER
+  - SPEC_TOPIC
+  - VEHICLE_MAKE / MODEL / SEGMENT / COLOR
+- Advanced matching ladder:
+  - exact match → partial → fallback
+- New categories:
+  - AFTERCARE
+  - AUTHENTICITY
+  - TECHNICAL
+  - GENERAL_CARE
+  - UPSELL
+- Non-video asset routing (links, maps, docs)
+
+Status:
+- NOT ACTIVE in rollout
+- To be revisited post-rollout
+
+Risk if ignored:
+- scaling difficulty
+- inconsistent asset additions
+- duplicated logic later
+
+Priority:
+MEDIUM (post-rollout phase)
+
+
+------------------------------------------------------------
+IDEA: PHASE 9 TRUST RUNTIME PROMOTION REVIEW
+------------------------------------------------------------
+
+ID: IDEA_PHASE9_TRUST_RUNTIME_PROMOTION
+
+Description:
+Review whether the currently validated Phase 9 trust behavior should be promoted
+from working reference into runtime authority before rollout.
+
+Current state:
+- Logic manually validated in working session
+- Not yet runtime-patched
+- Requires final test-pack confirmation
+
+Questions to resolve:
+- Is existing runtime already sufficient?
+- Does trust behavior need explicit runtime routing rules?
+- Which file should own the behavior if promoted?
+
+Status: BACKLOG
+Priority: HIGH
+
