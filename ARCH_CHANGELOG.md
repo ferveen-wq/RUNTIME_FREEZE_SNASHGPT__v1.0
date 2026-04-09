@@ -418,13 +418,11 @@ UAT: governance pipeline validation
 
 - Date: 2026-04-05
 - Files:
-  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VISUAL_INTELLIGENCE_MAP.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
 - Changed:
-  - Added deferred visual release rules.
-  - Added visual memory / no-repeat rules.
-  - Added phase-based visual priority rules.
-  - Added service vs MULTI resolution rules.
+  - Added VIS_001 ledger entry for merged Phase 8 visual intelligence bridge.
+  - Recorded validation coverage for defer, release, silence suppression, repeat protection, and qualification-safe follow-up.
 - Why:
-  - Promote validated visual tool-layer logic into Phase 8 runtime authority without changing qualification, silence, or pricing engines.
+  - Align runtime governance record with the merged and validated Phase 8 bridge state now active in main.
 - UAT:
   - governance pipeline commit test (pre-commit hooks passed)
