@@ -347,3 +347,36 @@ Phrase Entropy Monitoring when phrase library exceeds 2500 phrases
 
 ### 2026-03-12 04:42
 Conversation Phase Compression system to cluster explanations and reduce phrase duplication
+
+---
+
+### Phase 8 Taxonomy Normalization (Post-Rollout Refinement)
+
+Current state:
+- Rollout schema defines categories: PROOF, EDUCATION, COMPARISON, PROCESS, RESULT, TESTIMONIAL, TRUST
+- VIDEO_LIBRARY_INDEX includes additional category: DECISION
+- Phase 5 routing explicitly prefers DECISION for decision-stage support
+
+Gap:
+- Category mismatch between rollout schema and video registry
+- No unified authority for "decision-stage" visual classification
+
+Required refinement:
+- Decide whether DECISION becomes an official rollout category
+  OR
+- Map DECISION into existing categories (likely RESULT or COMPARISON with decision-context rules)
+
+Constraints:
+- Do not introduce new categories during active rollout without validation
+- Avoid duplicate category semantics across files
+
+Goal:
+- Normalize taxonomy across:
+  - ASSET_SCHEMA_ROLLOUT_STANDARD.md
+  - VIDEO_LIBRARY_INDEX.md
+  - PHASE8_VISUAL_INTELLIGENCE_MAP.md
+
+Notes:
+- No immediate runtime impact observed
+- Defer to post-rollout refinement phase
+
