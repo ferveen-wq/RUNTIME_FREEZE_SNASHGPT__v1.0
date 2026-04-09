@@ -233,6 +233,40 @@ Each change must record:
 - NOTES:
   - Handles questions like difference / which one / recommend / Arabic equivalents
 
+
+### CHANGE_ID: VIS_001
+- AREA: Phase 8 Visual Intelligence Bridge
+- GOAL: Promote rollout-safe visual routing, deferred release, visual memory, and qualification-safe follow-up into main
+- FILES:
+  - 00__CONTROL_TOWER/ASSET_SCHEMA_ROLLOUT_STANDARD.md
+  - 00__CONTROL_TOWER/SYSTEM_STATE.md
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VISUAL_INTELLIGENCE_MAP.md
+  - tools/attach_visuals.py
+  - tools/deferred_video_manager.py
+  - tools/phrase_resolver.py
+  - tools/video_followup_selector.py
+  - tools/visual_education_engine.py
+  - tools/visual_memory.py
+  - tools/visual_selector.py
+- STATUS: MERGED_MAIN
+- VALIDATION:
+  - governance-check passed
+  - SNASH Governance CI passed
+  - UAT Runner passed
+  - early-phase defer validated
+  - deferred later release validated
+  - repeat suppression validated
+  - silence suppression validated
+  - qualification-bridge follow-up validated
+- MERGED: Yes
+- TAGGED:
+  - phase8_bridge_promotion_candidate_v1
+- NOTES:
+  - Phase 8 bridge merged into main
+  - Phase 8 is runtime-active
+  - Phase 9 trust reference intentionally excluded from promotion
+  - Remaining Phase 8 work is refinement only (taxonomy / trigger-matrix alignment)
+
 ---
 
 ### CHANGE_ID: PPF_001
