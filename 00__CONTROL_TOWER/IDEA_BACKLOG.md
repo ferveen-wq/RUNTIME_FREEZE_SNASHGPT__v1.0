@@ -380,3 +380,37 @@ Notes:
 - No immediate runtime impact observed
 - Defer to post-rollout refinement phase
 
+
+---
+
+### Phase 8 Trigger Matrix Expansion (Post-v1)
+
+Current state:
+- VIDEO_TRIGGER_MATRIX.md v1 created
+- 12 of 24 registry triggers are normalized into the matrix
+- Core PPF / ceramic / polish / protection-confusion paths are covered
+
+Remaining uncovered triggers:
+- CERAMIC_PAINT_DEFECT_CONCERN
+- PAINT_DAMAGE_AWARENESS
+- PAINT_DAMAGE_CONCERN
+- POLISH_PRICE_JUSTIFICATION
+- POLISH_RESULT_EXPLANATION
+- PPF_DEFAULT_BRAND_TRUST
+- PPF_FINAL_LOOK_VISUALIZATION
+- PPF_PACKAGE_DECISION_SUPPORT
+- PPF_TRANSFORMATION_PROOF
+- PPF_TRUST_AND_INSTALL_CONFIDENCE
+- PPF_TRUST_CUSTOMER_VALIDATION
+- PPF_VISUAL_DESIRE_TRIGGER
+
+Goal:
+- Expand VIDEO_TRIGGER_MATRIX.md from 12/24 to full registry coverage
+- Keep one dominant category per trigger
+- Avoid mixed category authority
+- Preserve rollout-safe taxonomy until post-rollout normalization decision
+
+Notes:
+- No immediate runtime blocker
+- Safe to expand incrementally in later refinement passes
+
