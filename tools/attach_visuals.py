@@ -89,6 +89,11 @@ def attach_visual(
         followup_text = resolve_phrase(
             followup["next_question_id"], language or "EN"
         )
+    elif followup.get("hook_mode") == "soft_hook":
+        if (language or "EN").upper() == "AR":
+            followup_text = "إذا تحب، أقدر أبسط لك الخيار الأنسب حسب استخدامك."
+        else:
+            followup_text = "If you like, I can simplify which option makes the most sense for your use."
 
     current_video_id = visual["video_id"] if visual else None
     visual_memory = update_visual_memory(

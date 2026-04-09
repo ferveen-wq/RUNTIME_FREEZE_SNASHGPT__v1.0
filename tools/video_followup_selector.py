@@ -62,6 +62,16 @@ def select_video_followup(
             "hook_mode": "suppress",
         }
 
+    # Phase5 decision support should not end without a hook
+    if conversation_phase == "Phase5":
+        return {
+            "show_video_now": False,
+            "defer_video": False,
+            "next_question_source": "none",
+            "next_question_id": None,
+            "hook_mode": "soft_hook",
+        }
+
     return {
         "show_video_now": False,
         "defer_video": False,

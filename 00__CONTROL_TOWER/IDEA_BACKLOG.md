@@ -414,3 +414,39 @@ Notes:
 - No immediate runtime blocker
 - Safe to expand incrementally in later refinement passes
 
+
+---
+
+### Trigger Normalization Needed (Post-Rollout)
+
+Current observations:
+- PPF trust triggers appear overlapping:
+  - PPF_TRUST_AND_INSTALL_CONFIDENCE
+  - PPF_TRUST_CUSTOMER_VALIDATION
+  - PPF_DEFAULT_BRAND_TRUST
+- Paint damage triggers need clearer distinction:
+  - PAINT_DAMAGE_AWARENESS
+  - PAINT_DAMAGE_CONCERN
+  - CERAMIC_PAINT_DEFECT_CONCERN
+- Visual/result intent needs clearer separation:
+  - PPF_FINAL_LOOK_VISUALIZATION
+  - PPF_TRANSFORMATION_PROOF
+  - POLISH_RESULT_EXPLANATION
+  - POLISH_RESULT_VISUAL_PROOF
+- Decision-stage triggers may overlap:
+  - PPF_DECISION_CONFUSION
+  - PPF_PACKAGE_DECISION_SUPPORT
+- PPF_VISUAL_DESIRE_TRIGGER needs a clearer customer-intent definition
+
+Post-rollout refinement goals:
+- Merge overlapping trust triggers where possible
+- Clarify paint-damage vs paint-awareness intent boundaries
+- Define visual desire / result / explanation triggers more cleanly
+- Review decision trigger duplication
+- Reduce trigger sprawl without changing proven runtime behavior
+
+Notes:
+- No immediate runtime blocker observed
+- Keep runtime unchanged during rollout
+- Revisit after rollout using real chat evidence
+
