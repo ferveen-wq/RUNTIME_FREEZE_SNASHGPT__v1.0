@@ -442,3 +442,153 @@ RULES
 
 END VISUAL PRIORITY LADDER
 
+------------------------------------------------------------
+SECTION 12 — DEFERRED VISUAL RELEASE RULES
+------------------------------------------------------------
+
+Purpose:
+Allow a visual topic introduced earlier to be released later in the
+conversation when the timing becomes more useful and less disruptive.
+
+Deferred visual release is allowed only when:
+- the topic was already discussed earlier,
+- the current phase allows visual support,
+- and the release supports clarity, comparison, objection handling,
+  or trust reinforcement.
+
+Allowed release conditions:
+- comparison intent becomes active
+- objection context becomes active
+- trust / risk doubt becomes active
+
+Deferred visual release must NOT occur when:
+- silence handling is active
+- silence suppression is active
+- qualification is still incomplete
+- the same topic already released a deferred visual
+- the same video was already shown in the conversation
+
+Rules:
+1. Maximum one deferred visual per topic.
+2. Deferred release must still obey the one-visual-per-segment rule.
+3. Deferred release must not replace a required qualification question.
+4. Deferred release must not override silence / objection / qualification boundaries.
+5. Deferred release is support logic only, not a persuasion shortcut.
+
+Example:
+- Early phase: customer asks about self-healing
+- System explains briefly without showing video
+- Later, comparison / objection / trust context appears
+- Related approved visual may be released if all gates pass
+
+
+------------------------------------------------------------
+SECTION 13 — VISUAL MEMORY RULES
+------------------------------------------------------------
+
+Purpose:
+Prevent repetition fatigue and keep visual sequencing natural.
+
+Rules:
+1. The same VIDEO_ID must not be shown more than once in the same conversation.
+2. If a visual was already shown, the system may still show a different approved visual later.
+3. Different category progression is allowed when it supports the conversation naturally.
+4. Visual memory resets on a new conversation.
+5. Visual memory is internal logic only and must not appear in customer-facing text.
+
+Preferred progression example:
+- proof
+- installation / process
+- result
+- testimonial / trust
+
+Not allowed:
+- repeating the exact same video again unless a future human-approved override is defined
+
+
+------------------------------------------------------------
+SECTION 14 — PHASE-BASED VISUAL PRIORITY
+------------------------------------------------------------
+
+Purpose:
+Ensure video choice supports the goal of the current conversation phase,
+not only the existence of a matching trigger.
+
+Base category order alone is not always sufficient.
+When multiple approved videos match, the current phase must influence
+which category is preferred.
+
+Phase-priority rules:
+
+Phase7 / education-support context:
+Preferred order:
+1. PROOF_TESTS
+2. INSTALLATION_PROCESS
+3. RESULT_SHOWCASE
+4. CUSTOMER_TESTIMONIALS
+5. BRAND_CREDIBILITY
+
+Phase8 / visual-confidence context:
+Preferred order:
+1. INSTALLATION_PROCESS
+2. RESULT_SHOWCASE
+3. PROOF_TESTS
+4. CUSTOMER_TESTIMONIALS
+5. BRAND_CREDIBILITY
+
+Phase9 / trust-building context:
+Preferred order:
+1. CUSTOMER_TESTIMONIALS
+2. BRAND_CREDIBILITY
+3. RESULT_SHOWCASE
+4. INSTALLATION_PROCESS
+5. PROOF_TESTS
+
+Rules:
+1. Phase priority may override simple base category ranking.
+2. Trigger validity is still required first.
+3. Service matching is still required before category priority is applied.
+4. One approved best-match visual only.
+5. Do not use phase priority to force an otherwise irrelevant video.
+
+
+------------------------------------------------------------
+SECTION 15 — SERVICE VS MULTI RESOLUTION
+------------------------------------------------------------
+
+Purpose:
+Keep service-specific visuals primary while still allowing broader
+comparison / generic videos when appropriate.
+
+Resolution order:
+
+1. Exact service match
+   - PPF conversation -> prefer PPF videos
+   - CERAMIC conversation -> prefer CERAMIC videos
+   - TINT conversation -> prefer TINT videos
+   - POLISH / POLISHING conversation -> prefer POLISH / POLISHING videos
+
+2. MULTI fallback
+   - allowed only when an exact-service video is not the best available match
+   - or when the trigger itself is comparison / generic / cross-service in nature
+
+MULTI is appropriate for:
+- cross-service comparison
+- broad education
+- generic trust validation
+- category-level explanation spanning more than one service family
+
+MULTI should NOT replace a stronger exact-service match when:
+- the customer is clearly inside a single-service discussion
+- and an approved exact-service video exists for the same trigger and phase
+
+Rules:
+1. Exact service match is primary.
+2. MULTI is fallback / comparison support.
+3. Service-specific videos should carry most proof / process / result moments.
+4. MULTI is especially useful for confusion, comparison, and generic trust contexts.
+5. This rule controls routing preference only; it does not change video inventory fields.
+
+END PHASE 8 VISUAL EXTENSIONS
+
+
