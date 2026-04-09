@@ -8,11 +8,12 @@ Tracks unfinished architecture tasks so discussion drift does not lose them.
 ## PHASE 8 — VISUAL INTELLIGENCE
 
 [ ] Visual video taxonomy
-[ ] Visual routing engine
-[ ] Context-aware hook integration
+[x] Visual routing engine
+[x] Context-aware hook integration
 [ ] Video trigger matrix
-[ ] Hook questions after video responses
-[ ] Avoid dead-end video responses
+[x] Hook questions after video responses
+[x] Avoid dead-end video responses
+[x] Deferred visual release and visual memory
 
 ---
 
