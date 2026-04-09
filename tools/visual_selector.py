@@ -7,6 +7,7 @@ CATEGORY_ALIASES = {
     "RESULT_SHOWCASE": "RESULT",
     "CUSTOMER_TESTIMONIALS": "TESTIMONIAL",
     "BRAND_CREDIBILITY": "TRUST",
+    "DECISION": "RESULT",
 }
 
 PRIORITY_BY_CATEGORY = {
@@ -33,6 +34,9 @@ PHASE_BONUS = {
     "Phase9": {
         "TESTIMONIAL": -35,
         "TRUST": -30,
+    },
+    "Phase5": {
+        "RESULT": -25,
     },
 }
 
