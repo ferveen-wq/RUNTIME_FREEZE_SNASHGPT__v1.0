@@ -1746,3 +1746,22 @@ and analytics dashboards without altering existing runtime modules.
   - Phrase-layer restoration only
   - No engine or routing logic changed
 
+
+### CHANGE_ID: UAT_PPF_PRICE_GUARD_001
+- AREA: UAT Harness / Prompt Control
+- GOAL: Reduce free-generation drift in PPF price-ready flow during UAT by enforcing phrase selection and blocking extra follow-up questions
+- FILES:
+  - runner/context_reset_prompt.txt
+  - tests/uat_cases.json
+- STATUS: TAGGED_GREEN
+- VALIDATION:
+  - python runner/run_uat.py --cases tests/uat_cases.json
+  - Passed=17, Failed=0, Total=17
+- MERGED: No
+- TAGGED:
+  - uat_ppf_price_guard_v1
+- NOTES:
+  - Supporting patch only
+  - No runtime authority logic changed
+  - Forces PHASE3B_PPF_RANGE usage in harness for verified PPF price-ready case
+  - Adds strict no-drift regression coverage
