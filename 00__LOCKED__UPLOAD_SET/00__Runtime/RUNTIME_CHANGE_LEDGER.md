@@ -1727,3 +1727,22 @@ ARCHITECTURE_IMPACT:
 Adds a conversation database layer between runtime processing
 and analytics dashboards without altering existing runtime modules.
 
+
+### CHANGE_ID: PHRASE_3A_PPF_COVERAGE_RESTORE_001
+- AREA: Phase 3A PPF qualifier phrase
+- GOAL: Restore explicit PPF coverage qualifier wording so the phrase matches current decision-matrix normalization expectations
+- FILES:
+  - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- STATUS: TAGGED_GREEN
+- VALIDATION:
+  - direct_selector_script: passed
+  - targeted_diff_review: passed
+  - focused_uat_pack: passed
+- MERGED: No
+- TAGGED:
+  - phase3a_ppf_coverage_phrase_restore_v1
+- NOTES:
+  - Supporting patch only
+  - Phrase-layer restoration only
+  - No engine or routing logic changed
+
