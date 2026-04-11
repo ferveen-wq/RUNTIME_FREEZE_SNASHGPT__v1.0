@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_e_location",
+    "input": "Where are you located?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  },
+  {
+    "case_id": "block_e_hours",
+    "input": "What are your opening hours?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  },
+  {
+    "case_id": "block_e_ksa_branch",
+    "input": "Do you have a branch in Saudi?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  },
+  {
+    "case_id": "block_e_job_inquiry",
+    "input": "I need a job",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_e_marketing_pitch",
+    "input": "We offer digital marketing services for your business",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]

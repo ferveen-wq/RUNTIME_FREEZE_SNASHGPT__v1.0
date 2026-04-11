@@ -1,0 +1,44 @@
+[
+  {
+    "case_id": "smoke_greeting",
+    "input": "hi",
+    "expect_debug": {
+      "request_type": "GREETING_ONLY"
+    }
+  },
+  {
+    "case_id": "smoke_ppf_price_ready",
+    "input": "BMW X5 2025 full PPF, mostly highway, how much?",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "smoke_ppf_cheaper_objection",
+    "input": "Another place is cheaper for PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "smoke_location",
+    "input": "Where are you located?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  },
+  {
+    "case_id": "smoke_hours",
+    "input": "What are your opening hours?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  },
+  {
+    "case_id": "smoke_ksa_branch",
+    "input": "Do you have a branch in Saudi?",
+    "expect_debug": {
+      "request_type": "LOCATION"
+    }
+  }
+]

@@ -1765,3 +1765,34 @@ and analytics dashboards without altering existing runtime modules.
   - No runtime authority logic changed
   - Forces PHASE3B_PPF_RANGE usage in harness for verified PPF price-ready case
   - Adds strict no-drift regression coverage
+
+### CHANGE_ID: PHASE0_2_UAT_ALIGNMENT_001
+- AREA: Phase 0–2 UAT Harness / Prompt Control
+- GOAL: Stabilize Phase 0–2 UAT behavior for multi-target handling, post-service support precedence, and technical-question hold without changing locked runtime authority wording
+- FILES:
+  - runner/context_reset_prompt.txt
+  - tests/smoke/phase0_2_block_a.json
+  - tests/smoke/phase0_2_block_b.json
+  - tests/smoke/phase0_2_block_c.json
+  - tests/smoke/phase0_2_block_d.json
+  - tests/smoke/phase0_2_block_e.json
+  - tests/smoke/phase0_2_block_f.json
+  - tests/smoke/phase0_2_block_g.json
+  - tests/smoke/phase0_2_block_h.json
+  - tests/smoke/phase0_2_block_i.json
+  - tests/smoke/phase0_2_block_j.json
+  - tests/smoke/post_merge_smoke.json
+- STATUS: TAGGED_GREEN
+- VALIDATION:
+  - UAT_CASES_FILE=tests/smoke/phase0_2_block_i.json python runner/run_uat.py
+  - UAT_CASES_FILE=tests/smoke/phase0_2_block_j.json python runner/run_uat.py
+  - Passed=5, Failed=0, Total=5
+- MERGED: No
+- TAGGED:
+  - phase0_2_uat_alignment_v1
+- NOTES:
+  - UAT alignment patch only
+  - Multi-target simplification stabilized
+  - Post-service support override added in harness
+  - Technical question hold added in harness
+  - No locked runtime phrase text changed

@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "block_a_greeting_only",
+    "input": "hi",
+    "expect_debug": {
+      "request_type": "GREETING_ONLY"
+    },
+    "expect_contains_any": {
+      "english": ["model", "year"],
+      "arabic": ["موديل", "سنة"]
+    },
+    "expect_not_contains": {
+      "english": ["price", "how much", "ceramic", "ppf", "tint", "wrap"],
+      "arabic": ["سعر", "كم", "سيراميك", "PPF", "تظليل", "راب"]
+    }
+  },
+  {
+    "case_id": "block_a_browsing_generic",
+    "input": "just browsing",
+    "expect_debug": {
+      "request_type": "BROWSING_GENERIC"
+    },
+    "expect_not_contains": {
+      "english": ["model", "year", "price", "how much"],
+      "arabic": ["موديل", "سنة", "سعر", "كم"]
+    }
+  },
+  {
+    "case_id": "block_a_service_list_request",
+    "input": "what services do you offer?",
+    "expect_debug": {
+      "request_type": "BROWSING_GENERIC"
+    },
+    "expect_contains_any": {
+      "english": ["PPF", "ceramic", "tint", "wrap", "polishing"],
+      "arabic": ["PPF", "سيراميك", "تظليل", "راب", "تلميع"]
+    }
+  },
+  {
+    "case_id": "block_a_new_car_recommendation",
+    "input": "I have a new car",
+    "expect_debug": {
+      "request_type": "OTHER"
+    },
+    "expect_contains_any": {
+      "english": ["PPF", "protection", "gloss"],
+      "arabic": ["PPF", "حماية", "لمعان"]
+    },
+    "expect_not_contains": {
+      "english": ["model", "year", "price", "how much"],
+      "arabic": ["موديل", "سنة", "سعر", "كم"]
+    }
+  },
+  {
+    "case_id": "block_a_service_keyword_missing_year",
+    "input": "I want PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": ["year"],
+      "arabic": ["سنة"]
+    }
+  }
+]

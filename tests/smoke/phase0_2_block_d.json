@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_d_brand_only_xpel",
+    "input": "XPEL",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_d_brand_install_question",
+    "input": "Do you install XPEL?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_d_brand_then_service",
+    "input": "XPEL PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_d_service_then_brand",
+    "input": "I want PPF with XPEL",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_d_brand_only_3m",
+    "input": "3M",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]

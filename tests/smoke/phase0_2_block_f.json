@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_f_compare_ppf_vs_ceramic",
+    "input": "Which is better, PPF or ceramic?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_f_switch_to_ceramic",
+    "input": "Actually ceramic",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_f_compare_tint_vs_ppf",
+    "input": "PPF or tint?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_f_service_switch_phrase",
+    "input": "I want PPF, actually tint",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_f_service_question_generic",
+    "input": "ceramic or PPF",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]

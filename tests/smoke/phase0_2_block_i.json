@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_i_two_cars_one_service",
+    "input": "PPF for BMW X5 2022 and Camry 2020",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_i_one_car_two_services",
+    "input": "BMW X5 2022 ceramic and tint",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_i_two_services_no_vehicle",
+    "input": "I want ceramic and tint",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_i_two_cars_two_services",
+    "input": "Ceramic for my X5 and tint for my Patrol",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_i_ppf_and_ceramic_ambiguous",
+    "input": "PPF and ceramic",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]

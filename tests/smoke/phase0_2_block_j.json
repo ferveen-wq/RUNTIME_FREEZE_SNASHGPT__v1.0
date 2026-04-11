@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "support_plus_location",
+    "input": "I have an issue with my coating, where are you located?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "technical_question_no_vehicle",
+    "input": "Does ceramic protect from scratches?",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "sedan_price_no_details",
+    "input": "price for sedan ppf",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "price_list_request",
+    "input": "send me your price list",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "impatient_price_push",
+    "input": "just give me price for ppf",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  }
+]

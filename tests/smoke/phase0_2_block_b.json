@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_b_valid_vehicle_full",
+    "input": "BMW X5 2022",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_b_model_only",
+    "input": "BMW X5",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_b_year_only",
+    "input": "2022",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_b_invalid_model_token",
+    "input": "Jetour 52 2024",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_b_alias_vehicle",
+    "input": "bm x5 2022",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "block_c_bad_year_typo",
+    "input": "BMW X5 2206 PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_close_model_mismatch",
+    "input": "Jetour T5 2024 ceramic",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_alias_xc90_spacing",
+    "input": "xc 90 ceramic",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_alias_x90_ambiguous",
+    "input": "x90 ppf",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_brand_missing_model",
+    "input": "BMW 2022 PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_model_missing_brand",
+    "input": "X5 2022 ceramic",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_c_vague_service_english",
+    "input": "PPF or ceramic not sure",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_c_vague_service_arabic",
+    "input": "ابي حماية او سيراميك مو متأكد",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_c_arabic_vehicle_typo_mix",
+    "input": "جيتور t2 2024",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_c_partial_vehicle_token",
+    "input": "Toyota suv ceramic",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  }
+]

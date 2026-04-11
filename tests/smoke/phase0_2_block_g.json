@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "block_g_old_car_ppf",
+    "input": "Camry 2015 PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_g_very_old_car_ppf",
+    "input": "Corolla 2010 PPF",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    }
+  },
+  {
+    "case_id": "block_g_invoice_support",
+    "input": "I need my invoice",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_g_complaint_support",
+    "input": "I want to complain about the service",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  },
+  {
+    "case_id": "block_g_maintenance_support",
+    "input": "How do I maintain the coating after service?",
+    "expect_debug": {
+      "request_type": "OTHER"
+    }
+  }
+]
