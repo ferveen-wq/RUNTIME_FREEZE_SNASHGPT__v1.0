@@ -22,7 +22,8 @@
     "case_id": "regression_ppf_price_request_no_usd_no_dollar",
     "input": "BMW X5 2025 full PPF, mostly highway, how much?",
     "expect_debug": {
-      "request_type": "PRICE_REQUEST"
+      "request_type": "PRICE_REQUEST",
+      "selected_phrase_id": "PHASE3B_PPF_RANGE"
     },
     "expect_not_contains": {
       "english": [

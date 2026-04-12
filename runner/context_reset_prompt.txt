@@ -137,6 +137,13 @@ ACRONYM RULE (HARD):
 - Each debug field must be on its own line in the format: key: value
 DEBUG_OUTPUT enum rule (HARD):
 - request_type MUST match the runtime enums emitted by QUALIFICATION_ENGINE.md exactly.
+- If request_type == REENTERED_CONTINUE:
+  - selected_phrase_id MUST equal: A6_REENTERED_CONTINUE
+  - Output MUST use ONLY the A6_REENTERED_CONTINUE block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Do NOT reset the conversation
+  - Do NOT ask vehicle model/year again unless the prior context is actually missing
+  - QUALIFICATION_STATUS MUST remain NOT_READY unless prior context already makes it ready
+
 - Do NOT use alternate enum sets like GREETING/BROWSING/BOOKING/LOCATION.
   - Do not invent new labels like "pricing inquiry".
 - End every message with:
@@ -269,6 +276,10 @@ If ALL are true:
 Then:
 - selected_phrase_id MUST equal: PHASE3B_PPF_RANGE
 - You MUST output PHASE3B_PPF_RANGE verbatim first
+- Immediately after that, you MUST output the actual Phase 3B pricing result, not a summary
+- The pricing line MUST be table-backed and must use BD VAT included wording
+- Do NOT output generic fallback wording like "price depends on", "varies depending on", "depends on film type", or similar summaries
+- If the case is price-ready, do NOT stay at transition-only wording
 - Do NOT leave selected_phrase_id as null
 - Do NOT invent a replacement transition line
 - Do NOT ask a new qualification question in that same turn

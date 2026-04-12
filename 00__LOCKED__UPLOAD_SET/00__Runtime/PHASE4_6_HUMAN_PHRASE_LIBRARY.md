@@ -968,6 +968,11 @@ Purpose: Confirm understanding and reduce friction without advancing the convers
 
 
 
+### A6_REENTERED_CONTINUE
+
+EN: We can continue from where we left off. Do you want to carry on with the same service?
+AR: نقدر نكمل من حيث وقفنا. تبي نكمل على نفس الخدمة؟
+
 ## C. GENERIC SERVICE EDUCATION
 Purpose: Explain what the service category is and how to think about it, without selling or overwhelming.
 

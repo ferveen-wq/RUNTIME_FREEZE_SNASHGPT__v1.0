@@ -1,0 +1,61 @@
+[
+  {
+    "case_id": "phase3b_ppf_transition_must_be_verbatim",
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "selected_phrase_id": "PHASE3B_PPF_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_all": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "is perfect",
+        "perfect.",
+        "price depends",
+        "varies depending"
+      ],
+      "arabic": [
+        "تمامًا",
+        "السعر يعتمد",
+        "تختلف حسب"
+      ]
+    }
+  },
+  {
+    "case_id": "phase3b_ppf_impatient_transition_must_be_verbatim",
+    "input": "just give me ppf price for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "selected_phrase_id": "PHASE3B_PPF_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_all": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "perfect.",
+        "is perfect",
+        "price depends",
+        "varies depending"
+      ],
+      "arabic": [
+        "تمام",
+        "السعر يعتمد",
+        "تختلف حسب"
+      ]
+    }
+  }
+]

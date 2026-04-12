@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "reentered_same_service_continue",
+    "input": "hi",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    },
+    "expect_debug": {
+      "request_type": "REENTERED_CONTINUE"
+    }
+  },
+  {
+    "case_id": "reentered_after_prior_ppf_context",
+    "input": "ok continue",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    },
+    "expect_debug": {
+      "request_type": "REENTERED_CONTINUE"
+    }
+  }
+]

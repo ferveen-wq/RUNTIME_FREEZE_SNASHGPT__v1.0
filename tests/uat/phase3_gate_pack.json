@@ -1,0 +1,40 @@
+[
+  {
+    "case_id": "p3_ppf_price_missing_details",
+    "input": "price for ppf",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "p3_ppf_price_model_only",
+    "input": "ppf for camry",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "p3_ppf_price_model_year_no_phase3a_answers",
+    "input": "ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "p3_ppf_price_full_ready_minimal",
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "p3_ceramic_price_model_year",
+    "input": "ceramic price for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  }
+]

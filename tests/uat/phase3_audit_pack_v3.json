@@ -1,0 +1,105 @@
+[
+  {
+    "case_id": "audit_ppf_model_year_single_question_gate",
+    "input": "ppf for camry 2022",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "audit_ceramic_model_year_should_not_fall_to_phase0_hold",
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "audit_ppf_full_ready_price_state",
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "selected_phrase_id": "PHASE3B_PPF_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_all": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "1340",
+        "price depends",
+        "varies depending",
+        "perfect."
+      ],
+      "arabic": [
+        "1340",
+        "السعر يعتمد",
+        "تختلف حسب",
+        "تمامًا"
+      ]
+    },
+    "expect_contains_any": {
+      "english": [
+        "630",
+        "790",
+        "880",
+        "1040"
+      ],
+      "arabic": [
+        "630",
+        "790",
+        "880",
+        "1040"
+      ]
+    }
+  },
+  {
+    "case_id": "audit_ppf_impatient_price_push",
+    "input": "just give me ppf price for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "selected_phrase_id": "PHASE3B_PPF_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_all": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "1340",
+        "price depends",
+        "varies depending",
+        "perfect."
+      ],
+      "arabic": [
+        "1340",
+        "السعر يعتمد",
+        "تختلف حسب",
+        "تمام"
+      ]
+    },
+    "expect_contains_any": {
+      "english": [
+        "630",
+        "790",
+        "880",
+        "1040"
+      ],
+      "arabic": [
+        "630",
+        "790",
+        "880",
+        "1040"
+      ]
+    }
+  }
+]

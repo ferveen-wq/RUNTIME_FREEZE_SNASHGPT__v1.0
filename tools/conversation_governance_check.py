@@ -22,7 +22,7 @@ if count > 20:
 
 print("Snippet compression check passed.")
 
-result = subprocess.run(["python", "tools/file_authority_guard.py"])
+result = subprocess.run([os.sys.executable, "tools/file_authority_guard.py"])
 
 if result.returncode != 0:
     raise Exception("File authority guard failed.")

@@ -422,7 +422,25 @@ def _enforce_case_tokens(parsed: dict, case: dict) -> dict:
     Supports schema:
       expect_contains_any: { arabic: [...], english: [...] }
       expect_contains_all: { arabic: [...], english: [...] }
+
+    IMPORTANT:
+    - Never inject tokens for strict Phase 3 price-ready cases.
+    - These cases must validate raw model output only.
     """
+    exp_debug = case.get("expect_debug", {}) or {}
+    selected_phrase_id = str(exp_debug.get("selected_phrase_id", "")).strip()
+
+    strict_price_case = (
+        selected_phrase_id == "PHASE3B_PPF_RANGE"
+        and (
+            case.get("expect_contains_any")
+            or case.get("expect_contains_all")
+            or case.get("expect_not_contains")
+        )
+    )
+
+    if strict_price_case:
+        return parsed
 
     def strip_timestamp_block(s: str) -> str:
         if not s:

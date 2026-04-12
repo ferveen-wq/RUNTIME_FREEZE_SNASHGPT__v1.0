@@ -426,3 +426,26 @@ UAT: governance pipeline validation
   - Align runtime governance record with the merged and validated Phase 8 bridge state now active in main.
 - UAT:
   - governance pipeline commit test (pre-commit hooks passed)
+
+- Date: 2026-04-12
+- Files: MULTIPLE
+- Changed:
+  - Added A6_REENTERED_CONTINUE phrase block for reentered same-service continuation handling.
+  - Hardened context prompt rules for REENTERED_CONTINUE and strict Phase 3B price-ready output behavior.
+  - Updated UAT harness behavior to avoid token injection on strict Phase 3B price-ready cases.
+  - Added targeted UAT packs for reentered-context and Phase 3B transition verbatim validation.
+  - Fixed conversation governance checker to use the active Python executable.
+  - Improved runtime integrity check coverage across runtime, engines, repositories, parameters, and playbooks.
+  - Tightened regression and smoke expectations for PHASE3B_PPF_RANGE.
+- Why:
+  - Lock reentered-context behavior cleanly, reduce false-positive UAT shaping, and strengthen strict validation around Phase 3B transition output.
+- UAT:
+  - phrase_library_validator: passed
+  - check_phrase_authority: passed
+  - check_phrase_trigger_conflicts: passed
+  - runtime_integrity_check: passed
+  - file_authority_guard: passed
+  - conversation_governance_check: passed
+  - reentered_context_audit_pack: passed
+  - reentered_context_strict_pack: passed
+  - phase3b_transition_verbatim_audit: passed

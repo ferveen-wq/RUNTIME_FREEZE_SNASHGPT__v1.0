@@ -1,0 +1,45 @@
+[
+  {
+    "case_id": "p3a_ppf_model_year_should_trigger_phase3a",
+    "input": "ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "p3a_ppf_full_model_year_should_not_break_route",
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "p3a_ceramic_model_year_should_trigger_phase3a_or_ready_path_cleanly",
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "p3a_tint_model_year_should_trigger_tint_path_cleanly",
+    "input": "tint for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "p3_ppf_price_push_short",
+    "input": "just give me ppf price for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  },
+  {
+    "case_id": "p3_ppf_competitor_push",
+    "input": "ppf for camry 2022, other place is cheaper",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    }
+  }
+]
