@@ -1,0 +1,28 @@
+[
+  {
+    "case_id": "ppf_full_ready_should_price_cleanly",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_any": {
+      "english": ["PPF", "price", "VAT included"],
+      "arabic": ["PPF", "السعر", "شامل"]
+    }
+  },
+  {
+    "case_id": "ppf_front_ready_should_price_cleanly",
+    "strict_raw": true,
+    "input": "front ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_any": {
+      "english": ["PPF", "price", "VAT included"],
+      "arabic": ["PPF", "السعر", "شامل"]
+    }
+  }
+]
