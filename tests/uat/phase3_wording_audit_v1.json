@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "ppf_full_wording_should_be_confident",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_not_contains": {
+      "english": ["approximate", "depends on", "usually"],
+      "arabic": ["تقريبي", "يعتمد", "عادة"]
+    }
+  },
+  {
+    "case_id": "ppf_front_wording_should_be_direct",
+    "strict_raw": true,
+    "input": "front ppf for camry 2022",
+    "expect_not_contains": {
+      "english": ["depends on", "approximate"],
+      "arabic": ["يعتمد", "تقريبي"]
+    }
+  },
+  {
+    "case_id": "roof_black_wording_should_be_natural",
+    "strict_raw": true,
+    "input": "black roof ppf for camry 2022",
+    "expect_not_contains": {
+      "english": ["roof only black roof"],
+      "arabic": []
+    }
+  }
+]

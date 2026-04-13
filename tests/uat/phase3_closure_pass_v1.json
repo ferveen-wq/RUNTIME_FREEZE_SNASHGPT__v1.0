@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "ceramic_ready_should_not_block",
+    "strict_raw": true,
+    "input": "ceramic coating for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_not_contains": {
+      "english": ["TECHNICAL QUESTION HOLD"],
+      "arabic": ["TECHNICAL QUESTION HOLD"]
+    }
+  },
+  {
+    "case_id": "wrap_finish_should_trigger_proper_question",
+    "strict_raw": true,
+    "input": "wrap for camry 2022",
+    "expect_contains_any": {
+      "english": ["gloss", "matte", "satin", "finish"],
+      "arabic": ["لمعان", "مات", "ساتان", "تشطيب"]
+    }
+  },
+  {
+    "case_id": "roof_black_should_stay_roof_only_context",
+    "strict_raw": true,
+    "input": "black roof ppf for camry 2022",
+    "expect_contains_any": {
+      "english": ["roof only", "black roof"],
+      "arabic": ["السقف", "سقف أسود", "سقف فقط"]
+    }
+  }
+]
