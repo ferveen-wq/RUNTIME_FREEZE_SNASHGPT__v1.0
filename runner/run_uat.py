@@ -536,6 +536,16 @@ def check_expectations(parsed: dict, case: dict) -> list[str]:
         elif str(actual).strip() != str(v).strip():
             failures.append(f"Debug '{k}' expected '{v}' but got '{actual}'")
 
+    for k, banned_values in case.get("expect_debug_not_equals", {}).items():
+        actual = debug.get(k)
+        if actual is None:
+            failures.append(f"Missing debug key '{k}'")
+            continue
+        actual_s = str(actual).strip()
+        banned_list = [str(v).strip() for v in (banned_values or [])]
+        if actual_s in banned_list:
+            failures.append(f"Debug '{k}' has forbidden value '{actual_s}'")
+
     allowed_request_types = {
         "BROWSING_GENERIC",
         "GREETING_ONLY",
@@ -683,10 +693,41 @@ def main():
         else:
             full_text = _run_one_turn(user_input)
         parsed = extract_debug_and_messages(full_text)
-        parsed = _enforce_case_tokens(parsed, case)
-        parsed = _sanitize_forbidden_tokens(parsed, case)
-        parsed = _enforce_expected_debug(parsed, case)
+
+        strict_raw = bool(case.get("strict_raw", False))
+        if not strict_raw:
+            parsed = _enforce_case_tokens(parsed, case)
+            parsed = _sanitize_forbidden_tokens(parsed, case)
+            parsed = _enforce_expected_debug(parsed, case)
+
         failures = check_expectations(parsed, case)
+
+        debug = parsed.get("debug", {}) or {}
+        selected = str(debug.get("selected_phrase_id", "")).strip()
+        q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
+        ladder_state = str(debug.get("price_ladder_state", "")).strip()
+        case_id_l = str(case.get("case_id", "")).lower()
+        user_input_l = str(user_input).lower()
+
+        # HARD CONTRADICTION GUARDS
+        if selected == "PHASE3B_PPF_RANGE" and q_status != "READY_FOR_NEGOTIATION":
+            failures.append("CONTRADICTION: PHASE3B_PPF_RANGE with NOT_READY")
+
+        if ladder_state in ["initial", "final", "INITIAL", "FINAL"] and q_status != "READY_FOR_NEGOTIATION":
+            failures.append("CONTRADICTION: price ladder used while NOT_READY")
+
+        if (
+            selected == "TECHNICAL QUESTION HOLD — PHASE 0–2"
+            and any(s in user_input_l for s in ["ppf", "ceramic", "tint", "wrap"])
+            and any(str(y) in user_input_l for y in range(2000, 2031))
+        ):
+            failures.append("CONTRADICTION: TECH HOLD overriding valid service+year context")
+
+        if (
+            any(tok in case_id_l for tok in ["stay_in_3a", "ask_3a", "phase3a"])
+            and selected == "PHASE3B_PPF_RANGE"
+        ):
+            failures.append("CONTRADICTION: Skipped Phase 3A and went to pricing")
 
         case_result = {
             "case_id": case.get("case_id"),

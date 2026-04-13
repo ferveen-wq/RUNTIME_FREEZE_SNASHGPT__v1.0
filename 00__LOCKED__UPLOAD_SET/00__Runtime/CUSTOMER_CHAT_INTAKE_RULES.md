@@ -99,6 +99,27 @@ These are tags, not customer-facing text.
   # - Prevent upstream defaults (UNSURE/UNKNOWN) from forcing Q1/Q2
   #   when the SAME customer message already explicitly states scope or driving.
   #
+
+# ROOF BLACK INTENT DETECTION (PHASE 0–2 -> SKU ROUTING)
+# Purpose: Ensure natural-language roof-black requests map to the correct SKU before qualification.
+
+IF current_user_message contains any of:
+  - "black roof"
+  - "roof ppf"
+  - "roof wrap"
+  - "ppf roof"
+  - "سقف اسود"
+  - "سقف أسود"
+  - "تغليف سقف"
+THEN:
+  - set product_alias_route = ROOF_PPF_BLACK_GLOSS
+  - set detected_product_sku = ROOF_PPF_BLACK_GLOSS
+  - set service_intent = ppf
+
+# NOTE:
+# - This must execute BEFORE qualification Phase 3A routing.
+# - This ensures the ROOF BLACK override in QUALIFICATION_ENGINE.md can activate.
+
   # Applies only when service_intent == PPF and we are about to evaluate missing gates.
 
   - IF service_intent == PPF:

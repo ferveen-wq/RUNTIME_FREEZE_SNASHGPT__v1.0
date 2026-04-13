@@ -87,6 +87,8 @@ Interpretation:
 
 If NOT met:
 - Do not discuss pricing
+- Set price_ladder_state = none
+- Set ladder_terminal_state = TERMINATED_NO_PRICE
 - Ask for missing information (max 1–2 questions)
 - Or route back to Qualification flow
 

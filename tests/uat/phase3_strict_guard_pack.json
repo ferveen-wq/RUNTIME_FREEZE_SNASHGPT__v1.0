@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "ppf_should_stay_in_3a_not_3b",
+    "strict_raw": true,
+    "input": "ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": ["PHASE3B_PPF_RANGE", "250 BHD", "350", "450", "VAT included"],
+      "arabic": ["PHASE3B_PPF_RANGE", "250", "350", "450", "شامل", "ضريبة"]
+    }
+  },
+  {
+    "case_id": "price_without_vehicle_should_not_be_ready",
+    "strict_raw": true,
+    "input": "price for ppf now",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "none"
+    }
+  },
+  {
+    "case_id": "ceramic_should_not_go_to_technical_hold",
+    "strict_raw": true,
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": ["TECHNICAL QUESTION HOLD — PHASE 0–2"],
+      "arabic": ["TECHNICAL QUESTION HOLD — PHASE 0–2"]
+    }
+  },
+  {
+    "case_id": "wrap_should_ask_3a_finish",
+    "strict_raw": true,
+    "input": "wrap for camry 2022",
+    "expect_contains_any": {
+      "english": ["finish"],
+      "arabic": ["تشطيب", "نوع", "مظهر"]
+    }
+  },
+  {
+    "case_id": "roof_black_should_not_use_generic_l1_debug",
+    "strict_raw": true,
+    "input": "black roof ppf for camry 2022",
+    "expect_contains_any": {
+      "english": ["roof only", "black roof"],
+      "arabic": ["السقف", "سقف أسود", "سقف فقط"]
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "L1_VEHICLE_MODEL_YEAR",
+        "L1_VEHICLE_MODEL_YEAR_ONLY",
+        "L.1 YEAR_ONLY",
+        "L1 V1/V2/V3 combined model+year only",
+        "L1_V1_V2_V3"
+      ]
+    }
+  }
+]
