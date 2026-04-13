@@ -1,0 +1,27 @@
+[
+  {
+    "case_id": "model_missing_should_ask_model_not_year",
+    "input": "BMW 2022 ppf",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ppf",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_contains": {
+      "english": [
+        "model"
+      ],
+      "arabic": [
+        "موديل"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "year"
+      ],
+      "arabic": [
+        "سنة"
+      ]
+    }
+  }
+]

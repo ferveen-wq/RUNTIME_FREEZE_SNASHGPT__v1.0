@@ -1,0 +1,36 @@
+[
+  {
+    "case_id": "qual_invalid_year_should_not_progress",
+    "input": "BMW X5 2206 ppf",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ppf",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "qual_brand_year_without_model_should_not_progress",
+    "input": "BMW 2022 ppf",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ppf",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": [
+        "BD VAT included"
+      ],
+      "arabic": [
+        "شامل الضريبة"
+      ]
+    }
+  }
+]
