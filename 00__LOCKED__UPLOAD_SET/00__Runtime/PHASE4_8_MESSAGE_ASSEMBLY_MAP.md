@@ -870,7 +870,11 @@ IF request_type == PRICE_REQUEST AND (missing_fields includes vehicle_model OR v
   (That exception provides: Phase 6 service explanation (NO PRICES) + exactly 1 vehicle_model/year question.)
 
 Route E — Price Request while READY (pricing allowed)
-IF (phase == PHASE_3 OR phase == PHASE_3B) AND request_type == PRICE_REQUEST AND all qualification fields complete:
+IF (phase == PHASE_3 OR phase == PHASE_3B)
+AND request_type == PRICE_REQUEST
+AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+AND ((phase3a_required == false) OR (phase3a_complete == true))
+AND all qualification fields complete:
 - Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
 - If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:

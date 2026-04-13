@@ -293,7 +293,7 @@ NOTE: Do NOT ask WRAP_SCOPE. Partial/roof wrap is not offered via automation; ro
 # LOCK_REASON: Phase 3A UAT passed; prevent overwrite or multi-question regressions
 # CHANGE_CONTROL: Architecture approval required
 
-IF service_intent == PPF
+IF service_intent == ppf
 AND vehicle_model is present
 AND vehicle_year is present:
 
@@ -398,7 +398,7 @@ AND vehicle_year is present:
 --------------------------------------------------------------------------
 ### Phase 3A qualifier selection (CERAMIC)
 
-IF service_intent == CERAMIC
+IF service_intent == ceramic
 AND vehicle_model is present
 AND vehicle_year is present:
 
@@ -422,7 +422,7 @@ AND vehicle_year is present:
 --------------------------------------------------------------------------
 ### Phase 3A qualifier selection (TINT)
 
-IF service_intent == TINT
+IF service_intent == tint
 AND vehicle_model is present
 AND vehicle_year is present:
 
@@ -438,6 +438,26 @@ AND vehicle_year is present:
 
   - ELSE IF define_missing(TINT_COVERAGE):
     - phase3a_qualifier_id = PHASE3A_Q_TINT_COVERAGE
+    - STOP
+
+  - phase3a_required = false
+  - phase3a_complete = true
+
+--------------------------------------------------------------------------
+### Phase 3A qualifier selection (WRAP)
+
+IF service_intent == wrap
+AND vehicle_model is present
+AND vehicle_year is present:
+
+  - phase3a_required = true
+
+  - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+    - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+  - IF define_missing(WRAP_FINISH):
+    - phase3a_qualifier_id = PHASE3A_Q_WRAP_FINISH
     - STOP
 
   - phase3a_required = false
