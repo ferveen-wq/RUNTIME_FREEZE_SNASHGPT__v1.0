@@ -1,0 +1,52 @@
+[
+  {
+    "case_id": "ceramic_basic_should_ask_model_precisely",
+    "strict_raw": true,
+    "input": "ceramic coating",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "ceramic_ready_should_not_use_tech_hold",
+    "strict_raw": true,
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": ["TECHNICAL QUESTION HOLD"],
+      "arabic": ["TECHNICAL QUESTION HOLD"]
+    }
+  },
+  {
+    "case_id": "wrap_ready_should_ask_finish_only",
+    "strict_raw": true,
+    "input": "wrap for camry 2022",
+    "expect_contains_any": {
+      "english": ["finish", "gloss", "matte", "satin"],
+      "arabic": ["تشطيب", "لمعة", "مات", "ساتان"]
+    }
+  },
+  {
+    "case_id": "tint_ready_should_ask_vlt_or_usage",
+    "strict_raw": true,
+    "input": "tint for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "tint_should_not_jump_to_price",
+    "strict_raw": true,
+    "input": "price tint",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "none"
+    }
+  }
+]
