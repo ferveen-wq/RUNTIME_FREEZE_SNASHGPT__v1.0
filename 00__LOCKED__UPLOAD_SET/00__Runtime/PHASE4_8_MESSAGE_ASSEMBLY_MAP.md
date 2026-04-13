@@ -710,7 +710,13 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
+- Append exactly 1 question only, chosen by missing_fields:
+  - If missing_fields == [vehicle_year]:
+    - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 YEAR_ONLY
+  - Else if missing_fields == [vehicle_model]:
+    - Use the model-only line inside PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIERS
+  - Else:
+    - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIERS (V1/V2/V3 as applicable)
 - Do NOT include any other questions.
 - Suppress hooks.
 
@@ -722,7 +728,13 @@ Applies when ALL are true:
 
 Required output behavior:
 - Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
-- Append exactly 1 question from L.1 asking vehicle_model + vehicle_year (V1/V2/V3 as applicable).
+- Append exactly 1 question only, chosen by missing_fields:
+  - If missing_fields == [vehicle_year]:
+    - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 YEAR_ONLY
+  - Else if missing_fields == [vehicle_model]:
+    - Use the model-only line inside PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIERS
+  - Else:
+    - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 QUALIFICATION CLARIFIERS (V1/V2/V3 as applicable)
 - Do NOT include any other questions.
 - Suppress hooks.
 

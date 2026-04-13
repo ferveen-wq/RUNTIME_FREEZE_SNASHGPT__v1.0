@@ -6,12 +6,32 @@
       "request_type": "GREETING_ONLY"
     },
     "expect_contains_any": {
-      "english": ["model", "year"],
-      "arabic": ["موديل", "سنة"]
+      "english": [
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة"
+      ]
     },
     "expect_not_contains": {
-      "english": ["price", "how much", "ceramic", "ppf", "tint", "wrap"],
-      "arabic": ["سعر", "كم", "سيراميك", "PPF", "تظليل", "راب"]
+      "english": [
+        "price",
+        "how much",
+        "ceramic",
+        "ppf",
+        "tint",
+        "wrap"
+      ],
+      "arabic": [
+        "سعر",
+        "كم",
+        "سيراميك",
+        "PPF",
+        "تظليل",
+        "راب"
+      ]
     }
   },
   {
@@ -21,8 +41,18 @@
       "request_type": "BROWSING_GENERIC"
     },
     "expect_not_contains": {
-      "english": ["model", "year", "price", "how much"],
-      "arabic": ["موديل", "سنة", "سعر", "كم"]
+      "english": [
+        "model",
+        "year",
+        "price",
+        "how much"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "سعر",
+        "كم"
+      ]
     }
   },
   {
@@ -32,8 +62,20 @@
       "request_type": "BROWSING_GENERIC"
     },
     "expect_contains_any": {
-      "english": ["PPF", "ceramic", "tint", "wrap", "polishing"],
-      "arabic": ["PPF", "سيراميك", "تظليل", "راب", "تلميع"]
+      "english": [
+        "PPF",
+        "ceramic",
+        "tint",
+        "wrap",
+        "polishing"
+      ],
+      "arabic": [
+        "PPF",
+        "سيراميك",
+        "تظليل",
+        "راب",
+        "تلميع"
+      ]
     }
   },
   {
@@ -43,12 +85,30 @@
       "request_type": "OTHER"
     },
     "expect_contains_any": {
-      "english": ["PPF", "protection", "gloss"],
-      "arabic": ["PPF", "حماية", "لمعان"]
+      "english": [
+        "PPF",
+        "protection",
+        "gloss"
+      ],
+      "arabic": [
+        "PPF",
+        "حماية",
+        "لمعان"
+      ]
     },
     "expect_not_contains": {
-      "english": ["model", "year", "price", "how much"],
-      "arabic": ["موديل", "سنة", "سعر", "كم"]
+      "english": [
+        "model",
+        "year",
+        "price",
+        "how much"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "سعر",
+        "كم"
+      ]
     }
   },
   {
@@ -57,9 +117,15 @@
     "expect_debug": {
       "request_type": "SERVICE_CONFIRMED"
     },
-    "expect_contains_any": {
-      "english": ["year"],
-      "arabic": ["سنة"]
+    "expect_contains_all": {
+      "english": [
+        "model",
+        "year"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة"
+      ]
     }
   }
 ]

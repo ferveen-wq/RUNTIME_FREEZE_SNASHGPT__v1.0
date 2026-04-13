@@ -739,11 +739,6 @@ Emit:
 - missing_fields = [vehicle_year]
 - allowed_next_actions includes ask_missing_info
 - STOP
-  - Do NOT treat it as confirmed vehicle_model
-  - Set qualification_state = NOT_READY
-  - missing_fields = [vehicle_model, vehicle_year]
-  - allowed_next_actions includes: ask_missing_info
-  - QUALIFICATION_STATUS = NOT_READY
 
 ### OFFSCOPE — NON-AUTOMOTIVE (HARD)
 If user intent is non-automotive (e.g., job/employment/CV/work requests):
