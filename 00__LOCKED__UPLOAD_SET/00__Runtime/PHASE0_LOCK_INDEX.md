@@ -12,8 +12,8 @@ Phase: 0
 Status: LOCKED  
 
 Locked Artifacts:
-- MANIFEST.md
-- RUNTIME_CORE_BUNDLE.md
+- RUNTIME_LOAD_MANIFEST.md
+- KNOWLEDGE__RUNTIME_CORE_BUNDLE.md
 
 Notes:
 - Runtime execution order finalized
