@@ -106,12 +106,12 @@ Notes:
 ---
 
 ### PHASE 10 (Control Tower / Governance Layer)
-Status: IN_PROGRESS
+Status: PATCHED_LOCAL
 Owner: Control Tower
 Last Verified: 2026-04-14
 Notes:
-- Foundation evidence and initial control-tower docs are being created in current session.
-- Governance layer is active but not yet complete.
+- Control-tower baseline docs were created, committed, and pushed on branch `fix/phase3-gate-alignment`.
+- Governance layer is now structurally established on branch, but still pending final due-diligence review before being treated as finalized.
 
 ---
 
