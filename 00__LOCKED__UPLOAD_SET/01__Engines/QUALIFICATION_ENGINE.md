@@ -463,6 +463,30 @@ AND vehicle_year is present:
   - phase3a_required = false
   - phase3a_complete = true
 
+--------------------------------------------------------------------------
+### Phase 3A qualifier selection (POLISHING)
+
+IF service_intent == polishing
+AND vehicle_model is present
+AND vehicle_year is present:
+
+  - phase3a_required = true
+
+  - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
+    - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+  - IF define_missing(POLISHING_SCOPE):
+    - phase3a_qualifier_id = PHASE3A_Q_POLISHING_SCOPE
+    - STOP
+
+  - ELSE IF define_missing(PAINT_CONDITION_REPAINT_SCRATCH):
+    - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+    - STOP
+
+  - phase3a_required = false
+  - phase3a_complete = true
+
 ## PHASE 3A — QUALIFIER-ID RESOLUTION (FINAL AUTHORITY — NO OVERRIDE)
 
 Purpose:
