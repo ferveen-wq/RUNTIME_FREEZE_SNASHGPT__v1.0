@@ -91,6 +91,5 @@ Before any patch:
 - do not patch closed tracks without fresh failing evidence
 
 ## 8. NEXT ALLOWED TASK
-- Continue Polishing known-vehicle validation
-- Or perform a dedicated architecture decision task for Wrap
-- Nothing else unless new failing evidence appears
+- Perform a dedicated architecture decision task for Wrap
+- Do not reopen ceramic / tint / ppf / polishing unless new failing evidence appears
