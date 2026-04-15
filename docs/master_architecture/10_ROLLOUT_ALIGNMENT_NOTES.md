@@ -181,3 +181,38 @@ Recommended next pass order:
 4. Then begin Phase 4 due diligence using locked runtime files
 5. Return later for intake runtime patch only after documented review
 
+
+### 4.3 Wrap automation boundary decision candidate
+
+Status: OPEN — do not patch runtime directly until authority decision is finalized.
+
+Observed during controlled runtime validation:
+- Wrap is currently canonically wired as an automated service across:
+  - QUALIFICATION_ENGINE.md
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - PRICE_LADDER_ENGINE.md
+  - SKU_SELECTION_MATRIX.md
+  - PRICE_TABLE_VAT_INCL.md
+  - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - PHASE6__SERVICE_CANON_BUNDLE.md
+- Controlled tests confirmed:
+  - known-vehicle Phase 3A works
+  - Phase 3B readiness works
+  - Phase 5 required bridge-only guards to prevent cross-service leakage
+- Existing authority conflict remains:
+  - PHASE3A_QUALIFICATION_DECISION_MATRIX.md still describes WRAP_SCOPE
+  - QUALIFICATION_ENGINE.md states wrap automation is full-vehicle only and do NOT ask WRAP_SCOPE
+
+Business-direction note:
+- Wrap may be lower-priority for full automation than PPF / ceramic / tint / polishing.
+- Preferred future model may be:
+  - minimum qualification only
+  - finish capture
+  - basic price-stage acknowledgment
+  - then manual handoff to chat/sales team for callback and quoting
+
+Governance decision:
+- Do NOT continue ad hoc wrap runtime patching until the final authority model is chosen.
+- Final decision must choose one path only:
+  1. Wrap remains fully automated (full-vehicle only), or
+  2. Wrap becomes qualification + handoff after finish/basic price-stage.
