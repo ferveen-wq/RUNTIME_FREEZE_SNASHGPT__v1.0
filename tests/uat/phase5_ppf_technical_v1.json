@@ -1,0 +1,41 @@
+[
+  {
+    "case_id": "phase5_ppf_technical_l1",
+    "input": "what about the specs and thickness",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "active_service_context": "ppf",
+      "objection_signal": "MISUNDERSTANDING",
+      "objection_repeat_count": 1
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_TECHNICAL_DEEPEN_L1"
+    },
+    "expect_contains_any": {
+      "english": [
+        "Specs help",
+        "looks",
+        "stays stable"
+      ],
+      "arabic": [
+        "المواصفات تساعد",
+        "شكل الفيلم",
+        "ثباته"
+      ]
+    },
+    "forbidden_words": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]

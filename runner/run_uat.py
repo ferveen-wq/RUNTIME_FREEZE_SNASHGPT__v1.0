@@ -252,34 +252,33 @@ def inject_readonly_runtime_signals(
 ) -> str:
     extra_signals = extra_signals or {}
 
-    # Allow tests to override request_type (needed for silence / special routing).
+    # Allow tests to override request_type.
     # If not provided, fall back to UAT heuristic.
     req = extra_signals.get("request_type")
     if req is None:
         req = compute_request_type_uat(user_input)
 
-    # Optional silence/test harness signals (do not guess defaults here)
-    # Only inject if explicitly provided by the test case.
-    silence_lines = ""
-    for key in [
-        "OUTBOUND_AGE_HOURS",
-        "FOLLOW_UP_COUNT",
-        "SILENCE_SUPPRESSED",
-        "SILENCE_STAGE",
-        "customer_response_latency",
-        "silence_state",
-    ]:
-        if key in extra_signals and extra_signals[key] is not None:
-            silence_lines += f"- {key}: {extra_signals[key]}\n"
+    emitted_signals = {"request_type": req}
+
+    # Pass through every explicitly provided runtime signal.
+    # Do not invent defaults here.
+    for key, value in extra_signals.items():
+        if key == "request_type":
+            continue
+        if value is None:
+            continue
+        emitted_signals[key] = value
+
+    signal_lines = "".join(f"- {key}: {value}\n" for key, value in emitted_signals.items())
 
     injected = (
         "RUNTIME_SIGNALS (READ-ONLY; DO NOT MODIFY):\n"
-        f"- request_type: {req}\n"
-        f"{silence_lines}"
+        f"{signal_lines}"
         "\n"
         "HARD RULE:\n"
         "- In DEBUG_OUTPUT, you MUST print request_type EXACTLY as provided above.\n"
-        "- Do NOT output any other request_type value (e.g., PRICE is invalid).\n"
+        "- For every other provided RUNTIME_SIGNALS field that is relevant to the turn, you MUST preserve and print its value exactly as provided above.\n"
+        "- Do NOT rename, coerce, normalize, replace, or drop provided RUNTIME_SIGNALS values.\n"
         "\n"
     )
 
@@ -388,11 +387,18 @@ def extract_debug_and_messages(full_text: str) -> dict:
     english_lines = []
 
     for line in body.splitlines():
-        if arabic_re.search(line):
-            arabic_lines.append(line.strip())
+        stripped = line.strip()
+        if not stripped:
+            continue
+
+        # Ignore language marker lines so they do not leak into parsed content.
+        if stripped in {"AR:", "EN:", "AR", "EN"}:
+            continue
+
+        if arabic_re.search(stripped):
+            arabic_lines.append(stripped)
         else:
-            if line.strip():
-                english_lines.append(line.strip())
+            english_lines.append(stripped)
 
     return {
         "debug": debug,
