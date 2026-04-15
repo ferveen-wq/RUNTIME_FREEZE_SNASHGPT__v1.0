@@ -3,7 +3,11 @@
     "case_id": "p3a_ppf_vehicle_known_no_price_should_ask_usage",
     "input": "I want PPF for BMW X5 2025.",
     "expect_debug": {
-      "request_type": "SERVICE_CONFIRMED"
+      "phase": "3A",
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
     },
     "expect_contains_any": {
       "english": [
@@ -35,6 +39,14 @@
         "دينار",
         "ب.د"
       ]
+    },
+    "strict_raw": true,
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ppf",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "active_service_context": "ppf"
     }
   },
   {
@@ -98,7 +110,11 @@
     "case_id": "p3a_ceramic_vehicle_known_should_ask_wash_method",
     "input": "Ceramic coating for BMW X5 2025.",
     "expect_debug": {
-      "request_type": "SERVICE_CONFIRMED"
+      "phase": "3A",
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
     },
     "expect_contains_any": {
       "english": [
@@ -124,6 +140,14 @@
         "usd",
         "دولار"
       ]
+    },
+    "strict_raw": true,
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ceramic",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "active_service_context": "ceramic"
     }
   },
   {
