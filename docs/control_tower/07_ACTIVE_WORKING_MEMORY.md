@@ -33,6 +33,15 @@ Status: NO ACTIVE OPEN DEFECT
 - Prior objection routing work already stabilized on branch history
 - Do not reopen unless a fresh failing case appears
 
+### Polishing
+Status: CLOSED
+- Phase 0-2 recognition validated
+- Phase 3A known-vehicle entry validated
+- Phase 3A second qualifier continuity validated
+- True Phase 3B readiness validated
+- Phase 5 L1 / L2 / L3 validated
+- Runtime path considered stable
+
 ## 3. DEFERRED / DO NOT PATCH NOW
 ### Wrap
 Status: DEFERRED ARCHITECTURE DECISION
@@ -48,16 +57,16 @@ Rule:
 - Do NOT patch wrap runtime directly until final authority model is chosen
 
 ## 4. CURRENT ACTIVE TRACK
-### Polishing
-Status: ACTIVE NEXT SERVICE
-- Phase 0-2 recognition checked
-- Next step: real known-vehicle path
-- Only continue if no authority conflict appears
+### Wrap
+Status: DEFERRED ARCHITECTURE DECISION ONLY
+- Do not continue runtime patching
+- Only architecture decision / manual-handoff model discussion is allowed
 
 ## 5. DO NOT TOUCH WITHOUT NEW EVIDENCE
 - Ceramic runtime path
 - Tint runtime path
 - PPF runtime path
+- Polishing runtime path
 - Wrap runtime bridge for deep automation
 
 ## 6. SESSION START RULE
