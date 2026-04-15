@@ -662,6 +662,14 @@ Routing rules (select ONE block only):
       - If objection_repeat_count >= 3:
         - Use PHASE5_WRAP_EXIT_FORK_L3
 
+5) If active_service_context == polishing:
+  - If objection_repeat_count <= 1:
+    - Use PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - If objection_repeat_count == 2:
+    - Use PHASE5_POLISH_NARROW_L2
+  - If objection_repeat_count >= 3:
+    - Use PHASE5_POLISH_EXIT_FORK_L3
+
 Hard stop:
 - After selecting the PHASE5_* block, STOP (do not append any other blocks).
 
