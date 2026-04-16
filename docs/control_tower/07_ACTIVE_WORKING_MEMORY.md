@@ -46,24 +46,18 @@ Status: CLOSED
 
 ## 3. DEFERRED / DO NOT PATCH NOW
 ### Wrap
-Status: RUNTIME_BLOCKED
-Business direction:
-- Qualification + manual handoff is the decided architecture path
-- Authority alignment has already been documented
-- Runtime execution is still blocked by signal-honoring / orchestration-owner issues
+Status: CLOSED
+- Architecture path: qualification + manual handoff (CONFIRMED)
+- Phase 3A finish capture validated
+- Post-finish handoff behavior validated (ESCALATION_BLOCK_WRAP_QUOTE)
+- Correct debug state enforced (phase=4, READY_FOR_NEGOTIATION, no price ladder)
+- Earlier blockage traced to runner/harness execution-state enforcement, not runtime authority drift
+- Runtime path considered stable
 
 Rule:
-- Do NOT continue prompt/bridge patching for wrap
-- Do NOT expand wrap automation
-- Only runtime execution analysis is allowed
-
-## 4. CURRENT ACTIVE TRACK
-### Wrap
-Status: RUNTIME_DEBUG ONLY
-- Architecture decision is complete
-- Authority alignment is complete
-- Remaining work is runtime execution analysis only
-- No further prompt/bridge patching is allowed
+- Do NOT expand wrap automation beyond handoff model
+- Do NOT introduce Phase 5 wrap negotiation logic
+- Only revisit if fresh runtime evidence contradicts current behavior
 
 ## 5. DO NOT TOUCH WITHOUT NEW EVIDENCE
 - Ceramic runtime path

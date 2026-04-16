@@ -213,7 +213,12 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
   - request_type == PRICE_REQUEST
 - Then:
   - phase MUST NOT remain 3A
+  - phase MUST equal 4
+  - selected_phrase_id MUST equal ESCALATION_BLOCK_WRAP_QUOTE
   - selected_phrase_id MUST NOT equal PHASE3A_Q_WRAP_FINISH
+  - QUALIFICATION_STATUS MUST equal READY_FOR_NEGOTIATION
+  - QUALIFICATION_STATUS MUST NOT remain NOT_READY
+  - price_ladder_state MUST remain NONE
   - Do NOT ask finish again
   - Do NOT use PHASE3B_WRAP_RANGE
   - Do NOT continue into PHASE5_WRAP_* routing
