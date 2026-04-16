@@ -678,3 +678,17 @@ UAT:
 - inventory cleanup only
 - v2 already passed focused strict validation
 
+
+Date: 2026-04-16
+Files: docs/control_tower/07_ACTIVE_WORKING_MEMORY.md
+Changed:
+- Re-aligned active working memory with current repo evidence.
+- Marked Ceramic and PPF as ACTIVE for ongoing Phase 4 authority-alignment / strict UAT promotion.
+- Narrowed the do-not-touch rule so it does not conflict with currently active Phase 4 completion work.
+Why:
+- Active working memory had drifted behind the actual branch state.
+- Prevent false “closed” labeling while Phase 4 hardening is still actively being promoted.
+UAT:
+- governance sync only
+- validated against current active Phase 4 inventory and recent branch history
+

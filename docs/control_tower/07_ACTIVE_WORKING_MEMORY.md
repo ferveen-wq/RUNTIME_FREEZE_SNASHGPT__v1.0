@@ -14,11 +14,13 @@ Do not rely on chat memory. Read this file first in every new session.
 
 ## 2. CLOSED SERVICE TRACKS
 ### Ceramic
-Status: CLOSED
+Status: ACTIVE
 - Phase 3A validated
 - Phase 3B validated
 - Phase 5 continuity / render leakage fixed
-- Runtime path considered stable
+- Runtime path broadly stable
+- Phase 4 authority-alignment / strict UAT promotion is now active
+- Treat Ceramic as under active Phase 4 completion, not fully closed
 
 ### Tint
 Status: CLOSED
@@ -29,11 +31,13 @@ Status: CLOSED
 - Runtime path considered stable
 
 ### PPF
-Status: CLOSED
+Status: ACTIVE
 - Phase 3B price-ready path validated
 - Phase 5 PPF verbatim rendering validated
 - Earlier leakage concern was resolved as test-fixture / runner enforcement, not runtime drift
-- Runtime path considered stable
+- Runtime path broadly stable
+- Phase 4 authority-alignment / strict UAT promotion is now active
+- Treat PPF as under active Phase 4 completion, not fully closed
 
 ### Polishing
 Status: CLOSED
@@ -60,9 +64,9 @@ Rule:
 - Only revisit if fresh runtime evidence contradicts current behavior
 
 ## 5. DO NOT TOUCH WITHOUT NEW EVIDENCE
-- Ceramic runtime path
+- Ceramic runtime path outside active Phase 4 authority-alignment work
 - Tint runtime path
-- PPF runtime path
+- PPF runtime path outside active Phase 4 authority-alignment work
 - Polishing runtime path
 - Wrap runtime bridge for deep automation
 
@@ -91,4 +95,7 @@ Before any patch:
 
 - Wrap is CLOSED.
 - Do not reopen wrap unless fresh failing evidence appears.
-- Next allowed work should come from a newly classified defect in a non-closed track.
+- Current allowed work:
+  - complete Phase 4 authority-alignment and strict UAT promotion for active services
+  - keep using classified single-turn, state-injected UAT where harness continuity is not yet trusted
+- Only after Phase 4 completion should Phase 5 completion review proceed service by service.
