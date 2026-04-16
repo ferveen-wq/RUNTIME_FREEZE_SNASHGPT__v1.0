@@ -261,3 +261,31 @@ Conclusion:
 - Further prompt-only patching should stop here to avoid drift
 - Next work must be deeper runtime execution analysis, not more surface bridge edits
 
+
+### 4.6 Wrap blockage root-cause clarification
+
+Status: CONFIRMED
+
+Root cause:
+- The intended handoff path for wrap belongs to Phase 3 orchestration/state emission.
+- However, in the current branch, Phase 3 orchestration exists as architecture/spec documentation only:
+  - RUNTIME_EXECUTION_FLOW.md
+  - RUNTIME_STATE_MACHINE.md
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+- No separate executable orchestration layer was identified that can emit wrap-specific:
+  - QUALIFICATION_STATUS transition for post-finish pricing intent
+  - QUOTE_REQUIRED_FLAG
+  - PRICE_LADDER_STATE = ESCALATED_TO_QUOTE
+
+Operational consequence:
+- The current UAT/runtime harness is still effectively controlled by:
+  - runner/run_uat.py
+  - runner/context_reset_prompt.txt
+- Therefore wrap cannot be cleanly fixed through a true orchestration patch in this branch, because no such executable patch point is present.
+
+Governance conclusion:
+- Do not force orchestration ownership into QUALIFICATION_ENGINE.md
+- Do not continue prompt-only wrap behavior patching
+- Next valid step requires either:
+  1. implementing an actual executable orchestration layer, or
+  2. formally accepting that the runner prompt is the temporary execution authority for UAT behavior

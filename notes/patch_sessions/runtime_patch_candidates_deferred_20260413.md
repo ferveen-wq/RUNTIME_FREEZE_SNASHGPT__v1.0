@@ -163,3 +163,14 @@ Blocked state:
 Rule:
 - Do not continue blind prompt/bridge patching for wrap in this branch without deeper runtime execution analysis
 
+
+## Wrap root-cause clarification
+
+Confirmed:
+- No executable Phase 3 orchestration patch point was found in the current branch
+- Orchestration/state emission exists as architecture/spec only
+- Current UAT behavior remains effectively governed by runner/context_reset_prompt.txt
+
+Rule:
+- Do not misplace orchestration ownership into QUALIFICATION_ENGINE.md
+- Do not continue blind wrap prompt patching without governance decision on execution authority
