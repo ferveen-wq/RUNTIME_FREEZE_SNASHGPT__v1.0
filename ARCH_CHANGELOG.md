@@ -612,3 +612,16 @@ UAT:
 - phase4_ppf_technical_sensitivity_strict_v2.json already passed
 - inventory cleanup only for superseded packs
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase4_ceramic_brand_fixation_strict_v2.json, tests/uat/phase4_ceramic_brand_fixation_strict_v1.json)
+Changed:
+- Kept the stricter ceramic Phase 4 brand-fixation pack as active authority.
+- Removed the weaker superseded draft pack v1 from active inventory.
+Why:
+- Prevent duplicate active UAT authority for the same ceramic Phase 4 behavior.
+- Keep only the authority-aligned strict pack in active validation.
+UAT:
+- phase4_ceramic_brand_fixation_strict_v2.json passed
+- focused strict raw review
+
