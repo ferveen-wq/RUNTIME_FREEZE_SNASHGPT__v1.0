@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "ppf_full_front_known_vehicle_stays_in_phase3a_driving_pattern",
+    "strict_raw": true,
+    "input": "price",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "PPF_COVERAGE_INTENT": "FRONT",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE",
+      "selected_phrase_id": "PHASE3A_Q_PPF_DRIVING_PATTERN"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3B_PPF_RANGE"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "VAT",
+        "price range",
+        "full body"
+      ],
+      "arabic": [
+        "دينار",
+        "ضريبة",
+        "السعر",
+        "كامل"
+      ]
+    }
+  }
+]

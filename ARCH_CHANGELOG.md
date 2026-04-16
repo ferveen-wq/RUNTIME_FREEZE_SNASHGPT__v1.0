@@ -497,3 +497,16 @@ UAT:
 - active/deferred inventory sweep
 - manual file-move verification
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase3a_boundary_single_case_v2.json, notes/uat_deferred/phase3a_boundary_single_case_v1.json)
+Changed:
+- Promoted a strict Phase 3A single-case PPF boundary pack with explicit runtime signals.
+- Retained the earlier draft version in deferred for historical traceability.
+Why:
+- Replace weak input-only validation with runtime-signal-based strict validation.
+- Align PPF Phase 3A boundary testing with ceramic/tint validated structure.
+UAT:
+- phase3a_boundary_single_case_v2.json passed
+- focused strict UAT validation
+
