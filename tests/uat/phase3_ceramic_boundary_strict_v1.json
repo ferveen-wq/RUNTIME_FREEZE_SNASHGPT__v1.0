@@ -1,0 +1,46 @@
+[
+  {
+    "case_id": "ceramic_price_request_known_vehicle_stays_in_phase3a",
+    "strict_raw": true,
+    "input": "price",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3B_CERAMIC_RANGE",
+        "PHASE3B_PPF_RANGE",
+        "PHASE3B_TINT_RANGE",
+        "PHASE3B_POLISHING_RANGE"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "PPF",
+        "wrap",
+        "tint",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "تغليف",
+        "تظليل",
+        "سعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  }
+]
