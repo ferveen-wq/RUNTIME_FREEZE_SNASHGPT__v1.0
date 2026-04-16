@@ -157,6 +157,24 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
   - WRAP: WRAP_FINISH
   - POLISHING: POLISHING_SCOPE and PAINT_CONDITION_REPAINT_SCRATCH
 
+- Special late-stage rule for PPF:
+  - If ALL are true:
+    - active_service_context == ppf
+    - PPF_COVERAGE_INTENT is present
+    - PPF_DRIVING_PATTERN is present
+    - QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+  - Then:
+    - You MUST NOT output any PHASE3A_Q_PPF_* selected_phrase_id
+    - You MUST NOT output PHASE3A_Q_PPF_COMPARISON_FOCUS
+    - You MUST NOT drop to phase 3A
+    - brand / competitor / warranty / trust questions must stay inside the late-stage PPF path only
+    - If objection_signal == TRUST_OR_RISK:
+      - phase MUST equal 4
+      - selected_phrase_id MUST equal PHASE4_PPF_BRAND_FIXATION_L1
+      - selected_phrase_id MUST NOT equal PHASE4_PPF_BRAND_TRUST
+      - selected_phrase_id MUST NOT come from PHASE5_PPF_* family
+    - PHASE5_PPF_* routing is allowed only for true post-price objection deepening states, not first-step brand/trust clarification
+
 - Special rule for WRAP:
   - WRAP_FINISH completion does NOT mean standard automated Phase 3B pricing flow.
   - After WRAP_FINISH is known, wrap may receive only a brief price-stage acknowledgment and must then route to approved handoff behavior.
@@ -380,7 +398,17 @@ BRAND-ONLY OVERRIDE (HARD — ANY PHASE):
   - "ppf please"
   - "BMW X5 2025 ppf"
   - "full ppf"
-- When it triggers:
+- If RUNTIME_SIGNALS already show:
+  - active_service_context == ppf
+  - QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- Then:
+  - Do NOT use BRAND DISCLOSURE — PPF (PHASE 0–2)
+  - Do NOT drop to phase 0–2
+  - Do NOT re-ask model, year, or coverage
+  - Keep the turn inside the active late-stage PPF path
+  - selected_phrase_id MUST come from the PHASE4_PPF_* family only
+  - STOP.
+- When it triggers outside that late-stage PPF state:
   - request_type MUST be OTHER
 
 NEW CAR RECOMMENDATION OVERRIDE (Phase 0–2):

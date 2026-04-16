@@ -525,3 +525,18 @@ UAT:
 - tests/uat/phase4_price_resistance_v2.json passed
 - phase4 inventory classification review completed
 
+
+Date: 2026-04-16
+Files: MULTIPLE (runner/context_reset_prompt.txt, tests/uat/phase4_ppf_brand_fixation_strict_v3.json, notes/patch_sessions/phase4_brand_fixation_misroute_20260416.md)
+Changed:
+- Tightened the late-stage PPF brand-fixation guard in the runner prompt.
+- Forced late-stage PPF trust/brand questions to stay in Phase 4 and use the authoritative phrase ID.
+- Recorded the misroute investigation note for traceability.
+Why:
+- Prevent late-stage PPF brand questions from dropping to Phase 0–2 or Phase 3A.
+- Prevent invented non-authoritative phrase IDs in the runner layer.
+- Keep harness execution aligned with locked runtime authority.
+UAT:
+- phase4_ppf_brand_fixation_strict_v3.json passed
+- focused strict raw report review
+
