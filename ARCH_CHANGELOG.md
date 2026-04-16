@@ -692,3 +692,17 @@ UAT:
 - governance sync only
 - validated against current active Phase 4 inventory and recent branch history
 
+
+Date: 2026-04-16
+Files: docs/control_tower/06_PHASE_AUDIT_BOARD.md
+Changed:
+- Re-aligned the phase audit board with current branch evidence.
+- Marked Phase 4 as IN_PROGRESS and Phase 5 as UNDER_TEST.
+- Updated current testing focus to reflect active Phase 4 authority-alignment work.
+Why:
+- Control-tower phase audit board was lagging behind actual repo state.
+- Keep both control-tower views aligned while Phase 4 promotion is still active.
+UAT:
+- governance sync only
+- validated against active Phase 4 inventory, recent branch history, and updated active working memory
+

@@ -58,18 +58,25 @@ Notes:
 ---
 
 ### PHASE 4 (Message Construction / Phrase Layer)
-Status: 
-Owner: 
-Last Verified: 
+Status: IN_PROGRESS
+Owner: Runtime / UAT / Harness
+Last Verified: 2026-04-16
 Notes:
+- Active strict UAT promotion is underway for Phase 4 authority-alignment.
+- Current branch evidence shows active Phase 4 hardening for PPF and Ceramic.
+- Use classified single-turn, state-injected UAT only where harness continuity is not yet trusted.
+- Do not treat Phase 4 as closed until active service-level authority alignment is completed.
 
 ---
 
 ### PHASE 5 (Objection / Handling Layer)
-Status: 
-Owner: 
-Last Verified: 
+Status: UNDER_TEST
+Owner: Runtime / UAT / Harness
+Last Verified: 2026-04-16
 Notes:
+- Phase 5 remains partially validated by prior service-specific work, but full completion must follow final Phase 4 authority-alignment.
+- Do not treat current Phase 5 status as fully closed while Phase 4 active-service alignment is still in progress.
+- Continue Phase 5 review only after Phase 4 service coverage is completed and promoted cleanly.
 
 ---
 
@@ -170,13 +177,14 @@ Rule:
 
 Define current testing scope:
 
-- Active Phase(s): Phase 3 moving toward Phase 4 entry
+- Active Phase(s): Phase 4 authority-alignment with Phase 5 review queued behind it
 - Test Type: controlled UAT / behavioral verification
-- Mode (new chat / continuation): primarily new chat unless scenario requires continuation
+- Mode (new chat / continuation): single-turn, state-injected validation where harness continuity is not yet trusted
 - Context (inside project / outside project): controlled split depending scenario
 - Notes:
   - Testing and patching must remain separate.
   - Use classification before assigning runtime ownership.
+  - Promote only strict packs that match authoritative phrase IDs and phase ownership.
 
 ---
 
