@@ -170,7 +170,17 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
     - brand / competitor / warranty / trust questions must stay inside the late-stage PPF path only
     - If objection_signal == TRUST_OR_RISK:
       - phase MUST equal 4
-      - selected_phrase_id MUST equal PHASE4_PPF_BRAND_FIXATION_L1
+      - If the user message includes warranty terms such as:
+        - warranty
+        - guarantee
+        - agency warranty
+        - dealer warranty
+        - ضمان
+        - الوكالة
+      - Then:
+        - selected_phrase_id MUST equal PHASE4_PPF_WARRANTY_SENSITIVITY_L1
+      - Otherwise:
+        - selected_phrase_id MUST equal PHASE4_PPF_BRAND_FIXATION_L1
       - selected_phrase_id MUST NOT equal PHASE4_PPF_BRAND_TRUST
       - selected_phrase_id MUST NOT come from PHASE5_PPF_* family
     - PHASE5_PPF_* routing is allowed only for true post-price objection deepening states, not first-step brand/trust clarification

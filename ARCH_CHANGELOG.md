@@ -553,3 +553,18 @@ UAT:
 - inventory cleanup only
 - no runtime behavior change
 
+
+Date: 2026-04-16
+Files: MULTIPLE (runner/context_reset_prompt.txt, tests/uat/phase4_ppf_warranty_sensitivity_strict_v2.json, notes/patch_sessions/phase4_warranty_sensitivity_misroute_20260416.md)
+Changed:
+- Tightened late-stage PPF trust routing to distinguish warranty-sensitive questions from general brand-fixation questions.
+- Forced warranty-sensitive late-stage PPF questions to remain in Phase 4 and use the authoritative warranty phrase ID.
+- Recorded the investigation note for traceability.
+Why:
+- Prevent late-stage warranty questions from collapsing into generic brand-fixation routing.
+- Keep harness execution aligned with locked runtime Phase 4 authority.
+- Preserve clean authority IDs and avoid drift inside the runner layer.
+UAT:
+- phase4_ppf_warranty_sensitivity_strict_v2.json passed
+- focused strict raw report review
+
