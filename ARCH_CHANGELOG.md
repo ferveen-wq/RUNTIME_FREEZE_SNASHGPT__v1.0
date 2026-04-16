@@ -665,3 +665,16 @@ UAT:
 - phase4_ceramic_price_resistance_strict_v2.json passed
 - focused strict raw report review
 
+
+Date: 2026-04-16
+Files: tests/uat/phase4_ceramic_price_resistance_strict_v1.json, tests/uat/phase4_ceramic_price_resistance_strict_v2.json
+Changed:
+- Removed the superseded ceramic Phase 4 price-resistance draft pack v1 from active inventory.
+- Kept v2 as the active authoritative strict pack.
+Why:
+- Avoid duplicate active UAT authority for the same ceramic Phase 4 behavior.
+- Keep only the stricter validated pack in active inventory.
+UAT:
+- inventory cleanup only
+- v2 already passed focused strict validation
+
