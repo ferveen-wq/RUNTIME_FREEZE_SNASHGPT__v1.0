@@ -597,3 +597,18 @@ UAT:
 - phase4_ppf_price_resistance_strict_v4.json passed
 - focused strict raw report review
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase4_ppf_technical_sensitivity_strict_v2.json, tests/uat/phase4_ppf_technical_sensitivity_strict_v1.json, tests/uat/phase4_price_resistance_v2.json)
+Changed:
+- Promoted the stricter Phase 4 PPF technical sensitivity pack v2 into active inventory.
+- Removed the superseded technical sensitivity draft v1.
+- Removed the older generic Phase 4 price resistance pack now superseded by the stricter PPF price resistance v4 pack.
+Why:
+- Keep only stronger authority-aligned Phase 4 PPF packs in active UAT.
+- Avoid duplicate active validation authority for the same behavior.
+- Reduce drift in active Phase 4 inventory before moving to the next route family.
+UAT:
+- phase4_ppf_technical_sensitivity_strict_v2.json already passed
+- inventory cleanup only for superseded packs
+
