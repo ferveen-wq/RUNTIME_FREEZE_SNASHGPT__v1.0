@@ -445,3 +445,18 @@ UAT: governance pipeline validation
   - phase5_ppf_verbatim_strict_v1.json passed
   - governance pipeline commit test (pre-commit hooks passed locally before final commit attempt)
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase4_ppf_strict_v1.json, notes/uat_deferred/README.md, notes/uat_deferred/phase3_ceramic_boundary_strict_v1.json, notes/uat_deferred/phase3_ceramic_ready_path_v1.json, notes/uat_deferred/phase3a_boundary_single_case_v1.json, notes/uat_deferred/phase4_entry_audit_v1.json, notes/uat_deferred/phase4_entry_strict_v1.json, notes/uat_deferred/phase4_price_resistance_v1.json, notes/uat_deferred/phase4_reassurance_multiturn_v1.json)
+Changed:
+- Promoted one clean PPF Phase 4 strict pack into active UAT inventory.
+- Moved weaker or not-yet-reclassified packs into notes/uat_deferred.
+- Added deferred UAT README with promotion criteria.
+Why:
+- Reduce misleading half-official UAT authority.
+- Keep only better-classified executable packs in active tests/uat.
+- Preserve draft packs without letting them compete as active validation authority.
+UAT:
+- file inventory / classification sweep
+- manual staging review
+

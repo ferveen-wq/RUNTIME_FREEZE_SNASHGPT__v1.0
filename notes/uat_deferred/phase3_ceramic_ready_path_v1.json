@@ -1,0 +1,9 @@
+[
+  {
+    "case_id": "ceramic_camry_2022_price_should_not_skip_phase3a",
+    "input": "ceramic for camry 2022 price",
+    "expect_debug_not_equals": {
+      "selected_phrase_id": ["PHASE3B_CERAMIC_RANGE"]
+    }
+  }
+]

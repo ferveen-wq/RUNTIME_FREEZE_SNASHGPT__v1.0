@@ -1,0 +1,17 @@
+[
+  {
+    "case_id": "ppf_full_front_price_should_stop_at_driving_pattern",
+    "strict_raw": true,
+    "input": "full front ppf camry 2022 price",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": ["PHASE3B_PPF_RANGE"]
+    },
+    "expect_not_contains": {
+      "english": ["350 BHD", "450 BHD", "price starts from", "VAT included"],
+      "arabic": ["350", "450", "شامل", "ضريبة"]
+    }
+  }
+]

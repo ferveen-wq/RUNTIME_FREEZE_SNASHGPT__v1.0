@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "ppf_phase4_entry_ready",
+    "input": "price for ppf full car",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    }
+  },
+  {
+    "case_id": "ppf_phase4_first_objection",
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "PRICE_REACTION",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "0"
+    }
+  }
+]

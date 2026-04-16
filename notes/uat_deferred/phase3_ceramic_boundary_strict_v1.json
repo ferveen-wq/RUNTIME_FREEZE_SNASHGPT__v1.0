@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "ceramic_camry_2022_price_should_enter_ceramic_3a",
+    "input": "ceramic for camry 2022 price",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": [
+        "what service do you want",
+        "another service"
+      ],
+      "arabic": [
+        "نوع الخدمة التي تريدها",
+        "خدمة أخرى"
+      ]
+    },
+    "forbidden_words": {
+      "english": [
+        "PPF",
+        "wrap",
+        "tint"
+      ],
+      "arabic": [
+        "PPF",
+        "تغليف",
+        "تظليل"
+      ]
+    }
+  }
+]

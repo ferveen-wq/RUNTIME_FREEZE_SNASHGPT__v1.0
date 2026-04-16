@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "ppf_ready_should_not_jump_to_phase5_directly",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_debug_not_equals": {
+      "phase": ["5"]
+    }
+  },
+  {
+    "case_id": "ppf_ready_should_not_use_phase3b_phrase_directly_in_late_phase",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_debug_not_equals": {
+      "selected_phrase_id": ["PHASE3B_PPF_RANGE"]
+    }
+  },
+  {
+    "case_id": "ceramic_should_not_escalate_phase_without_qualification",
+    "strict_raw": true,
+    "input": "ceramic for camry 2022",
+    "expect_debug_not_equals": {
+      "phase": ["4", "5"]
+    }
+  }
+]

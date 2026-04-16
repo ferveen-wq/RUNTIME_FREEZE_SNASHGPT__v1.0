@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "ppf_ready_price_should_stay_in_phase4_family",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    }
+  },
+  {
+    "case_id": "ceramic_ready_path_should_not_fall_back_to_phase0",
+    "strict_raw": true,
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "tint_price_without_vehicle_should_not_jump_forward",
+    "strict_raw": true,
+    "input": "price tint",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "none"
+    }
+  }
+]

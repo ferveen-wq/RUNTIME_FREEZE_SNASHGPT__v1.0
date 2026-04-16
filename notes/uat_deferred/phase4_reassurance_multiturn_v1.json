@@ -1,0 +1,84 @@
+[
+  {
+    "case_id": "ppf_price_pressure_should_enter_phase4_not_phase5_on_first_push",
+    "strict_raw": true,
+    "turns": [
+      "full ppf for camry 2022",
+      "why is it expensive?"
+    ],
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1",
+        "PHASE5_PPF_NARROW_L2",
+        "PHASE5_PPF_EXIT_FORK_L3"
+      ]
+    },
+    "expect_contains_any": {
+      "english": ["difference", "over time", "install", "finish", "If you'd like"],
+      "arabic": ["الفرق", "مع الوقت", "التركيب", "التشطيب", "إذا تحب"]
+    }
+  },
+  {
+    "case_id": "ppf_brand_question_should_use_phase4_brand_or_trust_family",
+    "strict_raw": true,
+    "turns": [
+      "full ppf for camry 2022",
+      "is xpel better?"
+    ],
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1",
+        "PHASE5_PPF_NARROW_L2",
+        "PHASE5_PPF_EXIT_FORK_L3"
+      ]
+    },
+    "expect_contains_any": {
+      "english": ["brand", "film", "over time", "If you like"],
+      "arabic": ["الماركة", "الفيلم", "مع الوقت", "إذا تحب"]
+    }
+  },
+  {
+    "case_id": "ceramic_price_pressure_should_use_phase4_calm_reassurance",
+    "strict_raw": true,
+    "turns": [
+      "ceramic coating for camry 2022",
+      "seems expensive"
+    ],
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "TECHNICAL QUESTION HOLD — PHASE 0–2",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+        "PHASE5_CERAMIC_NARROW_L2"
+      ]
+    },
+    "expect_contains_any": {
+      "english": ["compare", "gloss", "difference", "If you like"],
+      "arabic": ["تقارن", "اللمعة", "الفرق", "إذا تحب"]
+    }
+  },
+  {
+    "case_id": "tint_heat_skepticism_should_use_phase4_not_price_loop",
+    "strict_raw": true,
+    "turns": [
+      "tint for camry 2022",
+      "does it really help with heat?"
+    ],
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3B_TINT_RANGE",
+        "PHASE5_TINT_COMPARE_DEEPEN_L1",
+        "PHASE5_TINT_NARROW_L2"
+      ]
+    },
+    "expect_contains_any": {
+      "english": ["heat", "comfort", "performance", "both"],
+      "arabic": ["الحرارة", "الراحة", "الأداء", "الاثنين"]
+    }
+  }
+]
