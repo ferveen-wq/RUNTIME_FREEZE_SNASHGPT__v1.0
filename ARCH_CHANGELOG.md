@@ -625,3 +625,16 @@ UAT:
 - phase4_ceramic_brand_fixation_strict_v2.json passed
 - focused strict raw review
 
+
+Date: 2026-04-16
+Files:
+- tests/uat/phase4_price_resistance_v2.json
+Changed:
+- Restored phase4_price_resistance_v2.json after it was accidentally removed during ceramic Phase 4 promotion.
+Why:
+- Keep the validated active Phase 4 price-resistance pack in inventory.
+- Correct accidental inventory drift from mixed staging.
+UAT:
+- inventory repair only
+- file restored from prior committed state
+
