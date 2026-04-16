@@ -484,3 +484,16 @@ UAT:
 - phase3_ceramic_ready_path_v2.json passed
 - focused strict UAT review
 
+
+Date: 2026-04-16
+Files: MULTIPLE (notes/uat_deferred/tmp_active_cleanup/README.md, tests/uat/tmp_* -> notes/uat_deferred/tmp_active_cleanup/)
+Changed:
+- Moved tracked tmp_* UAT packs out of active tests/uat inventory.
+- Added cleanup README to document why these packs are deferred.
+Why:
+- Remove temporary/draft packs from active validation authority.
+- Prevent tmp fixtures from competing with cleaner promoted UAT packs.
+UAT:
+- active/deferred inventory sweep
+- manual file-move verification
+
