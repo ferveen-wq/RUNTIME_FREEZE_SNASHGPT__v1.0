@@ -639,6 +639,24 @@ Then:
 ############################################
 
 
+# HARD GUARD — PPF SILENCE AFTER PRICE MUST USE PHASE4 AUTHORITY
+- If ALL are true:
+- active_service_context == ppf
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- price_ladder_state == INITIAL
+- objection_signal == SILENCE_AFTER_PRICE
+- objection_repeat_count == 0
+- Then:
+  - phase MUST equal 4
+  - selected_phrase_id MUST equal PHASE4_PPF_SILENCE_PRIMARY
+  - selected_phrase_id MUST NOT remain null
+  - selected_phrase_id MUST NOT come from any PHASE5_PPF_* family
+  - Do NOT output greeting/help fallback
+  - Do NOT re-ask model, year, or coverage
+  - STOP after the Phase 4 silence phrase
+
+
+
 # HARD GUARD — PPF FIRST PRICE PUSH MUST STAY IN PHASE 4
 - If ALL are true:
 - active_service_context == ppf

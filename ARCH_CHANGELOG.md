@@ -638,3 +638,18 @@ UAT:
 - inventory repair only
 - file restored from prior committed state
 
+
+Date: 2026-04-16
+Files: runner/context_reset_prompt.txt, tests/uat/phase4_ppf_silence_strict_v1.json, notes/patch_sessions/phase4_ppf_silence_null_phrase_20260416.md
+Changed:
+- Added a late-stage PPF silence guard so silence-after-price stays on the Phase 4 authority path.
+- Tightened the strict silence UAT pack to require the authoritative Phase 4 silence phrase ID.
+- Recorded the silence null-phrase investigation note for traceability.
+Why:
+- Prevent late-stage PPF silence from falling back to generic greeting/help behavior.
+- Prevent selected_phrase_id from remaining null in an authority-owned Phase 4 route.
+- Keep harness execution aligned with locked runtime silence routing.
+UAT:
+- phase4_ppf_silence_strict_v1.json passed
+- focused strict raw report review
+
