@@ -559,6 +559,7 @@ def check_expectations(parsed: dict, case: dict) -> list[str]:
         "SERVICE_CONFIRMED",
         "SERVICE_INFERRED",
         "PRICE_REQUEST",
+        "PRICE_REACTION",
         "LOCATION",
         "OTHER",
     }

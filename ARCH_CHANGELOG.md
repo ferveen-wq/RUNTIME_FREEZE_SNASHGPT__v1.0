@@ -411,7 +411,7 @@ UAT: governance pipeline commit test (pre-commit hooks passed)
 
 
 Date: TODO
-Files: MULTIPLE
+Files: MULTIPLE (runner/context_reset_prompt.txt, runner/run_uat.py, tests/uat/phase5_ppf_verbatim_strict_v1.json, docs/control_tower/07_ACTIVE_WORKING_MEMORY.md)
 Changed: TODO
 Why: TODO
 UAT: governance pipeline validation
@@ -426,3 +426,22 @@ UAT: governance pipeline validation
   - Align runtime governance record with the merged and validated Phase 8 bridge state now active in main.
 - UAT:
   - governance pipeline commit test (pre-commit hooks passed)
+
+- Date: 2026-04-16
+- Files: MULTIPLE
+  - runner/context_reset_prompt.txt
+  - runner/run_uat.py
+  - tests/uat/phase5_ppf_verbatim_strict_v1.json
+  - docs/control_tower/07_ACTIVE_WORKING_MEMORY.md
+- Changed:
+  - Hardened Phase 5 verbatim rendering enforcement in runner prompt for PPF/Ceramic selection safety.
+  - Added strict PPF Phase 5 verbatim UAT fixture.
+  - Updated runner request_type enum handling to allow PRICE_REACTION.
+  - Restored PPF active-working-memory status to CLOSED after strict verification.
+- Why:
+  - Prove PPF Phase 5 leakage was a harness/test-enforcement issue rather than runtime phrase drift.
+  - Prevent false-green UAT outcomes on Phase 5 verbatim cases.
+- UAT:
+  - phase5_ppf_verbatim_strict_v1.json passed
+  - governance pipeline commit test (pre-commit hooks passed locally before final commit attempt)
+

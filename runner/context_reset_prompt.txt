@@ -552,23 +552,14 @@ If:
 - selected_phrase_id == PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
 
 Then:
-- You MUST output EXACTLY the following text and NOTHING else:
-
-EN:
-Understood — with ceramic, the difference usually comes from the preparation behind it and how stable the finish stays over time, not just the word “ceramic”.
-If you like, I can explain what usually creates that difference, or show you a simple example of the result.
-
-AR:
-مفهوم — بالسيراميك الفرق غالباً يجي من التحضير اللي يصير قبل التطبيق وثبات النتيجة مع الوقت، مو بس كلمة “سيراميك”.
-إذا تحب، أشرح لك ببساطة شنو عادة يسوي هالفرق، أو أوريك مثال على النتيجة.
-
+- You MUST output EXACTLY the PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md and NOTHING else.
 - Do NOT add any extra words
 - Do NOT add vehicle names
 - Do NOT rephrase
 - Do NOT shorten
 - Do NOT translate differently
 - Do NOT append any additional sentence
-- Output must match exactly
+- Output must match the locked phrase block exactly
 
 ############################################
 
@@ -586,6 +577,9 @@ Then:
 - Do NOT inject vehicle names (e.g., BMW X5) unless explicitly present in user input
 - Do NOT change sentence structure
 - Do NOT shorten or summarize
+- Do NOT replace the selected PHASE5 block with a generic reassurance summary
+- Do NOT output any custom fallback wording
+- Do NOT merge Phase 5 with Phase 3B or general sales text
 
 - You MUST output:
   - All EN lines exactly as written
@@ -594,6 +588,7 @@ Then:
 - Do NOT add any extra sentences before or after
 - Do NOT mix with custom text
 - Do NOT leave selected_phrase_id as null
+- STOP after rendering the selected PHASE5 block
 
 ############################################
 

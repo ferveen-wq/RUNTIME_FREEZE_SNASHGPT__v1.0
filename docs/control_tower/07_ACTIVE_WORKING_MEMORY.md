@@ -29,10 +29,11 @@ Status: CLOSED
 - Runtime path considered stable
 
 ### PPF
-Status: OPEN DEFECT
-- Phase 3B price-ready path remains validated
-- A live Phase 5 render / leakage concern has reappeared in current harness evidence
-- Do NOT treat PPF as fully closed until Phase 5 owner is reclassified and resolved
+Status: CLOSED
+- Phase 3B price-ready path validated
+- Phase 5 PPF verbatim rendering validated
+- Earlier leakage concern was resolved as test-fixture / runner enforcement, not runtime drift
+- Runtime path considered stable
 
 ### Polishing
 Status: CLOSED
