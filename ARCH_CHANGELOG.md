@@ -568,3 +568,16 @@ UAT:
 - phase4_ppf_warranty_sensitivity_strict_v2.json passed
 - focused strict raw report review
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase4_ppf_warranty_sensitivity_strict_v1.json, tests/uat/phase4_ppf_warranty_sensitivity_strict_v2.json)
+Changed:
+- Removed the superseded Phase 4 PPF warranty sensitivity draft pack v1 from active inventory.
+- Kept v2 as the authoritative promoted strict pack.
+Why:
+- Avoid duplicate active UAT authority for the same warranty-sensitivity behavior.
+- Keep only the stricter validated pack in active Phase 4 inventory.
+UAT:
+- inventory cleanup only
+- v2 already passed focused strict validation
+
