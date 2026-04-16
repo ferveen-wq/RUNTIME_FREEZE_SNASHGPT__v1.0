@@ -29,9 +29,10 @@ Status: CLOSED
 - Runtime path considered stable
 
 ### PPF
-Status: NO ACTIVE OPEN DEFECT
-- Prior objection routing work already stabilized on branch history
-- Do not reopen unless a fresh failing case appears
+Status: OPEN DEFECT
+- Phase 3B price-ready path remains validated
+- A live Phase 5 render / leakage concern has reappeared in current harness evidence
+- Do NOT treat PPF as fully closed until Phase 5 owner is reclassified and resolved
 
 ### Polishing
 Status: CLOSED
@@ -44,23 +45,24 @@ Status: CLOSED
 
 ## 3. DEFERRED / DO NOT PATCH NOW
 ### Wrap
-Status: DEFERRED ARCHITECTURE DECISION
+Status: RUNTIME_BLOCKED
 Business direction:
-- Prefer qualification + manual handoff after initial qualification
-- Do NOT continue ad hoc runtime patching
-
-Observed authority conflict:
-- PHASE3A_QUALIFICATION_DECISION_MATRIX.md still describes WRAP_SCOPE
-- QUALIFICATION_ENGINE.md says wrap automation is full-vehicle only and do NOT ask WRAP_SCOPE
+- Qualification + manual handoff is the decided architecture path
+- Authority alignment has already been documented
+- Runtime execution is still blocked by signal-honoring / orchestration-owner issues
 
 Rule:
-- Do NOT patch wrap runtime directly until final authority model is chosen
+- Do NOT continue prompt/bridge patching for wrap
+- Do NOT expand wrap automation
+- Only runtime execution analysis is allowed
 
 ## 4. CURRENT ACTIVE TRACK
 ### Wrap
-Status: DEFERRED ARCHITECTURE DECISION ONLY
-- Do not continue runtime patching
-- Only architecture decision / manual-handoff model discussion is allowed
+Status: RUNTIME_DEBUG ONLY
+- Architecture decision is complete
+- Authority alignment is complete
+- Remaining work is runtime execution analysis only
+- No further prompt/bridge patching is allowed
 
 ## 5. DO NOT TOUCH WITHOUT NEW EVIDENCE
 - Ceramic runtime path
