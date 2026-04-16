@@ -141,3 +141,25 @@ Required before patch:
 Current safe state:
 - Stop wrap runtime expansion here.
 - Keep existing validated evidence only.
+
+## Wrap decision finalized
+
+Chosen path:
+- Qualification + manual handoff after finish/basic price-stage
+
+Do next:
+1. align authority files to one-way wrap flow
+2. prevent deep wrap automation beyond approved handoff point
+3. reuse one approved handoff pattern only
+4. validate with dedicated wrap UAT after authority patching
+
+## Wrap runtime blockage after handoff alignment
+
+Blocked state:
+- WRAP_FINISH provided in runtime_signals is still not honored reliably
+- Runtime re-asks PHASE3A_Q_WRAP_FINISH
+- Approved handoff behavior does not trigger
+
+Rule:
+- Do not continue blind prompt/bridge patching for wrap in this branch without deeper runtime execution analysis
+

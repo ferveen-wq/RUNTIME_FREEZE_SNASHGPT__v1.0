@@ -216,3 +216,48 @@ Governance decision:
 - Final decision must choose one path only:
   1. Wrap remains fully automated (full-vehicle only), or
   2. Wrap becomes qualification + handoff after finish/basic price-stage.
+
+### 4.4 Wrap final authority decision
+
+Status: DECIDED
+
+Final business direction:
+- Wrap will NOT remain a fully automated runtime path.
+- Wrap will use:
+  1. initial qualification
+  2. finish capture
+  3. basic price-stage acknowledgment
+  4. manual handoff to chat/sales team for callback / quoting
+
+Authority consequence:
+- Runtime files must be aligned to one-way wrap flow only.
+- Wrap should not continue into deep automated negotiated objection routing as a normal closed-loop service.
+- Any previous wrap automation behavior that conflicts with this model must be treated as deprecated and removed in authority order.
+
+Implementation rule:
+- Patch in this order only:
+  1. authority docs
+  2. qualification / assembly authority
+  3. bridge alignment
+  4. UAT validation
+
+### 4.5 Wrap runtime handoff implementation blockage
+
+Status: BLOCKED AFTER AUTHORITY ALIGNMENT
+
+What was attempted:
+- decision matrix aligned to finish + handoff model
+- assembly map aligned to remove standard wrap Phase 5 automation
+- prompt bridge aligned to prevent PHASE3B_WRAP_RANGE and PHASE5_WRAP_* continuation
+- explicit post-finish handoff override added
+- early wrap finish override bypass added
+
+Observed result:
+- UAT still re-asks PHASE3A_Q_WRAP_FINISH even when WRAP_FINISH is already present in runtime signals
+- Runtime remains in Phase 3A instead of moving to approved handoff behavior
+
+Conclusion:
+- Wrap handoff model is decided architecturally but is NOT yet reliably implemented in runtime
+- Further prompt-only patching should stop here to avoid drift
+- Next work must be deeper runtime execution analysis, not more surface bridge edits
+

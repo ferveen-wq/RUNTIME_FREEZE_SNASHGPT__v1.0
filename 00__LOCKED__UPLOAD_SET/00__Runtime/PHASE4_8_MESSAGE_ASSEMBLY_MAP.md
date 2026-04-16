@@ -651,16 +651,9 @@ Routing rules (select ONE block only):
     - Use PHASE5_TINT_EXIT_FORK_L3
 
 4) If active_service_context == wrap:
-  - Optional roof-black override (ONLY if these keys exist in runtime output):
-      - IF detected_product_sku == ROOF_PPF_BLACK_GLOSS OR product_alias_route == ROOF_PPF_BLACK_GLOSS:
-          - Use PHASE5_WRAP_ROOF_BLACK_RULE_DEEPEN_L1
-      - Else:
-      - If objection_repeat_count <= 1:
-        - Use PHASE5_WRAP_EXPECTATION_DEEPEN_L1
-      - If objection_repeat_count == 2:
-        - Use PHASE5_WRAP_NARROW_L2
-      - If objection_repeat_count >= 3:
-        - Use PHASE5_WRAP_EXIT_FORK_L3
+  - Do NOT continue wrap in standard automated Phase 5 negotiation routing.
+  - After approved finish capture and basic price-stage acknowledgment, route to approved handoff pattern instead of PHASE5_WRAP_* automation.
+  - Roof-black exception remains governed separately through ROOF_PPF_BLACK_GLOSS routing when applicable.
 
 5) If active_service_context == polishing:
   - If objection_repeat_count <= 1:
@@ -900,7 +893,6 @@ AND all qualification fields complete:
     - PHASE3B_CERAMIC_RANGE                   → PHASE3B_CERAMIC_RANGE
     - PHASE3B_TINT_RANGE                      → PHASE3B_TINT_RANGE
     - PHASE3B_POLISHING_RANGE                 → PHASE3B_POLISHING_RANGE
-    - PHASE3B_WRAP_RANGE                      → PHASE3B_WRAP_RANGE
 
 Route F — Price Resistance / Comparison (Phase 7 controlled pricing response)
 IF (PRICE_PRESSURE_LEVEL == HIGH OR DISCOUNT_EXPECTATION_RISK == HIGH):

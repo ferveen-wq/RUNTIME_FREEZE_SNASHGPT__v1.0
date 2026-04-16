@@ -185,12 +185,11 @@ Phase 3B READY for TINT when:
 
 
 ────────────────────────────────────────────────────────────
-3A.4 WRAP - FINISH FIRST, THEN SCOPE
+3A.4 WRAP - FINISH, THEN HANDOFF
 ────────────────────────────────────────────────────────────
 
 WRAP qualifiers:
 Q1) WRAP_FINISH (PRIMARY)
-Q2) WRAP_SCOPE (REQUIRED for pricing)
 
 Q1 - WRAP_FINISH
 Allowed values:
@@ -203,19 +202,16 @@ Ask (one question):
 - "For wrap, which finish are you leaning toward - gloss, satin, or matte?"
 
 Fallback:
-- One nudge max, then UNKNOWN and proceed to scope.
+- One nudge max, then UNKNOWN and proceed.
 
-Q2 - WRAP_SCOPE
-Allowed values:
-- FULL_COLOR_CHANGE
-- PARTIAL_AREA
-- UNKNOWN
+After WRAP_FINISH:
+- Do NOT ask WRAP_SCOPE in automated runtime flow.
+- Do NOT continue wrap as a normal deep automated negotiation path.
+- Use basic price-stage acknowledgment only, then manual handoff for callback / quoting.
 
-Ask (one question):
-- "Are you thinking a full color-change wrap, or only a specific area?"
-
-Phase 3B READY for WRAP when:
-- WRAP_SCOPE known (or UNKNOWN)
+Wrap ready state rule:
+- Wrap does not continue into standard automated Phase 3B pricing flow like ceramic / tint / polishing.
+- After finish capture, orchestration may acknowledge pricing direction briefly, then route to approved handoff pattern.
 
 ────────────────────────────────────────────────────────────
 3A.5 POLISHING - SCOPE FIRST, THEN PAINT HISTORY
