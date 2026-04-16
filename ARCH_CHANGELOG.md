@@ -581,3 +581,19 @@ UAT:
 - inventory cleanup only
 - v2 already passed focused strict validation
 
+
+Date: 2026-04-16
+Files: MULTIPLE (runner/context_reset_prompt.txt, tests/uat/phase4_ppf_price_resistance_strict_v4.json, tests/uat/phase4_ppf_price_resistance_strict_v3.json, notes/patch_sessions/phase4_price_resistance_misroute_20260416.md)
+Changed:
+- Tightened the runner prompt so first-step PPF price resistance stays in Phase 4.
+- Forced late-stage PPF first price-push handling to use the authoritative Phase 4 pressure family.
+- Promoted the stricter v4 pack and removed the weaker v3 draft.
+- Recorded the misroute investigation note for traceability.
+Why:
+- Prevent premature Phase 5 routing on first price resistance.
+- Prevent non-authoritative or weaker intermediate validation from remaining active.
+- Keep runner behavior aligned with locked Phase 4 authority.
+UAT:
+- phase4_ppf_price_resistance_strict_v4.json passed
+- focused strict raw report review
+
