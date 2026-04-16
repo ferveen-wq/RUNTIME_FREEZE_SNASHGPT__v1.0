@@ -1,0 +1,18 @@
+[
+  {
+    "case_id": "polishing_true_phase3b_ready_strict",
+    "strict_raw": true,
+    "input": "how much",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "POLISHING_SCOPE": "EXTERIOR_ONLY",
+      "PAINT_CONDITION_REPAINT_SCRATCH": "NO",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    }
+  }
+]

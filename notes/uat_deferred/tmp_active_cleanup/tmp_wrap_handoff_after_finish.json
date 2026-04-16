@@ -1,0 +1,51 @@
+[
+  {
+    "case_id": "wrap_handoff_after_finish_strict",
+    "strict_raw": true,
+    "input": "how much",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "wrap",
+      "active_service_context": "wrap",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "WRAP_FINISH": "GLOSS",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "3A"
+      ],
+      "selected_phrase_id": [
+        "",
+        "PHASE3A_Q_WRAP_FINISH"
+      ],
+      "QUALIFICATION_STATUS": [
+        "NOT_READY"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "Do you prefer the finish",
+        "gloss, matte, or something else"
+      ],
+      "arabic": [
+        "هل تفضل أن يكون اللمعان",
+        "لامع (Gloss) أم مطفي أو غير ذلك"
+      ]
+    },
+    "expect_contains_any": {
+      "english": [
+        "quick check",
+        "preferred visit time",
+        "phone number"
+      ],
+      "arabic": [
+        "فحص سريع",
+        "الوقت المناسب",
+        "رقم الهاتف"
+      ]
+    }
+  }
+]

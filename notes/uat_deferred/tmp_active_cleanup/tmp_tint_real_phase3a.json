@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "tint_known_vehicle_should_ask_goal",
+    "strict_raw": true,
+    "input": "tint for nissan patrol 2026",
+    "expect_debug": {
+      "phase": "3A",
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "PHASE3A_Q_TINT_GOAL",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "case_id": "polishing_known_vehicle_should_ask_scope",
+    "strict_raw": true,
+    "input": "polishing for BMW X5 2025",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  }
+]

@@ -540,3 +540,16 @@ UAT:
 - phase4_ppf_brand_fixation_strict_v3.json passed
 - focused strict raw report review
 
+
+Date: 2026-04-16
+Files: MULTIPLE (notes/uat_deferred/tmp_active_cleanup/*.json, tests/uat/phase4_ppf_brand_fixation_strict_v2.json, tests/uat/phase4_ppf_brand_fixation_v1.json)
+Changed:
+- Staged deferred tmp cleanup files for repo tracking.
+- Removed superseded draft PPF Phase 4 brand-fixation packs after promoting strict v3.
+Why:
+- Keep only the authoritative promoted Phase 4 brand-fixation pack in active UAT inventory.
+- Prevent draft or superseded packs from competing with validated packs.
+UAT:
+- inventory cleanup only
+- no runtime behavior change
+

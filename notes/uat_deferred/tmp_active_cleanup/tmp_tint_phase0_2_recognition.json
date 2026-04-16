@@ -1,0 +1,11 @@
+[
+  {
+    "case_id": "tint_basic_should_confirm_service",
+    "strict_raw": true,
+    "input": "tint",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  }
+]

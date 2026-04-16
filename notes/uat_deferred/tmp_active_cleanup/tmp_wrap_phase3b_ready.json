@@ -1,0 +1,17 @@
+[
+  {
+    "case_id": "wrap_phase3b_ready_strict",
+    "strict_raw": true,
+    "input": "how much",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "wrap",
+      "active_service_context": "wrap",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "WRAP_FINISH": "GLOSS",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    }
+  }
+]

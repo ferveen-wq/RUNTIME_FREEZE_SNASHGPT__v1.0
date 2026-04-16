@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "wrap_known_vehicle_should_ask_finish",
+    "strict_raw": true,
+    "input": "wrap for bmw x5 2025",
+    "expect_debug": {
+      "phase": "3A",
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "PHASE3A_Q_WRAP_FINISH",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    }
+  }
+]

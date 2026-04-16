@@ -1,0 +1,18 @@
+[
+  {
+    "case_id": "tint_phase3b_ready_strict",
+    "strict_raw": true,
+    "input": "how much",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "vehicle_model": "Nissan Patrol",
+      "vehicle_year": "2026",
+      "TINT_GOAL": "HEAT_COMFORT",
+      "TINT_COVERAGE": "FULL",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    }
+  }
+]
