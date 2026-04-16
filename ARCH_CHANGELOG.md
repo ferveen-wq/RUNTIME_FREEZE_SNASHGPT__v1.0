@@ -510,3 +510,18 @@ UAT:
 - phase3a_boundary_single_case_v2.json passed
 - focused strict UAT validation
 
+
+Date: 2026-04-16
+Files: MULTIPLE (notes/uat_deferred/PHASE4_DEFERRED_NOTES.md, notes/uat_deferred/phase4_price_resistance_v1.json)
+Changed:
+- Classified current Phase 4 deferred inventory after focused baseline review.
+- Removed superseded deferred phase4_price_resistance_v1 pack.
+- Added Phase 4 deferred-notes file documenting why remaining packs stay deferred.
+Why:
+- Keep active Phase 4 authority limited to the cleaner runtime-signal-based packs already promoted.
+- Prevent older weak or harness-sensitive packs from competing with active validation authority.
+UAT:
+- tests/uat/phase4_ppf_strict_v1.json passed
+- tests/uat/phase4_price_resistance_v2.json passed
+- phase4 inventory classification review completed
+
