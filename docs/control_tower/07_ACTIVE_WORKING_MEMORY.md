@@ -89,28 +89,6 @@ Before any patch:
 
 ## 8. NEXT ALLOWED TASK
 
-- Do NOT continue any prompt/bridge-level patching for wrap.
-
-- Wrap is now:
-  - Architecturally decided (qualification + handoff)
-  - Authority-aligned
-  - Runtime-blocked (signal honoring issue)
-
-- Next work MUST be:
-  1. Deep runtime execution analysis
-  2. Trace why WRAP_FINISH in runtime_signals is not honored
-  3. Identify where Phase 3A loop is re-triggered incorrectly
-  4. Validate engine behavior (QUALIFICATION_ENGINE vs runtime signals)
-
-- Allowed actions:
-  - Add debug traces
-  - Inspect runtime execution flow
-  - Create focused UAT to isolate signal override behavior
-
-- NOT allowed:
-  - Adding new prompt overrides
-  - Adding new phrase logic
-  - Expanding wrap automation behavior
-
-- Goal:
-  Fix signal honoring at engine/runtime level, not surface logic.
+- Wrap is CLOSED.
+- Do not reopen wrap unless fresh failing evidence appears.
+- Next allowed work should come from a newly classified defect in a non-closed track.
