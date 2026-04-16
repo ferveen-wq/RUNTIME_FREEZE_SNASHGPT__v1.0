@@ -1,0 +1,46 @@
+[
+  {
+    "case_id": "ceramic_known_vehicle_should_ask_wash_pattern_after_goal",
+    "strict_raw": true,
+    "input": "price",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "CERAMIC_GOAL": "GLOSS",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug": {
+      "phase": "3A",
+      "request_type": "PRICE_REQUEST",
+      "selected_phrase_id": "PHASE3A_Q_CERAMIC_WASH_PATTERN",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3B_CERAMIC_RANGE"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "PPF",
+        "wrap",
+        "tint",
+        "BHD",
+        "VAT",
+        "price range"
+      ],
+      "arabic": [
+        "تغليف",
+        "تظليل",
+        "دينار",
+        "ضريبة",
+        "سعر"
+      ]
+    }
+  }
+]

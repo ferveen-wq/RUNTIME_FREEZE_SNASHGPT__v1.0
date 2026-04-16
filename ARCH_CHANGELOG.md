@@ -471,3 +471,16 @@ UAT:
 - UAT:
   - phase3_ceramic_boundary_strict_v1.json passed
 
+
+Date: 2026-04-16
+Files: MULTIPLE (tests/uat/phase3_ceramic_ready_path_v2.json, notes/uat_deferred/phase3_ceramic_ready_path_v1.json)
+Changed:
+- Promoted a strict ceramic Phase 3A ready-path pack with runtime signals.
+- Removed the weaker deferred ceramic ready-path draft that lacked positive ownership proof.
+Why:
+- Keep active UAT authority tied to explicit runtime signals and positive expected behavior.
+- Prevent weak negative-only packs from competing with cleaner executable validation.
+UAT:
+- phase3_ceramic_ready_path_v2.json passed
+- focused strict UAT review
+
