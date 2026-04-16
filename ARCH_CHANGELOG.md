@@ -653,3 +653,15 @@ UAT:
 - phase4_ppf_silence_strict_v1.json passed
 - focused strict raw report review
 
+
+Date: 2026-04-16
+Files: tests/uat/phase4_ceramic_price_resistance_strict_v2.json
+Changed:
+- Promoted a strict Phase 4 ceramic first-push price-resistance pack using the authoritative phrase ID.
+Why:
+- Lock ceramic Phase 4 price-resistance validation to the approved Phase 4 authority path.
+- Prevent fallback to invented phrase IDs or premature Phase 5 routing.
+UAT:
+- phase4_ceramic_price_resistance_strict_v2.json passed
+- focused strict raw report review
+

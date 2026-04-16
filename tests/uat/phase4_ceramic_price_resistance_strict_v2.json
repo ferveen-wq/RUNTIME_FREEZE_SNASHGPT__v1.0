@@ -1,0 +1,51 @@
+[
+  {
+    "case_id": "phase4_ceramic_price_resistance_must_use_authority_id",
+    "strict_raw": true,
+    "input": "that sounds expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "CERAMIC_GOAL": "PROTECTION",
+      "CERAMIC_WASH_PATTERN": "REGULAR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "PRICE_SENSITIVITY",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_CERAMIC_PRICE_PRESSURE_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": ["0", "3A", "5"],
+      "selected_phrase_id": [
+        "PHASE3A_Q_CERAMIC_GOAL",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+        "PHASE4_CERAMIC_PRICE_SENSITIVITY_L1",
+        "TECHNICAL QUESTION HOLD — PHASE 0–2"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  }
+]
