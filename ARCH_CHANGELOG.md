@@ -706,3 +706,16 @@ UAT:
 - governance sync only
 - validated against active Phase 4 inventory, recent branch history, and updated active working memory
 
+
+Date: 2026-04-17
+Files: tools/start_lane.sh
+Changed:
+- Added a repo-local start-lane helper script.
+- Standardized bootstrap + patch-gate + active Phase 4 inventory check into one entry command.
+Why:
+- Reduce dependence on chat memory and manual startup repetition.
+- Make session enforcement easier to run consistently from terminal.
+UAT:
+- manual startup verification via alias
+- confirmed repo entry, bootstrap, patch gate, active Phase 4 listing, and git status output
+
