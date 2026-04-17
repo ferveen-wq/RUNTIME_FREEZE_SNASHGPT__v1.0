@@ -1026,5 +1026,97 @@
         "نحن نتفهم أن السعر قد يبدو مرتفعًا أحيانًا"
       ]
     }
+  },
+  {
+    "case_id": "ppf_phase5_repeat_objection_verbatim_strict",
+    "strict_raw": true,
+    "input": "still too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "adjust the protection level according to your needs",
+        "full-body coverage ensures the best possible protection",
+        "focus on specific areas",
+        "available coverage options"
+      ],
+      "arabic": [
+        "نقدر نضبط مستوى الحماية حسب احتياجك",
+        "التغطية كاملة لتوفير أفضل حماية ممكنة",
+        "نركز على أجزاء معينة",
+        "خيارات التغطية المتاحة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "price",
+        "BHD",
+        "BMW"
+      ],
+      "arabic": [
+        "سعر",
+        "دينار",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_phase5_technical_verbatim_strict",
+    "strict_raw": true,
+    "input": "what about the specs and thickness",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "MISUNDERSTANDING",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_TECHNICAL_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "MISUNDERSTANDING"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Specs help determine the film's thickness and quality",
+        "protects the car from scratches and impacts",
+        "The film's looks and how it stays stable are also important",
+        "without altering the car's appearance"
+      ],
+      "arabic": [
+        "المواصفات تساعد في تحديد سمك الفيلم وجودته",
+        "حماية السيارة من الخدوش والصدمات",
+        "شكل الفيلم وثباته مهمان أيضًا",
+        "دون أن تتغير مظهر السيارة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
   }
 ]
