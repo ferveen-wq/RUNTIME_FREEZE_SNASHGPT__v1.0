@@ -873,5 +873,57 @@
       "objection_signal": "PRICE_TOO_HIGH",
       "objection_repeat_count": "0"
     }
+  },
+  {
+    "case_id": "phase4_ceramic_brand_fixation_must_use_authority_id",
+    "strict_raw": true,
+    "input": "is gtechniq better?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "CERAMIC_GOAL": "PROTECTION",
+      "CERAMIC_WASH_PATTERN": "REGULAR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_CERAMIC_BRAND_FIXATION_L2"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_CERAMIC_GOAL",
+        "BRAND DISCLOSURE — CERAMIC (PHASE 0–2)",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
   }
 ]
