@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "phase5_polish_exit_fork_l3",
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "active_service_context": "polishing",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": 3
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_EXIT_FORK_L3"
+    },
+    "expect_contains_any": {
+      "english": [
+        "come back anytime",
+        "need further assistance",
+        "always here to help"
+      ],
+      "arabic": [
+        "ترجع في أي وقت",
+        "تحتاج مساعدة ثانية",
+        "دائماً للمساعدة"
+      ]
+    },
+    "forbidden_words": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]

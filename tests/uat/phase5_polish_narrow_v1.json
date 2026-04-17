@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "phase5_polish_narrow_l2",
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "active_service_context": "polishing",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": 2
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_NARROW_L2"
+    },
+    "expect_contains_any": {
+      "english": [
+        "quality of the service",
+        "final result",
+        "best protection and shine"
+      ],
+      "arabic": [
+        "جودة الخدمة",
+        "النتيجة النهائية",
+        "أفضل حماية ولمعان"
+      ]
+    },
+    "forbidden_words": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]

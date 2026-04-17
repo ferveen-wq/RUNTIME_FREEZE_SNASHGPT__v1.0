@@ -1,0 +1,137 @@
+[
+  {
+    "case_id": "polish_phase5_expectation_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_EXPECTATION_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "quality and final result",
+        "worth the investment",
+        "benefits you get from the polishing service"
+      ],
+      "arabic": [
+        "الجودة والنتيجة النهائية",
+        "تستاهل الاستثمار",
+        "الفوائد اللي بتحصل عليها من خدمة التلميع"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_phase5_narrow_verbatim_strict",
+    "strict_raw": true,
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "quality of the service",
+        "final result",
+        "best protection and shine"
+      ],
+      "arabic": [
+        "جودة الخدمة",
+        "النتيجة النهائية",
+        "أفضل حماية ولمعان"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "come back anytime",
+        "need further assistance",
+        "always here to help"
+      ],
+      "arabic": [
+        "ترجع في أي وقت",
+        "تحتاج مساعدة ثانية",
+        "دائماً للمساعدة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]
