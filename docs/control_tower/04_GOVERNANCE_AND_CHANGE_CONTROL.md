@@ -180,6 +180,26 @@ Do not:
 
 ---
 
+
+
+## 9A. Tooling Enforcement Rule
+
+Where repo enforcement tooling exists, use it.
+
+Current enforced shell-entry flow:
+- alias: `snash`
+- script: `tools/start_lane.sh`
+
+Current enforced session marker:
+- `.snash_session_started` (local transient marker only)
+
+This flow is expected to run governance/tooling checks before work proceeds.
+
+Rule:
+- do not bypass available governance entry tooling in a fresh shell session
+- do not treat remembered process steps as a substitute for executable enforcement
+- enforcement tooling supports governance; it does not replace runtime authority
+
 ## 10. Current Verified Governance Signals
 
 Verified from current project evidence:

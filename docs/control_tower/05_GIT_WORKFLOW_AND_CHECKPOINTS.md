@@ -138,6 +138,27 @@ Rule:
 
 ---
 
+
+
+## 6A. Enforced Session Entry
+
+Before real repo work in a fresh shell session, enter through the enforced repo entrypoint:
+
+- shell command: `snash`
+- underlying script: `tools/start_lane.sh`
+
+This entry flow is expected to:
+- move into the correct repo
+- run session bootstrap
+- run patch gate
+- show current Phase 4 UAT inventory
+- show working-tree state before patch/commit activity
+
+Rule:
+- do not start patching or commit work in a fresh shell session by relying on memory alone
+- use enforced repo entry before real work begins
+- if enforced entry tooling changes, update this document and the supporting tooling together
+
 ## 6. Docs / Architecture Commit Discipline
 
 For docs-only work:

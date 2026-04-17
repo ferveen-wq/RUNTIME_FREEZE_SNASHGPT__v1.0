@@ -772,3 +772,17 @@ UAT:
 - governance/tooling documentation only
 - verified by direct doc insertion and grep confirmation
 
+
+Date: 2026-04-17
+Files: docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md, docs/control_tower/07_CONTROL_TOWER_OPERATING_MODEL.md
+Changed:
+- Added written control-tower documentation for enforced shell entry and governance tooling flow.
+- Recorded `snash` / `tools/start_lane.sh` as the mandatory repo entry step for fresh shell sessions.
+- Linked bootstrap and patch-gate execution into written governance and operating-model docs.
+Why:
+- Earlier attempts only updated changelog because heading anchors did not match the real file structure.
+- This patch completes the missing written control-tower record.
+UAT:
+- governance/tooling documentation only
+- verified by direct doc insertion and grep confirmation
+

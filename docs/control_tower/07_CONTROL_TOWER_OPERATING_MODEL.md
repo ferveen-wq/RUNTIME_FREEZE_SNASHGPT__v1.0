@@ -125,6 +125,27 @@ This system prevents:
 
 ---
 
+
+
+## 6A. Mandatory Shell Entry
+
+For a fresh shell session, operational entry should begin with:
+
+- `snash`
+
+This routes through:
+- `tools/start_lane.sh`
+- `tools/session_bootstrap.sh`
+- `tools/patch_gate.sh`
+
+Purpose:
+- reduce memory-based startup drift
+- expose repo state before work starts
+- keep bootstrap and gate usage consistent
+
+This does not replace source-of-truth review.
+It enforces the startup path that leads into it.
+
 ## 6. Daily Usage
 
 At any point ask:
