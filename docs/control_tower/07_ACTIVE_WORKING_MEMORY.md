@@ -32,7 +32,11 @@ Status: CLOSED
 - Phase 0-2 recognition validated
 - Real Phase 3A validated
 - Phase 3B validated
-- Phase 5 L1 / L2 / L3 validated
+- Phase 5 strict canonical coverage is now complete in the trusted single-turn, state-injected lane for the active owner path and includes:
+  - PHASE5_TINT_COMPARE_DEEPEN_L1
+  - PHASE5_TINT_NARROW_L2
+  - PHASE5_TINT_EXIT_FORK_L3
+- Canonical UAT is now 38 / 38 PASS on branch
 - Runtime path considered stable
 
 ### PPF
