@@ -816,3 +816,22 @@ UAT:
 - Ceramic Phase 5 strict trusted-lane coverage validated and promoted
 - control tower and active working memory updated to match current repo evidence
 
+
+Date: 2026-04-17
+Files: tests/uat/phase5_tint_compare_v1.json, tests/uat/phase5_tint_narrow_v1.json, tests/uat/phase5_tint_exit_fork_v1.json, tests/uat/phase5_tint_verbatim_strict_v1.json, tests/uat_cases.json, docs/control_tower/06_PHASE_AUDIT_BOARD.md, docs/control_tower/07_ACTIVE_WORKING_MEMORY.md
+Changed:
+- Added Tint Phase 5 candidate packs for the trusted single-turn, state-injected lane.
+- Added a Tint Phase 5 strict pack for the active owner path.
+- Promoted Tint Phase 5 strict cases into canonical coverage for:
+  - PHASE5_TINT_COMPARE_DEEPEN_L1
+  - PHASE5_TINT_NARROW_L2
+  - PHASE5_TINT_EXIT_FORK_L3
+- Refreshed control-tower phase state and active working memory to reflect Tint Phase 5 trusted-lane completion.
+Why:
+- Complete trusted-lane Phase 5 service coverage for Tint using the same validated pattern used for PPF and Ceramic.
+- Keep canonical coverage, control-tower state, and active working memory aligned with current repo evidence.
+UAT:
+- canonical suite now passes at 38 / 38
+- Tint Phase 5 strict trusted-lane coverage validated and promoted
+- control tower and active working memory updated to match current repo evidence
+
