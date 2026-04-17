@@ -23,3 +23,5 @@ printf '\n===== 4) GIT STATUS =====\n'
 git status --short || true
 
 printf '\n[OK] start lane completed\n'
+
+touch .snash_session_started

@@ -719,3 +719,16 @@ UAT:
 - manual startup verification via alias
 - confirmed repo entry, bootstrap, patch gate, active Phase 4 listing, and git status output
 
+
+Date: 2026-04-17
+Files: tools/start_lane.sh, tests/uat/phase4_ceramic_silence_strict_v1.json
+Changed:
+- Updated start-lane tooling to write a session marker automatically after successful lane start.
+- Added strict Phase 4 ceramic silence pack enforcing authoritative silence phrase selection.
+Why:
+- Reduce reliance on memory by letting lane start mark session readiness automatically.
+- Extend active Phase 4 ceramic authority-alignment coverage to silence-after-price behavior.
+UAT:
+- tests/uat/phase4_ceramic_silence_strict_v1.json
+- latest strict report passed with selected_phrase_id=PHASE4_CERAMIC_SILENCE_L1
+
