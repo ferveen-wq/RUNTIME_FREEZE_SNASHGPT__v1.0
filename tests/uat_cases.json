@@ -626,5 +626,60 @@
         "دينار"
       ]
     }
+  },
+  {
+    "case_id": "phase4_ppf_warranty_sensitivity_must_use_authority_id",
+    "strict_raw": true,
+    "input": "will this affect warranty?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_WARRANTY_SENSITIVITY_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_PPF_COMPARISON_FOCUS",
+        "BRAND DISCLOSURE — PPF (PHASE 0–2)",
+        "PHASE4_PPF_BRAND_FIXATION_L1",
+        "PHASE4_PPF_BRAND_TRUST",
+        "PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
   }
 ]
