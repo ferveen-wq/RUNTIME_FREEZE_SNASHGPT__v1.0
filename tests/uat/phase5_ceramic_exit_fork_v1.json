@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "phase5_ceramic_exit_fork_l3",
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "active_service_context": "ceramic",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": 3
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_CERAMIC_EXIT_FORK_L3"
+    },
+    "expect_contains_any": {
+      "english": [
+        "pause here",
+        "revisit it later",
+        "most practical ceramic option"
+      ],
+      "arabic": [
+        "نوقف هنا",
+        "ترجع لها بأي وقت",
+        "الخيار العملي للسيراميك"
+      ]
+    },
+    "forbidden_words": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]
