@@ -44,6 +44,9 @@ Last Verified: 2026-02-27
 Notes:
 - Repo evidence shows Phase 0–2 freeze/checkpoint tags exist.
 - Treat as stable baseline unless new contrary runtime evidence appears.
+- Wiring-completeness audit shows broader repo authorities and input sources exist beyond the manifest-active runner path.
+- These include repositories, parameter files, SKU/price inputs, and broader support files that may influence runtime behavior if consumed.
+- Phase 0–5 validation to date must be read as validated against the current manifest-active runtime path, not as proof that every broader repo authority or input dependency is live.
 
 ---
 
@@ -113,18 +116,26 @@ Notes:
 ---
 
 ### PHASE 7 (Architecture Wiring / Enforcement)
-Status: 
-Owner: 
-Last Verified: 
+Status: UNDER_REVIEW
+Owner: Runtime / Architecture / Prompt Bridge
+Last Verified: 2026-04-17
 Notes:
+- Repo contains Phase 7 authority/support files, including education/wiring material.
+- Current wiring-completeness audit does not yet prove Phase 7 files are runtime-active in the manifest-driven live runner path.
+- Related upstream dependencies such as repositories, parameters, and pricing/SKU inputs must also be checked before trusting downstream Phase 7 behavior.
+- Do not treat Phase 7 behavior as rollout-trusted until manifest, runner, dependency consumption, and validation-lane coverage are explicitly proven.
 
 ---
 
 ### PHASE 8 (Comparison / Visual / Advanced Flows)
-Status: 
-Owner: 
-Last Verified: 
+Status: UNDER_REVIEW
+Owner: Runtime / Architecture / Prompt Bridge
+Last Verified: 2026-04-17
 Notes:
+- Repo contains Phase 8 visual / video / advanced-flow files.
+- Current wiring-completeness audit does not yet prove these files are runtime-active in the manifest-driven live runner path.
+- Related upstream dependencies such as repositories, parameters, and SKU/price inputs must also be understood before advanced-flow trust is claimed.
+- Do not treat Phase 8 as rollout-active until consumption order, runtime entry rules, dependency usage, and validation coverage are proven.
 
 ---
 

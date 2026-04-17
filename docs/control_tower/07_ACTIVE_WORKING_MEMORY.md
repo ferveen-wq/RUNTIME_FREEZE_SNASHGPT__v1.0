@@ -122,3 +122,7 @@ Before any patch:
 - Phase 4 active-service strict promotion is complete on branch for current active services.
 - Phase 5 trusted-lane service sweep is complete for PPF, Ceramic, Tint, and Polishing.
 - Phase 6 is present in runtime authority but is not yet proven in the runner-hardened trusted lane.
+- Wiring-completeness audit shows the currently proven path is the manifest-active live runner path.
+- PRODUCT_SERVICE_CANON.md plus Phase 7 / Phase 8 support files exist in repo, but are not yet proven runtime-active in the tested runner path.
+- Repositories, parameter files, price/SKU inputs, and other upstream support files may still affect runtime behavior and must be classified before more expansion.
+- Before more phase expansion, confirm which broader authority and dependency files are intentionally reference-only versus meant to be manifest-active.
