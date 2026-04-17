@@ -17,3 +17,5 @@ tests/reports/github secret key for api
 /tools/phrase_shape_snapshot_before.json
 /tools/PHASE0_2_CLEAN_REFERENCE.md
 *.save
+
+.snash_session_started

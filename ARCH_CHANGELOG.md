@@ -732,3 +732,29 @@ UAT:
 - tests/uat/phase4_ceramic_silence_strict_v1.json
 - latest strict report passed with selected_phrase_id=PHASE4_CERAMIC_SILENCE_L1
 
+
+Date: 2026-04-17
+Files: .gitignore
+Changed:
+- Ignored the session marker file used by the start-lane guard.
+Why:
+- Prevent repeated untracked noise from `.snash_session_started`.
+- Keep the lane-start enforcement clean without polluting git status.
+UAT:
+- tooling/governance only
+- verified by clean git status after removing marker
+
+
+Date: 2026-04-17
+Files: docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md, docs/control_tower/07_CONTROL_TOWER_OPERATING_MODEL.md, .gitignore
+Changed:
+- Documented repo enforcement flow for start-lane, bootstrap, patch-gate, session marker, and commit discipline.
+- Recorded `snash` / `tools/start_lane.sh` as the operational entrypoint for fresh shell sessions.
+- Added `.snash_session_started` to `.gitignore` as a transient local marker.
+Why:
+- Prevent process drift by moving real enforcement behavior into written control-tower governance.
+- Reduce dependence on memory for bootstrap and patch-gate discipline.
+UAT:
+- governance/tooling documentation only
+- verified against live repo enforcement flow already in use
+
