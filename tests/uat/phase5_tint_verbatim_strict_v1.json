@@ -1,0 +1,137 @@
+[
+  {
+    "case_id": "tint_phase5_compare_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_COMPARE_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "type of film used",
+        "reduces heat",
+        "simple examples of the results"
+      ],
+      "arabic": [
+        "نوع الفيلم المستخدم",
+        "تقليل الحرارة",
+        "أمثلة بسيطة على النتائج"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_phase5_narrow_verbatim_strict",
+    "strict_raw": true,
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "most practical option",
+        "heat comfort",
+        "full tint coverage"
+      ],
+      "arabic": [
+        "الخيار العملي",
+        "راحة حرارية",
+        "التظليل الكامل"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "come back anytime",
+        "assistance regarding tinting",
+        "here to help"
+      ],
+      "arabic": [
+        "ترجع في أي وقت",
+        "بخصوص التظليل",
+        "هنا للمساعدة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  }
+]
