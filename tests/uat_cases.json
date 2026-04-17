@@ -978,5 +978,53 @@
         "ضريبة"
       ]
     }
+  },
+  {
+    "case_id": "ppf_phase5_price_gap_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "PRICE_REACTION",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_PRICE_GAP_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Understood — the fair comparison is to keep the same coverage in view first.",
+        "With PPF, the difference usually comes from the film, the preparation behind it, and how clean the result looks after installation.",
+        "If you like, I can explain what usually creates that gap, or show you a finished example for reference."
+      ],
+      "arabic": [
+        "مفهوم — المقارنة العادلة تبدأ أول شيء من نفس التغطية.",
+        "بالـPPF الفرق عادة يجي من الفيلم نفسه، والتحضير اللي وراه، وشكل النتيجة بعد التركيب.",
+        "إذا تحب، أشرح لك شنو عادة يسوي هالفرق، أو أوريك مثال منتهٍ كمرجع."
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "with ceramic",
+        "ceramic",
+        "We understand that the price may seem high sometimes"
+      ],
+      "arabic": [
+        "بالسيراميك",
+        "سيراميك",
+        "نحن نتفهم أن السعر قد يبدو مرتفعًا أحيانًا"
+      ]
+    }
   }
 ]
