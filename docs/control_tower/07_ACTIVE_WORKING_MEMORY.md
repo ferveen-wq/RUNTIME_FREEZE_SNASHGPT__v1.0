@@ -19,8 +19,8 @@ Status: ACTIVE
 - Phase 3B validated
 - Phase 5 continuity / render leakage fixed
 - Runtime path broadly stable
-- Phase 4 authority-alignment / strict UAT promotion is now active
-- Treat Ceramic as under active Phase 4 completion, not fully closed
+- Phase 4 strict UAT promotion now covers silence, brand fixation, and price resistance on branch
+- Treat Ceramic as materially advanced in Phase 4, but not fully closed until overall active-service Phase 4 completion is reflected cleanly
 
 ### Tint
 Status: CLOSED

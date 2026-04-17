@@ -64,7 +64,7 @@ Last Verified: 2026-04-17
 Notes:
 - Active strict UAT promotion remains in progress for Phase 4 authority-alignment.
 - PPF Phase 4 strict coverage has been promoted on branch for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
-- Ceramic Phase 4 strict promotion remains active on branch.
+- Ceramic Phase 4 strict coverage has been promoted on branch for silence, brand fixation, and price resistance.
 - Use classified single-turn, state-injected UAT only where harness continuity is not yet trusted.
 - Do not treat Phase 4 as closed until remaining active service-level authority alignment is completed and reflected cleanly.
 
