@@ -786,3 +786,33 @@ UAT:
 - governance/tooling documentation only
 - verified by direct doc insertion and grep confirmation
 
+
+Date: 2026-04-17
+Files: runner/run_uat.py, runner/context_reset_prompt.txt, tests/uat/phase5_ppf_verbatim_strict_v1.json, tests/uat/phase5_ceramic_price_gap_v1.json, tests/uat/phase5_ceramic_repeat_objection_v1.json, tests/uat/phase5_ceramic_exit_fork_v1.json, tests/uat/phase5_ceramic_verbatim_strict_v1.json, tests/uat_cases.json, docs/control_tower/06_PHASE_AUDIT_BOARD.md, docs/control_tower/07_ACTIVE_WORKING_MEMORY.md
+Changed:
+- Added a harness contradiction guard so any `PHASE5_*` phrase returned with non-5 phase now fails UAT immediately.
+- Aligned the PPF Phase 5 prompt bridge so brand/warranty and late-stage price-gap routing match the active authority path without leaking false Phase 4/Phase 5 combinations.
+- Hardened PPF Phase 5 entry so generic competitor/cheaper wording cannot invent late-stage Phase 5 state in canonical regression coverage.
+- Completed PPF Phase 5 trusted-lane strict canonical coverage for:
+  - PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - PHASE5_PPF_NARROW_L2
+  - PHASE5_PPF_TECHNICAL_DEEPEN_L1
+  - PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+  - PHASE5_PPF_EXIT_FORK_L3
+- Added Ceramic Phase 5 candidate packs and a trusted-lane strict pack for the active owner path.
+- Aligned the Ceramic Phase 5 prompt bridge to enforce L1/L2/L3 routing in the trusted single-turn, state-injected lane.
+- Completed Ceramic Phase 5 trusted-lane strict canonical coverage for:
+  - PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - PHASE5_CERAMIC_NARROW_L2
+  - PHASE5_CERAMIC_EXIT_FORK_L3
+- Refreshed control-tower phase state and active working memory to reflect trusted-lane completion for PPF and Ceramic Phase 5.
+Why:
+- Close the remaining trusted-lane Phase 5 service coverage for PPF and Ceramic without reopening upstream stable phases.
+- Prevent harness false-positives where Phase 5 phrase IDs appear with contradictory non-5 phase values.
+- Keep prompt-bridge behavior aligned with the active assembly owner path and keep canonical coverage green under stricter contradiction enforcement.
+UAT:
+- canonical suite now passes at 35 / 35
+- PPF Phase 5 strict trusted-lane coverage validated and promoted
+- Ceramic Phase 5 strict trusted-lane coverage validated and promoted
+- control tower and active working memory updated to match current repo evidence
+
