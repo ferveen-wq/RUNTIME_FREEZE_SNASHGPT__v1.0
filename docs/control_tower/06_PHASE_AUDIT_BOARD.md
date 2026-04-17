@@ -58,26 +58,26 @@ Notes:
 ---
 
 ### PHASE 4 (Message Construction / Phrase Layer)
-Status: IN_PROGRESS
+Status: VALIDATED
 Owner: Runtime / UAT / Harness
 Last Verified: 2026-04-17
 Notes:
-- Active strict UAT promotion remains in progress for Phase 4 authority-alignment.
-- PPF Phase 4 strict coverage has been promoted on branch for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
-- Ceramic Phase 4 strict coverage has been promoted on branch for silence, brand fixation, and price resistance.
-- Use classified single-turn, state-injected UAT only where harness continuity is not yet trusted.
-- Do not treat Phase 4 as closed until remaining active service-level authority alignment is completed and reflected cleanly.
+- Active-service Phase 4 strict UAT promotion is complete on branch for currently active services.
+- PPF Phase 4 strict coverage is promoted on branch for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
+- Ceramic Phase 4 strict coverage is promoted on branch for silence, brand fixation, and price resistance.
+- Latest canonical UAT evidence is 27 passed, 0 failed, total 27.
+- Harness continuity is still not trusted for real multi-turn simulation, so validated coverage remains based on classified single-turn, state-injected UAT.
 
 ---
 
 ### PHASE 5 (Objection / Handling Layer)
 Status: UNDER_TEST
 Owner: Runtime / UAT / Harness
-Last Verified: 2026-04-16
+Last Verified: 2026-04-17
 Notes:
-- Phase 5 remains partially validated by prior service-specific work, but full completion must follow final Phase 4 authority-alignment.
-- Do not treat current Phase 5 status as fully closed while Phase 4 active-service alignment is still in progress.
-- Continue Phase 5 review only after Phase 4 service coverage is completed and promoted cleanly.
+- Phase 5 remains partially validated by prior service-specific work.
+- Phase 4 active-service strict coverage is now promoted cleanly on branch for PPF and Ceramic, so Phase 5 review may proceed service by service.
+- Do not treat Phase 5 as fully closed until remaining review is completed with clean evidence.
 
 ---
 

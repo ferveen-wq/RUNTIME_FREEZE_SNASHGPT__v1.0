@@ -96,6 +96,6 @@ Before any patch:
 - Wrap is CLOSED.
 - Do not reopen wrap unless fresh failing evidence appears.
 - Current allowed work:
-  - complete Phase 4 authority-alignment and strict UAT promotion for active services
+  - begin Phase 5 completion review service by service
   - keep using classified single-turn, state-injected UAT where harness continuity is not yet trusted
-- Only after Phase 4 completion should Phase 5 completion review proceed service by service.
+- Phase 4 active-service strict promotion is complete on branch for current active services.
