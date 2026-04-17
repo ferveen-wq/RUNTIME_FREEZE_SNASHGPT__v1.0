@@ -736,6 +736,10 @@ def main():
         ):
             failures.append("CONTRADICTION: Skipped Phase 3A and went to pricing")
 
+        phase_value = str(debug.get("phase", "")).strip()
+        if selected.startswith("PHASE5_") and phase_value != "5":
+            failures.append(f"CONTRADICTION: {selected} returned with phase={phase_value} (expected 5)")
+
         case_result = {
             "case_id": case.get("case_id"),
             "input": user_input,
