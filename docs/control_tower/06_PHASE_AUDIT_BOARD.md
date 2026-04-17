@@ -77,13 +77,17 @@ Last Verified: 2026-04-17
 Notes:
 - Phase 5 remains under service-by-service review in the trusted single-turn, state-injected lane.
 - Phase 4 active-service strict coverage is promoted cleanly on branch for PPF and Ceramic, so Phase 5 review may proceed service by service.
-- PPF Phase 5 strict canonical coverage is now complete in the trusted lane and includes:
+- PPF Phase 5 strict canonical coverage is complete in the trusted lane and includes:
   - PHASE5_PPF_PRICE_GAP_DEEPEN_L1
   - PHASE5_PPF_NARROW_L2
   - PHASE5_PPF_TECHNICAL_DEEPEN_L1
   - PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
   - PHASE5_PPF_EXIT_FORK_L3
-- Latest canonical UAT evidence is 32 passed, 0 failed, total 32.
+- Ceramic Phase 5 strict canonical coverage is complete in the trusted lane for the active owner path and includes:
+  - PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - PHASE5_CERAMIC_NARROW_L2
+  - PHASE5_CERAMIC_EXIT_FORK_L3
+- Latest canonical UAT evidence is 35 passed, 0 failed, total 35.
 - Harness continuity is still not trusted for real multi-turn simulation, so validated coverage remains based on classified single-turn, state-injected UAT.
 - Do not treat overall Phase 5 as fully closed until remaining services are completed with clean evidence.
 

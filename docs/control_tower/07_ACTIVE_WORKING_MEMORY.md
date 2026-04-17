@@ -20,7 +20,12 @@ Status: ACTIVE
 - Phase 5 continuity / render leakage fixed
 - Runtime path broadly stable
 - Phase 4 strict UAT promotion now covers silence, brand fixation, and price resistance on branch
-- Treat Ceramic as materially advanced in Phase 4, but not fully closed until overall active-service Phase 4 completion is reflected cleanly
+- Phase 5 strict canonical coverage is now complete in the trusted single-turn, state-injected lane for the active owner path and includes:
+  - PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - PHASE5_CERAMIC_NARROW_L2
+  - PHASE5_CERAMIC_EXIT_FORK_L3
+- Canonical UAT is now 35 / 35 PASS on branch
+- Treat Ceramic as complete for Phase 5 in the trusted lane, while overall multi-turn harness continuity remains untrusted
 
 ### Tint
 Status: CLOSED
