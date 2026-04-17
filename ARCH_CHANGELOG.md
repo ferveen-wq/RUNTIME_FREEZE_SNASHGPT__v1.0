@@ -835,3 +835,22 @@ UAT:
 - Tint Phase 5 strict trusted-lane coverage validated and promoted
 - control tower and active working memory updated to match current repo evidence
 
+
+Date: 2026-04-17
+Files: tests/uat/phase5_polish_expectation_v1.json, tests/uat/phase5_polish_narrow_v1.json, tests/uat/phase5_polish_exit_fork_v1.json, tests/uat/phase5_polish_verbatim_strict_v1.json, tests/uat_cases.json, docs/control_tower/06_PHASE_AUDIT_BOARD.md, docs/control_tower/07_ACTIVE_WORKING_MEMORY.md
+Changed:
+- Added Polishing Phase 5 candidate packs for the trusted single-turn, state-injected lane.
+- Added a Polishing Phase 5 strict pack for the active owner path.
+- Promoted Polishing Phase 5 strict cases into canonical coverage for:
+  - PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - PHASE5_POLISH_NARROW_L2
+  - PHASE5_POLISH_EXIT_FORK_L3
+- Refreshed control-tower phase state and active working memory to reflect Polishing Phase 5 trusted-lane completion.
+Why:
+- Complete trusted-lane Phase 5 service coverage for Polishing using the same validated pattern used for PPF, Ceramic, and Tint.
+- Keep canonical coverage, control-tower state, and active working memory aligned with current repo evidence.
+UAT:
+- canonical suite now passes at 41 / 41
+- Polishing Phase 5 strict trusted-lane coverage validated and promoted
+- control tower and active working memory updated to match current repo evidence
+
