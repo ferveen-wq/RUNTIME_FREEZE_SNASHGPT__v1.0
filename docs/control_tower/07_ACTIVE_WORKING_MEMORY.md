@@ -34,15 +34,17 @@ Status: CLOSED
 Status: ACTIVE
 - Phase 3B price-ready path validated
 - Phase 5 PPF verbatim rendering validated
-- Phase 5 PPF strict canonical coverage now includes:
+- Phase 5 PPF strict canonical coverage is now complete in the trusted single-turn, state-injected lane and includes:
   - PHASE5_PPF_PRICE_GAP_DEEPEN_L1
   - PHASE5_PPF_NARROW_L2
   - PHASE5_PPF_TECHNICAL_DEEPEN_L1
+  - PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+  - PHASE5_PPF_EXIT_FORK_L3
 - Earlier leakage concern was resolved as test-fixture / runner enforcement, not runtime drift
 - Runtime path broadly stable
 - Phase 4 strict UAT promotion now covers entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance on branch
-- Canonical UAT is now 30 / 30 PASS on branch
-- Treat PPF as materially advanced in Phase 5 review, but not fully closed until remaining Phase 5 branches are completed with clean evidence
+- Canonical UAT is now 32 / 32 PASS on branch
+- Treat PPF as complete for Phase 5 in the trusted lane, while overall multi-turn harness continuity remains untrusted
 
 ### Polishing
 Status: CLOSED
