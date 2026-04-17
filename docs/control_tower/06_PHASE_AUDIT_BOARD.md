@@ -90,7 +90,11 @@ Notes:
   - PHASE5_TINT_COMPARE_DEEPEN_L1
   - PHASE5_TINT_NARROW_L2
   - PHASE5_TINT_EXIT_FORK_L3
-- Latest canonical UAT evidence is 38 passed, 0 failed, total 38.
+- Polishing Phase 5 strict canonical coverage is complete in the trusted lane for the active owner path and includes:
+  - PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - PHASE5_POLISH_NARROW_L2
+  - PHASE5_POLISH_EXIT_FORK_L3
+- Latest canonical UAT evidence is 41 passed, 0 failed, total 41.
 - Harness continuity is still not trusted for real multi-turn simulation, so validated coverage remains based on classified single-turn, state-injected UAT.
 - Do not treat overall Phase 5 as fully closed until remaining services are completed with clean evidence.
 

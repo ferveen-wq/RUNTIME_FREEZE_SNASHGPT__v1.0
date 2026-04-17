@@ -61,7 +61,11 @@ Status: CLOSED
 - Phase 3A known-vehicle entry validated
 - Phase 3A second qualifier continuity validated
 - True Phase 3B readiness validated
-- Phase 5 L1 / L2 / L3 validated
+- Phase 5 strict canonical coverage is now complete in the trusted single-turn, state-injected lane for the active owner path and includes:
+  - PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - PHASE5_POLISH_NARROW_L2
+  - PHASE5_POLISH_EXIT_FORK_L3
+- Canonical UAT is now 41 / 41 PASS on branch
 - Runtime path considered stable
 
 ## 3. DEFERRED / DO NOT PATCH NOW
