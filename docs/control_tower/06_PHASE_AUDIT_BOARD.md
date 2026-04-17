@@ -60,12 +60,13 @@ Notes:
 ### PHASE 4 (Message Construction / Phrase Layer)
 Status: IN_PROGRESS
 Owner: Runtime / UAT / Harness
-Last Verified: 2026-04-16
+Last Verified: 2026-04-17
 Notes:
-- Active strict UAT promotion is underway for Phase 4 authority-alignment.
-- Current branch evidence shows active Phase 4 hardening for PPF and Ceramic.
+- Active strict UAT promotion remains in progress for Phase 4 authority-alignment.
+- PPF Phase 4 strict coverage has been promoted on branch for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
+- Ceramic Phase 4 strict promotion remains active on branch.
 - Use classified single-turn, state-injected UAT only where harness continuity is not yet trusted.
-- Do not treat Phase 4 as closed until active service-level authority alignment is completed.
+- Do not treat Phase 4 as closed until remaining active service-level authority alignment is completed and reflected cleanly.
 
 ---
 

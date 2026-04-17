@@ -36,8 +36,8 @@ Status: ACTIVE
 - Phase 5 PPF verbatim rendering validated
 - Earlier leakage concern was resolved as test-fixture / runner enforcement, not runtime drift
 - Runtime path broadly stable
-- Phase 4 authority-alignment / strict UAT promotion is now active
-- Treat PPF as under active Phase 4 completion, not fully closed
+- Phase 4 strict UAT promotion now covers entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance on branch
+- Treat PPF as materially advanced in Phase 4, but not fully closed until overall active-service Phase 4 completion is reflected cleanly
 
 ### Polishing
 Status: CLOSED
