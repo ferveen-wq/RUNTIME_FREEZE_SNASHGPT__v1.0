@@ -116,6 +116,9 @@ Before any patch:
 - Wrap is CLOSED.
 - Do not reopen wrap unless fresh failing evidence appears.
 - Current allowed work:
-  - begin Phase 5 completion review service by service
+  - Phase 6 owner-shape / entry-rule hardening and validation
+  - begin controlled Phase 6 service-canon testing only after prompt-bridge enforcement is confirmed
   - keep using classified single-turn, state-injected UAT where harness continuity is not yet trusted
 - Phase 4 active-service strict promotion is complete on branch for current active services.
+- Phase 5 trusted-lane service sweep is complete for PPF, Ceramic, Tint, and Polishing.
+- Phase 6 is present in runtime authority but is not yet proven in the runner-hardened trusted lane.

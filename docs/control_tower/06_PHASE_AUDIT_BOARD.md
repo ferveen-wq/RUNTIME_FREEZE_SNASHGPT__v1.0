@@ -101,10 +101,14 @@ Notes:
 ---
 
 ### PHASE 6 (Advanced Routing / Edge Cases)
-Status: 
-Owner: 
-Last Verified: 
+Status: UNDER_REVIEW
+Owner: Runtime / Prompt Bridge / UAT
+Last Verified: 2026-04-17
 Notes:
+- Phase 6 runtime authority exists in PHASE6__SERVICE_CANON_BUNDLE.md and is routed from PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
+- Current evidence shows Phase 6 is not yet runner-hardened in the live prompt bridge.
+- No active strict UAT coverage is established yet for Phase 6 service-canon routing.
+- Do not treat Phase 6 as trusted for rollout until entry rules, output boundaries, and validation lane are explicitly proven.
 
 ---
 
