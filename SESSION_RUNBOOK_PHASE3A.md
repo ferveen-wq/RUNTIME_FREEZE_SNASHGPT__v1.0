@@ -25,7 +25,7 @@ Status: ACTIVE
 - [x] full audit complete
 
 ### Tint
-- [ ] full audit complete
+- [x] full audit complete
 
 ### Polishing
 - [ ] full audit complete

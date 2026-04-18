@@ -23,7 +23,7 @@ Focus:
 
 - [x] PPF
 - [x] Ceramic
-- [ ] Tint
+- [x] Tint
 - [ ] Polishing
 - [ ] Wrap
 
