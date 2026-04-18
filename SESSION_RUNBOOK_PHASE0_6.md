@@ -78,3 +78,11 @@ Before stopping:
 - [ ] runbook updated
 - [ ] commit if clean
 
+
+
+## BLOCK D — DEPENDENCY SURFACE FREEZE
+- [x] target dependency set identified
+- [x] manifest references checked
+- [x] runtime/engine references checked
+- [x] dependency evidence note created
+- [ ] control docs updated

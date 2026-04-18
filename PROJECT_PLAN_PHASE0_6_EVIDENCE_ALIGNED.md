@@ -29,7 +29,7 @@ Authority: Runtime files + Git history
 ## CURRENT STATE
 
 Stage 1: IN PROGRESS
-Stage 2: NOT STARTED
+Stage 2: IN PROGRESS
 Stage 3: NOT STARTED
 Stage 4: NOT STARTED
 Stage 5: DEFERRED
@@ -51,7 +51,7 @@ Stage 5: DEFERRED
 
 ## STAGE 2 — DEPENDENCY SURFACE FREEZE
 
-- [ ] PPF dependencies classified
+- [x] PPF dependencies classified
 - [x] Ceramic dependencies classified
 - [x] Tint dependencies classified
 - [x] Polishing dependencies classified
