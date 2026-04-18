@@ -122,7 +122,7 @@ Before any patch:
 - Phase 4 active-service strict promotion is complete on branch for current active services.
 - Phase 5 trusted-lane service sweep is complete for PPF, Ceramic, Tint, and Polishing.
 - Phase 6 is present in runtime authority but is not yet proven in the runner-hardened trusted lane.
-- GAP-008 is OPEN: PHASE4_8 Route B points to Phase 6 service explanations while PHASE6 hard guard says canon must not be emitted directly.
+- GAP-008 is OPEN: PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active, but the legal render/consumption contract between Phase 6 service truth and PHASE4_8 assembly is not yet stated explicitly.
 - Therefore Phase 6 testing remains blocked until the routing/render contract is clarified at architecture level.
 - Do NOT patch runtime files for Phase 6 until this boundary is resolved through the gap-register-first path.
 - Wiring-completeness audit shows the currently proven path is the manifest-active live runner path.

@@ -1,7 +1,7 @@
 # 08_ARCHITECTURE_GAP_REGISTER.md
 
-Status: ACTIVE  
-Purpose: Single source of truth for ALL confirmed architecture gaps, conflicts, and patch candidates across Phase 0–4.  
+Status: ACTIVE
+Purpose: Single source of truth for ALL confirmed architecture gaps, conflicts, and patch candidates across Phase 0–4.
 Authority Level: ROLLOUT CONTROL (highest for fixing decisions)
 
 ────────────────────────────────────────────
@@ -79,96 +79,102 @@ SECTION 4 — PHASE 0–2 GAPS
 ────────────────────────────────────────────
 
 GAP-001
-Type: VALIDATION_GAP  
-Title: Phase 3A control vs Phrase Layer coupling not fully unified  
-Source: Phase 3 due diligence + PHASE4_8_MESSAGE_ASSEMBLY_MAP  
+Type: VALIDATION_GAP
+Title: Phase 3A control vs Phrase Layer coupling not fully unified
+Source: Phase 3 due diligence + PHASE4_8_MESSAGE_ASSEMBLY_MAP
 Impact:
 - Risk of duplicate qualifier questions
 - Risk of incorrect phrase selection
-- Possible mismatch between qualification and output layer  
-Status: OPEN  
+- Possible mismatch between qualification and output layer
+Status: OPEN
 
 ---
 
-GAP-002  
-Type: ARCHITECTURE_CONFLICT  
-Title: READY vs READY_FOR_NEGOTIATION mismatch  
-Source: PRICE_LADDER_ENGINE.md + runtime flow + architecture docs  
+GAP-002
+Type: ARCHITECTURE_CONFLICT
+Title: READY vs READY_FOR_NEGOTIATION mismatch
+Source: PRICE_LADDER_ENGINE.md + runtime flow + architecture docs
 Impact:
 - Potential routing inconsistency
-- Edge-case flow drift during partial qualification  
-Status: OPEN  
+- Edge-case flow drift during partial qualification
+Status: OPEN
 Notes:
 - Documented in architecture
 - Controlled but not resolved
 
 ---
 
-GAP-003  
-Type: VALIDATION_GAP  
-Title: Phase 2 → Phase 3A handshake contract not formally defined  
-Source: NEGOTIATION_LOGIC_MODULE.md  
+GAP-003
+Type: VALIDATION_GAP
+Title: Phase 2 → Phase 3A handshake contract not formally defined
+Source: NEGOTIATION_LOGIC_MODULE.md
 Impact:
 - Missing clarity on required inputs for Phase 3A
-- Possible re-asking or skipping of required data  
-Status: OPEN  
+- Possible re-asking or skipping of required data
+Status: OPEN
 
 ---
 
-GAP-004  
-Type: PHRASE_LAYER_DRIFT  
-Title: Deprecated Phase 3B phrase blocks still present  
-Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md  
+GAP-004
+Type: PHRASE_LAYER_DRIFT
+Title: Deprecated Phase 3B phrase blocks still present
+Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 Impact:
 - Risk of incorrect routing to deprecated phrases
-- Tone inconsistency  
-Status: OPEN  
+- Tone inconsistency
+Status: OPEN
 
 ────────────────────────────────────────────
 SECTION 5 — PHASE 3 GAPS
 ────────────────────────────────────────────
 
-GAP-005  
-Type: DOC_MISMATCH  
-Title: Rollout source-of-truth file contains stale status flags  
-Source: SNASHGPT_PHASE0–4_ROLLOUT_SOURCE_OF_TRUTH.md  
+GAP-005
+Type: DOC_MISMATCH
+Title: Rollout source-of-truth file contains stale status flags
+Source: SNASHGPT_PHASE0–4_ROLLOUT_SOURCE_OF_TRUTH.md
 Impact:
-- Misleading rollout readiness perception  
-Status: OPEN  
+- Misleading rollout readiness perception
+Status: OPEN
 
 ---
 
-GAP-006  
-Type: ARCHITECTURE_CONFLICT  
-Title: Wrap scope vs full-vehicle-only enforcement wording drift  
+GAP-006
+Type: ARCHITECTURE_CONFLICT
+Title: Wrap scope vs full-vehicle-only enforcement wording drift
 Source:
-- PHASE3A_QUALIFICATION_DECISION_MATRIX.md  
-- QUALIFICATION_ENGINE.md  
+- PHASE3A_QUALIFICATION_DECISION_MATRIX.md
+- QUALIFICATION_ENGINE.md
 Impact:
-- Confusion in qualification vs pricing behavior  
-Status: OPEN  
+- Confusion in qualification vs pricing behavior
+Status: OPEN
 
 ---
 
-GAP-007  
-Type: PHRASE_LAYER_DRIFT  
-Title: Wrap phrasing implies partial coverage while system enforces full vehicle only  
-Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md  
+GAP-007
+Type: PHRASE_LAYER_DRIFT
+Title: Wrap phrasing implies partial coverage while system enforces full vehicle only
+Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 Impact:
 - Customer confusion
-- Misalignment with SKU_SELECTION_MATRIX  
-Status: OPEN  
+- Misalignment with SKU_SELECTION_MATRIX
+Status: OPEN
 
-GAP-008  
-Type: ARCHITECTURE_CONFLICT  
-Title: Phase 4.8 Route B points to Phase 6 service explanations while Phase 6 hard guard says canon must not be emitted directly  
+GAP-008
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 6 service-truth authority is runtime-active, but the render contract between Phase 6 canon and Phase 4.8 assembly is not explicitly defined
 Source:
-- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md  
-- PHASE6__SERVICE_CANON_BUNDLE.md  
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- RUNTIME_LOAD_MANIFEST.md
 Impact:
-- Unclear runtime boundary between internal canon and customer-facing output
-- Phase 6 testing cannot be trusted until routing/render contract is clarified  
-Status: OPEN  
+- Ambiguity over when Phase 6 service truth may be surfaced in customer-facing output
+- Ambiguity over whether Phase 4.8 is selecting bounded service content from Phase 6 versus blocking direct raw canon emission in specific routes
+- Phase 6 testing cannot be fully trusted until the routing/render contract is stated explicitly
+Status: OPEN
+Notes:
+- PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md remains the final assembly/render authority
+- The unresolved issue is not whether Phase 6 is active, but how Phase 6 content is legally consumed and rendered by Phase 4.8
 
 ---
 
@@ -178,12 +184,12 @@ SECTION 6 — FUTURE PHASE 4 LOGGING
 
 All Phase 4 findings MUST be logged below using same format:
 
-GAP-XXX  
-Type:  
-Title:  
-Source:  
-Impact:  
-Status: OPEN  
+GAP-XXX
+Type:
+Title:
+Source:
+Impact:
+Status: OPEN
 
 ────────────────────────────────────────────
 END OF FILE

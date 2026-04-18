@@ -44,7 +44,6 @@ Purpose: Classify active runtime files by authority role before final architectu
 - 03__Parameters/GLOBAL_CORE_CONTEXT_PARAMETERS.md
 - 03__Parameters/PRICE_TABLE_VAT_INCL.md
 - 03__Parameters/SKU_SELECTION_MATRIX.md
-- 00__Runtime/PHASE6__SERVICE_CANON_BUNDLE.md
 
 Dependency classification note:
 - Manifest-proven active dependencies:
@@ -53,22 +52,29 @@ Dependency classification note:
   - CONVERSATION_DYNAMIC_PARAMETERS.md
   - SKU_SELECTION_MATRIX.md
   - PRICE_TABLE_VAT_INCL.md
-  - PHASE6__SERVICE_CANON_BUNDLE.md
 - Referenced but not yet manifest-proven as first-class load items:
   - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
   - PRODUCT_SERVICE_CANON.md
+- Repo evidence currently shows PRODUCT_SERVICE_CANON.md is consumed as a bounded dependency and is not yet manifest-proven as a runtime-active first-class load item.
 - Therefore, Phase 0–6 rollout must distinguish:
   - manifest-active runtime authorities
   - support-authority dependencies
   - reference-only repo files not yet proven runtime-consumed
 
-### D — Phrase / content authority
+### D — Runtime truth / content authority
 - 00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- 00__Runtime/PHASE6__SERVICE_CANON_BUNDLE.md
 - 00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
 - 00__Runtime/PHASE7__CORE_EDUCATION.md
 - 00__Runtime/PHASE8_VIDEO_LIBRARY.md
 - 00__Runtime/VISUAL_PLAYBOOK.md
 - 00__Runtime/EDUCATION_TRIGGER_MATRIX.md
+
+Runtime truth/content classification note:
+- PHASE4_6_HUMAN_PHRASE_LIBRARY.md is the locked customer-facing phrase authority.
+- PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active and provides bounded service-truth content for downstream runtime consumption.
+- PHASE6__SERVICE_CANON_BUNDLE.md is not mere reference/support material.
+- Customer-facing use of Phase 6 content remains subject to PHASE4_8_MESSAGE_ASSEMBLY_MAP.md and output/render constraints.
 
 ### E — Governance / change-control
 - 00__Runtime/ARCHITECTURE_ROADMAP.md
