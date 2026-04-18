@@ -28,10 +28,10 @@ Authority: Runtime files + Git history
 
 ## CURRENT STATE
 
-Stage 1: IN PROGRESS
-Stage 2: IN PROGRESS
-Stage 3: NOT STARTED
-Stage 4: NOT STARTED
+Stage 1: COMPLETE
+Stage 2: COMPLETE
+Stage 3: COMPLETE
+Stage 4: READY TO START (PHASE 3A)
 Stage 5: DEFERRED
 
 ### Proven findings

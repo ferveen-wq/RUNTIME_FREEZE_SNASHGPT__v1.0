@@ -9,8 +9,8 @@ Session Goal:
 ## BLOCK A — PLAN + CONTROL
 - [x] Create project plan
 - [x] Create session runbook
-- [ ] Update active working memory
-- [ ] Update gap register
+- [x] Update active working memory
+- [x] Update gap register
 
 ## BLOCK B — ROUTE B / PHASE 6 TRUTH
 - [x] Historical Route B recovered
@@ -72,10 +72,10 @@ Session Goal:
 
 ## SESSION EXIT RULE
 Before stopping:
-- [ ] active working memory updated
-- [ ] gap register updated
-- [ ] project plan updated
-- [ ] runbook updated
+- [x] active working memory updated
+- [x] gap register updated
+- [x] project plan updated
+- [x] runbook updated
 - [ ] commit if clean
 
 
