@@ -543,3 +543,77 @@ Implication:
 - Green UAT status does not transfer ownership.
 - Harness-side enforcement must not be documented as runtime ownership unless confirmed by runtime authority files.
 
+
+
+
+────────────────────────────────────────────
+PHASE 4–6 OWNERSHIP MODEL (LOCKED)
+────────────────────────────────────────────
+
+Purpose:
+- Define clear ownership boundaries between routing, rendering, and truth layers
+
+### OWNERSHIP LAYERS
+
+1) ROUTING AUTHORITY
+   → PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+   - decides which block is used
+   - enforces route behavior (A/B/C/D/E)
+
+2) CUSTOMER-FACING RENDERING AUTHORITY
+   → PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+   - ONLY source of customer-visible language
+   - MUST be rendered VERBATIM
+
+3) INTERNAL TRUTH / CONSTRAINT AUTHORITY
+   → PHASE6__SERVICE_CANON_BUNDLE.md
+   - defines service facts and constraints
+   - MUST NOT be directly emitted to customers
+   - EXCEPTION: PHASE_0_2_MIN blocks only
+
+---
+
+### ROUTE B (PHASE 0–2) — FINAL OWNERSHIP
+
+Current live runtime:
+
+- Uses ONLY Phase 4.6 blocks for output
+- Does NOT emit Phase 6 canon directly
+- Phase 6 acts only as constraint layer
+
+---
+
+### HISTORICAL NOTE
+
+Previous behavior:
+- Route B used Phase 6 service bundle sections directly
+
+Current behavior:
+- Route B uses Phase 4.6 only
+
+This MUST be documented as:
+- CURRENT LIVE RUNTIME
+- HISTORICAL RECOVERED INTENT
+
+Do NOT merge these into one rule.
+
+---
+
+### HARD RULE
+
+No engine may:
+- bypass Phase 4.6 for customer output
+- directly render Phase 6 canon
+- reinterpret Phase 6 into custom wording
+
+---
+
+### FAILURE MODE (PREVENTED)
+
+If this model is violated:
+- Phase 6 leaks into customer responses
+- routing behavior becomes inconsistent
+- documentation diverges from runtime
+
+This model exists to prevent that.
+
