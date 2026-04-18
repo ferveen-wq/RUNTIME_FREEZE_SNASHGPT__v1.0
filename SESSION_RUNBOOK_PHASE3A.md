@@ -28,7 +28,7 @@ Status: ACTIVE
 - [x] full audit complete
 
 ### Polishing
-- [ ] full audit complete
+- [x] full audit complete
 
 ### Wrap
 - [ ] full audit complete
