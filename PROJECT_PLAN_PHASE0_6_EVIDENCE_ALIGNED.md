@@ -31,7 +31,7 @@ Authority: Runtime files + Git history
 Stage 1: COMPLETE
 Stage 2: COMPLETE
 Stage 3: COMPLETE
-Stage 4: READY TO START (PHASE 3A)
+Stage 4: IN PROGRESS (PHASE 3B READY; PHASE 3A COMPLETE)
 Stage 5: DEFERRED
 
 ### Proven findings
@@ -73,7 +73,7 @@ Stage 5: DEFERRED
 - [x] Wrap
 
 ### Downstream phases
-- [ ] Phase 3A
+- [x] Phase 3A
 - [ ] Phase 3B
 - [ ] Phase 4
 - [ ] Phase 5

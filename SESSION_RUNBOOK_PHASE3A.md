@@ -1,6 +1,6 @@
 # SESSION RUNBOOK — PHASE 3A EVIDENCE ALIGNMENT
 
-Status: ACTIVE
+Status: COMPLETE
 
 ## BLOCK A — CONTROL
 - [x] plan reviewed
@@ -39,5 +39,5 @@ Status: ACTIVE
 - [x] gap register updated
 - [x] project plan updated
 - [x] runbook updated
-- [ ] commit clean
+- [x] commit clean
 
