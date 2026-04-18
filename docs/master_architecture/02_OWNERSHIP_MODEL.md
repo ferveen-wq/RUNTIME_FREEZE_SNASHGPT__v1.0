@@ -123,6 +123,54 @@ Forbidden writers for:
 
 ---
 
+
+## 2.3A Phase 0–3B Surface Ownership Normalization
+
+Purpose:
+- Prevent incomplete architecture interpretation by explicitly classifying the broader proven Phase 0–3B file surface.
+
+Classification:
+- Runtime authority surface includes:
+  - GLOBAL_RUNTIME_FLOW_MAP.md
+  - RUNTIME_EXECUTION_FLOW.md
+  - RUNTIME_STATE_MACHINE.md
+  - AUTHORITY_INDEX.md
+  - PHASE3_LOCK_INDEX.md
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+  - RUNTIME_LOAD_MANIFEST.md
+- Engine authority surface includes:
+  - QUALIFICATION_ENGINE.md
+  - NEGOTIATION_LOGIC_MODULE.md
+  - PRICE_LADDER_ENGINE.md
+  - OBJECTION_RESOLUTION_ENGINE.md
+- Routing/render authority surface includes:
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - OUTPUT_RESPONSE_TEMPLATE.md
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Dependency/support surface includes:
+  - SKU_SELECTION_MATRIX.md
+  - PRICE_TABLE_VAT_INCL.md
+  - GLOBAL_CORE_CONTEXT_PARAMETERS.md
+  - CONVERSATION_DYNAMIC_PARAMETERS.md
+  - PRODUCT_SERVICE_CANON.md
+  - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+- Tested-lane enforcement surface includes:
+  - runner/context_reset_prompt.txt
+  - runner/run_uat.py
+  - runner/phrase_library_validator.py
+  - runner/runtime_diff_sentinel.py
+
+Hard rule:
+- Tested-lane enforcement must not be collapsed into runtime-authority ownership.
+- If runner/tested-lane enforcement is stricter than runtime wording, architecture must record that as a reconciliation point rather than silently promoting runner rules into runtime ownership.
+
+Phase 3B ownership clarification:
+- NEGOTIATION_LOGIC_MODULE.md is upstream signal/framing authority for Phase 3B-adjacent behavior.
+- PRICE_LADDER_ENGINE.md remains the only pricing-state owner for price_ladder_state.
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md remains routing/render authority and must not write price_ladder_state.
+
+
 ## 2.4 Qualification Engine
 
 Authority file:

@@ -452,6 +452,50 @@ If `phase3a_complete == true`:
 
 ---
 
+
+## 9A. Phase 0–3B Surface Completeness Rule
+
+Purpose:
+- Prevent architecture drift by ensuring Phase 0–3B reasoning includes the full proven file surface, not only the most obvious service/price files.
+
+The proven Phase 0–3B surface includes:
+- runtime control files:
+  - GLOBAL_RUNTIME_FLOW_MAP.md
+  - RUNTIME_EXECUTION_FLOW.md
+  - RUNTIME_STATE_MACHINE.md
+  - AUTHORITY_INDEX.md
+  - PHASE3_LOCK_INDEX.md
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+  - RUNTIME_LOAD_MANIFEST.md
+- engine files:
+  - QUALIFICATION_ENGINE.md
+  - NEGOTIATION_LOGIC_MODULE.md
+  - PRICE_LADDER_ENGINE.md
+  - OBJECTION_RESOLUTION_ENGINE.md
+- routing/render files:
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - OUTPUT_RESPONSE_TEMPLATE.md
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- support/dependency files:
+  - SKU_SELECTION_MATRIX.md
+  - PRICE_TABLE_VAT_INCL.md
+  - GLOBAL_CORE_CONTEXT_PARAMETERS.md
+  - CONVERSATION_DYNAMIC_PARAMETERS.md
+  - PRODUCT_SERVICE_CANON.md
+  - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+- tested-lane enforcement files:
+  - runner/context_reset_prompt.txt
+  - runner/run_uat.py
+  - runner/phrase_library_validator.py
+  - runner/runtime_diff_sentinel.py
+
+Hard rule:
+- Runtime truth must be derived from runtime-authority and engine-authority files first.
+- Tested-lane enforcement may be used as evidence of current hardened behavior, but must not be mislabeled as runtime-authority truth.
+- If runtime wording, architecture wording, and tested-lane enforcement differ, the difference must be documented explicitly as a reconciliation point.
+
+
 ## 10. Global Silence Gate
 
 [FROM: RUNTIME_EXECUTION_FLOW.md]

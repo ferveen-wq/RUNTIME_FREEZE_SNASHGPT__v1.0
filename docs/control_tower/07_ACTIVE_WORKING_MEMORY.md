@@ -125,6 +125,23 @@ Before any patch:
   - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
   - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
 
+
+
+### PHASE 0–3B FILE-SURFACE COMPLETENESS (VERIFIED)
+
+- Proven broader Phase 0–3B surface includes:
+  - runtime control files
+  - engine authority files
+  - routing/render authority files
+  - dependency/support files
+  - tested-lane enforcement files
+- NEGOTIATION_LOGIC_MODULE.md is materially relevant to Phase 3B as upstream signal/framing authority.
+- PRICE_LADDER_ENGINE.md remains the sole pricing-state owner for price_ladder_state.
+- PHASE3_LOCK_INDEX.md and PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md must be included in Phase 3B due diligence.
+- Runner/tested-lane enforcement must not be collapsed into runtime-authority truth.
+- READY vs READY_FOR_NEGOTIATION remains a live reconciliation point across runtime wording, architecture wording, and tested-lane enforcement.
+
+
 ## 8. NEXT ALLOWED TASK
 
 - Wrap is CLOSED.

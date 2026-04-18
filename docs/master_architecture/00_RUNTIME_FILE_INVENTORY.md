@@ -61,6 +61,44 @@ Dependency classification note:
   - support-authority dependencies
   - reference-only repo files not yet proven runtime-consumed
 
+
+Phase 0–3B file-surface normalization note:
+- Proven RUNTIME_AUTHORITY files for Phase 0–3B include:
+  - GLOBAL_RUNTIME_FLOW_MAP.md
+  - RUNTIME_EXECUTION_FLOW.md
+  - RUNTIME_STATE_MACHINE.md
+  - AUTHORITY_INDEX.md
+  - PHASE3_LOCK_INDEX.md
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+  - RUNTIME_LOAD_MANIFEST.md
+- Proven ENGINE_AUTHORITY files for Phase 0–3B include:
+  - QUALIFICATION_ENGINE.md
+  - NEGOTIATION_LOGIC_MODULE.md
+  - PRICE_LADDER_ENGINE.md
+  - OBJECTION_RESOLUTION_ENGINE.md
+- Proven ROUTING_RENDER_AUTHORITY files include:
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - OUTPUT_RESPONSE_TEMPLATE.md
+  - PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Proven DEPENDENCY_SUPPORT files include:
+  - SKU_SELECTION_MATRIX.md
+  - PRICE_TABLE_VAT_INCL.md
+  - GLOBAL_CORE_CONTEXT_PARAMETERS.md
+  - CONVERSATION_DYNAMIC_PARAMETERS.md
+  - PRODUCT_SERVICE_CANON.md
+  - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+- Proven TESTED_LANE_ENFORCEMENT files include:
+  - runner/context_reset_prompt.txt
+  - runner/run_uat.py
+  - runner/phrase_library_validator.py
+  - runner/runtime_diff_sentinel.py
+- NEGOTIATION_LOGIC_MODULE.md must be treated as materially part of the Phase 3B surface as upstream signal/framing authority.
+- PRICE_LADDER_ENGINE.md remains the sole pricing-state owner for price_ladder_state.
+- PHASE3_LOCK_INDEX.md and PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md are materially relevant and must not be omitted from Phase 3B due diligence.
+- Runtime, architecture, and tested-lane enforcement still contain a READY vs READY_FOR_NEGOTIATION reconciliation point.
+
+
 ### D — Runtime truth / content authority
 - 00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - 00__Runtime/PHASE6__SERVICE_CANON_BUNDLE.md
