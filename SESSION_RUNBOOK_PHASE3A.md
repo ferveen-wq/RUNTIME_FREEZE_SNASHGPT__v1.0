@@ -22,7 +22,7 @@ Status: ACTIVE
 ## BLOCK C — REPEAT FOR SERVICES
 
 ### Ceramic
-- [ ] full audit complete
+- [x] full audit complete
 
 ### Tint
 - [ ] full audit complete
