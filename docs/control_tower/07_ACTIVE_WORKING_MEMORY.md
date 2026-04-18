@@ -111,6 +111,24 @@ Before any patch:
 - define validation method
 - do not patch closed tracks without fresh failing evidence
 
+
+### PHASE 0–2 VERIFIED SERVICE AUDITS
+
+- PPF verified:
+  - Current Route B is PHASE4_6-only for customer-facing output
+  - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
+  - PPF scope suppression remains active in Phase 6
+  - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
+
+- Ceramic verified:
+  - Current Route B is PHASE4_6-only for customer-facing output
+  - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
+  - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
+  - Current Route B is PHASE4_6-only for customer-facing output
+  - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
+  - PPF scope suppression remains active in Phase 6
+  - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
+
 ## 8. NEXT ALLOWED TASK
 
 - Wrap is CLOSED.
@@ -150,3 +168,19 @@ Before any patch:
   - Complete Phase 0–6 testing using current runtime path
   - Do NOT expand Phase 7–9 until support-authority layer is stabilized
 
+
+
+- Tint verified:
+  - Phase 4.6 output only
+  - Phase 6 internal
+  - No direct Phase 6 emission
+
+- Polishing verified:
+  - Phase 4.6 output only
+  - Phase 6 internal
+  - No direct Phase 6 emission
+
+- Wrap verified:
+  - Phase 4.6 output only
+  - Phase 6 internal
+  - No direct Phase 6 emission

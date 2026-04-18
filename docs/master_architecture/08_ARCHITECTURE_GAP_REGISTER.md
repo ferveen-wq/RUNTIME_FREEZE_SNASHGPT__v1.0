@@ -1,3 +1,42 @@
+
+GAP-013
+Type: ARCHITECTURE_CONFLICT
+Title: Wrap Phase 0–2 Route B historical-vs-current contract drift
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- Git history
+Impact:
+- Confirms systemic Phase 0–2 Route B drift pattern
+Status: OPEN
+
+---
+
+GAP-012
+Type: ARCHITECTURE_CONFLICT
+Title: Polishing Phase 0–2 Route B historical-vs-current contract drift
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- Git history
+Impact:
+- Confirms systemic Phase 0–2 Route B drift pattern
+Status: OPEN
+
+---
+
+GAP-011
+Type: ARCHITECTURE_CONFLICT
+Title: Tint Phase 0–2 Route B historical-vs-current contract drift
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- Git history
+Impact:
+- Confirms systemic Phase 0–2 Route B drift pattern
+Status: OPEN
+
+---
 # 08_ARCHITECTURE_GAP_REGISTER.md
 
 Status: ACTIVE
@@ -179,6 +218,41 @@ Notes:
 ---
 
 ────────────────────────────────────────────
+
+GAP-009
+Type: ARCHITECTURE_CONFLICT
+Title: PPF Phase 0–2 Route B historical-vs-current contract drift
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- Git history (historical Route B wiring)
+Impact:
+- Documentation can misstate whether Phase 6 is directly used in customer-facing Route B
+- Historical and current Route B behavior may be collapsed into one false narrative
+- PPF Phase 0–2 audit accuracy depends on separating current live behavior from historical intent
+Status: OPEN
+Notes:
+- Current live Route B uses PHASE4_6-only customer-facing blocks for PPF
+- PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
+- Historical Route B previously used Phase 6 bundle sections before later rewrite
+
+---
+
+
+GAP-010
+Type: ARCHITECTURE_CONFLICT
+Title: Ceramic Phase 0–2 Route B historical-vs-current contract drift
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- PHASE6__SERVICE_CANON_BUNDLE.md
+- Git history
+Impact:
+- Same pattern as PPF
+- Confirms systemic documentation drift, not service-specific
+Status: OPEN
+
+---
+
 SECTION 6 — FUTURE PHASE 4 LOGGING
 ────────────────────────────────────────────
 
