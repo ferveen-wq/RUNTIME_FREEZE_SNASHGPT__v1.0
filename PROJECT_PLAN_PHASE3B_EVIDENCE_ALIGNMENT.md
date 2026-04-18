@@ -22,7 +22,7 @@ Focus:
 
 ## SERVICES (IN ORDER)
 
-- [ ] PPF
+- [x] PPF
 - [ ] Ceramic
 - [ ] Tint
 - [ ] Polishing

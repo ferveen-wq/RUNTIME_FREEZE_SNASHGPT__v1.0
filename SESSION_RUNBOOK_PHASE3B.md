@@ -3,20 +3,20 @@
 Status: ACTIVE
 
 ## BLOCK A — CONTROL
-- [ ] plan reviewed
-- [ ] runbook active
+- [x] plan reviewed
+- [x] runbook active
 
 ## BLOCK B — PPF (FIRST SERVICE)
 
-- [ ] readiness gate verified
-- [ ] qualification completion dependency verified
-- [ ] price-entry condition verified
-- [ ] price ladder ownership verified
-- [ ] dependency usage verified
-- [ ] downstream handoff verified
-- [ ] evidence note created
-- [ ] gaps logged
-- [ ] control docs updated
+- [x] readiness gate verified
+- [x] qualification completion dependency verified
+- [x] price-entry condition verified
+- [x] price ladder ownership verified
+- [x] dependency usage verified
+- [x] downstream handoff verified
+- [x] evidence note created
+- [x] gaps logged
+- [x] control docs updated
 
 ## BLOCK C — REPEAT FOR SERVICES
 
