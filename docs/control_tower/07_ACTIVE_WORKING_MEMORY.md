@@ -124,10 +124,6 @@ Before any patch:
   - Current Route B is PHASE4_6-only for customer-facing output
   - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
   - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
-  - Current Route B is PHASE4_6-only for customer-facing output
-  - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
-  - PPF scope suppression remains active in Phase 6
-  - Historical Route B previously used Phase 6 bundle sections, but current live runtime does not
 
 ## 8. NEXT ALLOWED TASK
 

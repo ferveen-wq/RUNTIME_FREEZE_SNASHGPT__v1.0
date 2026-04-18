@@ -625,3 +625,72 @@ Phase 0 guardrail rules include:
 - if emitted signal has no routing coverage in test mode, response is suppressed
 - in production mode, fallback routing must be used
 
+
+
+
+────────────────────────────────────────────
+PHASE 0–6 RENDERING + ROUTING CONTRACT (LOCKED)
+────────────────────────────────────────────
+
+Purpose:
+- Eliminate ambiguity between internal truth (Phase 6) and customer-facing output (Phase 4.6)
+- Prevent future drift in service explanation behavior
+
+### CONTROL CHAIN (MANDATORY)
+
+PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+    → Routing authority (decides WHAT to use)
+
+PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+    → Customer-facing output (decides HOW it is said)
+
+PHASE6__SERVICE_CANON_BUNDLE.md
+    → Internal truth + constraints only (defines WHAT is true)
+
+---
+
+### HARD RENDERING RULES
+
+1) Phase 6 canon MUST NOT be emitted directly to customers
+
+2) The ONLY exception:
+   - PHASE_0_2_MIN blocks (explicitly allowed for intake)
+
+3) All customer-facing service responses MUST come from:
+   - PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+4) No engine may paraphrase Phase 6 into customer output
+
+---
+
+### ROUTE B (PHASE 0–2) — HARD CONTRACT
+
+IF request_type == SERVICE_CONFIRMED:
+
+- MUST use ONLY PHASE4_6 customer-facing blocks
+- MUST NOT emit PHASE6 canon directly
+- MUST render selected phrase VERBATIM
+- MUST NOT append Phase 6 explanation
+
+---
+
+### ARCHITECTURAL INTERPRETATION
+
+- Phase 6 = constraint layer (internal truth)
+- Phase 4.6 = rendering layer (customer output)
+- Phase 4.8 = decision layer (routing logic)
+
+This separation is mandatory and must not be collapsed.
+
+---
+
+### ANTI-DRIFT RULE
+
+Every service behavior MUST be documented in 3 layers:
+
+1) CURRENT LIVE RUNTIME
+2) HISTORICAL RECOVERED INTENT
+3) OPEN DECISION (if unresolved)
+
+Do NOT merge these layers into one narrative.
+
