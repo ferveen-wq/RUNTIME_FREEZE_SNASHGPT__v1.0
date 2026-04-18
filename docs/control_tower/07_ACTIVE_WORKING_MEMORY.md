@@ -122,7 +122,31 @@ Before any patch:
 - Phase 4 active-service strict promotion is complete on branch for current active services.
 - Phase 5 trusted-lane service sweep is complete for PPF, Ceramic, Tint, and Polishing.
 - Phase 6 is present in runtime authority but is not yet proven in the runner-hardened trusted lane.
+- GAP-008 is OPEN: PHASE4_8 Route B points to Phase 6 service explanations while PHASE6 hard guard says canon must not be emitted directly.
+- Therefore Phase 6 testing remains blocked until the routing/render contract is clarified at architecture level.
+- Do NOT patch runtime files for Phase 6 until this boundary is resolved through the gap-register-first path.
 - Wiring-completeness audit shows the currently proven path is the manifest-active live runner path.
 - PRODUCT_SERVICE_CANON.md plus Phase 7 / Phase 8 support files exist in repo, but are not yet proven runtime-active in the tested runner path.
 - Repositories, parameter files, price/SKU inputs, and other upstream support files may still affect runtime behavior and must be classified before more expansion.
 - Before more phase expansion, confirm which broader authority and dependency files are intentionally reference-only versus meant to be manifest-active.
+
+### PHASE 0–6 DEPENDENCY AWARENESS (ACTIVE)
+
+- Phase 0–6 validation must distinguish:
+  - manifest-active runtime path
+  - support-authority dependencies (canon, registry, SKU, price)
+
+- Do NOT assume repo files are runtime-active unless proven via manifest / execution.
+
+- Identified support-authority gaps (deferred):
+  - ROOF_PPF_BLACK_GLOSS → runtime-active, metadata incomplete in naming registry
+  - PPF_FRONT_GLOBAL → pricing-active, metadata incomplete in naming registry
+
+- Decision:
+  - No runtime patch applied
+  - Parked for support-authority cleanup phase
+
+- Rule:
+  - Complete Phase 0–6 testing using current runtime path
+  - Do NOT expand Phase 7–9 until support-authority layer is stabilized
+

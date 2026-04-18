@@ -54,6 +54,37 @@ Implications:
 
 ### Runtime vs Test / Harness Distinction
 
+### Validation Boundary Rule (LOCKED)
+
+Definition:
+- “Validated” means:
+  - validated against manifest-active runtime path only
+
+- “Not automatically validated” includes:
+  - support-authority dependencies (registry, SKU, pricing, canon)
+  - repository completeness
+  - metadata completeness
+
+Rules:
+- UAT or testing success confirms:
+  - runtime execution path correctness
+  - phase sequencing correctness
+  - engine interaction correctness
+
+- UAT or testing success does NOT confirm:
+  - registry completeness
+  - product metadata completeness
+  - SKU surface completeness
+  - price table semantic correctness beyond numeric mapping
+
+Implication:
+- Phase 0–6 may be marked “validated” for runtime behavior
+- while support-authority layer remains incomplete or deferred
+
+Control:
+- All dependency gaps must be tracked via ARCHITECTURE_GAP_REGISTER.md
+- No assumption of full-system correctness without dependency-layer validation
+
 Rule:
 - Runtime behavior must always be distinguished from test or harness behavior.
 
@@ -129,6 +160,96 @@ Step 4.5:
 ---
 
 ## 3. Runtime Manifest Operating Role
+
+---
+
+## 3A. Runtime Wiring and Dependency Model (LOCKED)
+
+Purpose:
+Define how runtime execution interacts with dependency layers without creating hidden or duplicate authority.
+
+### 1. Manifest-Active Runtime Path
+
+Definition:
+- Only files loaded via `RUNTIME_LOAD_MANIFEST.md` are considered runtime-active.
+- Only runtime-active files can:
+  - control flow
+  - influence decisions
+  - produce outputs
+
+Rule:
+- If a file is not part of manifest load → it is NOT runtime-active.
+
+---
+
+### 2. Support-Authority Dependency Layer
+
+Includes:
+- Product Naming Registry
+- SKU Selection Matrix
+- Price Table
+- Service Canon
+- Parameter files
+
+Role:
+- Provide data only
+- Must NOT:
+  - control flow
+  - introduce logic
+  - override runtime decisions
+
+---
+
+### 3. Manifest vs Dependency Rule
+
+- Runtime files = behavior authority
+- Dependency files = data authority
+
+Conflict rule:
+- Runtime logic ALWAYS wins over dependency interpretation
+- Dependencies must align to runtime, not vice versa
+
+---
+
+### 4. Deferred Support-Authority Cleanup Rule
+
+Observation:
+- Some dependency entries may be:
+  - partially defined
+  - missing metadata
+  - structurally inconsistent
+
+Rule:
+- These MUST NOT be patched during runtime stabilization
+- They MUST be:
+  - logged in ARCHITECTURE_GAP_REGISTER
+  - resolved in a dedicated cleanup phase
+
+Reason:
+- Prevents:
+  - fragmented fixes
+  - duplicate authority
+  - regression risk
+
+---
+
+### 5. Phase 0–6 Completion Priority Rule
+
+Rule:
+- Full system stability MUST be achieved for:
+  - Phase 0 → Phase 6
+
+Before:
+- Any Phase 7–9 expansion
+- Any non-critical support-authority cleanup
+
+Implication:
+- Missing metadata (non-breaking) does NOT block Phase 0–6 completion
+- Runtime correctness is prioritized over data completeness
+
+---
+
+
 
 [FROM: RUNTIME_LOAD_MANIFEST.md]
 

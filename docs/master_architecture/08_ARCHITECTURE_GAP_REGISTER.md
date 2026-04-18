@@ -159,6 +159,19 @@ Impact:
 - Misalignment with SKU_SELECTION_MATRIX  
 Status: OPEN  
 
+GAP-008  
+Type: ARCHITECTURE_CONFLICT  
+Title: Phase 4.8 Route B points to Phase 6 service explanations while Phase 6 hard guard says canon must not be emitted directly  
+Source:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md  
+- PHASE6__SERVICE_CANON_BUNDLE.md  
+Impact:
+- Unclear runtime boundary between internal canon and customer-facing output
+- Phase 6 testing cannot be trusted until routing/render contract is clarified  
+Status: OPEN  
+
+---
+
 ────────────────────────────────────────────
 SECTION 6 — FUTURE PHASE 4 LOGGING
 ────────────────────────────────────────────

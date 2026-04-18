@@ -854,3 +854,29 @@ UAT:
 - Polishing Phase 5 strict trusted-lane coverage validated and promoted
 - control tower and active working memory updated to match current repo evidence
 
+
+### SUPPORT AUTHORITY GAP IDENTIFIED — PHASE 0–6 DEPENDENCY AUDIT
+
+Scope:
+- Product Naming Registry vs Runtime Consumption alignment
+
+Findings:
+- ROOF_PPF_BLACK_GLOSS is actively used across intake, qualification, routing, and pricing,
+  but lacks complete metadata block (display_name, warranty_label, short_description) in registry.
+- PPF_FRONT_GLOBAL is used in SKU matrix and price table, but not fully represented as a metadata block in registry.
+
+Decision:
+- No runtime or engine patch applied.
+- No parallel logic introduced.
+
+Action:
+- Parked for dedicated support-authority cleanup phase.
+- To be resolved in a single controlled registry update (not incremental patching).
+
+Impact:
+- No current runtime break observed.
+- Potential future risk in customer-facing rendering if metadata is required.
+
+Status:
+- Accepted deviation (temporary)
+

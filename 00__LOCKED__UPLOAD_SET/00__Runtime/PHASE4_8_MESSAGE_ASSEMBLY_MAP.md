@@ -847,16 +847,20 @@ IF request_type == BROWSING_GENERIC AND service_intent != unknown:
 
 Route B — Specific Service Confirmed (customer says “ceramic/ppf/tint/wrap/polish/graphene”)
 IF request_type == SERVICE_CONFIRMED AND service_intent != unknown:
- Use service explanation block from Phase 6:
-  - ceramic → PHASE6__SERVICE_CANON_BUNDLE.md → CERAMIC
-  - ppf → PHASE6__SERVICE_CANON_BUNDLE.md → PPF
-  - tint → PHASE6__SERVICE_CANON_BUNDLE.md → TINT
-  - wrap → PHASE6__SERVICE_CANON_BUNDLE.md → WRAP
-  - polishing → PHASE6__SERVICE_CANON_BUNDLE.md → POLISHING
-  - graphene → PHASE6__SERVICE_CANON_BUNDLE.md → GRAPHENE
-  - interior_ceramic → PHASE6__SERVICE_CANON_BUNDLE.md → INTERIOR_CERAMIC
+- Use ONLY PHASE4_6_HUMAN_PHRASE_LIBRARY.md customer-facing blocks in this route.
+- Do NOT emit PHASE6__SERVICE_CANON_BUNDLE.md directly here.
+- selected_phrase_id mapping:
+  - ppf → C.1 PPF EXPLANATION + QUALIFIER (PHASE 0–2)
+  - ceramic → C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)
+  - tint → SERVICE CONFIRMED — PHASE 0–2
+  - wrap → SERVICE CONFIRMED — PHASE 0–2
+  - polishing → SERVICE CONFIRMED — PHASE 0–2
+  - graphene → SERVICE CONFIRMED — PHASE 0–2
+  - interior_ceramic → SERVICE CONFIRMED — PHASE 0–2
+- Output MUST render the selected PHASE4_6 block VERBATIM.
+- Do NOT append any PHASE6 canon text in this route.
 - If missing vehicle_model/vehicle_year:
-  ask using PHASE4_6 → L.1 (one question only)
+  the selected PHASE4_6 block already carries the single allowed qualifier question.
 
 Route C — Service Inferred (customer implies protection/shine, but doesn’t name service)
 IF request_type == SERVICE_INFERRED:

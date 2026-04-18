@@ -46,6 +46,22 @@ Purpose: Classify active runtime files by authority role before final architectu
 - 03__Parameters/SKU_SELECTION_MATRIX.md
 - 00__Runtime/PHASE6__SERVICE_CANON_BUNDLE.md
 
+Dependency classification note:
+- Manifest-proven active dependencies:
+  - GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+  - GLOBAL_CORE_CONTEXT_PARAMETERS.md
+  - CONVERSATION_DYNAMIC_PARAMETERS.md
+  - SKU_SELECTION_MATRIX.md
+  - PRICE_TABLE_VAT_INCL.md
+  - PHASE6__SERVICE_CANON_BUNDLE.md
+- Referenced but not yet manifest-proven as first-class load items:
+  - GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - PRODUCT_SERVICE_CANON.md
+- Therefore, Phase 0–6 rollout must distinguish:
+  - manifest-active runtime authorities
+  - support-authority dependencies
+  - reference-only repo files not yet proven runtime-consumed
+
 ### D — Phrase / content authority
 - 00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - 00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
