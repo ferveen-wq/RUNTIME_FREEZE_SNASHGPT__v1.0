@@ -277,3 +277,13 @@ This layer is governance support for:
 - phrase lookup
 - phrase maintenance discipline
 
+
+
+
+## PHASE 4–6 RENDER CONTRACT (LOCKED)
+
+- Phase 6 provides internal truth only
+- Phase 4.6 provides all customer-facing language
+- Phase 4_8 selects and assembles output
+
+No direct Phase 6 rendering is allowed.

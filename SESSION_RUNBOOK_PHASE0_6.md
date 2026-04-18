@@ -16,7 +16,7 @@ Session Goal:
 - [x] Historical Route B recovered
 - [x] Current Route B recovered
 - [x] Route B rewrite commit identified (94a7d8a)
-- [ ] Docs aligned with historical/current split
+- [x] Docs aligned with historical/current split
 
 ## BLOCK C — PHASE 0–2 SERVICE AUDITS
 

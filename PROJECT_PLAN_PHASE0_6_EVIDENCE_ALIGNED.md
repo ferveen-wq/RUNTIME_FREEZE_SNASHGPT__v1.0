@@ -59,7 +59,7 @@ Stage 5: DEFERRED
 
 ## STAGE 3 — GAP REGISTER NORMALIZATION
 
-- [ ] GAP-008 refined with historical/current split
+- [x] GAP-008 refined with historical/current split
 - [x] GAP-009 added for PPF Route B historical/current drift
 - [ ] additional dependency gaps logged as found
 

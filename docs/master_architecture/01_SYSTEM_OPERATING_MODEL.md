@@ -694,3 +694,44 @@ Every service behavior MUST be documented in 3 layers:
 
 Do NOT merge these layers into one narrative.
 
+
+
+# GAP-008 NORMALIZATION — PHASE 4–6 RENDER CONTRACT
+
+## CURRENT LIVE RUNTIME (PROVEN)
+
+- Phase 6 is manifest-active
+- Phase 6 contains service truth + constraints
+- Phase 6 MUST NOT be rendered directly to customers
+
+- Phase 4.6 is the ONLY customer-facing phrase authority
+- Phase 4_8 controls routing and selection of Phase 4.6 blocks
+
+- Route B (SERVICE_CONFIRMED):
+  - uses ONLY PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - MUST NOT render Phase 6 content directly
+
+## HISTORICAL CONTEXT
+
+- Previous Route B used Phase 6 bundle sections directly
+- This behavior was replaced in commit 94a7d8a
+
+## SYSTEM RULE (CANONICAL)
+
+1. Phase 6 = TRUTH LAYER (NON-RENDERABLE)
+2. Phase 4.6 = RENDER LAYER (CUSTOMER-FACING ONLY)
+3. Phase 4_8 = ENFORCEMENT LAYER (ROUTING + SELECTION)
+
+## HARD CONSTRAINT
+
+No engine may:
+- render Phase 6 content directly
+- paraphrase Phase 6 into customer output
+- bypass Phase 4.6 for customer communication
+
+## FAILURE MODE
+
+If violated:
+- Phase 6 leaks into output
+- routing inconsistency occurs
+- documentation diverges from runtime
