@@ -25,7 +25,7 @@ Focus:
 - [x] Ceramic
 - [x] Tint
 - [x] Polishing
-- [ ] Wrap
+- [x] Wrap
 
 ## RULES
 

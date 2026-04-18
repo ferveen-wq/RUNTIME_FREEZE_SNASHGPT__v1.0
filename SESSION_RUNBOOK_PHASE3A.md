@@ -31,13 +31,13 @@ Status: ACTIVE
 - [x] full audit complete
 
 ### Wrap
-- [ ] full audit complete
+- [x] full audit complete
 
 ## SESSION EXIT RULE
 
-- [ ] working memory updated
-- [ ] gap register updated
-- [ ] project plan updated
-- [ ] runbook updated
+- [x] working memory updated
+- [x] gap register updated
+- [x] project plan updated
+- [x] runbook updated
 - [ ] commit clean
 
