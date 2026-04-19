@@ -211,6 +211,26 @@ Phase 5 reconciliation (post branch routing fixes):
 - Residual issue isolated: PHASE5_PPF_NARROW_L2 wording vs strict pack constraint (price mention)
 - Residual issue classification: TEST_CONTRACT_MISMATCH, not runtime-routing failure
 
+Phase 5 repeat-count mismatch:
+- objection engine uses 0/1/2+ semantics
+- assembly map uses 1/2/3+ semantics
+- current UAT also follows 1/2/3 semantics
+- L3 instability should be treated as a contract mismatch, not a local prompt-only defect
+- Next action: choose single repeat-count authority before more routing patches
+
+Phase 5 updated stop point:
+- Polishing authority correction was applied and tested
+- Polish still collapsed fully into PPF family
+- Ceramic already shows the same unresolved collapse
+- Both non-PPF failures now remain precedence-owner issues until proven otherwise
+- Next action: owner-trace only, no more local routing patches yet
+
+Phase 5 split finding:
+- Polishing failure is now confirmed upstream: qualification authority does not include polishing in service-context contract
+- Ceramic failure remains open: runtime signals and phase5 map are correct, but routing still collapses into PPF
+- Next patch scope should be polishing-only first
+- Ceramic should remain separate until precedence owner is isolated
+
 Phase 5 prompt-bridge stop point:
 - PPF phase5 precedence split is holding
 - Ceramic phase5 repeat/exit still collapses into PPF family

@@ -65,6 +65,118 @@ Status: OPEN
 
 
 
+
+
+
+GAP-032
+Title: Phase 5 repeat-count contract mismatch between objection engine and assembly map
+
+Files inspected:
+- 00__LOCKED__UPLOAD_SET/01__Engines/OBJECTION_RESOLUTION_ENGINE.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- runner/context_reset_prompt.txt
+- tests/uat/phase5_ceramic_verbatim_strict_v1.json
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+- tests/uat/phase5_ppf_verbatim_strict_v1.json
+
+Confirmed findings:
+- OBJECTION_RESOLUTION_ENGINE defines repeat_count_meaning as:
+  - 0 = first occurrence
+  - 1 = second occurrence
+  - 2 = third occurrence or more
+- OBJECTION_RESOLUTION_ENGINE sets:
+  - max_automation_repeats = 1
+  - force_escalation_repeat_count = 2
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP defines Phase 5 tiers as:
+  - <= 1 = L1
+  - == 2 = L2
+  - >= 3 = L3
+- Current UAT cases use:
+  - 1 for L1
+  - 2 for L2
+  - 3 for L3
+
+Assessment:
+- Repeat-count semantics are not aligned across engine, assembly, and UAT
+- L3 exit-fork instability is consistent with this mismatch
+- Prompt-bridge patching alone cannot be treated as the root fix while this contract mismatch remains unresolved
+
+Decision:
+- Freeze additional routing edits until repeat-count source of truth is chosen
+- Resolve repeat-count contract at architecture level first
+- After that, patch downstream authority files and UAT together in one aligned change
+
+Status: OPEN
+
+---
+GAP-031
+Title: Phase 5 non-PPF collapse persists after polishing authority correction
+
+Files inspected:
+- 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+- runner/context_reset_prompt.txt
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- runner/run_uat.py
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+- tests/uat/phase5_ceramic_verbatim_strict_v1.json
+
+Confirmed findings:
+- polishing was added to QUALIFICATION_ENGINE service authority contract
+- polish-only UAT still fully collapses into PPF family
+- ceramic already showed the same collapse pattern
+- runtime_signals and phase5 assembly owner contract remain correct
+- behavior did not change after upstream polishing authority correction
+
+Assessment:
+- polishing is not only an enum/authority omission
+- polishing and ceramic now both point to a deeper precedence / owner-resolution leak
+- prompt-bridge and qualification edits are no longer producing route ownership change
+- next useful work is owner-trace only, not more local patching
+
+Decision:
+- revert unvalidated polishing authority patch
+- do not commit runtime or qualification changes from this attempt
+- continue trace toward the true phase5 owner / precedence source
+
+Status: OPEN
+
+---
+GAP-030
+Title: Phase 5 non-PPF collapse split into confirmed polishing authority gap and ceramic precedence leak
+
+Files inspected:
+- 00__LOCKED__UPLOAD_SET/01__Engines/QUALIFICATION_ENGINE.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- runner/context_reset_prompt.txt
+- runner/run_uat.py
+- tests/uat/phase5_ceramic_verbatim_strict_v1.json
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+- tests/uat/phase5_ppf_verbatim_strict_v1.json
+
+Confirmed findings:
+- UAT runtime_signals are correct for ceramic / polishing / ppf
+- Phase 5 assembly map owner contract is correct for ceramic / polishing / ppf
+- QUALIFICATION_ENGINE service authority still excludes polishing from:
+  - service_intent enum
+  - active_service_context enum
+  - detected_service_intent_in_message enum
+  - explicit SERVICE_CONFIRMED trigger list
+- Ceramic still collapses into PPF despite correct runtime signal + correct phase5 map
+
+Assessment:
+- Polishing is a confirmed upstream authority defect
+- Ceramic is not explained by missing runtime signals or bad phase5 map
+- Ceramic likely remains a prompt-precedence / instruction-order leak
+- These should not be patched as one blended change
+
+Decision:
+- Next patch may target polishing authority only
+- Ceramic remains owner-trace open after polishing authority correction
+- Do not claim one fix will solve both without proof
+
+Status: OPEN
+
+---
 GAP-029
 Title: Phase 5 non-PPF routing still collapses into PPF despite prompt-bridge precedence split
 
