@@ -37,8 +37,14 @@ Not yet runner-hardened:
 - dict-shaped Phase 7 closing behavior pack was incompatible with current `run_uat.py` input shape
 - must not be used as trusted proof
 
+## SUPPORT-LAYER CONSISTENCY FINDING
+
+- `EDU_PPF_SELF_HEAL` does not follow the main EN/AR snippet structure used by the rest of `PHASE7_EDUCATION_SNIPPETS.md`
+- governance requires permission / return-anchor discipline, but the snippet layer does not express that contract consistently
+
 ## CONCLUSION
 
 Phase 7 is partially proven.
 Its route ownership is clearer now, but its broader state family is not yet fully runner-hardened.
+Its education support layer is runtime-consumable, but not yet fully normalized.
 Phase 8 should not begin until this boundary is recorded cleanly in the working docs.

@@ -351,6 +351,22 @@ Status: VALIDATED
 
 ---
 
+GAP-020
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 7 education support layer is runtime-consumable, but snippet structure and governance contract are not yet fully normalized
+Source:
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/EDUCATION_TRIGGER_MATRIX.md
+- 00__LOCKED__UPLOAD_SET/01__Engines/PHASE_4_7_HOOK_QUESTION_ENGINE.md
+Impact:
+- support-layer entries can be misread as equally normalized when EDU_PPF_SELF_HEAL uses a materially different structure from the main snippet set
+- governance requires permission / return-anchor discipline, but the snippet file does not express that contract consistently
+- Phase 8 should not inherit Phase 7 education/visual linkage until the Phase 7 support-layer contract is documented cleanly
+Status: OPEN
+
+---
+
 GAP-018
 Type: ARCHITECTURE_CONFLICT
 Title: Phase 9 trust / persuasion references exist in repo, but trusted runtime-active ownership is not yet promoted

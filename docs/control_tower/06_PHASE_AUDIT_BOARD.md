@@ -131,7 +131,10 @@ Notes:
 - Runner-hardened trusted-lane proof currently exists only for REENTERED_CONTINUE.
 - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are architecture-defined, but are not yet runner-hardened in the tested prompt bridge.
 - Prior dict-shaped phase7_closing_behavior_v1.json attempt is quarantined and must not be treated as trusted evidence.
-- Do not treat full Phase 7 behavior as rollout-trusted until broader state-family proof, dependency consumption, and validation-lane coverage are explicitly proven.
+- Phase 7 support-layer due diligence also found a snippet/governance consistency issue:
+  - EDU_PPF_SELF_HEAL does not follow the main EN/AR snippet pattern cleanly
+  - return-anchor / permission contract is not expressed consistently across the snippet layer
+- Do not treat full Phase 7 behavior as rollout-trusted until broader state-family proof, support-layer normalization, dependency consumption, and validation-lane coverage are explicitly proven.
 
 ---
 

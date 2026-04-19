@@ -77,6 +77,9 @@ Not trusted yet:
 - GAP-019
   - only `REENTERED_CONTINUE` is runner-proven; broader Phase 7 states not yet prompt-bridge hardened
 
+- GAP-020
+  - Phase 7 support layer is runtime-consumable, but snippet structure / governance contract is not yet fully normalized
+
 ---
 
 ## 5. VALIDATION STATUS
@@ -95,7 +98,8 @@ Rejected / invalid for trusted evidence:
 1. record Phase 7 due-diligence summary in docs/control-tower if needed
 2. decide whether GAP-016 remains OPEN or can be downgraded after wording reconciliation
 3. keep GAP-019 active as the tested-lane truth boundary
-4. only after Phase 7 classification is stable, begin Phase 8 owner-shape due diligence
+4. log and classify Phase 7 support-layer normalization gap (GAP-020)
+5. only after Phase 7 classification is stable, begin Phase 8 owner-shape due diligence
 
 ---
 

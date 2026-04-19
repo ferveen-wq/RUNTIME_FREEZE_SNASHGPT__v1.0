@@ -164,6 +164,12 @@ Focus:
 - Record tested-lane truth:
   - REENTERED_CONTINUE is runner-proven
   - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet runner-hardened
+- Record support-layer truth:
+  - Phase 7 snippet/governance contract is not yet fully normalized
+  - EDU_PPF_SELF_HEAL is structurally inconsistent with the main snippet pattern
+- GAP-020 added:
+  - support-layer normalization inconsistency within PHASE7_EDUCATION_SNIPPETS.md
+  - runtime-consumable support layer must not be treated as structurally normalized yet
 
 Rules:
 - Do NOT expand Phase 7–9 behavior yet
