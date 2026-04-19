@@ -109,9 +109,13 @@ Owner: Runtime / Prompt Bridge / UAT
 Last Verified: 2026-04-17
 Notes:
 - Phase 6 runtime authority exists in PHASE6__SERVICE_CANON_BUNDLE.md and is routed from PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
-- Current evidence shows Phase 6 is not yet runner-hardened in the live prompt bridge.
-- No active strict UAT coverage is established yet for Phase 6 service-canon routing.
-- Do not treat Phase 6 as trusted for rollout until entry rules, output boundaries, and validation lane are explicitly proven.
+- Route B service-confirmed customer-facing rendering is now proven runner-hardened in the focused trusted single-turn lane.
+- Active strict UAT coverage now exists for focused Phase 6 Route B service-canon routing via tests/uat/gap008_routeb_service_confirmed_v1.json.
+- Trusted result proven:
+  - no direct Phase 6 customer emission
+  - PHASE4_6-owned customer-facing rendering
+  - Route B entry cases validated for PPF, Ceramic, Tint, and Wrap
+- Remaining runner-side micro wording strictness, if any, is non-blocking to the resolved Phase 6 contract boundary.
 
 ---
 

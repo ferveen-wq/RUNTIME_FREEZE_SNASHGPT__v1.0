@@ -147,15 +147,18 @@ Before any patch:
 - Wrap is CLOSED.
 - Do not reopen wrap unless fresh failing evidence appears.
 - Current allowed work:
-  - Phase 6 owner-shape / entry-rule hardening and validation
-  - begin controlled Phase 6 service-canon testing only after prompt-bridge enforcement is confirmed
+  - Phase 6 Route B trusted-lane result recording and docs reconciliation
+  - targeted follow-up only if stricter runner-side Arabic verbatim certification is required
   - keep using classified single-turn, state-injected UAT where harness continuity is not yet trusted
 - Phase 4 active-service strict promotion is complete on branch for current active services.
 - Phase 5 trusted-lane service sweep is complete for PPF, Ceramic, Tint, and Polishing.
-- Phase 6 is present in runtime authority but is not yet proven in the runner-hardened trusted lane.
-- GAP-008 is OPEN: PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active, but the legal render/consumption contract between Phase 6 service truth and PHASE4_8 assembly is not yet stated explicitly.
-- Therefore Phase 6 testing remains blocked until the routing/render contract is clarified at architecture level.
-- Do NOT patch runtime files for Phase 6 until this boundary is resolved through the gap-register-first path.
+- Phase 6 Route B service-confirmed lane is now proven in the runner-hardened trusted single-turn lane.
+- GAP-008 is RESOLVED: PHASE6__SERVICE_CANON_BUNDLE.md remains runtime-active internal truth/constraint authority, while PHASE4_8_MESSAGE_ASSEMBLY_MAP.md + PHASE4_6_HUMAN_PHRASE_LIBRARY.md define the legal customer-facing render path.
+- Focused GAP-008 UAT now proves:
+  - no direct Phase 6 customer emission
+  - Route B customer-facing output is Phase4_6-owned
+  - runner-hardened trusted-lane coverage exists for PPF, Ceramic, Tint, and Wrap service-confirmed entry cases
+- No further runtime patching is required for the Phase 6 contract boundary.
 - Wiring-completeness audit shows the currently proven path is the manifest-active live runner path.
 - PRODUCT_SERVICE_CANON.md plus Phase 7 / Phase 8 support files exist in repo, but are not yet proven runtime-active in the tested runner path.
 - Repositories, parameter files, price/SKU inputs, and other upstream support files may still affect runtime behavior and must be classified before more expansion.

@@ -200,20 +200,20 @@ Status: OPEN
 
 GAP-008
 Type: ARCHITECTURE_CONFLICT
-Title: Phase 6 service-truth authority is runtime-active, but the render contract between Phase 6 canon and Phase 4.8 assembly is not explicitly defined
+Title: RESOLVED — Phase 6 service-truth authority is runtime-active and the render contract between Phase 6 canon and Phase 4.8 assembly is now explicitly reconciled
 Source:
 - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
 - PHASE6__SERVICE_CANON_BUNDLE.md
 - RUNTIME_LOAD_MANIFEST.md
 Impact:
-- Ambiguity over when Phase 6 service truth may be surfaced in customer-facing output
-- Ambiguity over whether Phase 4.8 is selecting bounded service content from Phase 6 versus blocking direct raw canon emission in specific routes
-- Phase 6 testing cannot be fully trusted until the routing/render contract is stated explicitly
-Status: OPEN
+- Historical ambiguity existed over when Phase 6 service truth may be surfaced in customer-facing output
+- Historical ambiguity existed over whether Phase 4.8 was selecting bounded service content from Phase 6 versus blocking direct raw canon emission in specific routes
+- This ambiguity is now reconciled and Phase 6 Route B testing is trusted in the focused runner-hardened single-turn lane
+Status: VALIDATED
 Notes:
 - PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active
 - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md remains the final assembly/render authority
-- The unresolved issue is not whether Phase 6 is active, but how Phase 6 content is legally consumed and rendered by Phase 4.8
+- Resolution: Phase 6 remains internal truth/constraint authority; PHASE4_8_MESSAGE_ASSEMBLY_MAP.md defines routing/selection; PHASE4_6_HUMAN_PHRASE_LIBRARY.md is the customer-facing render authority
 
 ---
 
@@ -234,6 +234,10 @@ Status: OPEN
 Notes:
 - Current live Route B uses PHASE4_6-only customer-facing blocks for PPF
 - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
+- Focused GAP-008 trusted-lane UAT evidence:
+  - tests/uat/gap008_routeb_service_confirmed_v1.json
+  - runner/run_uat.py PASS in strict raw focused lane
+  - PPF / Ceramic / Tint / Wrap Route B service-confirmed cases passing without direct Phase 6 leakage
 - Historical Route B previously used Phase 6 bundle sections before later rewrite
 
 ---

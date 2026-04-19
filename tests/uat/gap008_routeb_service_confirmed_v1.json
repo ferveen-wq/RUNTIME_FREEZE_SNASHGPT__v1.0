@@ -1,0 +1,197 @@
+[
+  {
+    "case_id": "gap008_ppf_service_confirmed",
+    "input": "ppf",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": [
+        "screen protector",
+        "car model and year",
+        "What’s the car model and year?"
+      ],
+      "arabic": [
+        "شنو موديل السيارة",
+        "سنة",
+        "حماية PPF"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "clear layer",
+        "daily damage",
+        "full or partial",
+        "full or front",
+        "coverage"
+      ],
+      "arabic": [
+        "طبقة شفافة",
+        "الأضرار اليومية",
+        "حماية كاملة",
+        "حماية جزئية",
+        "تغطية"
+      ]
+    },
+    "strict_raw": true,
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "C.1 PPF EXPLANATION + QUALIFIER (PHASE 0–2)",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Paint Protection Film (PPF) is like a screen protector for your car’s paint.",
+        "It helps absorb everyday impacts like stone chips and light scratches,",
+        "giving you peace of mind and helping the paint stay looking new for years.",
+        "What’s the car model and year?"
+      ],
+      "arabic": [
+        "حماية PPF مثل سكرين بروتكتور لطلاء السيارة.",
+        "تمتص ضربات الحصى والخدوش الخفيفة اليومية",
+        "وتعطيك راحة بال وتساعد الطلاء يظل شكله جديد لسنين.",
+        "شنو موديل السيارة وأي سنة؟"
+      ]
+    }
+  },
+  {
+    "case_id": "gap008_ceramic_service_confirmed",
+    "input": "ceramic",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": [
+        "skincare",
+        "car model and year",
+        "Ceramic coating"
+      ],
+      "arabic": [
+        "السيراميك",
+        "شنو موديل السيارة",
+        "أي سنة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "transparent protective layer",
+        "protect it from scratches and dirt",
+        "What is your car model and year?"
+      ],
+      "arabic": [
+        "طبقة حماية شفافة",
+        "تحميه من الخدوش والأوساخ"
+      ]
+    },
+    "strict_raw": true,
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Sure — Ceramic coating is like skincare for your car’s paint.",
+        "It keeps the finish glossy, makes washing easier, and helps the car stay looking newer for longer.",
+        "To guide you correctly, what’s the car model and year?"
+      ],
+      "arabic": [
+        "السيراميك مثل العناية ببشرة طلاء السيارة.",
+        "يعطي لمعة ثابتة، ويسهّل الغسيل، ويساعد السيارة تظل شكلها أحدث لفترة أطول.",
+        "عشان أوجهك صح، شنو موديل السيارة وأي سنة؟"
+      ]
+    }
+  },
+  {
+    "case_id": "gap008_tint_service_confirmed",
+    "input": "tint",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": [
+        "Yes, we do that",
+        "car model and year",
+        "Can you share the car model and year"
+      ],
+      "arabic": [
+        "شنو موديل السيارة",
+        "أي سنة",
+        "نعم نقدر نخدمك"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "for tint service",
+        "Can you share the car model and year?"
+      ],
+      "arabic": [
+        "خدمة التظليل"
+      ]
+    },
+    "strict_raw": true,
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "SERVICE CONFIRMED — PHASE 0–2",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Yes, we do that.",
+        "What’s the car model and year?"
+      ],
+      "arabic": [
+        "نعم نقدر نخدمك.",
+        "شنو موديل السيارة وأي سنة؟"
+      ]
+    }
+  },
+  {
+    "case_id": "gap008_wrap_service_confirmed",
+    "input": "wrap",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_contains_any": {
+      "english": [
+        "Yes, we do that",
+        "car model and year",
+        "Can you share the car model and year"
+      ],
+      "arabic": [
+        "شنو موديل السيارة",
+        "أي سنة",
+        "نعم نقدر نخدمك"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "car wrapping (wrap)",
+        "Can you share the car model and year?"
+      ],
+      "arabic": [
+        "تغليف السيارة"
+      ]
+    },
+    "strict_raw": true,
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "selected_phrase_id": "SERVICE CONFIRMED — PHASE 0–2",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Yes, we do that.",
+        "What’s the car model and year?"
+      ],
+      "arabic": [
+        "نعم نقدر نخدمك.",
+        "شنو موديل السيارة وأي سنة؟"
+      ]
+    }
+  }
+]
