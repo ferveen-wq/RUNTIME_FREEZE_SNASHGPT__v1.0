@@ -367,6 +367,42 @@ Status: OPEN
 
 ---
 
+GAP-021
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 4 PPF technical-sensitivity phrase exists but is not reachable under current prompt-bridge TRUST_OR_RISK contract
+
+Source:
+- tests/uat/phase4_ppf_technical_sensitivity_strict_v2.json
+- runner/context_reset_prompt.txt
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- Technical sensitivity questions (e.g. thickness, specs) are routed to PHASE4_PPF_BRAND_FIXATION_L1 instead of PHASE4_PPF_TECHNICAL_L1
+- Phrase library contains a technical-response block, but runtime contract does not expose a valid path to it
+- Creates mismatch between:
+  - phrase library intent
+  - prompt-bridge routing logic
+  - UAT strict expectations
+
+Observed Behavior:
+- objection_signal = TRUST_OR_RISK
+- non-warranty technical question -> forced to BRAND_FIXATION path
+
+Expected Behavior (per test pack intent):
+- technical sensitivity -> PHASE4_PPF_TECHNICAL_L1
+
+Classification:
+- Trusted failure (validated harness, valid pack)
+- Contract mismatch (not runner issue)
+
+Decision:
+- Do NOT patch during revalidation phase
+- Defer resolution until Tier 2 evidence window is complete
+
+Status: OPEN
+
+---
+
 GAP-018
 Type: ARCHITECTURE_CONFLICT
 Title: Phase 9 trust / persuasion references exist in repo, but trusted runtime-active ownership is not yet promoted
