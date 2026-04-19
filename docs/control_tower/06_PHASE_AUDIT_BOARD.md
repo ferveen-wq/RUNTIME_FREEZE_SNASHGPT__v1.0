@@ -122,12 +122,16 @@ Notes:
 ### PHASE 7 (Architecture Wiring / Enforcement)
 Status: UNDER_REVIEW
 Owner: Runtime / Architecture / Prompt Bridge
-Last Verified: 2026-04-17
+Last Verified: 2026-04-19
 Notes:
-- Repo contains Phase 7 authority/support files, including education/wiring material.
-- Current wiring-completeness audit does not yet prove Phase 7 files are runtime-active in the manifest-driven live runner path.
-- Related upstream dependencies such as repositories, parameters, and pricing/SKU inputs must also be checked before trusting downstream Phase 7 behavior.
-- Do not treat Phase 7 behavior as rollout-trusted until manifest, runner, dependency consumption, and validation-lane coverage are explicitly proven.
+- Phase 7 is now split more clearly across:
+  - runtime closing/follow-up routing in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - education support/snippet layer in PHASE7_EDUCATION_SNIPPETS.md
+- Customer-facing wording for the runtime closing/follow-up route remains PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+- Runner-hardened trusted-lane proof currently exists only for REENTERED_CONTINUE.
+- THINKING / SILENT / DEFERRED / READY_TO_PROCEED are architecture-defined, but are not yet runner-hardened in the tested prompt bridge.
+- Prior dict-shaped phase7_closing_behavior_v1.json attempt is quarantined and must not be treated as trusted evidence.
+- Do not treat full Phase 7 behavior as rollout-trusted until broader state-family proof, dependency consumption, and validation-lane coverage are explicitly proven.
 
 ---
 

@@ -1,0 +1,50 @@
+[
+  {
+    "case_id": "PHASE7_SILENT_NO_OUTPUT_EXPANSION",
+    "input": {
+      "message": "",
+      "state": {
+        "phase": "PHASE_7",
+        "active_service_context": "ppf",
+        "phase7_state": "SILENT"
+      }
+    },
+    "expected": {
+      "must_use_blocks": ["PHASE4_6_L"],
+      "must_not_include": ["HOOK", "QUESTION", "PRICE", "EDUCATION", "PHASE6"],
+      "max_questions": 0
+    }
+  },
+  {
+    "case_id": "PHASE7_REENTERED_CONTEXT_ACK",
+    "input": {
+      "message": "hi",
+      "state": {
+        "phase": "PHASE_7",
+        "active_service_context": "ceramic",
+        "phase7_state": "REENTERED"
+      }
+    },
+    "expected": {
+      "must_use_blocks": ["PHASE4_6_B", "PHASE4_6_L"],
+      "must_not_include": ["HOOK", "PRICE", "EDUCATION"],
+      "max_questions": 0
+    }
+  },
+  {
+    "case_id": "PHASE7_THINKING_SUPPORT",
+    "input": {
+      "message": "let me think",
+      "state": {
+        "phase": "PHASE_7",
+        "active_service_context": "tint",
+        "phase7_state": "THINKING"
+      }
+    },
+    "expected": {
+      "must_use_blocks": ["PHASE4_6_G", "PHASE4_6_L"],
+      "must_not_include": ["HOOK", "QUESTION", "PRICE"],
+      "max_questions": 0
+    }
+  }
+]
