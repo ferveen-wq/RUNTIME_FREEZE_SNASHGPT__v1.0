@@ -35,7 +35,8 @@ Not yet runner-hardened:
 ## INVALID EVIDENCE REMOVED
 
 - dict-shaped Phase 7 closing behavior pack was incompatible with current `run_uat.py` input shape
-- must not be used as trusted proof
+- dict-shaped Phase 7 silent pack was incompatible with current `run_uat.py` input shape
+- these must not be used as trusted proof
 
 ## SUPPORT-LAYER CONSISTENCY FINDING
 

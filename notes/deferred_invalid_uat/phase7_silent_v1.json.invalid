@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "PHASE7_SILENT_MINIMAL",
+    "input": {
+      "message": "",
+      "state": {
+        "phase": "PHASE_7",
+        "active_service_context": "ppf",
+        "phase7_state": "SILENT"
+      }
+    },
+    "expected": {
+      "must_use_blocks": [
+        "PHASE4_6_L"
+      ],
+      "must_not_include": [
+        "HOOK",
+        "QUESTION",
+        "PRICE",
+        "EDUCATION",
+        "PHASE6"
+      ],
+      "max_questions": 0
+    }
+  }
+]

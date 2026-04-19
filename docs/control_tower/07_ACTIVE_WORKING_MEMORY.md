@@ -164,6 +164,7 @@ Focus:
 - Record tested-lane truth:
   - REENTERED_CONTINUE is runner-proven
   - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet runner-hardened
+  - dict-shaped SILENT state pack is quarantined as harness-incompatible, not execution proof
 - Record support-layer truth:
   - Phase 7 snippet/governance contract is not yet fully normalized
   - EDU_PPF_SELF_HEAL is structurally inconsistent with the main snippet pattern

@@ -90,6 +90,7 @@ Trusted:
 
 Rejected / invalid for trusted evidence:
 - prior dict-shaped `phase7_closing_behavior_v1.json` attempt was incompatible with current harness single-turn input shape
+- dict-shaped `phase7_silent_v1.json` attempt was also incompatible with current harness single-turn input shape
 
 ---
 
