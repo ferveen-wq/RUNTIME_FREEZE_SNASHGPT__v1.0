@@ -1,0 +1,25 @@
+[
+  {
+    "case_id": "tint_ready_path_vehicle_known_should_reach_price_ready_cleanly",
+    "strict_raw": true,
+    "input": "tint for camry 2022",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "tint",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "TINT_GOAL": "HEAT_COMFORT",
+      "TINT_COVERAGE": "FULL",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_not_contains": {
+      "english": ["which model", "which year", "TECHNICAL QUESTION HOLD"],
+      "arabic": ["موديل", "سنة", "TECHNICAL QUESTION HOLD"]
+    }
+  }
+]

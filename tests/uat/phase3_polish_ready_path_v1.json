@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "polish_ready_path_vehicle_known_should_reach_price_ready_cleanly",
+    "strict_raw": true,
+    "input": "polishing for camry 2022",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "polishing",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "POLISHING_SCOPE": "EXTERIOR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_not_contains": {
+      "english": ["which model", "which year", "TECHNICAL QUESTION HOLD"],
+      "arabic": ["موديل", "سنة", "TECHNICAL QUESTION HOLD"]
+    }
+  }
+]

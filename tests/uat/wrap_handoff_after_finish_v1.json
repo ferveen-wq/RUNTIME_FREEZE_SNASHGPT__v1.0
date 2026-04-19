@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "wrap_finish_known_should_not_enter_standard_price_flow",
+    "strict_raw": true,
+    "input": "wrap for bmw x5 2025 gloss",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "wrap",
+      "vehicle_model": "BMW X5",
+      "vehicle_year": "2025",
+      "WRAP_FINISH": "GLOSS",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3A_Q_WRAP_FINISH",
+        "PHASE3B_WRAP_RANGE",
+        "PHASE5_WRAP_EXPECTATION_DEEPEN_L1",
+        "PHASE5_WRAP_NARROW_L2",
+        "PHASE5_WRAP_EXIT_FORK_L3"
+      ]
+    },
+    "expect_not_contains": {
+      "english": ["gloss, matte, or satin", "price range", "BHD", "VAT"],
+      "arabic": ["لمعة، مطفي، أو ساتان", "نطاق سعر", "دينار", "ضريبة"]
+    }
+  }
+]
