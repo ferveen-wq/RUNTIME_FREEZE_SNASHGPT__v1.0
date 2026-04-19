@@ -130,11 +130,14 @@ Notes:
   - polishing verbatim strict
   - tint compare / narrow / exit
   - PPF price / technical / brand / exit routing
+- Evidence anchor:
+  - ceramic and polishing stability is supported by Tier 3 evidence-audit records dated 2026-04-19
 - Residual issue:
   - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
 - Current Phase 5 risk is now narrow and governance-specific:
   - PPF = remaining test-contract mismatch for NARROW_L2 wording
 - Do not treat the remaining PPF narrow wording contradiction as a runtime routing failure.
+- Do not reopen ceramic or polishing routing based on stale interim owner-trace findings.
 
 ---
 

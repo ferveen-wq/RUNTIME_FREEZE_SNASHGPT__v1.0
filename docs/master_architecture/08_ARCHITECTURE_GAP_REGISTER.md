@@ -152,29 +152,30 @@ Files inspected:
 - tests/uat/phase5_ceramic_verbatim_strict_v1.json
 - tests/uat/phase5_polish_verbatim_strict_v1.json
 - tests/uat/phase5_ppf_verbatim_strict_v1.json
+- notes/evidence_audits/tier_revalidation/TIER3_CERAMIC_PHASE5_VERBATIM_PASS_20260419.md
+- notes/evidence_audits/tier_revalidation/TIER3_POLISH_PHASE5_VERBATIM_PASS_20260419.md
 
-Confirmed findings:
-- UAT runtime_signals are correct for ceramic / polishing / ppf
-- Phase 5 assembly map owner contract is correct for ceramic / polishing / ppf
-- QUALIFICATION_ENGINE service authority still excludes polishing from:
-  - service_intent enum
-  - active_service_context enum
-  - detected_service_intent_in_message enum
-  - explicit SERVICE_CONFIRMED trigger list
-- Ceramic still collapses into PPF despite correct runtime signal + correct phase5 map
+Historical finding:
+- At this investigation stage, ceramic and polishing appeared to collapse into PPF and were separated into:
+  - polishing authority-gap hypothesis
+  - ceramic precedence-leak hypothesis
+
+Reconciliation:
+- Later trusted evidence audits superseded this intermediate conclusion.
+- Ceramic Phase 5 verbatim strict now passes in trusted mode.
+- Polishing Phase 5 verbatim strict now passes in trusted mode.
+- The remaining trusted Phase 5 issue is the separate PPF narrow L2 contract mismatch.
 
 Assessment:
-- Polishing is a confirmed upstream authority defect
-- Ceramic is not explained by missing runtime signals or bad phase5 map
-- Ceramic likely remains a prompt-precedence / instruction-order leak
-- These should not be patched as one blended change
+- GAP-030 should be preserved as investigation history only.
+- It should not be used as current authority for new runtime or qualification patches.
 
 Decision:
-- Next patch may target polishing authority only
-- Ceramic remains owner-trace open after polishing authority correction
-- Do not claim one fix will solve both without proof
+- Keep as historical investigation record.
+- Use current Tier 3 evidence audits plus control-tower reconciliation as the active truth.
 
-Status: OPEN
+Status: SUPERSEDED BY LATER EVIDENCE
+
 
 ---
 GAP-029

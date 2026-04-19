@@ -218,31 +218,30 @@ Phase 5 repeat-count mismatch:
 - L3 instability should be treated as a contract mismatch, not a local prompt-only defect
 - Next action: choose single repeat-count authority before more routing patches
 
-Phase 5 updated stop point:
-- Polishing authority correction was applied and tested
-- Polish still collapsed fully into PPF family
-- Ceramic already shows the same unresolved collapse
-- Both non-PPF failures now remain precedence-owner issues until proven otherwise
-- Next action: owner-trace only, no more local routing patches yet
+Phase 5 evidence reconciliation:
+- Ceramic Phase 5 verbatim strict is now supported by trusted evidence audit:
+  - tests/uat/phase5_ceramic_verbatim_strict_v1.json
+  - notes/evidence_audits/tier_revalidation/TIER3_CERAMIC_PHASE5_VERBATIM_PASS_20260419.md
+- Polishing Phase 5 verbatim strict is now supported by trusted evidence audit:
+  - tests/uat/phase5_polish_verbatim_strict_v1.json
+  - notes/evidence_audits/tier_revalidation/TIER3_POLISH_PHASE5_VERBATIM_PASS_20260419.md
+- Earlier non-PPF collapse findings should now be treated as intermediate investigation history, not current control-tower truth.
 
-Phase 5 split finding:
-- Polishing failure is now confirmed upstream: qualification authority does not include polishing in service-context contract
-- Ceramic failure remains open: runtime signals and phase5 map are correct, but routing still collapses into PPF
-- Next patch scope should be polishing-only first
-- Ceramic should remain separate until precedence owner is isolated
+Phase 5 remaining open issue:
+- PPF narrow L2 still fails in strict mode because the strict pack forbids:
+  - english: price
+  - arabic: سعر
+- The governed phrase intent/body remains price-aware.
+- This is a contract mismatch between strict pack expectation and phrase-library content.
+- It is not a live Phase 5 routing failure.
 
-Phase 5 prompt-bridge stop point:
-- PPF phase5 precedence split is holding
-- Ceramic phase5 repeat/exit still collapses into PPF family
-- Polishing phase5 expectation/narrow/exit still collapses into PPF family
-- Repeated prompt-bridge edits are no longer producing new behavior
-- Next action: owner-trace only, no more local patching until authority source is isolated
+Phase 5 current stop point:
+- Do not reopen ceramic or polishing routing based on stale interim findings.
+- Do not patch runtime or qualification for ceramic/polish on the basis of GAP-030 intermediate evidence.
+- Next valid decision is governance-level:
+  - either reconcile the strict pack with the locked phrase body
+  - or revise the locked phrase body through proper phrase-governance review
 
-Phase 5 unresolved owner trace:
-- Ceramic exit-fork still collapses into PHASE5_PPF_EXIT_FORK_L3
-- Polish exit-fork still collapses into PHASE5_PPF_EXIT_FORK_L3
-- Multiple prompt-bridge negative-guard attempts did not fix owner precedence
-- Current recommendation: stop local patching and trace final owner / precedence path
 
 Phase 5 trusted result set:
 - Trusted Pass: Ceramic verbatim strict, Polish verbatim strict
