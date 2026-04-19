@@ -287,69 +287,15 @@ def inject_readonly_runtime_signals(
 
 def build_case_constraints(case: dict) -> str:
     """
-    Convert test-case expectations into a hard constraint block that we prepend
-    to the system prompt, so the model deterministically satisfies token checks.
+    Trusted-mode behavior:
+    Do NOT inject expect_* assertions into the generation prompt.
 
-    Supports BOTH schemas:
-      (A) legacy:
-          arabic_must_contain_any / english_must_contain_any
-          arabic_must_contain_all / english_must_contain_all
+    Test expectations must be checked only after generation via
+    check_expectations(...), otherwise the runner becomes self-fulfilling.
 
-      (B) current tests:
-          expect_contains_any: { arabic: [...], english: [...] }
-          expect_contains_all: { arabic: [...], english: [...] }
+    Keep this function as a no-op so older call sites remain stable.
     """
-    lines = []
-
-    # --- Enforce DEBUG keys/values (critical for drift prevention) ---
-    # If the test expects debug fields, force the model to print them.
-    exp_debug = case.get("expect_debug", {}) or {}
-    for k, v in exp_debug.items():
-        lines.append(f"- In DEBUG_OUTPUT, you MUST include: {k}: {v}")
-
-    # --- Enforce NOT-CONTAINS + forbidden_words at prompt level ---
-    exp_not = case.get("expect_not_contains", {}) or {}
-    forb = case.get("forbidden_words", {}) or {}
-
-    ar_not = (exp_not.get("arabic") or []) + (forb.get("arabic") or [])
-    en_not = (exp_not.get("english") or []) + (forb.get("english") or [])
-    if ar_not:
-        lines.append(f"- Arabic MUST NOT include any of: {ar_not}")
-    if en_not:
-        lines.append(f"- English MUST NOT include any of: {en_not}")
-
-    # --- Schema B (current CI schema) ---
-    e_any = case.get("expect_contains_any") or {}
-    e_all = case.get("expect_contains_all") or {}
-
-    ar_any = e_any.get("arabic") or []
-    en_any = e_any.get("english") or []
-    ar_all = e_all.get("arabic") or []
-    en_all = e_all.get("english") or []
-
-    # --- Schema A (legacy fallback) ---
-    if not ar_any:
-        ar_any = case.get("arabic_must_contain_any") or []
-    if not en_any:
-        en_any = case.get("english_must_contain_any") or []
-    if not ar_all:
-        ar_all = case.get("arabic_must_contain_all") or []
-    if not en_all:
-        en_all = case.get("english_must_contain_all") or []
-
-    if ar_any:
-        lines.append(f"- Arabic MUST include at least one of: {ar_any}")
-    if en_any:
-        lines.append(f"- English MUST include at least one of: {en_any}")
-    if ar_all:
-        lines.append(f"- Arabic MUST include all of: {ar_all}")
-    if en_all:
-        lines.append(f"- English MUST include all of: {en_all}")
-
-    if not lines:
-        return ""
-
-    return "UAT_CASE_CONSTRAINTS (HARD; MUST SATISFY):\n" + "\n".join(lines) + "\n\n"
+    return ""
 
 
 def extract_debug_and_messages(full_text: str) -> dict:
