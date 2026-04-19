@@ -200,6 +200,11 @@ Tier 2 conclusion:
   - trusted-mode evidence repeatedly favors PRICE_SENSITIVITY phrase IDs where older strict packs expect PRICE_PRESSURE phrase IDs
 - Phase 4 strict lanes require architecture/runtime reconciliation before any rollout trust claim
 
+Phase 4 reconciliation (post trusted-mode fix):
+- Price objection contract aligned to PRICE_PRESSURE authority
+- Ceramic silence routing isolated correctly from PPF
+- Ceramic brand/trust objection correctly constrained to Phase 4 (no premature Phase 5 escalation)
+
 Phase 5 trusted result set:
 - Trusted Pass: Ceramic verbatim strict, Polish verbatim strict
 - Trusted Failure:
