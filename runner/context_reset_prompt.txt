@@ -692,6 +692,19 @@ Then:
 ############################################
 
 
+# HARD GUARD — CERAMIC SILENCE AFTER PRICE
+- If ALL are true:
+- active_service_context == ceramic
+- objection_signal == SILENCE_AFTER_PRICE
+- objection_repeat_count == 0
+- Then:
+  - phase MUST equal 4
+  - selected_phrase_id MUST equal PHASE4_CERAMIC_SILENCE_L1
+  - selected_phrase_id MUST NOT equal PHASE4_PPF_SILENCE_PRIMARY
+  - selected_phrase_id MUST NOT come from any PHASE5_CERAMIC_* family
+  - Do NOT output greeting/help fallback
+  - STOP after the Phase 4 ceramic silence phrase
+
 # HARD GUARD — PPF SILENCE AFTER PRICE MUST USE PHASE4 AUTHORITY
 - If ALL are true:
 - active_service_context == ppf
