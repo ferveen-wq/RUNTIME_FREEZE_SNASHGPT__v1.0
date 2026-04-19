@@ -205,6 +205,12 @@ Phase 4 reconciliation (post trusted-mode fix):
 - Ceramic silence routing isolated correctly from PPF
 - Ceramic brand/trust objection correctly constrained to Phase 4 (no premature Phase 5 escalation)
 
+Phase 5 reconciliation (post branch routing fixes):
+- PPF Phase 5 branch routing restored (price / technical / narrow / exit / brand)
+- Tint Phase 5 flow validated across compare / narrow / exit
+- Residual issue isolated: PHASE5_PPF_NARROW_L2 wording vs strict pack constraint (price mention)
+- Residual issue classification: TEST_CONTRACT_MISMATCH, not runtime-routing failure
+
 Phase 5 trusted result set:
 - Trusted Pass: Ceramic verbatim strict, Polish verbatim strict
 - Trusted Failure:

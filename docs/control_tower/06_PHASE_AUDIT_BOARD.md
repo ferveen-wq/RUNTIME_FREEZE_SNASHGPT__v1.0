@@ -128,13 +128,13 @@ Notes:
 - Stable lanes:
   - ceramic verbatim strict
   - polishing verbatim strict
-- Failing lanes:
-  - PPF branch differentiation collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
-  - tint exit fork selects PHASE5_TINT_EXIT_FORK_L3 but reports phase 4 instead of phase 5
-- Current Phase 5 risk is service-specific:
-  - PPF = late-stage branch collapse
-  - Tint = phase-boundary enforcement issue
-- Do not treat full Phase 5 behavior as rollout-trusted until these service-specific contradictions are reconciled.
+  - tint compare / narrow / exit
+  - PPF price / technical / brand / exit routing
+- Residual issue:
+  - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
+- Current Phase 5 risk is now narrow and governance-specific:
+  - PPF = remaining test-contract mismatch for NARROW_L2 wording
+- Do not treat the remaining PPF narrow wording contradiction as a runtime routing failure.
 
 ---
 

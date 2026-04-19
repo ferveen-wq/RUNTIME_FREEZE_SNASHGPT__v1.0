@@ -60,6 +60,44 @@ Status: OPEN
 
 ---
 
+
+
+GAP-027
+Type: TEST_CONTRACT_MISMATCH
+Title: PHASE5_PPF_NARROW_L2 wording contract mismatch between strict pack and governed phrase intent
+
+Source:
+- tests/uat/phase5_ppf_verbatim_strict_v1.json
+- notes/evidence_audits/tier_revalidation/TIER3_PPF_NARROW_CONTRACT_MISMATCH_20260419.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
+
+Impact:
+- strict pack forbids price wording
+- governed PHASE5_PPF_NARROW_L2 phrase remains affordability-aware by design
+- can create false failure even when runtime routing is correct
+
+Observed Behavior:
+- phase = 5
+- selected_phrase_id = PHASE5_PPF_NARROW_L2
+- remaining failure is forbidden-word mismatch only
+
+Expected Behavior:
+- strict pack and phrase-library intent should agree on whether affordability wording is allowed
+
+Classification:
+- Trusted failure
+- Test contract mismatch
+- Not a runtime routing defect
+
+Decision:
+- Do NOT patch runtime or locked phrase library during this reconciliation step
+- Reconcile strict pack wording expectations separately
+
+Status: OPEN
+
+---
+
 GAP-026
 Type: ARCHITECTURE_CONFLICT
 Title: Phase 5 tint exit fork returns correct phrase but incorrect phase
@@ -89,7 +127,7 @@ Decision:
 - Do NOT patch during evidence capture
 - Reconcile phase assignment logic after mapping Phase 5 exit flows
 
-Status: OPEN
+Status: RESOLVED (validated after tint phase-boundary enforcement patch)
 
 ---
 
