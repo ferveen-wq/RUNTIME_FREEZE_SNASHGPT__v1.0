@@ -211,6 +211,19 @@ Phase 5 reconciliation (post branch routing fixes):
 - Residual issue isolated: PHASE5_PPF_NARROW_L2 wording vs strict pack constraint (price mention)
 - Residual issue classification: TEST_CONTRACT_MISMATCH, not runtime-routing failure
 
+Phase 5 prompt-bridge stop point:
+- PPF phase5 precedence split is holding
+- Ceramic phase5 repeat/exit still collapses into PPF family
+- Polishing phase5 expectation/narrow/exit still collapses into PPF family
+- Repeated prompt-bridge edits are no longer producing new behavior
+- Next action: owner-trace only, no more local patching until authority source is isolated
+
+Phase 5 unresolved owner trace:
+- Ceramic exit-fork still collapses into PHASE5_PPF_EXIT_FORK_L3
+- Polish exit-fork still collapses into PHASE5_PPF_EXIT_FORK_L3
+- Multiple prompt-bridge negative-guard attempts did not fix owner precedence
+- Current recommendation: stop local patching and trace final owner / precedence path
+
 Phase 5 trusted result set:
 - Trusted Pass: Ceramic verbatim strict, Polish verbatim strict
 - Trusted Failure:

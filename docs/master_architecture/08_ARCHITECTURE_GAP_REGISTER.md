@@ -62,6 +62,84 @@ Status: OPEN
 
 
 
+
+
+
+GAP-029
+Title: Phase 5 non-PPF routing still collapses into PPF despite prompt-bridge precedence split
+
+Files inspected:
+- runner/context_reset_prompt.txt
+- runner/context_reset_prompt.txt.bak_wrap_handoff5
+- runner/run_uat.py
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Observed stable result:
+- PPF phase5 routing holds after precedence split
+- Ceramic phase5 repeat/exit still resolves to PPF family
+- Polishing phase5 expectation/narrow/exit still resolves to PPF family
+- Local prompt-bridge splitting did not reconcile non-PPF owner
+
+Evidence:
+- ceramic_phase5_repeat_objection_verbatim_strict -> PHASE5_PPF_NARROW_L2
+- ceramic_phase5_exit_fork_verbatim_strict -> PHASE5_PPF_EXIT_FORK_L3
+- polish_phase5_expectation_verbatim_strict -> PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+- polish_phase5_narrow_verbatim_strict -> PHASE5_PPF_NARROW_L2
+- polish_phase5_exit_fork_verbatim_strict -> PHASE5_PPF_EXIT_FORK_L3
+
+Assessment:
+- This is no longer a local phrase-guard issue
+- Likely owner-resolution weakness in prompt composition / instruction precedence
+- Further patching of runner/context_reset_prompt.txt without owner isolation risks duplicate authority
+
+Decision:
+- Stop local patch loop on prompt bridge
+- Keep prompt file at committed baseline
+- Continue with owner-trace only before next runtime patch
+
+Status: OPEN
+
+---
+GAP-028
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 5 ceramic and polishing exit-fork lanes collapse into PPF exit-fork authority
+
+Source:
+- tests/uat/phase5_ceramic_verbatim_strict_v1.json
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+- runner/context_reset_prompt.txt
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- ceramic exit-fork does not hold service-family isolation
+- polishing exit-fork does not hold service-family isolation
+- runtime repeatedly selects PHASE5_PPF_EXIT_FORK_L3 for non-PPF services
+- prompt-bridge local guard additions did not reconcile the owner cleanly
+
+Observed Behavior:
+- ceramic_phase5_exit_fork_verbatim_strict -> selected_phrase_id = PHASE5_PPF_EXIT_FORK_L3
+- polish_phase5_exit_fork_verbatim_strict -> selected_phrase_id = PHASE5_PPF_EXIT_FORK_L3
+
+Expected Behavior:
+- ceramic exit lane -> PHASE5_CERAMIC_EXIT_FORK_L3
+- polish exit lane -> PHASE5_POLISH_EXIT_FORK_L3
+
+Classification:
+- Trusted failure
+- Cross-service phase5 exit authority leak
+- Likely owner/precedence issue beyond local negative guards
+
+Decision:
+- Do NOT commit current prompt-bridge patch attempt
+- Restore prompt file to last known committed state
+- Continue with owner-trace evidence before next runtime patch
+
+Status: OPEN
+
+---
+
 GAP-027
 Type: TEST_CONTRACT_MISMATCH
 Title: PHASE5_PPF_NARROW_L2 wording contract mismatch between strict pack and governed phrase intent
