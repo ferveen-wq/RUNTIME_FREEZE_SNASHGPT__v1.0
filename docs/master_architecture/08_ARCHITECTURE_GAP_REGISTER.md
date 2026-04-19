@@ -8,7 +8,7 @@ Source:
 - Git history
 Impact:
 - Confirms systemic Phase 0–2 Route B drift pattern
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -21,7 +21,7 @@ Source:
 - Git history
 Impact:
 - Confirms systemic Phase 0–2 Route B drift pattern
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 GAP-025
@@ -103,7 +103,7 @@ Source:
 - Git history
 Impact:
 - Confirms systemic Phase 0–2 Route B drift pattern
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 # 08_ARCHITECTURE_GAP_REGISTER.md
@@ -194,7 +194,7 @@ Impact:
 - Risk of duplicate qualifier questions
 - Risk of incorrect phrase selection
 - Possible mismatch between qualification and output layer
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -205,7 +205,7 @@ Source: PRICE_LADDER_ENGINE.md + runtime flow + architecture docs
 Impact:
 - Potential routing inconsistency
 - Edge-case flow drift during partial qualification
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 Notes:
 - Documented in architecture
 - Controlled but not resolved
@@ -219,7 +219,7 @@ Source: NEGOTIATION_LOGIC_MODULE.md
 Impact:
 - Missing clarity on required inputs for Phase 3A
 - Possible re-asking or skipping of required data
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -230,7 +230,7 @@ Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 Impact:
 - Risk of incorrect routing to deprecated phrases
 - Tone inconsistency
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ────────────────────────────────────────────
 SECTION 5 — PHASE 3 GAPS
@@ -242,7 +242,7 @@ Title: Rollout source-of-truth file contains stale status flags
 Source: SNASHGPT_PHASE0–4_ROLLOUT_SOURCE_OF_TRUTH.md
 Impact:
 - Misleading rollout readiness perception
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -254,7 +254,7 @@ Source:
 - QUALIFICATION_ENGINE.md
 Impact:
 - Confusion in qualification vs pricing behavior
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -265,7 +265,7 @@ Source: PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 Impact:
 - Customer confusion
 - Misalignment with SKU_SELECTION_MATRIX
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 GAP-008
 Type: ARCHITECTURE_CONFLICT
@@ -278,7 +278,7 @@ Impact:
 - Historical ambiguity existed over when Phase 6 service truth may be surfaced in customer-facing output
 - Historical ambiguity existed over whether Phase 4.8 was selecting bounded service content from Phase 6 versus blocking direct raw canon emission in specific routes
 - This ambiguity is now reconciled and Phase 6 Route B testing is trusted in the focused runner-hardened single-turn lane
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 Notes:
 - PHASE6__SERVICE_CANON_BUNDLE.md is manifest-proven runtime-active
 - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md remains the final assembly/render authority
@@ -299,7 +299,7 @@ Impact:
 - Documentation can misstate whether Phase 6 is directly used in customer-facing Route B
 - Historical and current Route B behavior may be collapsed into one false narrative
 - PPF Phase 0–2 audit accuracy depends on separating current live behavior from historical intent
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 Notes:
 - Current live Route B uses PHASE4_6-only customer-facing blocks for PPF
 - PHASE6__SERVICE_CANON_BUNDLE.md remains internal truth/constraint authority
@@ -322,7 +322,7 @@ Source:
 Impact:
 - Same pattern as PPF
 - Confirms systemic documentation drift, not service-specific
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -350,7 +350,7 @@ Source:
 Impact:
 - Wrap may be discussed as manual-handover policy in governance/history, but runtime wiring is not yet explicit
 - Rollout trust for wrap remains incomplete until authority ownership is written and validated
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -367,7 +367,7 @@ Impact:
 - Runtime behavior may be validated while architecture naming remains misleading
 - Phase 4 and Phase 5 authority ownership can be explained inconsistently across docs
 - Final rollout confidence needs one clean authority statement for deepening vs closing/handover
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -384,7 +384,7 @@ Impact:
 - “Phase 7” can be misread as one owner when repo evidence shows two distinct layers
 - closing/follow-up routing and education explanation support can be collapsed into one false execution model
 - rollout trust needs an explicit split between runtime route ownership and explanation support ownership
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -400,7 +400,7 @@ Source:
 Impact:
 - Phase 8 may be overstated as fully runtime-active if assembly promotion is mistaken for end-to-end execution proof
 - rollout confidence needs a cleaner statement separating promoted routing from proven delivery execution
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -416,7 +416,7 @@ Impact:
 - REENTERED_CONTINUE is runner-proven, but THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet proven in the tested prompt bridge
 - Phase 7 can be overstated as fully tested if architecture-defined states are confused with runner-hardened coverage
 - Further Phase 7 testing needs explicit signal-shape / prompt-bridge proof before broader trusted-lane claims
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -432,7 +432,7 @@ Impact:
 - support-layer entries can be misread as equally normalized when EDU_PPF_SELF_HEAL uses a materially different structure from the main snippet set
 - governance requires permission / return-anchor discipline, but the snippet file does not express that contract consistently
 - Phase 8 should not inherit Phase 7 education/visual linkage until the Phase 7 support-layer contract is documented cleanly
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ---
 
@@ -502,7 +502,7 @@ Decision:
 - Do NOT patch during evidence capture
 - Reconcile strict expectation vs runtime route after trusted rerun window is complete
 
-Status: OPEN
+Status: RESOLVED (validated after prompt-bridge price-pressure reconciliation)
 
 ---
 
@@ -536,7 +536,7 @@ Decision:
 - Do NOT patch during evidence capture
 - Reconcile silence-lane service continuity after Tier 2 trusted rerun evidence is complete
 
-Status: OPEN
+Status: RESOLVED (validated after ceramic silence guard reconciliation)
 
 ---
 
@@ -572,7 +572,7 @@ Decision:
 - Do NOT patch during evidence capture
 - Reconcile ceramic phase-boundary routing after trusted rerun evidence window is complete
 
-Status: OPEN
+Status: RESOLVED (validated after ceramic trust/brand phase-boundary reconciliation)
 
 ---
 
@@ -586,7 +586,7 @@ Source:
 Impact:
 - repo readers may assume a live runtime Phase 9 owner that is not yet proven
 - deferred/reference-only status must be made explicit before rollout documentation expands further
-Status: RESOLVED (ceramic silence leak fixed via prompt guard)
+Status: OPEN
 
 ----
 
