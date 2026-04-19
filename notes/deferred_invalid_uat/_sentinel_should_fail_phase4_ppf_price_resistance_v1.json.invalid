@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "sentinel_phase4_ppf_price_resistance_should_fail",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "PRICE_SENSITIVITY",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_WARRANTY_SENSITIVITY_L1"
+    }
+  }
+]

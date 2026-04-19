@@ -403,6 +403,110 @@ Status: OPEN
 
 ---
 
+GAP-022
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 4 PPF price-resistance strict pack expectation does not match trusted-mode runtime phrase selection
+
+Source:
+- tests/uat/phase4_ppf_price_resistance_strict_v4.json
+- notes/evidence_audits/tier_revalidation/TIER2_PPF_PRICE_RESISTANCE_RECHECK_20260419.md
+- runner/run_uat.py
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- trusted-mode rerun selects PHASE4_PPF_PRICE_SENSITIVITY_L1 instead of expected PHASE4_PPF_PRICE_PRESSURE_L1
+- earlier green result for this pack was tainted by runner expectation leakage
+- current Phase 4 PPF price-resistance contract is not yet aligned across strict pack expectation and runtime behavior
+
+Observed Behavior:
+- objection_signal = PRICE_SENSITIVITY
+- selected_phrase_id = PHASE4_PPF_PRICE_SENSITIVITY_L1
+
+Expected Behavior (per strict pack):
+- selected_phrase_id = PHASE4_PPF_PRICE_PRESSURE_L1
+
+Classification:
+- Trusted failure
+- Contract mismatch
+
+Decision:
+- Do NOT patch during evidence capture
+- Reconcile strict expectation vs runtime route after trusted rerun window is complete
+
+Status: OPEN
+
+---
+
+GAP-023
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 4 ceramic silence lane leaks into PPF silence route under trusted-mode rerun
+
+Source:
+- tests/uat/phase4_ceramic_silence_strict_v1.json
+- notes/evidence_audits/tier_revalidation/TIER2_CERAMIC_SILENCE_RECHECK_20260419.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- ceramic silence handling is not holding service-specific phrase routing
+- runtime selected PPF silence phrase and PPF wording inside ceramic lane
+- service continuity under Phase 4 silence handling is not yet trustworthy
+
+Observed Behavior:
+- objection_signal = SILENCE_AFTER_PRICE
+- selected_phrase_id = PHASE4_PPF_SILENCE_PRIMARY
+
+Expected Behavior (per strict pack):
+- selected_phrase_id = PHASE4_CERAMIC_SILENCE_L1
+
+Classification:
+- Trusted failure
+- Cross-service routing mismatch
+- Silence lane service-context leak candidate
+
+Decision:
+- Do NOT patch during evidence capture
+- Reconcile silence-lane service continuity after Tier 2 trusted rerun evidence is complete
+
+Status: OPEN
+
+---
+
+GAP-024
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 4 ceramic brand-fixation lane escalates to Phase 5 deepen path under trusted-mode rerun
+
+Source:
+- tests/uat/phase4_ceramic_brand_fixation_strict_v2.json
+- notes/evidence_audits/tier_revalidation/TIER2_CERAMIC_BRAND_FIXATION_RECHECK_20260419.md
+- runner/context_reset_prompt.txt
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- ceramic brand-fixation question does not remain in expected Phase 4 authority path
+- runtime escalates to Phase 5 ceramic deepen lane while objection_repeat_count remains 0 and price_ladder_state remains INITIAL
+- phase-boundary enforcement for ceramic trust/risk handling is not yet trustworthy
+
+Observed Behavior:
+- phase = 5
+- selected_phrase_id = PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+
+Expected Behavior (per strict pack):
+- phase = 4
+- selected_phrase_id = PHASE4_CERAMIC_BRAND_FIXATION_L2
+
+Classification:
+- Trusted failure
+- Premature phase escalation candidate
+- Contract mismatch
+
+Decision:
+- Do NOT patch during evidence capture
+- Reconcile ceramic phase-boundary routing after trusted rerun evidence window is complete
+
+Status: OPEN
+
+---
+
 GAP-018
 Type: ARCHITECTURE_CONFLICT
 Title: Phase 9 trust / persuasion references exist in repo, but trusted runtime-active ownership is not yet promoted
