@@ -861,6 +861,7 @@ If ALL are true:
 - objection_repeat_count == 1
 
 Then:
+- phase MUST equal 5
 - selected_phrase_id MUST equal: PHASE5_TINT_COMPARE_DEEPEN_L1
 - You MUST output ONLY the PHASE5_TINT_COMPARE_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
@@ -888,6 +889,7 @@ If ALL are true:
 - objection_repeat_count == 2
 
 Then:
+- phase MUST equal 5
 - selected_phrase_id MUST equal: PHASE5_TINT_NARROW_L2
 - You MUST output ONLY the PHASE5_TINT_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
@@ -910,6 +912,7 @@ If ALL are true:
 - objection_repeat_count == 3
 
 Then:
+- phase MUST equal 5
 - selected_phrase_id MUST equal: PHASE5_TINT_EXIT_FORK_L3
 - You MUST output ONLY the PHASE5_TINT_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
