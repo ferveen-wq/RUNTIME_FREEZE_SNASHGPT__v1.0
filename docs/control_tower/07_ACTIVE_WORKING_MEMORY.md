@@ -175,7 +175,24 @@ Conclusion:
 - No evidence of fake pass due to runner positional execution for these packs
 
 Next:
-- Proceed to Tier 2 (Phase 4 strict packs)
+- Tier 2 first-wave checkpoint complete
+
+Tier 2 (PHASE 4 STRICT FIRST WAVE) — STATUS: MOSTLY VERIFIED
+
+Trusted passes:
+- phase4_ppf_silence_strict_v1.json
+- phase4_ppf_price_resistance_strict_v4.json
+- phase4_ppf_warranty_sensitivity_strict_v2.json
+- phase4_ceramic_silence_strict_v1.json
+- phase4_ceramic_brand_fixation_strict_v2.json
+
+Trusted failure:
+- phase4_ppf_technical_sensitivity_strict_v2.json
+
+Tier 2 conclusion:
+- Phase 4 strict first-wave packs are broadly stable
+- One real contract mismatch exists in the PPF technical sensitivity lane
+- GAP-021 now records that contradiction as OPEN
 
 Focus:
 - Determine manifest-active vs support-only files for:
