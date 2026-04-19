@@ -119,6 +119,25 @@ Notes:
 
 ---
 
+### PHASE 5 (Late-Stage Narrowing / Exit / Deepen)
+Status: UNDER_REVIEW
+Owner: Runtime / Prompt Bridge / Trusted UAT
+Last Verified: 2026-04-19
+Notes:
+- Trusted-mode reruns show that Phase 5 is partially healthy, not generically unstable.
+- Stable lanes:
+  - ceramic verbatim strict
+  - polishing verbatim strict
+- Failing lanes:
+  - PPF branch differentiation collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - tint exit fork selects PHASE5_TINT_EXIT_FORK_L3 but reports phase 4 instead of phase 5
+- Current Phase 5 risk is service-specific:
+  - PPF = late-stage branch collapse
+  - Tint = phase-boundary enforcement issue
+- Do not treat full Phase 5 behavior as rollout-trusted until these service-specific contradictions are reconciled.
+
+---
+
 ### PHASE 7 (Architecture Wiring / Enforcement)
 Status: UNDER_REVIEW
 Owner: Runtime / Architecture / Prompt Bridge

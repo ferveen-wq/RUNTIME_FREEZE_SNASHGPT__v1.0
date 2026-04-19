@@ -200,6 +200,13 @@ Tier 2 conclusion:
   - trusted-mode evidence repeatedly favors PRICE_SENSITIVITY phrase IDs where older strict packs expect PRICE_PRESSURE phrase IDs
 - Phase 4 strict lanes require architecture/runtime reconciliation before any rollout trust claim
 
+Phase 5 trusted result set:
+- Trusted Pass: Ceramic verbatim strict, Polish verbatim strict
+- Trusted Failure:
+  - PPF branch differentiation collapses into PRICE_GAP_DEEPEN_L1
+  - Tint exit fork selects correct phrase but falls back to phase 4
+- Phase 5 is partially stable, not generically broken
+
 Focus:
 - Confirm and contain runner expectation leakage
 - Separate prompt-shaping constraints from true post-generation validation
