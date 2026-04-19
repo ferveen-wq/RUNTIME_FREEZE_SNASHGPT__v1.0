@@ -24,6 +24,75 @@ Impact:
 Status: OPEN
 
 ---
+GAP-025
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 5 PPF branch differentiation collapses into single deepen route
+
+Source:
+- tests/uat/phase5_ppf_verbatim_strict_v1.json
+- notes/evidence_audits/tier_revalidation/TIER3_PPF_PHASE5_BRANCH_COLLAPSE_20260419.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+
+Impact:
+- multiple distinct Phase 5 decision paths (narrow, technical deepen, exit fork) collapse into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+- late-stage routing loses branch-level differentiation
+- incorrect phase fallback observed in exit scenarios
+
+Observed Behavior:
+- repeated selection of PHASE5_PPF_PRICE_GAP_DEEPEN_L1 across different intent paths
+
+Expected Behavior:
+- branch-specific phrase IDs:
+  - PHASE5_PPF_NARROW_L2
+  - PHASE5_PPF_TECHNICAL_DEEPEN_L1
+  - PHASE5_PPF_EXIT_FORK_L3
+
+Classification:
+- Trusted failure
+- Branch collapse
+- Late-stage routing failure
+
+Decision:
+- Do NOT patch during evidence capture
+- Reconcile Phase 5 branch routing logic after full Tier 3 mapping
+
+Status: OPEN
+
+---
+
+GAP-026
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 5 tint exit fork returns correct phrase but incorrect phase
+
+Source:
+- tests/uat/phase5_tint_verbatim_strict_v1.json
+- notes/evidence_audits/tier_revalidation/TIER3_TINT_PHASE5_EXIT_FORK_20260419.md
+
+Impact:
+- correct phrase selection but incorrect phase reporting
+- phase-boundary enforcement inconsistency
+- exit flow may behave unpredictably in orchestration
+
+Observed Behavior:
+- selected_phrase_id = PHASE5_TINT_EXIT_FORK_L3
+- phase = 4 (incorrect)
+
+Expected Behavior:
+- phase = 5
+- selected_phrase_id = PHASE5_TINT_EXIT_FORK_L3
+
+Classification:
+- Trusted failure
+- Phase-boundary enforcement issue
+
+Decision:
+- Do NOT patch during evidence capture
+- Reconcile phase assignment logic after mapping Phase 5 exit flows
+
+Status: OPEN
+
+---
+
 
 GAP-011
 Type: ARCHITECTURE_CONFLICT
