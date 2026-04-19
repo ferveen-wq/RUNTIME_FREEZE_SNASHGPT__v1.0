@@ -300,6 +300,53 @@ Impact:
 - Final rollout confidence needs one clean authority statement for deepening vs closing/handover
 Status: VALIDATED
 
+---
+
+GAP-016
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 7 name is currently split between runtime closing/follow-up routing and education snippet support layer
+Source:
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE7_EDUCATION_SNIPPETS.md
+- 00__LOCKED__UPLOAD_SET/01__Engines/PHASE_4_7_HOOK_QUESTION_ENGINE.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHRASE_GOVERNANCE_STANDARD.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_LOAD_MANIFEST.md
+Impact:
+- “Phase 7” can be misread as one owner when repo evidence shows two distinct layers
+- closing/follow-up routing and education explanation support can be collapsed into one false execution model
+- rollout trust needs an explicit split between runtime route ownership and explanation support ownership
+Status: OPEN
+
+---
+
+GAP-017
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 8 is promoted in runtime notes and assembly routing, but execution-path proof remains narrower than repo-level promotion
+Source:
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VISUAL_INTELLIGENCE_MAP.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE8_VIDEO_LIBRARY.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_EXECUTION_FLOW.md
+Impact:
+- Phase 8 may be overstated as fully runtime-active if assembly promotion is mistaken for end-to-end execution proof
+- rollout confidence needs a cleaner statement separating promoted routing from proven delivery execution
+Status: OPEN
+
+---
+
+GAP-018
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 9 trust / persuasion references exist in repo, but trusted runtime-active ownership is not yet promoted
+Source:
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
+- 00__LOCKED__UPLOAD_SET/03__Playbooks/PHASE7_TO_PHASE9_CONCEPT_EXTRACTION.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/SNASHGPT_MASTER_GOVERNANCE.md
+Impact:
+- repo readers may assume a live runtime Phase 9 owner that is not yet proven
+- deferred/reference-only status must be made explicit before rollout documentation expands further
+Status: OPEN
+
 ----
 
 ────────────────────────────────────────────

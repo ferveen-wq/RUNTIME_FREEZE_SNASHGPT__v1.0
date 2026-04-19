@@ -451,3 +451,74 @@ Rules:
 - closing/handover must consume canonical outputs only
 - Phase 5 files must not be loaded during Phase 0–4 UAT unless explicitly enabled
 
+---
+
+## 10. Phase 7 Runtime Closing / Follow-Up Route
+
+[FROM: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md]
+
+Purpose:
+- handle post-decision follow-up / re-entry / silence-adjacent closing behavior using locked phrase authority only
+
+Inputs:
+- `READY_TO_PROCEED`
+- `THINKING`
+- `SILENT`
+- `DEFERRED`
+- `REENTERED`
+- `active_service_context`
+
+Outputs:
+- approved closing/follow-up phrase selection only
+
+Allowed:
+- continue context safely
+- preserve service continuity
+- suppress hooks, pricing, and Phase 6 explanation during this route
+
+Must not:
+- act as education snippet owner
+- introduce pricing
+- introduce service education by default
+
+---
+
+## 11. Phase 7 Education Support Layer
+
+[FROM: PHASE7_EDUCATION_SNIPPETS.md]
+[FROM: PHRASE_GOVERNANCE_STANDARD.md]
+[FROM: PHASE_4_7_HOOK_QUESTION_ENGINE.md]
+
+Purpose:
+- provide reusable explanation snippets when explanation is allowed by routing/governance
+
+Status:
+- support layer referenced by runtime-governed hook/explanation architecture
+- not yet independently proven as a standalone execution step in runtime flow
+
+---
+
+## 12. Phase 8 Visual Attachment Layer
+
+[FROM: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md]
+[FROM: PHASE8_VISUAL_INTELLIGENCE_MAP.md]
+[FROM: PHASE8_VIDEO_LIBRARY.md]
+
+Purpose:
+- attach optional visual proof/support after an allowed explanation context
+
+Status:
+- promoted in runtime notes and routed in assembly-map logic
+- still needs separate execution-path trust classification distinct from phrase routing
+
+---
+
+## 13. Phase 9 Trust / Persuasion Reference Layer
+
+Purpose:
+- hold future trust/persuasion reference architecture only
+
+Status:
+- not yet trusted as runtime-active execution ownership
+- remain deferred until manifest + execution-path evidence is explicit
+

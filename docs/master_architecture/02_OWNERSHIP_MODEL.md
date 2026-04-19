@@ -461,9 +461,73 @@ Rules:
 - hooks must respect tone permissions
 - hooks must respect assembly limits
 
+Authority clarification:
+- `PHASE_4_7_HOOK_QUESTION_ENGINE.md` is manifest-loaded and owns optional hook eligibility only.
+- It may reference the Phase 7 education snippet layer for explanation support, but it does not itself create a separate closing/follow-up phase.
+- Therefore "Phase 7" currently splits into:
+  - runtime closing/follow-up routing in `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+  - education snippet support layer in `PHASE7_EDUCATION_SNIPPETS.md`
+
 ---
 
-## 2.14 Output Response Template
+## 2.14 Phase 7 Education Snippet Layer
+
+[FROM: PHASE7_EDUCATION_SNIPPETS.md]
+[FROM: PHRASE_GOVERNANCE_STANDARD.md]
+
+Owns:
+- reusable explanation snippets
+- education concept wording blocks
+- return-anchor based explanation support
+
+Does NOT:
+- decide phase entry
+- decide hook eligibility
+- decide pricing
+- act as the closing/follow-up route owner by itself
+
+Current status:
+- referenced by hook/governance architecture
+- not yet independently proven as a first-class execution step in `RUNTIME_EXECUTION_FLOW.md`
+
+---
+
+## 2.15 Phase 8 Visual Layer
+
+[FROM: PHASE8_VISUAL_INTELLIGENCE_MAP.md]
+[FROM: PHASE8_VIDEO_LIBRARY.md]
+[FROM: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md]
+
+Owns:
+- optional visual attachment mapping
+- snippet-to-visual linkage
+- video registry / delivery support rules
+
+Does NOT:
+- replace phrase authority
+- create pricing or persuasion logic
+- execute without an upstream routed explanation context
+
+Current status:
+- promoted in runtime notes and referenced by assembly logic
+- execution-path proof is still narrower than manifest-phase proof
+
+---
+
+## 2.16 Phase 9 Trust / Persuasion Layer
+
+Owns:
+- trust / persuasion concept references only, where explicitly documented
+
+Does NOT:
+- currently hold trusted runtime-active execution ownership
+
+Current status:
+- deferred / reference-only until proven by manifest + execution-path evidence
+
+---
+
+## 2.17 Output Response Template
 
 [FROM: OUTPUT_RESPONSE_TEMPLATE.md]
 [FROM: AUTHORITY_INDEX.md]
