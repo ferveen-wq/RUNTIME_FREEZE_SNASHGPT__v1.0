@@ -755,7 +755,7 @@ If ALL are true:
   - READINESS_STALL
   - AUTHORITY_SHIFT
   - SILENCE_AFTER_PRICE
-- objection_repeat_count == 1
+- objection_repeat_count >= 1
 
 Then:
 - phase MUST equal 5
@@ -764,6 +764,15 @@ Then:
 - If constraints includes brand_keyword_detected = true:
   - selected_phrase_id MUST equal: PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
   - You MUST output ONLY the PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Else if objection_signal == MISUNDERSTANDING:
+  - selected_phrase_id MUST equal: PHASE5_PPF_TECHNICAL_DEEPEN_L1
+  - You MUST output ONLY the PHASE5_PPF_TECHNICAL_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
+  - selected_phrase_id MUST equal: PHASE5_PPF_EXIT_FORK_L3
+  - You MUST output ONLY the PHASE5_PPF_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Else if objection_repeat_count == 2:
+  - selected_phrase_id MUST equal: PHASE5_PPF_NARROW_L2
+  - You MUST output ONLY the PHASE5_PPF_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - Else:
   - selected_phrase_id MUST equal: PHASE5_PPF_PRICE_GAP_DEEPEN_L1
   - You MUST output ONLY the PHASE5_PPF_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
