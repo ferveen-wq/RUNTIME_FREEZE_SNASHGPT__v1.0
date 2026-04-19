@@ -776,6 +776,20 @@ Then:
 # HARD OVERRIDE — PHASE 5 CERAMIC PHRASE SELECTION
 ############################################
 
+# HARD GUARD — CERAMIC FIRST TRUST / BRAND FIXATION MUST STAY IN PHASE 4
+- If ALL are true:
+- active_service_context == ceramic
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- price_ladder_state == INITIAL
+- objection_signal == TRUST_OR_RISK
+- objection_repeat_count == 0
+- Then:
+  - phase MUST equal 4
+  - selected_phrase_id MUST equal PHASE4_CERAMIC_BRAND_FIXATION_L2
+  - selected_phrase_id MUST NOT equal PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - selected_phrase_id MUST NOT come from any PHASE5_CERAMIC_* family
+  - Do NOT route ceramic trust/brand questions to Phase 5 on first objection
+
 # HARD GUARD — CERAMIC FIRST PRICE PUSH MUST STAY IN PHASE 4
 - If ALL are true:
 - active_service_context == ceramic
