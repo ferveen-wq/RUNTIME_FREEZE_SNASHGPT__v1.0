@@ -741,11 +741,52 @@ Then:
   - Do NOT route to Phase 5 on first-step price resistance
 
 
+# HARD OVERRIDE — CERAMIC REPEAT OBJECTION MUST NARROW
+############################################
+
 If ALL are true:
 - request_type != PRICE_REQUEST
 - QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
 - price_ladder_state == FINAL_PRICE_REACHED
-- active_service_context == ppf
+- active_service_context == ceramic
+- objection_signal is one of:
+  - PRICE_TOO_HIGH
+  - PRICE_COMPARISON
+  - CONTROL_TEST
+  - TRUST_OR_RISK
+  - MISUNDERSTANDING
+  - AUTHORITY_SHIFT
+  - SILENCE_AFTER_PRICE
+- objection_repeat_count == 2
+
+Then:
+- phase MUST equal 5
+- selected_phrase_id MUST equal: PHASE5_CERAMIC_NARROW_L2
+- You MUST output ONLY the PHASE5_CERAMIC_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Do NOT output PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+- Do NOT output PHASE5_CERAMIC_EXIT_FORK_L3
+- Do NOT output PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+- Do NOT output PHASE5_PPF_NARROW_L2
+- Do NOT output PHASE5_PPF_EXIT_FORK_L3
+- Do NOT output PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+- Do NOT output PHASE5_POLISH_NARROW_L2
+- Do NOT output PHASE5_POLISH_EXIT_FORK_L3
+- Do NOT leave selected_phrase_id as null
+- STOP after the selected PHASE5 block
+
+############################################
+
+# HARD OVERRIDE — PHASE 5 SERVICE-OWNER ROUTER
+############################################
+
+If ALL are true:
+- request_type != PRICE_REQUEST
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- price_ladder_state == FINAL_PRICE_REACHED
+- active_service_context is one of:
+  - ppf
+  - ceramic
+  - polishing
 - objection_signal is one of:
   - PRICE_TOO_HIGH
   - PRICE_COMPARISON
@@ -759,94 +800,70 @@ If ALL are true:
 
 Then:
 - phase MUST equal 5
-- This Phase 5 PPF block MUST apply only when the runtime state is explicitly post-price and late-stage.
-- Do NOT infer or invent Phase 5 from generic competitor/cheaper wording alone.
-- If constraints includes brand_keyword_detected = true:
-  - selected_phrase_id MUST equal: PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
-  - You MUST output ONLY the PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Else if objection_signal == MISUNDERSTANDING:
-  - selected_phrase_id MUST equal: PHASE5_PPF_TECHNICAL_DEEPEN_L1
-  - You MUST output ONLY the PHASE5_PPF_TECHNICAL_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
-  - selected_phrase_id MUST equal: PHASE5_PPF_EXIT_FORK_L3
-  - You MUST output ONLY the PHASE5_PPF_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Else if objection_repeat_count == 2:
-  - selected_phrase_id MUST equal: PHASE5_PPF_NARROW_L2
-  - You MUST output ONLY the PHASE5_PPF_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Else:
-  - selected_phrase_id MUST equal: PHASE5_PPF_PRICE_GAP_DEEPEN_L1
-  - You MUST output ONLY the PHASE5_PPF_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
-- Do NOT invent late-stage state to justify a PHASE5_PPF_* output
-- Do NOT output PHASE3B_PPF_RANGE
+- Resolve service family by active_service_context first.
+- selected_phrase_id MUST NOT remain null.
+- Do NOT cross-route between ppf / ceramic / polishing families.
+- Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals.
 
+- If active_service_context == ppf:
+  - If constraints includes brand_keyword_detected = true:
+    - selected_phrase_id MUST equal: PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
+    - You MUST output ONLY the PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_signal == MISUNDERSTANDING:
+    - selected_phrase_id MUST equal: PHASE5_PPF_TECHNICAL_DEEPEN_L1
+    - You MUST output ONLY the PHASE5_PPF_TECHNICAL_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_repeat_count >= 3:
+    - selected_phrase_id MUST equal: PHASE5_PPF_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_PPF_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_repeat_count == 2:
+    - selected_phrase_id MUST equal: PHASE5_PPF_NARROW_L2
+    - You MUST output ONLY the PHASE5_PPF_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else:
+    - selected_phrase_id MUST equal: PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+    - You MUST output ONLY the PHASE5_PPF_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Do NOT output PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - Do NOT output PHASE5_CERAMIC_NARROW_L2
+  - Do NOT output PHASE5_CERAMIC_EXIT_FORK_L3
+  - Do NOT output PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - Do NOT output PHASE5_POLISH_NARROW_L2
+  - Do NOT output PHASE5_POLISH_EXIT_FORK_L3
+  - STOP after the selected PHASE5 block
 
-############################################
-# HARD OVERRIDE — PHASE 5 CERAMIC PHRASE SELECTION
-############################################
+- Else if active_service_context == ceramic:
+  - If objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
+    - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_repeat_count == 2:
+    - selected_phrase_id MUST equal: PHASE5_CERAMIC_NARROW_L2
+    - You MUST output ONLY the PHASE5_CERAMIC_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else:
+    - selected_phrase_id MUST equal: PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+    - You MUST output ONLY the PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Do NOT output PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - Do NOT output PHASE5_PPF_NARROW_L2
+  - Do NOT output PHASE5_PPF_EXIT_FORK_L3
+  - Do NOT output PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+  - Do NOT output PHASE5_POLISH_NARROW_L2
+  - Do NOT output PHASE5_POLISH_EXIT_FORK_L3
+  - STOP after the selected PHASE5 block
 
-# HARD GUARD — CERAMIC FIRST TRUST / BRAND FIXATION MUST STAY IN PHASE 4
-- If ALL are true:
-- active_service_context == ceramic
-- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
-- price_ladder_state == INITIAL
-- objection_signal == TRUST_OR_RISK
-- objection_repeat_count == 0
-- Then:
-  - phase MUST equal 4
-  - selected_phrase_id MUST equal PHASE4_CERAMIC_BRAND_FIXATION_L2
-  - selected_phrase_id MUST NOT equal PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
-  - selected_phrase_id MUST NOT come from any PHASE5_CERAMIC_* family
-  - Do NOT route ceramic trust/brand questions to Phase 5 on first objection
-
-# HARD GUARD — CERAMIC FIRST PRICE PUSH MUST STAY IN PHASE 4
-- If ALL are true:
-- active_service_context == ceramic
-- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
-- price_ladder_state == INITIAL
-- objection_signal is one of:
-  - PRICE_SENSITIVITY
-  - PRICE_TOO_HIGH
-- objection_repeat_count == 0
-- Then:
-  - phase MUST equal 4
-  - selected_phrase_id MUST equal PHASE4_CERAMIC_PRICE_PRESSURE_L1
-  - selected_phrase_id MUST NOT equal PHASE4_CERAMIC_PRICE_SENSITIVITY_L1
-  - selected_phrase_id MUST NOT equal PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
-  - selected_phrase_id MUST NOT come from any PHASE5_CERAMIC_* family
-  - Do NOT route to Phase 5 on first-step price resistance
-
-If ALL are true:
-- request_type != PRICE_REQUEST
-- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
-- price_ladder_state == FINAL_PRICE_REACHED
-- active_service_context == ceramic
-- objection_signal is one of:
-  - PRICE_TOO_HIGH
-  - PRICE_COMPARISON
-  - CONTROL_TEST
-  - TRUST_OR_RISK
-  - MISUNDERSTANDING
-  - READINESS_STALL
-  - AUTHORITY_SHIFT
-  - SILENCE_AFTER_PRICE
-
-Then:
-- phase MUST equal 5
-- If objection_repeat_count <= 1:
-  - selected_phrase_id MUST equal: PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
-  - You MUST output ONLY the PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- If objection_repeat_count == 2:
-  - selected_phrase_id MUST equal: PHASE5_CERAMIC_NARROW_L2
-  - You MUST output ONLY the PHASE5_CERAMIC_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- If objection_repeat_count >= 3:
-  - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
-  - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-- Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
-- Do NOT output PHASE3B_CERAMIC_RANGE
-- Do NOT output pricing tables, price ranges, or ladder summaries
-- Do NOT leave selected_phrase_id as null
-- STOP after the selected PHASE5 block
+- Else if active_service_context == polishing:
+  - If objection_repeat_count >= 3:
+    - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_repeat_count == 2:
+    - selected_phrase_id MUST equal: PHASE5_POLISH_NARROW_L2
+    - You MUST output ONLY the PHASE5_POLISH_NARROW_L2 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else:
+    - selected_phrase_id MUST equal: PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+    - You MUST output ONLY the PHASE5_POLISH_EXPECTATION_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Do NOT output PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - Do NOT output PHASE5_PPF_NARROW_L2
+  - Do NOT output PHASE5_PPF_EXIT_FORK_L3
+  - Do NOT output PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - Do NOT output PHASE5_CERAMIC_NARROW_L2
+  - Do NOT output PHASE5_CERAMIC_EXIT_FORK_L3
+  - STOP after the selected PHASE5 block
 
 ############################################
 
