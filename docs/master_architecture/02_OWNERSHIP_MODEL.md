@@ -365,6 +365,16 @@ Writes:
 - `AUTOMATION_TERMINATED_FLAG`
 - `SESSION_CLOSE_REASON`
 
+Owns:
+- terminal conversation control
+- handover control flags
+- automation stop / termination control
+
+Authority clarification:
+- `CLOSING_HANDOVER_ENGINE.md` is the live runtime control owner for closing/handover signals.
+- `PHASE5_LOCK.md` + `PHASE5_1__CLOSING_STATE_MACHINE.md` + `PHASE5_2__HANDOVER_WORKFLOW.md` + related Phase 5 closing/handover docs are governing authority documents for that engine.
+- This closing/handover authority pack is NOT the same thing as the assembly-map “Phase 5” objection-deepening phrase layer.
+
 Must not:
 - inspect raw customer messages
 - generate phrases or tone

@@ -304,6 +304,7 @@ Transition onward:
 [FROM: RUNTIME_LOAD_MANIFEST.md]
 [FROM: OBJECTION_RESOLUTION_ENGINE.md]
 [FROM: CLOSING_HANDOVER_ENGINE.md]
+[FROM: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md]
 
 Purpose:
 - handle post-price objection decisioning
@@ -314,6 +315,12 @@ Phase 4 includes:
 - objection resolution after pricing exposure
 - closing / terminal governance
 - handover control
+
+Clarification:
+- Runtime control Phase 4 includes objection decisioning plus terminal closing/handover control.
+- Separately, `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md` uses the label “Phase 5” for the post-price objection-deepening phrase layer.
+- That assembly-map “Phase 5” is a routing/render layer for controlled clarification after price.
+- It is NOT the same thing as the `PHASE_5__CLOSING_HANDOVER` document pack, which governs closing/handover behavior for `CLOSING_HANDOVER_ENGINE.md`.
 
 ### 7.1 Objection Resolution
 

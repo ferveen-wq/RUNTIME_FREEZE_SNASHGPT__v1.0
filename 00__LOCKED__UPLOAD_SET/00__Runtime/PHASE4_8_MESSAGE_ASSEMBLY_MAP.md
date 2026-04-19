@@ -710,7 +710,7 @@ Applies when ALL are true:
 - missing_fields includes vehicle_model OR vehicle_year
 
 Required output behavior:
-- Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
+- Use Phase 6 canon as internal source of truth; render customer-facing explanation strictly via PHASE4_6_HUMAN_PHRASE_LIBRARY.md for the detected service_intent (NO PRICES, NO OFFERS; no direct Phase 6 emission).
 - Append exactly 1 question only, chosen by missing_fields:
   - If missing_fields == [vehicle_year]:
     - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 YEAR_ONLY
@@ -728,7 +728,7 @@ Applies when ALL are true:
 - missing_fields includes vehicle_model OR vehicle_year
 
 Required output behavior:
-- Include the Phase 6 service explanation block for the detected service_intent (NO PRICES, NO OFFERS).
+- Use Phase 6 canon as internal source of truth; render customer-facing explanation strictly via PHASE4_6_HUMAN_PHRASE_LIBRARY.md for the detected service_intent (NO PRICES, NO OFFERS; no direct Phase 6 emission).
 - Append exactly 1 question only, chosen by missing_fields:
   - If missing_fields == [vehicle_year]:
     - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → L.1 YEAR_ONLY

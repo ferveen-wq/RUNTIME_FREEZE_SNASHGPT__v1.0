@@ -269,5 +269,38 @@ Source:
 Impact:
 Status: OPEN
 
+
+
+GAP-014
+Type: ARCHITECTURE_CONFLICT
+Title: Wrap manual-handover business decision is not yet proven in live runtime authority
+Source:
+- runtime inspection of QUALIFICATION_ENGINE.md
+- runtime inspection of CLOSING_HANDOVER_ENGINE.md
+- runtime inspection of PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+Impact:
+- Wrap may be discussed as manual-handover policy in governance/history, but runtime wiring is not yet explicit
+- Rollout trust for wrap remains incomplete until authority ownership is written and validated
+Status: VALIDATED
+
+---
+
+
+GAP-015
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 4/5 naming and ownership split remains ambiguous between objection-deepening Phase 5 and closing/handover Phase 5
+Source:
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- 00__LOCKED__UPLOAD_SET/01__Engines/CLOSING_HANDOVER_ENGINE.md
+- 00__LOCKED__UPLOAD_SET/01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_LOCK.md
+- 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_LOAD_MANIFEST.md
+Impact:
+- Runtime behavior may be validated while architecture naming remains misleading
+- Phase 4 and Phase 5 authority ownership can be explained inconsistently across docs
+- Final rollout confidence needs one clean authority statement for deepening vs closing/handover
+Status: VALIDATED
+
+----
+
 ────────────────────────────────────────────
 END OF FILE

@@ -136,6 +136,10 @@ Runtime truth/content classification note:
 - root-level rollout / source-of-truth / discussion files pending reconciliation
 
 ### G — Draft / future / excluded
+- PHASE6__OVERVIEW.md
+- root-level phase 0–2 contract/addendum docs until reconciled
+
+### G1 — Governing support docs (not direct runtime executors)
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_0__OVERVIEW.md
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_1__CLOSING_STATE_MACHINE.md
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_2__HANDOVER_WORKFLOW.md
@@ -143,8 +147,10 @@ Runtime truth/content classification note:
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_4__YES_LATER_SILENCE_PLAYBOOK.md
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_5__WHATSAPP_NEXT_STEP_TEMPLATES__EN_AR.md
 - 01__Engines/PHASE_5__CLOSING_HANDOVER/PHASE5_LOCK.md
-- PHASE6__OVERVIEW.md
-- root-level phase 0–2 contract/addendum docs until reconciled
+
+Rule:
+- These files are governing authority/support documents for `CLOSING_HANDOVER_ENGINE.md`.
+- They are not to be treated as direct runtime executors in Phase 0–4 UAT unless explicitly enabled by manifest/runtime scope.
 
 ### H — Ignore
 - .DS_Store
