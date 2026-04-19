@@ -152,7 +152,7 @@ Before any patch:
 - No further runtime patching required for Phase 0–6.
 
 Current active lane:
-- Phase 0–7 TRUST REVALIDATION
+- RUNNER TRUST AUDIT (EXPECTATION LEAKAGE CONFIRMED)
 
 Tier 1 (CRITICAL BASELINE PACKS) — STATUS: VERIFIED
 
@@ -171,8 +171,9 @@ Validation notes:
 - Debug outputs align with expected phase / routing / phrase IDs
 
 Conclusion:
-- Tier 1 baseline is TRUSTED
-- No evidence of fake pass due to runner positional execution for these packs
+- Tier 1 baseline is now PROVISIONAL / TAINTED
+- Sentinel falsification on 2026-04-19 passed when it should have failed
+- Do NOT treat current green packs as trusted rollout evidence until harness audit is complete
 
 Next:
 - Tier 2 first-wave checkpoint complete
@@ -190,11 +191,29 @@ Trusted failure:
 - phase4_ppf_technical_sensitivity_strict_v2.json
 
 Tier 2 conclusion:
-- Phase 4 strict first-wave packs are broadly stable
-- One real contract mismatch exists in the PPF technical sensitivity lane
-- GAP-021 now records that contradiction as OPEN
+- Phase 4 first-wave results are now PROVISIONAL / TAINTED pending harness audit
+- GAP-021 remains a meaningful contradiction, but green passes around it cannot be treated as trusted yet
+- Sentinel falsification failure shifts priority from phase validation to runner trust audit
 
 Focus:
+- Confirm and contain runner expectation leakage
+- Separate prompt-shaping constraints from true post-generation validation
+- Rebuild a trusted minimal UAT lane before resuming phase validation
+
+Confirmed harness finding:
+- `build_case_constraints()` injects `expect_debug` into the system prompt
+- This makes phrase-id / debug-field checks self-fulfilling instead of independently validated
+- Sentinel falsification pass on 2026-04-19 is now explained by expectation leakage
+
+Immediate rule:
+- Do NOT treat green UAT passes as trusted rollout evidence
+- Do NOT continue phase-level trust claims until runner audit/remediation is complete
+
+Historical validation status:
+- Tier 1 and Tier 2 results are now provisional only
+- Manual contradiction findings (for example GAP-021) remain useful as investigation evidence
+
+Previous focus (frozen until runner trust is restored):
 - Determine manifest-active vs support-only files for:
   - Phase 7 (closing vs education split)
   - Phase 8 (visual system)
