@@ -193,9 +193,11 @@ Trusted failure:
 Tier 2 conclusion:
 - Trusted-mode rerun is now active and meaningful after runner leak removal
 - Tier 2 first-wave no longer appears broadly green
-- Current trusted first-wave result set is:
-  - Trusted Pass: PPF silence, PPF warranty sensitivity
-  - Trusted Failure: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation
+- Current trusted Phase 4 result set is:
+  - Trusted Pass: PPF silence, PPF warranty sensitivity, PPF brand fixation, mixed PPF phase4 strict pack
+  - Trusted Failure: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation, Ceramic price resistance
+- Strengthened pattern:
+  - trusted-mode evidence repeatedly favors PRICE_SENSITIVITY phrase IDs where older strict packs expect PRICE_PRESSURE phrase IDs
 - Phase 4 strict lanes require architecture/runtime reconciliation before any rollout trust claim
 
 Focus:

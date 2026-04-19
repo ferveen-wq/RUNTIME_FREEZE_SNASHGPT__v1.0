@@ -145,9 +145,10 @@ Last Verified: 2026-04-19
 Notes:
 - Earlier green strict-pack results were affected by runner expectation leakage and must not be treated as trusted historical evidence.
 - Trusted-mode reruns now show a split result:
-  - stable lanes: PPF silence, PPF warranty sensitivity
-  - failing lanes: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation
-- Current Phase 4 risk is not generic instability; it is specific contract mismatch across phrase selection, service continuity, and phase-boundary enforcement.
+  - stable lanes: PPF silence, PPF warranty sensitivity, PPF brand fixation
+  - failing lanes: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation, Ceramic price resistance
+- Mixed Phase 4 PPF pack behavior also supports the current runtime use of PRICE_SENSITIVITY routing in first-objection handling.
+- Current Phase 4 risk is not generic instability; it is specific contract mismatch across phrase selection, service continuity, phase-boundary enforcement, and likely naming-contract drift between PRICE_PRESSURE vs PRICE_SENSITIVITY expectations.
 - Do not treat Phase 4 strict routing as rollout-trusted until trusted-mode reconciliation is completed.
 
 ---
