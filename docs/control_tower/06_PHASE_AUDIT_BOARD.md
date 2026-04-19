@@ -138,6 +138,20 @@ Notes:
 
 ---
 
+### PHASE 4 (Objection / Sensitivity Routing)
+Status: UNDER_REVIEW
+Owner: Runtime / Prompt Bridge / Trusted UAT
+Last Verified: 2026-04-19
+Notes:
+- Earlier green strict-pack results were affected by runner expectation leakage and must not be treated as trusted historical evidence.
+- Trusted-mode reruns now show a split result:
+  - stable lanes: PPF silence, PPF warranty sensitivity
+  - failing lanes: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation
+- Current Phase 4 risk is not generic instability; it is specific contract mismatch across phrase selection, service continuity, and phase-boundary enforcement.
+- Do not treat Phase 4 strict routing as rollout-trusted until trusted-mode reconciliation is completed.
+
+---
+
 ### PHASE 8 (Comparison / Visual / Advanced Flows)
 Status: UNDER_REVIEW
 Owner: Runtime / Architecture / Prompt Bridge

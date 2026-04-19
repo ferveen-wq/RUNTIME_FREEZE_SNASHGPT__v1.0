@@ -191,9 +191,12 @@ Trusted failure:
 - phase4_ppf_technical_sensitivity_strict_v2.json
 
 Tier 2 conclusion:
-- Phase 4 first-wave results are now PROVISIONAL / TAINTED pending harness audit
-- GAP-021 remains a meaningful contradiction, but green passes around it cannot be treated as trusted yet
-- Sentinel falsification failure shifts priority from phase validation to runner trust audit
+- Trusted-mode rerun is now active and meaningful after runner leak removal
+- Tier 2 first-wave no longer appears broadly green
+- Current trusted first-wave result set is:
+  - Trusted Pass: PPF silence, PPF warranty sensitivity
+  - Trusted Failure: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation
+- Phase 4 strict lanes require architecture/runtime reconciliation before any rollout trust claim
 
 Focus:
 - Confirm and contain runner expectation leakage
