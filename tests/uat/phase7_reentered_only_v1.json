@@ -1,0 +1,46 @@
+[
+  {
+    "case_id": "phase7_reentered_continue_hi",
+    "strict_raw": true,
+    "input": "hi",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    },
+    "expect_debug": {
+      "request_type": "REENTERED_CONTINUE",
+      "selected_phrase_id": "A6_REENTERED_CONTINUE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "We can continue from where we left off.",
+        "Do you want to carry on with the same service?"
+      ],
+      "arabic": [
+        "نقدر نكمل من حيث وقفنا",
+        "تبي نكمل على نفس الخدمة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase7_reentered_continue_ok",
+    "strict_raw": true,
+    "input": "ok continue",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    },
+    "expect_debug": {
+      "request_type": "REENTERED_CONTINUE",
+      "selected_phrase_id": "A6_REENTERED_CONTINUE"
+    },
+    "expect_contains_all": {
+      "english": [
+        "We can continue from where we left off.",
+        "Do you want to carry on with the same service?"
+      ],
+      "arabic": [
+        "نقدر نكمل من حيث وقفنا",
+        "تبي نكمل على نفس الخدمة"
+      ]
+    }
+  }
+]

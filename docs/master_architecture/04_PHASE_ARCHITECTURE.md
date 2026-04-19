@@ -495,6 +495,7 @@ Purpose:
 Status:
 - support layer referenced by runtime-governed hook/explanation architecture
 - not yet independently proven as a standalone execution step in runtime flow
+- runner-hardened prompt-bridge proof currently exists only for the re-entry path (`REENTERED_CONTINUE`), not the broader Phase 7 state family
 
 ---
 

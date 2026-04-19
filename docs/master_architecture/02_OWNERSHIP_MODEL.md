@@ -489,6 +489,7 @@ Does NOT:
 Current status:
 - referenced by hook/governance architecture
 - not yet independently proven as a first-class execution step in `RUNTIME_EXECUTION_FLOW.md`
+- runner-hardened prompt-bridge proof currently exists only for `request_type = REENTERED_CONTINUE`, not for the broader Phase 7 state family
 
 ---
 

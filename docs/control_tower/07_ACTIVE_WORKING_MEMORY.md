@@ -161,6 +161,9 @@ Focus:
   - Phase 9 (persuasion layer)
 - Resolve Phase 7 role ambiguity:
   - closing/follow-up routing vs education snippets
+- Record tested-lane truth:
+  - REENTERED_CONTINUE is runner-proven
+  - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet runner-hardened
 
 Rules:
 - Do NOT expand Phase 7–9 behavior yet

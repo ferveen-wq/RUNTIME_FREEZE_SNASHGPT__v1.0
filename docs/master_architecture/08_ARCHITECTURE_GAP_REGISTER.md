@@ -335,6 +335,22 @@ Status: OPEN
 
 ---
 
+GAP-019
+Type: ARCHITECTURE_CONFLICT
+Title: Phase 7 runtime state family is broader in architecture than in runner-hardened prompt-bridge proof
+Source:
+- runner/context_reset_prompt.txt
+- tests/uat/reentered_context_strict_pack.json
+- tests/uat/phase7_reentered_only_v1.json
+- 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+Impact:
+- REENTERED_CONTINUE is runner-proven, but THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet proven in the tested prompt bridge
+- Phase 7 can be overstated as fully tested if architecture-defined states are confused with runner-hardened coverage
+- Further Phase 7 testing needs explicit signal-shape / prompt-bridge proof before broader trusted-lane claims
+Status: VALIDATED
+
+---
+
 GAP-018
 Type: ARCHITECTURE_CONFLICT
 Title: Phase 9 trust / persuasion references exist in repo, but trusted runtime-active ownership is not yet promoted

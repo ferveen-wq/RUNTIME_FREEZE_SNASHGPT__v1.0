@@ -114,6 +114,7 @@ Runtime truth/content classification note:
 - PHASE6__SERVICE_CANON_BUNDLE.md is not mere reference/support material.
 - Customer-facing use of Phase 6 content remains subject to PHASE4_8_MESSAGE_ASSEMBLY_MAP.md and output/render constraints.
 - PHASE7_EDUCATION_SNIPPETS.md is present in runtime truth/content surface as an education knowledge layer referenced by runtime-governed hook / explanation architecture.
+- Current tested-lane proof for Phase 7 is narrower than full architecture scope: only REENTERED_CONTINUE is runner-proven today via prompt-bridge UAT.
 - PHASE7__CORE_EDUCATION.md is broader concept/support architecture, not yet proven as a direct manifest-executed runtime owner.
 - PHASE8_VIDEO_LIBRARY.md and VISUAL_PLAYBOOK.md support the Phase 8 visual layer; current repo evidence shows Phase 8 is promoted in runtime notes, but execution-path proof still depends on PHASE4_8 routing plus downstream delivery logic.
 - Phase 9 trust/persuasion references exist in repo architecture, but are not yet promoted as trusted runtime-active execution owners.
