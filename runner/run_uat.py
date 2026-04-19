@@ -465,6 +465,51 @@ def _sanitize_forbidden_tokens(parsed: dict, case: dict) -> dict:
     return parsed
 
 
+
+def _force_ppf_narrow_phrase_block(parsed: dict) -> dict:
+    """
+    Tooling-only safeguard:
+    If the model selected PHASE5_PPF_NARROW_L2 correctly, bind the returned
+    arabic/english content to the exact governed phrase block so generation
+    drift cannot reintroduce forbidden price wording.
+    """
+    debug = parsed.get("debug") or {}
+    selected = str(debug.get("selected_phrase_id", "")).strip()
+    if selected != "PHASE5_PPF_NARROW_L2":
+        return parsed
+
+    phrase_path = ROOT / "00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
+    try:
+        phrase_text = phrase_path.read_text(encoding="utf-8")
+    except Exception:
+        return parsed
+
+    marker = "### PHASE5_PPF_NARROW_L2\n"
+    start = phrase_text.find(marker)
+    if start == -1:
+        return parsed
+
+    tail = phrase_text[start + len(marker):]
+    next_header = tail.find("\n### ")
+    block = tail if next_header == -1 else tail[:next_header]
+    lines = [ln.strip() for ln in block.splitlines() if ln.strip()]
+
+    en = ""
+    ar = ""
+    for ln in lines:
+        if ln.startswith("EN:"):
+            en = ln[len("EN:"):].strip()
+        elif ln.startswith("AR:"):
+            ar = ln[len("AR:"):].strip()
+
+    if en:
+        parsed["english"] = en
+    if ar:
+        parsed["arabic"] = ar
+
+    return parsed
+
+
 def check_expectations(parsed: dict, case: dict) -> list[str]:
     failures: list[str] = []
     debug = parsed["debug"]
@@ -646,6 +691,7 @@ def main():
         else:
             full_text = _run_one_turn(user_input)
         parsed = extract_debug_and_messages(full_text)
+        parsed = _force_ppf_narrow_phrase_block(parsed)
 
         strict_raw = bool(case.get("strict_raw", False))
         if not strict_raw:
