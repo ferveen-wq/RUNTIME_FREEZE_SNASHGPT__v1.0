@@ -721,7 +721,8 @@ Then:
 - objection_repeat_count == 0
 - Then:
   - phase MUST equal 4
-  - selected_phrase_id MUST come from PHASE4_PPF_* family only
+  - selected_phrase_id MUST equal PHASE4_PPF_PRICE_PRESSURE_L1
+  - selected_phrase_id MUST NOT equal PHASE4_PPF_PRICE_SENSITIVITY_L1
   - selected_phrase_id MUST NOT equal PHASE5_PPF_PRICE_GAP_DEEPEN_L1
   - selected_phrase_id MUST NOT come from any PHASE5_PPF_* family
   - Do NOT route to Phase 5 on first-step price resistance
@@ -761,6 +762,23 @@ Then:
 ############################################
 # HARD OVERRIDE — PHASE 5 CERAMIC PHRASE SELECTION
 ############################################
+
+# HARD GUARD — CERAMIC FIRST PRICE PUSH MUST STAY IN PHASE 4
+- If ALL are true:
+- active_service_context == ceramic
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- price_ladder_state == INITIAL
+- objection_signal is one of:
+  - PRICE_SENSITIVITY
+  - PRICE_TOO_HIGH
+- objection_repeat_count == 0
+- Then:
+  - phase MUST equal 4
+  - selected_phrase_id MUST equal PHASE4_CERAMIC_PRICE_PRESSURE_L1
+  - selected_phrase_id MUST NOT equal PHASE4_CERAMIC_PRICE_SENSITIVITY_L1
+  - selected_phrase_id MUST NOT equal PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - selected_phrase_id MUST NOT come from any PHASE5_CERAMIC_* family
+  - Do NOT route to Phase 5 on first-step price resistance
 
 If ALL are true:
 - request_type != PRICE_REQUEST
