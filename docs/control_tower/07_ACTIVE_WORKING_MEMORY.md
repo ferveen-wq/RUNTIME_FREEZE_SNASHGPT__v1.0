@@ -152,7 +152,30 @@ Before any patch:
 - No further runtime patching required for Phase 0–6.
 
 Current active lane:
-- Phase 7–9 OWNER SHAPE AUDIT
+- Phase 0–7 TRUST REVALIDATION
+
+Tier 1 (CRITICAL BASELINE PACKS) — STATUS: VERIFIED
+
+Trusted packs:
+- gap008_routeb_service_confirmed_v1.json
+- phase7_reentered_only_v1.json
+- reentered_context_strict_pack.json
+- phase3_tint_ready_path_v1.json
+- phase3_polish_ready_path_v1.json
+- wrap_handoff_after_finish_v1.json
+
+Validation notes:
+- All packs executed using correct env-based runner invocation
+- All packs are single-turn harness compatible
+- Report summaries matched expected case counts (no positional drift)
+- Debug outputs align with expected phase / routing / phrase IDs
+
+Conclusion:
+- Tier 1 baseline is TRUSTED
+- No evidence of fake pass due to runner positional execution for these packs
+
+Next:
+- Proceed to Tier 2 (Phase 4 strict packs)
 
 Focus:
 - Determine manifest-active vs support-only files for:
