@@ -275,9 +275,16 @@ Prevent repetitive cycles and enforce deterministic escalation when objections r
 ```yaml
 REPEAT_POLICY:
   repeat_count_meaning:
-    0: first occurrence of this objection signal after price exposure
-    1: second occurrence
-    2: third occurrence or more
+
+    # PHASE-AWARE INTERPRETATION (GAP-032 RESOLVED)
+
+    # Phase 4 (first post-price reaction)
+    0: first objection after price exposure (handled in Phase 4 only)
+
+    # Phase 5 (negotiation stage)
+    1: second objection (first repeat → L1 deepen)
+    2: third objection (→ L2 narrow)
+    3+: fourth or more (→ L3 exit fork)
 
   hard_thresholds:
     max_automation_repeats: 1

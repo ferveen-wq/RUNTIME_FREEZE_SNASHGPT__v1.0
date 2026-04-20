@@ -211,12 +211,12 @@ Phase 5 reconciliation (post branch routing fixes):
 - Residual issue isolated: PHASE5_PPF_NARROW_L2 wording vs strict pack constraint (price mention)
 - Residual issue classification: TEST_CONTRACT_MISMATCH, not runtime-routing failure
 
-Phase 5 repeat-count mismatch:
-- objection engine uses 0/1/2+ semantics
-- assembly map uses 1/2/3+ semantics
-- current UAT also follows 1/2/3 semantics
-- L3 instability should be treated as a contract mismatch, not a local prompt-only defect
-- Next action: choose single repeat-count authority before more routing patches
+Phase 5 repeat-count model (resolved via phase-boundary interpretation):
+- Phase 4 first post-price objection uses objection_repeat_count = 0
+- Phase 5 repeated objection handling uses objection_repeat_count = 1 / 2 / 3+
+- runtime prompt, assembly map, and UAT packs are aligned to this phase-boundary model
+- old objection-engine wording was the source of misinterpretation
+- GAP-032 is resolved as a documentation / contract clarification, not a runtime routing defect
 
 Phase 5 evidence reconciliation:
 - Ceramic Phase 5 verbatim strict is now supported by trusted evidence audit:

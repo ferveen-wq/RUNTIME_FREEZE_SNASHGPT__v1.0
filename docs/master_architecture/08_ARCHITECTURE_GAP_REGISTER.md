@@ -106,7 +106,18 @@ Decision:
 - Resolve repeat-count contract at architecture level first
 - After that, patch downstream authority files and UAT together in one aligned change
 
-Status: OPEN
+Status: RESOLVED
+
+Resolution:
+- Repeat-count mismatch was resolved through phase-boundary interpretation
+- Phase 4 uses objection_repeat_count = 0 for first post-price reaction
+- Phase 5 uses 1 / 2 / 3+ for repeated objection handling
+- Runtime prompt, assembly behavior, and UAT packs were already aligned to this model
+- The objection engine wording was the outlier and has now been corrected
+
+Classification:
+- Documentation / contract clarification
+- Not a live runtime routing defect
 
 ---
 GAP-031
