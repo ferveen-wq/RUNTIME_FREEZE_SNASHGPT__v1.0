@@ -127,17 +127,22 @@ Notes:
 - Trusted-mode reruns show that Phase 5 is partially healthy, not generically unstable.
 - Stable lanes:
   - ceramic verbatim strict
-  - polishing verbatim strict
   - tint compare / narrow / exit
-  - PPF price / technical / brand / exit routing
+- Mixed lanes:
+  - PPF price / technical / brand / exit routing is correct, with remaining narrow-L2 test-contract mismatch
+  - polishing narrow / exit routing is correct, but polishing L1 expectation/deepen still misroutes into PPF
 - Evidence anchor:
-  - ceramic and polishing stability is supported by Tier 3 evidence-audit records dated 2026-04-19
-- Residual issue:
+  - ceramic stability is supported by Tier 3 evidence-audit records dated 2026-04-19
+  - later trust revalidation confirms polish is not generically broken, but still has an L1 routing defect
+- Residual issues:
   - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
-- Current Phase 5 risk is now narrow and governance-specific:
+  - polishing expectation/deepen L1 still collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+- Current Phase 5 risk is mixed and specific:
   - PPF = remaining test-contract mismatch for NARROW_L2 wording
-- Do not treat the remaining PPF narrow wording contradiction as a runtime routing failure.
-- Do not reopen ceramic or polishing routing based on stale interim owner-trace findings.
+  - polishing = live L1 routing defect
+- Do not treat the PPF narrow wording contradiction as a runtime routing failure.
+- Do not treat the polishing L1 defect as resolved.
+- Do not reopen ceramic or tint routing based on stale interim owner-trace findings.
 
 ---
 

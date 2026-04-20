@@ -410,3 +410,45 @@ Key confirmations:
 
 Next step:
 - proceed to Tier 3 (Phase 5 canonical packs) only after this Tier 2 checkpoint is recorded
+
+
+--------------------------------------------------
+PHASE 0–7 TRUST REVALIDATION — TIER 3 CHECKPOINT (2026-04-20)
+--------------------------------------------------
+
+Run mode:
+- UAT_CASES_FILE env-var invocation only
+- latest report verified after each run
+- case_id match checked
+- harness restore already confirmed
+
+Tier 3 results:
+
+TRUSTED:
+- tests/uat/phase5_ceramic_verbatim_strict_v1.json
+- tests/uat/phase5_tint_verbatim_strict_v1.json
+
+TRUSTED_FAILURE:
+- tests/uat/phase5_ppf_verbatim_strict_v1.json
+  - classification: test-contract mismatch
+  - selected_phrase_id and phase are correct
+  - remaining failure is forbidden-word mismatch against governed PHASE5_PPF_NARROW_L2 body
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+  - classification: live routing defect at L1
+  - polish expectation/deepen case still collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - polish narrow and exit lanes remain correct
+
+Key confirmations:
+- ceramic Phase 5 lane is runner-trusted
+- tint Phase 5 lane is runner-trusted
+- PPF Phase 5 routing is substantially correct, with remaining pack/phrase mismatch
+- Phase 5 is partially stable, not generically healthy
+
+Key constraints:
+- do NOT treat PPF narrow failure as runtime-routing failure
+- do NOT treat polish L1 failure as a documentation-only issue
+- do NOT reopen ceramic or tint routing based on stale interim history
+
+Next step:
+- proceed to Tier 4 only after this Tier 3 checkpoint is recorded
+- keep Phase 5 control-tower truth aligned to mixed trusted / trusted-failure status

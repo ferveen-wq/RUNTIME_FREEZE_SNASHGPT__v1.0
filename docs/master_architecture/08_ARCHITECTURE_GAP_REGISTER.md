@@ -819,5 +819,120 @@ Status: OPEN
 
 ----
 
+--------------------------------------------------
+GAP-TR-004 — PHASE5 POLISH L1 MISROUTING INTO PPF
+--------------------------------------------------
+Status: OPEN
+Discovered: 2026-04-20 (Tier 3 trust revalidation)
+Phase: 5
+Severity: HIGH (live routing defect)
+
+Description:
+- Polishing expectation/deepen L1 case routes into:
+  PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+- Instead of:
+  PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+
+Evidence:
+- tests/uat/phase5_polish_verbatim_strict_v1.json
+- failure: polish_phase5_expectation_verbatim_strict
+
+Impact:
+- Cross-service contamination (PPF logic applied to polishing)
+- Breaks service ownership boundary in Phase 5
+
+Classification:
+- Runtime routing defect (NOT test issue)
+
+--------------------------------------------------
+GAP-TR-005 — PHASE4 CERAMIC → PHASE5 ESCALATION LEAK
+--------------------------------------------------
+Status: OPEN
+Discovered: 2026-04-20 (Tier 2 trust revalidation)
+Phase: 4 → 5 boundary
+Severity: HIGH
+
+Description:
+- Ceramic brand fixation case escalates to:
+  PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+- While debug.phase remains "0" (contract contradiction)
+
+Evidence:
+- tests/uat/phase4_ceramic_brand_fixation_strict_v2.json
+
+Impact:
+- Phase boundary violation
+- Incorrect escalation into Phase 5
+- Debug inconsistency (phase mismatch)
+
+Classification:
+- Runtime routing defect
+
+--------------------------------------------------
+GAP-TR-006 — CROSS-SERVICE PRICE PRESSURE LEAK (CERAMIC → PPF)
+--------------------------------------------------
+Status: OPEN
+Discovered: 2026-04-20 (Tier 2 trust revalidation)
+Phase: 4
+Severity: HIGH
+
+Description:
+- Ceramic price resistance uses:
+  PHASE4_PPF_PRICE_PRESSURE_L1
+- Instead of ceramic equivalent
+
+Evidence:
+- tests/uat/phase4_ceramic_price_resistance_strict_v2.json
+
+Impact:
+- Cross-service phrase leakage
+- Wrong service positioning in customer response
+
+Classification:
+- Runtime mapping / phrase selection defect
+
+--------------------------------------------------
+GAP-TR-007 — PHASE4 PPF TECHNICAL MISCLASSIFIED AS BRAND
+--------------------------------------------------
+Status: OPEN
+Discovered: 2026-04-20
+Phase: 4
+Severity: MEDIUM
+
+Description:
+- Technical question ("is it thick enough?") routes to:
+  PHASE4_PPF_BRAND_FIXATION_L1
+- Instead of technical sensitivity lane
+
+Evidence:
+- tests/uat/phase4_ppf_technical_sensitivity_strict_v2.json
+
+Impact:
+- Incorrect objection classification
+- Weak technical handling credibility
+
+Classification:
+- Signal classification defect (objection mapping)
+
+--------------------------------------------------
+NON-RUNTIME (DO NOT PATCH RUNTIME)
+--------------------------------------------------
+
+NOTE — PPF NARROW L2 WORDING:
+- Failure due to forbidden word "price"
+- Phrase intent is price-aware by design
+
+Classification:
+- TEST CONTRACT mismatch
+- NOT a runtime defect
+
+NOTE — PHASE4 PPF SILENCE REQUEST_TYPE:
+- request_type shown as "ppf" (invalid enum)
+- phrase + phase routing correct
+
+Classification:
+- DEBUG CONTRACT issue (not routing failure)
+
 ────────────────────────────────────────────
 END OF FILE
+
