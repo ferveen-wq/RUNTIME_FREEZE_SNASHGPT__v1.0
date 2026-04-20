@@ -61,15 +61,15 @@ Notes:
 ---
 
 ### PHASE 4 (Message Construction / Phrase Layer)
-Status: VALIDATED
+Status: UNDER_REVIEW
 Owner: Runtime / UAT / Harness
-Last Verified: 2026-04-17
+Last Verified: 2026-04-19
 Notes:
-- Active-service Phase 4 strict UAT promotion is complete on branch for currently active services.
-- PPF Phase 4 strict coverage is promoted on branch for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
-- Ceramic Phase 4 strict coverage is promoted on branch for silence, brand fixation, and price resistance.
-- Latest canonical UAT evidence is 27 passed, 0 failed, total 27.
-- Harness continuity is still not trusted for real multi-turn simulation, so validated coverage remains based on classified single-turn, state-injected UAT.
+- Active-service Phase 4 strict UAT promotion exists on branch for currently active services, but earlier broad green results were later narrowed by trusted rerun evidence after harness leakage was identified.
+- PPF Phase 4 strict coverage exists for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
+- Ceramic Phase 4 strict coverage exists for silence, brand fixation, and price resistance.
+- Use the later trusted Phase 4 objection/sensitivity review section below as the active control-tower truth for current trusted status and residual risk.
+- Harness continuity is still not trusted for real multi-turn simulation, so current validated interpretation must remain tied to classified single-turn, state-injected evidence only.
 
 ---
 
@@ -97,9 +97,9 @@ Notes:
   - PHASE5_POLISH_EXPECTATION_DEEPEN_L1
   - PHASE5_POLISH_NARROW_L2
   - PHASE5_POLISH_EXIT_FORK_L3
-- Latest canonical UAT evidence is 41 passed, 0 failed, total 41.
+- Earlier broad canonical UAT totals should be read together with the later trusted Phase 5 late-stage review section below.
 - Harness continuity is still not trusted for real multi-turn simulation, so validated coverage remains based on classified single-turn, state-injected UAT.
-- Do not treat overall Phase 5 as fully closed until remaining services are completed with clean evidence.
+- Do not treat Phase 5 as generically closed; use the later Phase 5 late-stage review section as the active control-tower truth for current trusted status and residual risk.
 
 ---
 

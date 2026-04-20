@@ -331,3 +331,43 @@ Goal:
   - Phase 4.6 output only
   - Phase 6 internal
   - No direct Phase 6 emission
+
+
+--------------------------------------------------
+PHASE 0–7 TRUST REVALIDATION — TIER 1 CHECKPOINT (2026-04-20)
+--------------------------------------------------
+
+Run mode:
+- UAT_CASES_FILE env-var invocation only
+- latest report verified
+- case_id match enforced
+- harness restore confirmed (no expectation leakage)
+
+Tier 1 results:
+
+TRUSTED:
+- tests/uat/phase7_reentered_only_v1.json
+- tests/uat/reentered_context_strict_pack.json
+- tests/uat/phase3_tint_ready_path_v1.json
+- tests/uat/wrap_handoff_after_finish_v1.json
+
+TRUSTED_FAILURE:
+- tests/uat/gap008_routeb_service_confirmed_v1.json
+  - classification: wording / expectation mismatch candidate
+  - not a runner failure, not a default-pack leak
+- tests/uat/phase3_polish_ready_path_v1.json
+  - classification: wording contract mismatch (arabic forbidden token)
+
+Key confirmations:
+- Phase 7 REENTERED_CONTINUE is runner-trusted
+- Phase 3 ready-path routing (tint) is runner-trusted
+- wrap post-finish escalation boundary holds
+- no evidence of default-pack execution in Tier 1
+
+Key constraints:
+- do NOT treat GAP-008 as trusted green evidence
+- do NOT treat polish ready-path failure as routing defect
+- do NOT patch runtime based on Tier 1
+
+Next step:
+- proceed to Tier 2 (Phase 4 strict packs)
