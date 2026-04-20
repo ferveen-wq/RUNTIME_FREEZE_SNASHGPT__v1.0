@@ -371,3 +371,42 @@ Key constraints:
 
 Next step:
 - proceed to Tier 2 (Phase 4 strict packs)
+
+
+--------------------------------------------------
+PHASE 0–7 TRUST REVALIDATION — TIER 2 CHECKPOINT (2026-04-20)
+--------------------------------------------------
+
+Run mode:
+- UAT_CASES_FILE env-var invocation only
+- latest report verified after each run
+- case_id match checked
+- harness restore already confirmed
+
+Tier 2 results:
+
+TRUSTED:
+- tests/uat/phase4_ppf_warranty_sensitivity_strict_v2.json
+- tests/uat/phase4_ppf_brand_fixation_strict_v3.json
+- tests/uat/phase4_ppf_price_resistance_strict_v4.json
+- tests/uat/phase4_ceramic_silence_strict_v1.json
+
+TRUSTED_FAILURE:
+- tests/uat/phase4_ppf_silence_strict_v1.json
+  - classification: debug/request_type enum contract issue
+  - phase/phrase lane itself remains phase-4-aligned
+- tests/uat/phase4_ppf_technical_sensitivity_strict_v2.json
+  - classification: technical question still collapses into brand-fixation lane
+- tests/uat/phase4_ceramic_brand_fixation_strict_v2.json
+  - classification: ceramic brand/trust lane escalates incorrectly into PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  - contradiction observed: phase reported as 0 while phrase id is phase5 ceramic
+- tests/uat/phase4_ceramic_price_resistance_strict_v2.json
+  - classification: cross-service phrase leak to PPF price-pressure lane
+
+Key confirmations:
+- Tier 2 now contains both trusted passes and trusted failures under corrected harness conditions
+- earlier broad green assumptions must not be used as active trust truth
+- current Phase 4 truth must remain the later trusted-review interpretation, not older broad totals
+
+Next step:
+- proceed to Tier 3 (Phase 5 canonical packs) only after this Tier 2 checkpoint is recorded
