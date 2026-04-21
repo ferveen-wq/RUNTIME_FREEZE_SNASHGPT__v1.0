@@ -360,6 +360,13 @@ TRUSTED_FAILURE:
 
 Key confirmations:
 - Phase 7 REENTERED_CONTINUE is runner-trusted
+- Additional Phase 7 evidence:
+  - REENTERED_CONTINUE probe passed with governed phrase binding and aligned raw output:
+    - tests/reports/uat_report_20260421_131614.json
+- Current Phase 7 reading after REENTERED_CONTINUE probe:
+  - A6_REENTERED_CONTINUE now binds correctly in debug-selected phrase, rendered phrase body, and raw report output.
+  - Minor objection_signal normalization drift remains non-blocking inside this probe family.
+
 - Phase 3 ready-path routing (tint) is runner-trusted
 - wrap post-finish escalation boundary holds
 - no evidence of default-pack execution in Tier 1
