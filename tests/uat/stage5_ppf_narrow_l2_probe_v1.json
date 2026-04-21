@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "stage5_ppf_narrow_l2_en_1",
+    "input": "ppf is expensive"
+  },
+  {
+    "case_id": "stage5_ppf_narrow_l2_en_2",
+    "input": "price is high for full ppf"
+  },
+  {
+    "case_id": "stage5_ppf_narrow_l2_ar_1",
+    "input": "الـ ppf غالي"
+  }
+]
