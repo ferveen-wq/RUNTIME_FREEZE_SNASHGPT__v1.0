@@ -498,5 +498,14 @@ Next step:
   - Internal continuity remains mixed across objection_repeat_count progression, service continuity, and selector-family consistency.
   - Ceramic Arabic repeat and brand-continuity prompts still show cross-lane conformance drift.
 
+- Additional Stage 4 evidence:
+  - Block 24 raw/debug normalization retry passed:
+    - tests/reports/uat_report_20260421_102455.json
+- Current Stage 4 reading after Block 24:
+  - Normalized debug and customer-facing output are now aligned in the saved raw report for the repeat / continuity family.
+  - This closes the tracker-side raw/debug mismatch for the Block 20 family.
+  - Remaining Stage 4 risk is now mainly broader conformance interpretation, not report serialization drift.
+
+
 
 

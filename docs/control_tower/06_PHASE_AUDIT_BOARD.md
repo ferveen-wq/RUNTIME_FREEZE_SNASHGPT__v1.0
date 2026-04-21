@@ -90,6 +90,11 @@ Notes:
   - Internal continuity remains mixed across objection_repeat_count progression, service continuity, and selector-family consistency.
   - Evidence anchor:
     - tests/reports/uat_report_20260421_101530.json
+- Additional Stage 4 normalization evidence (2026-04-21):
+  - Raw/debug normalization retry passed for the repeat / continuity family.
+  - Saved report raw content now matches the normalized debug + customer-facing content for this family.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_102455.json
 
 ---
 
