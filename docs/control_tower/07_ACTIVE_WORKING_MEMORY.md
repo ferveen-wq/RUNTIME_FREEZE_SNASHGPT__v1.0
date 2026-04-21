@@ -274,6 +274,12 @@ Previous focus (frozen until runner trust is restored):
   - Phase 8 (visual system)
   - Phase 9 (persuasion layer)
 - Resolve Phase 7 role ambiguity:
+- Current reconciliation reading (2026-04-21):
+  - PHASE7_EDUCATION_SNIPPETS.md is a support-authority education layer, not a late-state control owner.
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md currently labels Phase 7 as closing/follow-up routing for REENTERED / THINKING / SILENT / DEFERRED / READY_TO_PROCEED.
+  - RUNTIME_EXECUTION_FLOW.md + CLOSING_HANDOVER_ENGINE.md already prove late-stage close/handover control exists outside the education snippet layer.
+  - Therefore current Phase 7 ambiguity is an authority-classification issue, not a runner bug to keep patching blindly.
+
   - closing/follow-up routing vs education snippets
 - Record tested-lane truth:
   - REENTERED_CONTINUE is runner-proven
@@ -293,6 +299,19 @@ Rules:
 
 Goal:
 - Establish clean authority map for Phase 7–9 before any testing or patching
+
+
+- PIM ownership reading after trace (2026-04-21):
+  - “Let me think / later / I’ll confirm” is not primarily a Phase 7 education behavior.
+  - Upstream ownership evidence exists in Phase 3 orchestration via PIM_* silence suppression.
+  - Mid-late routing evidence exists in OBJECTION_RESOLUTION_ENGINE via READINESS_STALL.
+  - Follow-up / later / silence-after-progress evidence exists in Phase 5 closing-handover workflow.
+  - Therefore current late-state ambiguity should be resolved as ownership mapping, not runner repair.
+
+- Freeze note:
+  - Do NOT patch THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner behavior further
+    until phase ownership reassignment is written into tracker truth.
+
 
 
 ### PHASE 0–6 DEPENDENCY AWARENESS (ACTIVE)

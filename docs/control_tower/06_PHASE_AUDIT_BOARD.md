@@ -189,11 +189,63 @@ Notes:
 ---
 
 ### PHASE 7 (Architecture Wiring / Enforcement)
+
+Decision (2026-04-21 — CONTROL TOWER):
+
+- Phase 7 is NOT to be treated as a single runtime owner.
+- It currently contains:
+  1) Support-layer authority → PHASE7_EDUCATION_SNIPPETS.md
+  2) Late-state routing labels → PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+
+- Late-stage conversation control (closing / handover / terminal states)
+  is CONFIRMED to be owned by:
+  - RUNTIME_EXECUTION_FLOW.md (Step 6.4)
+  - CLOSING_HANDOVER_ENGINE.md
+  - PHASE5_* closing state machine + workflows
+
+- Therefore:
+  - THINKING / SILENT / DEFERRED / READY_TO_PROCEED must NOT be patched as Phase 7 runtime logic yet
+  - This is an ownership classification issue, not a runner defect
+
+Temporary rule (HARD):
+- Freeze all Phase 7 state expansion
+- Do NOT patch runner / enums / phrase routing for Phase 7 states
+- Only REENTERED_CONTINUE is considered runner-trusted
+
+Next required step:
+- Perform Phase ownership reassignment (Phase 4 vs Phase 5 vs Phase 7)
+before any further UAT or patching
+
+
+Ownership reading after PIM trace (2026-04-21):
+- PIM / “let me think” / timing-later behavior is evidenced upstream in:
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+  - SILENCE suppression governance
+- Readiness-stall behavior is evidenced in:
+  - OBJECTION_RESOLUTION_ENGINE.md
+- Later / follow-up / silence-after-progress behavior is evidenced in:
+  - PHASE5_1__CLOSING_STATE_MACHINE.md
+  - PHASE5_2__HANDOVER_WORKFLOW.md
+  - PHASE5_4__YES_LATER_SILENCE_PLAYBOOK.md
+- PHASE7_EDUCATION_SNIPPETS.md remains a support education layer, not the primary owner of PIM / later / silence governance.
+
+Control decision:
+- Freeze further THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner patching.
+- Treat the next lane as authority reassignment / architecture reconciliation, not phrase repair.
+
+
 Status: UNDER_REVIEW
 Owner: Runtime / Architecture / Prompt Bridge
 Last Verified: 2026-04-19
 Notes:
 - Phase 7 is now split more clearly across:
+- Reconciliation note (2026-04-21):
+  - Phase 7 currently contains two different roles in repo evidence:
+    - education support/snippet authority in PHASE7_EDUCATION_SNIPPETS.md
+    - late-state closing/follow-up routing labels in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - Closing / handover control is also independently present in RUNTIME_EXECUTION_FLOW.md + CLOSING_HANDOVER_ENGINE.md.
+  - Treat this as an architecture ownership ambiguity first; do not expand THINKING / SILENT / DEFERRED / READY_TO_PROCEED runner patches until ownership is formally reconciled.
+
   - runtime closing/follow-up routing in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
   - education support/snippet layer in PHASE7_EDUCATION_SNIPPETS.md
 - Customer-facing wording for the runtime closing/follow-up route remains PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
