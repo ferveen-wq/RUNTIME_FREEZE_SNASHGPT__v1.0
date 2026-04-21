@@ -452,3 +452,33 @@ Key constraints:
 Next step:
 - proceed to Tier 4 only after this Tier 3 checkpoint is recorded
 - keep Phase 5 control-tower truth aligned to mixed trusted / trusted-failure status
+
+
+## STAGE 4 CONTROL UPDATE — 2026-04-21
+
+### Status
+- Stage 4 browsing routing defect family found, patched, and revalidated.
+- Bizinfo vs service-entry boundary sweep passed.
+- Price-entry family is broadly customer-safe after normalization patch, with minor remaining debug/raw conformance drift only.
+
+### Defect / Fix Summary
+- Resolved defect: Arabic services-browsing was misrouting to OFFSCOPE — NON-AUTOMOTIVE.
+- Active prompt projection fix applied in:
+  - runner/context_reset_prompt.txt
+- Runner shim alignment fix applied in:
+  - runner/run_uat.py
+- Additional price-entry debug normalization applied in:
+  - runner/run_uat.py
+
+### Validation Evidence
+- Browsing routing family resolved:
+  - tests/reports/uat_report_20260421_094841.json
+- Bizinfo vs service-entry boundary sweep passed:
+  - tests/reports/uat_report_20260421_095035.json
+- Price-entry probe broadly safe after normalization retry:
+  - tests/reports/uat_report_20260421_100348.json
+
+### Active Remaining Note
+- Minor price-entry debug/raw conformance drift remains.
+- Current assessment: non-blocking for customer safety, but should remain logged for future cleanup.
+

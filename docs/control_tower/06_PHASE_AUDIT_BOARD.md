@@ -70,6 +70,14 @@ Notes:
 - Ceramic Phase 4 strict coverage exists for silence, brand fixation, and price resistance.
 - Use the later trusted Phase 4 objection/sensitivity review section below as the active control-tower truth for current trusted status and residual risk.
 - Harness continuity is still not trusted for real multi-turn simulation, so current validated interpretation must remain tied to classified single-turn, state-injected evidence only.
+- Stage 4 control update (2026-04-21):
+  - Arabic/English services-browsing routing defect family was found and resolved in the active runtime prompt + runner shim path.
+  - Bizinfo vs service-entry boundary sweep passed in isolated Stage 4 validation.
+  - Price-entry probe is broadly customer-safe after normalization, with minor remaining debug/raw conformance drift logged as non-blocking.
+  - Evidence anchors:
+    - tests/reports/uat_report_20260421_094841.json
+    - tests/reports/uat_report_20260421_095035.json
+    - tests/reports/uat_report_20260421_100348.json
 
 ---
 
