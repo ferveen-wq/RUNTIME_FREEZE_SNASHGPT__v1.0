@@ -169,7 +169,7 @@ Notes:
   - polishing expectation/deepen L1 is runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
 - Current Phase 5 risk is mixed and specific:
   - PPF = remaining test-contract mismatch for NARROW_L2 wording
-  - polishing = live L1 routing defect
+  - polishing = earlier L1 routing defect now resolved in the runner-tested lane
 - Do not treat the PPF narrow wording contradiction as a runtime routing failure.
 - Additional Phase 5 polishing evidence (2026-04-21):
   - Focused probe now shows PHASE5_POLISH_EXPECTATION_DEEPEN_L1 correctly owns debug state and rendered phrase output.
