@@ -1,0 +1,23 @@
+[
+  {
+    "case_id": "phase7_thinking_en_1",
+    "input": "let me think",
+    "runtime_signals": {
+      "request_type": "THINKING"
+    }
+  },
+  {
+    "case_id": "phase7_thinking_en_2",
+    "input": "i will think about it",
+    "runtime_signals": {
+      "request_type": "THINKING"
+    }
+  },
+  {
+    "case_id": "phase7_thinking_ar_1",
+    "input": "خلني أفكر",
+    "runtime_signals": {
+      "request_type": "THINKING"
+    }
+  }
+]

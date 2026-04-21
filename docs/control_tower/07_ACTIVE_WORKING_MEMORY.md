@@ -308,6 +308,12 @@ Goal:
   - Follow-up / later / silence-after-progress evidence exists in Phase 5 closing-handover workflow.
   - Therefore current late-state ambiguity should be resolved as ownership mapping, not runner repair.
 
+- Quarantined probe note:
+  - tests/uat/phase7_thinking_probe_v1.json
+  - tests/reports/uat_report_20260421_132030.json
+  - The failure is useful because it confirms Phase 7 THINKING is not ready for runner-hardening under current ownership ambiguity.
+  - Keep as forensic evidence only; do not reopen runner patching from this probe.
+
 - Freeze note:
   - Do NOT patch THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner behavior further
     until phase ownership reassignment is written into tracker truth.

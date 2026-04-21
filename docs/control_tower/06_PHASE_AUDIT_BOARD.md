@@ -211,6 +211,14 @@ Temporary rule (HARD):
 - Freeze all Phase 7 state expansion
 - Do NOT patch runner / enums / phrase routing for Phase 7 states
 - Only REENTERED_CONTINUE is considered runner-trusted
+- Quarantined evidence (2026-04-21):
+  - tests/uat/phase7_thinking_probe_v1.json
+  - tests/reports/uat_report_20260421_132030.json
+  - Reading:
+    - The THINKING probe exposed request_type enum mismatch and mixed routing behavior.
+    - Treat this result as ownership-forensics evidence, not as a direct Phase 7 runner-repair target.
+    - Do NOT patch runner enums or phrase binding for THINKING until ownership reassignment is completed.
+
 
 Next required step:
 - Perform Phase ownership reassignment (Phase 4 vs Phase 5 vs Phase 7)
