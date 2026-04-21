@@ -301,6 +301,22 @@ Goal:
 - Establish clean authority map for Phase 7–9 before any testing or patching
 
 
+- Working ownership map after reassignment trace (2026-04-21):
+  - PIM / timing blockers -> Phase 3 orchestration
+  - READINESS_STALL / AUTHORITY_SHIFT -> objection-resolution layer
+  - later / silence-after-progress / follow-up / handover -> Phase 5 closing family
+  - education snippets -> Phase 7 support layer only
+
+- Operational reading:
+  - “let me think”
+  - “I need to ask my wife / husband / family / friend”
+  - “I am travelling”
+  - “the car is in garage / workshop / not received yet”
+  - “later / next month / after salary”
+  should be treated as deferred-family ownership cases, not Phase 7 education routing by default.
+
+
+
 - PIM ownership reading after trace (2026-04-21):
   - “Let me think / later / I’ll confirm” is not primarily a Phase 7 education behavior.
   - Upstream ownership evidence exists in Phase 3 orchestration via PIM_* silence suppression.

@@ -225,6 +225,58 @@ Next required step:
 before any further UAT or patching
 
 
+Reassignment draft (2026-04-21 — WORKING TRUTH):
+
+- Family A — PIM / timing blockers
+  Owner:
+  - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
+  Scope:
+  - PIM_THINKING
+  - PIM_CHECK_WITH_PARTNER / SPOUSE / FAMILY
+  - PIM_TRAVELLING
+  - PIM_CAR_NOT_AVAILABLE
+  - PIM_TIMING_LATER
+  Role:
+  - suppress silence actions
+  - preserve orchestration truth
+  - do not generate customer phrasing
+
+- Family B — readiness / authority objection routing
+  Owner:
+  - OBJECTION_RESOLUTION_ENGINE.md
+  Scope:
+  - READINESS_STALL
+  - AUTHORITY_SHIFT
+  Role:
+  - classify pause-worthy late objections
+  - decide CONTINUE / PAUSE / ESCALATE / EXIT
+  - no customer-facing phrasing
+
+- Family C — later / follow-up / silence-after-progress / handover
+  Owner:
+  - CLOSING_HANDOVER_ENGINE.md
+  - PHASE5_1__CLOSING_STATE_MACHINE.md
+  - PHASE5_2__HANDOVER_WORKFLOW.md
+  - PHASE5_4__YES_LATER_SILENCE_PLAYBOOK.md
+  Scope:
+  - later / confirm later
+  - silence after progress
+  - follow-up pending
+  - handover / stop automation
+  Role:
+  - operational closure and follow-up governance
+
+- Family D — education support
+  Owner:
+  - PHASE7_EDUCATION_SNIPPETS.md
+  Scope:
+  - reusable explanation snippets only
+  Role:
+  - support phrases when education is explicitly invoked
+  - not owner of thinking/later/silence/handover states
+
+
+
 Ownership reading after PIM trace (2026-04-21):
 - PIM / “let me think” / timing-later behavior is evidenced upstream in:
   - PHASE3_ORCHESTRATION_WIRING_ADDENDUM.md
