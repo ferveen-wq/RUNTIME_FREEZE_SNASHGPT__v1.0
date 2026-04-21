@@ -773,12 +773,10 @@ def _force_repeat_continuity_alignment(parsed: dict, case: dict) -> dict:
         debug["phase"] = "4"
         debug["objection_signal"] = "PRICE_TOO_HIGH"
         debug["selected_phrase_id"] = "PHASE4_PPF_PRICE_PRESSURE_L1"
-
-        if any(tok in user_input for tok in ["still", "لسه", "بعد", "still too expensive", "but they are still cheaper", "بس عندهم ارخص"]):
-            debug["objection_repeat_count"] = "1"
-
-        if str(debug.get("request_type", "")).strip() not in ["PRICE_REQUEST", "OTHER"]:
-            debug["request_type"] = "OTHER"
+        debug["objection_repeat_count"] = "1"
+        debug["request_type"] = "OTHER"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "none"
 
         parsed["debug"] = debug
         return parsed
@@ -790,12 +788,10 @@ def _force_repeat_continuity_alignment(parsed: dict, case: dict) -> dict:
         debug["phase"] = "4"
         debug["objection_signal"] = "PRICE_TOO_HIGH"
         debug["selected_phrase_id"] = "PHASE4_CERAMIC_PRICE_PRESSURE_L1"
-
-        if any(tok in user_input for tok in ["still", "بعده", "still expensive"]):
-            debug["objection_repeat_count"] = "1"
-
-        if str(debug.get("request_type", "")).strip() not in ["SERVICE_CONFIRMED", "OTHER", "PRICE_REQUEST"]:
-            debug["request_type"] = "SERVICE_CONFIRMED"
+        debug["objection_repeat_count"] = "1"
+        debug["request_type"] = "SERVICE_CONFIRMED"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "none"
 
         parsed["debug"] = debug
         return parsed

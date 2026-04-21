@@ -95,6 +95,11 @@ Notes:
   - Saved report raw content now matches the normalized debug + customer-facing content for this family.
   - Evidence anchor:
     - tests/reports/uat_report_20260421_102455.json
+- Additional Stage 4 repeat-state evidence (2026-04-21):
+  - Repeat-state normalization passed for the repeat / continuity family.
+  - Saved report now shows aligned phase, request_type, objection_repeat_count, qualification state, ladder state, and raw content for this family.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_123009.json
 
 ---
 

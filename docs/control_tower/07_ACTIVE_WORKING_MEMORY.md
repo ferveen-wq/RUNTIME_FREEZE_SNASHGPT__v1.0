@@ -506,6 +506,15 @@ Next step:
   - This closes the tracker-side raw/debug mismatch for the Block 20 family.
   - Remaining Stage 4 risk is now mainly broader conformance interpretation, not report serialization drift.
 
+- Additional Stage 4 evidence:
+  - Block 27 repeat-state normalization passed:
+    - tests/reports/uat_report_20260421_123009.json
+- Current Stage 4 reading after Block 27:
+  - Repeat / competitor / ceramic continuity family now has aligned phase, request_type, objection_repeat_count, qualification state, ladder state, and raw serialization.
+  - The earlier repeat negotiation-state drift is resolved in the runner normalization lane.
+  - Remaining Stage 4 risk is now broader family-closeout interpretation only, not repeat-state leakage.
+
+
 
 
 
