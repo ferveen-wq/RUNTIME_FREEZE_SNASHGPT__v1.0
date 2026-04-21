@@ -163,7 +163,7 @@ Notes:
   - polishing narrow / exit routing is correct, but polishing L1 expectation/deepen still misroutes into PPF
 - Evidence anchor:
   - ceramic stability is supported by Tier 3 evidence-audit records dated 2026-04-19
-  - later trust revalidation confirms polish is not generically broken, but still has an L1 routing defect
+  - later trust revalidation confirms polish is not generically broken, and the earlier L1 routing defect is now resolved in the runner-tested lane
 - Residual issues:
   - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
   - polishing expectation/deepen L1 is runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
@@ -177,7 +177,7 @@ Notes:
   - Evidence anchor:
     - tests/reports/uat_report_20260421_125242.json
 
-- Do not treat the polishing L1 defect as resolved.
+- Treat the polishing L1 defect as resolved in the runner-tested lane; do not over-generalize beyond validated evidence.
 - Do not reopen ceramic or tint routing based on stale interim owner-trace findings.
 
 ---
