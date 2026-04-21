@@ -225,6 +225,33 @@ Next required step:
 before any further UAT or patching
 
 
+Working matrix anchor (2026-04-21):
+- notes/patch_sessions/deferred_family_ownership_matrix_20260421.md
+
+Matrix-aligned working truth:
+- Family A — Thinking / timing later
+  - Primary owner: Phase 3 orchestration (PIM timing blockers)
+  - Mid-late routing: Objection Resolution via READINESS_STALL
+  - Late parked-conversation follow-up: Phase 5 closing family
+
+- Family B — Third-party approval / authority shift
+  - Primary owner: Objection Resolution via AUTHORITY_SHIFT
+  - Late pause / handover / follow-up: Phase 5 closing family
+
+- Family C — Car unavailable / not received / in garage
+  - Primary owner: Phase 3 orchestration via PIM_CAR_NOT_AVAILABLE
+  - Late parked-conversation follow-up: Phase 5 closing family
+
+- Family D — Travelling / unavailable / out of country
+  - Primary owner: Phase 3 orchestration via PIM_TRAVELLING
+  - Late parked-conversation follow-up: Phase 5 closing family
+
+Control implication:
+- Phase 7 education snippets remain support-layer only.
+- These deferred families must not be treated as Phase 7 default runtime ownership.
+
+
+
 Reassignment draft (2026-04-21 — WORKING TRUTH):
 
 - Family A — PIM / timing blockers

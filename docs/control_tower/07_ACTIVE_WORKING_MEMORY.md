@@ -302,6 +302,20 @@ Goal:
 
 
 - Working ownership map after reassignment trace (2026-04-21):
+
+- Matrix anchor:
+  - notes/patch_sessions/deferred_family_ownership_matrix_20260421.md
+
+- Matrix-confirmed deferred-family reading:
+  - Thinking / later / after salary -> Phase 3 PIM blockers + READINESS_STALL + Phase 5 follow-up family
+  - Wife / husband / family / friend approval -> AUTHORITY_SHIFT + Phase 5 follow-up/handover family
+  - Car in garage / workshop / not received -> PIM_CAR_NOT_AVAILABLE + Phase 5 follow-up family
+  - Travelling / out of country / unavailable -> PIM_TRAVELLING + Phase 5 follow-up family
+
+- Rule:
+  - Do NOT reopen Phase 7 runner patching for these families.
+  - Use this matrix as the baseline for any future ownership reassignment or UAT pack design.
+
   - PIM / timing blockers -> Phase 3 orchestration
   - READINESS_STALL / AUTHORITY_SHIFT -> objection-resolution layer
   - later / silence-after-progress / follow-up / handover -> Phase 5 closing family
