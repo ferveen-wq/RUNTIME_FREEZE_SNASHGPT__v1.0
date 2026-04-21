@@ -1,0 +1,23 @@
+[
+  {
+    "case_id": "phase7_reentered_continue_en_1",
+    "input": "continue",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    }
+  },
+  {
+    "case_id": "phase7_reentered_continue_en_2",
+    "input": "ok continue",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    }
+  },
+  {
+    "case_id": "phase7_reentered_continue_ar_1",
+    "input": "كمل",
+    "runtime_signals": {
+      "request_type": "REENTERED_CONTINUE"
+    }
+  }
+]

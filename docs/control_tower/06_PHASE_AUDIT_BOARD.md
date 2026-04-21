@@ -198,6 +198,12 @@ Notes:
   - education support/snippet layer in PHASE7_EDUCATION_SNIPPETS.md
 - Customer-facing wording for the runtime closing/follow-up route remains PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
 - Runner-hardened trusted-lane proof currently exists only for REENTERED_CONTINUE.
+- Additional Phase 7 evidence (2026-04-21):
+  - REENTERED_CONTINUE probe passed with governed phrase binding and aligned raw output.
+  - This validates the REENTERED_CONTINUE state family in the runner-tested lane.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_131614.json
+
 - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are architecture-defined, but are not yet runner-hardened in the tested prompt bridge.
 - Prior dict-shaped phase7_closing_behavior_v1.json attempt is quarantined and must not be treated as trusted evidence.
 - Phase 7 support-layer due diligence also found a snippet/governance consistency issue:
