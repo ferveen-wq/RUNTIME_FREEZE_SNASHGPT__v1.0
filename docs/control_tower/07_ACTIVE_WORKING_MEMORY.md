@@ -482,3 +482,12 @@ Next step:
 - Minor price-entry debug/raw conformance drift remains.
 - Current assessment: non-blocking for customer safety, but should remain logged for future cleanup.
 
+- Additional Stage 4 evidence:
+  - Early objection / price-pressure boundary sweep passed:
+    - tests/reports/uat_report_20260421_101137.json
+- Current Stage 4 reading after objection sweep:
+  - Early objection behavior is broadly customer-safe across PPF / competitor-cheaper / ceramic prompts.
+  - Internal objection-state conformance remains mixed across request_type, phase, and qualification state.
+  - Keep this logged as a non-blocking conformance note before the next Stage 4 family.
+
+

@@ -78,6 +78,12 @@ Notes:
     - tests/reports/uat_report_20260421_094841.json
     - tests/reports/uat_report_20260421_095035.json
     - tests/reports/uat_report_20260421_100348.json
+- Additional Stage 4 boundary evidence (2026-04-21):
+  - Early objection / price-pressure boundary sweep passed in isolated validation.
+  - Customer-facing behavior is broadly safe across PPF, competitor-cheaper, and ceramic objection-entry prompts.
+  - Internal objection-state conformance remains mixed across request_type, phase, and qualification-state debug fields, so this remains a non-blocking review note rather than a resolved conformance close.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_101137.json
 
 ---
 
