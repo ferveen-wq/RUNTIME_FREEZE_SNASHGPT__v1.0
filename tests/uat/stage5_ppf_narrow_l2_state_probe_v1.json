@@ -1,0 +1,41 @@
+[
+  {
+    "case_id": "stage5_ppf_narrow_l2_state_en_1",
+    "input": "still expensive",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": 2
+    }
+  },
+  {
+    "case_id": "stage5_ppf_narrow_l2_state_en_2",
+    "input": "that is still high",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_COMPARISON",
+      "objection_repeat_count": 2
+    }
+  },
+  {
+    "case_id": "stage5_ppf_narrow_l2_state_ar_1",
+    "input": "بعده غالي",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": 2
+    }
+  }
+]

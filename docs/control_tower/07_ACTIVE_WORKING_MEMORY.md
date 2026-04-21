@@ -433,6 +433,13 @@ TRUSTED_FAILURE:
   - classification: test-contract mismatch
   - selected_phrase_id and phase are correct
   - remaining failure is forbidden-word mismatch against governed PHASE5_PPF_NARROW_L2 body
+- Additional Phase 5 evidence:
+  - PPF Narrow L2 state-injected probe passed in runner lane:
+    - tests/reports/uat_report_20260421_130334.json
+- Current Phase 5 reading after PPF Narrow L2 probe:
+  - PHASE5_PPF_NARROW_L2 now has direct runner-validated proof for phase ownership, repeat-count handling, negotiation state, ladder state, phrase selection, and rendered body.
+  - This confirms the remaining PPF Narrow L2 issue is strict-pack wording contract mismatch only, not runtime routing failure.
+
 - tests/uat/phase5_polish_verbatim_strict_v1.json
   - classification: live routing defect at L1
   - polish expectation/deepen L1 probe is now runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1

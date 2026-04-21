@@ -168,8 +168,14 @@ Notes:
   - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
   - polishing expectation/deepen L1 is runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
 - Current Phase 5 risk is mixed and specific:
-  - PPF = remaining test-contract mismatch for NARROW_L2 wording
+  - PPF = remaining strict-pack / test-contract mismatch for NARROW_L2 wording; runner-tested routing is validated
   - polishing = earlier L1 routing defect now resolved in the runner-tested lane
+- Additional Phase 5 PPF Narrow L2 evidence (2026-04-21):
+  - State-injected runner probe now shows PHASE5_PPF_NARROW_L2 correctly owns debug state and rendered phrase output.
+  - Remaining concern is wording-contract mismatch in strict validation, not runtime route ownership.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_130334.json
+
 - Do not treat the PPF narrow wording contradiction as a runtime routing failure.
 - Additional Phase 5 polishing evidence (2026-04-21):
   - Focused probe now shows PHASE5_POLISH_EXPECTATION_DEEPEN_L1 correctly owns debug state and rendered phrase output.
