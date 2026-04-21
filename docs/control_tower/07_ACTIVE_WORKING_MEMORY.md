@@ -330,6 +330,16 @@ Goal:
   - The failure is useful because it confirms Phase 7 THINKING is not ready for runner-hardening under current ownership ambiguity.
   - Keep as forensic evidence only; do not reopen runner patching from this probe.
 
+- Deferred-family classification evidence (2026-04-21):
+  - tests/uat/deferred_family_classification_probe_v1.json
+  - tests/reports/uat_report_20260421_140227.json
+  - Current reading:
+    - deferred-family inputs are not normalized yet across English/Arabic or across services
+    - 'check with wife/partner' is especially unstable (EN != AR owner path)
+    - travelling / car unavailable / after salary are not yet landing in one stable deferred-family owner
+  - Treat as authority-forensics evidence only.
+  - Do NOT patch runtime phrase routing from this probe directly.
+
 - Freeze note:
   - Do NOT patch THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner behavior further
     until phase ownership reassignment is written into tracker truth.

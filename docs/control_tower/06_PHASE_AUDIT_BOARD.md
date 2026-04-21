@@ -292,6 +292,17 @@ Ownership reading after PIM trace (2026-04-21):
 Control decision:
 - Freeze further THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner patching.
 - Treat the next lane as authority reassignment / architecture reconciliation, not phrase repair.
+- Additional deferred-family evidence (2026-04-21):
+  - tests/reports/uat_report_20260421_140227.json
+  - Cross-family probe passed at harness level but shows mixed ownership outcomes across deferred-family customer signals.
+  - Observed drift buckets include:
+    - THINKING -> SILENCE_AFTER_PRICE / deepen routing
+    - PARTNER_APPROVAL -> READINESS_STALL in EN, but Arabic drifted to Phase 0–2 ceramic explanation
+    - TRAVELLING / CAR_UNAVAILABLE / AFTER_SALARY -> mixed silence, deepen, and service-specific phrase routing
+  - Control reading:
+    - deferred-family behavior is not yet normalized across language + service contexts
+    - this remains an ownership/classification issue, not a safe runner-patch target
+
 
 
 Status: UNDER_REVIEW

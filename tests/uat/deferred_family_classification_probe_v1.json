@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "deferred_family_thinking_en",
+    "input": "let me think about it",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_partner_en",
+    "input": "i need to check with my wife",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_travel_en",
+    "input": "i am travelling now, maybe later",
+    "runtime_signals": {
+      "active_service_context": "ceramic",
+      "service_intent": "ceramic",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_car_unavailable_en",
+    "input": "the car is still in the garage",
+    "runtime_signals": {
+      "active_service_context": "polishing",
+      "service_intent": "polishing",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_salary_ar",
+    "input": "بعد الراتب إن شاء الله",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_partner_ar",
+    "input": "بشاور زوجتي وأرد لك",
+    "runtime_signals": {
+      "active_service_context": "ceramic",
+      "service_intent": "ceramic",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_travel_ar",
+    "input": "أنا مسافر الحين وبرجع بعدين",
+    "runtime_signals": {
+      "active_service_context": "tint",
+      "service_intent": "tint",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_not_received_ar",
+    "input": "السيارة ما استلمتها من الوكالة للحين",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  }
+]
