@@ -490,4 +490,13 @@ Next step:
   - Internal objection-state conformance remains mixed across request_type, phase, and qualification state.
   - Keep this logged as a non-blocking conformance note before the next Stage 4 family.
 
+- Additional Stage 4 evidence:
+  - Objection repeat / service continuity sweep passed:
+    - tests/reports/uat_report_20260421_101530.json
+- Current Stage 4 reading after repeat/continuity sweep:
+  - Customer-facing repeat-objection behavior is broadly safe.
+  - Internal continuity remains mixed across objection_repeat_count progression, service continuity, and selector-family consistency.
+  - Ceramic Arabic repeat and brand-continuity prompts still show cross-lane conformance drift.
+
+
 

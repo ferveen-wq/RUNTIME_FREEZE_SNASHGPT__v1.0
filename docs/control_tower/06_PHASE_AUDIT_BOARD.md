@@ -84,6 +84,12 @@ Notes:
   - Internal objection-state conformance remains mixed across request_type, phase, and qualification-state debug fields, so this remains a non-blocking review note rather than a resolved conformance close.
   - Evidence anchor:
     - tests/reports/uat_report_20260421_101137.json
+- Additional Stage 4 continuity evidence (2026-04-21):
+  - Objection repeat / service continuity sweep passed in isolated validation.
+  - Customer-facing repeat-objection behavior remains broadly safe.
+  - Internal continuity remains mixed across objection_repeat_count progression, service continuity, and selector-family consistency.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_101530.json
 
 ---
 
