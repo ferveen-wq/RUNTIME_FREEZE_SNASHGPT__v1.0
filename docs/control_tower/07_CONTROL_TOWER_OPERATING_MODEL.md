@@ -62,8 +62,7 @@ Goal:
 Use:
 - 04_GOVERNANCE_AND_CHANGE_CONTROL.md
 - RUNTIME_CHANGE_LEDGER.md
-- PATCH_PROTOCOL.md
-- PHRASE_GOVERNANCE_STANDARD.md
+- tools/patch_gate.sh
 
 Goal:
 - execute controlled patch

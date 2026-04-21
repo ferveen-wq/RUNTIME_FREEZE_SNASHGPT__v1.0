@@ -47,13 +47,30 @@ Before any patch, you MUST answer these in writing:
 3. EXECUTABLE_OWNER:
    - exact file that currently executes or enforces the behavior
 
-4. ADJACENT_FILES_CHECKED:
+4. RAW_DEFECT_EVIDENCE:
+   - failing report snippet
+   - raw output
+   - debug block
+   - or equivalent written defect proof
+
+5. TOOLING_RULE_OUT_CHECK:
+   - runner injection checked
+   - prompt forcing checked
+   - test-helper behavior checked
+
+6. FAILING_TEST_BEFORE_PATCH:
+   - exact failing pack / focused case / equivalent reproducible failure
+
+7. ADJACENT_FILES_CHECKED:
    - list nearby authority files inspected before patching
 
-5. DUPLICATE_LOGIC_CHECK:
+8. DUPLICATE_LOGIC_CHECK:
    - confirm similar logic does not already exist elsewhere
 
-6. VALIDATION_METHOD:
+9. NARROWEST_PATCH_TARGET_REASON:
+   - explain why this file is the smallest correct owner
+
+10. VALIDATION_METHOD:
    - UAT pack / focused case / grep / manual trace / governance check
 RULES
 
@@ -106,9 +123,13 @@ STOP PATCHING if ANY is true:
 
 ONLY PROCEED if ALL are true:
 - defect bucket classified
+- raw defect evidence captured
+- runner/tooling/test-helper influence ruled out where relevant
+- reproducible failing test or equivalent focused failure exists first
 - correct owner identified
 - adjacent files checked
 - duplicate logic check passed
+- narrowest patch target justified
 - validation method defined
 - blocked/deferred check passed
 DECISION

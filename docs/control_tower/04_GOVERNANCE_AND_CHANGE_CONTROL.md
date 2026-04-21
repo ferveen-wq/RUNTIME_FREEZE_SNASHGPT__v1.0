@@ -26,8 +26,12 @@ Use when:
 Required controls:
 - confirm the target file is the correct authority using source-of-truth order
 - check ledger status before patch execution
-- check patch protocol before patch execution
-- check phrase governance before phrase-related runtime edits
+- check current live patch-governance authority before patch execution
+- check current live control-tower governance before phrase-related runtime edits
+- confirm raw defect evidence exists in written form
+- rule out runner / tooling / test-helper influence before runtime patching
+- confirm a strong failing test or equivalent focused failure exists before patching
+- choose the narrowest correct patch target before changing runtime doctrine
 - patch minimally
 - validate before status promotion
 
@@ -87,6 +91,9 @@ Before any meaningful change:
 - inspect adjacent authority files when relevant
 - check whether similar logic already exists
 - confirm whether the issue is runtime, harness, governance, or documentation only
+- capture raw defect evidence where applicable (report snippet, raw output, debug block)
+- verify that runner injection, prompt forcing, and test-helper behavior are not the true cause
+- confirm the chosen patch target is the narrowest correct owner
 
 Rule:
 - no patch-on-patch behavior
@@ -205,8 +212,8 @@ Rule:
 Verified from current project evidence:
 - audit before patch
 - ledger-first runtime patch discipline
-- protocol/governance checks before patch
-- phrase-governance check before phrase-related runtime edits
+- live governance checks before patch
+- live control-tower governance check before phrase-related runtime edits
 - discussed work and patched work are distinct
 - memory recovery is separate from patching
 - control-tower docs must summarize and govern, not duplicate runtime doctrine

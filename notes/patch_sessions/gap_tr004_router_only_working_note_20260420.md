@@ -55,3 +55,38 @@ Phase 5 polishing L1 misrouting into PPF
 
 ## Evidence
 - tests/reports/uat_report_20260420_050331.json
+
+---
+
+## Follow-up confirmation after gap-register review
+
+Gap register confirmation:
+- `docs/master_architecture/08_ARCHITECTURE_GAP_REGISTER.md` already records:
+  - `GAP-TR-004 — PHASE5 POLISH L1 MISROUTING INTO PPF`
+  - broader Phase 5 non-PPF collapse history
+  - duplicate-authority risk from additional prompt-bridge patching
+  - cross-service contamination / precedence leak interpretation
+
+Restored-checkpoint validation:
+- runtime restored to checkpoint commit baseline
+- focused trusted polish run still reproduces:
+  - `polish_phase5_expectation_verbatim_strict`
+  - actual `selected_phrase_id = PHASE5_PPF_PRICE_GAP_DEEPEN_L1`
+
+Interpretation:
+- this is a known unresolved defect family, not a new discovery
+- duplicate polishing authority was not root cause
+- explicit L1 workaround exists but is not boundary-safe yet
+- issue should remain classified as:
+  - confirmed unresolved
+  - owner = `runner/context_reset_prompt.txt`
+  - defect type = cross-service precedence / router leak
+
+Control decision:
+- do NOT continue ad-hoc patch looping in this session
+- keep restored checkpoint baseline
+- defer next fix attempt until a tighter owner-isolated patch plan is prepared
+
+Evidence:
+- `tests/reports/uat_report_20260420_140738.json`
+- `docs/master_architecture/08_ARCHITECTURE_GAP_REGISTER.md`

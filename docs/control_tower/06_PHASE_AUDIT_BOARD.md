@@ -201,12 +201,19 @@ Notes:
 ---
 
 ### PHASE 10 (Control Tower / Governance Layer)
-Status: PATCHED_LOCAL
+Status: VALIDATED
 Owner: Control Tower
-Last Verified: 2026-04-14
+Last Verified: 2026-04-20
 Notes:
-- Control-tower baseline docs were created, committed, and pushed on branch `fix/phase3-gate-alignment`.
-- Governance layer is now structurally established on branch, but still pending final due-diligence review before being treated as finalized.
+- Control-layer audit is completed.
+- Governance consolidation is completed.
+- Live governance path is now unified around:
+  - `docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md`
+  - `docs/control_tower/07_CONTROL_TOWER_OPERATING_MODEL.md`
+  - `docs/control_tower/07_ACTIVE_WORKING_MEMORY.md`
+  - `tools/patch_gate.sh`
+- Duplicate governance-note usage has been demoted to reference-only.
+- Control Tower is now stable enough to support architecture reality check and controlled patch planning.
 
 ---
 

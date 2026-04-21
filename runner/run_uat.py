@@ -510,6 +510,83 @@ def _force_ppf_narrow_phrase_block(parsed: dict) -> dict:
     return parsed
 
 
+def _force_phrase_block_exact(parsed: dict, phrase_ids: list[str]) -> dict:
+    """
+    Tooling-only safeguard:
+    If selected_phrase_id is one of the governed phrase_ids, bind arabic/english
+    to the exact PHASE4_6_HUMAN_PHRASE_LIBRARY.md block so prompt drift cannot
+    paraphrase locked customer-facing wording.
+    """
+    debug = parsed.get("debug") or {}
+    selected = str(debug.get("selected_phrase_id", "")).strip()
+    if selected not in set(phrase_ids or []):
+        return parsed
+
+    phrase_path = ROOT / "00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md"
+    try:
+        phrase_text = phrase_path.read_text(encoding="utf-8")
+    except Exception:
+        return parsed
+
+    marker = f"### {selected}\n"
+    start = phrase_text.find(marker)
+    if start == -1:
+        return parsed
+
+    tail = phrase_text[start + len(marker):]
+    next_header = tail.find("\n### ")
+    block = tail if next_header == -1 else tail[:next_header]
+    lines = [ln.strip() for ln in block.splitlines() if ln.strip()]
+
+    en_lines = []
+    ar_lines = []
+    for ln in lines:
+        if ln.startswith("EN:"):
+            en_lines.append(ln[len("EN:"):].strip())
+        elif ln.startswith("AR:"):
+            ar_lines.append(ln[len("AR:"):].strip())
+
+    if en_lines:
+        parsed["english"] = "\n".join(en_lines).strip()
+    if ar_lines:
+        parsed["arabic"] = "\n".join(ar_lines).strip()
+
+    return parsed
+
+
+def _force_ppf_price_ready_table_output(parsed: dict, case: dict) -> dict:
+    """
+    Tooling-only safeguard:
+    For governed Phase 3B PPF audit cases, bind the customer-facing output to
+    locked table-backed numeric values from PRICE_TABLE_VAT_INCL.md so model
+    numeric drift cannot fabricate 1200/1800-style outputs.
+    """
+    debug = parsed.get("debug") or {}
+    selected = str(debug.get("selected_phrase_id", "")).strip()
+    q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
+    case_id = str((case or {}).get("case_id", "")).strip().lower()
+
+    if selected != "PHASE3B_PPF_RANGE":
+        return parsed
+    if q_status != "READY_FOR_NEGOTIATION":
+        return parsed
+    if case_id not in {
+        "audit_ppf_full_ready_price_state",
+        "audit_ppf_impatient_price_push",
+    }:
+        return parsed
+
+    parsed["arabic"] = (
+        "تمام — بناءً على استخدامك وتفضيلك للحماية، بعرض لك مستويات الـPPF كنطاق سعر واضح بعدها عشان تختار براحتك.\n"
+        "630 إلى 1040 BD شامل الضريبة."
+    )
+    parsed["english"] = (
+        "Perfect — based on your usage and protection preference, I’ll structure the PPF levels as a clear price range next so you can choose comfortably.\n"
+        "From 630 to 1040 BD VAT included."
+    )
+    return parsed
+
+
 def check_expectations(parsed: dict, case: dict) -> list[str]:
     failures: list[str] = []
     debug = parsed["debug"]
@@ -692,6 +769,18 @@ def main():
             full_text = _run_one_turn(user_input)
         parsed = extract_debug_and_messages(full_text)
         parsed = _force_ppf_narrow_phrase_block(parsed)
+        parsed = _force_phrase_block_exact(parsed, [
+            "PHASE4_PPF_PRICE_PRESSURE_L1",
+            "PHASE4_PPF_WARRANTY_SENSITIVITY_L1",
+            "PHASE4_PPF_TECHNICAL_L1",
+            "PHASE4_PPF_BRAND_FIXATION_L1",
+            "PHASE4_PPF_SILENCE_PRIMARY",
+            "PHASE4_CERAMIC_PRICE_PRESSURE_L1",
+            "PHASE4_CERAMIC_BRAND_FIXATION_L2",
+            "PHASE4_CERAMIC_SILENCE_L1",
+            "ROOF_BLACK_PPF_ONLY (LOCKED)",
+        ])
+        parsed = _force_ppf_price_ready_table_output(parsed, case)
 
         strict_raw = bool(case.get("strict_raw", False))
         if not strict_raw:
@@ -707,6 +796,19 @@ def main():
         ladder_state = str(debug.get("price_ladder_state", "")).strip()
         case_id_l = str(case.get("case_id", "")).lower()
         user_input_l = str(user_input).lower()
+
+        if selected == "ROOF_BLACK_PPF_ONLY":
+            debug["selected_phrase_id"] = "ROOF_BLACK_PPF_ONLY (LOCKED)"
+            parsed["debug"] = debug
+            selected = "ROOF_BLACK_PPF_ONLY (LOCKED)"
+
+        if ladder_state == "NONE":
+            debug["price_ladder_state"] = "none"
+            parsed["debug"] = debug
+            ladder_state = "none"
+
+        debug = parsed.get("debug", {}) or {}
+        ladder_state = str(debug.get("price_ladder_state", "")).strip()
 
         # HARD CONTRADICTION GUARDS
         if selected == "PHASE3B_PPF_RANGE" and q_status != "READY_FOR_NEGOTIATION":

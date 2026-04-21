@@ -1,7 +1,15 @@
-### 2.4 Phrase library structural validator (required when touching PHASE4_6_HUMAN_PHRASE_LIBRARY.md)
-Run the phrase library validator to catch truncations / missing phrase keys before edits:
+# PATCH_PROTOCOL.md
 
-- python runner/phrase_library_validator.py
+Status: LEGACY REFERENCE ONLY
+Authority: NOT LIVE
+Purpose: Historical legacy note retained for reference only.
 
-If it fails, do not patch. Fix file integrity first.
+This file is not part of the current live governance chain.
 
+Current live patch-governance authority is:
+- `docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md`
+- `tools/patch_gate.sh`
+
+Rule:
+- do not use this file as current patch authority
+- do not let this file compete with control-tower governance

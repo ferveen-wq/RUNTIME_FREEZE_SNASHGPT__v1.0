@@ -1,34 +1,19 @@
-# PATCH GATE RULES
+# PATCH_GATE_RULES.md
 
-Before patching any locked runtime file, confirm all items below.
+Status: REFERENCE ONLY
+Authority: NOT LIVE
+Purpose: Historical patch-session note retained for reference only.
 
-1. File role confirmed
-- runtime authority / control tower / tooling / test
+This file must not be used as current governance authority.
 
-2. Raw defect proven
-- failing report snippet captured
-- raw output captured
-- debug block captured
+Current live patch-governance authority is:
+- `docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md`
+- `tools/patch_gate.sh`
 
-3. Tooling ruled out
-- runner injection/normalization checked
-- prompt-level forcing checked
-- test helper behavior checked
+Reason for demotion:
+- useful checks were merged into live governance/tooling
+- keeping this file as live authority would create duplicate governance
 
-4. Duplicate authority check done
-- searched phrase id / signal / route / parameter across runtime, runner, tests
-
-5. Strong failing test exists first
-- strict test fails before patch
-- failure reason matches intended defect
-
-6. Narrowest patch target chosen
-- prefer test or tooling fix before runtime doctrine fix
-
-7. Validation defined before patch
-- exact pack to run
-- nearby smoke pack
-- lint/integrity if needed
-
-Hard rule:
-If any item above is missing, do not patch locked runtime files.
+Rule:
+- do not cite this file as the governing patch protocol
+- do not let this file compete with control-tower governance

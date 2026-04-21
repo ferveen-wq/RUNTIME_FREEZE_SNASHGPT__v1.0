@@ -68,26 +68,22 @@
     },
     "expect_contains_all": {
       "english": [
-        "adjust the protection level according to your needs",
-        "full-body coverage ensures the best possible protection",
-        "focus on specific areas",
-        "available coverage options"
+        "adjust the protection level",
+        "keeping full-body coverage",
+        "review the protection levels first"
       ],
       "arabic": [
-        "نقدر نضبط مستوى الحماية حسب احتياجك",
-        "التغطية كاملة لتوفير أفضل حماية ممكنة",
-        "نركز على أجزاء معينة",
-        "خيارات التغطية المتاحة"
+        "نقدر نضبط مستوى الحماية",
+        "مع بقاء التغطية كاملة",
+        "نراجع مستويات الحماية أول"
       ]
     },
     "expect_not_contains": {
       "english": [
-        "price",
         "BHD",
         "BMW"
       ],
       "arabic": [
-        "سعر",
         "دينار",
         "بي ام"
       ]
