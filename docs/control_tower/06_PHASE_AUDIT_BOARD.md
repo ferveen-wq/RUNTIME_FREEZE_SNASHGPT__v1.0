@@ -320,6 +320,21 @@ Control decision:
 - Freeze further THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner patching.
 - Treat the next lane as authority reassignment / architecture reconciliation, not phrase repair.
 - Additional deferred-family evidence (2026-04-21):
+  - Prompt-gap reading from context_reset_prompt.txt:
+    - deferred-family objection signals are recognized in the prompt bridge:
+      - READINESS_STALL
+      - AUTHORITY_SHIFT
+      - SILENCE_AFTER_PRICE
+    - but most service-family routers do not assign these signals to a dedicated deferred-family L1 owner
+    - instead, they often fall through to the generic Phase 5 deepen/default branch
+  - Confirmed examples from runner evidence:
+    - PPF READINESS_STALL -> PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+    - polishing deferred-family cases -> PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+    - tint deferred-family cases -> PHASE5_TINT_COMPARE_DEEPEN_L1
+    - Arabic partner-approval case can drift out of late-stage routing entirely
+  - Control reading:
+    - this is primarily a prompt-routing ownership gap, not a runner-hook defect
+
   - tests/reports/uat_report_20260421_140227.json
   - Cross-family probe passed at harness level but shows mixed ownership outcomes across deferred-family customer signals.
   - Observed drift buckets include:

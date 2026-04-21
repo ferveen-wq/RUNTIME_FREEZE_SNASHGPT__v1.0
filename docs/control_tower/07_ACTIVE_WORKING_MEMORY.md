@@ -345,6 +345,14 @@ Goal:
   - Keep as forensic evidence only; do not reopen runner patching from this probe.
 
 - Deferred-family classification evidence (2026-04-21):
+  - Prompt-gap reading:
+    - context_reset_prompt.txt recognizes deferred-family objection signals
+    - but the service-family Phase 5 routers mostly send them into generic deepen/default branches
+  - Current practical reading:
+    - the system understands these as 'some kind of late-stage friction'
+    - but it does not yet distinguish 'not ready now / need approval / unavailable' from standard objection-deepen flow
+  - Therefore next patch lane should target prompt ownership/routing design, not runner normalization.
+
   - tests/uat/deferred_family_classification_probe_v1.json
   - tests/reports/uat_report_20260421_140227.json
   - Current reading:
