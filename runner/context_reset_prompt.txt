@@ -1074,11 +1074,36 @@ Then:
 - Do NOT cross-route between ppf / ceramic / polishing families.
 - Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals.
 
+- DEFERRED-FAMILY PRE-BRANCH (apply BEFORE generic service-family deepen/default routing):
+  - If objection_signal == AUTHORITY_SHIFT:
+    - Do NOT route to generic price-gap deepen/default branches.
+    - Do NOT route back to any Phase 0–2 explanation/qualifier block.
+    - Treat this as approval / decision-authority movement.
+    - Prefer pause / open-door / later-safe handling logic.
+    - Keep service context stable.
+  - Else if objection_signal == READINESS_STALL:
+    - Do NOT route to generic price-gap deepen/default branches.
+    - Treat this as not-ready-now / think-later / timing-later ownership.
+    - Prefer pause / open-door / later-safe handling logic.
+    - Keep service context stable.
+  - Else if objection_signal == SILENCE_AFTER_PRICE:
+    - Keep silence ownership distinct from generic objection-deepen routing.
+    - Do NOT auto-convert silence into service-specific deepen/default branches unless a stricter branch explicitly requires it.
+    - Keep service context stable.
+
+
 - If active_service_context == polishing:
   - Polishing service-family routing has priority inside this router.
   - When active_service_context == polishing, you MUST ignore all PPF-family and ceramic-family Phase 5 mappings.
   - You MUST resolve polishing before evaluating any ppf or ceramic branch below.
-  - If objection_repeat_count >= 3:
+  - If objection_signal is one of:
+    - READINESS_STALL
+    - AUTHORITY_SHIFT
+    - SILENCE_AFTER_PRICE
+    and objection_repeat_count < 3:
+    - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
   - Else if objection_repeat_count == 2:
@@ -1096,7 +1121,14 @@ Then:
   - STOP after the selected PHASE5 block
 
 - Else if active_service_context == ceramic:
-  - If objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
+  - If objection_signal is one of:
+    - READINESS_STALL
+    - AUTHORITY_SHIFT
+    - SILENCE_AFTER_PRICE
+    and objection_repeat_count < 3:
+    - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
   - Else if objection_repeat_count == 2:
@@ -1123,6 +1155,13 @@ Then:
   - Else if objection_signal == MISUNDERSTANDING:
     - selected_phrase_id MUST equal: PHASE5_PPF_TECHNICAL_DEEPEN_L1
     - You MUST output ONLY the PHASE5_PPF_TECHNICAL_DEEPEN_L1 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+  - Else if objection_signal is one of:
+    - READINESS_STALL
+    - AUTHORITY_SHIFT
+    - SILENCE_AFTER_PRICE
+    and objection_repeat_count < 3:
+    - selected_phrase_id MUST equal: PHASE5_PPF_EXIT_FORK_L3
+    - You MUST output ONLY the PHASE5_PPF_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
   - Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_PPF_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_PPF_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -1146,6 +1185,29 @@ Then:
 ############################################
 
 # HARD OVERRIDE — PHASE 5 TINT PHRASE SELECTION
+############################################
+
+If ALL are true:
+- request_type != PRICE_REQUEST
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- price_ladder_state == FINAL_PRICE_REACHED
+- active_service_context == tint
+- objection_signal is one of:
+  - READINESS_STALL
+  - AUTHORITY_SHIFT
+  - SILENCE_AFTER_PRICE
+- objection_repeat_count < 3
+
+Then:
+- phase MUST equal 5
+- selected_phrase_id MUST equal: PHASE5_TINT_EXIT_FORK_L3
+- You MUST output ONLY the PHASE5_TINT_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+- Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
+- Do NOT output PHASE5_TINT_COMPARE_DEEPEN_L1
+- Do NOT output PHASE5_TINT_NARROW_L2
+- Do NOT leave selected_phrase_id as null
+- STOP after the selected PHASE5 block
+
 ############################################
 
 If ALL are true:
