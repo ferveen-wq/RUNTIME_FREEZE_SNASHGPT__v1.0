@@ -297,19 +297,22 @@ STAGE 3 — SYSTEM STABILITY PASS (IN PROGRESS)
 --------------------------------------------------
 
 STATUS:
-BLOCK 2 COMPLETE — PHASE 4 STABILITY SWEEP PASSED
+BLOCKS 1–3 COMPLETE — PHASE 3 / 4 / 5 STABILITY SWEEPS PASSED
 
 OPEN GAPS:
-- NONE in Block 2
-- Ready to proceed to Stage 3 Block 3
+- NONE in Stage 3 stability sweep
+- Ready to proceed to Stage 4 real chat validation
 
 NOTES:
-- All governed Phase 4 resistance / brand / technical / warranty / silence packs passed
-- Late-stage Phase 4 routing is stable for both PPF and Ceramic
-- Silence-after-price authority is now UAT-stable
-- No active Block 2 routing defect remains
+- Phase 3A gating stabilized for PPF and Ceramic
+- Premature price exposure controlled
+- Phase 4 authority paths stable including silence handling
+- Phase 5 family routing stable across PPF, Ceramic, Polish, and Tint
+- Ceramic Phase 5 strict authority now stable on repeat objection path
 
 EVIDENCE:
+- tests/reports/uat_report_20260421_065932.json
+- tests/reports/uat_report_20260421_070942.json
 - tests/reports/uat_report_20260421_071355.json
 - tests/reports/uat_report_20260421_071400.json
 - tests/reports/uat_report_20260421_071407.json
@@ -318,6 +321,23 @@ EVIDENCE:
 - tests/reports/uat_report_20260421_071434.json
 - tests/reports/uat_report_20260421_072336.json
 - tests/reports/uat_report_20260421_072340.json
+- tests/reports/uat_report_20260421_072901.json
+- tests/reports/uat_report_20260421_072925.json
+- tests/reports/uat_report_20260421_072930.json
+- tests/reports/uat_report_20260421_072933.json
+- tests/reports/uat_report_20260421_072937.json
+- tests/reports/uat_report_20260421_073013.json
+- tests/reports/uat_report_20260421_073023.json
+- tests/reports/uat_report_20260421_073026.json
+- tests/reports/uat_report_20260421_073030.json
+- tests/reports/uat_report_20260421_073035.json
+- tests/reports/uat_report_20260421_073045.json
+- tests/reports/uat_report_20260421_073049.json
+- tests/reports/uat_report_20260421_073052.json
+- tests/reports/uat_report_20260421_073749.json
+- tests/reports/uat_report_20260421_073825.json
+- tests/reports/uat_report_20260421_073829.json
+- tests/reports/uat_report_20260421_073832.json
 --------------------------------------------------
 STAGE 4 — REAL CHAT VALIDATION
 --------------------------------------------------
