@@ -160,7 +160,7 @@ Notes:
   - tint compare / narrow / exit
 - Mixed lanes:
   - PPF price / technical / brand / exit routing is correct, with remaining narrow-L2 test-contract mismatch
-  - polishing narrow / exit routing is correct, but polishing L1 expectation/deepen still misroutes into PPF
+  - polishing narrow / exit routing is correct, and polishing L1 expectation/deepen is now resolved in the runner-tested lane
 - Evidence anchor:
   - ceramic stability is supported by Tier 3 evidence-audit records dated 2026-04-19
   - later trust revalidation confirms polish is not generically broken, and the earlier L1 routing defect is now resolved in the runner-tested lane
