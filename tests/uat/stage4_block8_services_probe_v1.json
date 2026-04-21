@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "stage4_services_probe_ar_1",
+    "input": "شنو الخدمات اللي عندكم"
+  },
+  {
+    "case_id": "stage4_services_probe_ar_2",
+    "input": "شنو تسوون"
+  },
+  {
+    "case_id": "stage4_services_probe_ar_3",
+    "input": "ابي اعرف خدماتكم"
+  },
+  {
+    "case_id": "stage4_services_probe_en_1",
+    "input": "What services do you offer?"
+  },
+  {
+    "case_id": "stage4_services_probe_en_2",
+    "input": "What do you do?"
+  }
+]

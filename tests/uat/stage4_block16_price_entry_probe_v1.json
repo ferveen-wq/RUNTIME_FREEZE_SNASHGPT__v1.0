@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "stage4_price_probe_ppf_ar_short",
+    "input": "بكم ppf"
+  },
+  {
+    "case_id": "stage4_price_probe_ppf_en_short",
+    "input": "How much is PPF?"
+  },
+  {
+    "case_id": "stage4_price_probe_ceramic_ar_short",
+    "input": "بكم السيراميك"
+  },
+  {
+    "case_id": "stage4_price_probe_ceramic_en_short",
+    "input": "How much is ceramic coating?"
+  },
+  {
+    "case_id": "stage4_price_probe_ppf_model_only_ar",
+    "input": "بكم ppf لبرادو"
+  },
+  {
+    "case_id": "stage4_price_probe_ppf_model_only_en",
+    "input": "How much is PPF for Prado?"
+  }
+]

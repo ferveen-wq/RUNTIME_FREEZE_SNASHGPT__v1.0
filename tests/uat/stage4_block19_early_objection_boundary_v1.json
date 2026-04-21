@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "stage4_objection_ppf_ar_1",
+    "input": "غالي"
+  },
+  {
+    "case_id": "stage4_objection_ppf_ar_2",
+    "input": "سعره وايد"
+  },
+  {
+    "case_id": "stage4_objection_ppf_en_1",
+    "input": "too expensive"
+  },
+  {
+    "case_id": "stage4_objection_ppf_en_2",
+    "input": "that sounds expensive"
+  },
+  {
+    "case_id": "stage4_objection_competitor_ar",
+    "input": "عندهم ارخص منكم"
+  },
+  {
+    "case_id": "stage4_objection_competitor_en",
+    "input": "another place is cheaper"
+  },
+  {
+    "case_id": "stage4_objection_ceramic_ar",
+    "input": "السيراميك غالي"
+  },
+  {
+    "case_id": "stage4_objection_ceramic_en",
+    "input": "ceramic sounds expensive"
+  }
+]

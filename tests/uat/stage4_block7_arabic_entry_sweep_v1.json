@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "stage4_ar_vague_protection_entry",
+    "input": "ابي حماية"
+  },
+  {
+    "case_id": "stage4_ar_ppf_front_price_entry",
+    "input": "كم سعر حماية المقدمة برادو"
+  },
+  {
+    "case_id": "stage4_ar_ceramic_browsing_entry",
+    "input": "ابي اعرف عن السيراميك"
+  },
+  {
+    "case_id": "stage4_ar_location_entry",
+    "input": "وين موقعكم"
+  },
+  {
+    "case_id": "stage4_ar_services_browsing_entry",
+    "input": "شنو الخدمات اللي عندكم"
+  }
+]

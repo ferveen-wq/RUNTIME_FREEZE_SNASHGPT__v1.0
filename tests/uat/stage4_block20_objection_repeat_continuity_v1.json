@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "stage4_repeat_ppf_ar",
+    "input": "لسه غالي"
+  },
+  {
+    "case_id": "stage4_repeat_ppf_en",
+    "input": "still too expensive"
+  },
+  {
+    "case_id": "stage4_repeat_ceramic_ar",
+    "input": "بعده غالي"
+  },
+  {
+    "case_id": "stage4_repeat_ceramic_en",
+    "input": "still expensive for ceramic"
+  },
+  {
+    "case_id": "stage4_repeat_competitor_ar",
+    "input": "بس عندهم ارخص"
+  },
+  {
+    "case_id": "stage4_repeat_competitor_en",
+    "input": "but they are still cheaper"
+  },
+  {
+    "case_id": "stage4_continuity_brand_ppf_en",
+    "input": "what about xpel then"
+  },
+  {
+    "case_id": "stage4_continuity_brand_ceramic_en",
+    "input": "what about gtechniq then"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "case_id": "stage4_bizinfo_location_ar",
+    "input": "وين موقعكم"
+  },
+  {
+    "case_id": "stage4_bizinfo_hours_ar",
+    "input": "متى تفتحون"
+  },
+  {
+    "case_id": "stage4_bizinfo_branch_ar",
+    "input": "عندكم فرع بالسعودية"
+  },
+  {
+    "case_id": "stage4_service_browsing_ar",
+    "input": "شنو خدماتكم"
+  },
+  {
+    "case_id": "stage4_service_confirmed_ppf_ar",
+    "input": "ابي ppf"
+  },
+  {
+    "case_id": "stage4_service_confirmed_ceramic_ar",
+    "input": "ابي سيراميك"
+  },
+  {
+    "case_id": "stage4_price_entry_ppf_ar",
+    "input": "بكم ppf"
+  },
+  {
+    "case_id": "stage4_price_entry_ceramic_ar",
+    "input": "بكم السيراميك"
+  },
+  {
+    "case_id": "stage4_service_browsing_en",
+    "input": "What services do you offer?"
+  },
+  {
+    "case_id": "stage4_service_confirmed_ppf_en",
+    "input": "I want PPF"
+  },
+  {
+    "case_id": "stage4_price_entry_ppf_en",
+    "input": "How much is PPF?"
+  }
+]
