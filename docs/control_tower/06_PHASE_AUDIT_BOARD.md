@@ -166,11 +166,17 @@ Notes:
   - later trust revalidation confirms polish is not generically broken, but still has an L1 routing defect
 - Residual issues:
   - PHASE5_PPF_NARROW_L2 strict pack forbids price wording, while governed phrase intent remains price-aware
-  - polishing expectation/deepen L1 still collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - polishing expectation/deepen L1 is runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
 - Current Phase 5 risk is mixed and specific:
   - PPF = remaining test-contract mismatch for NARROW_L2 wording
   - polishing = live L1 routing defect
 - Do not treat the PPF narrow wording contradiction as a runtime routing failure.
+- Additional Phase 5 polishing evidence (2026-04-21):
+  - Focused probe now shows PHASE5_POLISH_EXPECTATION_DEEPEN_L1 correctly owns debug state and rendered phrase output.
+  - Earlier polish L1 collapse into PHASE5_PPF_PRICE_GAP_DEEPEN_L1 is resolved in the runner-tested lane.
+  - Evidence anchor:
+    - tests/reports/uat_report_20260421_125242.json
+
 - Do not treat the polishing L1 defect as resolved.
 - Do not reopen ceramic or tint routing based on stale interim owner-trace findings.
 

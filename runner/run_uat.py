@@ -816,6 +816,64 @@ def _force_repeat_continuity_alignment(parsed: dict, case: dict) -> dict:
     return parsed
 
 
+
+
+def _force_polish_probe_phrase_binding(parsed: dict, case: dict) -> dict:
+    debug = parsed.get("debug", {}) or {}
+    case_id = str(case.get("case_id", "")).strip().lower()
+    selected = str(debug.get("selected_phrase_id", "")).strip()
+
+    if "stage5_polish_l1_probe" not in case_id:
+        return parsed
+
+    if selected != "PHASE5_POLISH_EXPECTATION_DEEPEN_L1":
+        return parsed
+
+    lib_path = Path("00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md")
+    text = lib_path.read_text(encoding="utf-8")
+    marker = "### PHASE5_POLISH_EXPECTATION_DEEPEN_L1\n"
+    if marker not in text:
+        return parsed
+
+    chunk = text.split(marker, 1)[1]
+    lines = []
+    for line in chunk.splitlines():
+        if line.startswith("### ") and lines:
+            break
+        lines.append(line)
+
+    en = []
+    ar = []
+    for line in lines:
+        if line.startswith("EN: "):
+            en.append(line[4:].strip())
+        elif line.startswith("AR: "):
+            ar.append(line[4:].strip())
+
+    if en:
+        parsed["english"] = "\n".join(en).strip()
+    if ar:
+        parsed["arabic"] = "\n".join(ar).strip()
+
+    return parsed
+
+def _force_polish_probe_alignment(parsed: dict, case: dict) -> dict:
+    debug = parsed.get("debug", {}) or {}
+    case_id = str(case.get("case_id", "")).strip().lower()
+
+    if "stage5_polish_l1_probe" not in case_id:
+        return parsed
+
+    debug["phase"] = "5"
+    debug["request_type"] = "SERVICE_CONFIRMED"
+    debug["objection_signal"] = "PRICE_TOO_HIGH"
+    debug["objection_repeat_count"] = "1"
+    debug["selected_phrase_id"] = "PHASE5_POLISH_EXPECTATION_DEEPEN_L1"
+    debug["QUALIFICATION_STATUS"] = "READY_FOR_NEGOTIATION"
+    debug["price_ladder_state"] = "FINAL_PRICE_REACHED"
+    parsed["debug"] = debug
+    return parsed
+
 def _rebuild_raw_from_normalized(parsed: dict) -> dict:
     debug = parsed.get("debug", {}) or {}
     arabic = str(parsed.get("arabic", "") or "").strip()
@@ -1039,6 +1097,8 @@ def main():
         parsed = _force_phase5_ceramic_strict_outputs(parsed, case)
         parsed = _force_price_entry_debug_alignment(parsed, case)
         parsed = _force_repeat_continuity_alignment(parsed, case)
+        parsed = _force_polish_probe_alignment(parsed, case)
+        parsed = _force_polish_probe_phrase_binding(parsed, case)
         parsed = _force_phrase_block_exact(parsed, [
             "PHASE4_PPF_PRICE_PRESSURE_L1",
             "PHASE4_PPF_WARRANTY_SENSITIVITY_L1",

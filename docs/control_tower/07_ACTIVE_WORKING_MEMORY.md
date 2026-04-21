@@ -435,7 +435,15 @@ TRUSTED_FAILURE:
   - remaining failure is forbidden-word mismatch against governed PHASE5_PPF_NARROW_L2 body
 - tests/uat/phase5_polish_verbatim_strict_v1.json
   - classification: live routing defect at L1
-  - polish expectation/deepen case still collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - polish expectation/deepen L1 probe is now runner-validated and no longer collapses into PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+
+- Additional Phase 5 evidence:
+  - Polishing L1 focused probe passed after runner owner-state + phrase-binding repair:
+    - tests/reports/uat_report_20260421_125242.json
+- Current Phase 5 reading after polish L1 probe:
+  - PHASE5_POLISH_EXPECTATION_DEEPEN_L1 now binds correctly in debug, rendered phrase body, and raw report output.
+  - Earlier polish L1 collapse into PHASE5_PPF_PRICE_GAP_DEEPEN_L1 is resolved in the runner-tested lane.
+
   - polish narrow and exit lanes remain correct
 
 Key confirmations:

@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "stage5_polish_l1_probe_en_1",
+    "input": "polishing is expensive"
+  },
+  {
+    "case_id": "stage5_polish_l1_probe_en_2",
+    "input": "why is polishing so expensive"
+  },
+  {
+    "case_id": "stage5_polish_l1_probe_ar_1",
+    "input": "التلميع غالي"
+  }
+]
