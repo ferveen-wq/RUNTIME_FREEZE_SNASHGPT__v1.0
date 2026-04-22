@@ -502,3 +502,41 @@ NEXT STEP:
 - Proceed to Phase 6 validation (authority / Route B / service canon alignment)
 - DO NOT proceed to Stage 4 real-chat validation yet
 
+
+--------------------------------------------------
+PHASE 5 / PHASE 7 BOUNDARY LOCK (2026-04-22)
+--------------------------------------------------
+
+LOCKED READING:
+- Phase 5 = decision control and conversation ownership
+- Phase 7 = explanation only (no behavioral control)
+
+PHASE 5 OWNS:
+- objection handling
+- price resistance / negotiation reactions
+- thinking / deferred / readiness-stall handling
+- silence handling / follow-up ownership
+- pause-safe / exit-safe handling
+- closing state handling
+- handover / whatsapp handover / human handover
+
+PHASE 7 DOES NOT OWN:
+- silence recovery
+- hesitation recovery
+- next-step push
+- objection routing
+- closing behavior
+- handover behavior
+
+PHASE 7 MAY ONLY:
+- provide explanation when architecture allows it
+- use approved education snippets
+- remain subordinate to Phase 5 state ownership
+- remain question-free unless a later locked authority explicitly governs otherwise
+
+INTERPRETATION:
+- THINKING / DEFERRED / SILENT / READY_TO_PROCEED are not independent Phase 7 behavioral lanes.
+- They are late-stage customer states owned by Phase 5 control logic.
+- Phase 7 may support those states with explanation only when explicitly allowed.
+- Any assembly rule that makes Phase 7 behave like a follow-up / hook / control layer must be treated as a boundary contradiction.
+

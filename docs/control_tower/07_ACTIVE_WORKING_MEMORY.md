@@ -691,3 +691,29 @@ Next step:
   - treat this as a stable break point
   - do not reopen prior lanes without fresh failing evidence
 
+
+## PHASE 5 / PHASE 7 BOUNDARY LOCK — 2026-04-22
+
+Locked reading:
+- Phase 5 = decision control and conversation ownership
+- Phase 7 = explanation only (no behavioral control)
+
+Phase 5 ownership includes:
+- objection resolution
+- readiness stall / thinking / deferred handling
+- silence handling
+- pause / exit-safe handling
+- closing and handover behavior
+
+Phase 7 ownership includes:
+- approved education snippets only
+- no silence recovery
+- no objection routing
+- no closing / handover control
+- no independent behavioral lane ownership
+
+Operational rule:
+- Do not reopen "phase7 thinking" as a standalone rollout lane.
+- Treat thinking / deferred / silence as Phase 5-owned late-stage states.
+- Treat any Phase 7 follow-up-question behavior as a boundary contradiction unless separately locked by higher authority.
+

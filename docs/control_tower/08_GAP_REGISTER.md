@@ -25,3 +25,10 @@ NO ACTIVE GAPS
   - new failing UAT evidence
   - real validation drift
   - production-confirmed mismatch
+
+
+## Boundary rule reinforcement (2026-04-22)
+- Do not create a new Phase 7 gap merely because a pack uses THINKING / DEFERRED / SILENT labels.
+- First verify whether the pack is violating the locked Phase 5 / Phase 7 ownership boundary.
+- Mis-scoped UAT packs must be deprecated rather than treated as live runtime truth.
+

@@ -146,6 +146,13 @@ Notes:
   - PHASE4_6-owned customer-facing rendering
   - Route B entry cases validated for PPF, Ceramic, Tint, and Wrap
 - Remaining runner-side micro wording strictness, if any, is non-blocking to the resolved Phase 6 contract boundary.
+- Phase 5 / Phase 7 authority reconciliation (2026-04-22):
+  - Phase 5 remains the sole owner of late-stage conversation control:
+    objection handling, readiness stall, deferred/thinking handling, silence handling, closing, and handover.
+  - Phase 7 is explanation-only:
+    approved education snippets may support a turn, but Phase 7 must not own behavior, recovery, objection routing, closing, or handover.
+  - Any assembly instruction that lets Phase 7 introduce follow-up-question control should be treated as a boundary contradiction, not a new owner rule.
+
 
 ---
 
