@@ -367,6 +367,13 @@ Goal:
 - Current stop reading:
   - no active deferred-family defect is reproducing in the checked safe pack
   - local patch lane can stop here cleanly
+- Broader regression confirmation (2026-04-22):
+  - tests/uat/phase0_5_broader_regression_v1.json
+  - tests/reports/uat_report_20260422_041517.json
+  - Reading:
+    - broader phase0-5 trusted pack re-check completed
+    - no immediate nearby regression reopened by deferred-family routing fix
+
 
 
   - Improvement confirmed:

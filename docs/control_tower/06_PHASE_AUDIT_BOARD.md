@@ -344,6 +344,15 @@ Control decision:
     - no new regression reproduced in this safety pack
   - Control reading:
     - deferred-family routing lane is now at a clean stop point
+- Broader regression confirmation (2026-04-22):
+    - tests/uat/phase0_5_broader_regression_v1.json
+    - tests/reports/uat_report_20260422_041517.json
+  - Reading:
+    - phase3 ready-path packs remained stable
+    - phase4 silence / pressure / technical / warranty lanes remained stable
+    - phase5 strict late-stage lanes remained stable
+    - deferred-family correction did not re-break trusted nearby lanes
+
     - next future lane should be broader regression coverage, not more local patching
 
     - keep this as runner-tested prompt-routing correction evidence

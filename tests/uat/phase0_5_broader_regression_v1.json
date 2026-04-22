@@ -1,0 +1,1355 @@
+[
+  {
+    "case_id": "deferred_family_thinking_en",
+    "input": "let me think about it",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_partner_en",
+    "input": "i need to check with my wife",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_travel_en",
+    "input": "i am travelling now, maybe later",
+    "runtime_signals": {
+      "active_service_context": "ceramic",
+      "service_intent": "ceramic",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_car_unavailable_en",
+    "input": "the car is still in the garage",
+    "runtime_signals": {
+      "active_service_context": "polishing",
+      "service_intent": "polishing",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_salary_ar",
+    "input": "بعد الراتب إن شاء الله",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_partner_ar",
+    "input": "بشاور زوجتي وأرد لك",
+    "runtime_signals": {
+      "active_service_context": "ceramic",
+      "service_intent": "ceramic",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_travel_ar",
+    "input": "أنا مسافر الحين وبرجع بعدين",
+    "runtime_signals": {
+      "active_service_context": "tint",
+      "service_intent": "tint",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "deferred_family_not_received_ar",
+    "input": "السيارة ما استلمتها من الوكالة للحين",
+    "runtime_signals": {
+      "active_service_context": "ppf",
+      "service_intent": "ppf",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    }
+  },
+  {
+    "case_id": "ppf_phase5_price_gap_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "PRICE_REACTION",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_PRICE_GAP_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Understood — the fair comparison is to keep the same coverage in view first.",
+        "With PPF, the difference usually comes from the film, the preparation behind it, and how clean the result looks after installation.",
+        "If you like, I can explain what usually creates that gap, or show you a finished example for reference."
+      ],
+      "arabic": [
+        "مفهوم — المقارنة العادلة تبدأ أول شيء من نفس التغطية.",
+        "بالـPPF الفرق عادة يجي من الفيلم نفسه، والتحضير اللي وراه، وشكل النتيجة بعد التركيب.",
+        "إذا تحب، أشرح لك شنو عادة يسوي هالفرق، أو أوريك مثال منتهٍ كمرجع."
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "with ceramic",
+        "ceramic",
+        "We understand that the price may seem high sometimes"
+      ],
+      "arabic": [
+        "بالسيراميك",
+        "سيراميك",
+        "نحن نتفهم أن السعر قد يبدو مرتفعًا أحيانًا"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_phase5_repeat_objection_verbatim_strict",
+    "strict_raw": true,
+    "input": "still too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "adjust the protection level",
+        "keeping full-body coverage",
+        "review the protection levels first"
+      ],
+      "arabic": [
+        "نقدر نضبط مستوى الحماية",
+        "مع بقاء التغطية كاملة",
+        "نراجع مستويات الحماية أول"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_phase5_technical_verbatim_strict",
+    "strict_raw": true,
+    "input": "what about the specs and thickness",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "MISUNDERSTANDING",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "selected_phrase_id": "PHASE5_PPF_TECHNICAL_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "MISUNDERSTANDING"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Specs help determine the film's thickness and quality",
+        "protects the car from scratches and impacts",
+        "The film's looks and how it stays stable are also important",
+        "without altering the car's appearance"
+      ],
+      "arabic": [
+        "المواصفات تساعد في تحديد سمك الفيلم وجودته",
+        "حماية السيارة من الخدوش والصدمات",
+        "شكل الفيلم وثباته مهمان أيضًا",
+        "دون أن تتغير مظهر السيارة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_phase5_brand_warranty_verbatim_strict",
+    "strict_raw": true,
+    "input": "but what about brand and warranty",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "1",
+      "constraints": "brand_keyword_detected=true"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "TRUST_OR_RISK"
+    },
+    "expect_contains_all": {
+      "english": [
+        "Brand and warranty matter a lot",
+        "product's quality and reliability",
+        "Real-world use",
+        "performance and durability"
+      ],
+      "arabic": [
+        "البراند والضمان مهمين جدًا",
+        "جودة المنتج وموثوقيته",
+        "استخدام سيارة مشابهة",
+        "الأداء والمتانة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_PPF_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "pause here",
+        "come back anytime",
+        "full-protection path"
+      ],
+      "arabic": [
+        "نوقف هنا",
+        "ترجع بأي وقت",
+        "مسار الحماية الكاملة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ppf_silence_must_stay_in_phase4",
+    "strict_raw": true,
+    "input": "...",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "SILENCE_AFTER_PRICE",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_SILENCE_PRIMARY"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "null",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "price range",
+        "BHD"
+      ],
+      "arabic": [
+        "موديل",
+        "دينار"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ceramic_silence_must_use_authority_id",
+    "strict_raw": true,
+    "input": "...",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "CERAMIC_GOAL": "PROTECTION",
+      "CERAMIC_WASH_PATTERN": "REGULAR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "SILENCE_AFTER_PRICE",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_CERAMIC_SILENCE_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "null",
+        "PHASE3A_Q_CERAMIC_GOAL",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+        "TECHNICAL QUESTION HOLD — PHASE 0–2"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "ceramic_phase5_price_gap_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "difference usually comes from the preparation",
+        "stable the finish stays over time",
+        "example of the result"
+      ],
+      "arabic": [
+        "الفرق غالباً يجي من التحضير",
+        "ثبات النتيجة مع الوقت",
+        "مثال على النتيجة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ceramic_phase5_repeat_objection_verbatim_strict",
+    "strict_raw": true,
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_CERAMIC_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "keep the ceramic approach simple",
+        "most practical option",
+        "long-term gloss"
+      ],
+      "arabic": [
+        "نخلي خيار السيراميك بسيط",
+        "الخيار العملي",
+        "لمعان ثابت"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "ceramic_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_CERAMIC_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "pause here",
+        "revisit it later",
+        "most practical ceramic option"
+      ],
+      "arabic": [
+        "نوقف هنا",
+        "ترجع لها بأي وقت",
+        "الخيار العملي للسيراميك"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_phase5_expectation_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_EXPECTATION_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "quality and final result",
+        "worth the investment",
+        "benefits you get from the polishing service"
+      ],
+      "arabic": [
+        "الجودة والنتيجة النهائية",
+        "تستاهل الاستثمار",
+        "الفوائد اللي بتحصل عليها من خدمة التلميع"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_phase5_narrow_verbatim_strict",
+    "strict_raw": true,
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "quality of the service",
+        "final result",
+        "best protection and shine"
+      ],
+      "arabic": [
+        "جودة الخدمة",
+        "النتيجة النهائية",
+        "أفضل حماية ولمعان"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "polishing",
+      "active_service_context": "polishing",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_POLISH_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "come back anytime",
+        "need further assistance",
+        "always here to help"
+      ],
+      "arabic": [
+        "ترجع في أي وقت",
+        "تحتاج مساعدة ثانية",
+        "دائماً للمساعدة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_phase5_compare_verbatim_strict",
+    "strict_raw": true,
+    "input": "too expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "1"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_COMPARE_DEEPEN_L1",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "type of film used",
+        "reduces heat",
+        "simple examples of the results"
+      ],
+      "arabic": [
+        "نوع الفيلم المستخدم",
+        "تقليل الحرارة",
+        "أمثلة بسيطة على النتائج"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_phase5_narrow_verbatim_strict",
+    "strict_raw": true,
+    "input": "still expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH",
+      "objection_repeat_count": "2"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_NARROW_L2",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "PRICE_TOO_HIGH"
+    },
+    "expect_contains_all": {
+      "english": [
+        "most practical option",
+        "heat comfort",
+        "full tint coverage"
+      ],
+      "arabic": [
+        "الخيار العملي",
+        "راحة حرارية",
+        "التظليل الكامل"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_phase5_exit_fork_verbatim_strict",
+    "strict_raw": true,
+    "input": "leave it for now",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL",
+      "objection_repeat_count": "3"
+    },
+    "expect_debug": {
+      "phase": "5",
+      "selected_phrase_id": "PHASE5_TINT_EXIT_FORK_L3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "objection_signal": "READINESS_STALL"
+    },
+    "expect_contains_all": {
+      "english": [
+        "come back anytime",
+        "assistance regarding tinting",
+        "here to help"
+      ],
+      "arabic": [
+        "ترجع في أي وقت",
+        "بخصوص التظليل",
+        "هنا للمساعدة"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "BHD",
+        "price range",
+        "BMW"
+      ],
+      "arabic": [
+        "دينار",
+        "نطاق السعر",
+        "بي ام"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ppf_brand_fixation_must_use_authority_id",
+    "strict_raw": true,
+    "input": "is xpel better?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_PPF_COMPARISON_FOCUS",
+        "BRAND DISCLOSURE — PPF (PHASE 0–2)",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1",
+        "PHASE4_PPF_BRAND_TRUST"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ppf_price_resistance_must_use_authority_id",
+    "strict_raw": true,
+    "input": "that sounds expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "PRICE_SENSITIVITY",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_PRICE_PRESSURE_L1",
+      "request_type": "OTHER"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_PPF_COMPARISON_FOCUS",
+        "BRAND DISCLOSURE — PPF (PHASE 0–2)",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1",
+        "PHASE4_PPF_PRICE_SENSITIVITY_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ppf_technical_sensitivity_must_use_authority_id",
+    "strict_raw": true,
+    "input": "is it thick enough?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_TECHNICAL_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_PPF_COMPARISON_FOCUS",
+        "BRAND DISCLOSURE — PPF (PHASE 0–2)",
+        "PHASE4_PPF_BRAND_FIXATION_L1",
+        "PHASE4_PPF_BRAND_TRUST",
+        "PHASE5_PPF_TECHNICAL_DEEPEN_L1",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ppf_warranty_sensitivity_must_use_authority_id",
+    "strict_raw": true,
+    "input": "will this affect warranty?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "PPF_COVERAGE_INTENT": "FULL",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_PPF_WARRANTY_SENSITIVITY_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_PPF_COMPARISON_FOCUS",
+        "BRAND DISCLOSURE — PPF (PHASE 0–2)",
+        "PHASE4_PPF_BRAND_FIXATION_L1",
+        "PHASE4_PPF_BRAND_TRUST",
+        "PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1",
+        "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ceramic_brand_fixation_must_use_authority_id",
+    "strict_raw": true,
+    "input": "is gtechniq better?",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "CERAMIC_GOAL": "PROTECTION",
+      "CERAMIC_WASH_PATTERN": "REGULAR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "TRUST_OR_RISK",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_CERAMIC_BRAND_FIXATION_L2"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_CERAMIC_GOAL",
+        "BRAND DISCLOSURE — CERAMIC (PHASE 0–2)",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "phase4_ceramic_price_resistance_must_use_authority_id",
+    "strict_raw": true,
+    "input": "that sounds expensive",
+    "runtime_signals": {
+      "request_type": "OTHER",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Land Cruiser",
+      "vehicle_year": "2024",
+      "CERAMIC_GOAL": "PROTECTION",
+      "CERAMIC_WASH_PATTERN": "REGULAR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "objection_signal": "PRICE_SENSITIVITY",
+      "objection_repeat_count": "0"
+    },
+    "expect_debug": {
+      "phase": "4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL",
+      "selected_phrase_id": "PHASE4_CERAMIC_PRICE_PRESSURE_L1"
+    },
+    "expect_debug_not_equals": {
+      "phase": [
+        "0",
+        "3A",
+        "5"
+      ],
+      "selected_phrase_id": [
+        "PHASE3A_Q_CERAMIC_GOAL",
+        "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+        "PHASE4_CERAMIC_PRICE_SENSITIVITY_L1",
+        "TECHNICAL QUESTION HOLD — PHASE 0–2"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "price range",
+        "BHD",
+        "VAT"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "نطاق السعر",
+        "دينار",
+        "ضريبة"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_full_ready_should_price_cleanly",
+    "strict_raw": true,
+    "input": "full ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_any": {
+      "english": [
+        "PPF",
+        "price",
+        "VAT included"
+      ],
+      "arabic": [
+        "PPF",
+        "السعر",
+        "شامل"
+      ]
+    }
+  },
+  {
+    "case_id": "ppf_front_ready_should_price_cleanly",
+    "strict_raw": true,
+    "input": "front ppf for camry 2022",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains_any": {
+      "english": [
+        "PPF",
+        "price",
+        "VAT included"
+      ],
+      "arabic": [
+        "PPF",
+        "السعر",
+        "شامل"
+      ]
+    }
+  },
+  {
+    "case_id": "ceramic_known_vehicle_should_ask_wash_pattern_after_goal",
+    "strict_raw": true,
+    "input": "price",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "CERAMIC_GOAL": "GLOSS",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug": {
+      "phase": "3A",
+      "request_type": "PRICE_REQUEST",
+      "selected_phrase_id": "PHASE3A_Q_CERAMIC_WASH_PATTERN",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_debug_not_equals": {
+      "selected_phrase_id": [
+        "PHASE3B_CERAMIC_RANGE"
+      ]
+    },
+    "expect_not_contains": {
+      "english": [
+        "PPF",
+        "wrap",
+        "tint",
+        "BHD",
+        "VAT",
+        "price range"
+      ],
+      "arabic": [
+        "تغليف",
+        "تظليل",
+        "دينار",
+        "ضريبة",
+        "سعر"
+      ]
+    }
+  },
+  {
+    "case_id": "polish_ready_path_vehicle_known_should_reach_price_ready_cleanly",
+    "strict_raw": true,
+    "input": "polishing for camry 2022",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "polishing",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "POLISHING_SCOPE": "EXTERIOR",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "TECHNICAL QUESTION HOLD"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "TECHNICAL QUESTION HOLD"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_ready_path_vehicle_known_should_reach_price_ready_cleanly",
+    "strict_raw": true,
+    "input": "tint for camry 2022",
+    "runtime_signals": {
+      "request_type": "PRICE_REQUEST",
+      "service_intent": "tint",
+      "vehicle_model": "Toyota Camry",
+      "vehicle_year": "2022",
+      "TINT_GOAL": "HEAT_COMFORT",
+      "TINT_COVERAGE": "FULL",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "INITIAL"
+    },
+    "expect_not_contains": {
+      "english": [
+        "which model",
+        "which year",
+        "TECHNICAL QUESTION HOLD"
+      ],
+      "arabic": [
+        "موديل",
+        "سنة",
+        "TECHNICAL QUESTION HOLD"
+      ]
+    }
+  },
+  {
+    "case_id": "ceramic_basic_should_ask_model_precisely",
+    "strict_raw": true,
+    "input": "ceramic coating",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "ceramic_ready_should_not_use_tech_hold",
+    "strict_raw": true,
+    "input": "ceramic for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_contains": {
+      "english": [
+        "TECHNICAL QUESTION HOLD"
+      ],
+      "arabic": [
+        "TECHNICAL QUESTION HOLD"
+      ]
+    }
+  },
+  {
+    "case_id": "wrap_ready_should_ask_finish_only",
+    "strict_raw": true,
+    "input": "wrap for camry 2022",
+    "expect_contains_any": {
+      "english": [
+        "finish",
+        "gloss",
+        "matte",
+        "satin"
+      ],
+      "arabic": [
+        "تشطيب",
+        "لمعة",
+        "مات",
+        "ساتان"
+      ]
+    }
+  },
+  {
+    "case_id": "tint_ready_should_ask_vlt_or_usage",
+    "strict_raw": true,
+    "input": "tint for camry 2022",
+    "expect_debug": {
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "tint_should_not_jump_to_price",
+    "strict_raw": true,
+    "input": "price tint",
+    "expect_debug": {
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "none"
+    }
+  }
+]
