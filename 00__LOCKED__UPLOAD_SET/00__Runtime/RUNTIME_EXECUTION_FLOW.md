@@ -70,6 +70,16 @@ Any failure at any step MUST immediately stop execution.
   - detected_service_intent_in_message
 - These two fields MUST be forwarded into the Phase 4.8 Assembly Input set without mutation.
 
+### Step 6.A — Support-Lane Recognition (Governance Only)
+- If request_type == REENTERED_CONTINUE:
+  - Treat as continuation of existing conversation state
+  - Do NOT reset or reinitialize qualification context
+  - Do NOT override active_service_context
+  - Proceed with normal downstream routing (no special branch here)
+- Purpose:
+  - Ensure execution-layer awareness of support-lane continuity
+  - Prevent unintended reset or drift in multi-turn conversations
+
 Order of operations (MANDATORY):
 1) Compute detected_service_intent_in_message from current message.
 2) Preserve active_service_context from conversation state (last confirmed service).
