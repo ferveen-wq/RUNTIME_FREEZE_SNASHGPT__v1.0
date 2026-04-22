@@ -269,36 +269,22 @@ Historical validation status:
 - Manual contradiction findings (for example GAP-021) remain useful as investigation evidence
 
 Previous focus (frozen until runner trust is restored):
-- Determine manifest-active vs support-only files for:
-  - Phase 7 (closing vs education split)
-  - Phase 8 (visual system)
-  - Phase 9 (persuasion layer)
-- Resolve Phase 7 role ambiguity:
-- Current reconciliation reading (2026-04-21):
-  - PHASE7_EDUCATION_SNIPPETS.md is a support-authority education layer, not a late-state control owner.
-  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md currently labels Phase 7 as closing/follow-up routing for REENTERED / THINKING / SILENT / DEFERRED / READY_TO_PROCEED.
-  - RUNTIME_EXECUTION_FLOW.md + CLOSING_HANDOVER_ENGINE.md already prove late-stage close/handover control exists outside the education snippet layer.
-  - Therefore current Phase 7 ambiguity is an authority-classification issue, not a runner bug to keep patching blindly.
+- Phase 7 documentation checkpoint after ownership reconciliation:
+  - PHASE7_EDUCATION_SNIPPETS.md is the explanation/support layer only.
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md still contains historical Phase 7 labeling, but this is no longer trusted as active behavior ownership.
+  - RUNTIME_EXECUTION_FLOW.md + CLOSING_HANDOVER_ENGINE.md + Phase 5 evidence confirm late-stage behavior is not Phase 7-owned.
+- Tested-lane truth:
+  - REENTERED_CONTINUE is the only runner-proven Phase 7 support lane.
+  - THINKING / SILENT / DEFERRED / READY_TO_PROCEED must not be treated as Phase 7-owned runtime behavior.
+  - dict-shaped SILENT state pack remains harness-incompatible evidence only, not execution proof.
+- Support-layer truth:
+  - Phase 7 snippet/governance contract is not yet fully normalized.
+  - EDU_PPF_SELF_HEAL is structurally inconsistent with the main snippet pattern.
+- GAP-020 remains the active normalization gap for the support layer.
 
-  - closing/follow-up routing vs education snippets
-- Record tested-lane truth:
-  - REENTERED_CONTINUE is runner-proven
-  - THINKING / SILENT / DEFERRED / READY_TO_PROCEED are not yet runner-hardened
-  - dict-shaped SILENT state pack is quarantined as harness-incompatible, not execution proof
-- Record support-layer truth:
-  - Phase 7 snippet/governance contract is not yet fully normalized
-  - EDU_PPF_SELF_HEAL is structurally inconsistent with the main snippet pattern
-- GAP-020 added:
-  - support-layer normalization inconsistency within PHASE7_EDUCATION_SNIPPETS.md
-  - runtime-consumable support layer must not be treated as structurally normalized yet
-
-Rules:
-- Do NOT expand Phase 7–9 behavior yet
-- Do NOT introduce new logic
-- Only classify ownership, wiring, and runtime participation
-
-Goal:
-- Establish clean authority map for Phase 7–9 before any testing or patching
+Rule:
+- Do NOT reopen Phase 7 state expansion or runner patching from this section.
+- Treat this block as locked documentation truth, not an open reassignment task.
 
 
 - Working ownership map after reassignment trace (2026-04-21):
@@ -716,6 +702,10 @@ Operational rule:
 - Do not reopen "phase7 thinking" as a standalone rollout lane.
 - Treat thinking / deferred / silence as Phase 5-owned late-stage states.
 - Treat any Phase 7 follow-up-question behavior as a boundary contradiction unless separately locked by higher authority.
+
+Closure note:
+- Phase 7 ownership classification is now considered documentation-locked.
+- Remaining open work for Phase 7 is limited to support-layer normalization (GAP-020), not behavior ownership reassignment.
 
 
 ## PHASE 8 CURRENT READING — 2026-04-22
