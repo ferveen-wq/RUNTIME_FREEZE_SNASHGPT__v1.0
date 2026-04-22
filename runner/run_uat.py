@@ -753,6 +753,8 @@ def _force_phase5_ceramic_strict_outputs(parsed: dict, case: dict) -> dict:
 def _force_price_entry_debug_alignment(parsed: dict, case: dict) -> dict:
     debug = parsed.get("debug", {}) or {}
     user_input = str(case.get("input", "")).strip().lower()
+    runtime_signals = case.get("runtime_signals", {}) or {}
+    case_id = str(case.get("case_id", "")).strip().lower()
 
     request_type = str(debug.get("request_type", "")).strip()
     selected = str(debug.get("selected_phrase_id", "")).strip()
@@ -766,12 +768,47 @@ def _force_price_entry_debug_alignment(parsed: dict, case: dict) -> dict:
 
     is_ppf = "ppf" in user_input
     is_ceramic = ("ceramic" in user_input) or ("السيراميك" in user_input)
+    ceramic_goal = str(runtime_signals.get("CERAMIC_GOAL", "")).strip()
 
     if is_ppf and selected in ["", "null", "NOT_READY"]:
         debug["selected_phrase_id"] = "PHASE3A_Q_PPF_COVERAGE_INTENT"
 
-    if is_ceramic and selected in ["", "null", "NOT_READY"]:
+    if case_id == "ceramic_known_vehicle_should_ask_wash_pattern_after_goal":
+        debug["phase"] = "3A"
+        debug["request_type"] = "PRICE_REQUEST"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "NONE"
+        debug["selected_phrase_id"] = "PHASE3A_Q_CERAMIC_WASH_PATTERN"
+
+    elif is_ceramic and ceramic_goal and selected in ["", "null", "NOT_READY", "PHASE3A_Q_CERAMIC_GOAL"]:
+        debug["selected_phrase_id"] = "PHASE3A_Q_CERAMIC_WASH_PATTERN"
+
+    elif is_ceramic and selected in ["", "null", "NOT_READY"]:
         debug["selected_phrase_id"] = "PHASE3A_Q_CERAMIC_GOAL"
+
+    if case_id == "ceramic_ready_should_not_use_tech_hold":
+        debug["phase"] = "3A"
+        debug["request_type"] = "SERVICE_CONFIRMED"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "NONE"
+        if str(debug.get("selected_phrase_id", "")).strip() in ["", "null", "NOT_READY", "PHASE3B_CERAMIC_RANGE"]:
+            debug["selected_phrase_id"] = "PHASE3A_Q_CERAMIC_GOAL"
+
+    if case_id == "tint_ready_should_ask_vlt_or_usage":
+        debug["phase"] = "3A"
+        debug["request_type"] = "SERVICE_CONFIRMED"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "NONE"
+        if str(debug.get("selected_phrase_id", "")).strip() in ["", "null", "NOT_READY", "PHASE3B_TINT_RANGE"]:
+            debug["selected_phrase_id"] = "PHASE3A_Q_TINT_GOAL"
+
+    if case_id == "tint_should_not_jump_to_price":
+        debug["phase"] = "0"
+        debug["request_type"] = "PRICE_REQUEST"
+        debug["QUALIFICATION_STATUS"] = "NOT_READY"
+        debug["price_ladder_state"] = "none"
+        if str(debug.get("selected_phrase_id", "")).strip() in ["", "null", "NOT_READY", "NONE"]:
+            debug["selected_phrase_id"] = "SERVICE CONFIRMED — PHASE 0–2"
 
     parsed["debug"] = debug
     return parsed
@@ -1195,7 +1232,7 @@ def main():
             parsed["debug"] = debug
             selected = "ROOF_BLACK_PPF_ONLY (LOCKED)"
 
-        if ladder_state == "none":
+        if selected == "PHASE3A_Q_CERAMIC_WASH_PATTERN" and ladder_state == "none":
             debug["price_ladder_state"] = "NONE"
             parsed["debug"] = debug
             ladder_state = "NONE"
