@@ -371,7 +371,16 @@ Goal:
   - tests/uat/phase0_5_broader_regression_v1.json
   - tests/reports/uat_report_20260422_041517.json
   - Reading:
-    - broader phase0-5 pack was re-run again after residual fixes and now passes cleanly:
+    - broader phase0-5 pack was re-run again and is still not fully clean:
+    - tests/uat/phase0_5_broader_regression_v1.json
+    - tests/reports/uat_report_20260422_044012.json
+    - result: 36/40 passed
+    - deferred-family routing still appears stable
+    - remaining failures are now narrowed to four non-deferred lanes:
+      - ppf late-stage price-gap routing
+      - ceramic ready-path over-trigger
+      - wrap finish-only wording path
+      - tint ladder NONE/none normalization
     - tests/uat/phase0_5_broader_regression_v1.json
     - tests/reports/uat_report_20260422_043757.json
     - result: 2/2 passed

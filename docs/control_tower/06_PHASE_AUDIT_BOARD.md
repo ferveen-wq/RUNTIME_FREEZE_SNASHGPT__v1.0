@@ -348,7 +348,16 @@ Control decision:
     - tests/uat/phase0_5_broader_regression_v1.json
     - tests/reports/uat_report_20260422_041517.json
   - Reading:
-    - broader pack now passes cleanly after residual fixes:
+    - broader pack was re-run again and is still NOT fully clean:
+    - tests/uat/phase0_5_broader_regression_v1.json
+    - tests/reports/uat_report_20260422_044012.json
+    - result: 36/40 passed
+    - deferred-family lane remains stable
+    - remaining failures are outside the deferred-family fix scope:
+      - ppf_phase5_price_gap_verbatim_strict
+      - ceramic_ready_should_not_use_tech_hold
+      - wrap_ready_should_ask_finish_only
+      - tint_should_not_jump_to_price
     - tests/uat/phase0_5_broader_regression_v1.json
     - tests/reports/uat_report_20260422_043757.json
     - result: 2/2 passed
