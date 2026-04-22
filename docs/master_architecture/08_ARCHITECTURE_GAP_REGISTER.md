@@ -670,8 +670,8 @@ Source:
 - 00__LOCKED__UPLOAD_SET/00__Runtime/EDUCATION_TRIGGER_MATRIX.md
 - 00__LOCKED__UPLOAD_SET/01__Engines/PHASE_4_7_HOOK_QUESTION_ENGINE.md
 Impact:
-- support-layer entries can be misread as equally normalized when EDU_PPF_SELF_HEAL uses a materially different structure from the main snippet set
-- governance requires permission / return-anchor discipline, but the snippet file does not express that contract consistently
+- the main snippet-shape inconsistency has been corrected, but governance still requires permission / return-anchor discipline to be expressed more consistently across the support layer
+- support-layer entries can still be misread as equally governance-complete when return-anchor / permission expression is implicit rather than explicit
 - Phase 8 should not inherit Phase 7 education/visual linkage until the Phase 7 support-layer contract is documented cleanly
 Status: OPEN
 

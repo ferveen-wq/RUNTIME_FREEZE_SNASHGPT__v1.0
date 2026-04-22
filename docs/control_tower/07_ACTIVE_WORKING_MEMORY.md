@@ -279,8 +279,9 @@ Previous focus (frozen until runner trust is restored):
   - dict-shaped SILENT state pack remains harness-incompatible evidence only, not execution proof.
 - Support-layer truth:
   - Phase 7 snippet/governance contract is not yet fully normalized.
-  - EDU_PPF_SELF_HEAL is structurally inconsistent with the main snippet pattern.
-- GAP-020 remains the active normalization gap for the support layer.
+  - EDU_PPF_SELF_HEAL has now been normalized into the main bilingual snippet structure.
+  - The remaining gap is governance-contract clarity around permission / return-anchor expression across the support layer.
+- GAP-020 remains open, but is now narrowed to support-layer governance normalization rather than snippet-shape inconsistency.
 
 Rule:
 - Do NOT reopen Phase 7 state expansion or runner patching from this section.

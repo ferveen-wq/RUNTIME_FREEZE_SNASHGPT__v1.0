@@ -248,6 +248,7 @@ Matrix-aligned working truth:
 Control implication:
 - Phase 7 education snippets remain support-layer only.
 - These deferred families must not be treated as Phase 7 default runtime ownership.
+- EDU_PPF_SELF_HEAL snippet-shape inconsistency has been normalized; remaining Phase 7 support-layer work is governance-contract cleanup only.
 
 
 ---

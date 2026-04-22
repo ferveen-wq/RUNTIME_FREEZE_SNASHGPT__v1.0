@@ -273,23 +273,17 @@ AR:
 
 
 ### EDU_PPF_SELF_HEAL
+EN:
+Modern paint protection films usually have a flexible top layer that can help reduce the appearance of very light surface marks when exposed to heat such as sunlight or warm water.
 
-Purpose:
-Explain the self-healing behavior of modern PPF in simple terms so
-customers understand what it does and what its limits are.
+This means light swirl marks or very minor surface scratches may become less visible over time, helping the film keep a cleaner appearance.
 
-Education:
-Modern paint protection films have a flexible top layer that can
-self-heal light surface marks when exposed to heat such as sunlight
-or warm water.
+However, deeper scratches or stronger impact marks will not disappear, because the film is still absorbing real damage to protect the paint underneath.
 
-This means small swirl marks or light scratches can disappear over
-time, helping the film maintain a cleaner appearance.
+AR:
+أفلام حماية الطلاء الحديثة غالباً تحتوي على طبقة علوية مرنة تساعد على تقليل ظهور العلامات السطحية الخفيفة جداً عند تعرضها للحرارة مثل أشعة الشمس أو الماء الدافئ.
 
-However, deeper scratches or sharp impacts will not disappear,
-because the film still absorbs real damage to protect the paint.
+وهذا يعني أن آثار الدوامات الخفيفة أو الخدوش السطحية البسيطة جداً قد تصبح أقل وضوحاً مع الوقت، مما يساعد الفيلم على الحفاظ على مظهر أنظف.
 
-Hook:
-If you'd like, I can also show a short example of how the self-healing
-effect works on the surface.
+أما الخدوش الأعمق أو آثار الصدمات الأقوى فلن تختفي، لأن الفيلم في الأصل يمتص الضرر الحقيقي لحماية الطلاء الموجود تحته.
 
