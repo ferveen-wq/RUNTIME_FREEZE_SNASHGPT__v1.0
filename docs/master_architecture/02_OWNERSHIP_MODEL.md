@@ -512,8 +512,10 @@ Does NOT:
 - execute without an upstream routed explanation context
 
 Current status:
-- promoted in runtime notes and referenced by assembly logic
-- execution-path proof is still narrower than manifest-phase proof
+- minimal comparison routing is active in assembly
+- visual support tooling and approved asset registry exist in repo
+- execution-path proof is still narrower than repo-level implementation evidence
+- therefore Phase 8 visual delivery is partially implemented, but not yet trusted as rollout-active execution ownership
 
 ---
 

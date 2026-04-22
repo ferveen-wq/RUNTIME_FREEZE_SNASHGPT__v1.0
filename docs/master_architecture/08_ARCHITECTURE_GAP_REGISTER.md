@@ -638,8 +638,9 @@ Source:
 - 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_CHANGE_LEDGER.md
 - 00__LOCKED__UPLOAD_SET/00__Runtime/RUNTIME_EXECUTION_FLOW.md
 Impact:
-- Phase 8 may be overstated as fully runtime-active if assembly promotion is mistaken for end-to-end execution proof
-- rollout confidence needs a cleaner statement separating promoted routing from proven delivery execution
+- Phase 8 now has stronger repo evidence than a purely planned layer: assembly references, tool-layer implementation, and approved asset registry all exist
+- but it may still be overstated as trusted runtime rollout behavior if repo implementation is mistaken for end-to-end execution proof
+- rollout confidence needs a clean statement separating partial implementation from trusted-lane validation
 Status: OPEN
 
 ---

@@ -511,8 +511,10 @@ Purpose:
 - attach optional visual proof/support after an allowed explanation context
 
 Status:
-- promoted in runtime notes and routed in assembly-map logic
-- still needs separate execution-path trust classification distinct from phrase routing
+- minimal comparison routing is active in assembly-map logic
+- visual support tooling and approved asset registry exist in repo
+- still lacks trusted-lane execution-path proof distinct from repo/tooling existence
+- therefore Phase 8 visual delivery must remain classified as partially implemented, not rollout-trusted
 
 ---
 

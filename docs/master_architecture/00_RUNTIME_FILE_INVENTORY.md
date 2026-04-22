@@ -116,7 +116,11 @@ Runtime truth/content classification note:
 - PHASE7_EDUCATION_SNIPPETS.md is present in runtime truth/content surface as an education knowledge layer referenced by runtime-governed hook / explanation architecture.
 - Current tested-lane proof for Phase 7 is narrower than full architecture scope: only REENTERED_CONTINUE is runner-proven today via prompt-bridge UAT.
 - PHASE7__CORE_EDUCATION.md is broader concept/support architecture, not yet proven as a direct manifest-executed runtime owner.
-- PHASE8_VIDEO_LIBRARY.md and VISUAL_PLAYBOOK.md support the Phase 8 visual layer; current repo evidence shows Phase 8 is promoted in runtime notes, but execution-path proof still depends on PHASE4_8 routing plus downstream delivery logic.
+- Phase 8 visual support now has three distinct evidence layers:
+  - assembly-layer routing exists in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - tool-layer implementation exists (for example attach_visuals.py and related selectors/memory helpers)
+  - approved asset registry exists in control-tower video files
+  However, trusted-lane execution proof is still missing, so Phase 8 visual delivery must not yet be treated as trusted runtime rollout behavior.
 - Phase 9 trust/persuasion references exist in repo architecture, but are not yet promoted as trusted runtime-active execution owners.
 
 ### E — Governance / change-control
