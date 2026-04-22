@@ -67,16 +67,17 @@ Stop immediately if any of these happen:
 
 ## Current operating truth
 - Deferred-family lane is not the active problem now.
-- Tint micro-fix was locally proven, but latest real broader rerun is still the source of truth.
+- Phase 0–5 broader regression is clean.
 - Latest real broader rerun:
-  - tests/reports/uat_report_20260422_054046.json
-  - result: 37/40 passed
-- Current active broader failures are:
-  - ceramic_phase5_exit_fork_verbatim_strict
-  - ceramic_ready_should_not_use_tech_hold
-  - tint_ready_should_ask_vlt_or_usage
+  - tests/reports/uat_report_20260422_115835.json
+  - result: 40/40 passed
+- Phase 6 focused validation is also clean:
+  - tests/reports/uat_report_20260422_121438.json
+  - tests/reports/uat_report_20260422_121749.json
+- Current status:
+  - no active broader regression failure is open
+  - no active gap is open
 - Therefore:
-  - do NOT update trackers yet
-  - do NOT commit yet
-  - next patching must stay scoped to these live broader failures only
-  - any local tint proof must be treated as provisional until reconfirmed by a broader rerun
+  - do NOT open speculative patch lanes
+  - use this gate only when fresh failing evidence appears
+  - next work can proceed to controlled Phase 6 / rollout validation
