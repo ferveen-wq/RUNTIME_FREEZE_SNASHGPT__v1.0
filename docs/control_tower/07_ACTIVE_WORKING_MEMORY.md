@@ -371,8 +371,17 @@ Goal:
   - tests/uat/phase0_5_broader_regression_v1.json
   - tests/reports/uat_report_20260422_041517.json
   - Reading:
-    - broader phase0-5 trusted pack re-check completed
-    - no immediate nearby regression reopened by deferred-family routing fix
+    - broader phase0-5 pack was re-run but did not fully pass (35/40)
+    - deferred-family routing fix held in the checked late-stage neighborhood
+    - a later mid-size Phase 4–5 regression passed cleanly (24/24)
+    - broader residual failures remain outside the deferred-family lane
+- Mid-size regression confirmation (2026-04-22):
+  - tests/uat/phase4_5_mid_regression_v1.json
+  - tests/reports/uat_report_20260422_042002.json
+  - Result:
+    - 24/24 passed
+    - local Phase 4–5 stop point remains valid
+
 
 
 

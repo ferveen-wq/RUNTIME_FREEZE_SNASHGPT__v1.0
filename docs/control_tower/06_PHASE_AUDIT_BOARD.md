@@ -348,10 +348,23 @@ Control decision:
     - tests/uat/phase0_5_broader_regression_v1.json
     - tests/reports/uat_report_20260422_041517.json
   - Reading:
-    - phase3 ready-path packs remained stable
-    - phase4 silence / pressure / technical / warranty lanes remained stable
-    - phase5 strict late-stage lanes remained stable
-    - deferred-family correction did not re-break trusted nearby lanes
+    - broader pack did NOT fully pass (35/40)
+    - deferred-family correction remained stable inside the checked late-stage neighborhood
+    - mid-size Phase 4–5 regression later passed cleanly (24/24)
+    - broader Phase 0–5 still contains unrelated residual failures outside the deferred-family lane
+- Mid-size regression confirmation (2026-04-22):
+    - tests/uat/phase4_5_mid_regression_v1.json
+    - tests/reports/uat_report_20260422_042002.json
+  - Result:
+    - 24/24 passed
+    - supports that the deferred-family fix is stable in the local Phase 4–5 lane
+
+  - Residual broader-pack failures:
+    - ppf_phase5_technical_verbatim_strict
+    - phase4_ceramic_brand_fixation_must_use_authority_id
+    - ppf_front_ready_should_price_cleanly
+    - ceramic_known_vehicle_should_ask_wash_pattern_after_goal
+    - wrap_ready_should_ask_finish_only
 
     - next future lane should be broader regression coverage, not more local patching
 
