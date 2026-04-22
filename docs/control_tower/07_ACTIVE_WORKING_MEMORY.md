@@ -347,6 +347,15 @@ Goal:
 - Deferred-family classification evidence (2026-04-21):
 - Deferred-family live rerun evidence (2026-04-22):
   - tests/reports/uat_report_20260422_035318.json
+- Final deferred-family live rerun evidence:
+    - tests/reports/uat_report_20260422_035906.json
+    - Result:
+      - all 8 deferred-family probe cases now route through the intended late-stage owner family
+    - Reading:
+      - the deferred-family prompt-routing patch sequence is successful for the current probe scope
+      - residual cross-service and Arabic drift from GAP-022 no longer reproduces in this pack
+      - next lane should be broader regression validation, not more blind deferred-family patching
+
   - Improvement confirmed:
     - some deferred-family cases now exit through Phase 5 exit-fork instead of generic deepen
   - Residual drift still active:

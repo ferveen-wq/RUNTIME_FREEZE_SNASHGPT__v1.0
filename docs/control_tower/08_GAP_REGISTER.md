@@ -39,7 +39,7 @@ Prompt-routing / ownership-to-phrase mismatch
 OPEN — narrowed (post first routing patch)
 
 ## GAP-022 — Deferred-family routing partially corrected, residual cross-service + Arabic drift remains
-Status: OPEN
+Status: RESOLVED (probe-pack scope)
 Last Updated: 2026-04-22
 Owner: Runtime / Prompt Bridge / Late-Stage Routing
 
@@ -73,3 +73,20 @@ Rule:
   2) tint travel handling
   3) Arabic partner-approval late-stage preservation
   4) salary/timing leakage into Phase 4 silence
+
+Update:
+- tests/reports/uat_report_20260422_035906.json
+
+Resolution reading:
+- The previously isolated residual drift no longer reproduces in the active deferred-family classification probe pack.
+- Fixed cases include:
+  - CAR_UNAVAILABLE_EN
+  - SALARY_AR
+  - PARTNER_AR
+  - TRAVEL_AR
+  - TRAVEL_EN
+
+Closure rule:
+- Treat GAP-022 as resolved for the current probe-pack scope.
+- Keep caution that broader regression coverage is still required before calling this universally rollout-complete.
+

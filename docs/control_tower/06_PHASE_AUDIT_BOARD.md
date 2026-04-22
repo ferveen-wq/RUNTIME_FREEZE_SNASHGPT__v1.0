@@ -322,6 +322,21 @@ Control decision:
 - Additional deferred-family evidence (2026-04-21):
 - Additional deferred-family live rerun evidence (2026-04-22):
   - tests/reports/uat_report_20260422_035318.json
+- Final deferred-family rerun evidence (2026-04-22):
+  - tests/reports/uat_report_20260422_035906.json
+  - Current probe-pack reading:
+    - deferred-family routing is now corrected across the active cross-language probe pack
+    - previously isolated residual drift no longer reproduces in:
+      - car_unavailable_en
+      - salary_ar
+      - partner_ar
+      - travel_ar
+      - travel_en
+  - Control reading:
+    - GAP-022 is resolved for the current deferred-family classification probe scope
+    - keep this as runner-tested prompt-routing correction evidence
+    - do not over-generalize beyond the validated probe pack without broader regression coverage
+
   - Latest hard-routing patch produced partial improvement:
     - THINKING_EN -> PHASE5_PPF_EXIT_FORK_L3
     - PARTNER_EN -> PHASE5_PPF_EXIT_FORK_L3

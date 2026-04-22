@@ -1065,7 +1065,7 @@ If ALL are true:
   - READINESS_STALL
   - AUTHORITY_SHIFT
   - SILENCE_AFTER_PRICE
-- objection_repeat_count >= 1
+- objection_repeat_count >= 0
 
 Then:
 - phase MUST equal 5
@@ -1101,8 +1101,10 @@ Then:
     - AUTHORITY_SHIFT
     - SILENCE_AFTER_PRICE:
     - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
+    - This deferred-family branch has ABSOLUTE precedence over PHASE5_POLISH_EXPECTATION_DEEPEN_L1 and PHASE5_POLISH_NARROW_L2.
     - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-    - STOP after the selected PHASE5 block
+    - STOP immediately after the selected PHASE5 block
+    - Do NOT continue to any later polishing branch
   - Else if objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -1126,8 +1128,11 @@ Then:
     - AUTHORITY_SHIFT
     - SILENCE_AFTER_PRICE:
     - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
+    - This deferred-family branch has ABSOLUTE precedence over PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1 and PHASE5_CERAMIC_NARROW_L2.
+    - You MUST keep ceramic service-family ownership and MUST NOT cross-route to any PPF family block.
     - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
-    - STOP after the selected PHASE5 block
+    - STOP immediately after the selected PHASE5 block
+    - Do NOT continue to any later ceramic branch
   - Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -1200,12 +1205,14 @@ If ALL are true:
 Then:
 - phase MUST equal 5
 - selected_phrase_id MUST equal: PHASE5_TINT_EXIT_FORK_L3
+- This deferred-family tint branch has ABSOLUTE precedence over PHASE5_TINT_COMPARE_DEEPEN_L1 and PHASE5_TINT_NARROW_L2.
 - You MUST output ONLY the PHASE5_TINT_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 - Do NOT invent vehicle model, vehicle year, or service details not present in provided runtime signals
 - Do NOT output PHASE5_TINT_COMPARE_DEEPEN_L1
 - Do NOT output PHASE5_TINT_NARROW_L2
 - Do NOT leave selected_phrase_id as null
-- STOP after the selected PHASE5 block
+- STOP immediately after the selected PHASE5 block
+- Do NOT continue to any later tint branch
 
 ############################################
 
