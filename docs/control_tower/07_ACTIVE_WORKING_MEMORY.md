@@ -355,6 +355,19 @@ Goal:
       - the deferred-family prompt-routing patch sequence is successful for the current probe scope
       - residual cross-service and Arabic drift from GAP-022 no longer reproduces in this pack
       - next lane should be broader regression validation, not more blind deferred-family patching
+- Safe regression confirmation (2026-04-22):
+  - tests/uat/phase5_regression_post_gap022_v1.json
+  - tests/reports/uat_report_20260422_040735.json
+  - Pack result:
+    - 15/15 passed
+    - deferred-family cases remained corrected
+    - ppf Phase 5 strict routes remained correct
+    - phase4 ppf silence stayed in phase4
+    - phase4 ceramic silence stayed in phase4
+- Current stop reading:
+  - no active deferred-family defect is reproducing in the checked safe pack
+  - local patch lane can stop here cleanly
+
 
   - Improvement confirmed:
     - some deferred-family cases now exit through Phase 5 exit-fork instead of generic deepen

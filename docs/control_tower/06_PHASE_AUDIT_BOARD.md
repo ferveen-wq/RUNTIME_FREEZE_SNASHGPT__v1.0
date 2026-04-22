@@ -334,6 +334,18 @@ Control decision:
       - travel_en
   - Control reading:
     - GAP-022 is resolved for the current deferred-family classification probe scope
+- Additional safe regression confirmation (2026-04-22):
+    - tests/uat/phase5_regression_post_gap022_v1.json
+    - tests/reports/uat_report_20260422_040735.json
+  - Regression reading:
+    - deferred-family fixes remained stable in the mixed pack
+    - trusted Phase 5 PPF routes still passed
+    - Phase 4 PPF/Ceramic silence guards still passed
+    - no new regression reproduced in this safety pack
+  - Control reading:
+    - deferred-family routing lane is now at a clean stop point
+    - next future lane should be broader regression coverage, not more local patching
+
     - keep this as runner-tested prompt-routing correction evidence
     - do not over-generalize beyond the validated probe pack without broader regression coverage
 
