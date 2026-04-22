@@ -202,6 +202,7 @@ Tier 2 conclusion:
 - Boundary:
   - this does not yet establish all-service Phase 4 trust
   - tint / polish / wrap Phase 4 strict-lane coverage is not yet present in this cycle
+  - older probe-only packs have been archived out of tests/uat to reduce false reopening from forensic assets
 
 Phase 5 reconciliation (post branch routing fixes):
 - PPF Phase 5 branch routing restored (price / technical / narrow / exit / brand)
@@ -705,6 +706,7 @@ Operational rule:
 Closure note:
 - Phase 7 ownership classification is now considered documentation-locked.
 - Remaining open work for Phase 7 is limited to support-layer normalization (GAP-020), not behavior ownership reassignment.
+- Probe-only Phase 7 forensic packs have been moved out of active tests/uat into notes/deprecated_uat/probes_archive/ so they do not reappear as live validation truth.
 
 
 ## PHASE 8 CURRENT READING — 2026-04-22

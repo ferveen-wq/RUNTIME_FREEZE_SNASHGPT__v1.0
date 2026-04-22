@@ -275,6 +275,7 @@ Notes:
 - Coverage boundary:
   - Tint / Polish / Wrap Phase 4 phrase surface exists, but dedicated strict-lane validation is not yet present in this cycle
   - therefore do not overstate full all-service Phase 4 rollout trust beyond the validated PPF + Ceramic lanes
+  - probe-only packs used for interim forensics have now been archived out of active tests/uat
 
 ---
 

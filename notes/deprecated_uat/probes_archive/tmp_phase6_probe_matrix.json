@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": "tmp_phase6_probe_browsing_generic",
+    "input": "what services do you offer",
+    "runtime_signals": {
+      "request_type": "BROWSING_GENERIC",
+      "service_intent": "tint",
+      "active_service_context": null,
+      "detected_service_intent_in_message": "tint",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "tmp_phase6_probe_service_confirmed_tint",
+    "input": "tell me about tint",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "tint",
+      "active_service_context": "tint",
+      "detected_service_intent_in_message": "tint",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  },
+  {
+    "case_id": "tmp_phase6_probe_service_confirmed_ppf",
+    "input": "what is ppf",
+    "runtime_signals": {
+      "request_type": "SERVICE_CONFIRMED",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "detected_service_intent_in_message": "ppf",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    }
+  }
+]

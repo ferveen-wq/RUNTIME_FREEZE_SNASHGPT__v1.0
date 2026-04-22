@@ -567,3 +567,7 @@ RULE:
 - Do NOT create production UAT or rollout claims for video delivery.
 - Treat Phase 8 as partially implemented (assets + bridge exist) but not execution-proven.
 
+UAT SURFACE HYGIENE (2026-04-22)
+- Probe-only / forensic / temporary packs were moved from tests/uat to notes/deprecated_uat/probes_archive/.
+- Active tests/uat should now be read as the current trusted or intentionally active validation surface, not a mix of live packs and old probe assets.
+
