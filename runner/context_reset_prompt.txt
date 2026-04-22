@@ -1099,10 +1099,10 @@ Then:
   - If objection_signal is one of:
     - READINESS_STALL
     - AUTHORITY_SHIFT
-    - SILENCE_AFTER_PRICE
-    and objection_repeat_count < 3:
+    - SILENCE_AFTER_PRICE:
     - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+    - STOP after the selected PHASE5 block
   - Else if objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_POLISH_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_POLISH_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -1124,10 +1124,10 @@ Then:
   - If objection_signal is one of:
     - READINESS_STALL
     - AUTHORITY_SHIFT
-    - SILENCE_AFTER_PRICE
-    and objection_repeat_count < 3:
+    - SILENCE_AFTER_PRICE:
     - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
+    - STOP after the selected PHASE5 block
   - Else if objection_signal == READINESS_STALL AND objection_repeat_count >= 3:
     - selected_phrase_id MUST equal: PHASE5_CERAMIC_EXIT_FORK_L3
     - You MUST output ONLY the PHASE5_CERAMIC_EXIT_FORK_L3 block from PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -1196,7 +1196,6 @@ If ALL are true:
   - READINESS_STALL
   - AUTHORITY_SHIFT
   - SILENCE_AFTER_PRICE
-- objection_repeat_count < 3
 
 Then:
 - phase MUST equal 5

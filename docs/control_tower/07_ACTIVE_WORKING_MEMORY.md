@@ -345,6 +345,20 @@ Goal:
   - Keep as forensic evidence only; do not reopen runner patching from this probe.
 
 - Deferred-family classification evidence (2026-04-21):
+- Deferred-family live rerun evidence (2026-04-22):
+  - tests/reports/uat_report_20260422_035318.json
+  - Improvement confirmed:
+    - some deferred-family cases now exit through Phase 5 exit-fork instead of generic deepen
+  - Residual drift still active:
+    - car_unavailable_en -> polish deepen
+    - salary_ar -> Phase 4 silence
+    - partner_ar -> Phase 0–2 ceramic qualifier
+    - travel_ar -> tint deepen
+    - travel_en -> wrong service-family exit
+  - Current reading:
+    - prompt-routing patch helped
+    - residual defect is now a narrower late-stage service-family + Arabic routing problem
+
   - Prompt-gap reading:
     - context_reset_prompt.txt recognizes deferred-family objection signals
     - but the service-family Phase 5 routers mostly send them into generic deepen/default branches

@@ -320,6 +320,22 @@ Control decision:
 - Freeze further THINKING / DEFERRED / SILENT / READY_TO_PROCEED runner patching.
 - Treat the next lane as authority reassignment / architecture reconciliation, not phrase repair.
 - Additional deferred-family evidence (2026-04-21):
+- Additional deferred-family live rerun evidence (2026-04-22):
+  - tests/reports/uat_report_20260422_035318.json
+  - Latest hard-routing patch produced partial improvement:
+    - THINKING_EN -> PHASE5_PPF_EXIT_FORK_L3
+    - PARTNER_EN -> PHASE5_PPF_EXIT_FORK_L3
+    - NOT_RECEIVED_AR -> PHASE5_PPF_EXIT_FORK_L3
+  - Residual drift remains isolated:
+    - CAR_UNAVAILABLE_EN -> still lands in PHASE5_POLISH_EXPECTATION_DEEPEN_L1
+    - SALARY_AR -> still leaks to PHASE4_PPF_SILENCE_PRIMARY
+    - PARTNER_AR -> still collapses to Phase 0–2 ceramic qualifier
+    - TRAVEL_AR -> still lands in PHASE5_TINT_COMPARE_DEEPEN_L1
+    - TRAVEL_EN -> signal improved, but cross-routed to PPF exit instead of ceramic-family exit
+  - Control reading:
+    - deferred-family routing is partially corrected
+    - remaining issue is now narrowed to residual cross-service and Arabic routing drift
+
   - Prompt-gap reading from context_reset_prompt.txt:
     - deferred-family objection signals are recognized in the prompt bridge:
       - READINESS_STALL
