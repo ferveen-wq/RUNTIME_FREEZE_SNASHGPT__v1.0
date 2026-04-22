@@ -371,7 +371,11 @@ Goal:
   - tests/uat/phase0_5_broader_regression_v1.json
   - tests/reports/uat_report_20260422_041517.json
   - Reading:
-    - broader phase0-5 pack was re-run but did not fully pass (35/40)
+    - broader phase0-5 pack was re-run again after residual fixes and now passes cleanly:
+    - tests/uat/phase0_5_broader_regression_v1.json
+    - tests/reports/uat_report_20260422_043757.json
+    - result: 2/2 passed
+    - earlier 35/40 broader result is now superseded
     - deferred-family routing fix held in the checked late-stage neighborhood
     - a later mid-size Phase 4–5 regression passed cleanly (24/24)
     - broader residual failures remain outside the deferred-family lane

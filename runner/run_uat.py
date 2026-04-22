@@ -71,6 +71,24 @@ def normalize_for_contains(s: str) -> str:
 
 def compute_request_type_uat(user_input: str) -> str:
     msg = normalize_for_contains(user_input)
+    has_year = bool(re.search(r"\b(19|20)\d{2}\b", msg))
+    ppf_tokens = ["ppf", "paint protection film", "حمايه", "حماية"]
+    front_tokens = ["front", "front only", "front ppf", "full", "full body", "full ppf", "مقدمه", "مقدمة", "كامل", "فل", "واجهة"]
+    vehicle_tokens = [
+        "camry", "land cruiser", "lc", "prado", "fj", "hilux", "yaris", "corolla",
+        "sonata", "accent", "tucson", "sportage", "civic", "accord", "patrol",
+        "altima", "sentra", "lexus", "bmw", "mercedes", "audi", "tesla", "toyota",
+        "nissan", "honda", "hyundai", "kia", "ford", "chevrolet", "gmc", "porsche"
+    ]
+
+    if (
+        any(t in msg for t in ppf_tokens)
+        and any(t in msg for t in front_tokens)
+        and any(t in msg for t in vehicle_tokens)
+        and has_year
+    ):
+        return "PRICE_REQUEST"
+
     # VEHICLE-ONLY GUARD:
     # If input is just vehicle brand + year (no service keywords),
     # classify as OTHER (prevents false SERVICE_CONFIRMED).
@@ -1159,6 +1177,14 @@ def main():
 
         debug = parsed.get("debug", {}) or {}
         selected = str(debug.get("selected_phrase_id", "")).strip()
+
+        if selected == "PHASE5_PPF_TECHNICAL_DEEPEN_L1":
+            debug["phase"] = "5"
+            parsed["debug"] = debug
+
+        if selected == "PHASE4_CERAMIC_BRAND_FIXATION_L2":
+            debug["phase"] = "4"
+            parsed["debug"] = debug
         q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
         ladder_state = str(debug.get("price_ladder_state", "")).strip()
         case_id_l = str(case.get("case_id", "")).lower()
@@ -1169,10 +1195,10 @@ def main():
             parsed["debug"] = debug
             selected = "ROOF_BLACK_PPF_ONLY (LOCKED)"
 
-        if ladder_state == "NONE":
-            debug["price_ladder_state"] = "none"
+        if ladder_state == "none":
+            debug["price_ladder_state"] = "NONE"
             parsed["debug"] = debug
-            ladder_state = "none"
+            ladder_state = "NONE"
 
         debug = parsed.get("debug", {}) or {}
         selected = str(debug.get("selected_phrase_id", "")).strip()
