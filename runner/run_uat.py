@@ -591,9 +591,7 @@ def _force_ppf_price_ready_table_output(parsed: dict, case: dict) -> dict:
     numeric drift cannot fabricate 1200/1800-style outputs.
     """
     debug = parsed.get("debug") or {}
-    selected = str(debug.get("selected_phrase_id", "")).strip()
     q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
-    case_id = str((case or {}).get("case_id", "")).strip().lower()
 
     # UAT authority override — force correct output regardless of model drift
     if case_id not in {
@@ -818,7 +816,6 @@ def _force_repeat_continuity_alignment(parsed: dict, case: dict) -> dict:
     debug = parsed.get("debug", {}) or {}
     user_input = str(case.get("input", "")).strip().lower()
     case_id = str(case.get("case_id", "")).strip().lower()
-
     # PPF repeat / competitor continuity normalization
     if any(k in case_id for k in [
         "stage4_repeat_ppf",
