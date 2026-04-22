@@ -256,15 +256,25 @@ Control implication:
 ### PHASE 4 (Objection / Sensitivity Routing)
 Status: UNDER_REVIEW
 Owner: Runtime / Prompt Bridge / Trusted UAT
-Last Verified: 2026-04-19
+Last Verified: 2026-04-22
 Notes:
 - Earlier green strict-pack results were affected by runner expectation leakage and must not be treated as trusted historical evidence.
-- Trusted-mode reruns now show a split result:
-  - stable lanes: PPF silence, PPF warranty sensitivity, PPF brand fixation
-  - failing lanes: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation, Ceramic price resistance
-- Mixed Phase 4 PPF pack behavior also supports the current runtime use of PRICE_SENSITIVITY routing in first-objection handling.
-- Current Phase 4 risk is not generic instability; it is specific contract mismatch across phrase selection, service continuity, phase-boundary enforcement, and likely naming-contract drift between PRICE_PRESSURE vs PRICE_SENSITIVITY expectations.
-- Do not treat Phase 4 strict routing as rollout-trusted until trusted-mode reconciliation is completed.
+- Latest repeated trusted reports now show stable strict-lane results for the currently covered Phase 4 PPF + Ceramic objection/silence families.
+- Revalidated trusted-pass lanes:
+  - PPF silence
+  - PPF warranty sensitivity
+  - PPF brand fixation
+  - PPF price resistance
+  - PPF technical sensitivity
+  - Ceramic silence
+  - Ceramic brand fixation
+  - Ceramic price resistance
+- Current Phase 4 reading:
+  - PPF + Ceramic strict-lane coverage is runner-validated in the present trusted window
+  - control-tower truth must follow the latest repeated report evidence, not the earlier interim failure window
+- Coverage boundary:
+  - Tint / Polish / Wrap Phase 4 phrase surface exists, but dedicated strict-lane validation is not yet present in this cycle
+  - therefore do not overstate full all-service Phase 4 rollout trust beyond the validated PPF + Ceramic lanes
 
 ---
 

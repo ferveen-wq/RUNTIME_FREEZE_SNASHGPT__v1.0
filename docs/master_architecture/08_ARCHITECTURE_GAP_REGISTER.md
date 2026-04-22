@@ -679,37 +679,36 @@ Status: OPEN
 
 GAP-021
 Type: ARCHITECTURE_CONFLICT
-Title: Phase 4 PPF technical-sensitivity phrase exists but is not reachable under current prompt-bridge TRUST_OR_RISK contract
+Title: Phase 4 PPF technical-sensitivity lane was previously unreachable under the earlier trusted-mode window, but is now validated in the current runner lane
 
 Source:
 - tests/uat/phase4_ppf_technical_sensitivity_strict_v2.json
+- tests/reports/uat_report_20260422_074758.json
+- tests/reports/uat_report_20260422_114314.json
+- tests/reports/uat_report_20260422_115835.json
 - runner/context_reset_prompt.txt
 - 00__LOCKED__UPLOAD_SET/00__Runtime/PHASE4_6_HUMAN_PHRASE_LIBRARY.md
 
 Impact:
-- Technical sensitivity questions (e.g. thickness, specs) are routed to PHASE4_PPF_BRAND_FIXATION_L1 instead of PHASE4_PPF_TECHNICAL_L1
-- Phrase library contains a technical-response block, but runtime contract does not expose a valid path to it
-- Creates mismatch between:
-  - phrase library intent
-  - prompt-bridge routing logic
-  - UAT strict expectations
+- Earlier evidence window showed a contract mismatch around technical sensitivity routing.
+- Latest repeated trusted reports now route technical sensitivity correctly to PHASE4_PPF_TECHNICAL_L1 with empty failures.
+- Historical failure should not continue to be treated as current open architecture truth.
 
-Observed Behavior:
+Observed Behavior (current trusted window):
 - objection_signal = TRUST_OR_RISK
-- non-warranty technical question -> forced to BRAND_FIXATION path
+- technical sensitivity question routes to PHASE4_PPF_TECHNICAL_L1
 
-Expected Behavior (per test pack intent):
+Expected Behavior:
 - technical sensitivity -> PHASE4_PPF_TECHNICAL_L1
 
 Classification:
-- Trusted failure (validated harness, valid pack)
-- Contract mismatch (not runner issue)
+- Reconciled by newer trusted evidence
 
 Decision:
-- Do NOT patch during revalidation phase
-- Defer resolution until Tier 2 evidence window is complete
+- Close the gap as resolved by latest repeated trusted reports.
+- Do not reopen unless a newer trusted report contradicts this state.
 
-Status: OPEN
+Status: RESOLVED
 
 ---
 

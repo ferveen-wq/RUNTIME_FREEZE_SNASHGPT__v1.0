@@ -178,32 +178,30 @@ Conclusion:
 Next:
 - Tier 2 first-wave checkpoint complete
 
-Tier 2 (PHASE 4 STRICT FIRST WAVE) — STATUS: MOSTLY VERIFIED
+Tier 2 (PHASE 4 STRICT FIRST WAVE) — STATUS: RECONCILED
 
-Trusted passes:
+Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
 - phase4_ppf_price_resistance_strict_v4.json
 - phase4_ppf_warranty_sensitivity_strict_v2.json
+- phase4_ppf_brand_fixation_strict_v3.json
+- phase4_ppf_technical_sensitivity_strict_v2.json
 - phase4_ceramic_silence_strict_v1.json
 - phase4_ceramic_brand_fixation_strict_v2.json
-
-Trusted failure:
-- phase4_ppf_technical_sensitivity_strict_v2.json
+- phase4_ceramic_price_resistance_strict_v2.json
 
 Tier 2 conclusion:
-- Trusted-mode rerun is now active and meaningful after runner leak removal
-- Tier 2 first-wave no longer appears broadly green
-- Current trusted Phase 4 result set is:
-  - Trusted Pass: PPF silence, PPF warranty sensitivity, PPF brand fixation, mixed PPF phase4 strict pack
-  - Trusted Failure: PPF price resistance, PPF technical sensitivity, Ceramic silence, Ceramic brand fixation, Ceramic price resistance
-- Strengthened pattern:
-  - trusted-mode evidence repeatedly favors PRICE_SENSITIVITY phrase IDs where older strict packs expect PRICE_PRESSURE phrase IDs
-- Phase 4 strict lanes require architecture/runtime reconciliation before any rollout trust claim
-
-Phase 4 reconciliation (post trusted-mode fix):
-- Price objection contract aligned to PRICE_PRESSURE authority
-- Ceramic silence routing isolated correctly from PPF
-- Ceramic brand/trust objection correctly constrained to Phase 4 (no premature Phase 5 escalation)
+- Trusted-mode rerun remains the correct evidence lane after runner leak removal.
+- Latest repeated reports now show the covered PPF + Ceramic Phase 4 strict lanes passing with expected phrase IDs and empty failures arrays.
+- Current trusted Phase 4 result set:
+  - Trusted Pass: all currently covered PPF + Ceramic strict objection/silence lanes
+- Reconciled reading:
+  - PRICE_PRESSURE authority is now holding in the trusted runner lane
+  - PPF technical sensitivity is now reachable in the trusted runner lane
+  - ceramic silence / brand / price lanes are holding in Phase 4 correctly
+- Boundary:
+  - this does not yet establish all-service Phase 4 trust
+  - tint / polish / wrap Phase 4 strict-lane coverage is not yet present in this cycle
 
 Phase 5 reconciliation (post branch routing fixes):
 - PPF Phase 5 branch routing restored (price / technical / narrow / exit / brand)
