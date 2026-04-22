@@ -146,6 +146,15 @@ Notes:
   - PHASE4_6-owned customer-facing rendering
   - Route B entry cases validated for PPF, Ceramic, Tint, and Wrap
 - Remaining runner-side micro wording strictness, if any, is non-blocking to the resolved Phase 6 contract boundary.
+- Phase 8 current reading (2026-04-22):
+  - minimal comparison routing exists in PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+  - visual/video tooling and approved asset registry now exist in repo
+  - VIDEO_LIBRARY_INDEX.md contains approved video links
+  - VIDEO_TRIGGER_MATRIX.md defines trigger mapping
+  - tools/attach_visuals.py and related visual-selection tooling exist
+  - VIS_001 records the merged Phase 8 bridge in governance history
+  - however execution-path proof is still incomplete, so Phase 8 visual delivery must not yet be treated as trusted runtime rollout behavior
+
 - Phase 5 / Phase 7 authority reconciliation (2026-04-22):
   - Phase 5 remains the sole owner of late-stage conversation control:
     objection handling, readiness stall, deferred/thinking handling, silence handling, closing, and handover.

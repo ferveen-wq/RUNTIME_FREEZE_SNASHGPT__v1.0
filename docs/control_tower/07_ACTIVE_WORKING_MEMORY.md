@@ -717,3 +717,20 @@ Operational rule:
 - Treat thinking / deferred / silence as Phase 5-owned late-stage states.
 - Treat any Phase 7 follow-up-question behavior as a boundary contradiction unless separately locked by higher authority.
 
+
+## PHASE 8 CURRENT READING — 2026-04-22
+
+- Phase 8 comparison routing exists in assembly as a minimal active route.
+- Phase 8 visual/video support layer now has real assets and tooling present in repo.
+- Phase 8 visual delivery is not rollout-trusted or fully runtime-proven.
+- Current evidence shows:
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md carries minimal comparison routing and visual attachment references
+  - tools/attach_visuals.py plus the visual-selection toolchain exist in repo
+  - VIDEO_LIBRARY_INDEX.md contains approved video links
+  - VIDEO_TRIGGER_MATRIX.md defines trigger-to-visual mapping
+  - VIS_001 in RUNTIME_CHANGE_LEDGER records the merged Phase 8 bridge
+- Therefore:
+  - do not treat Phase 8 video/visual delivery as trusted runtime rollout behavior yet
+  - do not create active Phase 8 visual-delivery UAT yet
+  - treat Phase 8 as partially implemented support architecture pending execution-proof validation
+

@@ -470,7 +470,8 @@ IF request_type == PRICE_REQUEST:
 #     - expectation mismatch / “does it protect?” → PHASE5_POLISH_EXPECTATION_DEEPEN_L1
 
 PURPOSE:
-Phase 5 exists between Phase 4 (confidence) and Phase 7 (closing).
+Phase 5 exists between Phase 4 (confidence) and Phase 7 (education support).
+Late-stage behavioral control remains Phase 5-owned; Phase 7 must not be treated as a closing owner.
 It allows controlled deepening of conversation WITHOUT:
 - Escalating to closing
 - Introducing new pricing
@@ -939,11 +940,12 @@ If any gate fails → H1 is excluded (no fallback hook).
 
 ---
 
-## PHASE 7 — CLOSING & FOLLOW-UP ROUTING (REQUIRED)
+## PHASE 7 — EDUCATION-SAFE SUPPORT ROUTING (BOUNDARY-CONTRADICTED LABEL)
 
 Purpose:
-- Wire Phase 7 states into legal assembly paths using existing phrase authority only.
-- Phase 7 must NOT introduce service education, pricing, negotiation, or new wording.
+- This section is preserved as historical assembly wording, but it is no longer the trusted owner model.
+- Phase 7 must be treated as explanation-only support, not late-stage behavioral control.
+- Thinking / deferred / silent / readiness handling belong to Phase 5 and related runtime control owners.
 
 Authority:
 - Execution authority: Production runtime state + routing only (this file + QUALIFICATION_ENGINE.md + RUNTIME_EXECUTION_FLOW.md)
@@ -1048,7 +1050,7 @@ If Phase 7 is active (valid Phase 7 entry condition met per production runtime s
 - Suppress hooks (H1) unconditionally
 - Suppress Phase 6 service explanation blocks
 - Suppress PRICE_LADDER_ENGINE output
-- Assemble ONLY from "PHASE 7 — CLOSING & FOLLOW-UP ROUTING"
+- Assemble ONLY from this constrained support section when higher-authority runtime ownership explicitly allows it
 
 Interpretation:
 - Suppression always reduces complexity (fewer blocks).

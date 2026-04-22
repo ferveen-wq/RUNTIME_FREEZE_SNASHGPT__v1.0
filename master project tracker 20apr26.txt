@@ -540,3 +540,30 @@ INTERPRETATION:
 - Phase 7 may support those states with explanation only when explicitly allowed.
 - Any assembly rule that makes Phase 7 behave like a follow-up / hook / control layer must be treated as a boundary contradiction.
 
+
+--------------------------------------------------
+PHASE 8 STATUS LOCK (2026-04-22)
+--------------------------------------------------
+
+CURRENT READING:
+- Phase 8 comparison routing exists in assembly as a minimal active route.
+- Phase 8 visual/video support layer now has real assets and tooling present in repo.
+- Phase 8 visual delivery is NOT yet rollout-trusted or fully runtime-proven.
+
+EVIDENCE:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md = minimal comparison routing (active)
+- tools/attach_visuals.py + visual engine = visual delivery tooling exists
+- VIDEO_LIBRARY_INDEX.md (control-tower) = approved video links exist
+- VIDEO_TRIGGER_MATRIX.md = trigger-to-visual mapping defined
+- VIS_001 (RUNTIME_CHANGE_LEDGER) = Phase 8 visual bridge merged into main
+
+LIMITATION:
+- No trusted-lane UAT or end-to-end execution proof for visual delivery
+- Not proven as manifest-driven runtime-active behavior
+- Delivery depends on downstream wiring not yet validated in runner
+
+RULE:
+- Do NOT treat Phase 8 visual/video delivery as rollout-active behavior yet.
+- Do NOT create production UAT or rollout claims for video delivery.
+- Treat Phase 8 as partially implemented (assets + bridge exist) but not execution-proven.
+

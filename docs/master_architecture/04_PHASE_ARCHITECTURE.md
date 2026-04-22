@@ -453,12 +453,13 @@ Rules:
 
 ---
 
-## 10. Phase 7 Runtime Closing / Follow-Up Route
+## 10. Phase 7 Historical Runtime Label / Support Route
 
 [FROM: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md]
 
 Purpose:
-- handle post-decision follow-up / re-entry / silence-adjacent closing behavior using locked phrase authority only
+- document the historical assembly-map Phase 7 label that existed before authority reconciliation
+- do not treat Phase 7 as the owner of late-stage follow-up, silence, deferred, or closing behavior
 
 Inputs:
 - `READY_TO_PROCEED`
@@ -469,17 +470,18 @@ Inputs:
 - `active_service_context`
 
 Outputs:
-- approved closing/follow-up phrase selection only
+- constrained support phrasing only when separately allowed by higher runtime ownership
 
 Allowed:
 - continue context safely
 - preserve service continuity
-- suppress hooks, pricing, and Phase 6 explanation during this route
+- suppress hooks, pricing, and Phase 6 explanation during this support route
 
 Must not:
-- act as education snippet owner
+- act as a late-stage behavioral owner
 - introduce pricing
 - introduce service education by default
+- replace Phase 5 objection / silence / deferred / handover ownership
 
 ---
 
@@ -493,9 +495,9 @@ Purpose:
 - provide reusable explanation snippets when explanation is allowed by routing/governance
 
 Status:
-- support layer referenced by runtime-governed hook/explanation architecture
-- not yet independently proven as a standalone execution step in runtime flow
-- runner-hardened prompt-bridge proof currently exists only for the re-entry path (`REENTERED_CONTINUE`), not the broader Phase 7 state family
+- support layer referenced by runtime-governed explanation architecture
+- not a standalone late-stage control owner
+- `REENTERED_CONTINUE` remains the only runner-proven Phase 7 support lane; broader THINKING / SILENT / DEFERRED / READY_TO_PROCEED must not be treated as Phase 7-owned behavior
 
 ---
 

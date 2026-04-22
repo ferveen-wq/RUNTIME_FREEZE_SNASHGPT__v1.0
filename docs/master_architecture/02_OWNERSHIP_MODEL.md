@@ -464,9 +464,10 @@ Rules:
 Authority clarification:
 - `PHASE_4_7_HOOK_QUESTION_ENGINE.md` is manifest-loaded and owns optional hook eligibility only.
 - It may reference the Phase 7 education snippet layer for explanation support, but it does not itself create a separate closing/follow-up phase.
-- Therefore "Phase 7" currently splits into:
-  - runtime closing/follow-up routing in `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+- Therefore "Phase 7" must now be read as:
+  - historical assembly-map labeling in `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
   - education snippet support layer in `PHASE7_EDUCATION_SNIPPETS.md`
+Late-stage behavioral control is not owned by Phase 7.
 
 ---
 
@@ -485,10 +486,11 @@ Does NOT:
 - decide hook eligibility
 - decide pricing
 - act as the closing/follow-up route owner by itself
+- own silence / deferred / thinking / readiness / handover behavior
 
 Current status:
-- referenced by hook/governance architecture
-- not yet independently proven as a first-class execution step in `RUNTIME_EXECUTION_FLOW.md`
+- referenced by governance architecture as explanation support
+- not a first-class late-stage execution owner in `RUNTIME_EXECUTION_FLOW.md`
 - runner-hardened prompt-bridge proof currently exists only for `request_type = REENTERED_CONTINUE`, not for the broader Phase 7 state family
 
 ---
