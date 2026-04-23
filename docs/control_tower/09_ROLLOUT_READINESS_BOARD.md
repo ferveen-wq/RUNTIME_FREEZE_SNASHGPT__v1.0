@@ -36,6 +36,11 @@ Rollout reading:
 Open edge issue:
 - after coverage + driving pattern are known, narrow live simulation showed extra PPF question instead of direct price-ready movement
 
+Updated reading (2026-04-23):
+- clean runtime-project behavior and narrow UAT/runner behavior diverged on this lane
+- current UAT/runner bridge does not provide stable rollout-truth evidence for narrow PPF carry-through
+- therefore this remains an edge/tooling lane, not a runtime-core reopening trigger
+
 Current reading:
 - likely Phase 3A overflow / optional comparison-focus misfire
 - narrow issue
