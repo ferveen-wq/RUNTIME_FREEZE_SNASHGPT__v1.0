@@ -264,6 +264,14 @@ control decision:
   - control decision:
     - do not patch runtime authority from current manual prompt evidence alone
     - first create a runtime-faithful simulation prompt, then rerun the narrow PPF front-capture scenario
+- ceramic upstream due-diligence result:
+  - ceramic locked runtime doctrine is aligned on paper:
+    - first qualifier = CERAMIC_GOAL
+    - second qualifier = CERAMIC_WASH_PATTERN
+  - no clear ceramic runtime owner was found for the observed live-simulation question: "is your car new or used?"
+  - control decision:
+    - do not patch ceramic runtime authority from this evidence alone
+    - treat current ceramic live simulation as still affected by execution drift / non-faithful simulation behavior
 
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
