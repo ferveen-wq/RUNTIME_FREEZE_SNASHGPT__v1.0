@@ -246,6 +246,13 @@ control decision:
   - control decision:
     - do not patch locked runtime authority files yet
     - continue investigation in execution / prompt-bridge obedience lane
+- message-assembly due-diligence result:
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md is acting as a passive mapper for Phase 3A PPF qualifiers
+  - when phase3a_qualifier_id is present, assembly requires verbatim routing to the matching phrase block only
+  - no active assembly-layer evidence was found showing independent reshaping of PHASE3A_Q_PPF_DRIVING_PATTERN back into coverage questioning
+  - control decision:
+    - do not patch message assembly
+    - keep focus on upstream qualifier-selection / execution obedience surface
 
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
