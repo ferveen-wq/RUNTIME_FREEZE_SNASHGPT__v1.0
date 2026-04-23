@@ -231,6 +231,12 @@ control decision:
 - requires either:
   - prompt determinism hardening, OR
   - upgraded simulation method for reliable reproduction
+- contradiction audit result:
+  - runner/context_reset_prompt.txt no longer shows a direct written contradiction on the narrow PPF front-coverage path
+  - written rules now consistently state:
+    - missing PPF_DRIVING_PATTERN -> remain in Phase 3A
+    - present PPF_DRIVING_PATTERN -> allow PPF price-ready path
+  - therefore remaining instability is currently classified as execution / obedience instability, not a newly proven written-rule conflict
 
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
