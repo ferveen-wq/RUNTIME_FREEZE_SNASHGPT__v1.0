@@ -31,4 +31,7 @@ NO ACTIVE GAPS
 - Do not create a new Phase 7 gap merely because a pack uses THINKING / DEFERRED / SILENT labels.
 - First verify whether the pack is violating the locked Phase 5 / Phase 7 ownership boundary.
 - Mis-scoped UAT packs must be deprecated rather than treated as live runtime truth.
+- Runner trust audit note (2026-04-22):
+  - do not create a new runtime gap solely from packs that are currently shaped by runner/run_uat.py _force_* hooks
+  - first classify those results as harness-shaped evidence and resolve runner trust status before reopening runtime gap status
 

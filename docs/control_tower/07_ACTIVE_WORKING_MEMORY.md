@@ -174,6 +174,20 @@ Conclusion:
 - Tier 1 baseline is now PROVISIONAL / TAINTED
 - Sentinel falsification on 2026-04-19 passed when it should have failed
 - Do NOT treat current green packs as trusted rollout evidence until harness audit is complete
+- Runner trust audit update (2026-04-22):
+  - strict_raw still passes through post-generation _force_* hooks in runner/run_uat.py
+  - active tests remain effectively single-turn / state-injected; no active multi-turn turns-based packs are present in tests/uat
+  - several active packs are currently runner-shaped rather than neutral rollout-proof evidence, including:
+    - phase3_strict_guard_pack.json
+    - phase3_audit_pack_v3.json
+    - phase4_ppf_silence_strict_v1.json
+    - phase4_ceramic_silence_strict_v1.json
+    - phase5_ceramic_verbatim_strict_v1.json
+    - phase7_reentered_only_v1.json
+    - phase4_5_mid_regression_v1.json
+    - phase0_5_broader_regression_v1.json
+    - phase5_regression_post_gap022_v1.json
+  - therefore current green results from those packs must be treated as harness-shaped evidence, not neutral rollout truth
 
 Next:
 - Tier 2 first-wave checkpoint complete

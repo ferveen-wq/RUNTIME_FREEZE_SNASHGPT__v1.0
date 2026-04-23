@@ -70,6 +70,10 @@ Notes:
 - Ceramic Phase 4 strict coverage exists for silence, brand fixation, and price resistance.
 - Use the later trusted Phase 4 objection/sensitivity review section below as the active control-tower truth for current trusted status and residual risk.
 - Harness continuity is still not trusted for real multi-turn simulation, so current validated interpretation must remain tied to classified single-turn, state-injected evidence only.
+- Runner trust audit update (2026-04-22):
+  - strict_raw packs are not fully raw because runner/run_uat.py still applies post-generation _force_* hooks before expectation checks
+  - several currently active packs are runner-shaped by case-specific outcome hooks and must not be treated as neutral rollout-proof evidence
+  - use those packs only as harness-shaped / runner-shaped validation evidence unless and until the force-hook surface is narrowed or quarantined
 - Stage 4 control update (2026-04-21):
   - Arabic/English services-browsing routing defect family was found and resolved in the active runtime prompt + runner shim path.
   - Bizinfo vs service-entry boundary sweep passed in isolated Stage 4 validation.
