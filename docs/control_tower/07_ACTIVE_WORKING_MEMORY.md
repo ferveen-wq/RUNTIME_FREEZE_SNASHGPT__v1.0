@@ -208,6 +208,30 @@ ROLLOUT MODE:
 
 Tier 2 (PHASE 4 STRICT FIRST WAVE) — STATUS: RECONCILED
 
+--- PPF QUALIFICATION → PRICE STABILITY NOTE (2026-04-23) ---
+- manual simulation revealed early price jump risk on: "ppf camry 2022 front"
+- expected behavior: Phase 3A → ask PHASE3A_Q_PPF_DRIVING_PATTERN
+- observed behavior: intermittent jump to PHASE3B_PPF_RANGE
+
+stability rerun results (identical case, forced runtime signals):
+  - run 1: FAIL (jumped to PHASE3B)
+  - run 2: PASS (correct 3A driving-pattern question)
+  - run 3: PASS (correct 3A driving-pattern question)
+
+classification:
+- not deterministic
+- not safe for rollout
+- not a confirmed runtime logic defect
+- currently treated as prompt/runner execution instability
+
+control decision:
+- DO NOT mark as fixed
+- DO NOT introduce further patches yet
+- treat as unstable validation surface
+- requires either:
+  - prompt determinism hardening, OR
+  - upgraded simulation method for reliable reproduction
+
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
 - phase4_ppf_price_resistance_strict_v4.json
