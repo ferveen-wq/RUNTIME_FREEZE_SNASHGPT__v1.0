@@ -77,3 +77,21 @@ Conclusion:
 - likely connected to extra comparison/protection-focus gating
 - qualifies for narrow owner audit before any patch
 
+
+
+## RESULT — CERAMIC UPSTREAM TEST (STEP 1)
+
+Input:
+ceramic camry 2022
+
+Observed:
+- system asked whether the car is new or used
+
+Expected:
+- system should ask CERAMIC_GOAL only
+
+Conclusion:
+- confirmed wrong-question routing on ceramic upstream entry
+- not aligned with ceramic Phase 3A qualifier chain
+- qualifies for narrow owner scan before any patch
+
