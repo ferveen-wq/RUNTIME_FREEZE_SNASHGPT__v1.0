@@ -54,3 +54,26 @@ Conclusion:
 - reproducible in manual simulation
 - qualifies for targeted fix planning
 
+
+
+## RESULT — PPF FRONT COVERAGE TEST (STEP 2)
+
+Input sequence:
+ppf camry 2022 front
+city
+
+Observed:
+- coverage was correctly not re-asked
+- driving-pattern question was correctly asked
+- after driving-pattern answer, system asked an extra protection-level question
+
+Expected:
+- after FULL_FRONT + CITY/HIGHWAY are both known
+- system should move to price-ready
+- system should not ask another qualifier
+
+Conclusion:
+- confirmed reproducible Phase 3A overflow on narrow PPF lane
+- likely connected to extra comparison/protection-focus gating
+- qualifies for narrow owner audit before any patch
+
