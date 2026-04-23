@@ -105,3 +105,20 @@ Rollout reading:
 - PPF core runtime lane remains usable for controlled progression
 - narrow carry-through defect is not closed in UAT bridge lane
 - further work here belongs to tooling / bridge stabilization, not immediate runtime-file patching
+
+
+## UAT DEBUG LIMITATION — PPF NARROW LANE
+
+Finding:
+- latest narrow UAT report does not expose the actual trigger-level fields needed to prove why Q3 is firing
+- missing debug-level visibility includes:
+  - PRICE_PRESSURE_LEVEL
+  - COMPETITOR_QUOTE_STATUS
+  - COMPETITOR_INFLUENCE_LEVEL
+  - brand_fixation
+
+Conclusion:
+- this narrow UAT lane is not sufficient for trigger-level PPF root-cause proof
+- do not use this specific UAT case as further engine-patch authority
+- keep runtime-project behavior as the primary rollout-reading lane for now
+
