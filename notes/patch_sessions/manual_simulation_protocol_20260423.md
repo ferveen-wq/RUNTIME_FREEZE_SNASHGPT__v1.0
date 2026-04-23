@@ -34,3 +34,23 @@ Current first target:
 ## Current reading
 - runner/UAT remains useful but not sufficient alone for this narrow path
 - manual simulation is now the preferred reality-check lane for this issue family
+
+
+## RESULT — PPF FRONT COVERAGE TEST (STEP 1)
+
+Input:
+ppf camry 2022 front
+
+Observed:
+- system asked coverage again
+
+Expected:
+- system should recognize FULL_FRONT
+- system should ask driving pattern
+
+Conclusion:
+- confirmed failure in coverage capture
+- not a random instability
+- reproducible in manual simulation
+- qualifies for targeted fix planning
+
