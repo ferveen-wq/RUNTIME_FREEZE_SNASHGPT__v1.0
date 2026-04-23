@@ -34,4 +34,5 @@ NO ACTIVE GAPS
 - Runner trust audit note (2026-04-22):
   - do not create a new runtime gap solely from packs that are currently shaped by runner/run_uat.py _force_* hooks
   - first classify those results as harness-shaped evidence and resolve runner trust status before reopening runtime gap status
+  - hook-dependent contract packs must not be promoted into neutral rollout-proof evidence without first removing or quarantining the shaping surface
 

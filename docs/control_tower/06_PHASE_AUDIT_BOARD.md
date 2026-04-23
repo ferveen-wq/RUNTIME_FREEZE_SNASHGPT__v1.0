@@ -74,6 +74,13 @@ Notes:
   - strict_raw packs are not fully raw because runner/run_uat.py still applies post-generation _force_* hooks before expectation checks
   - several currently active packs are runner-shaped by case-specific outcome hooks and must not be treated as neutral rollout-proof evidence
   - use those packs only as harness-shaped / runner-shaped validation evidence unless and until the force-hook surface is narrowed or quarantined
+  - containment applies explicitly to:
+    - phase3_audit_pack_v3.json
+    - phase3_strict_guard_pack.json
+    - phase4_ppf_silence_strict_v1.json
+    - phase4_ceramic_silence_strict_v1.json
+    - phase5_ceramic_verbatim_strict_v1.json
+    - any broader regression pack that includes those same shaped case_ids
 - Stage 4 control update (2026-04-21):
   - Arabic/English services-browsing routing defect family was found and resolved in the active runtime prompt + runner shim path.
   - Bizinfo vs service-entry boundary sweep passed in isolated Stage 4 validation.

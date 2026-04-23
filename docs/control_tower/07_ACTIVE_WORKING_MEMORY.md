@@ -188,6 +188,13 @@ Conclusion:
     - phase0_5_broader_regression_v1.json
     - phase5_regression_post_gap022_v1.json
   - therefore current green results from those packs must be treated as harness-shaped evidence, not neutral rollout truth
+  - containment reading:
+    - phase3_audit_pack_v3.json is a harness-shaped contract pack, not neutral runtime-proof evidence
+    - phase3_strict_guard_pack.json is a harness-shaped contract pack, not neutral runtime-proof evidence
+    - phase4_ppf_silence_strict_v1.json is a harness-shaped contract pack, not neutral runtime-proof evidence
+    - phase4_ceramic_silence_strict_v1.json is a harness-shaped contract pack, not neutral runtime-proof evidence
+    - phase5_ceramic_verbatim_strict_v1.json is a harness-shaped contract pack, not neutral runtime-proof evidence
+    - broader regression packs containing those cases must inherit the same containment reading unless the shaped cases are removed or quarantined
 
 Next:
 - Tier 2 first-wave checkpoint complete
