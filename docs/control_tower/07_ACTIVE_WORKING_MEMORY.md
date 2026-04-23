@@ -199,6 +199,13 @@ Conclusion:
 Next:
 - Tier 2 first-wave checkpoint complete
 
+ROLLOUT MODE:
+- CONTROLLED ROLLOUT ACTIVE
+- Refer to PHASE_AUDIT_BOARD for official rollout decision
+- Treat harness-shaped packs as contract validation only
+- Do NOT use regression packs as rollout-proof evidence
+
+
 Tier 2 (PHASE 4 STRICT FIRST WAVE) — STATUS: RECONCILED
 
 Trusted passes in the latest repeated report window:

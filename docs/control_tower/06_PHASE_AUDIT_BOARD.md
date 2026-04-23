@@ -179,6 +179,39 @@ Notes:
 ### PHASE 5 (Late-Stage Narrowing / Exit / Deepen)
 Status: UNDER_REVIEW
 Owner: Runtime / Prompt Bridge / Trusted UAT
+
+## ROLLOUT DECISION — CONTROLLED RELEASE MODE (2026-04-23)
+
+- Rollout classification:
+  - CONTROLLED ROLLOUT READY (not full autonomy)
+
+- Decision:
+  - Proceed with rollout using current validated runtime behavior across Phases 0–7
+  - Do NOT treat all UAT packs as neutral rollout-proof evidence
+
+- Evidence model:
+  - Neutral packs → rollout-proof evidence
+  - Harness-shaped contract packs → guardrail validation only
+  - Deprecated / probe packs → non-authoritative
+
+- Runner status:
+  - runner/run_uat.py contains post-generation _force_* hooks
+  - strict_raw is not fully raw under current harness
+  - runner helpers remain ACTIVE for now (no removal in this phase)
+
+- Risk acknowledgment:
+  - current validation is single-turn / state-injected
+  - multi-turn real conversation behavior not yet fully validated
+  - regression packs containing shaped cases are not rollout-proof
+
+- Constraint:
+  - Do NOT patch runtime based on hook-shaped pack results
+  - Do NOT claim full UAT neutrality or 100% behavioral validation
+
+- Forward plan:
+  - Runner trust remediation deferred to separate controlled lane
+  - Multi-turn validation to be introduced after rollout stabilization
+
 Last Verified: 2026-04-19
 Notes:
 - Trusted-mode reruns show that Phase 5 is partially healthy, not generically unstable.
