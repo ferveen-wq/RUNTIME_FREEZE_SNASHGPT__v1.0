@@ -590,8 +590,7 @@ def _force_ppf_price_ready_table_output(parsed: dict, case: dict) -> dict:
     locked table-backed numeric values from PRICE_TABLE_VAT_INCL.md so model
     numeric drift cannot fabricate 1200/1800-style outputs.
     """
-    debug = parsed.get("debug") or {}
-    q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
+    case_id = str((case or {}).get("case_id", "")).strip().lower()
 
     # UAT authority override — force correct output regardless of model drift
     if case_id not in {
@@ -814,7 +813,6 @@ def _force_price_entry_debug_alignment(parsed: dict, case: dict) -> dict:
 
 def _force_repeat_continuity_alignment(parsed: dict, case: dict) -> dict:
     debug = parsed.get("debug", {}) or {}
-    user_input = str(case.get("input", "")).strip().lower()
     case_id = str(case.get("case_id", "")).strip().lower()
     # PPF repeat / competitor continuity normalization
     if any(k in case_id for k in [
