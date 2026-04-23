@@ -69,6 +69,19 @@ Notes:
 - PPF Phase 4 strict coverage exists for entry, first objection, silence, warranty sensitivity, technical sensitivity, brand fixation, and price resistance.
 - Ceramic Phase 4 strict coverage exists for silence, brand fixation, and price resistance.
 - Use the later trusted Phase 4 objection/sensitivity review section below as the active control-tower truth for current trusted status and residual risk.
+- PPF qualification-to-price stability note (2026-04-23):
+  - manual simulation and repeated forced-signal reruns exposed unstable behavior on the narrow PPF front-coverage path
+  - expected behavior: after FULL_FRONT is known and PPF_DRIVING_PATTERN is missing, remain in Phase 3A and ask PHASE3A_Q_PPF_DRIVING_PATTERN
+  - observed behavior: identical reruns produced mixed outcomes, including intermittent jump to PHASE3B_PPF_RANGE
+  - current reading:
+    - not deterministic
+    - not rollout-safe
+    - not yet a confirmed locked-runtime defect
+    - presently treated as prompt/runner execution instability
+  - control decision:
+    - do not mark fixed
+    - do not broaden rollout trust from this lane
+    - do not continue blind patching until contradiction audit is completed
 - Harness continuity is still not trusted for real multi-turn simulation, so current validated interpretation must remain tied to classified single-turn, state-injected evidence only.
 - Runner trust audit update (2026-04-22):
   - strict_raw packs are not fully raw because runner/run_uat.py still applies post-generation _force_* hooks before expectation checks
