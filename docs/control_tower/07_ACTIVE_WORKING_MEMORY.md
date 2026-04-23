@@ -253,6 +253,17 @@ control decision:
   - control decision:
     - do not patch message assembly
     - keep focus on upstream qualifier-selection / execution obedience surface
+- manual-simulation prompt due-diligence result:
+  - the currently used manual chat prompt is materially weaker than runner/context_reset_prompt.txt
+  - it captures business-style behavior rules, but not the full runtime execution constraints for PPF qualification flow
+  - missing simulation-layer constraints include:
+    - exact completed-key logic for PPF
+    - exact Phase 3A qualifier enforcement
+    - exact price-block behavior before qualification completion
+    - exact PPF price-ready gating requirements
+  - control decision:
+    - do not patch runtime authority from current manual prompt evidence alone
+    - first create a runtime-faithful simulation prompt, then rerun the narrow PPF front-capture scenario
 
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
