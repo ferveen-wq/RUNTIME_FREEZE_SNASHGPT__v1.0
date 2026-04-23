@@ -237,6 +237,15 @@ control decision:
     - missing PPF_DRIVING_PATTERN -> remain in Phase 3A
     - present PPF_DRIVING_PATTERN -> allow PPF price-ready path
   - therefore remaining instability is currently classified as execution / obedience instability, not a newly proven written-rule conflict
+- runtime due-diligence result:
+  - manifest and execution flow both confirm CUSTOMER_CHAT_INTAKE_RULES.md and QUALIFICATION_ENGINE.md are active in the live runtime chain
+  - no active duplicate runtime owner was found that clearly overwrites PPF_COVERAGE_INTENT away from FULL_FRONT
+  - locked runtime doctrine already states:
+    - front/front only -> FULL_FRONT
+    - known FULL_FRONT + missing PPF_DRIVING_PATTERN -> ask PHASE3A_Q_PPF_DRIVING_PATTERN
+  - control decision:
+    - do not patch locked runtime authority files yet
+    - continue investigation in execution / prompt-bridge obedience lane
 
 Trusted passes in the latest repeated report window:
 - phase4_ppf_silence_strict_v1.json
