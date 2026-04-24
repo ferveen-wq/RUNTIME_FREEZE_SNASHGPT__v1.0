@@ -81,11 +81,25 @@ def compute_request_type_uat(user_input: str) -> str:
         "nissan", "honda", "hyundai", "kia", "ford", "chevrolet", "gmc", "porsche"
     ]
 
+    price_tokens = [
+        "how much",
+        "price",
+        "pricing",
+        "cost",
+        "كم",
+        "سعر",
+        "بكم",
+        "كم السعر",
+        "التكلفة",
+        "كم يكلف",
+    ]
+
     if (
         any(t in msg for t in ppf_tokens)
         and any(t in msg for t in front_tokens)
         and any(t in msg for t in vehicle_tokens)
         and has_year
+        and any(tok in msg for tok in price_tokens)
     ):
         return "PRICE_REQUEST"
 
