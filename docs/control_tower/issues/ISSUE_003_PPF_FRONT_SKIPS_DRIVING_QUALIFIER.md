@@ -50,3 +50,32 @@ Authority index does not explicitly list `PPF_DRIVING_PATTERN`, but it does stat
 Current classification:
 - Possible competing authority between Intake extraction and Qualification selection.
 - Do not patch until authority boundary is clarified.
+
+## Cross-Service Authority Evidence — 2026-04-24
+
+Owner-map comparison across Phase 3A parameters:
+
+PPF:
+- `PPF_COVERAGE_INTENT` has writers in:
+  - `CUSTOMER_CHAT_INTAKE_RULES.md`
+  - `QUALIFICATION_ENGINE.md`
+- `PPF_DRIVING_PATTERN` has writers in:
+  - `CUSTOMER_CHAT_INTAKE_RULES.md`
+  - `QUALIFICATION_ENGINE.md`
+
+Ceramic:
+- `CERAMIC_GOAL` and `CERAMIC_WASH_PATTERN` are governed by `QUALIFICATION_ENGINE.md` selection logic.
+- No Intake writer surfaced in owner-map output.
+
+Tint:
+- `TINT_GOAL` is governed by `QUALIFICATION_ENGINE.md` selection logic.
+- No Intake writer surfaced in owner-map output.
+
+Conclusion:
+PPF has a unique competing-authority risk not mirrored in Ceramic/Tint.
+Likely architecture correction:
+- `CUSTOMER_CHAT_INTAKE_RULES.md` may extract same-message hints.
+- `QUALIFICATION_ENGINE.md` must remain the final qualification-state owner for Phase 3A readiness and qualifier sequencing.
+
+Patch decision:
+Do not patch until the exact boundary wording is defined and validation is set.
