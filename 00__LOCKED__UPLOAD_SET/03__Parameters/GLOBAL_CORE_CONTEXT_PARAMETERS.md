@@ -1,6 +1,6 @@
 # GLOBAL_CORE_CONTEXT_PARAMETERS.md
-Version: v1.0
-Status: LOCKED (v1.0)
+Version: v1.1
+Status: LOCKED (v1.1)
 
 ## LOCK NOTE
 - This file defines **core, stable parameters** used across engines.
@@ -275,13 +275,185 @@ Description: PPF-only coverage detail when SERVICE_INTENT includes PPF.
 Allowed Values:
 - FULL_BODY
 - FULL_FRONT
+- ROOF_ONLY
 - PARTIAL_OR_CUSTOM
 - UNSURE
+- UNKNOWN
 - NOT_APPLICABLE
 
 Used By:
-- Pricing Ladder Engine
 - Qualification Engine
+- Pricing Ladder Engine
+- SKU Selection Matrix
+
+---
+
+### PARAMETER: PPF_DRIVING_PATTERN
+Description: PPF-only driving exposure qualifier captured during Phase 3A.
+Allowed Values:
+- CITY
+- HIGHWAY
+- MIXED
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- Negotiation Logic
+
+---
+
+### PARAMETER: PPF_COMPARISON_FOCUS
+Description: Optional PPF comparison-focus qualifier used only when price, competitor, brand, or quality pressure is explicitly triggered.
+Allowed Values:
+- COVERAGE
+- FILM_QUALITY
+- HEADLINE_PRICE
+- MIXED
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Negotiation Logic
+- Objection Resolution Engine
+
+---
+
+### PARAMETER: PPF_FINISH_INTENT
+Description: Passive PPF finish signal used for SKU routing. It must not create an extra Phase 3A question.
+Allowed Values:
+- GLOSS
+- MATTE
+- UNKNOWN
+
+Notes:
+- Set only when customer explicitly mentions matte / stealth / satin / مطفي.
+- Does NOT introduce new qualification questions.
+- Purely passive dimension for SKU routing.
+
+Used By:
+- Qualification Engine
+- SKU Selection Matrix
+- Message Assembly Map
+
+---
+
+### PARAMETER: CERAMIC_GOAL
+Description: Ceramic Phase 3A goal qualifier.
+Allowed Values:
+- EASY_CLEAN_LONG_TERM
+- LOOKS_FRESH_SHORT_TERM
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- SKU Selection Matrix
+
+---
+
+### PARAMETER: CERAMIC_WASH_PATTERN
+Description: Ceramic Phase 3A washing-pattern qualifier.
+Allowed Values:
+- BUCKET_LOCALITY
+- AUTO_TUNNEL
+- WATERLESS_MALL
+- PRO_WASH_CENTER
+- MIXED
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- SKU Selection Matrix
+
+---
+
+### PARAMETER: TINT_GOAL
+Description: Tint Phase 3A outcome qualifier.
+Allowed Values:
+- HEAT_COMFORT
+- PRIVACY
+- MIXED
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+
+---
+
+### PARAMETER: TINT_COVERAGE
+Description: Tint Phase 3A coverage qualifier.
+Allowed Values:
+- FRONT_ONLY
+- SIDES_REAR
+- FULL
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- SKU Selection Matrix
+
+---
+
+### PARAMETER: WRAP_FINISH
+Description: Wrap Phase 3A finish qualifier for full-vehicle wrap routing.
+Allowed Values:
+- GLOSS
+- SATIN
+- MATTE
+- UNKNOWN
+
+Notes:
+- Do NOT use this for roof-black styling. Roof-black is routed through ROOF_PPF_BLACK_GLOSS.
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- SKU Selection Matrix
+
+---
+
+### PARAMETER: POLISHING_SCOPE
+Description: Polishing Phase 3A scope qualifier.
+Allowed Values:
+- EXTERIOR_ONLY
+- FULL_DETAILING
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+
+---
+
+### PARAMETER: PAINT_CONDITION_REPAINT_SCRATCH
+Description: Paint condition qualifier for polishing / paint-correction readiness.
+Allowed Values:
+- NO_REPAINT_LIGHT_SWIRLS
+- HAS_REPAINT_OR_DEEP_SCRATCH
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Pricing Ladder Engine
+- Negotiation Logic
+
+---
+
+### PARAMETER: PAINT_CONDITION_GATE
+Description: Age/condition gate for older-vehicle paint review before protection recommendations.
+Allowed Values:
+- CLEAR
+- REQUIRES_REVIEW
+- UNKNOWN
+
+Used By:
+- Qualification Engine
+- Negotiation Logic
+- Pricing Ladder Engine
 
 ---
 
@@ -430,19 +602,3 @@ Used By:
 ---
 
 ## END OF FILE
---------------------------------------------------------------------
-### PARAMETER: PPF_FINISH_INTENT
-Allowed:
-- GLOSS
-- MATTE
-- UNKNOWN
-
-Default:
-- UNKNOWN
-
-Notes:
-- Set only when customer explicitly mentions matte / stealth / satin / مطفي.
-- Does NOT introduce new qualification questions.
-- Purely passive dimension for SKU routing.
---------------------------------------------------------------------
---------------------------------------------------------------------
