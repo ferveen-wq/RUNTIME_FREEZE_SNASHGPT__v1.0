@@ -53,8 +53,8 @@ Known decision:
 
 | ID | Phase | Input | Expected | Actual | Status | Issue Type | Action |
 |---|---|---|---|---|---|---|---|
-| P0-2-SWITCH-001 | Phase 0–2 | PPF/Ceramic comparison → customer switches to tint → heat rejection → full car | When service changes mid-conversation, Service Context Continuity Gate should trigger before service mutation or pricing | System used stale Jetour T2 context and gave tint price; debug later confirmed runtime files expect L.3 SERVICE CONTEXT CLARIFIER | HOLD | Execution / instruction drift | Do not patch runtime yet; validate with service-switch smoke tests |
-| PENDING | Phase 0–2 |  |  |  |  |  |  |
+| P0-2-SWITCH-001 | Phase 0–2 | PPF active → customer asks about tint / ceramic | Service Context Continuity Gate triggers before service mutation | Clarifier now triggers after instruction enforcement; no silent price jump | PASS | Service switch / context continuity | Keep under Phase 0–2 regression |
+| P4-8-PHRASE-001 | Phase 4.8 | Service switch clarifier | Exact L.3 phrase from phrase library should be used verbatim | Clarifier intent correct, but wording was paraphrased/customized | POLISH | Phrase drift | Track during phrase enforcement pass |
 
 ## Rules During Testing
 
