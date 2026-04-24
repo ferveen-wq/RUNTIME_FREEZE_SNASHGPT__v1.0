@@ -847,7 +847,9 @@ IF request_type == BROWSING_GENERIC AND service_intent != unknown:
   Ask for vehicle_model + vehicle_year using PHASE4_6 → L.1
 
 Route B — Specific Service Confirmed (customer says “ceramic/ppf/tint/wrap/polish/graphene”)
-IF request_type == SERVICE_CONFIRMED AND service_intent != unknown:
+IF request_type == SERVICE_CONFIRMED 
+AND service_intent != unknown
+AND missing_fields != []:
 - Use ONLY PHASE4_6_HUMAN_PHRASE_LIBRARY.md customer-facing blocks in this route.
 - Do NOT emit PHASE6__SERVICE_CANON_BUNDLE.md directly here.
 - selected_phrase_id mapping:
