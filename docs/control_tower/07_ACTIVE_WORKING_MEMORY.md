@@ -818,3 +818,37 @@ Closure note:
   - do not create active Phase 8 visual-delivery UAT yet
   - treat Phase 8 as partially implemented support architecture pending execution-proof validation
 
+
+--- PHASE3A QUALIFIER AUTHORITY RULE (2026-04-24) ---
+
+Rule:
+- CUSTOMER_CHAT_INTAKE_RULES.md:
+  - May extract same-message hints (coverage, driving, etc.)
+  - MUST NOT be treated as final authority for qualification readiness
+
+- QUALIFICATION_ENGINE.md:
+  - Sole authority for:
+    - phase3a_required
+    - phase3a_complete
+    - phase3a_qualifier_id
+    - QUALIFICATION_STATUS
+  - Responsible for:
+    - deciding missing qualifiers
+    - enforcing qualifier sequence
+    - determining readiness for Phase 3B
+
+- Decision Matrix:
+  - Defines allowed qualifier structure only
+  - Does NOT write runtime state
+
+- Message Assembly:
+  - Must only render selected_phrase_id
+  - Must not influence qualification decisions
+
+Implication:
+- Any instability in Phase 3A must be resolved in:
+  QUALIFICATION_ENGINE.md (primary)
+- Intake rules must remain non-authoritative (supporting only)
+
+Status:
+LOCKED FOR ISSUE_003 RESOLUTION PATH
