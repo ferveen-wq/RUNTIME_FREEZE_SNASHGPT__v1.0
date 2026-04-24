@@ -50,3 +50,24 @@ Risk:
 Decision:
 - `runner/run_uat.py` must not be treated as rollout truth.
 - `runner/run_active_uat_raw.py` must explicitly load the active runtime folder and explicitly write its report path.
+
+## Raw Runner Dependency Gap — 2026-04-24
+
+Dependency scan showed current active runtime folder contains:
+- `PHASE6__SERVICE_CANON_BUNDLE.md`
+- `SKU_SELECTION_MATRIX.md`
+- `PRICE_TABLE_VAT_INCL.md`
+
+But active runtime folder does NOT contain:
+- `GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md`
+- `PRODUCT_SERVICE_CANON.md`
+
+These files were part of the earlier uploaded/runtime testing context and are referenced by active runtime rules.
+
+Risk:
+- Raw Phase 0–2 service/product recognition tests may be incomplete if product alias/canon files are missing.
+- Running raw tests before resolving this may create false failures or false confidence.
+
+Decision:
+- Do not treat raw runner results as final until active runtime dependency set is reconciled.
+- Next step: decide whether these files must be copied into `00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime` or explicitly loaded from locked repository paths.
