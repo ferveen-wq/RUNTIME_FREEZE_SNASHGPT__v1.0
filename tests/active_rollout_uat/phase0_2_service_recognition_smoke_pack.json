@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "phase0_2_ppf_recognition",
+    "input": "ppf camry 2022"
+  },
+  {
+    "case_id": "phase0_2_ceramic_recognition",
+    "input": "ceramic camry 2022"
+  },
+  {
+    "case_id": "phase0_2_tint_recognition",
+    "input": "tint camry 2022"
+  },
+  {
+    "case_id": "phase0_2_polishing_recognition",
+    "input": "polishing camry 2022"
+  },
+  {
+    "case_id": "phase0_2_wrap_recognition",
+    "input": "wrap camry 2022"
+  }
+]
