@@ -1159,6 +1159,8 @@ def main():
         else:
             user_input = case["input"]
 
+        conversation_messages = []
+
         def _run_one_turn(u_text: str, case_snapshot=case):
             extra = (
                 case_snapshot.get("runtime_signals", {})
@@ -1172,14 +1174,20 @@ def main():
             system_prompt_with_signals = inject_readonly_runtime_signals(
                 system_prompt_case, u_text, extra
             )
+
+            request_messages = [{"role": "system", "content": system_prompt_with_signals}]
+            request_messages.extend(conversation_messages)
+            request_messages.append({"role": "user", "content": u_text})
+
             resp = client.responses.create(
                 model=MODEL,
                 temperature=0,
-                input=[
-                    {"role": "system", "content": system_prompt_with_signals},
-                    {"role": "user", "content": u_text},
-                ],
+                input=request_messages,
             )
+
+            conversation_messages.append({"role": "user", "content": u_text})
+            conversation_messages.append({"role": "assistant", "content": resp.output_text})
+
             return resp.output_text
 
         if isinstance(case, dict) and "turns" in case and "input" not in case:
