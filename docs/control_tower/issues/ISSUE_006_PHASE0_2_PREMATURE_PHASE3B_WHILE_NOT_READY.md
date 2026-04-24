@@ -108,3 +108,29 @@ Owner conclusion:
 - The incorrect selected phrase (`PHASE3B_*`) is owned by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
 - The patch, if required, must strengthen assembly selection/suppression only.
 - Do not patch `QUALIFICATION_ENGINE.md` for this issue unless active runtime evidence later shows wrong qualification signals.
+
+## Validation Plan — 2026-04-24
+
+Before patch:
+- Strict active UAT currently fails for:
+  - PPF
+  - Ceramic
+  - Tint
+- Strict active UAT passes for:
+  - Polishing
+  - Wrap
+
+After patch:
+Run:
+`tests/active_rollout_uat/phase0_2_service_recognition_smoke_pack.json`
+
+Expected:
+- PPF → `PHASE3A_Q_PPF_COVERAGE_INTENT`, `QUALIFICATION_STATUS = NOT_READY`
+- Ceramic → `PHASE3A_Q_CERAMIC_GOAL`, `QUALIFICATION_STATUS = NOT_READY`
+- Tint → `PHASE3A_Q_TINT_GOAL`, `QUALIFICATION_STATUS = NOT_READY`
+- Polishing → remains `PHASE3A_Q_POLISHING_SCOPE`
+- Wrap → remains `PHASE3A_Q_WRAP_FINISH`
+
+Regression guard:
+- No `PHASE3B_*` selected while `QUALIFICATION_STATUS != READY_FOR_NEGOTIATION`
+- No `price_ladder_state = INITIAL/FINAL` while NOT_READY
