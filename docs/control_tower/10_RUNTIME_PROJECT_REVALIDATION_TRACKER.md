@@ -53,7 +53,7 @@ Known decision:
 
 | ID | Phase | Input | Expected | Actual | Status | Issue Type | Action |
 |---|---|---|---|---|---|---|---|
-| P0-2-SWITCH-001 | Phase 0–2 | PPF/Ceramic comparison → customer switches to tint → heat rejection → full car | When service changes to tint and no current vehicle model/year is clearly provided for that tint path, ask car model + year before pricing | System used stale Jetour T2 context and gave tint price | FAIL | Missing context / service switch stale context | BLOCKER investigation |
+| P0-2-SWITCH-001 | Phase 0–2 | PPF/Ceramic comparison → customer switches to tint → heat rejection → full car | When service changes mid-conversation, Service Context Continuity Gate should trigger before service mutation or pricing | System used stale Jetour T2 context and gave tint price; debug later confirmed runtime files expect L.3 SERVICE CONTEXT CLARIFIER | HOLD | Execution / instruction drift | Do not patch runtime yet; validate with service-switch smoke tests |
 | PENDING | Phase 0–2 |  |  |  |  |  |  |
 
 ## Rules During Testing
