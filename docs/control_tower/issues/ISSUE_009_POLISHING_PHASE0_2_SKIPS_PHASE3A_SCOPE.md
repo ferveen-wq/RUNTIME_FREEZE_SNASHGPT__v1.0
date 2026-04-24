@@ -65,3 +65,34 @@ Decision:
 - Do not patch runtime from this evidence alone.
 - Keep ISSUE_009 open/monitored.
 - Phase label normalization may need separate harness handling, but must not hide true PHASE3B jumps.
+
+## Five-Run Raw Trace Finding — 2026-04-24
+
+Polishing-only raw trace produced mixed behavior:
+
+- 2 runs passed cleanly:
+  - `PHASE3A_Q_POLISHING_SCOPE`
+  - `QUALIFICATION_STATUS = NOT_READY`
+  - `price_ladder_state = NONE`
+
+- 2 runs had correct behavior but phase label mismatch:
+  - selected `PHASE3A_Q_POLISHING_SCOPE`
+  - `QUALIFICATION_STATUS = NOT_READY`
+  - phase printed as `3` or `PHASE_3` instead of `3A`
+
+- 1 run had true wrong behavior:
+  - `PHASE3B_POLISHING_RANGE`
+  - `QUALIFICATION_STATUS = READY_FOR_NEGOTIATION`
+  - `price_ladder_state = INITIAL`
+
+Additional finding:
+- Raw debug usually did not print:
+  - `phase3a_required`
+  - `phase3a_complete`
+  - `phase3a_qualifier_id`
+- Therefore the next step is not runtime patching.
+- First improve raw debug contract so these fields must be printed for Phase 0–3 validation.
+
+Current classification:
+- Mixed execution instability
+- Runtime patch not allowed yet
