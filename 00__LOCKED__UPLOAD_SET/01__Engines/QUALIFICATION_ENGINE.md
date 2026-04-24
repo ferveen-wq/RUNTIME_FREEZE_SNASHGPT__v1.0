@@ -386,10 +386,10 @@ AND vehicle_year is present:
       - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
       - STOP
 
-  - ELSE IF (PRICE_PRESSURE_LEVEL == HIGH) OR (COMPETITOR_QUOTE_STATUS in {MENTIONED, HAS_QUOTE_DETAILS}) OR (COMPETITOR_INFLUENCE_LEVEL == HIGH) OR (brand_fixation == true)
-    AND (define_missing(PPF_COMPARISON_FOCUS)):
-      - phase3a_qualifier_id = PHASE3A_Q_PPF_COMPARISON_FOCUS
-      - STOP
+  # PPF_COMPARISON_FOCUS is conditional only.
+  # It MUST NOT interrupt the normal clean path:
+  # PPF_COVERAGE_INTENT known -> PPF_DRIVING_PATTERN known -> price-ready.
+  # Price/competitor/brand pressure is handled later by negotiation/objection logic.
 
   # If we reach here, all required qualifiers are already captured (and conditional Q3 is either not triggered or already known).
   - phase3a_required = false
