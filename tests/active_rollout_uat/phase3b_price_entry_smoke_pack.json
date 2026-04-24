@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "ppf_price_after_ready",
+    "turns": [
+      "ppf camry 2022 front",
+      "city",
+      "how much"
+    ]
+  },
+  {
+    "case_id": "ceramic_price_after_basic",
+    "turns": [
+      "ceramic camry 2022",
+      "daily use",
+      "how much"
+    ]
+  },
+  {
+    "case_id": "tint_price_after_basic",
+    "turns": [
+      "tint camry 2022",
+      "heat protection",
+      "how much"
+    ]
+  },
+  {
+    "case_id": "ppf_direct_price_missing_vehicle",
+    "input": "how much ppf front"
+  },
+  {
+    "case_id": "ppf_price_pressure_not_direct_price",
+    "turns": [
+      "ppf camry 2022 front",
+      "city",
+      "expensive"
+    ]
+  }
+]
