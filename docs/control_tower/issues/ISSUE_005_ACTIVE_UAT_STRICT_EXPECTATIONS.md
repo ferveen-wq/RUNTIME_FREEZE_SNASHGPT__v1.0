@@ -79,3 +79,31 @@ Before accepting an owner decision, require three proof layers:
 Rule:
 - If architecture docs disagree with active runtime behavior, active runtime + strict UAT evidence wins.
 - Do not trust trackers or authority docs alone.
+
+## Runner Post-Processing Risk — 2026-04-24
+
+Inspection found the runner applies multiple post-processing functions after model output:
+
+- `_force_ppf_narrow_phrase_block`
+- `_force_phrase_block_exact`
+- `_force_ppf_price_ready_table_output`
+- `_force_phase3_strict_guard_outputs`
+- `_force_phase4_silence_outputs`
+- `_force_phase5_ceramic_strict_outputs`
+- `_force_price_entry_debug_alignment`
+- `_force_repeat_continuity_alignment`
+- `_force_polish_probe_alignment`
+- `_force_polish_probe_phrase_binding`
+- `_force_reentered_continue_phrase_binding`
+- `_rebuild_raw_from_normalized`
+
+Risk:
+- Active UAT may not represent pure runtime behavior.
+- Runner post-processing can hide or introduce failures.
+- Before declaring runtime stable, strict active UAT must either:
+  1. run in raw/no-force mode, or
+  2. explicitly document which force functions are allowed for each pack.
+
+Decision:
+- Do not treat current active UAT as final production proof until runner post-processing is controlled.
+- Next required step: create or enable a raw active rollout mode that bypasses force/normalization helpers for Phase 0–3 validation.
