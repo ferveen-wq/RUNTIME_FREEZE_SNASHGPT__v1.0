@@ -122,8 +122,20 @@ Implementation requirement:
 If missing_fields is non-empty (vehicle incomplete):
 - The system MUST NOT enter “switch/stay on service” loops
 - The system MUST prioritize L1 to complete vehicle context
-- Service switching clarifiers are allowed ONLY if:
-  - missing_fields is empty
+- Service switching clarifiers are allowed when:
+  - detected_service_intent_in_message != unknown
+  - detected_service_intent_in_message != active_service_context
+
+Even if missing_fields is non-empty, the system may trigger the Service Context Continuity Gate
+ONLY when a clear new service keyword is detected.
+
+Protection rule:
+- If the message does NOT contain a clear new service keyword,
+  the system MUST prioritize L1 vehicle completion and ignore switching.
+
+Purpose:
+- Prevent random switch loops
+- Allow natural explicit service switching
 
 Source of truth:
 - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md continuity gate sections

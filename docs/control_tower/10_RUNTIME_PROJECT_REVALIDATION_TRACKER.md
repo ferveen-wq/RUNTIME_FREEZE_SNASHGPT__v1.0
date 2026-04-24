@@ -53,6 +53,7 @@ Known decision:
 
 | ID | Phase | Input | Expected | Actual | Status | Issue Type | Action |
 |---|---|---|---|---|---|---|---|
+| P3-CONTEXT-001 | Phase 3 | Ceramic Q1 answered → user repeats same service + same vehicle | System should preserve qualifier progress and continue from next missing qualifier | Project UAT now preserves progress after Same Service Re-entry instruction; runtime-file hardening still needed before final rollout | HOLD | Context persistence / instruction-level stabilization | Continue Phase 3A testing; later harden QUALIFICATION_ENGINE carry-forward if pattern remains |
 | P0-2-SWITCH-001 | Phase 0–2 | PPF active → customer asks about tint / ceramic | Service Context Continuity Gate triggers before service mutation | Clarifier now triggers after instruction enforcement; no silent price jump | PASS | Service switch / context continuity | Keep under Phase 0–2 regression |
 | P4-8-PHRASE-001 | Phase 4.8 | Service switch clarifier | Exact L.3 phrase from phrase library should be used verbatim | Clarifier intent correct, but wording was paraphrased/customized | POLISH | Phrase drift | Track during phrase enforcement pass |
 
