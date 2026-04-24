@@ -96,3 +96,19 @@ Additional finding:
 Current classification:
 - Mixed execution instability
 - Runtime patch not allowed yet
+
+## Post-Patch Finding — 2026-04-24
+
+A test patch added `polishing` to `SERVICE_CONFIRMED_PRIORITY`.
+
+Result from 5 raw runs:
+- No run jumped to `PHASE3B_POLISHING_RANGE`
+- No run exposed pricing
+- Remaining failures were:
+  - phase label mismatch (`3` vs `3A`)
+  - generic `SERVICE CONFIRMED — PHASE 0–2` instead of `PHASE3A_Q_POLISHING_SCOPE`
+
+Conclusion:
+- Patch improved the dangerous pricing jump behavior.
+- Patch is not sufficient to fully stabilize polishing Phase 0–2 → Phase 3A routing.
+- Do not commit the patch yet until the remaining generic Phase 0–2 route is inspected.
