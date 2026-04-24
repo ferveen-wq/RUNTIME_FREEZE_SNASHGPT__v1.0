@@ -37,3 +37,21 @@ Classification:
 
 Patch constraint:
 - Do not patch until owner is confirmed.
+
+## Owner Finding — 2026-04-24
+
+Owner-map and section inspection found the conflict in:
+`PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+
+Conflict:
+- Phase 3A Qualifier-First Gate should select `PHASE3A_Q_CERAMIC_GOAL`
+- Route B — Specific Service Confirmed selects `C.2 CERAMIC EXPLANATION + QUALIFIER (PHASE 0–2)`
+
+Root cause:
+Route B applies to any `SERVICE_CONFIRMED` with known service intent, but does not restrict itself to missing vehicle context.
+
+Correction direction:
+- Strengthen existing Route B.
+- Route B should apply only when vehicle_model or vehicle_year is missing.
+- If `missing_fields` is empty, Route B must not block Phase 3A.
+- Do not add a parallel route.
