@@ -54,3 +54,35 @@ Candidate owner surfaces:
 
 ## Status
 OPEN
+
+## Owner Proof — 2026-04-24
+
+Owner-map evidence:
+
+- `QUALIFICATION_STATUS`
+  - Writer: `QUALIFICATION_ENGINE.md`
+  - Readers include:
+    - `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+    - `PRICE_LADDER_ENGINE.md`
+    - `RUNTIME_EXECUTION_FLOW.md`
+
+- `phase3a_required`
+  - Written/defined by `QUALIFICATION_ENGINE.md`
+  - Read by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+
+- `phase3a_qualifier_id`
+  - Written/defined by `QUALIFICATION_ENGINE.md`
+  - Read by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+
+- `PHASE3B_*_RANGE`
+  - Routed by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+  - Phrase content exists in `PHASE4_6_HUMAN_PHRASE_LIBRARY.md`
+
+Current owner conclusion:
+- `QUALIFICATION_ENGINE.md` is producing NOT_READY.
+- `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md` is the likely owner surface for preventing PHASE3B phrase selection while NOT_READY.
+
+Patch direction:
+- Add/strengthen assembly-level suppression:
+  - If `QUALIFICATION_STATUS != READY_FOR_NEGOTIATION`, `selected_phrase_id` MUST NOT be any `PHASE3B_*`.
+  - If `phase3a_required == true` and `phase3a_qualifier_id` is present, assembly MUST select that `PHASE3A_Q_*` phrase and STOP.
