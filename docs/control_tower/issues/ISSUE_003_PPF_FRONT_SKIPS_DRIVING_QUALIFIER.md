@@ -79,3 +79,20 @@ Likely architecture correction:
 
 Patch decision:
 Do not patch until the exact boundary wording is defined and validation is set.
+
+## Debug Method Lesson — 2026-04-24
+
+Attempted temporary `print(...)` debug inside `QUALIFICATION_ENGINE.md` active runtime copy.
+
+Result:
+- No debug output appeared.
+- Runtime `.md` files are instruction surfaces, not executable Python.
+- This method is invalid and must not be repeated.
+
+Updated investigation rule:
+- Do not insert executable-style debug into runtime markdown files.
+- Use runner-level tracing, report inspection, owner-map, and deterministic test repetition instead.
+
+Latest active trace:
+- `phase3b_ppf_price_trace.json` reran as active case and passed 1/1.
+- This supports current classification as intermittent execution/obedience instability, not a deterministic written-rule defect.
