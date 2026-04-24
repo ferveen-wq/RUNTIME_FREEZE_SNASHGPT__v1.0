@@ -31,3 +31,25 @@ For qualifier tests, also forbid:
 
 ## Status
 OPEN
+
+## Runtime Patch Due Diligence Rule — 2026-04-24
+
+Owner-map alone is not sufficient before patching runtime files.
+
+Before any runtime patch, the following checklist is mandatory:
+
+1. Run owner-map for relevant signals / phrase IDs.
+2. Check `AUTHORITY_INDEX.md` for declared owner/reader boundaries.
+3. Inspect the surrounding section of the candidate owner file.
+4. Inspect adjacent exception/gate sections.
+5. Compare similar-service behavior if applicable.
+6. Check whether the intended rule already exists.
+   - If it already exists, strengthen that rule.
+   - Do NOT add a duplicate or parallel authority.
+7. Define validation before patching.
+8. Patch only the confirmed owner surface.
+
+ISSUE_006 example:
+- Initial owner-map pointed to `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
+- Further section inspection showed the correct patch area is likely the existing
+  `QUALIFICATION NOT-READY SUPPRESSION (HARD)` block, not a new parallel rule near Route E.
