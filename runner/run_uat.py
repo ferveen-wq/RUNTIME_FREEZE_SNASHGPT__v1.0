@@ -1025,6 +1025,22 @@ def check_expectations(parsed: dict, case: dict) -> list[str]:
     arabic_norm = normalize_for_contains(arabic_chk)
     english_norm = normalize_for_contains(english_chk)
 
+    expected_selected = case.get("expect_selected_phrase_id")
+    if expected_selected is not None:
+        actual_selected = debug.get("selected_phrase_id")
+        if str(actual_selected).strip() != str(expected_selected).strip():
+            failures.append(
+                f"selected_phrase_id expected '{expected_selected}' but got '{actual_selected}'"
+            )
+
+    forbidden_selected = case.get("expect_not_selected_phrase_id")
+    if forbidden_selected is not None:
+        actual_selected = str(debug.get("selected_phrase_id", "")).strip()
+        if actual_selected == str(forbidden_selected).strip():
+            failures.append(
+                f"selected_phrase_id has forbidden value '{forbidden_selected}'"
+            )
+
     for k, v in case.get("expect_debug", {}).items():
         actual = debug.get(k)
         if actual is None:
@@ -1138,6 +1154,26 @@ def main():
     cases_file = os.getenv("UAT_CASES_FILE", "")
     cases_path = Path(cases_file) if cases_file else CASES_PATH
     cases = load_json(cases_path)
+
+    # Active rollout UAT must be strict to prevent false positives.
+    if "tests/active_rollout_uat" in str(cases_path):
+        weak_cases = []
+        for case in cases:
+            has_phase = "expect_debug" in case and "phase" in (case.get("expect_debug") or {})
+            has_qstatus = "expect_debug" in case and "QUALIFICATION_STATUS" in (case.get("expect_debug") or {})
+            has_phrase = (
+                "expect_selected_phrase_id" in case
+                or "expect_not_selected_phrase_id" in case
+            )
+            if not (has_phase and has_qstatus and has_phrase):
+                weak_cases.append(case.get("case_id", "<missing case_id>"))
+
+        if weak_cases:
+            raise SystemExit(
+                "Active rollout UAT requires strict expectations "
+                "(phase, QUALIFICATION_STATUS, selected_phrase_id expectation). "
+                f"Weak cases: {weak_cases}"
+            )
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
