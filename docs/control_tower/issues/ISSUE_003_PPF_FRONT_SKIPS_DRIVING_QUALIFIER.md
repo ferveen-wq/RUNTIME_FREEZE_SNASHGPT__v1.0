@@ -96,3 +96,36 @@ Updated investigation rule:
 Latest active trace:
 - `phase3b_ppf_price_trace.json` reran as active case and passed 1/1.
 - This supports current classification as intermittent execution/obedience instability, not a deterministic written-rule defect.
+
+## Final Classification Lock — 2026-04-24
+
+After:
+- authority scan
+- cross-service comparison
+- active rollout trace validation
+- debug attempt (invalid method ruled out)
+
+Conclusion:
+
+- No deterministic failure reproduced in active trace
+- Runtime logic behaves correctly under controlled conditions
+- Prior inconsistent outcomes are attributed to:
+  → execution / prompt obedience instability
+  → NOT written-rule conflict
+
+Decision:
+
+- DO NOT patch:
+  - CUSTOMER_CHAT_INTAKE_RULES.md
+  - QUALIFICATION_ENGINE.md
+  - PHASE3A_QUALIFICATION_DECISION_MATRIX.md
+
+- ISSUE_003 is now:
+  STATUS: MONITORED (NOT PATCHABLE)
+
+Next action:
+- Continue rollout stabilization
+- Revisit only if:
+  - deterministic reproduction appears
+  - or failure rate crosses threshold in real logs
+
