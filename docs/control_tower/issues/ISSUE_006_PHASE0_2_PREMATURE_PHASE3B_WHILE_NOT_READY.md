@@ -86,3 +86,25 @@ Patch direction:
 - Add/strengthen assembly-level suppression:
   - If `QUALIFICATION_STATUS != READY_FOR_NEGOTIATION`, `selected_phrase_id` MUST NOT be any `PHASE3B_*`.
   - If `phase3a_required == true` and `phase3a_qualifier_id` is present, assembly MUST select that `PHASE3A_Q_*` phrase and STOP.
+
+## Declared Authority Proof — 2026-04-24
+
+`AUTHORITY_INDEX.md` confirms:
+
+- `QUALIFICATION_STATUS`
+  - Writer: `01__Engines/QUALIFICATION_ENGINE.md`
+  - Reader: `00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+
+- `selected_phrase_id`
+  - Writer: `00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+  - Readers: output formatting / debug renderer only
+
+- `price_ladder_state`
+  - Writer: `01__Engines/PRICE_LADDER_ENGINE.md`
+  - Reader: `00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+  - Forbidden writer: `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`
+
+Owner conclusion:
+- The incorrect selected phrase (`PHASE3B_*`) is owned by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
+- The patch, if required, must strengthen assembly selection/suppression only.
+- Do not patch `QUALIFICATION_ENGINE.md` for this issue unless active runtime evidence later shows wrong qualification signals.
