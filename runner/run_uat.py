@@ -289,7 +289,7 @@ def inject_readonly_runtime_signals(
     # If not provided, fall back to UAT heuristic.
     req = extra_signals.get("request_type")
     if req is None:
-        req = compute_request_type_uat(user_input)
+        req = None  # disabled: let runtime decide request_type
 
     emitted_signals = {"request_type": req}
 

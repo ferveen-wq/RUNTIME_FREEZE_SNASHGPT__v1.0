@@ -1,0 +1,10 @@
+[
+  {
+    "case_id": "phase3a_ppf_front_city_no_q3",
+    "turns": [
+      "ppf camry 2022 front",
+      "city"
+    ],
+    "expect_not_selected_phrase_id": "PHASE3A_Q_PPF_COMPARISON_FOCUS"
+  }
+]
