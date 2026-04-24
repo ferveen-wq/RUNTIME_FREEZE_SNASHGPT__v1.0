@@ -53,3 +53,29 @@ ISSUE_006 example:
 - Initial owner-map pointed to `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
 - Further section inspection showed the correct patch area is likely the existing
   `QUALIFICATION NOT-READY SUPPRESSION (HARD)` block, not a new parallel rule near Route E.
+
+## Owner Proof Standard — 2026-04-24
+
+`AUTHORITY_INDEX.md` is a governance claim, not final truth by itself.
+
+Before accepting an owner decision, require three proof layers:
+
+1. Declared Owner
+   - `AUTHORITY_INDEX.md`
+   - control-tower issue notes
+   - architecture docs
+
+2. Actual Active Runtime Owner
+   - active runtime file contents
+   - owner_map output
+   - surrounding section inspection
+   - adjacent gate/exception inspection
+
+3. Behavioral Owner
+   - strict active UAT proves the suspected owner path is involved
+   - patch validation must show the specific failure changes
+   - no unrelated surface should be patched first
+
+Rule:
+- If architecture docs disagree with active runtime behavior, active runtime + strict UAT evidence wins.
+- Do not trust trackers or authority docs alone.
