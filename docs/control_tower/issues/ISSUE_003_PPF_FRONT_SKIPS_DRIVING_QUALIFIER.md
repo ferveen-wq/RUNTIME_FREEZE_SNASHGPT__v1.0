@@ -36,3 +36,17 @@ Do not patch until owner file is proven.
 
 ## Status
 OPEN
+
+## Authority Finding — 2026-04-24
+
+Owner-map evidence found two files writing/setting `PPF_DRIVING_PATTERN`:
+- `CUSTOMER_CHAT_INTAKE_RULES.md`
+- `QUALIFICATION_ENGINE.md`
+
+Authority index does not explicitly list `PPF_DRIVING_PATTERN`, but it does state:
+- `request_type`, `QUALIFICATION_STATUS`, `missing_fields`, `service_intent`, and `active_service_context` are owned by `QUALIFICATION_ENGINE.md`
+- `CUSTOMER_CHAT_INTAKE_RULES.md` is forbidden from writing `request_type`
+
+Current classification:
+- Possible competing authority between Intake extraction and Qualification selection.
+- Do not patch until authority boundary is clarified.
