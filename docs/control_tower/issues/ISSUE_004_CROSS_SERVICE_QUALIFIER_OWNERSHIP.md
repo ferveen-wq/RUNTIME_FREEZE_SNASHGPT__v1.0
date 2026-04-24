@@ -47,3 +47,46 @@ Wrap may require manual handover / controlled escalation rather than normal auto
 
 ## Status
 OPEN
+
+## Phase 0-3 Ownership Scan — 2026-04-24
+
+Owner-map scan across service and qualifier terms found:
+
+### service_intent
+Multiple writer candidates surfaced:
+- `CUSTOMER_CHAT_INTAKE_RULES.md`
+- `PHASE0_2_LOCK_INDEX.md`
+- `QUALIFICATION_ENGINE.md`
+- Phase 0-2 reference contract
+
+Risk:
+- service intent ownership is not fully clean from a tooling perspective.
+- Needs classification between runtime writer vs governance/reference statement.
+
+### active_service_context
+Cleaner ownership:
+- `QUALIFICATION_ENGINE.md` surfaced as the active writer.
+- Other files mostly read or document continuity.
+
+### PPF qualifiers
+Split ownership:
+- `CUSTOMER_CHAT_INTAKE_RULES.md`
+- `QUALIFICATION_ENGINE.md`
+
+### Ceramic/Tint qualifiers
+Cleaner ownership:
+- `QUALIFICATION_ENGINE.md` appears to own qualifier selection.
+- No Intake writer surfaced for the scanned Ceramic/Tint qualifier terms.
+
+### Polishing / Wrap
+No matches found for:
+- `POLISHING_GOAL`
+- `WRAP_INTENT`
+
+Risk:
+- Polishing and Wrap may not yet have full Phase 3A qualifier ownership defined.
+- Wrap may require manual/handover route rather than automated qualifier flow.
+
+Conclusion:
+Before broad Phase 0-3 rollout, ownership must be normalized service-by-service:
+PPF, Ceramic, Tint, Polishing, Wrap.
