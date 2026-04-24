@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "ppf_clean_flow",
+    "turns": [
+      "ppf camry 2022 front",
+      "city"
+    ]
+  },
+  {
+    "case_id": "ceramic_basic_flow",
+    "input": "ceramic camry 2022"
+  },
+  {
+    "case_id": "tint_basic_flow",
+    "input": "tint camry 2022"
+  },
+  {
+    "case_id": "missing_vehicle_info",
+    "input": "ppf front"
+  },
+  {
+    "case_id": "price_ready_path",
+    "turns": [
+      "ppf camry 2022 front",
+      "city",
+      "ok how much"
+    ]
+  }
+]

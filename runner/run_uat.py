@@ -291,7 +291,9 @@ def inject_readonly_runtime_signals(
     if req is None:
         req = None  # disabled: let runtime decide request_type
 
-    emitted_signals = {"request_type": req}
+    emitted_signals = {}
+    if req is not None:
+        emitted_signals["request_type"] = req
 
     # Pass through every explicitly provided runtime signal.
     # Do not invent defaults here.
