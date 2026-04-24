@@ -1308,8 +1308,8 @@ def main():
         failures = check_expectations(parsed, case)
 
         # HARD CONTRADICTION GUARDS
-        if selected == "PHASE3B_PPF_RANGE" and q_status != "READY_FOR_NEGOTIATION":
-            failures.append("CONTRADICTION: PHASE3B_PPF_RANGE with NOT_READY")
+        if selected.startswith("PHASE3B_") and q_status != "READY_FOR_NEGOTIATION":
+            failures.append(f"CONTRADICTION: {selected} with {q_status}")
 
         if ladder_state in ["initial", "final", "INITIAL", "FINAL"] and q_status != "READY_FOR_NEGOTIATION":
             failures.append("CONTRADICTION: price ladder used while NOT_READY")
