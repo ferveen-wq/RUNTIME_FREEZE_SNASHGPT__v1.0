@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "reg_ppf",
+    "input_sequence": ["ppf camry 2022 front", "city"]
+  },
+  {
+    "case_id": "reg_tint",
+    "input_sequence": ["tint camry 2022", "privacy", "full"]
+  },
+  {
+    "case_id": "reg_ceramic",
+    "input_sequence": ["ceramic camry 2022", "long term protection", "professional wash center"]
+  }
+]

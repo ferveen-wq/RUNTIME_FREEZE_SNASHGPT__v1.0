@@ -1,0 +1,10 @@
+[
+  {
+    "case_id": "tint_goal",
+    "input": "tint camry 2022"
+  },
+  {
+    "case_id": "tint_goal_coverage",
+    "input_sequence": ["tint camry 2022", "privacy", "full"]
+  }
+]

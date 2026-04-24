@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "ppf_front_should_ask_driving",
+    "input": "ppf camry 2022 front"
+  },
+  {
+    "case_id": "ppf_front_city_should_price",
+    "input_sequence": ["ppf camry 2022 front", "city"]
+  },
+  {
+    "case_id": "ppf_full_highway_should_price",
+    "input_sequence": ["ppf camry 2022 full", "highway"]
+  }
+]
