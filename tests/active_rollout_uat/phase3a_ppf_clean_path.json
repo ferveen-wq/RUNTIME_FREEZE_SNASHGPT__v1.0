@@ -1,0 +1,10 @@
+[
+  {
+    "case_id": "ppf_clean_path_full_flow",
+    "turns": [
+      "ppf camry 2022 front",
+      "city"
+    ],
+    "expect_not_selected_phrase_id": "PHASE3A_Q_PPF_COMPARISON_FOCUS"
+  }
+]
