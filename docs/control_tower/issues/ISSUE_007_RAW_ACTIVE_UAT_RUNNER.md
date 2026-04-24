@@ -71,3 +71,21 @@ Risk:
 Decision:
 - Do not treat raw runner results as final until active runtime dependency set is reconciled.
 - Next step: decide whether these files must be copied into `00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime` or explicitly loaded from locked repository paths.
+
+## Raw UAT Cost Control Rule — 2026-04-24
+
+Raw active UAT is expensive because each API call loads the active runtime bundle.
+
+Rules:
+- Do not run multi-run raw loops unless a specific hypothesis requires determinism proof.
+- Do not run full-service packs during normal debugging.
+- Use single-case raw checks for diagnosis.
+- Use 3-run checks only after a single-case issue is isolated.
+- Use 5-run checks only for final validation or instability classification.
+- Full all-service packs are milestone checks only.
+
+Required runner improvements:
+- Add `CASE_ID` filter.
+- Add `MAX_CASES` limit.
+- Add warning/confirmation for multi-case raw runs using `RAW_UAT_CONFIRM=YES`.
+- Print number of cases before execution.
