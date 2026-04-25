@@ -157,3 +157,36 @@ Current classification:
 Next action:
 - Run single-case targeted reproduction only.
 - Avoid full-suite raw UAT until this issue is isolated.
+
+## Deterministic Active Evidence Update — 2026-04-25
+
+After enforcing active-only UAT and active-only owner-map defaults, the issue still reproduces.
+
+Confirmed active evidence:
+- UAT file: tests/active_rollout_uat/phase0_3_intake_matrix_probe_v1.json
+- Case: phase0_3_ppf_camry_2022_front_entry
+- Input: ppf camry 2022 front
+- Actual:
+  - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+  - selected_phrase_id = PHASE3B_PPF_RANGE
+  - price_ladder_state = INITIAL
+- Expected:
+  - QUALIFICATION_STATUS = NOT_READY
+  - selected_phrase_id = PHASE3A_Q_PPF_DRIVING_PATTERN
+  - price_ladder_state = NONE
+
+Classification update:
+- Not old test-folder drift.
+- Not locked-vs-active drift.
+- Not ISSUE_006 assembly-only pattern, because readiness itself is wrong.
+- Primary owner candidate is QUALIFICATION_ENGINE.md readiness/status gating.
+- Secondary concern remains ISSUE_004 cross-service qualifier ownership normalization.
+
+Patch direction:
+- Strengthen Qualification Engine so any active Phase 3A qualifier requirement hard-forces:
+  - phase3a_required = true
+  - phase3a_complete = false
+  - qualification_state = NOT_READY
+  - QUALIFICATION_STATUS = NOT_READY
+  - price_ladder_state = NONE
+  - no Phase 3B readiness
