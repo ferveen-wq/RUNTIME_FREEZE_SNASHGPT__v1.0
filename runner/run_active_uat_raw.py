@@ -168,7 +168,37 @@ def main():
         raise SystemExit("UAT_CASES_FILE not set")
 
     cases = load_json(cases_file)
+
+    case_id_filter = os.getenv("CASE_ID", "").strip()
+    if case_id_filter:
+        cases = [c for c in cases if str(c.get("case_id", "")).strip() == case_id_filter]
+        if not cases:
+            raise SystemExit(f"CASE_ID not found in case file: {case_id_filter}")
+
+    max_cases = os.getenv("MAX_CASES", "").strip()
+    if max_cases:
+        try:
+            max_n = int(max_cases)
+        except ValueError:
+            raise SystemExit(f"MAX_CASES must be an integer, got: {max_cases}")
+        if max_n < 1:
+            raise SystemExit("MAX_CASES must be >= 1")
+        cases = cases[:max_n]
+
     validate_cases(cases)
+
+    print(f"RAW UAT case count: {len(cases)}")
+    print(f"RAW UAT cases file: {cases_file}")
+    if case_id_filter:
+        print(f"RAW UAT CASE_ID filter: {case_id_filter}")
+    if max_cases:
+        print(f"RAW UAT MAX_CASES: {max_cases}")
+
+    if len(cases) > 1 and os.getenv("RAW_UAT_CONFIRM", "").strip() != "YES":
+        raise SystemExit(
+            "Refusing multi-case raw UAT without RAW_UAT_CONFIRM=YES. "
+            "Use CASE_ID or MAX_CASES for cheaper targeted runs."
+        )
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
