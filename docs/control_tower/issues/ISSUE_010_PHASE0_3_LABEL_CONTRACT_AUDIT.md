@@ -53,3 +53,63 @@ For each label/signal:
 
 ## Status
 OPEN
+
+## Core Label Owner Audit Finding — 2026-04-25
+
+Owner-map audit found several important Phase 0–3 label contract risks.
+
+### 1. `phase` label ambiguity
+`QUALIFICATION_ENGINE.md` states:
+- runtime `phase` MUST remain `PHASE_3` throughout Phase 3
+- do NOT emit `PHASE_3A` or `PHASE_3B` as runtime phase values
+
+But active UAT currently expects `phase = 3A` in several checks.
+
+Conclusion:
+- Some failures are likely test expectation / label-normalization issues, not runtime behavior defects.
+- Phase 3A validation should prioritize:
+  - `selected_phrase_id`
+  - `QUALIFICATION_STATUS`
+  - `price_ladder_state`
+  over exact phase label variants (`3`, `PHASE_3`, `3A`).
+
+### 2. `request_type` ownership
+Declared intent:
+- `QUALIFICATION_ENGINE.md` is the sole writer of `request_type`.
+- `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md` must only read `request_type`.
+
+Risk:
+- Assembly-map wording around PRICE_REQUEST routes can look writer-like and may confuse runtime interpretation.
+- Need strict contract wording that Assembly reads only and must not reclassify.
+
+### 3. `selected_phrase_id` ownership
+Declared intended flow:
+- `QUALIFICATION_ENGINE.md` decides `phase3a_qualifier_id`.
+- `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md` selects `selected_phrase_id`.
+- `OUTPUT_RESPONSE_TEMPLATE.md` formats only.
+
+Risk:
+- Phrase selection rules are scattered, making competing routes possible.
+
+### 4. `QUALIFICATION_STATUS`
+Owner appears clean:
+- Writer: `QUALIFICATION_ENGINE.md`
+- Readers: execution/assembly/pricing/objection layers
+
+Risk:
+- Wrong or early `READY_FOR_NEGOTIATION` allows premature Phase 3B.
+
+### 5. `price_ladder_state`
+Owner appears clean:
+- Writer: `PRICE_LADDER_ENGINE.md`
+
+Risk:
+- If `price_ladder_state = INITIAL` appears while qualifiers are incomplete, something allowed Price Ladder to run too early.
+
+## Current Decision
+Do not patch runtime from mixed raw results yet.
+
+Next steps:
+1. Normalize/clarify active UAT phase expectations.
+2. Strengthen label contract documentation.
+3. Audit request_type and Phase3 readiness rules before more API runs.
