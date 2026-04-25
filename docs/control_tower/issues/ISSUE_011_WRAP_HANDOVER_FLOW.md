@@ -47,3 +47,28 @@ Got it 👌 For wrapping, it needs a quick check with our specialist depending o
 
 ## Status
 OPEN
+
+## Output Template Escalation Finding — 2026-04-25
+
+Raw wrap handover UAT produced:
+- `selected_phrase_id = ESCALATION_BLOCK_WRAP_QUOTE`
+- `QUALIFICATION_STATUS = READY_FOR_NEGOTIATION`
+- `phase = 4`
+- `price_ladder_state = NONE`
+
+Inspection found:
+- `ESCALATION_BLOCK_WRAP_QUOTE` is not an explicit phrase-library block.
+- `OUTPUT_RESPONSE_TEMPLATE.md` contains a generic `ESCALATION BLOCK (Quote / Human Handoff)`.
+- This formatting block can behave like a customer-facing phrase generator.
+
+Architecture risk:
+- `OUTPUT_RESPONSE_TEMPLATE.md` should format only.
+- It should not create competing selected_phrase_id behavior against `PHASE4_6_HUMAN_PHRASE_LIBRARY.md` and `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
+
+Decision:
+- Patch must ensure wrap specialist handover uses approved phrase block:
+  `PHASE3A_WRAP_SPECIALIST_HANDOVER`
+- Output template escalation must not override wrap handover routing.
+- Future patch due diligence must search for generic labels:
+  `ESCALATION`, `HANDOVER`, `QUOTE`, `SPECIALIST`, `CONTACT`
+  before adding new handover/quote phrases.
