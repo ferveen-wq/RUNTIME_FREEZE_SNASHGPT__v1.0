@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": "ppf_complete_context_enters_phase3a",
+    "input": "ppf camry 2022",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT",
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "ceramic_complete_context_enters_phase3a",
+    "input": "ceramic patrol 2024",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+  },
+  {
+    "case_id": "support_message_stays_support",
+    "input": "عندي مشكلة بعد التظليل",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "POST-SERVICE SUPPORT (PHASE 0–2)",
+    "expect_not_selected_phrase_id": "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  }
+]
