@@ -30,7 +30,10 @@ The raw runner must:
 - NOT run any `_force_*`, `_enforce_*`, `_sanitize_*`, or `_rebuild_*` post-processing
 
 ## Status
-OPEN
+CLOSED — raw runner created and guarded
+
+Closure note — 2026-04-25:
+Raw active runner exists, supports strict expectations, cost controls, multi-turn state preservation, and runner health checks. Pre-UAT guard now verifies runner health and stale prompt overrides before trusted UAT.
 
 ## Legacy Runner Argument Risk — 2026-04-24
 

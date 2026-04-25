@@ -185,3 +185,8 @@ Conclusion:
 - `PHASE3A_Q_WRAP_SCOPE` is not active Phase 3A wiring.
 - Treat it as stray/deprecated/support-only unless a later owner decision reactivates scope.
 - Do not add `PHASE3A_Q_WRAP_SCOPE` to assembly mapping.
+
+
+## Status Update — 2026-04-25
+Remain OPEN until Phase 0–3 final readiness closeout.
+Current resolved items: polishing service priority, wrap handover label conflict, runner state preservation, output-template selected_phrase guard.

@@ -55,3 +55,8 @@ Correction direction:
 - Route B should apply only when vehicle_model or vehicle_year is missing.
 - If `missing_fields` is empty, Route B must not block Phase 3A.
 - Do not add a parallel route.
+
+
+## Status Update — 2026-04-25
+Provisionally resolved by Phase 0–2/M2 all-service raw pass.
+Ceramic now routes to `PHASE3A_Q_CERAMIC_GOAL` in the strict active raw check.

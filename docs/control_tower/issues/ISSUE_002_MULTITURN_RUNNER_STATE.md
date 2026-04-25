@@ -33,4 +33,7 @@ For a case with:
 The third turn must be evaluated with prior context preserved.
 
 ## Status
-OPEN
+CLOSED — raw runner state preservation fixed
+
+Closure note — 2026-04-25:
+`runner/run_active_uat_raw.py` now preserves parsed state into next-turn context via `STATE_SNAPSHOT_FOR_NEXT_TURN`. `tools/audit/runner_health_check.py` verifies this before multi-turn trust.

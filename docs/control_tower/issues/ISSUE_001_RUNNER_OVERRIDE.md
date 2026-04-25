@@ -38,4 +38,7 @@ Expected:
 - Should follow qualification → controlled flow
 
 ## Status
-OPEN
+CLOSED — superseded by raw active runner path
+
+Closure note — 2026-04-25:
+Legacy `runner/run_uat.py` is no longer treated as rollout truth for Phase 0–3. Raw active UAT uses `runner/run_active_uat_raw.py`, which avoids legacy force/post-processing behavior.

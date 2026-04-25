@@ -46,7 +46,10 @@ Got it 👌 For wrapping, it needs a quick check with our specialist depending o
 - Patch only after owner confirmation.
 
 ## Status
-OPEN
+CLOSED — implemented and raw-UAT validated
+
+Closure note — 2026-04-25:
+Wrap specialist handover implemented across Qualification, Assembly, Phrase Library, Output Template guard, and context reset alignment. Raw UAT passed with `PHASE3A_WRAP_SPECIALIST_HANDOVER`, `QUALIFICATION_STATUS=NOT_READY`, and `price_ladder_state=NONE`.
 
 ## Output Template Escalation Finding — 2026-04-25
 

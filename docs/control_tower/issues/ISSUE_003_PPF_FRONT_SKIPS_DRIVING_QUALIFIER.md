@@ -129,3 +129,8 @@ Next action:
   - deterministic reproduction appears
   - or failure rate crosses threshold in real logs
 
+
+
+## Status Update — 2026-04-25
+Status remains MONITORED / NOT PATCHABLE.
+No deterministic runtime defect is confirmed. Reopen only if repeatable active raw evidence appears.
