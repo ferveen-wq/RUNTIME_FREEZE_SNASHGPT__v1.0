@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "ppf",
+    "input": "ppf camry 2022",
+    "expect_debug": {"phase": "3A", "QUALIFICATION_STATUS": "NOT_READY"},
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT",
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "ceramic",
+    "input": "ceramic camry 2022",
+    "expect_debug": {"phase": "3A", "QUALIFICATION_STATUS": "NOT_READY"},
+    "expect_selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+  },
+  {
+    "case_id": "tint",
+    "input": "tint camry 2022",
+    "expect_debug": {"phase": "3A", "QUALIFICATION_STATUS": "NOT_READY"},
+    "expect_selected_phrase_id": "PHASE3A_Q_TINT_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  },
+  {
+    "case_id": "wrap",
+    "input": "wrap camry 2022",
+    "expect_debug": {"phase": "3A", "QUALIFICATION_STATUS": "NOT_READY"},
+    "expect_selected_phrase_id": "PHASE3A_Q_WRAP_FINISH",
+    "expect_not_selected_phrase_id": "PHASE3B_WRAP_RANGE"
+  },
+  {
+    "case_id": "polishing",
+    "input": "polishing camry 2022",
+    "expect_debug": {"phase": "3A", "QUALIFICATION_STATUS": "NOT_READY"},
+    "expect_selected_phrase_id": "PHASE3A_Q_POLISHING_SCOPE",
+    "expect_not_selected_phrase_id": "PHASE3B_POLISHING_RANGE"
+  }
+]

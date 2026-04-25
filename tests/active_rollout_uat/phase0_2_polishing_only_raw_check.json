@@ -1,0 +1,12 @@
+[
+  {
+    "case_id": "phase0_2_polishing_recognition",
+    "input": "polishing camry 2022",
+    "expect_debug": {
+      "phase": "3A",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_POLISHING_SCOPE",
+    "expect_not_selected_phrase_id": "PHASE3B_POLISHING_RANGE"
+  }
+]
