@@ -885,3 +885,60 @@ LOCKED FOR ISSUE_003 RESOLUTION PATH
 - Only confirmed findings may be promoted here.
 - Hypotheses stay inside issue files.
 - Before repeating an audit, check this section first.
+
+## PATCH DUE DILIGENCE TIERS — 2026-04-25
+
+Purpose:
+Prevent drift, hidden logic, and competing authorities while keeping execution speed practical.
+
+### Tier 1 — Light Patch (Low Risk)
+Examples:
+- Phrase wording changes
+- Copy fixes
+- Non-routing text updates
+
+Required:
+- Local file inspection only
+- No signal ownership check required
+
+---
+
+### Tier 2 — Medium Patch (Controlled Risk)
+Examples:
+- New `selected_phrase_id`
+- Phrase library additions
+- Phase3A qualifier mapping updates
+
+Required:
+- Identify affected signal (e.g., `selected_phrase_id`, `phase3a_qualifier_id`)
+- Run owner check (`owner_map.py`)
+- Verify no duplicate or competing logic
+- Check adjacent files (assembly + phrase library)
+
+---
+
+### Tier 3 — Heavy Patch (High Risk — STRICT)
+Examples:
+- `QUALIFICATION_STATUS`
+- `request_type`
+- `HANDOVER_REQUIRED_FLAG`
+- `price_ladder_state`
+- Routing changes across phases
+
+Required:
+- Full signal ownership audit (writers + readers)
+- Check hidden generators (Output Template, fallback logic)
+- Ensure single final authority
+- Validate no downstream override possible
+- Define validation BEFORE patch (UAT / raw check)
+
+---
+
+### Hard Rule
+NO PATCH touching routing/state/pricing/handover is allowed without signal ownership confirmation.
+
+### Enforcement Principle
+- Signals, not keywords, define authority.
+- Only one writer per final signal.
+- Output layer must never override routing layer.
+
