@@ -6,6 +6,13 @@
       "phase": "PHASE_3",
       "QUALIFICATION_STATUS": "NOT_READY"
     },
-    "expect_not_selected_phrase_id": "PHASE3B_WRAP_RANGE"
+    "expect_not_selected_phrase_id": "PHASE3B_WRAP_RANGE",
+    "expect_selected_phrase_id": "PHASE3A_Q_WRAP_FINISH",
+    "expect_not_contains": [
+      "model year",
+      "model and year",
+      "موديل السيارة",
+      "سنة"
+    ]
   }
 ]

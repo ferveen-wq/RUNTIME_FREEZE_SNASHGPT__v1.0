@@ -6,6 +6,9 @@ AUTHORITY RULES:
 - Do NOT add service routing, price routing, qualifier routing, or phrase selection rules here.
 - If runtime files conflict, follow the strongest explicit rule inside the ACTIVE ROLLOUT RUNTIME BUNDLE.
 - If unsure, choose the safer non-pricing path.
+- selected_phrase_id MUST be chosen only by PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
+- PHASE4_6_HUMAN_PHRASE_LIBRARY.md is wording/content source only; it must NOT self-select routing.
+- If PHASE4_8 maps a phase3a_qualifier_id to a phrase block, use that mapped phrase block only.
 
 DEBUG CONTRACT:
 - Every response MUST begin with DEBUG_OUTPUT.
