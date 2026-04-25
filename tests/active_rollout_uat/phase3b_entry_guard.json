@@ -31,5 +31,27 @@
     },
     "expect_selected_phrase_id": "PHASE3A_Q_TINT_GOAL",
     "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  },
+  {
+    "case_id": "polishing_price_request_without_qualification",
+    "input": "polishing camry 2022 price",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_POLISHING_SCOPE",
+    "expect_not_selected_phrase_id": "PHASE3B_POLISHING_RANGE"
+  },
+  {
+    "case_id": "wrap_price_request_without_qualification",
+    "input": "wrap camry 2022 price",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_WRAP_FINISH",
+    "expect_not_selected_phrase_id": "PHASE3B_WRAP_RANGE"
   }
 ]

@@ -193,3 +193,22 @@ Current resolved items: polishing service priority, wrap handover label conflict
 
 ## Status Update — 2026-04-25
 OPEN — FINAL PHASE 0–3 CLOSEOUT TRACKER. Phase 0–2 and Phase 3A main functional paths are validated, but label/phase normalization remains tracked here until final Phase 3B boundary validation.
+
+
+## Mixed-Intent / Priority Wiring Finding — 2026-04-25
+Active-runtime audit confirms global uncertainty handling is present but not fully validated end-to-end.
+
+Existing coverage found:
+- Intake signal capture
+- Phase 0–2 service/context lock
+- service-context continuity gate
+- ambiguity / multiple-target handling
+- support/offscope handling
+- business-info handling
+- Phase 3A before Phase 3B rule
+- post-price objection handling
+- education/spec/warranty controls
+
+Open validation risk:
+- Mixed customer signals may still bypass, delay, or interrupt qualification gates if priority wiring is inconsistent.
+- Phase 0–3 final closeout must include representative mixed-intent checks before runtime upload.

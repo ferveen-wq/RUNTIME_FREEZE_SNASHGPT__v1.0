@@ -158,3 +158,16 @@ Status:
 
 ## Status Update — 2026-04-25
 OPEN — GOVERNANCE / ARCHITECTURE TRACKING ONLY. Main Phase 3A service entries passed for PPF, Ceramic, Tint, Polishing, and Wrap handover is separately covered. Not blocking Phase 0–3A functional closeout.
+
+
+## Mixed-Intent / Uncertainty Architecture Finding — 2026-04-25
+Deep active-runtime audit found that mixed/uncertain customer communication handling is already factored across Intake, Phase 0–2 lock, Qualification, Assembly, Negotiation, Objection, and Phase 6 education.
+
+Finding:
+- Architecture exists, but ownership and priority wiring remain fragmented across multiple runtime files.
+- Risk is not missing concept; risk is route precedence / wiring allowing one signal such as price, branch, discount, technical doubt, support, or service switch to interrupt a higher-priority gate.
+
+Action:
+- Keep ISSUE_004 open for ownership normalization.
+- Validate mixed-intent paths service-by-service before rollout.
+- Do not create a new parallel authority unless existing wiring proves insufficient.
