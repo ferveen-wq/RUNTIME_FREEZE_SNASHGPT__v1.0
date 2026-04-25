@@ -1,0 +1,89 @@
+[
+  {
+    "case_id": "phase0_3_arabic_tint_price_intake",
+    "strict_raw": true,
+    "input": "كم سعر التظليل",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE",
+    "expect_not_contains": {
+      "arabic": [
+        "دينار",
+        "السعر يبدأ",
+        "حسب النوع"
+      ],
+      "english": [
+        "BD",
+        "BHD",
+        "starts from"
+      ]
+    }
+  },
+  {
+    "case_id": "phase0_3_english_ceramic_price_intake",
+    "strict_raw": true,
+    "input": "price for ceramic",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "expect_not_contains": {
+      "english": [
+        "BD",
+        "BHD",
+        "dinar",
+        "starts from"
+      ],
+      "arabic": [
+        "دينار"
+      ]
+    }
+  },
+  {
+    "case_id": "phase0_3_mixed_ceramic_price_intake",
+    "strict_raw": true,
+    "input": "ceramic كم سعر",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "expect_not_contains": {
+      "arabic": [
+        "دينار",
+        "السعر يبدأ"
+      ],
+      "english": [
+        "BD",
+        "BHD"
+      ]
+    }
+  },
+  {
+    "case_id": "phase0_3_ppf_camry_2022_front_entry",
+    "strict_raw": true,
+    "input": "ppf camry 2022 front",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_DRIVING_PATTERN",
+    "expect_not_contains": {
+      "english": [
+        "ceramic",
+        "PHASE3B_PPF_RANGE"
+      ],
+      "arabic": [
+        "سيراميك",
+        "PHASE3B_PPF_RANGE"
+      ]
+    }
+  }
+]

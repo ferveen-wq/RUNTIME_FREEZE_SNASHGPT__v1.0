@@ -134,3 +134,26 @@ Next action:
 ## Status Update — 2026-04-25
 Status remains MONITORED / NOT PATCHABLE.
 No deterministic runtime defect is confirmed. Reopen only if repeatable active raw evidence appears.
+
+## Reopened Evidence — 2026-04-25
+
+Status changed from MONITORED to REOPENED.
+
+Reason:
+- Active Phase 0–3 closeout raw UAT reproduced the same behavior again.
+
+Evidence:
+- Case: phase0_3_ppf_camry_2022_front_entry
+- Input: ppf camry 2022 front
+- Actual selected_phrase_id: PHASE3B_PPF_RANGE
+- Actual QUALIFICATION_STATUS: READY_FOR_NEGOTIATION
+- Expected selected_phrase_id: PHASE3A_Q_PPF_DRIVING_PATTERN
+- Expected QUALIFICATION_STATUS: NOT_READY
+
+Current classification:
+- Runtime authority propagation / execution obedience issue.
+- Do not patch again until deterministic owner is confirmed.
+
+Next action:
+- Run single-case targeted reproduction only.
+- Avoid full-suite raw UAT until this issue is isolated.
