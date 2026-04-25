@@ -28,6 +28,11 @@ jobs:
         run: |
           python tools/runtime_guardian.py
 
+      - name: Run Active Rollout Guard
+        run: |
+          python tools/audit/active_rollout_guard.py
+
+
       - name: Run Governance Pipeline
         run: |
           python runner/governance_pipeline.py
