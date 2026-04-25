@@ -1,0 +1,54 @@
+[
+  {
+    "case_id": "ambiguous_alias_x90",
+    "input": "ppf x90 2022",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_selected_phrase_id": "L.1 QUALIFICATION CLARIFIER (V1/V2/V3)"
+  },
+  {
+    "case_id": "safe_alias_lc300",
+    "input": "ppf lc300 2022",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT"
+  },
+  {
+    "case_id": "job_offscope",
+    "input": "i need job",
+    "expect_debug": {
+      "request_type": "OTHER",
+      "QUALIFICATION_STATUS": "NOT_QUALIFIED",
+      "phase": "0"
+    },
+    "expect_selected_phrase_id": "OFFSCOPE — NON-AUTOMOTIVE (PHASE 0–2)"
+  },
+  {
+    "case_id": "after_service_support",
+    "input": "عندي مشكلة بعد التظليل",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "phase": "0"
+    },
+    "expect_selected_phrase_id": "POST-SERVICE SUPPORT (PHASE 0–2)"
+  },
+  {
+    "case_id": "unsupported_service",
+    "input": "do you do oil change camry 2022",
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "phase": "PHASE_3",
+      "request_type": "OTHER"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_selected_phrase_id": "A5 — NON-SPECIFIC AUTOMOTIVE INQUIRY (SAFE REDIRECT)"
+  }
+]
