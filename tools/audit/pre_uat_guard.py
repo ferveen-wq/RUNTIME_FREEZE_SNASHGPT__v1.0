@@ -25,7 +25,7 @@ def main():
         print(health.stderr.strip())
         fail("runner health check failed")
 
-    prompt = ROOT / "runner" / "context_reset_prompt.txt"
+    prompt = ROOT / "runner" / "context_reset_prompt_active.txt"
     prompt_text = prompt.read_text(encoding="utf-8")
 
     forbidden_active_prompt_patterns = [

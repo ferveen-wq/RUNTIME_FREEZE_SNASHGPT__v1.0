@@ -38,7 +38,7 @@ RUNTIME_FILES = [
     "OUTPUT_RESPONSE_TEMPLATE.md",
 ]
 def load_system_prompt():
-    base_prompt_path = ROOT / "runner/context_reset_prompt.txt"
+    base_prompt_path = ROOT / "runner/context_reset_prompt_active.txt"
     base = base_prompt_path.read_text(encoding="utf-8").strip()
 
     runtime_parts = []
