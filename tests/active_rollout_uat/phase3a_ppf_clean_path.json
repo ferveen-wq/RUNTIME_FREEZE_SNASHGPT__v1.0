@@ -4,7 +4,7 @@
     "input": "ppf camry 2022 front",
     "expect_selected_phrase_id": "PHASE3A_Q_PPF_DRIVING_PATTERN",
     "expect_debug": {
-      "phase": "3A",
+      "phase": "PHASE_3",
       "QUALIFICATION_STATUS": "NOT_READY"
     },
     "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"

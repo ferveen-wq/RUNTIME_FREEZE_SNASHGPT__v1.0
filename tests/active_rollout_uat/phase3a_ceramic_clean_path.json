@@ -4,7 +4,7 @@
     "input": "ceramic camry 2022",
     "expect_selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
     "expect_debug": {
-      "phase": "3A",
+      "phase": "PHASE_3",
       "QUALIFICATION_STATUS": "NOT_READY"
     },
     "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"

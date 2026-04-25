@@ -3,7 +3,7 @@
     "case_id": "phase0_2_ppf_recognition",
     "input": "ppf camry 2022",
     "expect_debug": {
-      "phase": "3A",
+      "phase": "PHASE_3",
       "QUALIFICATION_STATUS": "NOT_READY"
     },
     "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT",
