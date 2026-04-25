@@ -116,3 +116,25 @@ Several legacy governance tools still point to `00__LOCKED__UPLOAD_SET`, `tests/
 
 Rule:
 For Phase 0–3 rollout evidence, prefer controlled active UAT over legacy guard output.
+
+## Legacy Governance Tool Classification — 2026-04-25
+
+Several commit / CI / governance tools still intentionally point to `00__LOCKED__UPLOAD_SET`, `tests/uat`, or `runner/context_reset_prompt.txt`.
+
+Classification:
+- These tools are LEGACY / LOCKED-SOURCE governance.
+- They are not active rollout validation authority.
+- They may remain useful for locked-source hygiene, phrase-library safety, and historical governance.
+- They must not be used as proof that `00__ACTIVE_ROLLOUT_UPLOAD_SET` behavior is correct.
+
+Active rollout proof must come from:
+- `tools/audit/active_rollout_guard.py`
+- `tools/audit/run_active_uat_controlled.sh`
+- `runner/run_active_uat_raw.py`
+- `tests/active_rollout_uat`
+- `tools/audit/report_analyzer.py`
+- `tools/audit/owner_map.py` active-only default
+
+Future work:
+- Do not mass-rewrite legacy tools until rollout scope requires it.
+- If a legacy tool is promoted into active rollout governance, create a separate issue and verify it does not duplicate or compete with active rollout tools.
