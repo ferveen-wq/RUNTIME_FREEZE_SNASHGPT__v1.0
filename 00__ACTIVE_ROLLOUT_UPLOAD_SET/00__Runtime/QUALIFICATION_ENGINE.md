@@ -723,7 +723,7 @@ Purpose:
 
 Trigger:
 - If a vehicle token is present in the user message AND that token matches an alias entry in:
-  00__LOCKED__UPLOAD_SET/02__Repositories/GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4)
+  00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md (Section 4)
 
 Behavior:
 - If token matches a SAFE alias (Section 4.1):
