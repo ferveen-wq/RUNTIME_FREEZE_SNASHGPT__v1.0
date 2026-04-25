@@ -808,6 +808,26 @@ Emit:
 - allowed_next_actions includes ask_missing_info
 - STOP
 
+### POST-SERVICE SUPPORT / SERVICE-ADJACENT ISSUE (HARD)
+If user intent indicates a problem, complaint, issue, defect, or help request after a SNASH-related service
+(e.g., "problem after tint", "issue after ppf", "عندي مشكلة بعد التظليل", "مشكلة بعد التركيب"):
+  - request_type = OTHER
+  - Set constraint: post_service_support = true
+  - Set constraint: offscope_non_automotive = false
+  - QUALIFICATION_STATUS = NOT_READY
+  - price_ladder_state = NONE
+  - STOP
+
+### UNSUPPORTED AUTOMOTIVE SERVICE (HARD)
+If user asks for an automotive service that is outside SNASH core services
+(e.g., oil change, mechanical repair, tires, battery) and the message is still vehicle/automotive-related:
+  - request_type = OTHER
+  - Set constraint: unsupported_automotive_service = true
+  - Set constraint: offscope_non_automotive = false
+  - QUALIFICATION_STATUS = NOT_READY
+  - price_ladder_state = NONE
+  - STOP
+
 ### OFFSCOPE — NON-AUTOMOTIVE (HARD)
 If user intent is non-automotive (e.g., job/employment/CV/work requests):
   - request_type = OTHER

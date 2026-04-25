@@ -1131,6 +1131,22 @@ IF (request_type == NEW_CAR_RECOMMENDATION AND missing_fields includes vehicle_m
   - STOP
 
 ############################################
+# PHASE 0–2: POST-SERVICE SUPPORT ROUTE (SERVICE-ADJACENT)
+############################################
+
+IF (constraints includes post_service_support=true):
+  - selected_phrase_id: "POST-SERVICE SUPPORT (PHASE 0–2)"
+  - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → POST-SERVICE SUPPORT (PHASE 0–2)
+  - STOP
+
+# PHASE 0–2: UNSUPPORTED AUTOMOTIVE SERVICE ROUTE
+############################################
+
+IF (constraints includes unsupported_automotive_service=true):
+  - selected_phrase_id: "A5 — NON-SPECIFIC AUTOMOTIVE INQUIRY (SAFE REDIRECT)"
+  - Use PHASE4_6_HUMAN_PHRASE_LIBRARY.md → A5 — NON-SPECIFIC AUTOMOTIVE INQUIRY (SAFE REDIRECT)
+  - STOP
+
 # PHASE 0–2: OFFSCOPE ROUTE (NON-AUTOMOTIVE)
 ############################################
 
