@@ -942,3 +942,38 @@ NO PATCH touching routing/state/pricing/handover is allowed without signal owner
 - Only one writer per final signal.
 - Output layer must never override routing layer.
 
+
+
+## 🚫 ANTI-LOOP ENFORCEMENT — 2026-04-25
+
+DO NOT RUN UAT after any patch unless ALL are verified:
+
+1. phase3a_qualifier_id presence confirmed
+2. missing_fields state confirmed
+3. exact competing route identified
+4. owning file confirmed (Qualification vs Assembly vs Template)
+
+Violation of this rule causes:
+- repeated patch loops
+- credit waste
+- architecture contamination
+
+This rule is MANDATORY before any further runtime patch.
+
+
+## ▶️ NEXT SESSION ENTRY POINT — DO NOT SKIP
+
+1. Modify raw runner to expose:
+   - phase3a_qualifier_id
+   - missing_fields
+   - service_intent
+   - active_service_context
+
+2. Run ONLY ONE UAT case:
+   polishing_price_request_without_qualification
+
+3. Identify:
+   - Is qualifier_id missing OR ignored?
+   - Which route overrides Phase3A?
+
+4. Only after this → patch ONCE

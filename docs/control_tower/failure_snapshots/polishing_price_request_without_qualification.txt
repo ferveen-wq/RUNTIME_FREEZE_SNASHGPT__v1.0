@@ -1,0 +1,20 @@
+CASE: polishing_price_request_without_qualification
+
+DEBUG:
+{'phase': 'PHASE_3', 'request_type': 'PRICE_REQUEST', 'selected_phrase_id': 'C.3 SERVICE CONFIRMED — PHASE 0–2', 'QUALIFICATION_STATUS': 'NOT_READY', 'price_ladder_state': 'NONE'}
+
+RAW:
+DEBUG_OUTPUT
+phase: PHASE_3
+request_type: PRICE_REQUEST
+objection_signal: UNKNOWN_OR_AMBIGUOUS
+objection_repeat_count: 0
+selected_phrase_id: C.3 SERVICE CONFIRMED — PHASE 0–2
+QUALIFICATION_STATUS: NOT_READY
+price_ladder_state: NONE
+
+مرحباً، شكراً لتواصلك معنا. حتى نتمكن من تقديم السعر المناسب، ما هو موديل السيارة وسنة الصنع؟
+
+Hello, thanks for reaching out. To provide the right price, could you please confirm the car model and year?
+
+<span style="color:#6b7280">Timestamp: 2026-04-26 00:09 (Asia/Bahrain)</span>

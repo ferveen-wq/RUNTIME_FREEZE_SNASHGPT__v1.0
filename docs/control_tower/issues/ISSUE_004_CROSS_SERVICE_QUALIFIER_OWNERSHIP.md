@@ -171,3 +171,28 @@ Action:
 - Keep ISSUE_004 open for ownership normalization.
 - Validate mixed-intent paths service-by-service before rollout.
 - Do not create a new parallel authority unless existing wiring proves insufficient.
+
+
+## Polishing Phase3A Routing Failure — 2026-04-25
+
+Observed:
+- phase = PHASE_3
+- request_type = PRICE_REQUEST
+- QUALIFICATION_STATUS = NOT_READY
+- selected_phrase_id = SERVICE CONFIRMED — PHASE 0–2
+
+Expected:
+- PHASE3A_Q_POLISHING_SCOPE
+
+Suspicion:
+- Phase3A qualifier_id exists in engine but not honored by assembly
+- System falls back to Phase 0–2 SERVICE CONFIRMED route
+- Possible causes:
+  - qualifier_id not emitted to runtime output
+  - qualifier_id not visible to assembly
+  - competing route firing before Phase3A gate
+
+Action:
+- DO NOT patch
+- Require debug exposure of:
+  phase3a_qualifier_id, missing_fields, service_intent
