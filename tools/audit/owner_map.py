@@ -3,10 +3,12 @@
 import sys
 from pathlib import Path
 
-ROOTS = [
-    "00__ACTIVE_ROLLOUT_UPLOAD_SET",
-    "00__LOCKED__UPLOAD_SET",
-]
+# Default: active rollout surface only.
+# Use OWNER_MAP_INCLUDE_LOCKED=1 when explicitly auditing locked/source surfaces.
+ROOTS = ["00__ACTIVE_ROLLOUT_UPLOAD_SET"]
+
+if __import__("os").getenv("OWNER_MAP_INCLUDE_LOCKED") == "1":
+    ROOTS.append("00__LOCKED__UPLOAD_SET")
 
 IGNORE = [
     ".bak",

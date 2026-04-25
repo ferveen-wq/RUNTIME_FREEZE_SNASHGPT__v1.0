@@ -167,6 +167,17 @@ def main():
     if not cases_file:
         raise SystemExit("UAT_CASES_FILE not set")
 
+    cases_path = Path(cases_file)
+    allowed_root = Path("tests/active_rollout_uat")
+
+    try:
+        cases_path.relative_to(allowed_root)
+    except ValueError:
+        raise SystemExit(
+            "run_active_uat_raw.py only accepts active rollout UAT files under "
+            "tests/active_rollout_uat. Move this case file there before running."
+        )
+
     cases = load_json(cases_file)
 
     case_id_filter = os.getenv("CASE_ID", "").strip()
