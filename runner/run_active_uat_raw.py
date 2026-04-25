@@ -239,7 +239,29 @@ def main():
 
             text = response.output_text
             parsed = extract_debug_and_messages(text)
-            conversation.append({"role": "assistant", "content": text})
+
+            state_snapshot = {
+                "phase": parsed["debug"].get("phase"),
+                "request_type": parsed["debug"].get("request_type"),
+                "selected_phrase_id": parsed["debug"].get("selected_phrase_id"),
+                "QUALIFICATION_STATUS": parsed["debug"].get("QUALIFICATION_STATUS"),
+                "price_ladder_state": parsed["debug"].get("price_ladder_state"),
+                "service_intent": parsed["debug"].get("service_intent"),
+                "active_service_context": parsed["debug"].get("active_service_context"),
+                "missing_fields": parsed["debug"].get("missing_fields"),
+                "phase3a_required": parsed["debug"].get("phase3a_required"),
+                "phase3a_complete": parsed["debug"].get("phase3a_complete"),
+                "phase3a_qualifier_id": parsed["debug"].get("phase3a_qualifier_id"),
+            }
+
+            conversation.append({
+                "role": "assistant",
+                "content": (
+                    text
+                    + "\n\nSTATE_SNAPSHOT_FOR_NEXT_TURN:\n"
+                    + json.dumps(state_snapshot, ensure_ascii=False, sort_keys=True)
+                ),
+            })
 
         failures = check_expectations(parsed, case)
 
