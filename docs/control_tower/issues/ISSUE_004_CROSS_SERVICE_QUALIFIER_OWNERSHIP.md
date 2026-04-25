@@ -90,3 +90,35 @@ Risk:
 Conclusion:
 Before broad Phase 0-3 rollout, ownership must be normalized service-by-service:
 PPF, Ceramic, Tint, Polishing, Wrap.
+
+## Phase 0–2 Service Intent Ownership Finding — 2026-04-25
+
+Active owner-map review found:
+
+- `QUALIFICATION_ENGINE.md` defines and governs:
+  - request_type
+  - service_intent
+  - active_service_context
+  - detected_service_intent_in_message
+
+- `PHASE0_2_LOCK_INDEX.md` is a contract / invariant file, not the active writer.
+  It points service confirmed priority back to `QUALIFICATION_ENGINE.md`.
+
+- `CUSTOMER_CHAT_INTAKE_RULES.md` contains a narrow roof-black exception:
+  - sets product_alias_route = ROOF_PPF_BLACK_GLOSS
+  - sets detected_product_sku = ROOF_PPF_BLACK_GLOSS
+  - currently also sets service_intent = ppf
+
+Ownership decision:
+- Normal service_intent ownership remains with `QUALIFICATION_ENGINE.md`.
+- Intake may extract same-message hints and product aliases.
+- Intake should not become a broad service_intent writer.
+- The roof-black exception should remain monitored as a narrow bridge unless it causes conflict.
+
+Risk:
+- Broadening service_intent writes inside Intake would create competing authority.
+- detected_service_intent_in_message is defined in Qualification Engine but has no explicit active writer found by exact owner-map search, so this remains a follow-up audit item.
+
+Status:
+- ISSUE_004 remains OPEN.
+- Next audit: confirm service_intent handling for ceramic, tint, polishing, and wrap under active UAT.
