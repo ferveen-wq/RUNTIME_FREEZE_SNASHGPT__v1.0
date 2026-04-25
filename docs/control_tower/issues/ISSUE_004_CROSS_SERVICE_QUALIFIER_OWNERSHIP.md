@@ -122,3 +122,36 @@ Risk:
 Status:
 - ISSUE_004 remains OPEN.
 - Next audit: confirm service_intent handling for ceramic, tint, polishing, and wrap under active UAT.
+
+## Wrap Phase 0–2 Recognition Finding — 2026-04-25
+
+Active UAT:
+- File: tests/active_rollout_uat/phase0_2_wrap_recognition.json
+- Case: wrap_basic_recognition
+- Input: wrap camry 2022
+
+Actual:
+- phase = 0
+- request_type = SERVICE_CONFIRMED
+- selected_phrase_id = PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE4_WRAP_PRICE_PRESSURE_L1
+- QUALIFICATION_STATUS = NOT_READY
+- price_ladder_state = NONE
+
+Assessment:
+- Safe behavior: no price was given and qualification stayed NOT_READY.
+- Incorrect routing: PHASE4_WRAP_PRICE_PRESSURE_L1 was selected even though no price pressure existed.
+- Incorrect intake behavior: customer already gave Camry 2022, but response asked for model/year again.
+- Wrap path is not yet aligned with PPF/Ceramic/Tint/Polishing recognition behavior.
+
+Owner-map evidence:
+- PHASE3A_Q_WRAP_FINISH exists in QUALIFICATION_ENGINE.md and PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
+- handover_required_flag is referenced by PHASE4_8_MESSAGE_ASSEMBLY_MAP.md and QUALIFICATION_ENGINE.md, but active writer ownership is not cleanly surfaced.
+- PHASE4_WRAP_PRICE_PRESSURE_L1 exists in PHASE4_6_HUMAN_PHRASE_LIBRARY.md, but owner-map did not show a clear active routing owner.
+
+Classification:
+- Wrap routing / handover ownership gap.
+- Do not patch until exact owner is confirmed.
+
+Status:
+- ISSUE_004 remains OPEN.
+- Next action: inspect QUALIFICATION_ENGINE wrap block and PHASE4_8 wrap routing before deciding whether wrap should ask PHASE3A_Q_WRAP_FINISH or route to specialist handover.
