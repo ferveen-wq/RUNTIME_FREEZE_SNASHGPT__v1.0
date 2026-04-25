@@ -236,6 +236,24 @@ If the customer provides an alias that is listed as AMBIGUOUS in GLOBAL_VEHICLE_
 #- This ambiguous-alias guard MUST take precedence over any brand-only detection (e.g., XPEL).
 #- Do NOT reinterpret ambiguous vehicle aliases as brands, products, or services.
 
+### 5.3 Vehicle year extraction (HARD — same-message)
+If the customer message contains a clear 4-digit vehicle year token:
+- Treat that token as vehicle_year.
+- Do NOT mark vehicle_year as missing.
+- Preserve vehicle_year for downstream qualification.
+- If vehicle_model is also present, Phase 0–2 minimum vehicle context is satisfied.
+- Do NOT ask for year again.
+
+Clear 4-digit vehicle year token means:
+- A standalone year-like number from 1990 through CURRENT_YEAR + 1.
+- Example: "ppf camry 2022" → vehicle_year = 2022.
+- Example: "ceramic patrol 2024" → vehicle_year = 2024.
+
+This rule does NOT apply to:
+- numeric-only model tokens such as "Jetour 90" or "Jetour 52"
+- product sizes, percentages, prices, phone numbers, or invoice numbers
+- ambiguous vehicle aliases handled by Section 5.2
+
 From every customer input, try to extract:
 - Car brand
 - Car model
