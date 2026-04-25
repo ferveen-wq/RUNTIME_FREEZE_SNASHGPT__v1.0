@@ -113,3 +113,35 @@ Next steps:
 1. Normalize/clarify active UAT phase expectations.
 2. Strengthen label contract documentation.
 3. Audit request_type and Phase3 readiness rules before more API runs.
+
+## Request Type Assignment Audit — 2026-04-25
+
+Inspection found one direct `PRICE_REQUEST` assignment in `QUALIFICATION_ENGINE.md`.
+
+Direct price request tokens:
+- how much
+- price
+- pricing
+- cost
+- كم
+- سعر
+
+Finding:
+- `SERVICE_CONFIRMED_PRIORITY` currently lists:
+  - ceramic
+  - ppf
+  - tint
+  - wrap
+
+Gap:
+- `polishing` is missing from `SERVICE_CONFIRMED_PRIORITY`.
+- This may explain why `polishing camry 2022` sometimes does not consistently classify as `SERVICE_CONFIRMED`.
+
+Additional risk:
+- `DIRECT PRICE REQUEST → PRICE_REQUEST` appears before `SERVICE_CONFIRMED_PRIORITY`.
+- This is valid only when direct price tokens are present.
+- Service keyword + vehicle context without direct price token should never become `PRICE_REQUEST`.
+
+Decision:
+- Patch candidate belongs in `QUALIFICATION_ENGINE.md`, inside existing `SERVICE_CONFIRMED_PRIORITY`.
+- Do not add a parallel classifier.
