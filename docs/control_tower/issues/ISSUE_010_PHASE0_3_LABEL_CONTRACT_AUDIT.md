@@ -145,3 +145,27 @@ Additional risk:
 Decision:
 - Patch candidate belongs in `QUALIFICATION_ENGINE.md`, inside existing `SERVICE_CONFIRMED_PRIORITY`.
 - Do not add a parallel classifier.
+
+## M2 Quick All-Service Raw Pass — 2026-04-25
+
+Controlled raw active UAT run passed all 5 Phase 0–2 service recognition cases.
+
+Report:
+`tests/reports/raw_uat_20260425_035711.json`
+
+Services:
+- PPF: `SERVICE_CONFIRMED` → `PHASE3A_Q_PPF_COVERAGE_INTENT`
+- Ceramic: `SERVICE_CONFIRMED` → `PHASE3A_Q_CERAMIC_GOAL`
+- Tint: `SERVICE_CONFIRMED` → `PHASE3A_Q_TINT_GOAL`
+- Wrap: `SERVICE_CONFIRMED` → `PHASE3A_Q_WRAP_FINISH`
+- Polishing: `SERVICE_CONFIRMED` → `PHASE3A_Q_POLISHING_SCOPE`
+
+Common state:
+- `phase = 3A`
+- `QUALIFICATION_STATUS = NOT_READY`
+- `price_ladder_state = NONE`
+
+Decision:
+- M2 Phase 0–2 service recognition is provisionally passed.
+- Do not declare full determinism yet.
+- Next work should move to Phase 3A qualifier ownership / sequence checks with cost-controlled single-case runs.
