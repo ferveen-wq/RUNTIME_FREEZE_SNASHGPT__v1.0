@@ -112,3 +112,18 @@ Conclusion:
 - Patch improved the dangerous pricing jump behavior.
 - Patch is not sufficient to fully stabilize polishing Phase 0–2 → Phase 3A routing.
 - Do not commit the patch yet until the remaining generic Phase 0–2 route is inspected.
+
+## Cross-reference to ISSUE_010 — 2026-04-25
+
+ISSUE_010 label contract audit confirmed the earlier polishing finding:
+
+- `request_type` is owned by `QUALIFICATION_ENGINE.md`
+- `SERVICE_CONFIRMED_PRIORITY` lists ceramic/ppf/tint/wrap
+- `polishing` is missing from that service-confirmed priority list
+
+This is not a new separate defect.
+It is the label-contract/root-cause view of ISSUE_009.
+
+Patch candidate:
+- update the existing `SERVICE_CONFIRMED_PRIORITY` service list
+- do not create a new classifier
