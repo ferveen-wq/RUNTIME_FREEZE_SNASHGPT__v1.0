@@ -96,3 +96,23 @@ It is not the complete future runtime universe.
 Action:
 Do not expand active upload surface until the next UAT scope requires it.
 Do not patch runtime logic until Phase 3A smoke evidence is generated from the clean active surface.
+
+## Commit Guard vs Active Rollout Validation — 2026-04-25
+
+SNASH Guard currently acts as commit hygiene / repository safety only.
+
+It must NOT be treated as proof that active rollout runtime behavior is correct.
+
+Active rollout validation authority is:
+
+1. `tools/audit/run_active_uat_controlled.sh`
+2. `runner/run_active_uat_raw.py`
+3. `tests/active_rollout_uat`
+4. `tools/audit/report_analyzer.py`
+5. `tools/audit/owner_map.py` with active-only default
+
+Known limitation:
+Several legacy governance tools still point to `00__LOCKED__UPLOAD_SET`, `tests/uat`, or `runner/context_reset_prompt.txt`.
+
+Rule:
+For Phase 0–3 rollout evidence, prefer controlled active UAT over legacy guard output.
