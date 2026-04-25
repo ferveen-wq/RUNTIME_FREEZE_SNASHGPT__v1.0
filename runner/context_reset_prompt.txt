@@ -348,17 +348,14 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
 
 - Special rule for WRAP:
   - WRAP_FINISH completion does NOT mean standard automated Phase 3B pricing flow.
-  - After WRAP_FINISH is known, wrap may receive only a brief price-stage acknowledgment and must then route to approved handoff behavior.
+  - After WRAP_FINISH is known, wrap must route to the runtime-approved specialist handover.
   - Do NOT continue wrap into standard automated Phase 5 objection routing.
-  - Approved handoff behavior for WRAP MUST reuse ESCALATION BLOCK (Quote / Human Handoff) from OUTPUT_RESPONSE_TEMPLATE.md.
-  - The wrap handoff response MUST:
-    - acknowledge briefly
-    - state that the quote needs a quick check
-    - ask for ONE of:
-      - preferred visit time
-      - phone number
-  - Do NOT add pricing ranges for wrap once this handoff applies.
-  - STOP after escalation formatting.
+  - Do NOT use generic escalation labels for wrap handover.
+  - selected_phrase_id MUST equal PHASE3A_WRAP_SPECIALIST_HANDOVER when wrap specialist handover applies.
+  - QUALIFICATION_STATUS MUST remain NOT_READY for wrap specialist handover.
+  - price_ladder_state MUST remain NONE.
+  - Do NOT add pricing ranges for wrap once this handover applies.
+  - STOP after approved handover phrasing.
 - When those required keys are already present for the active service:
   - You MUST NOT output any PHASE3A_Q_* selected_phrase_id
   - You MUST NOT re-ask a qualifier that is already present
@@ -387,11 +384,10 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
   - For wrap:
     - Do NOT use PHASE3B_WRAP_RANGE
     - Do NOT continue into standard automated pricing ladder flow
-    - Use only a brief price-stage acknowledgment, then approved handoff behavior
-    - Approved handoff behavior MUST reuse ESCALATION BLOCK (Quote / Human Handoff) from OUTPUT_RESPONSE_TEMPLATE.md
-    - Ask for ONE of:
-      - preferred visit time
-      - phone number
+    - Use only the runtime-approved wrap specialist handover behavior.
+    - selected_phrase_id MUST equal PHASE3A_WRAP_SPECIALIST_HANDOVER.
+    - QUALIFICATION_STATUS MUST remain NOT_READY.
+    - price_ladder_state MUST remain NONE.
   - Do NOT output generic pricing fallback such as "depends on several factors" once this handoff applies
 
 - If ALL are true:
@@ -399,27 +395,19 @@ L1 BYPASS GUARD (CRITICAL — RUNTIME AUTHORITY):
   - vehicle_model is present
   - vehicle_year is present
   - WRAP_FINISH is present
-  - request_type == PRICE_REQUEST
 - Then:
-  - phase MUST NOT remain 3A
-  - phase MUST equal 4
-  - selected_phrase_id MUST equal ESCALATION_BLOCK_WRAP_QUOTE
+  - selected_phrase_id MUST equal PHASE3A_WRAP_SPECIALIST_HANDOVER
+  - selected_phrase_id MUST NOT equal ESCALATION_BLOCK_WRAP_QUOTE
   - selected_phrase_id MUST NOT equal PHASE3A_Q_WRAP_FINISH
-  - QUALIFICATION_STATUS MUST equal READY_FOR_NEGOTIATION
-  - QUALIFICATION_STATUS MUST NOT remain NOT_READY
+  - QUALIFICATION_STATUS MUST equal NOT_READY
+  - QUALIFICATION_STATUS MUST NOT equal READY_FOR_NEGOTIATION
   - price_ladder_state MUST remain NONE
   - Do NOT ask finish again
   - Do NOT use PHASE3B_WRAP_RANGE
   - Do NOT continue into PHASE5_WRAP_* routing
-  - You MUST use approved handoff behavior only
-  - The response MUST:
-    - acknowledge briefly
-    - state that the quote needs a quick check
-    - ask for ONE of:
-      - preferred visit time
-      - phone number
+  - You MUST use approved wrap specialist handover behavior only
   - Do NOT add pricing ranges
-  - STOP after escalation formatting
+  - STOP after approved wrap specialist handover phrasing
 
 - If ALL are true:
   - service_intent == polishing
