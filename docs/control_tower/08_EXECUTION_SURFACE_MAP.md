@@ -21,6 +21,15 @@ Status: ACTIVE
 Rule:
 Only current rollout smoke tests and reports are active evidence here.
 
+### Issue Tracking Surface
+`docs/control_tower/issues`
+
+Status: ACTIVE CONTROL-TOWER SURFACE
+
+Rule:
+All active runtime/UAT defects must be logged here before patching.
+Each issue must include problem, expected vs actual behavior, classification, owner candidate, validation plan, and status.
+
 ## Reference Surfaces
 
 `00__LOCKED__UPLOAD_SET`
