@@ -169,3 +169,19 @@ Decision:
 - M2 Phase 0–2 service recognition is provisionally passed.
 - Do not declare full determinism yet.
 - Next work should move to Phase 3A qualifier ownership / sequence checks with cost-controlled single-case runs.
+
+## Wrap Scope Label Audit — 2026-04-25
+
+Audit checked `PHASE3A_Q_WRAP_SCOPE`, `WRAP_SCOPE`, and `WRAP_FINISH`.
+
+Finding:
+- Active automated wrap Phase 3A uses `WRAP_FINISH` only.
+- `QUALIFICATION_ENGINE.md` routes wrap to `PHASE3A_Q_WRAP_FINISH`.
+- `PHASE3A_QUALIFICATION_DECISION_MATRIX.md` explicitly says do NOT ask `WRAP_SCOPE` in automated runtime flow.
+- `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md` maps `PHASE3A_Q_WRAP_FINISH`.
+- `PHASE4_6_HUMAN_PHRASE_LIBRARY.md` still contains `PHASE3A_Q_WRAP_SCOPE`.
+
+Conclusion:
+- `PHASE3A_Q_WRAP_SCOPE` is not active Phase 3A wiring.
+- Treat it as stray/deprecated/support-only unless a later owner decision reactivates scope.
+- Do not add `PHASE3A_Q_WRAP_SCOPE` to assembly mapping.
