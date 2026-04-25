@@ -616,7 +616,10 @@ IF (
 THEN:
   - request_type = PRICE_REQUEST
   - constraints += [direct_price_request=true]
-  - STOP
+  - Continue qualification evaluation.
+  - If service_intent is known and Phase 3A qualifiers are missing, Phase 3A qualifier selection MUST run before any READY_FOR_NEGOTIATION state.
+  - Do NOT set READY_FOR_NEGOTIATION from direct price intent alone.
+  - Do NOT set price_ladder_state = INITIAL from direct price intent alone.
 
 ## 2.Z) PRICE PRESSURE WITHOUT DIRECT PRICE REQUEST → OTHER (HARD)
 Precondition (non-negotiable):
@@ -659,7 +662,14 @@ this engine MUST also emit the following alias output:
 - QUALIFICATION_STATUS
 
 Mapping:
-- If phase3a_required == true AND phase3a_qualifier_id is present:
+- If constraints contains direct_price_request=true
+  AND service_intent != unknown
+  AND phase3a_complete != true:
+  - QUALIFICATION_STATUS = NOT_READY
+  - price_ladder_state = NONE
+  - phase3a_required = true
+  - Do NOT allow READY_FOR_NEGOTIATION from a direct price request until Phase 3A is complete.
+- Else if phase3a_required == true AND phase3a_qualifier_id is present:
   - QUALIFICATION_STATUS = NOT_READY
   - price_ladder_state = NONE
 - Else if qualification_state is QUALIFIED_READY or QUALIFIED_WITH_CONSTRAINTS:

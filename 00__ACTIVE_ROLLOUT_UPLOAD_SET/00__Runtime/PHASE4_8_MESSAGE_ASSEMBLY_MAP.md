@@ -247,7 +247,9 @@ Hard rules:
 - Do NOT write or "force" request_type here.
 
 IF constraints contains direct_price_request=true:
-  - STOP (continue normal PRICE_REQUEST execution flow; do not run OTHER-only price-pressure routes).
+  - Do NOT run OTHER-only price-pressure routes.
+  - Do NOT STOP before Phase 3A Qualifier-First Gate.
+  - If phase3a_required == true OR phase3a_complete != true, continue to Phase 3A qualifier routing before any PRICE_REQUEST pricing route.
 
 IF request_type != PRICE_REQUEST
 AND current_user_message contains any of:

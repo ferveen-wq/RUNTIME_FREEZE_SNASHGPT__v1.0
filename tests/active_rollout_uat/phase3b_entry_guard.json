@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": "ppf_price_request_without_qualification",
+    "input": "ppf camry 2022 how much",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT",
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "ceramic_price_request_without_qualification",
+    "input": "ceramic patrol 2024 price",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_CERAMIC_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+  },
+  {
+    "case_id": "tint_price_request_without_qualification",
+    "input": "tint camry 2022 price",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_TINT_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  }
+]
