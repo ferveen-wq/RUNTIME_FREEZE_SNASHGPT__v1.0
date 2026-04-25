@@ -107,7 +107,7 @@ If "all" → MIXED.
 
 Phase 3B READY for PPF when:
 - PPF_COVERAGE_INTENT is known (or UNSURE)
-- PPF_DRIVING_PATTERN is known (or UNKNOWN)
+- PPF_DRIVING_PATTERN is known (NOT UNKNOWN)
 
 ────────────────────────────────────────────────────────────
 3A.2 CERAMIC - MAINTENANCE-OUTCOME LED
