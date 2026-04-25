@@ -462,6 +462,12 @@ AND vehicle_year is present:
 
   - phase3a_required = false
   - phase3a_complete = true
+  - QUALIFICATION_STATUS = NOT_READY
+  - HANDOVER_REQUIRED_FLAG = TRUE
+  - handover_required_flag = true
+  - handover_reason = wrap_specialist_required
+  - allowed_next_actions includes route_to_human
+  - STOP
 
 --------------------------------------------------------------------------
 ### Phase 3A qualifier selection (POLISHING)

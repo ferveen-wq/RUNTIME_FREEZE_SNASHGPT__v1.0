@@ -74,6 +74,13 @@ Do NOT mention internal engine names, tags, or decision codes in customer-facing
 
 ### A) ESCALATION BLOCK (Quote / Human Handoff)
 Use when the system decides a manual quote or human handoff is required.
+
+Authority guard:
+- This block is formatting-only.
+- It MUST NOT create a new `selected_phrase_id`.
+- It MUST NOT override any `selected_phrase_id` selected by `PHASE4_8_MESSAGE_ASSEMBLY_MAP.md`.
+- If an approved `selected_phrase_id` exists, render the selected PHASE4_6 phrase verbatim instead of generating generic escalation wording.
+
 Format:
 - 1 short line acknowledging
 - 1 line stating a quote needs a quick check

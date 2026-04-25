@@ -877,6 +877,16 @@ IF request_type == PRICE_REQUEST AND (missing_fields includes vehicle_model OR v
 - Follow: "Exception B — Price Request while NOT_READY" under QUALIFICATION NOT-READY SUPPRESSION (HARD).
   (That exception provides: Phase 6 service explanation (NO PRICES) + exactly 1 vehicle_model/year question.)
 
+Route WRAP-H — Wrap Specialist Handover (automation stop)
+IF (HANDOVER_REQUIRED_FLAG == TRUE OR handover_required_flag == true)
+AND handover_reason == wrap_specialist_required:
+- selected_phrase_id: PHASE3A_WRAP_SPECIALIST_HANDOVER
+- Output MUST render PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE3A_WRAP_SPECIALIST_HANDOVER verbatim.
+- Do NOT enter Phase 3B.
+- Do NOT call PRICE_LADDER_ENGINE.md.
+- Do NOT append hooks, pricing, discounts, or extra questions.
+- STOP
+
 Route E — Price Request while READY (pricing allowed)
 IF (phase == PHASE_3 OR phase == PHASE_3B)
 AND request_type == PRICE_REQUEST

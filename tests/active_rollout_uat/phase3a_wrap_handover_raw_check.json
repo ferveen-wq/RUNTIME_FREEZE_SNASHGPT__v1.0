@@ -1,0 +1,16 @@
+[
+  {
+    "case_id": "phase3a_wrap_finish_handover",
+    "turns": [
+      "wrap camry 2022",
+      "matte"
+    ],
+    "expect_debug": {
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE",
+      "phase": "3A"
+    },
+    "expect_selected_phrase_id": "PHASE3A_WRAP_SPECIALIST_HANDOVER",
+    "expect_not_selected_phrase_id": "ESCALATION_BLOCK_WRAP_QUOTE"
+  }
+]

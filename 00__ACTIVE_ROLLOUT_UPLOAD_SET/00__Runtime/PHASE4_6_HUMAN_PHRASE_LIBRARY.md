@@ -49,6 +49,10 @@ AR: للتغليف، أي لمسة تفضّل — لامع، ساتان، أو �
 EN: Are you thinking a full color-change wrap, or only a specific area?
 AR: هل تفكر بتغليف كامل للسيارة بلون جديد، أو فقط جزء معيّن؟
 
+### PHASE3A_WRAP_SPECIALIST_HANDOVER
+EN: Got it. For wrapping, it needs a quick check with our specialist depending on the design and coverage. You can share your number and our team will contact you on WhatsApp, or we can book a quick visit for you.
+AR: تمام. بالنسبة للتغليف، يحتاج تنسيق بسيط مع المختص حسب التصميم والتغطية. تقدر ترسل رقمك وبيكلمك الفريق على الواتساب؟ أو إذا تحب نحدد لك موعد زيارة سريعة.
+
 ### PHASE3A_Q_POLISHING_SCOPE
 EN: Just to understand your goal — are you mainly looking to improve the gloss of the exterior paint, or a full detailing that also includes the interior?
 AR: بس عشان أفهم هدفك — تبي تحسين لمعان الطلاء الخارجي فقط، أو ديتيلنج كامل يشمل الداخلي؟
