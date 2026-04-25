@@ -33,4 +33,4 @@ Runtime bug — intake / extraction layer
 - Patch ONLY extraction logic (not routing)
 
 ## Status
-OPEN
+CLOSED — VALIDATED IN ACTIVE UAT (2026-04-25)

@@ -139,3 +139,7 @@ Regression guard:
 ## Status Update — 2026-04-25
 Provisionally resolved by M2 all-service raw pass and contradiction guards.
 Keep referenced under ISSUE_010 label contract until Phase 0–3 final readiness closeout.
+
+## Phase 0–2 Closeout Note — 2026-04-25
+- Not a Phase 0–2 blocker
+- Moved under Phase 3 / ISSUE_010 tracking

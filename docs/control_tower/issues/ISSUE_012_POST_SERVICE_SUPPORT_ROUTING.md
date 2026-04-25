@@ -30,4 +30,4 @@ Runtime bug — Phase 0–2 support/service-adjacent routing gap
 - Active UAT case after_service_support failed.
 
 ## Status
-OPEN
+CLOSED — VALIDATED IN ACTIVE UAT (2026-04-25)
