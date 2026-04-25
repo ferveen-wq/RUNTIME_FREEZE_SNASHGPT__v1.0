@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "greeting_only",
+    "input": "hi",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "GREETING_ONLY",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "A4_GREETING_SERVICE_CONTEXT"
+  },
+  {
+    "case_id": "service_only_no_vehicle",
+    "input": "ppf",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "C.1 PPF EXPLANATION + QUALIFIER (PHASE 0–2)",
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "vehicle_only_no_service",
+    "input": "camry 2022",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "arabic_service",
+    "input": "تظليل كامري 2022",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  },
+  {
+    "case_id": "price_without_context",
+    "input": "كم السعر",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "PRICE_REQUEST",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  },
+  {
+    "case_id": "business_query",
+    "input": "شنو الخدمات عندكم",
+    "expect_debug": {
+      "phase": "0",
+      "request_type": "BROWSING_GENERIC",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "L.2 BROWSING_GENERIC — SERVICE OVERVIEW (NO BULLETS)"
+  },
+  {
+    "case_id": "mixed_service",
+    "input": "ppf or ceramic camry 2022",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_not_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_selected_phrase_id": "PHASE3A_Q_PPF_COVERAGE_INTENT"
+  }
+]
