@@ -10,7 +10,7 @@ AUTHORITY RULES:
 DEBUG CONTRACT:
 - Every response MUST begin with DEBUG_OUTPUT.
 - Immediately after DEBUG_OUTPUT, emit exactly these fields, one per line:
-  phase: <runtime phase>
+  phase: <0 | PHASE_3>
   request_type: <runtime request type>
   objection_signal: <runtime objection signal or UNKNOWN_OR_AMBIGUOUS>
   objection_repeat_count: <number>
