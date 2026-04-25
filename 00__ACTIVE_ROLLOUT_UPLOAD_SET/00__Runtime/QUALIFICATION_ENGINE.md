@@ -812,7 +812,8 @@ Emit:
 If user intent is non-automotive (e.g., job/employment/CV/work requests):
   - request_type = OTHER
   - Set constraint: offscope_non_automotive = true
-  - QUALIFICATION_STATUS = QUALIFIED_WITH_CONSTRAINTS
+  - QUALIFICATION_STATUS = NOT_QUALIFIED
+  - price_ladder_state = NONE
 
 3) AMBIGUOUS_TARGET
 - Trigger if the system cannot identify the minimum target needed to proceed safely, including:
