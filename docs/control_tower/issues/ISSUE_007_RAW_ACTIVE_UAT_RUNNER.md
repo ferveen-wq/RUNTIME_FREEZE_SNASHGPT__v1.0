@@ -89,3 +89,22 @@ Required runner improvements:
 - Add `MAX_CASES` limit.
 - Add warning/confirmation for multi-case raw runs using `RAW_UAT_CONFIRM=YES`.
 - Print number of cases before execution.
+
+## Raw Runner Multi-Turn Health Finding — 2026-04-25
+
+Audit found `runner/run_active_uat_raw.py` supports `turns`, but appends assistant output back into conversation as raw text only:
+
+`conversation.append({"role": "assistant", "content": text})`
+
+Risk:
+- Runtime expects next turn continuity through signals such as:
+  - `previous_turn.selected_phrase_id`
+  - `phase`
+  - `QUALIFICATION_STATUS`
+  - `active_service_context`
+- If these signals are not preserved clearly between turns, multi-turn UAT may falsely fail and cause unnecessary runtime patching.
+
+Decision:
+- Before trusting multi-turn raw UAT, add a runner health check.
+- Raw runner must prove it preserves parsed debug/state signals into the conversation context.
+- Do not patch runtime based on multi-turn failures until runner health is confirmed.
