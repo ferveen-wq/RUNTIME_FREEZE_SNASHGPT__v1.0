@@ -852,3 +852,36 @@ Implication:
 
 Status:
 LOCKED FOR ISSUE_003 RESOLUTION PATH
+
+---
+
+## CURRENT CLEAN ACTIVE FINDINGS — 2026-04-25
+
+### Confirmed Findings
+
+1. SERVICE_CONFIRMED_PRIORITY GAP
+- `polishing` is missing from the `SERVICE_CONFIRMED_PRIORITY` service keyword list.
+- Owner: `QUALIFICATION_ENGINE.md`
+- Status: patch candidate.
+- Related issues: ISSUE_009, ISSUE_010.
+
+2. PHASE LABEL CONTRACT
+- `QUALIFICATION_ENGINE.md` states runtime `phase` should remain `PHASE_3` throughout Phase 3.
+- Active UAT expecting exact `3A` may be over-strict.
+- Status: test expectation / label contract adjustment needed.
+- Related issue: ISSUE_010.
+
+### Under Investigation — Not Confirmed as Patchable
+
+1. request_type instability / possible PRICE_REQUEST leak
+- Some raw traces showed `PRICE_REQUEST` without direct price wording.
+- Do not patch globally until owner proof is complete.
+
+2. Route B interaction with Phase 3A routing
+- Route B stricter condition is currently uncommitted and under evaluation.
+- Do not commit until validated or consciously accepted as structural cleanup.
+
+### Working Rule
+- Only confirmed findings may be promoted here.
+- Hypotheses stay inside issue files.
+- Before repeating an audit, check this section first.
