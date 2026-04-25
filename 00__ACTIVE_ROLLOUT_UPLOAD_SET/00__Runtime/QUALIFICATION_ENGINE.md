@@ -731,7 +731,7 @@ Emit:
 
 Trigger:
 - User explicitly mentions a known service keyword
-  (ceramic, ppf, tint, wrap)
+  (ceramic, ppf, tint, wrap, polishing)
 
 Behavior:
 - Treat intent as SERVICE_CONFIRMED
