@@ -468,6 +468,11 @@ AND vehicle_year is present:
 
   - IF define_missing(WRAP_FINISH):
     - phase3a_qualifier_id = PHASE3A_Q_WRAP_FINISH
+    - phase3a_required = true
+    - phase3a_complete = false
+    - qualification_state = NOT_READY
+    - QUALIFICATION_STATUS = NOT_READY
+    - price_ladder_state = NONE
     - STOP
 
   - phase3a_required = false
@@ -654,7 +659,10 @@ this engine MUST also emit the following alias output:
 - QUALIFICATION_STATUS
 
 Mapping:
-- If qualification_state is QUALIFIED_READY or QUALIFIED_WITH_CONSTRAINTS:
+- If phase3a_required == true AND phase3a_qualifier_id is present:
+  - QUALIFICATION_STATUS = NOT_READY
+  - price_ladder_state = NONE
+- Else if qualification_state is QUALIFIED_READY or QUALIFIED_WITH_CONSTRAINTS:
   - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
 - Otherwise:
   - QUALIFICATION_STATUS = NOT_READY
