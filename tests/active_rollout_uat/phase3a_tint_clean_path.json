@@ -1,0 +1,13 @@
+[
+  {
+    "case_id": "tint_should_ask_goal_first",
+    "input": "tint camry 2022",
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "request_type": "SERVICE_CONFIRMED",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_TINT_GOAL",
+    "expect_not_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  }
+]

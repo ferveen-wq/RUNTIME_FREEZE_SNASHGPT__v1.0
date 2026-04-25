@@ -751,6 +751,27 @@ Emit:
 - service_intent = previous_turn.service_intent
 - active_service_context = previous_turn.service_intent
 
+  2.5A) SERVICE_CONFIRMED_COMPLETE_CONTEXT_BRIDGE (HARD)
+
+Trigger:
+- User explicitly mentions a known service keyword
+  (ceramic, ppf, tint, wrap, polishing)
+- AND vehicle_model is present
+- AND vehicle_year is present
+
+Behavior:
+- request_type = SERVICE_CONFIRMED
+- phase = PHASE_3
+- qualification_state = NOT_READY
+- QUALIFICATION_STATUS = NOT_READY
+- missing_fields = []
+- phase3a_required = true
+- Set active_service_context = service_intent
+- Continue to the service-specific Phase 3A qualifier selection block.
+- Do NOT route to Phase 0–2 service confirmation.
+- Do NOT ask for vehicle_model or vehicle_year again.
+- Do NOT proceed to pricing or negotiation.
+
   2.5) SERVICE_CONFIRMED_PRIORITY (HARD)
 
 Trigger:
