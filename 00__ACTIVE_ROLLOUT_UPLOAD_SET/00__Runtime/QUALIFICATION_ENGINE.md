@@ -380,10 +380,20 @@ AND vehicle_year is present:
 
   - IF define_missing_ppf_coverage():
       - phase3a_qualifier_id = PHASE3A_Q_PPF_COVERAGE_INTENT
+      - phase3a_required = true
+      - phase3a_complete = false
+      - qualification_state = NOT_READY
+      - QUALIFICATION_STATUS = NOT_READY
+      - price_ladder_state = NONE
       - STOP
 
   - ELSE IF define_missing(PPF_DRIVING_PATTERN):
       - phase3a_qualifier_id = PHASE3A_Q_PPF_DRIVING_PATTERN
+      - phase3a_required = true
+      - phase3a_complete = false
+      - qualification_state = NOT_READY
+      - QUALIFICATION_STATUS = NOT_READY
+      - price_ladder_state = NONE
       - STOP
 
   # PPF_COMPARISON_FOCUS is conditional only.
