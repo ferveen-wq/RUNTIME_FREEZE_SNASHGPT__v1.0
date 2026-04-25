@@ -132,3 +132,6 @@ Patch candidate:
 ## Status Update — 2026-04-25
 Resolved by adding `polishing` to `SERVICE_CONFIRMED_PRIORITY` and validating M2 all-service raw pass.
 Polishing now routes to `PHASE3A_Q_POLISHING_SCOPE` with `QUALIFICATION_STATUS=NOT_READY` and `price_ladder_state=NONE`.
+
+## Status Update — 2026-04-25
+CLOSED — VALIDATED IN ACTIVE UAT. Polishing Phase 3A clean path passed and no premature Phase 3B entry was observed.

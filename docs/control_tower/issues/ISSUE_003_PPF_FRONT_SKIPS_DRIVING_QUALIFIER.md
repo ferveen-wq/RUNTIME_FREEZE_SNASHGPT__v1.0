@@ -190,3 +190,6 @@ Patch direction:
   - QUALIFICATION_STATUS = NOT_READY
   - price_ladder_state = NONE
   - no Phase 3B readiness
+
+## Status Update — 2026-04-25
+MONITORED — RECENT ACTIVE UAT PASS. PPF front clean path passed and correctly asked driving-pattern qualifier. Keep monitored because historical behavior was intermittent.
