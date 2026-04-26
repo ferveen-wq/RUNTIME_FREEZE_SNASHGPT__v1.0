@@ -233,7 +233,8 @@ Preserved rule:
 
 Status:
 - Confirmed business decision.
-- Implementation still pending controlled patch.
+- Controlled Route E patch applied in active rollout assembly map.
+- Validation pending focused active UAT.
 
 ## Patch Scope Decision — Route E Phase 3A Completion Bridge — 2026-04-26
 
