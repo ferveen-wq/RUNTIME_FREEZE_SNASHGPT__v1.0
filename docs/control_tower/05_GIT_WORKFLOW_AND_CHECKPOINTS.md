@@ -384,3 +384,38 @@ For Phase 3B price exposure UAT:
 Required manual check:
 - Output must include BD VAT included wording.
 - Output must match PRICE_TABLE_VAT_INCL.md.
+
+[FLAG] PRE-VALIDATION-LOCK UAT RESULTS
+- Any UAT results before commit: 2c67b43 (content validation patch)
+- Must be treated as PARTIAL TRUST ONLY
+- Require re-validation before Phase 8 rollout
+
+
+## Pattern Risk — Authority Drift / Wrong-File Logic
+
+Observed during Phase 3B pricing validation:
+- Missing runtime bridge caused temptation to patch SKU_SELECTION_MATRIX, PHASE4_8_MESSAGE_ASSEMBLY_MAP, or phrase files.
+- Due diligence confirmed the correct owner was PRICE_LADDER_ENGINE.md because:
+  - SKU_SELECTION_MATRIX.md owns SKU ordering only.
+  - PRICE_TABLE_VAT_INCL.md owns numeric prices only.
+  - PRICE_LADDER_ENGINE.md owns SKU-to-price execution and price_ladder_state.
+  - PHASE4_8_MESSAGE_ASSEMBLY_MAP.md owns routing/message assembly only.
+
+Rollout rule:
+Before patching any Phase 0–3 issue, confirm:
+1. Which file owns the behavior.
+2. Whether the logic already exists elsewhere.
+3. Whether the proposed patch creates duplicate authority.
+4. Whether the issue is missing implementation vs wrong routing vs wrong phrasing.
+5. Whether the fix keeps repository/parameter files clean.
+
+Pre-rollout audit requirement:
+- Before Phase 8 rollout, review Phase 0–3 for similar authority drift:
+  - logic placed in wrong file
+  - duplicate behavior across files
+  - model inference replacing deterministic runtime logic
+  - debug pass without customer-output validation
+  - bridge contracts documented in architecture but missing in runtime
+
+Status:
+ACTIVE PATTERN — must be checked before final rollout lock.
