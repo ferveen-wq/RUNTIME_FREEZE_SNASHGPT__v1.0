@@ -1170,3 +1170,15 @@ Why:
 - Runtime principle already exists; bridge enforcement was missing.
 UAT:
 - pending rerun of phase4_objection_ppf_expensive.json
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, docs/control_tower/issues/ISSUE_015_PHASE3B_PRICE_EXPOSURE_VALIDATION.md, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md
+Changed:
+- Added Route E price exposure enforcement to active context prompt.
+- Added ISSUE_015 to track Phase 3B actual price display validation before Phase 4 objection UAT.
+- Added mid-flow context preservation workflow rule.
+Why:
+- Phase 3B bridge was validated, but actual PRICE_LADDER_ENGINE price/range display was not separately validated.
+- Phase 4 objection testing was premature without confirmed prior price exposure.
+UAT:
+- pending focused Phase 3B price exposure UAT

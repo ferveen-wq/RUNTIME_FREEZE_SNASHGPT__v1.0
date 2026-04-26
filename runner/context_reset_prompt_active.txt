@@ -51,6 +51,15 @@ DEBUG CONTRACT:
   - polishing -> PHASE3B_POLISHING_RANGE
   - selected_phrase_id MUST NOT be null.
 
+- Route E price exposure enforcement:
+  If active runtime Route E conditions are satisfied AND the customer is asking for price:
+  - Use PRICE_LADDER_ENGINE.md output.
+  - The customer-facing reply MUST include the approved price or price range from PRICE_TABLE_VAT_INCL.md.
+  - If multiple valid prices exist, show: FROM {lowest_valid_price} TO {highest_valid_price} BD VAT included.
+  - If one valid price exists, show: {price} BD VAT included.
+  - Do NOT stop at only the PHASE3B_* transition acknowledgement.
+  - price_ladder_state MUST reflect actual ladder execution.
+
 - Polishing completion protection:
   If active_service_context == polishing AND POLISHING_SCOPE is present AND PAINT_CONDITION_REPAINT_SCRATCH is present AND PAINT_CONDITION_REPAINT_SCRATCH != UNKNOWN AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION:
   - Do NOT output PHASE3A_Q_POLISHING_SCOPE.

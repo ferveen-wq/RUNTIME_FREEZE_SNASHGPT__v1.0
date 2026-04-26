@@ -346,3 +346,26 @@ When adding bridge/context prompt enforcement:
 Example:
 - Route E selected_phrase_id enforcement is cross-service.
 - It must not sit inside the PPF completion protection block.
+
+## Mid-Flow Context Preservation Rule
+
+Before treating any short/off-path customer reply as a new conversation:
+
+- Check whether prior active_service_context exists.
+- If prior context exists, preserve the active service and qualification state unless the customer clearly switches service/topic.
+- Do not reset service_intent to unknown only because the current message is short, vague, acknowledgement-only, or off-path.
+
+Examples:
+- ok
+- okay
+- 👍
+- تمام
+- اوكي
+- زين
+- side questions
+- partial answers
+- unrelated replies during an active flow
+
+Patch rule:
+- If runtime already says context must be preserved, patch bridge/context enforcement first.
+- Do not duplicate runtime ownership unless the runtime rule is missing.
