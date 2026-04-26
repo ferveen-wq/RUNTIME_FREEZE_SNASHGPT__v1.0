@@ -1033,3 +1033,13 @@ Why:
 - Preserve validation evidence for the Route E / PPF completion bridge fix.
 UAT:
 - tests/reports/raw_uat_20260426_140223.json passed 1/1
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, runner/run_active_uat_raw.py
+Changed:
+- Added CERAMIC_GOAL and CERAMIC_WASH_PATTERN to debug contract and runner state snapshot.
+Why:
+- Ceramic Phase 3A qualifiers were not preserved across turns, causing re-entry into qualification instead of Phase 3B.
+- Same root cause as earlier PPF Q3 overflow issue.
+UAT:
+- pending focused active rollout UAT for ceramic

@@ -95,6 +95,10 @@ def extract_debug_and_messages(text):
             debug["PPF_COVERAGE_INTENT"] = ln.split(":",1)[1].strip()
         elif ln.startswith("PPF_DRIVING_PATTERN:"):
             debug["PPF_DRIVING_PATTERN"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("CERAMIC_GOAL:"):
+            debug["CERAMIC_GOAL"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("CERAMIC_WASH_PATTERN:"):
+            debug["CERAMIC_WASH_PATTERN"] = ln.split(":",1)[1].strip()
 
     parts = text.split("\n\n")
     if len(parts) >= 2:
@@ -269,6 +273,8 @@ def main():
                 "phase3a_qualifier_id": parsed["debug"].get("phase3a_qualifier_id"),
                 "PPF_COVERAGE_INTENT": parsed["debug"].get("PPF_COVERAGE_INTENT"),
                 "PPF_DRIVING_PATTERN": parsed["debug"].get("PPF_DRIVING_PATTERN"),
+                "CERAMIC_GOAL": parsed["debug"].get("CERAMIC_GOAL"),
+                "CERAMIC_WASH_PATTERN": parsed["debug"].get("CERAMIC_WASH_PATTERN"),
             }
 
             conversation.append({
