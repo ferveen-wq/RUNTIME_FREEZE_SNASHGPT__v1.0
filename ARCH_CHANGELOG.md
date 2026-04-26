@@ -955,3 +955,16 @@ Why:
 - Prevent malformed object-turn fixtures from wasting API credits.
 UAT:
 - no-credit pre-UAT guard passed on phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md, docs/control_tower/issues/ISSUE_010_PHASE0_3_LABEL_CONTRACT_AUDIT.md
+Changed:
+- Added Route E bridge for SERVICE_CONFIRMED + READY_FOR_NEGOTIATION + phase3a_complete to enter Phase 3B price/options delivery.
+- Kept direct PRICE_REQUEST behavior unchanged.
+- Excluded wrap from the automatic Phase 3B bridge.
+- Recorded business decision and patch scope in ISSUE_010.
+Why:
+- After required Phase 3A qualification is complete, SNASHGPT should not delay price/options with a weak preparation response.
+- Safety concern is early price leakage, not post-qualification price delivery.
+UAT:
+- pending focused active rollout UAT for phase4_price_entry_multiturn.json

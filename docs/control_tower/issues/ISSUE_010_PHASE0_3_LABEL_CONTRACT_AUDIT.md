@@ -212,3 +212,48 @@ Existing coverage found:
 Open validation risk:
 - Mixed customer signals may still bypass, delay, or interrupt qualification gates if priority wiring is inconsistent.
 - Phase 0–3 final closeout must include representative mixed-intent checks before runtime upload.
+
+## Business Decision — Phase 3A Completion to Phase 3B Price Entry — 2026-04-26
+
+Decision:
+- After required Phase 3A qualification is complete, SNASHGPT should proactively move to Phase 3B price/options delivery.
+- This applies even when request_type remains SERVICE_CONFIRMED, as long as:
+  - phase3a_complete = true
+  - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+  - service_intent is one of: ppf, ceramic, tint, polishing
+
+Reason:
+- In real WhatsApp sales flow, after the customer answers the required qualifier, delaying price with “I will prepare options” feels weak and slows conversion.
+- The safety concern is early price leakage, not post-qualification price delivery.
+
+Preserved rule:
+- Do not show Phase 3B price/options before required qualifiers are complete.
+- Price-curious customers before qualification may receive only a soft anchor / guided response, then the missing qualifier.
+- Wrap remains excluded from this normal Phase 3B rule because it has specialist handover behavior.
+
+Status:
+- Confirmed business decision.
+- Implementation still pending controlled patch.
+
+## Patch Scope Decision — Route E Phase 3A Completion Bridge — 2026-04-26
+
+Target authority:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+
+Reason:
+- QUALIFICATION_ENGINE.md owns request_type and should not convert SERVICE_CONFIRMED into PRICE_REQUEST.
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md owns selected_phrase_id routing and Phase 3B phrase selection.
+- PRICE_LADDER_ENGINE.md owns pricing state and numeric price output, but should not decide customer-intent routing.
+
+Patch intent:
+- Keep direct PRICE_REQUEST behavior unchanged.
+- Add a narrow SERVICE_CONFIRMED + READY_FOR_NEGOTIATION + phase3a_complete path into Route E.
+- Exclude wrap from this automatic Phase 3B bridge.
+- Reuse existing PHASE3B_* phrase blocks and PRICE_LADDER_ENGINE output.
+- Do not introduce new customer-facing wording.
+
+Safety gates:
+- QUALIFICATION_STATUS must be READY_FOR_NEGOTIATION.
+- phase3a_complete must be true.
+- missing_fields must be [].
+- service_intent must be one of ppf, ceramic, tint, polishing.

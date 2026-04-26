@@ -889,12 +889,19 @@ AND handover_reason == wrap_specialist_required:
 - Do NOT append hooks, pricing, discounts, or extra questions.
 - STOP
 
-Route E — Price Request while READY (pricing allowed)
+Route E — Price Ready / Phase 3B Entry (pricing allowed)
 IF (phase == PHASE_3 OR phase == PHASE_3B)
-AND request_type == PRICE_REQUEST
 AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+AND missing_fields == []
 AND ((phase3a_required == false) OR (phase3a_complete == true))
-AND all qualification fields complete:
+AND (
+  request_type == PRICE_REQUEST
+  OR (
+    request_type == SERVICE_CONFIRMED
+    AND phase3a_complete == true
+    AND service_intent in [ppf, ceramic, tint, polishing]
+  )
+):
 - Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
 - If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:
