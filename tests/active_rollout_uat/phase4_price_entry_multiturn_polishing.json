@@ -1,0 +1,15 @@
+[
+  {
+    "case_id": "polishing_price_after_full_qualification",
+    "turns": [
+      "polishing camry 2022",
+      "exterior only",
+      "clean paint"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE3B_POLISHING_RANGE"
+  }
+]
