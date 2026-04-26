@@ -30,3 +30,39 @@ Reason:
 - No direct patch execution scripts
 - No auto-writing enforcement tools
 
+
+## UPDATED ENFORCEMENT RESULT — 2026-04-26
+
+### Now Enforced
+- `.pre-commit-config.yaml` is now actually invoked by `.git/hooks/pre-commit`.
+- `.snash_patch_gate_reviewed` is now created by `tools/start_lane.sh`.
+- Important architecture/governance surfaces now require patch-gate marker before commit.
+- `ARCH_CHANGELOG.md` is now enforced for:
+  - `00__LOCKED__UPLOAD_SET/`
+  - `runner/`
+  - `tests/`
+  - `docs/control_tower/`
+  - `tools/`
+  - `.github/`
+
+### Investigation vs Trust Rule
+Investigation may be fast and lightweight:
+- grep
+- inspect files
+- read reports
+- run focused UAT
+- create temporary notes
+
+But trust/promotion requires:
+- patch gate review
+- scoped patch
+- controlled UAT when applicable
+- ARCH_CHANGELOG entry
+- pre-commit checks
+- branch push
+
+### Credit Discipline
+UAT/API credit use is advisory, not hard-blocked:
+- prefer focused case before broad pack
+- avoid rerunning full packs without a new reason
+- use controlled active UAT runner for trusted evidence

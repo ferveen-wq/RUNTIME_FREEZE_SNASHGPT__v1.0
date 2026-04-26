@@ -908,3 +908,16 @@ Why:
 UAT:
 - verified by direct inspection of .git/hooks/pre-commit and tools/start_lane.sh
 - next commit should run SNASH guard plus pre-commit configured checks
+
+Date: 2026-04-26
+Files: docs/control_tower/11_ENFORCEMENT_AUDIT_SUMMARY.md, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md
+Changed:
+- Recorded final enforcement audit result after activating pre-commit framework and patch-gate marker discipline.
+- Added investigation-vs-trust rule to distinguish fast inspection from validated commit/promotion work.
+- Recorded UAT/API credit discipline as advisory rather than hard-blocked.
+Why:
+- Preserve the governance findings before moving into Phase 4.
+- Prevent future confusion between investigation shortcuts and trusted rollout evidence.
+UAT:
+- documentation-only update
+- based on successful controlled active UAT and successful pre-commit enforcement run

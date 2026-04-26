@@ -254,3 +254,25 @@ This file is derived from:
 - `docs/control_tower/04_GOVERNANCE_AND_CHANGE_CONTROL.md`
 
 It should be revised only when stronger written evidence changes the repo workflow model.
+
+## 6B. Investigation vs Trust Commit Discipline
+
+Investigation mode is allowed to move quickly:
+- inspect files
+- grep authority surfaces
+- read reports
+- run focused probes
+- classify likely ownership
+
+Investigation alone does not create trust.
+
+Trust / commit mode requires:
+- patch gate review marker
+- scoped staging
+- ARCH_CHANGELOG entry for architecture/governance surfaces
+- pre-commit checks
+- controlled UAT where runtime behavior is affected
+
+Rule:
+- fast investigation is allowed
+- committed architecture/runtime/governance change must be traceable and validated
