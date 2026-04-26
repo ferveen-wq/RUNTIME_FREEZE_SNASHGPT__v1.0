@@ -18,9 +18,16 @@ DEBUG CONTRACT:
   objection_signal: <runtime objection signal or UNKNOWN_OR_AMBIGUOUS>
   objection_repeat_count: <number>
   selected_phrase_id: <runtime selected phrase id>
+  service_intent: <runtime service_intent or unknown>
+  active_service_context: <runtime active_service_context or null>
+  missing_fields: <runtime missing_fields or []>
+  phase3a_required: <true | false>
+  phase3a_complete: <true | false>
+  phase3a_qualifier_id: <runtime phase3a_qualifier_id or null>
   QUALIFICATION_STATUS: <NOT_READY | READY_FOR_NEGOTIATION | NOT_QUALIFIED>
   price_ladder_state: <NONE | INITIAL | FINAL | FINAL_PRICE_REACHED>
 - Then leave one blank line and write the customer-facing reply.
+- If phase3a_required == true and phase3a_complete == false and phase3a_qualifier_id is not null, selected_phrase_id MUST equal phase3a_qualifier_id.
 - Do not invent debug values. Derive them from the active runtime bundle.
 - If unsure, use the safer non-pricing debug values:
   QUALIFICATION_STATUS: NOT_READY
