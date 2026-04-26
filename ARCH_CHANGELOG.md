@@ -1043,3 +1043,15 @@ Why:
 - Same root cause as earlier PPF Q3 overflow issue.
 UAT:
 - pending focused active rollout UAT for ceramic
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, runner/run_active_uat_raw.py
+Changed:
+- Added Tint and Polishing Phase 3A qualifier fields to the active debug contract.
+- Added extraction and state snapshot preservation for TINT_GOAL, TINT_COVERAGE, POLISHING_SCOPE, and PAINT_CONDITION_REPAINT_SCRATCH.
+Why:
+- Prevent the same bridge-state loss pattern found in PPF and Ceramic from recurring in Tint and Polishing UAT.
+- Ensure all Phase 3A qualifier fields used by runtime are preserved across active multi-turn UAT.
+UAT:
+- no-credit due diligence confirmed fields existed in runtime but not bridge
+- focused service UAT pending

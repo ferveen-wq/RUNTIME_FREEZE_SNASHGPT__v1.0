@@ -99,6 +99,14 @@ def extract_debug_and_messages(text):
             debug["CERAMIC_GOAL"] = ln.split(":",1)[1].strip()
         elif ln.startswith("CERAMIC_WASH_PATTERN:"):
             debug["CERAMIC_WASH_PATTERN"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("TINT_GOAL:"):
+            debug["TINT_GOAL"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("TINT_COVERAGE:"):
+            debug["TINT_COVERAGE"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("POLISHING_SCOPE:"):
+            debug["POLISHING_SCOPE"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PAINT_CONDITION_REPAINT_SCRATCH:"):
+            debug["PAINT_CONDITION_REPAINT_SCRATCH"] = ln.split(":",1)[1].strip()
 
     parts = text.split("\n\n")
     if len(parts) >= 2:
@@ -275,6 +283,10 @@ def main():
                 "PPF_DRIVING_PATTERN": parsed["debug"].get("PPF_DRIVING_PATTERN"),
                 "CERAMIC_GOAL": parsed["debug"].get("CERAMIC_GOAL"),
                 "CERAMIC_WASH_PATTERN": parsed["debug"].get("CERAMIC_WASH_PATTERN"),
+                "TINT_GOAL": parsed["debug"].get("TINT_GOAL"),
+                "TINT_COVERAGE": parsed["debug"].get("TINT_COVERAGE"),
+                "POLISHING_SCOPE": parsed["debug"].get("POLISHING_SCOPE"),
+                "PAINT_CONDITION_REPAINT_SCRATCH": parsed["debug"].get("PAINT_CONDITION_REPAINT_SCRATCH"),
             }
 
             conversation.append({
