@@ -1,6 +1,6 @@
 # ROLLOUT READINESS BOARD
 
-Last updated: 2026-04-23
+Last updated: 2026-04-26
 
 ## Purpose
 Provide a single rollout-facing view of what is:
@@ -16,7 +16,7 @@ It must not be treated as a substitute for source-of-truth runtime doctrine.
 ## A) CORE-SAFE (usable for controlled rollout progression)
 
 ### PPF
-Status: CORE-SAFE WITH EDGE PENDING
+Status: PHASE 0–3 CLOSED — EDGE OPTIMIZATION PENDING
 
 What is considered stable:
 - front/full coverage can be recognized in the stronger runtime-faithful simulation lane

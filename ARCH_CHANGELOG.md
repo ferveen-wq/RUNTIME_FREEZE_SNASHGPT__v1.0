@@ -1150,3 +1150,12 @@ Why:
 - Phase 0–3 is functionally closed, but repeated-run determinism and runtime-only independence remain deferred hardening items.
 UAT:
 - tracking-only update; validation deferred until after Phase 4 stabilization
+
+Date: 2026-04-26
+Files: docs/control_tower/09_ROLLOUT_READINESS_BOARD.md
+Changed:
+- Finalized rollout readiness board status for Phase 0–3 closure.
+Why:
+- The board had been updated after the prior closeout commit and needed its own committed checkpoint.
+UAT:
+- documentation-only status update
