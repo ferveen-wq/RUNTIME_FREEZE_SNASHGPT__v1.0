@@ -1,0 +1,20 @@
+[
+  {
+    "case_id": "ppf_price_exposure_after_full_qualification",
+    "turns": [
+      "ppf camry 2022 front",
+      "highway driving",
+      "price"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED"
+    },
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_contains": [
+      "295",
+      "BD VAT included"
+    ]
+  }
+]

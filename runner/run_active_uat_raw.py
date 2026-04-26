@@ -172,6 +172,20 @@ def check_expectations(parsed, case):
     if ladder_state.upper() in {"INITIAL", "FINAL", "FINAL_PRICE_REACHED"} and q_status != "READY_FOR_NEGOTIATION":
         failures.append(f"CONTRADICTION: price ladder used while {q_status}")
 
+    
+    # Content validation (raw output must contain required text)
+    raw_text = parsed.get("raw", "")
+
+    exp_contains = case.get("expect_contains", [])
+    for item in exp_contains:
+        if item not in raw_text:
+            failures.append(f"missing expected text: {item}")
+
+    exp_not_contains = case.get("expect_not_contains", [])
+    for item in exp_not_contains:
+        if item in raw_text:
+            failures.append(f"forbidden text present: {item}")
+
     return failures
 
 def main():
