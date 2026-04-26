@@ -73,3 +73,14 @@ This issue exposed a wider Phase 0–3 rollout risk:
 
 Before rollout:
 - Audit Phase 0–3 for similar documented-but-not-executed bridge contracts.
+
+## Pause Point / Open Work
+
+Do not proceed to Phase 4 objection UAT until:
+1. PRICE_LADDER_ENGINE service execution bridge is implemented.
+2. Recent Phase 3B pricing patches are reconciled:
+   - KEEP / MODIFY / REMOVE
+3. Multi-service Phase 3B pricing UAT passes with output validation.
+4. Exact expected price/range assertions are added.
+
+This issue must remain OPEN until the above is complete.

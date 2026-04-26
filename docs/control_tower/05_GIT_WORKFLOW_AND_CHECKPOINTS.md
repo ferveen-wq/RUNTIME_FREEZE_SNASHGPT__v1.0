@@ -419,3 +419,17 @@ Pre-rollout audit requirement:
 
 Status:
 ACTIVE PATTERN — must be checked before final rollout lock.
+
+## Patch Reconciliation Rule
+
+When a later investigation identifies a deeper root cause after an earlier patch:
+- Do not assume earlier patches are still valid.
+- Re-check all recent patches touching the same behavior.
+- Classify each patch as:
+  - KEEP: correct owner and still needed
+  - MODIFY: correct owner but too broad/unclear
+  - REMOVE: duplicate, competing, or wrong-file logic
+- No rollout lock is allowed until reconciliation is complete.
+
+Risk note:
+- Phase 0–3 and Phase 3B pricing have medium/high reconciliation risk because multiple files interact and earlier UAT may have passed through model inference rather than deterministic runtime logic.
