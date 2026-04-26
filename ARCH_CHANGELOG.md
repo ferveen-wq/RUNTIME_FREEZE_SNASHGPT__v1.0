@@ -921,3 +921,15 @@ Why:
 UAT:
 - documentation-only update
 - based on successful controlled active UAT and successful pre-commit enforcement run
+
+Date: 2026-04-26
+Files: tools/audit/pre_uat_guard.py, tools/audit/pre_uat_case_readiness_check.py
+Changed:
+- Added no-credit UAT case readiness check before controlled active UAT runs.
+- Blocks Phase3B expected cases when they are single-turn and do not provide an explicit multi-turn qualification path.
+Why:
+- Prevent credit waste from technically valid but logically premature Phase 4 / Phase3B test packs.
+- Preserve investigation-vs-trust discipline before spending API credits.
+UAT:
+- no-credit local validation passed on existing Phase3A pack
+- no-credit negative check blocked bad single-turn Phase3B fixture

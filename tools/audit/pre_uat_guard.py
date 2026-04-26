@@ -48,6 +48,13 @@ def main():
             print(ln)
         print("[INFO] Continue only if these changes are intentional for this UAT.")
 
+    print("\n===== UAT CASE READINESS CHECK =====")
+    readiness = run(["python3", "tools/audit/pre_uat_case_readiness_check.py"])
+    print(readiness.stdout.strip())
+    if readiness.returncode != 0:
+        print(readiness.stderr.strip())
+        fail("UAT case readiness check failed")
+
     print("\n[OK] Pre-UAT guard passed.")
 
 if __name__ == "__main__":
