@@ -334,3 +334,15 @@ Example:
   - ceramic -> PHASE3B_CERAMIC_RANGE
   - tint -> PHASE3B_TINT_RANGE
   - polishing -> PHASE3B_POLISHING_RANGE
+
+## Prompt Block Placement Rule — Generic Rules Must Not Live Under Service-Specific Blocks
+
+When adding bridge/context prompt enforcement:
+
+- Generic cross-service rules must be placed as standalone rules.
+- Do not visually or structurally nest cross-service Route E / Phase 3B rules under PPF-only, Ceramic-only, Tint-only, or Polishing-only sections.
+- If a rule applies to ppf, ceramic, tint, and polishing, it must be readable as a global bridge rule.
+
+Example:
+- Route E selected_phrase_id enforcement is cross-service.
+- It must not sit inside the PPF completion protection block.

@@ -1076,3 +1076,14 @@ Why:
 - Preserve validation evidence for cross-service Route E / Phase 3B bridge behavior.
 UAT:
 - tests/reports/raw_uat_20260426_142625.json passed 1/1
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md
+Changed:
+- Moved Route E selected_phrase_id enforcement into a standalone bridge prompt rule.
+- Added prompt block placement governance for generic vs service-specific bridge rules.
+Why:
+- Tint UAT reached READY_FOR_NEGOTIATION with completed qualifiers but selected_phrase_id remained null.
+- Generic Route E enforcement was visually nested under the PPF completion protection block.
+UAT:
+- pending focused tint active rollout UAT rerun
