@@ -990,3 +990,15 @@ Why:
 - Captures the PPF Q3 overflow lesson as reusable governance.
 UAT:
 - documentation-only governance update
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, runner/run_active_uat_raw.py
+Changed:
+- Added PPF_COVERAGE_INTENT and PPF_DRIVING_PATTERN to the active debug contract.
+- Added extraction and state snapshot preservation for PPF qualifier values in the active raw UAT runner.
+Why:
+- Prevent bridge-state loss between turns where PPF coverage/driving qualifiers are completed but not preserved.
+- Supports Phase 3A completion carry-through into Phase 3B without reopening Q3.
+UAT:
+- no-credit diff inspection completed
+- focused active rollout UAT pending after commit

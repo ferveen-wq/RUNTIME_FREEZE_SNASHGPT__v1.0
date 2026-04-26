@@ -1,10 +1,10 @@
-import os
-import sys
 import json
+import os
 import time
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from zoneinfo import ZoneInfo
+
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,6 +91,10 @@ def extract_debug_and_messages(text):
             debug["phase3a_complete"] = ln.split(":",1)[1].strip()
         elif ln.startswith("phase3a_qualifier_id:"):
             debug["phase3a_qualifier_id"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PPF_COVERAGE_INTENT:"):
+            debug["PPF_COVERAGE_INTENT"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PPF_DRIVING_PATTERN:"):
+            debug["PPF_DRIVING_PATTERN"] = ln.split(":",1)[1].strip()
 
     parts = text.split("\n\n")
     if len(parts) >= 2:
@@ -176,7 +180,7 @@ def main():
         raise SystemExit(
             "run_active_uat_raw.py only accepts active rollout UAT files under "
             "tests/active_rollout_uat. Move this case file there before running."
-        )
+        ) from None
 
     cases = load_json(cases_file)
 
@@ -191,7 +195,7 @@ def main():
         try:
             max_n = int(max_cases)
         except ValueError:
-            raise SystemExit(f"MAX_CASES must be an integer, got: {max_cases}")
+            raise SystemExit(f"MAX_CASES must be an integer, got: {max_cases}") from None
         if max_n < 1:
             raise SystemExit("MAX_CASES must be >= 1")
         cases = cases[:max_n]
@@ -263,6 +267,8 @@ def main():
                 "phase3a_required": parsed["debug"].get("phase3a_required"),
                 "phase3a_complete": parsed["debug"].get("phase3a_complete"),
                 "phase3a_qualifier_id": parsed["debug"].get("phase3a_qualifier_id"),
+                "PPF_COVERAGE_INTENT": parsed["debug"].get("PPF_COVERAGE_INTENT"),
+                "PPF_DRIVING_PATTERN": parsed["debug"].get("PPF_DRIVING_PATTERN"),
             }
 
             conversation.append({
