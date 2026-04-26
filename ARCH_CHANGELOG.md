@@ -1159,3 +1159,14 @@ Why:
 - The board had been updated after the prior closeout commit and needed its own committed checkpoint.
 UAT:
 - documentation-only status update
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, docs/control_tower/issues/ISSUE_004_CROSS_SERVICE_QUALIFIER_OWNERSHIP.md
+Changed:
+- Added active context preservation enforcement to the active UAT bridge prompt.
+- Expanded ISSUE_004 with global mid-flow context preservation gap.
+Why:
+- Phase 4 UAT exposed that short/off-path replies like "ok" can reset active_service_context to null despite runtime rules requiring last confirmed context preservation.
+- Runtime principle already exists; bridge enforcement was missing.
+UAT:
+- pending rerun of phase4_objection_ppf_expensive.json

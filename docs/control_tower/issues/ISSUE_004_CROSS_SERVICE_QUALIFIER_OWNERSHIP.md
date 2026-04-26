@@ -196,3 +196,45 @@ Action:
 - DO NOT patch
 - Require debug exposure of:
   phase3a_qualifier_id, missing_fields, service_intent
+
+---
+
+### ADDITION — GLOBAL MID-FLOW CONTEXT PRESERVATION GAP
+
+Observation:
+Customer replies during an active flow may include:
+- acknowledgements (ok / okay / 👍 / تمام / اوكي / زين)
+- partial answers
+- side questions
+- objections
+- unrelated or off-path messages
+
+Current Risk:
+- Runtime may reset:
+  - service_intent → unknown
+  - active_service_context → null
+- This breaks conversation continuity and drops the user out of the active flow.
+
+Expected Behavior:
+- If prior context exists (active_service_context not null),
+  the system MUST preserve:
+  - service_intent
+  - active_service_context
+  - qualification state
+  - phase continuity
+
+- UNLESS there is:
+  - explicit service switch
+  - explicit new intent replacing previous flow
+
+Clarification:
+- Lack of service keywords in current message MUST NOT trigger reset.
+- Short or ambiguous replies must be treated as mid-flow continuation, not new conversation.
+
+Scope:
+- Global across Phase 0–7
+- Applies to all services and all conversation stages
+
+Status:
+OPEN — requires owner-level audit (Qualification Engine / Execution Flow / Assembly Map)
+
