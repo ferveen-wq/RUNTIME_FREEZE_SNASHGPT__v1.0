@@ -1,3 +1,9 @@
+# DEPRECATED_RUNTIME_PATCH_EXECUTOR
+# This tool is blocked for controlled rollout work.
+# Risks: git add . / push origin main / broad patch execution.
+# Use scoped manual patching + controlled UAT + branch push instead.
+raise SystemExit("[BLOCKED] runner/apply_patch.py is deprecated. Use controlled manual patch workflow.")
+
 import os
 import subprocess
 import sys
