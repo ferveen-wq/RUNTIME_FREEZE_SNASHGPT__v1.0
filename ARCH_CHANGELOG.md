@@ -1182,3 +1182,14 @@ Why:
 - Phase 4 objection testing was premature without confirmed prior price exposure.
 UAT:
 - pending focused Phase 3B price exposure UAT
+
+Date: 2026-04-26
+Files: 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+Changed:
+- Made Route E actual price exposure mandatory when price request is true.
+- Prevented FINAL_PRICE_REACHED from being set unless approved price/range is actually shown to customer.
+Why:
+- Focused Phase 3B price exposure UAT passed debug checks but raw output showed only PHASE3B transition acknowledgement and no actual price.
+- This created a false pass and made Phase 4 objection testing premature.
+UAT:
+- tests/reports/raw_uat_20260426_173045.json was a false pass; rerun pending

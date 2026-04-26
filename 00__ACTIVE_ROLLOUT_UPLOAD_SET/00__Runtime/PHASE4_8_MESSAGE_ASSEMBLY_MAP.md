@@ -917,6 +917,9 @@ When E1 or E2 is true:
   - if service_intent == polishing: selected_phrase_id = PHASE3B_POLISHING_RANGE
 - selected_phrase_id MUST NOT be null when E1 or E2 is true.
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
+- Customer-facing output MUST include the approved price or price range in the same turn.
+- Do NOT output only the PHASE3B_* transition acknowledgement when E1 price request is true.
+- Do NOT set price_ladder_state = FINAL_PRICE_REACHED unless the approved price/range is actually shown to the customer.
 - If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:
   - Append PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE
   - Do NOT add extra questions.
