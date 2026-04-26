@@ -895,3 +895,16 @@ Why:
 UAT:
 - verified by direct diff inspection of ARCH_PATH_PREFIXES
 - follow-up commit should require this changelog entry through existing pre-commit gate
+
+Date: 2026-04-26
+Files: tools/start_lane.sh, .gitignore, .git/hooks/pre-commit
+Changed:
+- Start lane now creates .snash_patch_gate_reviewed after running patch_gate.sh.
+- .snash_patch_gate_reviewed added to .gitignore as local transient marker.
+- Local pre-commit hook updated to require patch-gate marker for architecture/governance surfaces and to invoke pre-commit framework checks.
+Why:
+- Patch discipline existed but was not connected to the local commit gate.
+- Pre-commit config existed but was not being invoked by the active local hook.
+UAT:
+- verified by direct inspection of .git/hooks/pre-commit and tools/start_lane.sh
+- next commit should run SNASH guard plus pre-commit configured checks

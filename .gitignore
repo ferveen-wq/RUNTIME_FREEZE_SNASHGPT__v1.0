@@ -19,3 +19,5 @@ tests/reports/github secret key for api
 *.save
 
 .snash_session_started
+
+.snash_patch_gate_reviewed
