@@ -968,3 +968,14 @@ Why:
 - Safety concern is early price leakage, not post-qualification price delivery.
 UAT:
 - pending focused active rollout UAT for phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt
+Changed:
+- Added active UAT bridge protection preventing PPF Phase 3A from reopening after coverage and driving pattern are already present with READY_FOR_NEGOTIATION.
+- Blocks PHASE3A_Q_PPF_COMPARISON_FOCUS from resurfacing in completed PPF qualification path.
+Why:
+- Prior evidence showed PPF Q3 overflow / extra question after coverage + driving pattern.
+- Current focused active UAT reproduced the same bridge drift after Route E was made explicit.
+UAT:
+- pending focused active rollout UAT for phase4_price_entry_multiturn.json

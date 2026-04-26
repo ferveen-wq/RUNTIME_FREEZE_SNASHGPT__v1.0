@@ -28,6 +28,13 @@ DEBUG CONTRACT:
   price_ladder_state: <NONE | INITIAL | FINAL | FINAL_PRICE_REACHED>
 - Then leave one blank line and write the customer-facing reply.
 - If phase3a_required == true and phase3a_complete == false and phase3a_qualifier_id is not null, selected_phrase_id MUST equal phase3a_qualifier_id.
+- PPF completion protection:
+  If active_service_context == ppf AND PPF_COVERAGE_INTENT is present AND PPF_DRIVING_PATTERN is present AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION:
+  - Do NOT output any PHASE3A_Q_PPF_* selected_phrase_id.
+  - Do NOT output PHASE3A_Q_PPF_COMPARISON_FOCUS.
+  - Do NOT drop back to Phase 3A / NOT_READY.
+  - Continue to the active runtime Phase 3B / Route E path.
+
 - Do not invent debug values. Derive them from the active runtime bundle.
 - If unsure, use the safer non-pricing debug values:
   QUALIFICATION_STATUS: NOT_READY
