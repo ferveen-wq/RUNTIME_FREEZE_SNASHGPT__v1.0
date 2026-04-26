@@ -1097,3 +1097,14 @@ Why:
 - Preserve validation evidence for cross-service Route E / Phase 3B bridge behavior.
 UAT:
 - tests/reports/raw_uat_20260426_143553.json passed 1/1
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt
+Changed:
+- Added polishing completion protection in the active context prompt.
+- Prevents completed polishing qualification from falling back to Phase 3A once POLISHING_SCOPE and PAINT_CONDITION_REPAINT_SCRATCH are present.
+Why:
+- Focused polishing UAT reached READY_FOR_NEGOTIATION with completed qualifiers but selected_phrase_id remained null.
+- Prior effective prompt evidence showed polishing needs explicit completion protection.
+UAT:
+- pending focused polishing active rollout UAT rerun

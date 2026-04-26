@@ -51,6 +51,15 @@ DEBUG CONTRACT:
   - polishing -> PHASE3B_POLISHING_RANGE
   - selected_phrase_id MUST NOT be null.
 
+- Polishing completion protection:
+  If active_service_context == polishing AND POLISHING_SCOPE is present AND PAINT_CONDITION_REPAINT_SCRATCH is present AND PAINT_CONDITION_REPAINT_SCRATCH != UNKNOWN AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION:
+  - Do NOT output PHASE3A_Q_POLISHING_SCOPE.
+  - Do NOT output PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH.
+  - Do NOT drop back to Phase 3A / NOT_READY.
+  - Continue to the active runtime Phase 3B / Route E path.
+  - selected_phrase_id MUST equal PHASE3B_POLISHING_RANGE.
+  - selected_phrase_id MUST NOT be null.
+
 - Do not invent debug values. Derive them from the active runtime bundle.
 - If unsure, use the safer non-pricing debug values ONLY when active runtime Route E conditions are NOT satisfied:
   QUALIFICATION_STATUS: NOT_READY
