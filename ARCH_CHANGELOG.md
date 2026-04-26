@@ -1013,3 +1013,13 @@ Why:
 - Phase 3B entry must select the approved PHASE3B_* phrase block once Route E is true.
 UAT:
 - pending focused active rollout UAT for phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt
+Changed:
+- Adjusted safe non-pricing fallback so it cannot override explicit active runtime Route E conditions.
+- Added completed PPF Route E debug enforcement: selected_phrase_id must be PHASE3B_PPF_RANGE and must not be null.
+Why:
+- Focused active UAT showed all Route E conditions true but selected_phrase_id remained null due to safer non-pricing fallback behavior.
+UAT:
+- pending focused active rollout UAT for phase4_price_entry_multiturn.json
