@@ -299,3 +299,38 @@ Examples:
 - Phase 3A reopening after completion → likely bridge issue
 - Q3 appearing after clean qualifier path → likely bridge issue
 
+
+## UAT Fixture Readiness Rule — Qualifier Completeness
+
+Before spending active UAT/API credits on Phase 3A → Phase 3B tests:
+
+- Confirm the test turns answer the actual required service qualifiers.
+- Do not treat weak or generic answers as proof of runtime failure.
+
+Examples:
+- Ceramic requires both:
+  - CERAMIC_GOAL
+  - CERAMIC_WASH_PATTERN
+- “daily driving” is not a sufficient ceramic qualification answer.
+- Use explicit fixture turns such as:
+  - protection and gloss
+  - hand wash
+
+Rule:
+- If the fixture does not clearly answer required qualifiers, fix the fixture before running UAT.
+
+## Bridge Enforcement Scope Rule — Cross-Service Runtime Rules
+
+When a runtime rule applies to multiple services, the bridge layer must not enforce it for only one service.
+
+Before running UAT:
+- Check whether the runtime condition is service-specific or cross-service.
+- If runtime Route E / Phase 3B applies to ppf, ceramic, tint, and polishing, then context prompt enforcement must cover all four.
+- Do not validate one service and assume the bridge is correct for the others unless the bridge rule is also cross-service.
+
+Example:
+- Route E phrase selection must map:
+  - ppf -> PHASE3B_PPF_RANGE
+  - ceramic -> PHASE3B_CERAMIC_RANGE
+  - tint -> PHASE3B_TINT_RANGE
+  - polishing -> PHASE3B_POLISHING_RANGE

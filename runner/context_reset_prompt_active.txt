@@ -43,8 +43,12 @@ DEBUG CONTRACT:
   - Do NOT drop back to Phase 3A / NOT_READY.
   - Continue to the active runtime Phase 3B / Route E path.
 
-  - If Route E is satisfied for ppf, selected_phrase_id MUST equal PHASE3B_PPF_RANGE.
-  - In that completed PPF path, selected_phrase_id MUST NOT be null.
+  - If Route E is satisfied, selected_phrase_id MUST follow service_intent:
+    - ppf -> PHASE3B_PPF_RANGE
+    - ceramic -> PHASE3B_CERAMIC_RANGE
+    - tint -> PHASE3B_TINT_RANGE
+    - polishing -> PHASE3B_POLISHING_RANGE
+  - When Route E is satisfied, selected_phrase_id MUST NOT be null.
 
 - Do not invent debug values. Derive them from the active runtime bundle.
 - If unsure, use the safer non-pricing debug values ONLY when active runtime Route E conditions are NOT satisfied:

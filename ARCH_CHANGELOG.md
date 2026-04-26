@@ -1055,3 +1055,14 @@ Why:
 UAT:
 - no-credit due diligence confirmed fields existed in runtime but not bridge
 - focused service UAT pending
+
+Date: 2026-04-26
+Files: runner/context_reset_prompt_active.txt, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md
+Changed:
+- Generalized active Route E phrase enforcement across PPF, ceramic, tint, and polishing.
+- Added bridge enforcement scope rule for cross-service runtime rules.
+Why:
+- Ceramic UAT reached READY_FOR_NEGOTIATION with completed qualifiers but selected_phrase_id remained null because bridge enforcement was PPF-only.
+- Cross-service runtime rules must have matching cross-service bridge enforcement.
+UAT:
+- pending focused ceramic active rollout UAT rerun
