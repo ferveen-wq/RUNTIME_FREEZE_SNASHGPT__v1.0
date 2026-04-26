@@ -910,7 +910,12 @@ E2 — Service confirmed after Phase 3A completion:
 - service_intent is NOT wrap
 
 When E1 or E2 is true:
-- Select appropriate PHASE3B_* acknowledgement block (based on service + qualifier result)
+- selected_phrase_id MUST be one of the following based on service_intent:
+  - if service_intent == ppf: selected_phrase_id = PHASE3B_PPF_RANGE
+  - if service_intent == ceramic: selected_phrase_id = PHASE3B_CERAMIC_RANGE
+  - if service_intent == tint: selected_phrase_id = PHASE3B_TINT_RANGE
+  - if service_intent == polishing: selected_phrase_id = PHASE3B_POLISHING_RANGE
+- selected_phrase_id MUST NOT be null when E1 or E2 is true.
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
 - If active_service_context == ppf AND PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_FRONT:
   - Append PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE4_PPF_MATTE_FRONT_TEXTURE_NOTE

@@ -1002,3 +1002,14 @@ Why:
 UAT:
 - no-credit diff inspection completed
 - focused active rollout UAT pending after commit
+
+Date: 2026-04-26
+Files: 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+Changed:
+- Made Route E selected_phrase_id mapping explicit for PPF, ceramic, tint, and polishing.
+- Added rule that selected_phrase_id must not be null when E1 or E2 Route E conditions are true.
+Why:
+- Focused active UAT reached READY_FOR_NEGOTIATION with completed PPF qualifiers, but selected_phrase_id remained null.
+- Phase 3B entry must select the approved PHASE3B_* phrase block once Route E is true.
+UAT:
+- pending focused active rollout UAT for phase4_price_entry_multiturn.json
