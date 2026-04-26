@@ -276,3 +276,26 @@ Trust / commit mode requires:
 Rule:
 - fast investigation is allowed
 - committed architecture/runtime/governance change must be traceable and validated
+
+## Patch Classification Rule — Runtime vs Bridge
+
+Before patching any runtime file (e.g., QUALIFICATION_ENGINE.md, PRICE_LADDER_ENGINE.md):
+
+1. Check whether the issue originates from:
+   - Runtime logic (engine / assembly / pricing)
+   OR
+   - Bridge layer (runner / context_reset_prompt / UAT execution layer)
+
+2. If:
+   - Runtime rules already exist correctly
+   - But behavior is incorrect in UAT / runner
+
+→ Treat the issue as a Bridge Enforcement Issue first.
+
+3. Do NOT patch runtime logic until:
+   - Bridge layer (context prompt / runner) is inspected and validated.
+
+Examples:
+- Phase 3A reopening after completion → likely bridge issue
+- Q3 appearing after clean qualifier path → likely bridge issue
+

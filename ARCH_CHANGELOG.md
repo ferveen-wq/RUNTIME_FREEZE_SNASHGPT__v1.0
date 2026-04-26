@@ -979,3 +979,14 @@ Why:
 - Current focused active UAT reproduced the same bridge drift after Route E was made explicit.
 UAT:
 - pending focused active rollout UAT for phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md
+Changed:
+- Added runtime-vs-bridge patch classification rule.
+- Requires bridge/context prompt/UAT layer inspection before patching runtime engines when runtime rules already exist correctly.
+Why:
+- Prevent repeated mispatching of runtime engines for issues caused by bridge enforcement gaps.
+- Captures the PPF Q3 overflow lesson as reusable governance.
+UAT:
+- documentation-only governance update
