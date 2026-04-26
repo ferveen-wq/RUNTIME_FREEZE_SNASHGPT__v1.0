@@ -360,3 +360,91 @@ Validated behavior:
 
 Status:
 - Polishing Phase 3A → Phase 3B bridge validated in focused active UAT.
+
+## Final Closeout — Phase 0–3 Contract & Bridge Validation — 2026-04-26
+
+Summary:
+Phase 0–3 contract is now fully validated across all core services and bridge paths.
+
+Validated Areas:
+- Phase 0–2 intake and service detection stable
+- Phase 3A qualification complete across:
+  - PPF
+  - Ceramic
+  - Tint
+  - Polishing
+- Phase 3B (Route E) price entry bridge validated across all services
+
+Key Fixes Applied:
+- Cross-service Route E phrase enforcement generalized
+- Prompt placement corrected (removed service-specific nesting)
+- Completion protection added for:
+  - PPF
+  - Polishing
+- Fixture quality rules enforced (no weak qualification inputs)
+- Manifest aligned with active runtime dependencies
+- Service canon authority boundaries defined
+
+Validation Evidence:
+- Ceramic bridge UAT → PASSED
+- Tint bridge UAT → PASSED
+- Polishing bridge UAT → PASSED
+- PPF validated earlier in Phase 3B flow
+
+Final Status:
+- QUALIFICATION_STATUS transitions consistent
+- No Phase 3A fallback after completion
+- selected_phrase_id correctly mapped per service
+- No null phrase leakage in Route E
+
+Decision:
+- Phase 0–3 marked as FUNCTIONALLY CLOSED
+- Remaining items (ISSUE_003, ISSUE_004, ISSUE_005, ISSUE_006) are non-blocking edge/governance cases
+
+Status:
+CLOSED — Phase 0–3 core runtime is stable and validated for controlled progression to Phase 4
+
+
+## Final Closeout — Phase 0–3 Contract & Bridge Validation — 2026-04-26
+
+Summary:
+Phase 0–3 contract is now fully validated across all core services and bridge paths.
+
+Validated Areas:
+- Phase 0–2 intake and service detection stable
+- Phase 3A qualification complete across:
+  - PPF
+  - Ceramic
+  - Tint
+  - Polishing
+- Phase 3B (Route E) price entry bridge validated across all services
+
+Key Fixes Applied:
+- Cross-service Route E phrase enforcement generalized
+- Prompt placement corrected (removed service-specific nesting)
+- Completion protection added for:
+  - PPF
+  - Polishing
+- Fixture quality rules enforced (no weak qualification inputs)
+- Manifest aligned with active runtime dependencies
+- Service canon authority boundaries defined
+
+Validation Evidence:
+- Ceramic bridge UAT → PASSED
+- Tint bridge UAT → PASSED
+- Polishing bridge UAT → PASSED
+- PPF validated earlier in Phase 3B flow
+
+Final Status:
+- QUALIFICATION_STATUS transitions consistent
+- No Phase 3A fallback after completion
+- selected_phrase_id correctly mapped per service
+- No null phrase leakage in Route E
+
+Decision:
+- Phase 0–3 marked as FUNCTIONALLY CLOSED
+- Remaining items (ISSUE_003, ISSUE_004, ISSUE_005, ISSUE_006) are non-blocking edge/governance cases
+
+Status:
+CLOSED — Phase 0–3 core runtime is stable and validated for controlled progression to Phase 4
+
