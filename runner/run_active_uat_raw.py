@@ -36,6 +36,9 @@ RUNTIME_FILES = [
     "PHASE4_6_HUMAN_PHRASE_LIBRARY.md",
     "PHASE4_8_MESSAGE_ASSEMBLY_MAP.md",
     "OUTPUT_RESPONSE_TEMPLATE.md",
+    "PRICE_LADDER_ENGINE.md",
+    "SKU_SELECTION_MATRIX.md",
+    "PRICE_TABLE_VAT_INCL.md",
 ]
 def load_system_prompt():
     base_prompt_path = ROOT / "runner/context_reset_prompt_active.txt"

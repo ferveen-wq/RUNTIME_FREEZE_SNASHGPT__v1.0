@@ -22,3 +22,25 @@ Scope:
 
 Status:
 OPEN — must validate before continuing Phase 4 objection UAT
+
+## Failed Validation Evidence — 2026-04-26
+
+Report:
+- tests/reports/raw_uat_20260426_180356.json
+
+Result:
+- Failed
+- selected_phrase_id = PHASE3B_PPF_RANGE
+- price_ladder_state = INITIAL
+- Actual customer output contained only the PHASE3B transition phrase.
+- No approved price/range was shown.
+- Missing expected price: 295 BD VAT included
+
+Learning:
+- Active Route E phrase selection works.
+- Context preservation works.
+- SKU / price table / VCB chain is available.
+- Remaining gap is PRICE_LADDER_ENGINE output injection into final customer response.
+
+Status:
+OPEN — output-injection owner audit required before further Phase 4 objection UAT.

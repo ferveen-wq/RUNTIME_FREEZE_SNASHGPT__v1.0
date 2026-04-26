@@ -394,6 +394,9 @@ DEPRECATION RULE (ANTI-CONFLICT):
 ACTIVE ROUTING (UNDER THIS LOCK):
 - Phase 3A: qualifier_id → phrase block mapping remains the only customer-facing wording source.
 - Phase 3B: Route E uses PRICE_LADDER_ENGINE output + the correct PHASE3B_* transition phrase block.
+- Phase 3B execution requirement (ACTIVE):
+  - The PRICE_LADDER_ENGINE output MUST be rendered in the SAME assistant turn as the PHASE3B_* transition phrase.
+  - The transition phrase alone is NOT a valid completion of Route E.
 - Phase 4: signals map to PHASE4_* phrase IDs only (human copy), with no pricing mechanics changes.
 
 ====================================================================

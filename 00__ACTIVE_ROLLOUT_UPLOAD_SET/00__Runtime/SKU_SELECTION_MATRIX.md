@@ -19,6 +19,15 @@ Rules (Global):
 - Brand is surfaced ONLY if explicitly requested
 - Driving pattern affects ordering (CITY vs HIGHWAY)
 
+FRONT PPF PRIMARY RULE (LOCKED):
+IF PPF_COVERAGE_INTENT == FULL_FRONT
+AND PPF_FINISH_INTENT != MATTE:
+- Treat FULL_FRONT as PRIMARY customer intent, not as downladder.
+- Select ONLY: PPF_FRONT_GLOBAL.
+- Do NOT use DEFAULT / SECOND / UPLADDER logic.
+- Do NOT generate multiple SKUs.
+- PRICE_LADDER_ENGINE must output a SINGLE price from PRICE_TABLE_VAT_INCL.md.
+
 ──────────────
 VCB_1 — DAILY / MID SEGMENT
 ──────────────

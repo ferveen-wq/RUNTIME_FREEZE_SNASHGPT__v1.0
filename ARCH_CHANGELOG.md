@@ -1193,3 +1193,16 @@ Why:
 - This created a false pass and made Phase 4 objection testing premature.
 UAT:
 - tests/reports/raw_uat_20260426_173045.json was a false pass; rerun pending
+
+Date: 2026-04-26
+Files: runner/run_active_uat_raw.py, 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md, 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/SKU_SELECTION_MATRIX.md, docs/control_tower/05_GIT_WORKFLOW_AND_CHECKPOINTS.md, docs/control_tower/issues/ISSUE_015_PHASE3B_PRICE_EXPOSURE_VALIDATION.md
+Changed:
+- Added price-chain runtime files to active raw UAT runner loading.
+- Added active Route E execution requirement for same-turn ladder output.
+- Added normal FULL_FRONT PPF primary SKU rule.
+- Recorded price exposure true-pass workflow rule and failed validation evidence.
+Why:
+- Phase 3B price exposure UAT first exposed phrase-only output, then broad PPF range output.
+- Normal FULL_FRONT PPF must resolve to single SKU PPF_FRONT_GLOBAL, while matte front PPF remains governed by the existing matte rule.
+UAT:
+- pending rerun of tests/active_rollout_uat/phase3b_price_exposure_ppf.json

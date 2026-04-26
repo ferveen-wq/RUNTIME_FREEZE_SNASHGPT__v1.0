@@ -369,3 +369,18 @@ Examples:
 Patch rule:
 - If runtime already says context must be preserved, patch bridge/context enforcement first.
 - Do not duplicate runtime ownership unless the runtime rule is missing.
+
+## Price Exposure True-Pass Rule
+
+For Phase 3B price exposure UAT:
+
+- Do not accept a debug-only pass.
+- Manually inspect raw customer output.
+- price_ladder_state = FINAL_PRICE_REACHED is valid ONLY if the customer-facing reply contains the approved table-backed price/range.
+- PHASE3B_* transition phrase alone is NOT a true price exposure pass.
+- If selected_phrase_id is PHASE3B_* but no price appears, classify as price ladder output injection failure.
+- If a rule is added to ACTIVE routing but raw output still ignores it, do not keep adding broad rules; inspect the execution / prompt / output-injection layer.
+
+Required manual check:
+- Output must include BD VAT included wording.
+- Output must match PRICE_TABLE_VAT_INCL.md.
