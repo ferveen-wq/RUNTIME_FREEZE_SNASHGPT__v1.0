@@ -933,3 +933,14 @@ Why:
 UAT:
 - no-credit local validation passed on existing Phase3A pack
 - no-credit negative check blocked bad single-turn Phase3B fixture
+
+Date: 2026-04-26
+Files: tools/audit/pre_uat_case_readiness_check.py
+Changed:
+- Added no-credit validation for multi-turn case shape before active UAT runs.
+- Blocks turns with missing content, non-string content, or invalid role.
+Why:
+- Prevent API-format errors from reaching OpenAI and wasting credits.
+- Strengthen Phase 4 / multi-turn UAT fixture discipline before rollout validation.
+UAT:
+- no-credit pre-UAT guard passed on phase4_price_entry_multiturn.json
