@@ -1140,3 +1140,13 @@ Why:
 - Runtime, manifest, and prompt layers aligned.
 UAT:
 - Ceramic, Tint, Polishing focused UAT packs passed 1/1 each
+
+Date: 2026-04-26
+Files: docs/control_tower/issues/ISSUE_012_PHASE0_3_DETERMINISM_CHECK.md, docs/control_tower/issues/ISSUE_013_RUNTIME_INSTRUCTION_INDEPENDENCE.md
+Changed:
+- Added explicit tracker for Phase 0–3 determinism validation.
+- Added explicit tracker for runtime independence from project instructions.
+Why:
+- Phase 0–3 is functionally closed, but repeated-run determinism and runtime-only independence remain deferred hardening items.
+UAT:
+- tracking-only update; validation deferred until after Phase 4 stabilization
