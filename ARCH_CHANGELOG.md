@@ -1023,3 +1023,13 @@ Why:
 - Focused active UAT showed all Route E conditions true but selected_phrase_id remained null due to safer non-pricing fallback behavior.
 UAT:
 - pending focused active rollout UAT for phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: docs/control_tower/issues/ISSUE_010_PHASE0_3_LABEL_CONTRACT_AUDIT.md, tests/active_rollout_uat/phase4_price_entry_multiturn.json
+Changed:
+- Recorded focused active UAT pass for PPF Phase 3A to Phase 3B bridge.
+- Added the focused UAT pack as rollout evidence.
+Why:
+- Preserve validation evidence for the Route E / PPF completion bridge fix.
+UAT:
+- tests/reports/raw_uat_20260426_140223.json passed 1/1

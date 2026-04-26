@@ -258,3 +258,20 @@ Safety gates:
 - phase3a_complete must be true.
 - missing_fields must be [].
 - service_intent must be one of ppf, ceramic, tint, polishing.
+
+## Validation Evidence — Phase 3A to Phase 3B Bridge — 2026-04-26
+
+Focused active rollout UAT passed:
+- Case: ppf_price_after_full_qualification
+- Pack: tests/active_rollout_uat/phase4_price_entry_multiturn.json
+- Report: tests/reports/raw_uat_20260426_140223.json
+- Result: Passed=1, Failed=0
+
+Validated behavior:
+- PPF coverage + driving pattern complete
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- Route E enters Phase 3B
+- selected_phrase_id = PHASE3B_PPF_RANGE
+
+Status:
+- PPF Phase 3A → Phase 3B bridge validated in focused active UAT.

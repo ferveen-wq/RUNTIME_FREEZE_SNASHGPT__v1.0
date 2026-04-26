@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "ppf_price_after_full_qualification",
+    "turns": [
+      "ppf camry 2022 front",
+      "highway driving"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE"
+  }
+]
