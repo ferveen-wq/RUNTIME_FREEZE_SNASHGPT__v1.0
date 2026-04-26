@@ -22,6 +22,9 @@ ARCH_PATH_PREFIXES = (
     "00__LOCKED__UPLOAD_SET/",
     "runner/",
     "tests/",
+    "docs/control_tower/",
+    "tools/",
+    ".github/",
 )
 
 ARCH_EXEMPT_FILES = set()

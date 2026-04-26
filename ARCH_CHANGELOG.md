@@ -880,3 +880,18 @@ Impact:
 Status:
 - Accepted deviation (temporary)
 
+
+Date: 2026-04-26
+Files: runner/check_arch_changelog.py
+Changed:
+- Expanded ARCH_CHANGELOG gate scope to include control-tower docs, tooling, and GitHub workflow files.
+- Added enforced audit-trail coverage for:
+  - docs/control_tower/
+  - tools/
+  - .github/
+Why:
+- Governance and enforcement changes are architecture changes and must not bypass changelog discipline.
+- Recent enforcement audit showed tools/control docs could change without ARCH_CHANGELOG enforcement.
+UAT:
+- verified by direct diff inspection of ARCH_PATH_PREFIXES
+- follow-up commit should require this changelog entry through existing pre-commit gate
