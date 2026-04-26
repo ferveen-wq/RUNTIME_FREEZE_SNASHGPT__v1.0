@@ -1,0 +1,15 @@
+[
+  {
+    "case_id": "tint_price_after_full_qualification",
+    "turns": [
+      "tint camry 2022",
+      "heat rejection and privacy",
+      "full car"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE3B_TINT_RANGE"
+  }
+]
