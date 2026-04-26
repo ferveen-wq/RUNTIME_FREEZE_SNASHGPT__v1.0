@@ -56,4 +56,8 @@ else:
     print("Warnings logged. Guardian currently running in audit mode.")
 
 # Save patched phrase library if changes occurred
-Path(PHRASE_FILE).write_text(text, encoding="utf-8")
+# NOTE:
+# Runtime Guardian is strictly audit-only.
+# It must NEVER modify runtime files automatically.
+# Any fixes must be done through controlled patches.
+
