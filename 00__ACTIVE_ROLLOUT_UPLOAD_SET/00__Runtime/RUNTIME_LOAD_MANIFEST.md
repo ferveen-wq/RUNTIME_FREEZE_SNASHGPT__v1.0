@@ -76,6 +76,7 @@ No phase may execute out of order.
 13.1) SKU_SELECTION_MATRIX.md
 13.2) PRICE_TABLE_VAT_INCL.md
 13.4) PHASE6__SERVICE_CANON_BUNDLE.md
+13.5) PRODUCT_SERVICE_CANON.md
 14) OBJECTION_RESOLUTION_ENGINE.md
 15) SILENCE_HANDLING_ENGINE.md
 16) phase_4_5_tone_engine.md
@@ -175,3 +176,24 @@ The following modules may exist in the runtime set, but must not execute before 
 Note: Repositories (Price/Timeline/Product/Vehicle) may exist in the broader canon, but are only considered “runtime-active” if explicitly listed in FILE LOAD ORDER above.
 
 End of file.
+## Service/Product Canon Authority Boundary — 2026-04-26
+
+The active runtime intentionally includes all three related canon files:
+
+- PRODUCT_SERVICE_CANON.md
+  - Authority for service list, hard service constraints, positioning limits, and pricing/variant boundaries.
+  - Referenced by PHASE0_LOCK_INDEX.md and PRICE_LADDER_ENGINE.md.
+
+- PHASE6__SERVICE_CANON_BUNDLE.md
+  - Authority for service explanation canon, Phase 0–2 minimal service blocks, and Phase 3+ internal differentiation.
+  - Must not be emitted directly unless the active routing file allows it.
+
+- GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md
+  - Authority for product/brand naming normalization and naming consistency.
+
+These files must not compete:
+- PRODUCT_SERVICE_CANON.md governs service availability and boundaries.
+- PHASE6__SERVICE_CANON_BUNDLE.md governs service explanation canon.
+- GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md governs naming normalization.
+
+Do not remove PRODUCT_SERVICE_CANON.md from the active upload set unless all active references are migrated and validated.

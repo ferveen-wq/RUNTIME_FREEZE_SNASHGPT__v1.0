@@ -1118,3 +1118,14 @@ Why:
 - Preserve validation evidence for full cross-service Route E / Phase 3B bridge behavior.
 UAT:
 - tests/reports/raw_uat_20260426_145044.json passed 1/1
+
+Date: 2026-04-26
+Files: 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/RUNTIME_LOAD_MANIFEST.md
+Changed:
+- Added PRODUCT_SERVICE_CANON.md to the active runtime manifest.
+- Added service/product canon authority boundary for PRODUCT_SERVICE_CANON.md, PHASE6__SERVICE_CANON_BUNDLE.md, and GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md.
+Why:
+- PRODUCT_SERVICE_CANON.md is active and referenced by PHASE0_LOCK_INDEX.md, PRICE_LADDER_ENGINE.md, and the active UAT runner.
+- Prevent confusion between service boundary authority, service explanation canon, and product naming authority.
+UAT:
+- no-credit dependency scan confirmed active references before manifest update
