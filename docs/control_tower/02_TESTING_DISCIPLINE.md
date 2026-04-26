@@ -166,6 +166,24 @@ Rule:
 
 ---
 
+## 8.1 Pattern Library Enforcement
+
+Before any patch:
+- classify the failure pattern
+- check whether the same pattern already exists in issue logs, active memory, failure snapshots, or prior UAT reports
+- reuse the existing diagnosis/fix playbook if available
+- do not re-run a full investigation loop if a trusted prior pattern applies
+
+After any validated patch:
+- record the root-cause pattern
+- link the issue, failing evidence, fixed evidence, and protecting UAT pack
+- note whether the fix changed runtime logic, control prompt, tooling, test contract, or documentation only
+
+Rule:
+- every validated patch must leave behind a reusable pattern trail so future fixes become faster and less repetitive
+
+---
+
 ## 9. Repeatability Rule
 
 A valid test should be:
