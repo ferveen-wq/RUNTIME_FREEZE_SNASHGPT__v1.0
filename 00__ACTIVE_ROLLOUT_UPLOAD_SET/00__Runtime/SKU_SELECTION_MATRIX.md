@@ -208,6 +208,21 @@ RULES (LOCKED):
 - Partial/roof wrap SKUs must NOT be selected here.
 - Roof-black styling is fulfilled ONLY via ROOF_PPF_BLACK_GLOSS (handled in PPF flow / roof rule), not via WRAP.
 
+
+
+SPECIAL OUTPUT CONTRACT — FRONT PPF (LOCKED):
+IF PPF_COVERAGE_INTENT == FULL_FRONT
+AND PPF_FINISH_INTENT != MATTE:
+
+- OUTPUT MUST BE:
+    sku = PPF_FRONT_GLOBAL
+
+- DO NOT emit:
+    DEFAULT / SECOND / UPLADDER / DOWNLADDER
+
+- PRICE_LADDER_ENGINE must treat this as SINGLE SKU input.
+
+
 OUTPUT CONTRACT (used by PRICE_LADDER_ENGINE):
 - WRAP_DEFAULT_A
 - WRAP_SECOND_B
