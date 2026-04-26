@@ -944,3 +944,14 @@ Why:
 - Strengthen Phase 4 / multi-turn UAT fixture discipline before rollout validation.
 UAT:
 - no-credit pre-UAT guard passed on phase4_price_entry_multiturn.json
+
+Date: 2026-04-26
+Files: tools/audit/pre_uat_case_readiness_check.py
+Changed:
+- Aligned multi-turn readiness validation with run_active_uat_raw.py string-turn format.
+- Blocks non-string turns before active UAT reaches the API.
+Why:
+- The runner expects turns as plain strings and wraps each item as a user message.
+- Prevent malformed object-turn fixtures from wasting API credits.
+UAT:
+- no-credit pre-UAT guard passed on phase4_price_entry_multiturn.json
