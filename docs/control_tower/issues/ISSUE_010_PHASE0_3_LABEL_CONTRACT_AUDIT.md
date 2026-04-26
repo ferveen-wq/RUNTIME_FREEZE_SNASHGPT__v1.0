@@ -275,3 +275,20 @@ Validated behavior:
 
 Status:
 - PPF Phase 3A → Phase 3B bridge validated in focused active UAT.
+
+## Validation Evidence — Ceramic Phase 3A to Phase 3B Bridge — 2026-04-26
+
+Focused active rollout UAT passed:
+- Case: ceramic_price_after_full_qualification
+- Pack: tests/active_rollout_uat/phase4_price_entry_multiturn_ceramic.json
+- Report: tests/reports/raw_uat_20260426_142625.json
+- Result: Passed=1, Failed=0
+
+Validated behavior:
+- Ceramic goal + wash pattern complete
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- Route E enters Phase 3B
+- selected_phrase_id = PHASE3B_CERAMIC_RANGE
+
+Status:
+- Ceramic Phase 3A → Phase 3B bridge validated in focused active UAT.

@@ -1,0 +1,15 @@
+[
+  {
+    "case_id": "ceramic_price_after_full_qualification",
+    "turns": [
+      "ceramic camry 2022",
+      "protection and gloss",
+      "hand wash"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+  }
+]
