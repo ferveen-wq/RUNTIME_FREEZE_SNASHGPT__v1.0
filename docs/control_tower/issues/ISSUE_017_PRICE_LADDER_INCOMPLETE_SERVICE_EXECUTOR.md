@@ -84,3 +84,20 @@ Do not proceed to Phase 4 objection UAT until:
 4. Exact expected price/range assertions are added.
 
 This issue must remain OPEN until the above is complete.
+
+## Failed Attempt Note — 2026-04-27
+
+Attempted generic PRICE_LADDER_ENGINE bridge improved rendering/state behavior but did not produce exact price trust.
+
+Observed after exact UAT assertions:
+- Ceramic still selected wrong age/SKU path and produced forbidden values.
+- PPF / tint / polishing also showed signs of VCB or SKU leakage in raw outputs.
+- Therefore the current uncommitted PRICE_LADDER_ENGINE patch must NOT be committed as trusted runtime.
+
+Next required approach:
+- Stop wording-only / generic enforcement patches.
+- Define exact deterministic SKU path per service before next UAT:
+  - vehicle_model -> vehicle_segment
+  - service qualifiers -> selected_skus
+  - selected_skus + vehicle_segment -> exact prices
+- Only then patch runtime.

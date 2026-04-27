@@ -1206,3 +1206,14 @@ Why:
 - Normal FULL_FRONT PPF must resolve to single SKU PPF_FRONT_GLOBAL, while matte front PPF remains governed by the existing matte rule.
 UAT:
 - pending rerun of tests/active_rollout_uat/phase3b_price_exposure_ppf.json
+
+Date: 2026-04-27
+Files: docs/control_tower/issues/ISSUE_017_PRICE_LADDER_INCOMPLETE_SERVICE_EXECUTOR.md
+Changed:
+- Recorded failed generic PRICE_LADDER_ENGINE bridge attempt.
+- Marked current generic engine patch as untrusted and not suitable for commit.
+Why:
+- Exact price assertions showed continued SKU/VCB leakage and wrong ceramic pricing.
+- Next approach must define exact SKU-price truth paths before runtime patching.
+UAT:
+- ceramic_price exact-price UAT failed as expected after stricter assertions.
