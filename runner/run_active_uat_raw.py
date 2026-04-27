@@ -136,6 +136,28 @@ def validate_cases(cases):
         if not (has_phase and has_status and has_phrase):
             weak.append(case.get("case_id", "<missing case_id>"))
 
+        # Price-trust UAT enforcement:
+        # If a case expects the pricing ladder to finish, it must validate
+        # actual customer-facing price output, not debug state only.
+        if str(exp_debug.get("price_ladder_state", "")).strip() == "FINAL_PRICE_REACHED":
+            exp_contains = case.get("expect_contains", []) or []
+            exp_not_contains = case.get("expect_not_contains", []) or []
+
+            has_vat = any("BD VAT included" in str(x) for x in exp_contains)
+            has_digit = any(any(ch.isdigit() for ch in str(x)) for x in exp_contains)
+
+            if not (has_vat and has_digit):
+                weak.append(
+                    case.get("case_id", "<missing case_id>")
+                    + " [price UAT requires exact numeric expect_contains + BD VAT included]"
+                )
+
+            if "price" in str(case.get("case_id", "")).lower() and not exp_not_contains:
+                weak.append(
+                    case.get("case_id", "<missing case_id>")
+                    + " [price UAT should include expect_not_contains for known wrong prices]"
+                )
+
     if weak:
         raise SystemExit(
             "Raw active UAT requires strict expectations "

@@ -433,3 +433,17 @@ When a later investigation identifies a deeper root cause after an earlier patch
 
 Risk note:
 - Phase 0–3 and Phase 3B pricing have medium/high reconciliation risk because multiple files interact and earlier UAT may have passed through model inference rather than deterministic runtime logic.
+
+## Credit-Control / UAT Burn Prevention Rule
+
+When a UAT fails due to pricing correctness:
+- Do not keep re-running the same UAT after wording-only patches.
+- Before the next UAT, write the exact expected SKU path and exact expected price/range from:
+  1. GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md
+  2. SKU_SELECTION_MATRIX.md
+  3. PRICE_TABLE_VAT_INCL.md
+- UAT may run only after the runtime patch directly enforces that exact path.
+- If the same case fails twice after patching the same engine, stop and perform patch reconciliation before another run.
+
+Status:
+ACTIVE — prevents credit burn and repeated same-engine trial patches.

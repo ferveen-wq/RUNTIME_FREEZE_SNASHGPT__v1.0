@@ -1,0 +1,100 @@
+[
+  {
+    "case_id": "ppf_full_body_range",
+    "turns": [
+      "ppf camry 2022 full",
+      "highway driving",
+      "price"
+    ],
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains": [
+      "790",
+      "880",
+      "BD VAT included"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_not_contains": [
+      "750",
+      "990",
+      "1500"
+    ]
+  },
+  {
+    "case_id": "ceramic_price",
+    "turns": [
+      "ceramic camry 2022",
+      "long term protection",
+      "weekly wash",
+      "price"
+    ],
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains": [
+      "100",
+      "130",
+      "BD VAT included"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "expect_not_contains": [
+      "15",
+      "90",
+      "120 to 170",
+      "120",
+      "170"
+    ]
+  },
+  {
+    "case_id": "tint_price",
+    "turns": [
+      "tint camry 2022",
+      "heat",
+      "full",
+      "price"
+    ],
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains": [
+      "110",
+      "220",
+      "BD VAT included"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_TINT_RANGE",
+    "expect_not_contains": [
+      "80",
+      "180"
+    ]
+  },
+  {
+    "case_id": "polishing_price",
+    "turns": [
+      "polishing camry 2022",
+      "exterior",
+      "no repaint",
+      "price"
+    ],
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_contains": [
+      "50",
+      "BD VAT included"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_POLISHING_RANGE",
+    "expect_not_contains": [
+      "45",
+      "70"
+    ]
+  }
+]
