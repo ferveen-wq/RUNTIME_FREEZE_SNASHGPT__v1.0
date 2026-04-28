@@ -96,5 +96,202 @@
       "45",
       "70"
     ]
+  },
+  {
+    "case_id": "ceramic_vcb1_civic",
+    "turns": [
+      "ceramic civic 2020",
+      "long term",
+      "weekly wash",
+      "price"
+    ],
+    "expect_contains": [
+      "90",
+      "120",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "100",
+      "130",
+      "150"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "CANONICAL_MODEL": "Honda Civic",
+      "VCB": "VCB_1",
+      "selected_skus": "[CERAMIC_1Y, CERAMIC_3Y]"
+    }
+  },
+  {
+    "case_id": "ppf_vcb3_bmw",
+    "turns": [
+      "ppf bmw x5 2022 full",
+      "highway driving",
+      "price"
+    ],
+    "expect_contains": [
+      "890",
+      "990",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "790",
+      "880"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    }
+  },
+  {
+    "case_id": "ppf_xpel_intent",
+    "turns": [
+      "ppf camry 2022 full xpel",
+      "highway driving",
+      "price"
+    ],
+    "expect_contains": [
+      "880",
+      "1040",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "790",
+      "750"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "PPF_BRAND_INTENT": "XPEL",
+      "selected_skus": "[XPEL_EXO_7Y, GLOBAL_SIGNATURE_10Y]",
+      "VCB": "VCB_2"
+    }
+  },
+  {
+    "case_id": "ceramic_vcb1_civic_old",
+    "turns": [
+      "ceramic civic 2016",
+      "long term",
+      "weekly wash",
+      "price"
+    ],
+    "expect_contains": [
+      "90",
+      "110",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "120",
+      "130",
+      "160"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "CANONICAL_MODEL": "Honda Civic",
+      "VCB": "VCB_1",
+      "vehicle_age": "10",
+      "ceramic_pricing_age_band": "AGE_7_PLUS",
+      "selected_skus": "[CERAMIC_1Y, GRAPHENE_1Y]"
+    }
+  },
+  {
+    "case_id": "ppf_front_camry_vcb2",
+    "turns": [
+      "ppf camry 2022 front",
+      "highway driving",
+      "price"
+    ],
+    "expect_contains": [
+      "295",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "790",
+      "880",
+      "1040",
+      "450"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "CANONICAL_MODEL": "Toyota Camry",
+      "VCB": "VCB_2",
+      "PPF_COVERAGE_INTENT": "FULL_FRONT",
+      "PPF_FINISH_INTENT": "GLOSS",
+      "selected_skus": "[PPF_FRONT_GLOBAL]"
+    }
+  },
+  {
+    "case_id": "ppf_matte_camry_vcb2",
+    "turns": [
+      "matte ppf camry 2022 full",
+      "highway driving",
+      "price"
+    ],
+    "expect_contains": [
+      "920",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "790",
+      "880",
+      "1040",
+      "1460"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "CANONICAL_MODEL": "Toyota Camry",
+      "VCB": "VCB_2",
+      "PPF_COVERAGE_INTENT": "FULL_BODY",
+      "PPF_FINISH_INTENT": "MATTE",
+      "PPF_BRAND_INTENT": "DEFAULT",
+      "selected_skus": "[GLOBAL_MATTE_10Y]"
+    }
+  },
+  {
+    "case_id": "ppf_matte_xpel_camry_vcb2",
+    "turns": [
+      "xpel stealth matte ppf camry 2022 full",
+      "highway driving",
+      "price"
+    ],
+    "expect_contains": [
+      "1460",
+      "BD VAT included"
+    ],
+    "expect_not_contains": [
+      "920",
+      "880",
+      "790",
+      "1040",
+      "1340"
+    ],
+    "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
+    "expect_debug": {
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "CANONICAL_MODEL": "Toyota Camry",
+      "VCB": "VCB_2",
+      "PPF_COVERAGE_INTENT": "FULL_BODY",
+      "PPF_FINISH_INTENT": "MATTE",
+      "PPF_BRAND_INTENT": "XPEL",
+      "selected_skus": "[XPEL_STEALTH_10Y]"
+    }
   }
 ]
