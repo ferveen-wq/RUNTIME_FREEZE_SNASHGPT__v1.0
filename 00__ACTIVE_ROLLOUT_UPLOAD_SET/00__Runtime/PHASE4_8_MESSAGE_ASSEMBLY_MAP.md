@@ -913,6 +913,15 @@ E2 — Service confirmed after Phase 3A completion:
 - service_intent is NOT wrap
 
 When E1 or E2 is true:
+- HARD ENFORCEMENT (CRITICAL):
+  - PRICE_LADDER_ENGINE MUST execute before final output assembly.
+  - The assistant MUST NOT return a response that only contains PHASE3B_* transition wording.
+  - If PRICE_LADDER_ENGINE output is missing:
+    → DO NOT finalize response
+    → FORCE execution of PRICE_LADDER_ENGINE
+  - A response is considered VALID only if:
+    - It contains actual price or price range text from PRICE_TABLE_VAT_INCL.md
+
 - selected_phrase_id MUST be one of the following based on service_intent:
   - if service_intent == ppf: selected_phrase_id = PHASE3B_PPF_RANGE
   - if service_intent == ceramic: selected_phrase_id = PHASE3B_CERAMIC_RANGE

@@ -100,6 +100,21 @@ Format:
 - 1 reason stated simply (missing info / needs inspection / can’t confirm in chat)
 - Offer next step (visit / call)
 
+### D) PHASE3B PRICE ASSEMBLY BLOCK (Formatting Only)
+Use when orchestration selected a `PHASE3B_*_RANGE` phrase and `price_ladder_state` is `FINAL_PRICE_REACHED`.
+
+Authority guard:
+- This block is formatting-only.
+- It MUST NOT calculate, choose, alter, or invent prices.
+- It MUST NOT create or override `selected_phrase_id`.
+- It may only render the already-approved PRICE_LADDER_ENGINE price text together with the selected PHASE4_6 phrase.
+- If the approved price text is missing, do NOT finalize a transition-only customer response.
+
+Format:
+- Render the selected PHASE4_6 `PHASE3B_*_RANGE` phrase.
+- In the same assistant turn, render the approved PRICE_LADDER_ENGINE price/range text.
+- The final customer-facing response is valid only if the actual price or range is visible to the customer.
+
 ## 1) Default Response Structure (use unless special case)
 Use the following blocks in order:
 
