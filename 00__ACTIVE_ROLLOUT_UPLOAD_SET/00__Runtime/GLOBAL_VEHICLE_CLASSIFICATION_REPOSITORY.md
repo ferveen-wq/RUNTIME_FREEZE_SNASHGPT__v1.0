@@ -587,6 +587,8 @@ x-trail -> Nissan X-Trail
 
 rav4 -> Toyota RAV4
 crv -> Honda CR-V
+civic -> Honda Civic
+honda civic -> Honda Civic
 
 fortuner -> Toyota Fortuner
 hilux -> Toyota Hilux
