@@ -86,6 +86,22 @@ def extract_debug_and_messages(text):
             debug["service_intent"] = ln.split(":",1)[1].strip()
         elif ln.startswith("active_service_context:"):
             debug["active_service_context"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("CANONICAL_MODEL:"):
+            debug["CANONICAL_MODEL"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("VCB:"):
+            debug["VCB"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("vehicle_year:"):
+            debug["vehicle_year"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("CURRENT_YEAR:"):
+            debug["CURRENT_YEAR"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("vehicle_age:"):
+            debug["vehicle_age"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("ceramic_pricing_age_band:"):
+            debug["ceramic_pricing_age_band"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("selected_skus:"):
+            debug["selected_skus"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("price_source_rows:"):
+            debug["price_source_rows"] = ln.split(":",1)[1].strip()
         elif ln.startswith("missing_fields:"):
             debug["missing_fields"] = ln.split(":",1)[1].strip()
         elif ln.startswith("phase3a_required:"):
@@ -98,6 +114,10 @@ def extract_debug_and_messages(text):
             debug["PPF_COVERAGE_INTENT"] = ln.split(":",1)[1].strip()
         elif ln.startswith("PPF_DRIVING_PATTERN:"):
             debug["PPF_DRIVING_PATTERN"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PPF_BRAND_INTENT:"):
+            debug["PPF_BRAND_INTENT"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PPF_FINISH_INTENT:"):
+            debug["PPF_FINISH_INTENT"] = ln.split(":",1)[1].strip()
         elif ln.startswith("CERAMIC_GOAL:"):
             debug["CERAMIC_GOAL"] = ln.split(":",1)[1].strip()
         elif ln.startswith("CERAMIC_WASH_PATTERN:"):
@@ -122,6 +142,30 @@ def extract_debug_and_messages(text):
         "english": english,
         "raw": text
     }
+
+def customer_facing_text(text):
+    """Return customer-facing assistant body only for content assertions.
+
+    Excludes DEBUG_OUTPUT fields, STATE_SNAPSHOT blocks, and timestamp/color
+    wrapper lines so exact price assertions are not contaminated by debug,
+    state JSON, or timestamp artifacts.
+    """
+    body = text
+
+    if "\n\n" in body:
+        body = body.split("\n\n", 1)[1]
+
+    if "STATE_SNAPSHOT_FOR_NEXT_TURN:" in body:
+        body = body.split("STATE_SNAPSHOT_FOR_NEXT_TURN:", 1)[0]
+
+    lines = []
+    for line in body.splitlines():
+        if "Timestamp:" in line:
+            continue
+        lines.append(line)
+
+    return "\n".join(lines).strip()
+
 
 def validate_cases(cases):
     weak = []
@@ -195,17 +239,18 @@ def check_expectations(parsed, case):
         failures.append(f"CONTRADICTION: price ladder used while {q_status}")
 
     
-    # Content validation (raw output must contain required text)
-    raw_text = parsed.get("raw", "")
+    # Content validation uses customer-facing body only.
+    # Excludes debug/state/timestamp artifacts from exact price assertions.
+    customer_text = customer_facing_text(parsed.get("raw", ""))
 
     exp_contains = case.get("expect_contains", [])
     for item in exp_contains:
-        if item not in raw_text:
+        if item not in customer_text:
             failures.append(f"missing expected text: {item}")
 
     exp_not_contains = case.get("expect_not_contains", [])
     for item in exp_not_contains:
-        if item in raw_text:
+        if item in customer_text:
             failures.append(f"forbidden text present: {item}")
 
     return failures
@@ -314,12 +359,22 @@ def main():
                 "price_ladder_state": parsed["debug"].get("price_ladder_state"),
                 "service_intent": parsed["debug"].get("service_intent"),
                 "active_service_context": parsed["debug"].get("active_service_context"),
+                "CANONICAL_MODEL": parsed["debug"].get("CANONICAL_MODEL"),
+                "VCB": parsed["debug"].get("VCB"),
+                "vehicle_year": parsed["debug"].get("vehicle_year"),
+                "CURRENT_YEAR": parsed["debug"].get("CURRENT_YEAR"),
+                "vehicle_age": parsed["debug"].get("vehicle_age"),
+                "ceramic_pricing_age_band": parsed["debug"].get("ceramic_pricing_age_band"),
+                "selected_skus": parsed["debug"].get("selected_skus"),
+                "price_source_rows": parsed["debug"].get("price_source_rows"),
                 "missing_fields": parsed["debug"].get("missing_fields"),
                 "phase3a_required": parsed["debug"].get("phase3a_required"),
                 "phase3a_complete": parsed["debug"].get("phase3a_complete"),
                 "phase3a_qualifier_id": parsed["debug"].get("phase3a_qualifier_id"),
                 "PPF_COVERAGE_INTENT": parsed["debug"].get("PPF_COVERAGE_INTENT"),
                 "PPF_DRIVING_PATTERN": parsed["debug"].get("PPF_DRIVING_PATTERN"),
+                "PPF_BRAND_INTENT": parsed["debug"].get("PPF_BRAND_INTENT"),
+                "PPF_FINISH_INTENT": parsed["debug"].get("PPF_FINISH_INTENT"),
                 "CERAMIC_GOAL": parsed["debug"].get("CERAMIC_GOAL"),
                 "CERAMIC_WASH_PATTERN": parsed["debug"].get("CERAMIC_WASH_PATTERN"),
                 "TINT_GOAL": parsed["debug"].get("TINT_GOAL"),

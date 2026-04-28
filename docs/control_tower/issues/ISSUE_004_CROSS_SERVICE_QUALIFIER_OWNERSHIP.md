@@ -238,3 +238,26 @@ Scope:
 Status:
 OPEN — requires owner-level audit (Qualification Engine / Execution Flow / Assembly Map)
 
+
+
+## M2 COMPLETION UPDATE — 2026-04-28
+
+- M2 (Phase 0–2 ownership validation) completed across all services: PPF, Ceramic, Tint, Polishing, Wrap.
+- Runtime behavior confirms Qualification Engine is the effective owner of:
+  - service_intent
+  - active_service_context
+  - missing_fields
+  - phase3a routing
+
+- Wrap correctly operates as special-handling flow (no WRAP_SCOPE automation).
+
+Remaining gap (non-blocking):
+- detected_service_intent_in_message has no explicit writer definition (tooling/traceability gap only).
+- Intake contains narrow override (roof-black), does not conflict currently.
+
+Status Update:
+- Behavioral risk: RESOLVED
+- Governance clarity: PENDING (non-blocking)
+
+Decision:
+- ISSUE_004 remains OPEN for documentation/tooling clarity only.

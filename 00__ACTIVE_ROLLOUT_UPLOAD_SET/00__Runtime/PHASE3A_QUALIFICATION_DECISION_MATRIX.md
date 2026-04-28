@@ -130,6 +130,11 @@ Immediately after Q1 (spec note for phrasing layer, not pricing):
 - Mention "6-month refresh approach" ONLY as a maintenance concept,
   and ONLY because it is a canonical service add-on (see Service Canon patch).
 
+Normalize:
+- "easy clean / easier maintenance / long-term / يدوم / صيانة أسهل / سهولة التنظيف / تنظيف أسهل" → EASY_CLEAN_LONG_TERM
+- "refresh / fresh look / looks better now / shine / gloss now / شكلها أحلى / تنعش الشكل / تجديد الشكل / لمعان حالياً" → LOOKS_FRESH_SHORT_TERM
+- otherwise → UNKNOWN if unclear
+
 Fallback:
 - One nudge max, then UNKNOWN and proceed.
 
@@ -144,6 +149,14 @@ Allowed values:
 
 Ask (one question):
 - "How do you usually wash - bucket/hand wash, tunnel/automatic, mall waterless, wash center, or mixed?"
+
+Normalize:
+- "bucket / hand wash / manual wash / سطل / يدوي / غسيل يدوي" → BUCKET_LOCALITY
+- "automatic / tunnel / machine / brush / رول / نفق / آلي / اتوماتيك" → AUTO_TUNNEL
+- "waterless / mall wash / mall / بدون ماء / غسيل المول / غسيل مواقف" → WATERLESS_MALL
+- "wash center / station wash / professional wash / مركز غسيل / محطة غسيل / مغسلة" → PRO_WASH_CENTER
+- "mixed / all / depends / خليط / كلهم / حسب" → MIXED
+- otherwise → UNKNOWN if unclear
 
 Phase 3B READY for CERAMIC when:
 - CERAMIC_GOAL known (or UNKNOWN)

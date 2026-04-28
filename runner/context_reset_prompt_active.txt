@@ -20,14 +20,24 @@ DEBUG CONTRACT:
   selected_phrase_id: <runtime selected phrase id>
   service_intent: <runtime service_intent or unknown>
   active_service_context: <runtime active_service_context or null>
+  CANONICAL_MODEL: <resolved vehicle canonical model or null>
+  VCB: <VCB_1 | VCB_2 | VCB_3 | NULL>
+  vehicle_year: <extracted vehicle year or null>
+  CURRENT_YEAR: <runtime current year>
+  vehicle_age: <CURRENT_YEAR - vehicle_year or null>
+  ceramic_pricing_age_band: <AGE_0_3 | AGE_3_6 | AGE_7_PLUS | null>
+  selected_skus: <selected SKU list or []>
+  price_source_rows: <PRICE_TABLE_VAT_INCL source rows used or []>
   missing_fields: <runtime missing_fields or []>
   phase3a_required: <true | false>
   phase3a_complete: <true | false>
   phase3a_qualifier_id: <runtime phase3a_qualifier_id or null>
   PPF_COVERAGE_INTENT: <FULL_FRONT | FULL_BODY | PARTIAL_OR_CUSTOM | UNSURE | UNKNOWN | null>
   PPF_DRIVING_PATTERN: <CITY | HIGHWAY | MIXED | UNKNOWN | null>
-  CERAMIC_GOAL: <PROTECTION | GLOSS | BOTH | UNKNOWN | null>
-  CERAMIC_WASH_PATTERN: <HAND_WASH | AUTO_WASH | MIXED | UNKNOWN | null>
+  PPF_BRAND_INTENT: <DEFAULT | XPEL | UNKNOWN | null>
+  PPF_FINISH_INTENT: <GLOSS | MATTE | UNKNOWN | null>
+  CERAMIC_GOAL: <EASY_CLEAN_LONG_TERM | LOOKS_FRESH_SHORT_TERM | UNKNOWN | null>
+  CERAMIC_WASH_PATTERN: <BUCKET_LOCALITY | AUTO_TUNNEL | WATERLESS_MALL | PRO_WASH_CENTER | MIXED | UNKNOWN | null>
   TINT_GOAL: <HEAT_REJECTION | PRIVACY | BOTH | UNKNOWN | null>
   TINT_COVERAGE: <FULL | FRONT_ONLY | SIDES_REAR | UNKNOWN | null>
   POLISHING_SCOPE: <EXTERIOR_ONLY | FULL_DETAIL | UNKNOWN | null>

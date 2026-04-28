@@ -1208,7 +1208,7 @@ UAT:
 - pending rerun of tests/active_rollout_uat/phase3b_price_exposure_ppf.json
 
 Date: 2026-04-27
-Files: docs/control_tower/issues/ISSUE_017_PRICE_LADDER_INCOMPLETE_SERVICE_EXECUTOR.md
+Files: MULTIPLE
 Changed:
 - Recorded failed generic PRICE_LADDER_ENGINE bridge attempt.
 - Marked current generic engine patch as untrusted and not suitable for commit.

@@ -1,0 +1,70 @@
+[
+  {
+    "case_id": "ceramic_goal_looks_fresh_short_term",
+    "expect_debug": {
+      "CERAMIC_GOAL": "LOOKS_FRESH_SHORT_TERM",
+      "selected_phrase_id": "PHASE3A_Q_CERAMIC_WASH_PATTERN",
+      "QUALIFICATION_STATUS": "NOT_READY",
+      "price_ladder_state": "NONE",
+      "phase": "PHASE_3"
+    },
+    "expect_phase": "PHASE_3",
+    "expect_qualification_status": "NOT_READY",
+    "expect_selected_phrase_id": "PHASE3A_Q_CERAMIC_WASH_PATTERN",
+    "turns": [
+      "ceramic camry 2022",
+      "ابي شي بس يخلي السيارة شكلها احلى الحين"
+    ]
+  },
+  {
+    "case_id": "ceramic_wash_waterless_mall",
+    "expect_debug": {
+      "CERAMIC_WASH_PATTERN": "WATERLESS_MALL",
+      "selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "phase": "PHASE_3"
+    },
+    "expect_phase": "PHASE_3",
+    "expect_qualification_status": "READY_FOR_NEGOTIATION",
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "turns": [
+      "ceramic camry 2022",
+      "لمعان ثابت وسهولة تنظيف",
+      "اغسل بدون ماء في المواقف"
+    ]
+  },
+  {
+    "case_id": "ceramic_wash_pro_wash_center",
+    "expect_debug": {
+      "CERAMIC_WASH_PATTERN": "PRO_WASH_CENTER",
+      "selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "phase": "PHASE_3"
+    },
+    "expect_phase": "PHASE_3",
+    "expect_qualification_status": "READY_FOR_NEGOTIATION",
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "turns": [
+      "ceramic camry 2022",
+      "لمعان ثابت وسهولة تنظيف",
+      "دايما اغسل في مغسلة احترافية"
+    ]
+  },
+  {
+    "case_id": "ceramic_wash_mixed",
+    "expect_debug": {
+      "CERAMIC_WASH_PATTERN": "MIXED",
+      "selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "phase": "PHASE_3"
+    },
+    "expect_phase": "PHASE_3",
+    "expect_qualification_status": "READY_FOR_NEGOTIATION",
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE",
+    "turns": [
+      "ceramic camry 2022",
+      "لمعان ثابت وسهولة تنظيف",
+      "خليط"
+    ]
+  }
+]
