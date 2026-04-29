@@ -236,6 +236,20 @@ def check_expectations(parsed, case):
     q_status = str(debug.get("QUALIFICATION_STATUS", "")).strip()
     ladder_state = str(debug.get("price_ladder_state", "")).strip()
 
+    phase_value = str(debug.get("phase", "")).strip()
+
+    if selected.startswith("PHASE5_") and phase_value not in {"PHASE_5", "5"}:
+        failures.append(
+            f"CONTRADICTION: {selected} returned with phase={phase_value} "
+            "(expected PHASE_5)"
+        )
+
+    if selected.startswith("PHASE4_") and phase_value not in {"PHASE_4", "4"}:
+        failures.append(
+            f"CONTRADICTION: {selected} returned with phase={phase_value} "
+            "(expected PHASE_4)"
+        )
+
     if selected.startswith("PHASE3B_") and q_status != "READY_FOR_NEGOTIATION":
         failures.append(f"CONTRADICTION: {selected} with {q_status}")
 
