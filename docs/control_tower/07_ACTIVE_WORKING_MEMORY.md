@@ -993,3 +993,27 @@ This rule is MANDATORY before any further runtime patch.
 - No high-tier leakage (790 / 880)
 - BD vs “Bahraini Dinars” accepted as equivalent (non-blocking)
 - Rendering layer considered functionally stable
+
+===== LOG PHASE5 LABEL GAP =====
+
+[ISSUE] PHASE5 LABEL GAP — CERAMIC REPEAT OBJECTION
+
+- Context:
+  selected_phrase_id = PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+  objection_repeat_count = 1
+
+- Observed:
+  phase = PHASE_4 (incorrect)
+
+- Expected:
+  phase = PHASE_5
+
+- Root Cause:
+  PHASE4_8_MESSAGE_ASSEMBLY_MAP.md selects PHASE5_* blocks
+  but does NOT explicitly enforce phase = PHASE_5
+
+- Owner:
+  PHASE4_8_MESSAGE_ASSEMBLY_MAP.md (runtime authority)
+
+- Classification:
+  Label derivation gap (not routing, not runner, not pricing)

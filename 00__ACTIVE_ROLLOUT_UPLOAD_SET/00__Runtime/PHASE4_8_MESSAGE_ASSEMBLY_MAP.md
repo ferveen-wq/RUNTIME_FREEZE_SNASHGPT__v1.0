@@ -600,6 +600,7 @@ END — PHASE 5 ARCHITECTURE LOCK
 # Assembly (HARD):
 # - Use ONLY PHASE4_6_HUMAN_PHRASE_LIBRARY.md → PHASE5_* blocks.
 # - selected_phrase_id MUST equal the PHASE5_* block name.
+# - If selected_phrase_id starts with PHASE5_, runtime phase MUST be PHASE_5.
 # - STOP (do not append any other blocks).
 # - No PRICE_LADDER_ENGINE output.
 # - No Phase 6 service explanation blocks.
