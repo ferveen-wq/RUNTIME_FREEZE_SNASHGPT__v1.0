@@ -1833,3 +1833,46 @@ Validation plan:
 Pending:
 - Validate locally.
 - Commit and push if validations pass.
+
+---
+
+## 2026-04-29 — PPF Phase 4 vs Phase 5 first-objection boundary
+
+Status: PATCHED_LOCAL
+
+Defect bucket:
+- RUNTIME_AUTHORITY_DEFECT
+- ARCHITECTURE_BOUNDARY_DEFECT
+
+Issue:
+- After correct Phase 3B price exposure, first "expensive" objection did not deterministically route to Phase 4.
+- Clean active UAT repeated runs produced mixed results:
+  - PHASE3B_PPF_RANGE
+  - PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+  - PHASE3B_PPF_RANGE
+- Business decision confirmed:
+  - First "expensive" after price belongs to Phase 4 soft reassurance.
+  - Phase 5 deepening starts only after repeat/deeper objection.
+
+Owner:
+- 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+- Role: runtime message assembly / Phase 4–5 routing authority
+
+Patch:
+- PPF-only Route G update.
+- objection_repeat_count == 0 routes to PHASE4_PPF_PRICE_PRESSURE_L1.
+- PHASE5_PPF_PRICE_GAP_DEEPEN_L1 starts at objection_repeat_count == 1.
+- Generic Phase 5 tier wording aligned to repeat/deeper objection only.
+
+Validation plan:
+- git diff --check
+- price_preflight_check.py
+- patch_gate.sh
+- pre-commit / SNASH Guard
+- focused clean active UAT 3x:
+  ppf camry 2022 front → highway driving → price → expensive
+
+Pending:
+- Validate local guard.
+- Run focused 3x clean-lane UAT.
+- Commit and push if validation passes.

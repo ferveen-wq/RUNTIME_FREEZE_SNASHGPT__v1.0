@@ -460,7 +460,7 @@ IF request_type == PRICE_REQUEST:
 #
 # Routing intent (signal → phrase):
 # - If service_intent == ppf:
-#     - price_gap / “cheaper elsewhere” / “too expensive” → PHASE5_PPF_PRICE_GAP_DEEPEN_L1
+#     - first price pressure / “too expensive” → PHASE4_PPF_PRICE_PRESSURE_L1; repeat/deeper price gap → PHASE5_PPF_PRICE_GAP_DEEPEN_L1
 #     - brand/warranty fixation → PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
 #     - technical/spec fixation → PHASE5_PPF_TECHNICAL_DEEPEN_L1
 # - If service_intent == ceramic:
@@ -618,22 +618,26 @@ Inputs allowed here (no guessing):
 - objection_repeat_count (INTEGER; emitted by CUSTOMER_CHAT_INTAKE_RULES.md / OBJECTION_RESOLUTION_ENGINE.md)
 
 Escalation tier (HARD):
-- If objection_repeat_count <= 1 → Tier L1 (deepen)
+- If objection_repeat_count == 1 → Tier L1 (deepen; repeat/deeper objection only)
 - If objection_repeat_count == 2 → Tier L2 (narrow)
 - If objection_repeat_count >= 3 → Tier L3 (exit-fork)
 
 Routing rules (select ONE block only):
 
 1) If active_service_context == ppf:
+  - First objection after price exposure is Phase 4-owned.
+  - If objection_repeat_count == 0:
+    - Do NOT enter Phase 5.
+    - Route to PHASE4_PPF_PRICE_PRESSURE_L1.
   - If constraints includes brand_keyword_detected = true:
-    - If objection_repeat_count <= 1:
+    - If objection_repeat_count == 1:
       - Use PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
     - If objection_repeat_count == 2:
       - Use PHASE5_PPF_NARROW_L2
     - If objection_repeat_count >= 3:
       - Use PHASE5_PPF_EXIT_FORK_L3
   - Else:
-    - If objection_repeat_count <= 1:
+    - If objection_repeat_count == 1:
       - Use PHASE5_PPF_PRICE_GAP_DEEPEN_L1
     - If objection_repeat_count == 2:
       - Use PHASE5_PPF_NARROW_L2
@@ -641,7 +645,10 @@ Routing rules (select ONE block only):
       - Use PHASE5_PPF_EXIT_FORK_L3
 
 2) If active_service_context == ceramic:
-  - If objection_repeat_count <= 1:
+  - If objection_repeat_count == 0:
+    - Do NOT enter Phase 5.
+    - Route to PHASE4_CERAMIC_PRICE_PRESSURE_L1.
+  - If objection_repeat_count == 1:
     - Use PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
   - If objection_repeat_count == 2:
     - Use PHASE5_CERAMIC_NARROW_L2
@@ -649,7 +656,10 @@ Routing rules (select ONE block only):
     - Use PHASE5_CERAMIC_EXIT_FORK_L3
 
 3) If active_service_context == tint:
-  - If objection_repeat_count <= 1:
+  - If objection_repeat_count == 0:
+    - Do NOT enter Phase 5.
+    - Route to PHASE4_TINT_PRICE_PRESSURE_L1.
+  - If objection_repeat_count == 1:
     - Use PHASE5_TINT_COMPARE_DEEPEN_L1
   - If objection_repeat_count == 2:
     - Use PHASE5_TINT_NARROW_L2
@@ -662,7 +672,10 @@ Routing rules (select ONE block only):
   - Roof-black exception remains governed separately through ROOF_PPF_BLACK_GLOSS routing when applicable.
 
 5) If active_service_context == polishing:
-  - If objection_repeat_count <= 1:
+  - If objection_repeat_count == 0:
+    - Do NOT enter Phase 5.
+    - Route to PHASE4_POLISH_PRICE_PRESSURE_L1.
+  - If objection_repeat_count == 1:
     - Use PHASE5_POLISH_EXPECTATION_DEEPEN_L1
   - If objection_repeat_count == 2:
     - Use PHASE5_POLISH_NARROW_L2

@@ -32,3 +32,26 @@ Trace Phase 3B -> Phase 4 transition ownership:
 - who owns phase change from PHASE_3 to PHASE_4
 - who decides PHASE4_PPF_PRICE_PRESSURE_L1 vs PHASE5_PPF_PRICE_GAP_DEEPEN_L1
 - whether Phase 3B final price state blocks Phase 4 routing
+
+---
+
+## Patch update — 2026-04-29
+
+Business decision:
+- First "expensive" after price exposure must stay in Phase 4.
+- Phase 5 starts only after repeat/deeper objection.
+
+Patch status:
+- PATCHED_LOCAL
+
+Patch owner:
+- 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
+
+Patch summary:
+- PPF-only Route G boundary correction.
+- objection_repeat_count == 0 routes to PHASE4_PPF_PRICE_PRESSURE_L1.
+- objection_repeat_count == 1 may enter PHASE5_PPF_PRICE_GAP_DEEPEN_L1.
+
+Pending validation:
+- Full guard.
+- Focused clean active UAT repeat run.

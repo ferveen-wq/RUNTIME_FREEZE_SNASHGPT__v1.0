@@ -76,6 +76,10 @@ def extract_debug_and_messages(text):
             debug["phase"] = ln.split(":",1)[1].strip()
         elif ln.startswith("request_type:"):
             debug["request_type"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("objection_signal:"):
+            debug["objection_signal"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("objection_repeat_count:"):
+            debug["objection_repeat_count"] = ln.split(":",1)[1].strip()
         elif ln.startswith("selected_phrase_id:"):
             debug["selected_phrase_id"] = ln.split(":",1)[1].strip()
         elif ln.startswith("QUALIFICATION_STATUS:"):
@@ -354,6 +358,8 @@ def main():
             state_snapshot = {
                 "phase": parsed["debug"].get("phase"),
                 "request_type": parsed["debug"].get("request_type"),
+                "objection_signal": parsed["debug"].get("objection_signal"),
+                "objection_repeat_count": parsed["debug"].get("objection_repeat_count"),
                 "selected_phrase_id": parsed["debug"].get("selected_phrase_id"),
                 "QUALIFICATION_STATUS": parsed["debug"].get("QUALIFICATION_STATUS"),
                 "price_ladder_state": parsed["debug"].get("price_ladder_state"),
