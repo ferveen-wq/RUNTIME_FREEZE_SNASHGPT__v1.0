@@ -106,7 +106,7 @@ If phase3a_required == true:
 - Phase 3B must not execute until the customer replies (phase3a_complete == true).
 
 If phase3a_complete == true:
-- Proceed to Phase 3B pricing/SKU selection and subsequent Phase 4 responses.
+- Proceed to Phase 3B pricing/SKU selection and subsequent Phase 4 / Phase 5 responses as selected by PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
 
 ### Step 0.5 — Global Silence Gate (Phase-Agnostic)
 
