@@ -84,6 +84,10 @@ DEBUG CONTRACT:
   - Preserve previous active_service_context.
   - Preserve previous service_intent.
   - Preserve completed qualification state and known service-specific qualifier fields.
+  - Known qualifier fields from previous state snapshot are IMMUTABLE unless the current user explicitly changes that exact field.
+  - Do NOT reinterpret, upgrade, downgrade, or substitute known qualifier fields to satisfy pricing logic.
+  - For PPF specifically, do NOT change PPF_COVERAGE_INTENT from FULL_FRONT to FULL_BODY unless the current user explicitly asks for full body / whole car / entire car.
+  - If a known qualifier conflicts with a pricing path, keep the qualifier and block the wrong pricing path.
   - Do NOT set active_service_context to null.
   - Do NOT set service_intent to unknown.
   - Do NOT fall back to A5 just because the current message is short, ambiguous, acknowledgement-only, or off-path.

@@ -228,6 +228,129 @@ If signals are absent:
 
 ---
 
+---
+
+## SUPPORTED SERVICE PRICE EXECUTOR (LOCKED)
+
+Purpose:
+- Deterministically execute supported Phase 3B service pricing.
+- Stop relying on model inference from loaded pricing tables.
+
+Applies when:
+- request_type == PRICE_REQUEST
+- QUALIFICATION_STATUS == READY_FOR_NEGOTIATION
+- service_intent is one of: ppf, ceramic, tint, polishing
+- vehicle_model and vehicle_year are known
+- service_intent is NOT wrap
+
+Authority boundaries:
+- GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md owns model → VCB.
+- SKU_SELECTION_MATRIX.md owns SKU ordering.
+- PRICE_TABLE_VAT_INCL.md owns numeric prices.
+- PRICE_LADDER_ENGINE.md owns SKU-to-price execution and price_ladder_state.
+
+Universal execution rules:
+1) Resolve CANONICAL_MODEL and VCB using GLOBAL_VEHICLE_CLASSIFICATION_REPOSITORY.md.
+2) PRICE_TABLE_VAT_INCL.md column MUST be VCB, not VEHICLE_SEGMENT.
+3) If VCB is NULL or UNMAPPED_MODEL == TRUE:
+   - Do NOT default to VCB_1.
+   - Set price_ladder_state = ESCALATED_TO_QUOTE.
+   - Route to manual VCB assignment / quote.
+4) Select supported-service SKU path:
+   - ppf front/matte priority:
+     - Resolve FRONT and MATTE before gloss full-body logic.
+     - If PPF_COVERAGE_INTENT == FULL_FRONT AND PPF_FINISH_INTENT != MATTE:
+       - Treat FULL_FRONT as PRIMARY customer intent, not as Downladder.
+       - selected_skus MUST be [PPF_FRONT_GLOBAL].
+       - Select ONLY PPF_FRONT_GLOBAL.
+       - Do NOT use DEFAULT / SECOND / UPLADDER / DOWNLADDER logic.
+       - Do NOT generate multiple SKUs.
+       - Do NOT evaluate gloss full-body/highway PPF rules.
+       - Output single price only from PRICE_TABLE_VAT_INCL.md using resolved VCB.
+       - Do NOT set FINAL_PRICE_REACHED if selected_skus != [PPF_FRONT_GLOBAL].
+     - If PPF_COVERAGE_INTENT == FULL_FRONT AND PPF_FINISH_INTENT == MATTE:
+       selected_skus = [GLOBAL_MATTE_FRONT_10Y]
+     - If PPF_COVERAGE_INTENT == FULL_BODY AND PPF_FINISH_INTENT == MATTE AND brand_intent == DEFAULT:
+       selected_skus = [GLOBAL_MATTE_10Y]
+     - If PPF_COVERAGE_INTENT == FULL_BODY AND PPF_FINISH_INTENT == MATTE AND brand_intent == XPEL:
+       selected_skus = [XPEL_STEALTH_10Y]
+     - Front/matte selected_skus override all gloss/full-body/default/highway PPF rules.
+     - If PPF_FINISH_INTENT == MATTE, do NOT use GLOBAL_SIGNATURE_10Y, GLOBAL_ELITE_8Y, XPEL_EXO_7Y, or XPEL_UP_10Y unless explicitly listed in the matte rule above.
+     - HARD MATTE LOCK:
+       If PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_BODY AND brand_intent == DEFAULT:
+       selected_skus MUST be [GLOBAL_MATTE_10Y].
+       Any output using GLOBAL_SIGNATURE_10Y, GLOBAL_ELITE_8Y, XPEL_EXO_7Y, or XPEL_UP_10Y is invalid.
+       Do NOT set FINAL_PRICE_REACHED if selected_skus != [GLOBAL_MATTE_10Y].
+     - HARD MATTE XPEL LOCK:
+       If PPF_FINISH_INTENT == MATTE AND PPF_COVERAGE_INTENT == FULL_BODY AND brand_intent == XPEL:
+       selected_skus MUST be [XPEL_STEALTH_10Y].
+       Any output using GLOBAL_SIGNATURE_10Y, GLOBAL_ELITE_8Y, XPEL_EXO_7Y, XPEL_UP_10Y, or GLOBAL_MATTE_10Y is invalid.
+       Do NOT set FINAL_PRICE_REACHED if selected_skus != [XPEL_STEALTH_10Y].
+   - ppf gloss full body:
+     - This section applies ONLY if PPF_COVERAGE_INTENT == FULL_BODY.
+     - If PPF_COVERAGE_INTENT == FULL_FRONT, this section MUST NOT execute.
+     - If PPF_COVERAGE_INTENT == FULL_FRONT, the earlier FULL_FRONT terminal lock is final.
+     - Match exactly ONE SKU_SELECTION_MATRIX.md row using:
+       resolved VCB + brand intent + PPF_DRIVING_PATTERN.
+     - If brand intent is not explicit, use the DEFAULT row for that VCB + PPF_DRIVING_PATTERN.
+     - If brand intent is XPEL, use the XPEL row for that VCB + PPF_DRIVING_PATTERN.
+     - selected_skus MUST equal Default (A) + Second (B) from the matched row only.
+     - Do NOT reuse Second (B), Upladder, or Downladder from any other PPF row.
+     - Standard range output must NOT use Upladder or Downladder unless the active runtime route explicitly asks for ladder movement.
+     - Brand intent (e.g., XPEL) selects the correct matrix row ONLY.
+     - Brand intent does NOT trigger Upladder selection.
+     - Upladder must only be used after explicit customer upgrade intent after price exposure.
+     - Deterministic PPF selected_skus MUST be resolved by exact condition, same style as ceramic:
+       - If VCB == VCB_1 AND brand_intent == DEFAULT AND PPF_DRIVING_PATTERN == HIGHWAY:
+         selected_skus = [GLOBAL_ELITE_8Y, GLOBAL_SIGNATURE_10Y]
+       - If VCB == VCB_2 AND brand_intent == DEFAULT AND PPF_DRIVING_PATTERN == HIGHWAY:
+         selected_skus = [GLOBAL_SIGNATURE_10Y, GLOBAL_ELITE_8Y]
+       - If VCB == VCB_2 AND brand_intent == XPEL AND PPF_DRIVING_PATTERN == HIGHWAY:
+         selected_skus = [XPEL_EXO_7Y, GLOBAL_SIGNATURE_10Y]
+       - If VCB == VCB_3 AND brand_intent == DEFAULT AND PPF_DRIVING_PATTERN == HIGHWAY:
+         selected_skus = [GLOBAL_SIGNATURE_10Y, GLOBAL_ELITE_8Y]
+     - These exact selected_skus override generic brand-upgrade reasoning.
+     - Do NOT substitute XPEL_UP_10Y for GLOBAL_SIGNATURE_10Y unless customer explicitly asks to upgrade after price exposure.
+     - If no exact deterministic PPF condition matches, do NOT infer; escalate to quote.
+
+   - ceramic:
+     - Derive vehicle_age = CURRENT_YEAR - vehicle_year.
+     - Select ceramic SKU path by exact age boundary:
+       - If vehicle_age <= 3: selected_skus = [CERAMIC_3Y, CERAMIC_5Y]
+       - If vehicle_age >= 4 AND vehicle_age <= 6: selected_skus = [CERAMIC_1Y, CERAMIC_3Y]
+       - If vehicle_age >= 7: selected_skus = [CERAMIC_1Y, GRAPHENE_1Y]
+     - These selected_skus mirror SKU_SELECTION_MATRIX.md Default (A) + Second (B).
+     - Do NOT use Upladder / Downladder for standard ceramic range output.
+   - tint:
+     - Use TINT_NANO_CERAMIC + TINT_XPEL_XR_PLUS from PRICE_TABLE_VAT_INCL.md.
+   - polishing exterior:
+     - Use POLISH_SILVER from PRICE_TABLE_VAT_INCL.md.
+5) Lookup selected SKU prices in PRICE_TABLE_VAT_INCL.md using the resolved VCB column.
+   - Once VCB is resolved, ALL selected SKU prices MUST be read strictly from the SAME resolved VCB column.
+   - Do NOT mix VCB columns across selected_skus under any condition.
+   - price_source_rows MUST include full trace per SKU:
+     {SKU: <sku>, VCB: <resolved_vcb>, PRICE: <value>}
+   - If any SKU resolves to a different VCB column or missing value:
+     - DO NOT render price
+     - DO NOT set FINAL_PRICE_REACHED
+     - Route to ESCALATED_TO_QUOTE
+
+6) Render only the approved price or range:
+   - Multiple prices: FROM {lowest_valid_price} TO {highest_valid_price} BD VAT included.
+   - Single price: {price} BD VAT included.
+7) Set price_ladder_state = FINAL_PRICE_REACHED only after the customer-facing price/range is rendered.
+
+Hard prohibitions:
+- Do NOT use VEHICLE_SEGMENT as the price-table column.
+- Do NOT default unknown or missing VCB to VCB_1.
+- Do NOT select catalog-only SKUs just because they exist in GLOBAL_PRODUCT_NAMING_REGISTRY_v1.0.md or PRICE_TABLE_VAT_INCL.md.
+- Do NOT use Upladder / Downladder SKUs for standard price range unless the active runtime route explicitly asks for ladder movement.
+- Do NOT set FINAL_PRICE_REACHED without rendering actual customer-facing price/range.
+- Do NOT output any customer-facing numeric price unless every price number is traceable to:
+  resolved vehicle VCB + selected SKU(s) + PRICE_TABLE_VAT_INCL.md.
+- Any price not found through selected_skus + resolved VCB + PRICE_TABLE_VAT_INCL.md is forbidden, even if it appears in older tests, reports, examples, or prior conversation history.
+
+---
 ## WRAP — MINIMUM RANGE SUPPORT (TEMPORARY)
 
 STATUS: MINIMAL IMPLEMENTATION (flow stability first)
