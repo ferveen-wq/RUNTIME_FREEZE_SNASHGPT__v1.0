@@ -24,14 +24,15 @@ Runtime-critical price context remained mostly correct in repeat runs:
 Instruction / execution instability.
 
 ## Status
-OPEN — DO NOT PATCH runtime until routing owner is confirmed and deterministic defect is proven.
+RESOLVED — validated and committed.
 
-## Next Step
-Trace Phase 3B -> Phase 4 transition ownership:
-- who reads objection_signal / "expensive"
-- who owns phase change from PHASE_3 to PHASE_4
-- who decides PHASE4_PPF_PRICE_PRESSURE_L1 vs PHASE5_PPF_PRICE_GAP_DEEPEN_L1
-- whether Phase 3B final price state blocks Phase 4 routing
+## Resolution
+- Routing owner confirmed: PHASE4_8_MESSAGE_ASSEMBLY_MAP.md.
+- First post-price PPF objection now remains Phase 4.
+- objection_repeat_count == 0 routes to PHASE4_PPF_PRICE_PRESSURE_L1.
+- Phase 5 starts only at repeat/deeper objection.
+- Clean focused active UAT passed 3/3 after patch.
+- SNASH Guard passed on commit 74346cd.
 
 ---
 
@@ -42,7 +43,7 @@ Business decision:
 - Phase 5 starts only after repeat/deeper objection.
 
 Patch status:
-- PATCHED_LOCAL
+- RESOLVED_COMMITTED
 
 Patch owner:
 - 00__ACTIVE_ROLLOUT_UPLOAD_SET/00__Runtime/PHASE4_8_MESSAGE_ASSEMBLY_MAP.md
@@ -52,6 +53,7 @@ Patch summary:
 - objection_repeat_count == 0 routes to PHASE4_PPF_PRICE_PRESSURE_L1.
 - objection_repeat_count == 1 may enter PHASE5_PPF_PRICE_GAP_DEEPEN_L1.
 
-Pending validation:
-- Full guard.
-- Focused clean active UAT repeat run.
+Validation completed:
+- Focused clean active UAT repeat run: 3/3 PASS.
+- SNASH Guard: PASS.
+- Commit: 74346cd fix: stabilize phase4 first objection routing.

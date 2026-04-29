@@ -1838,7 +1838,7 @@ Pending:
 
 ## 2026-04-29 — PPF Phase 4 vs Phase 5 first-objection boundary
 
-Status: PATCHED_LOCAL
+Status: RESOLVED_COMMITTED
 
 Defect bucket:
 - RUNTIME_AUTHORITY_DEFECT
@@ -1872,7 +1872,7 @@ Validation plan:
 - focused clean active UAT 3x:
   ppf camry 2022 front → highway driving → price → expensive
 
-Pending:
-- Validate local guard.
-- Run focused 3x clean-lane UAT.
-- Commit and push if validation passes.
+Validation completed:
+- Focused clean active UAT repeat run: 3/3 PASS.
+- SNASH Guard: PASS.
+- Commit: 74346cd fix: stabilize phase4 first objection routing.
