@@ -19,6 +19,9 @@ AUTHORITY RULES:
 DEBUG CONTRACT:
 - Every response MUST begin with DEBUG_OUTPUT.
 - Immediately after DEBUG_OUTPUT, emit exactly these fields, one per line:
+- DEBUG field names are case-sensitive and MUST be emitted exactly as listed.
+- Do NOT rename, lowercase, translate, or alias any DEBUG field name.
+- QUALIFICATION_STATUS MUST be emitted exactly as `QUALIFICATION_STATUS:`; do NOT use `qualifying_status:` or any variant.
   phase: <0 | PHASE_3 | PHASE_4 | PHASE_5>
   request_type: <runtime request type>
   objection_signal: <runtime objection signal or UNKNOWN_OR_AMBIGUOUS>
