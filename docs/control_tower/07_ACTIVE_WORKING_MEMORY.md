@@ -979,3 +979,13 @@ This rule is MANDATORY before any further runtime patch.
 4. Only after this → patch ONCE
 
 - M2 COMPLETE: Service ownership validated across all services. No runtime conflicts found. Proceeding to M3.
+
+
+--- PPF PHASE3B PRICE RENDER VALIDATION (2026-04-29) ---
+- Clean runner lane validated (sentinel FAIL behaved correctly)
+- Positive UAT passed functionally
+- selected_skus = PPF_FRONT_GLOBAL confirmed
+- price = 295 confirmed
+- No high-tier leakage (790 / 880)
+- BD vs “Bahraini Dinars” accepted as equivalent (non-blocking)
+- Rendering layer considered functionally stable
