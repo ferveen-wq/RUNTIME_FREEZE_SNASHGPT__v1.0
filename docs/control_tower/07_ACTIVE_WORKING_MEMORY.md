@@ -1017,3 +1017,24 @@ This rule is MANDATORY before any further runtime patch.
 
 - Classification:
   Label derivation gap (not routing, not runner, not pricing)
+
+---
+
+PHASE3B CLEAN PRICE EVIDENCE CHECK
+
+Status:
+PARTIAL FUNCTIONAL EVIDENCE CONFIRMED
+
+Evidence:
+- Tint price-only: reusable active raw UAT evidence found.
+- Ceramic price-only: focused active UAT passed once.
+  Report: tests/reports/raw_uat_20260429_232045.json
+- Polishing price-block: reusable active raw evidence confirms pricing is blocked and PHASE3A_Q_POLISHING_SCOPE is selected.
+
+Current classification:
+- Phase3B clean price paths are functionally supported.
+- Full 3x determinism is pending and should be run only when closing M4 formally.
+
+Rule:
+Only raw_uat_* reports from run_active_uat_raw.py count as active rollout evidence.
+Legacy uat_report_* and tests/uat are reference only, not closure proof.
