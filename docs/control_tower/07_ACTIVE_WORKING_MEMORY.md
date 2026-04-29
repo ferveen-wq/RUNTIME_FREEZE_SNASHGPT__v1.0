@@ -860,10 +860,14 @@ LOCKED FOR ISSUE_003 RESOLUTION PATH
 ### Confirmed Findings
 
 1. SERVICE_CONFIRMED_PRIORITY GAP
-- `polishing` is missing from the `SERVICE_CONFIRMED_PRIORITY` service keyword list.
+- RESOLVED.
+- `polishing` is now present in the `SERVICE_CONFIRMED_PRIORITY` service keyword list.
 - Owner: `QUALIFICATION_ENGINE.md`
-- Status: patch candidate.
 - Related issues: ISSUE_009, ISSUE_010.
+- Evidence:
+  - ISSUE_009 closed / validated in active UAT.
+  - ISSUE_010 M2 all-service raw pass confirmed polishing → PHASE3A_Q_POLISHING_SCOPE.
+  - Current runtime file confirms `polishing` is included in SERVICE_CONFIRMED_PRIORITY.
 
 2. PHASE LABEL CONTRACT
 - `QUALIFICATION_ENGINE.md` states runtime `phase` should remain `PHASE_3` throughout Phase 3.
