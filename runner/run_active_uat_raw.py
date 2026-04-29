@@ -386,8 +386,7 @@ def main():
             conversation.append({
                 "role": "assistant",
                 "content": (
-                    text
-                    + "\n\nSTATE_SNAPSHOT_FOR_NEXT_TURN:\n"
+                    "STATE_SNAPSHOT_FOR_NEXT_TURN:\n"
                     + json.dumps(state_snapshot, ensure_ascii=False, sort_keys=True)
                 ),
             })
