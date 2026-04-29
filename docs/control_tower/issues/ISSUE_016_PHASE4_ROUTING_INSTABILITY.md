@@ -57,3 +57,20 @@ Validation completed:
 - Focused clean active UAT repeat run: 3/3 PASS.
 - SNASH Guard: PASS.
 - Commit: 74346cd fix: stabilize phase4 first objection routing.
+
+---
+
+LATEST LEARNING (POST TINT VALIDATION)
+
+- Phase 4 boundary fix is working for first objection routing.
+- However, separate instability observed:
+  - Some runs do NOT enter Phase 4 at all
+  - Instead repeat Phase 3B pricing
+
+Conclusion:
+This is NOT Phase 4 routing failure.
+This is Phase3B repeat / objection detection instability.
+
+Separation of concerns:
+- ISSUE_016 = Phase 4 boundary (RESOLVED)
+- ISSUE_017 = Phase3B repeat instability (NEW)
