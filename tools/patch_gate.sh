@@ -92,7 +92,7 @@ printf '%s\n' "--- runner prompt hotspot summary ---"
 grep -n "HARD OVERRIDE\|PHASE 3\|PHASE 5\|selected_phrase_id\|QUALIFICATION_STATUS\|price_ladder_state" \
   runner/context_reset_prompt.txt 2>/dev/null | sed -n '1,120p' || true
 
-printf '\n%s\n' "--- runner uat hotspot summary ---"
+printf '\n%s\n' "--- legacy runner/run_uat.py hotspot summary (not rollout-proof) ---"
 grep -n "inject_readonly_runtime_signals\|strict_raw\|expect_debug\|price_ladder_state\|quote_required" \
   runner/run_uat.py 2>/dev/null | sed -n '1,120p' || true
 

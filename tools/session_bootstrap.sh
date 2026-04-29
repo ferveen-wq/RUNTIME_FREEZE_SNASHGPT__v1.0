@@ -68,7 +68,7 @@ printf '%s\n' "--- runner prompt hard overrides ---"
 grep -n "HARD OVERRIDE\|selected_phrase_id\|QUALIFICATION_STATUS\|price_ladder_state" \
   runner/context_reset_prompt.txt 2>/dev/null | sed -n '1,220p' || true
 
-printf '\n%s\n' "--- runner harness ownership signals ---"
+printf '\n%s\n' "--- legacy runner/run_uat.py ownership signals (not rollout-proof) ---"
 grep -RIn "inject_readonly_runtime_signals\|RUNTIME_SIGNALS (READ-ONLY\|strict_raw\|expect_debug\|quote_required\|price_ladder_state" \
   runner/run_uat.py 2>/dev/null | sed -n '1,220p' || true
 
