@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "ceramic_first_expensive_objection_after_quote_realturn",
+    "turns": [
+      "ceramic camry 2022",
+      "protection and gloss",
+      "hand wash",
+      "price",
+      "expensive"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE4_CERAMIC_PRICE_PRESSURE_L1",
+    "expect_not_selected_phrase_id": "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+    "expect_not_contains": [
+      "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
+      "PHASE5_PPF_PRICE_GAP_DEEPEN_L1"
+    ]
+  }
+]
