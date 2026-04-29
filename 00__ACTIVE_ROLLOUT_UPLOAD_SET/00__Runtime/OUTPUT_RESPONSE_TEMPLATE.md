@@ -113,7 +113,16 @@ Authority guard:
 Format:
 - Render the selected PHASE4_6 `PHASE3B_*_RANGE` phrase.
 - In the same assistant turn, render the approved PRICE_LADDER_ENGINE price/range text.
-- The final customer-facing response is valid only if the actual price or range is visible to the customer.
+
+- LOCKED PRICE RENDERING:
+  - The approved price text MUST be inserted exactly as produced by PRICE_LADDER_ENGINE.
+  - Single price MUST appear exactly as: "{price} BD VAT included".
+  - Range MUST appear exactly as: "FROM {lowest_valid_price} TO {highest_valid_price} BD VAT included".
+  - Do NOT rewrite "BD" as "Bahraini Dinars".
+  - Do NOT paraphrase, translate, or reformat the approved price line.
+  - Do NOT embed the price inside narrative sentences — render it as a standalone line.
+
+- The final customer-facing response is valid only if the exact approved price or range text is visible to the customer.
 
 ## 1) Default Response Structure (use unless special case)
 Use the following blocks in order:

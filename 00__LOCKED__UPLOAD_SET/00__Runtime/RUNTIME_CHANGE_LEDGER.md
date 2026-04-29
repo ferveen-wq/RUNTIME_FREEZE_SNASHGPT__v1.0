@@ -1796,3 +1796,40 @@ and analytics dashboards without altering existing runtime modules.
   - Post-service support override added in harness
   - Technical question hold added in harness
   - No locked runtime phrase text changed
+
+---
+
+## 2026-04-29 — Lock Phase 3B approved price text rendering
+
+Status: PATCHED_LOCAL
+
+Defect bucket:
+- RUNTIME_AUTHORITY_DEFECT
+
+Issue:
+- PRICE_LADDER_ENGINE already defines the approved price text format as:
+  - single price: {price} BD VAT included
+  - range: FROM {lowest_valid_price} TO {highest_valid_price} BD VAT included
+- OUTPUT_RESPONSE_TEMPLATE only said to render the approved price/range text, but did not define a locked formatting slot.
+- Real UAT showed correct SKU and price row, but the model paraphrased the English price phrase instead of rendering "BD VAT included" exactly.
+
+Owner:
+- OUTPUT_RESPONSE_TEMPLATE.md
+- Role: formatting authority / final response assembly template for PHASE3B_*_RANGE when price_ladder_state == FINAL_PRICE_REACHED
+
+Patch:
+- Add LOCKED PRICE RENDERING rules inside PHASE3B PRICE ASSEMBLY BLOCK.
+- Require exact standalone approved price line.
+- Prevent rewriting "BD" as "Bahraini Dinars".
+- Prevent paraphrasing, translation, or embedding of approved price line.
+
+Validation plan:
+- git diff --check
+- price_preflight_check.py
+- patch_gate.sh
+- offline render contract check
+- one focused real UAT only after offline checks pass
+
+Pending:
+- Validate locally.
+- Commit and push if validations pass.
