@@ -1201,3 +1201,26 @@ Validated:
 Status:
 - 1x functional PASS confirmed.
 - Not marked 3x deterministic stable due to cost-control decision.
+
+### ACTIVE RAW UAT PASS — 2026-04-30 — tint_price_only_v1
+
+Report:
+- tests/reports/raw_uat_20260430_113304.json
+
+Case:
+- tint_price_only
+
+Result:
+- PASS
+
+Validated:
+- selected_phrase_id = PHASE3B_TINT_RANGE
+- selected_skus = [TINT_NANO_CERAMIC, TINT_XPEL_XR_PLUS]
+- price_source_rows = TINT_NANO_CERAMIC 130 / TINT_XPEL_XR_PLUS 220
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- price_ladder_state = FINAL_PRICE_REACHED
+- Customer-facing price rendered as 130 to 220 Bahraini Dinar VAT included.
+
+Status:
+- 1x functional PASS confirmed.
+- Not marked 3x deterministic stable due to cost-control decision.
