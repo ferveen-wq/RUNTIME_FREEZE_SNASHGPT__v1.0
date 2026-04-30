@@ -1,38 +1,44 @@
 # GAP REGISTER
 
 ## Status
-NO ACTIVE GAPS
+ACTIVE MONITORED GAPS EXIST — updated 2026-04-30
 
-## Closure reading (2026-04-22)
-- Deferred-family routing lane is no longer active in the validated runner lane.
-- Phase 0–5 broader regression reached clean pass:
-  - tests/reports/uat_report_20260422_115835.json
-  - result: 40/40 passed
-- Phase 6 focused validation also passed:
-  - tests/reports/uat_report_20260422_121438.json
-  - tests/reports/uat_report_20260422_121749.json
+## Current active / monitored gaps
 
-## Closed lanes now treated as resolved
+### GAP-A — Phase3B deterministic stability not fully proven
+Status: MONITORED
+Evidence:
+- Ceramic Phase3B price: 1x PASS on 2026-04-30
+- Tint Phase3B price: 1x PASS on 2026-04-30
+- Polishing Phase3B price: 1x PASS after Route E execution lock + runner guards on 2026-04-30
+- PPF Phase3B front price: functional PASS on 2026-04-30 after strengthened anti-leak test
+
+Reading:
+- Functional Phase3B price coverage exists across PPF, Ceramic, Tint, Polishing.
+- Not all services are marked 3x deterministic stable due to cost-control decision.
+
+### GAP-B — Ceramic Phase5 debug phase-label determinism
+Status: MONITORED / NOT PATCHING NOW
+Evidence:
+- selected_phrase_id reached PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
+- one determinism run emitted phase PHASE_4 instead of PHASE_5
+Reading:
+- Routing/phrase selection passed.
+- Debug phase-label emission is the monitored instability.
+
+### GAP-C — Project instruction independence
+Status: OPEN
+Reason:
+- Runtime-only / project-instruction-free validation is not completed.
+
+## Closed lanes still treated as resolved
 - GAP-022 — Deferred-family routing residual drift
 - Ceramic Phase 3A progression / wash-pattern progression
 - Phase 5 PPF price-gap routing regression
 - Phase 5 polishing expectation deepen regression
 - Wrap ready-path wording contract issue
+- ISSUE_016 Phase 4 first-objection boundary for PPF path
 
 ## Rule
-- Do not reopen any of the above without fresh failing evidence from a real rerun.
-- Future gaps must be created only from:
-  - new failing UAT evidence
-  - real validation drift
-  - production-confirmed mismatch
-
-
-## Boundary rule reinforcement (2026-04-22)
-- Do not create a new Phase 7 gap merely because a pack uses THINKING / DEFERRED / SILENT labels.
-- First verify whether the pack is violating the locked Phase 5 / Phase 7 ownership boundary.
-- Mis-scoped UAT packs must be deprecated rather than treated as live runtime truth.
-- Runner trust audit note (2026-04-22):
-  - do not create a new runtime gap solely from packs that are currently shaped by runner/run_uat.py _force_* hooks
-  - first classify those results as harness-shaped evidence and resolve runner trust status before reopening runtime gap status
-  - hook-dependent contract packs must not be promoted into neutral rollout-proof evidence without first removing or quarantining the shaping surface
-
+- Do not reopen closed lanes without fresh failing active raw evidence.
+- Future gaps must come from active rollout evidence, real validation drift, or production-confirmed mismatch.

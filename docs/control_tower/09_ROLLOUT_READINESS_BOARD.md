@@ -1,92 +1,80 @@
 # ROLLOUT READINESS BOARD
 
-Last updated: 2026-04-26
+Last updated: 2026-04-30
 
 ## Purpose
-Provide a single rollout-facing view of what is:
-- core-safe
-- edge optimization pending
-- simulation-drift / not patchable from current evidence
+Single rollout-facing view of core-safe lanes, monitored gaps, and remaining blockers.
 
-This board is for rollout decision support.
-It must not be treated as a substitute for source-of-truth runtime doctrine.
+## A) CORE-SAFE / FUNCTIONALLY VALIDATED
 
----
+### Phase 0–2 service recognition
+Status: FUNCTIONALLY CLOSED
+Reading:
+- M2 completed across PPF, Ceramic, Tint, Polishing, Wrap.
+- service_intent and active_service_context validated.
+- detected_service_intent_in_message remains tooling/traceability only, not blocker.
 
-## A) CORE-SAFE (usable for controlled rollout progression)
+### Phase 3A qualification
+Status: FUNCTIONALLY CLOSED
+Reading:
+- PPF, Ceramic, Tint, Polishing validated through active runtime paths.
+- Wrap specialist handover is separate and not treated as automated price-ready flow.
 
-### PPF
-Status: PHASE 0–3 CLOSED — EDGE OPTIMIZATION PENDING
+### Phase 3B price entry
+Status: FUNCTIONALLY VALIDATED / MONITORED
+Evidence:
+- PPF front price functional pass on 2026-04-30
+- Ceramic price 1x pass on 2026-04-30
+- Tint price 1x pass on 2026-04-30
+- Polishing price 1x pass after Route E lock + runner guards on 2026-04-30
 
-What is considered stable:
-- front/full coverage can be recognized in the stronger runtime-faithful simulation lane
-- driving-pattern question can be asked in the correct order
-- early price leakage is blocked in the validated lane
-- locked runtime doctrine, qualification engine, and assembly mapping are aligned on paper
+Reading:
+- Price entry is usable for controlled rollout progression.
+- Not all services are 3x deterministic stable.
 
-Rollout reading:
-- acceptable to treat as core-safe for controlled progression
-- do not reopen core PPF routing from weak simulation evidence alone
+### Phase 4 first post-price objection
+Status: FUNCTIONALLY VALIDATED FOR TESTED LANES
+Evidence:
+- ISSUE_016 PPF first objection resolved and committed.
+- Tint first objection passed.
+- Ceramic first objection passed after local exclusivity patch.
 
----
+## B) MONITORED / NOT BLOCKING CONTROLLED PROGRESSION
 
-## B) EDGE OPTIMIZATION PENDING (not blocking controlled progression)
+### Phase3B deterministic proof
+- 1x passes are recorded for all core price lanes.
+- 3x should be used only when formally marking a lane deterministic stable.
 
-### PPF
-Open edge issue:
-- after coverage + driving pattern are known, narrow live simulation showed extra PPF question instead of direct price-ready movement
+### Ceramic Phase5 debug phase-label drift
+- Phrase route correct.
+- Debug phase sometimes emits PHASE_4 instead of PHASE_5.
+- Monitored; not a customer-facing routing blocker unless it reappears as behavior failure.
 
-Updated reading (2026-04-23):
-- clean runtime-project behavior and narrow UAT/runner behavior diverged on this lane
-- current UAT/runner bridge does not provide stable rollout-truth evidence for narrow PPF carry-through
-- therefore this remains an edge/tooling lane, not a runtime-core reopening trigger
+### Generic runner service-family validation
+- Recommended before broad UAT packs.
+- Not required to proceed with narrow service-by-service M5.
 
-Current reading:
-- likely Phase 3A overflow / optional comparison-focus misfire
-- narrow issue
-- logged and isolated
-- optimization pending
-- does not by itself invalidate core PPF readiness
+## C) OPEN BLOCKERS BEFORE FULL ROLLOUT CLAIM
 
----
+### M6 Project instruction independence
+Status: NOT VALIDATED
+Need:
+- Runtime-only / project-instruction-free validation.
 
-## C) SIMULATION DRIFT / NOT PATCHABLE FROM CURRENT EVIDENCE
+### M7 final runtime-ready declaration
+Status: NOT READY
+Reason:
+- M5/M6 not fully closed.
 
-### Ceramic
-Current reading:
-- locked runtime doctrine is aligned on paper:
-  - first qualifier = CERAMIC_GOAL
-  - second qualifier = CERAMIC_WASH_PATTERN
-- live simulation produced "new or used" question
-- no clear ceramic runtime owner was found for that question
-- current evidence is not sufficient to patch runtime authority
+## D) WORKING RULES
 
-Control decision:
-- treat ceramic live simulation result as simulation-drift / non-faithful behavior for now
-- do not patch ceramic runtime files from this evidence alone
-
----
-
-## D) WORKING RULES FOR ROLLOUT PROGRESSION
-
-1. Do not reopen a service core lane from weak manual simulation alone.
-2. Patch only when:
-   - the issue is reproducible
-   - the owner is clear
-   - runtime authority is the correct target
-3. Use manual simulation as supporting evidence, not automatic patch authority.
-4. Edge optimization issues should be logged separately from rollout blockers.
-5. Rollout progression should continue service by service without requiring perfection in every edge lane first.
-
----
-
-## E) CURRENT PROJECT READING
-
-Overall project state:
-- architecture and control-tower discipline are much stronger than earlier
-- earlier looping mostly came from unclear evidence and weak simulation prompts
-- current path should favor:
-  - controlled progression
-  - narrow owner audits
-  - separation of core-safe vs edge-pending vs simulation-drift issues
-
+1. Use active raw UAT only for rollout truth.
+2. Do not trust old legacy UAT or forced runner packs as rollout-proof.
+3. Pricing UAT true pass requires:
+   - exact selected_skus
+   - price_source_rows derived only from selected_skus
+   - FINAL_PRICE_REACHED only after customer-facing price
+   - forbidden prices/SKUs absent
+4. 1x = functional pass.
+5. 3x = deterministic confidence.
+6. Do not spend 3x unless closing that lane formally.
