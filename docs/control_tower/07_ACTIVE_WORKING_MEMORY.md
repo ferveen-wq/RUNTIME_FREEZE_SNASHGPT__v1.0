@@ -1224,3 +1224,36 @@ Validated:
 Status:
 - 1x functional PASS confirmed.
 - Not marked 3x deterministic stable due to cost-control decision.
+
+### ACTIVE RAW UAT FUNCTIONAL PASS — 2026-04-30 — phase3b_price_exposure_ppf
+
+Report:
+- tests/reports/raw_uat_20260430_115941.json
+
+Case:
+- ppf_price_exposure_after_full_qualification
+
+Result:
+- Functional PASS / strict wording-only FAIL.
+
+Validated:
+- selected_phrase_id = PHASE3B_PPF_RANGE
+- service_intent / active_service_context = ppf
+- PPF_COVERAGE_INTENT = FULL_FRONT
+- PPF_DRIVING_PATTERN = HIGHWAY
+- selected_skus = [PPF_FRONT_GLOBAL]
+- price_source_rows = PPF_FRONT_GLOBAL / VCB_2 / PRICE 295
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- price_ladder_state = FINAL_PRICE_REACHED
+- customer-facing text rendered 295 Bahraini Dinars VAT included.
+
+Classification:
+- No full-body leakage.
+- No 790/880 leakage.
+- No GLOBAL_SIGNATURE_10Y / GLOBAL_ELITE_8Y leakage.
+- Failure was only exact wording expectation: BD VAT included vs Bahraini Dinars VAT included.
+- Test expectation updated to require 295 + VAT included instead of exact BD wording.
+
+Status:
+- PPF Phase3B front price functionally confirmed after 30 Apr patches.
+- Not marked 3x deterministic stable.

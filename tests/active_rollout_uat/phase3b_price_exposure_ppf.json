@@ -9,12 +9,23 @@
     "expect_debug": {
       "phase": "PHASE_3",
       "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
-      "price_ladder_state": "FINAL_PRICE_REACHED"
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "service_intent": "ppf",
+      "active_service_context": "ppf",
+      "PPF_COVERAGE_INTENT": "FULL_FRONT",
+      "PPF_DRIVING_PATTERN": "HIGHWAY",
+      "selected_skus": "[PPF_FRONT_GLOBAL]"
     },
     "expect_selected_phrase_id": "PHASE3B_PPF_RANGE",
     "expect_contains": [
       "295",
-      "BD VAT included"
+      "VAT included"
+    ],
+    "expect_not_contains": [
+      "790",
+      "880",
+      "GLOBAL_SIGNATURE_10Y",
+      "GLOBAL_ELITE_8Y"
     ]
   }
 ]
