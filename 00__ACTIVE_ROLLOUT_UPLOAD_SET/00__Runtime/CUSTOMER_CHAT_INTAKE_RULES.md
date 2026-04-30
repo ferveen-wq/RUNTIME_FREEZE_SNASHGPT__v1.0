@@ -49,6 +49,20 @@ These are tags, not customer-facing text.
   - set objection_signal accordingly
   - increment objection_repeat_count when the same objection_signal repeats
 
+### Post-Price Price Objection Mapping (HARD)
+
+If pricing has already been shown and the current customer message contains a direct price-resistance term, Intake MUST emit:
+
+- objection_signal = PRICE_TOO_HIGH
+- objection_repeat_count = 0 if this is the first PRICE_TOO_HIGH objection after price exposure
+- objection_repeat_count increments only when PRICE_TOO_HIGH repeats after the first objection
+
+Direct price-resistance terms include:
+- English: "expensive", "too expensive", "price is high", "high price", "costly"
+- Arabic: "غالي", "غالية", "السعر عالي", "سعره عالي", "مكلف", "مكلفة"
+
+Do NOT leave objection_signal as UNKNOWN_OR_AMBIGUOUS for these terms after pricing exposure.
+
 - If there is no customer response after pricing exposure:
   - customer_response_latency = SILENT
   - objection_signal = SILENCE_AFTER_PRICE
