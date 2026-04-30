@@ -10,7 +10,8 @@
     ],
     "expect_debug": {
       "phase": "PHASE_4",
-      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "objection_signal": "PRICE_TOO_HIGH"
     },
     "expect_selected_phrase_id": "PHASE4_CERAMIC_PRICE_PRESSURE_L1",
     "expect_not_selected_phrase_id": "PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1",
