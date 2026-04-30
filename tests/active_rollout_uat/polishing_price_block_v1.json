@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "polishing_price_without_scope_blocked",
+    "turns": [
+      "polishing camry 2022",
+      "price"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "NOT_READY"
+    },
+    "expect_selected_phrase_id": "PHASE3A_Q_POLISHING_SCOPE"
+  }
+]

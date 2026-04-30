@@ -1,0 +1,17 @@
+[
+  {
+    "case_id": "tint_basic_price_then_expensive",
+    "turns": [
+      "tint camry 2022",
+      "heat rejection",
+      "full",
+      "price",
+      "expensive"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_4",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION"
+    },
+    "expect_selected_phrase_id": "PHASE4_TINT_PRICE_PRESSURE_L1"
+  }
+]

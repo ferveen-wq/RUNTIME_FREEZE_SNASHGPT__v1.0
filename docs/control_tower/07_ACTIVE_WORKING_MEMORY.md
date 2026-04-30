@@ -1038,3 +1038,49 @@ Current classification:
 Rule:
 Only raw_uat_* reports from run_active_uat_raw.py count as active rollout evidence.
 Legacy uat_report_* and tests/uat are reference only, not closure proof.
+---
+
+ACTIVE RAW UAT EVIDENCE — 2026-04-30
+
+Status:
+FUNCTIONAL PASSES RECORDED
+
+Evidence:
+- Tint post-price first objection:
+  - Report: tests/reports/raw_uat_20260430_064229.json
+  - Result: PASS
+  - selected_phrase_id = PHASE4_TINT_PRICE_PRESSURE_L1
+  - objection_signal = PRICE_TOO_HIGH
+  - Classification: tint first-objection path functionally confirmed.
+
+- Ceramic post-price first objection:
+  - Failed before local ceramic exclusivity:
+    - Report: tests/reports/raw_uat_20260430_065709.json
+    - Failure: ceramic context leaked to PHASE4_PPF_PRICE_PRESSURE_L1 and phase PHASE_3.
+  - Fixed by adding ceramic first-objection local exclusivity in PHASE4_8.
+  - Passed after fix:
+    - Report: tests/reports/raw_uat_20260430_071217.json
+    - selected_phrase_id = PHASE4_CERAMIC_PRICE_PRESSURE_L1
+    - objection_signal = PRICE_TOO_HIGH
+  - Classification: ceramic first-objection path functionally confirmed after local exclusivity patch.
+
+- Polishing price request while scope missing:
+  - Report: tests/reports/raw_uat_20260430_073235.json
+  - Result: PASS
+  - selected_phrase_id = PHASE3A_Q_POLISHING_SCOPE
+  - QUALIFICATION_STATUS = NOT_READY
+  - Classification: polishing Phase 3A price-block functionally confirmed.
+
+Reusable rule learned:
+- Global service-family invariant is not enough for model-sensitive Phase 4/5 branches.
+- Before UAT, exact service branch must also prove:
+  - selected_phrase_id MUST equal expected phrase.
+  - MUST NOT select wrong-service phrase family.
+  - MUST NOT select wrong-tier PHASE5_* when repeat_count == 0.
+  - MUST NOT select stale PHASE3B_* after post-price objection.
+- For Phase 3A qualification tests, assert PHASE_3 debug label, NOT PHASE_3A.
+
+Next:
+- Commit active UAT test files intentionally.
+- Then continue to polishing Phase3B price test with credit-safe pre-UAT checks.
+
