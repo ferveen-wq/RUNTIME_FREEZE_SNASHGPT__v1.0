@@ -325,6 +325,11 @@ Universal execution rules:
      - Use TINT_NANO_CERAMIC + TINT_XPEL_XR_PLUS from PRICE_TABLE_VAT_INCL.md.
    - polishing exterior:
      - Use POLISH_SILVER from PRICE_TABLE_VAT_INCL.md.
+     - selected_skus MUST equal [POLISH_SILVER].
+     - Select ONLY POLISH_SILVER.
+     - Do NOT include POLISH_GOLD for standard exterior polishing price.
+     - Do NOT render a range from catalog/table rows.
+     - Do NOT set FINAL_PRICE_REACHED if selected_skus != [POLISH_SILVER].
 5) Lookup selected SKU prices in PRICE_TABLE_VAT_INCL.md using the resolved VCB column.
    - Once VCB is resolved, ALL selected SKU prices MUST be read strictly from the SAME resolved VCB column.
    - Do NOT mix VCB columns across selected_skus under any condition.

@@ -509,7 +509,21 @@ AND vehicle_year is present:
 
   - ELSE IF define_missing(PAINT_CONDITION_REPAINT_SCRATCH):
     - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+    - phase3a_required = true
+    - phase3a_complete = false
+    - QUALIFICATION_STATUS = NOT_READY
+    - price_ladder_state = NONE
     - STOP
+
+  - HARD COMPLETION LOCK:
+    - PAINT_CONDITION_REPAINT_SCRATCH MUST be present and MUST NOT equal UNKNOWN.
+    - If PAINT_CONDITION_REPAINT_SCRATCH is UNKNOWN:
+      - phase3a_qualifier_id = PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
+      - phase3a_required = true
+      - phase3a_complete = false
+      - QUALIFICATION_STATUS = NOT_READY
+      - price_ladder_state = NONE
+      - STOP
 
   - phase3a_required = false
   - phase3a_complete = true

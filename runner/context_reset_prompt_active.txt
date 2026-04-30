@@ -87,6 +87,14 @@ DEBUG CONTRACT:
   - Continue to the active runtime Phase 3B / Route E path.
   - selected_phrase_id MUST equal PHASE3B_POLISHING_RANGE.
   - selected_phrase_id MUST NOT be null.
+  - PRICE_LADDER_ENGINE.md MUST execute before final output.
+  - selected_skus MUST equal [POLISH_SILVER].
+  - price_source_rows MUST include only POLISH_SILVER with the resolved VCB price.
+  - selected_skus MUST NOT be [].
+  - price_source_rows MUST NOT be [].
+  - Do NOT include POLISH_GOLD.
+  - Do NOT render loose wording such as "starts from 50".
+  - Do NOT set price_ladder_state = FINAL_PRICE_REACHED unless selected_skus == [POLISH_SILVER] and price_source_rows contains POLISH_SILVER with resolved VCB price.
 
 - Active context preservation enforcement:
   If previous turn/state snapshot has active_service_context not null AND the current user message does NOT explicitly switch service/topic:

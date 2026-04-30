@@ -256,6 +256,19 @@ def check_expectations(parsed, case):
     if ladder_state.upper() in {"INITIAL", "FINAL", "FINAL_PRICE_REACHED"} and q_status != "READY_FOR_NEGOTIATION":
         failures.append(f"CONTRADICTION: price ladder used while {q_status}")
 
+    selected_skus = str(debug.get("selected_skus", "")).strip()
+    if ladder_state.upper() == "FINAL_PRICE_REACHED" and selected_skus in {"", "[]", "null", "None"}:
+        failures.append("CONTRADICTION: FINAL_PRICE_REACHED with empty selected_skus")
+
+    active_service = str(debug.get("active_service_context", "")).strip()
+    paint_condition = str(debug.get("PAINT_CONDITION_REPAINT_SCRATCH", "")).strip()
+    if (
+        active_service == "polishing"
+        and paint_condition in {"", "UNKNOWN", "null", "None"}
+        and q_status == "READY_FOR_NEGOTIATION"
+    ):
+        failures.append("CONTRADICTION: polishing READY_FOR_NEGOTIATION with unknown paint condition")
+
     
     # Content validation uses customer-facing body only.
     # Excludes debug/state/timestamp artifacts from exact price assertions.

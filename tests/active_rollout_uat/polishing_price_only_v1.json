@@ -1,0 +1,27 @@
+[
+  {
+    "case_id": "polishing_price_only",
+    "turns": [
+      "polishing camry 2022",
+      "exterior only",
+      "clean paint",
+      "price"
+    ],
+    "expect_debug": {
+      "phase": "PHASE_3",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "price_ladder_state": "FINAL_PRICE_REACHED",
+      "selected_skus": "[POLISH_SILVER]"
+    },
+    "expect_selected_phrase_id": "PHASE3B_POLISHING_RANGE",
+    "expect_contains": [
+      "50 BD VAT included"
+    ],
+    "expect_not_contains": [
+      "55 BD",
+      "POLISH_GOLD",
+      "50 to 55",
+      "From 50 to 55"
+    ]
+  }
+]

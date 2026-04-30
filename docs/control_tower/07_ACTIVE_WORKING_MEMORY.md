@@ -1084,3 +1084,97 @@ Next:
 - Commit active UAT test files intentionally.
 - Then continue to polishing Phase3B price test with credit-safe pre-UAT checks.
 
+
+### ACTIVE RAW UAT FAILURE — 2026-04-30 — polishing_price_only_v1
+
+Report:
+- tests/reports/raw_uat_20260430_080417.json
+
+Case:
+- polishing_price_only
+
+Result:
+- FAIL
+
+Classification:
+- Not phrase-routing failure.
+- selected_phrase_id correctly returned PHASE3B_POLISHING_RANGE.
+- Failure is qualification completeness + pricing execution contract gap.
+
+Observed failure:
+- PAINT_CONDITION_REPAINT_SCRATCH became UNKNOWN.
+- QUALIFICATION_STATUS still became READY_FOR_NEGOTIATION.
+- selected_skus was [].
+- price_source_rows included POLISH_SILVER and POLISH_GOLD.
+- Customer-facing output rendered 50 to 85 BHD VAT included.
+- Expected current owner behavior is POLISH_SILVER only, 50 BD VAT included.
+
+Reusable lesson:
+- For pricing UAT, selected_phrase_id pass is not enough.
+- Required qualifiers must be present AND not UNKNOWN.
+- selected_skus must be exact and non-empty before FINAL_PRICE_REACHED.
+- price_source_rows must be derived only from selected_skus.
+- Catalog/table rows must not become rendered price range unless selected.
+
+Next inspection:
+- QUALIFICATION_ENGINE.md polishing Phase 3A completion gate.
+- PRICE_LADDER_ENGINE.md polishing exterior SKU hard lock.
+- Runner guard for FINAL_PRICE_REACHED with selected_skus=[].
+
+### ACTIVE RAW UAT DETERMINISM FAILURE — 2026-04-30 — polishing_price_only_v1
+
+Reports:
+- PASS: tests/reports/raw_uat_20260430_102610.json
+- PASS: tests/reports/raw_uat_20260430_102841.json
+- PASS: tests/reports/raw_uat_20260430_102926.json
+- FAIL: tests/reports/raw_uat_20260430_103019.json
+
+Classification:
+- Determinism / model compliance inconsistency.
+- Not qualification failure.
+- Not selected_phrase_id routing failure.
+- PRICE_LADDER_ENGINE execution was skipped/incomplete on one run.
+
+Failed run observed:
+- selected_phrase_id = PHASE3B_POLISHING_RANGE
+- service_intent / active_service_context = polishing
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- price_ladder_state = FINAL_PRICE_REACHED
+- selected_skus = []
+- price_source_rows = []
+- customer-facing text rendered loose "starts from 50 Bahraini Dinars VAT included"
+- Runner correctly flagged FINAL_PRICE_REACHED with empty selected_skus.
+
+Reusable lesson:
+- A correct PHASE3B_* phrase does not prove PRICE_LADDER_ENGINE actually executed.
+- For pricing UAT, selected_skus and price_source_rows must be non-empty and exact.
+- FINAL_PRICE_REACHED must be invalid unless selected_skus + price_source_rows + exact customer price are all present.
+- Need stronger local Route E / polishing execution lock before treating polishing price as deterministic stable.
+
+Next inspection:
+- PHASE4_8_MESSAGE_ASSEMBLY_MAP.md Route E local polishing enforcement.
+- PRICE_LADDER_ENGINE.md terminal guards for selected_skus=[].
+- runner/context_reset_prompt_active.txt polishing Route E bridge strength.
+
+### ACTIVE RAW UAT PASS — 2026-04-30 — polishing_price_only_v1
+
+Report:
+- tests/reports/raw_uat_20260430_110143.json
+
+Case:
+- polishing_price_only
+
+Result:
+- PASS after final Route E polishing execution lock + runner contradiction guards.
+
+Validated:
+- selected_phrase_id = PHASE3B_POLISHING_RANGE
+- polishing pricing route no longer accepted as pass unless debug contract is clean.
+- Runner now guards:
+  - FINAL_PRICE_REACHED with selected_skus=[]
+  - polishing READY_FOR_NEGOTIATION with UNKNOWN paint condition
+
+Status:
+- 1x PASS confirmed.
+- Not yet marked 3x deterministic stable due to cost-control decision.
+- If deterministic stability is required later, run fresh 3x from this patch state only.

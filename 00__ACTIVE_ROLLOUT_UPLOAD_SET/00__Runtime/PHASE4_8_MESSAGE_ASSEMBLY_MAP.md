@@ -965,6 +965,20 @@ When E1 or E2 is true:
   - if service_intent == tint: selected_phrase_id = PHASE3B_TINT_RANGE
   - if service_intent == polishing: selected_phrase_id = PHASE3B_POLISHING_RANGE
 - selected_phrase_id MUST NOT be null when E1 or E2 is true.
+
+- LOCAL POLISHING ROUTE E EXECUTION LOCK:
+  - If service_intent == polishing OR active_service_context == polishing:
+    - selected_phrase_id MUST equal PHASE3B_POLISHING_RANGE.
+    - PRICE_LADDER_ENGINE.md MUST execute before final output.
+    - selected_skus MUST equal [POLISH_SILVER].
+    - price_source_rows MUST include only POLISH_SILVER using the resolved VCB price.
+    - selected_skus MUST NOT be [].
+    - price_source_rows MUST NOT be [].
+    - Do NOT include POLISH_GOLD.
+    - Do NOT render loose wording such as "starts from 50".
+    - Do NOT set price_ladder_state = FINAL_PRICE_REACHED unless selected_skus == [POLISH_SILVER] AND price_source_rows contains POLISH_SILVER with resolved VCB price AND customer-facing text includes the exact approved single price.
+    - If any of these are missing, DO NOT finalize response; force PRICE_LADDER_ENGINE execution.
+
 - Use PRICE_LADDER_ENGINE.md output (pricing allowed ONLY inside that engine’s constraints).
 - Customer-facing output MUST include the approved price or price range in the same turn.
 - Do NOT output only the PHASE3B_* transition acknowledgement when E1 price request is true.
