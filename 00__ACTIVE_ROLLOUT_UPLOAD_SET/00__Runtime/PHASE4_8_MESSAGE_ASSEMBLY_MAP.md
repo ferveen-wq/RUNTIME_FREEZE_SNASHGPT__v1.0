@@ -660,6 +660,11 @@ Routing rules (select ONE block only):
   - If objection_repeat_count == 0:
     - Do NOT enter Phase 5.
     - Route to PHASE4_TINT_PRICE_PRESSURE_L1.
+    - Enforcement (HARD):
+      - selected_phrase_id MUST equal PHASE4_TINT_PRICE_PRESSURE_L1.
+      - MUST NOT select any PHASE4_PPF_* blocks.
+      - MUST NOT select any PHASE5_* blocks.
+      - MUST NOT select any PHASE3B_* blocks.
   - If objection_repeat_count == 1:
     - Use PHASE5_TINT_COMPARE_DEEPEN_L1
   - If objection_repeat_count == 2:
