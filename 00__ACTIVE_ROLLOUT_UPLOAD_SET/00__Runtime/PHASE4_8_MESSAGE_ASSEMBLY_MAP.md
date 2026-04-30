@@ -399,6 +399,19 @@ ACTIVE ROUTING (UNDER THIS LOCK):
   - The transition phrase alone is NOT a valid completion of Route E.
 - Phase 4: signals map to PHASE4_* phrase IDs only (human copy), with no pricing mechanics changes.
 
+GLOBAL SERVICE–PHRASE CONSISTENCY (HARD):
+- active_service_context is the service-family authority for selected_phrase_id after service confirmation.
+- selected_phrase_id MUST stay inside the phrase family for active_service_context.
+- If active_service_context == ppf:
+  - selected_phrase_id MUST NOT use PHASE3B_TINT_*, PHASE4_TINT_*, PHASE5_TINT_*, PHASE3B_CERAMIC_*, PHASE4_CERAMIC_*, PHASE5_CERAMIC_*, PHASE3B_POLISHING_*, PHASE4_POLISH_*, or PHASE5_POLISH_*.
+- If active_service_context == tint:
+  - selected_phrase_id MUST NOT use PHASE3B_PPF_*, PHASE4_PPF_*, PHASE5_PPF_*, PHASE3B_CERAMIC_*, PHASE4_CERAMIC_*, PHASE5_CERAMIC_*, PHASE3B_POLISHING_*, PHASE4_POLISH_*, or PHASE5_POLISH_*.
+- If active_service_context == ceramic:
+  - selected_phrase_id MUST NOT use PHASE3B_PPF_*, PHASE4_PPF_*, PHASE5_PPF_*, PHASE3B_TINT_*, PHASE4_TINT_*, PHASE5_TINT_*, PHASE3B_POLISHING_*, PHASE4_POLISH_*, or PHASE5_POLISH_*.
+- If active_service_context == polishing:
+  - selected_phrase_id MUST NOT use PHASE3B_PPF_*, PHASE4_PPF_*, PHASE5_PPF_*, PHASE3B_TINT_*, PHASE4_TINT_*, PHASE5_TINT_*, PHASE3B_CERAMIC_*, PHASE4_CERAMIC_*, or PHASE5_CERAMIC_*.
+- If a selected_phrase_id violates active_service_context, treat it as INVALID ROUTE and do not emit it.
+
 ====================================================================
 END — PHASE 3–4 ARCHITECTURE LOCK
 ====================================================================
