@@ -1257,3 +1257,31 @@ Classification:
 Status:
 - PPF Phase3B front price functionally confirmed after 30 Apr patches.
 - Not marked 3x deterministic stable.
+
+### CONTROL TOWER TRACKER REFRESH — 2026-04-30
+
+Commit:
+- 8a2d6a4 tracker: refresh rollout readiness and Phase3B pricing status
+
+Updated files:
+- docs/control_tower/08_GAP_REGISTER.md
+- docs/control_tower/09_ROLLOUT_READINESS_BOARD.md
+- docs/control_tower/10_RUNTIME_PROJECT_REVALIDATION_TRACKER.md
+- docs/control_tower/issues/ISSUE_015_PHASE3B_PRICE_EXPOSURE_VALIDATION.md
+- docs/control_tower/issues/ISSUE_017_PRICE_LADDER_INCOMPLETE_SERVICE_EXECUTOR.md
+
+Current truth:
+- Phase 0–2 = functionally closed.
+- Phase 3A = functionally closed.
+- Phase 3B = functionally validated across PPF, Ceramic, Tint, Polishing.
+- Phase 3B is not fully 3x deterministic stable for all services.
+- ISSUE_015 = functionally resolved / monitored.
+- ISSUE_017 = functionally resolved for active Phase3B lanes / monitored.
+- GAP register now correctly shows active monitored gaps instead of “NO ACTIVE GAPS”.
+- Project instruction independence remains OPEN.
+- Runtime-ready declaration remains NOT READY.
+
+Next:
+- Move to M5 determinism expansion.
+- Do not patch runtime unless fresh deterministic owner defect appears.
+- In cost-control mode, run 1x first; use 3x only when marking a lane deterministic stable.
