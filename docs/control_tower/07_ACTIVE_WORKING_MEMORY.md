@@ -1178,3 +1178,26 @@ Status:
 - 1x PASS confirmed.
 - Not yet marked 3x deterministic stable due to cost-control decision.
 - If deterministic stability is required later, run fresh 3x from this patch state only.
+
+### ACTIVE RAW UAT PASS — 2026-04-30 — ceramic_price_only_v1
+
+Report:
+- tests/reports/raw_uat_20260430_112719.json
+
+Case:
+- ceramic_price_only
+
+Result:
+- PASS
+
+Validated:
+- selected_phrase_id = PHASE3B_CERAMIC_RANGE
+- selected_skus = [CERAMIC_1Y, CERAMIC_3Y]
+- price_source_rows = CERAMIC_1Y / CERAMIC_3Y using VCB_2 prices 100 / 130
+- QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+- price_ladder_state = FINAL_PRICE_REACHED
+- Customer-facing price rendered as 100 to 130 Bahraini Dinars VAT included.
+
+Status:
+- 1x functional PASS confirmed.
+- Not marked 3x deterministic stable due to cost-control decision.
