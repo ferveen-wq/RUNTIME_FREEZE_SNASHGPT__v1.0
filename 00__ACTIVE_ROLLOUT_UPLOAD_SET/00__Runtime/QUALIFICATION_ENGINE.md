@@ -348,6 +348,14 @@ AND vehicle_year is present:
       - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
       - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+      - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+      - Treat the current user message as an answer attempt to that qualifier.
+      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+      - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+      - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+      - Do NOT use this rule if the current user clearly switches service/topic.
+
   # Normalization helper rules (strict, per Decision Matrix):
   #
   # PHASE3A_Q_PPF_COVERAGE_INTENT  -> set PPF_COVERAGE_INTENT =
@@ -424,6 +432,23 @@ AND vehicle_year is present:
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+    - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+    - Treat the current user message as an answer attempt to that qualifier.
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+    - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+    - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+    - Do NOT use this rule if the current user clearly switches service/topic.
+
+  - IF define_missing(CERAMIC_GOAL):
+    - IF current_user_message contains any of:
+        "شكلها احلى", "الشكل احلى", "ينعش الشكل", "تنعش الشكل", "شكلها أفضل",
+        "look better", "looks better", "refresh the look", "fresh look", "improve the look":
+      - set CERAMIC_GOAL = LOOKS_FRESH_SHORT_TERM
+    - ELSE IF current_user_message contains any of:
+        "لمعان ثابت", "سهولة تنظيف", "صيانة أسهل", "long-term gloss", "easier maintenance", "easy clean":
+      - set CERAMIC_GOAL = EASY_CLEAN_LONG_TERM
+
   - IF define_missing(CERAMIC_GOAL):
     - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
     - STOP
@@ -448,6 +473,14 @@ AND vehicle_year is present:
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+    - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+    - Treat the current user message as an answer attempt to that qualifier.
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+    - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+    - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+    - Do NOT use this rule if the current user clearly switches service/topic.
+
   - IF define_missing(TINT_GOAL):
     - phase3a_qualifier_id = PHASE3A_Q_TINT_GOAL
     - STOP
@@ -471,6 +504,14 @@ AND vehicle_year is present:
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+    - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+    - Treat the current user message as an answer attempt to that qualifier.
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+    - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+    - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+    - Do NOT use this rule if the current user clearly switches service/topic.
 
   - IF define_missing(WRAP_FINISH):
     - phase3a_qualifier_id = PHASE3A_Q_WRAP_FINISH
@@ -502,6 +543,14 @@ AND vehicle_year is present:
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+    - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+    - Treat the current user message as an answer attempt to that qualifier.
+    - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+    - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+    - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+    - Do NOT use this rule if the current user clearly switches service/topic.
 
   - IF define_missing(POLISHING_SCOPE):
     - phase3a_qualifier_id = PHASE3A_Q_POLISHING_SCOPE
@@ -613,6 +662,35 @@ THEN:
   - request_type = BROWSING_GENERIC
   - detected_service_intent_in_message = unknown
   - missing_fields = [vehicle_model, vehicle_year]
+
+## 2.Z-0) POST-PRICE OBJECTION OVERRIDE (HARD)
+Purpose:
+- After a price has already been shown, direct price-resistance language is an objection, not a fresh price request.
+- This prevents stale Phase 3B / PRICE_REQUEST replay when the customer says "expensive" after pricing.
+
+Precedence:
+- This rule MUST be evaluated BEFORE DIRECT PRICE REQUEST → PRICE_REQUEST.
+
+IF pricing has already been shown
+AND current_user_message contains any direct price-resistance term:
+  - "expensive"
+  - "too expensive"
+  - "price is high"
+  - "high price"
+  - "costly"
+  - "غالي"
+  - "غالية"
+  - "السعر عالي"
+  - "سعره عالي"
+  - "مكلف"
+  - "مكلفة"
+THEN:
+  - request_type = SERVICE_CONFIRMED
+  - constraints += [post_price_objection=true]
+  - objection_signal = PRICE_TOO_HIGH
+  - Do NOT set direct_price_request=true.
+  - Do NOT route back to Phase 3B pricing.
+  - Continue to post-price objection routing.
 
 ## 2.Z-1) DIRECT PRICE REQUEST → PRICE_REQUEST (HARD OVERRIDE)
 Purpose:

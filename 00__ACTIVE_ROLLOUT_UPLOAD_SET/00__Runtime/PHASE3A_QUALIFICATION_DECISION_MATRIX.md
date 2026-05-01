@@ -63,7 +63,7 @@ Allowed values:
 - UNSURE
 
 Ask (one question):
-- "To guide you properly for PPF, would you prefer maximum protection for the whole car, a more practical protection focused on the front impact areas, or are you still deciding?"
+- "For PPF, do you want full-body protection or front protection?"
 
 Normalize:
 - "full / كامل" → FULL_BODY

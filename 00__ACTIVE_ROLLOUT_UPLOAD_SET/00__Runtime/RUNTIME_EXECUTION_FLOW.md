@@ -60,6 +60,17 @@ Any failure at any step MUST immediately stop execution.
 - Apply `CUSTOMER_CHAT_INTAKE_RULES.md`
 - Extract structured inputs from raw customer message
 
+### Step 5.A — Visible Transcript Phase 3A Recovery (HARD)
+- If the input contains pasted chat history, screenshot text, or visible previous assistant/customer turns:
+  - Inspect the latest visible assistant message BEFORE the current customer reply.
+  - If that latest visible assistant message matches an approved `PHASE3A_Q_*` phrase from `PHASE4_6_HUMAN_PHRASE_LIBRARY.md`:
+    - Set `previous_turn.selected_phrase_id` to that matched `PHASE3A_Q_*` ID.
+    - Preserve service context, vehicle model, and vehicle year from the visible transcript when present.
+    - Forward this recovered previous-turn state into `QUALIFICATION_ENGINE.md`.
+- This recovery MUST happen before Step 6 Qualification.
+- Do NOT require hidden memory or `STATE_SNAPSHOT_FOR_NEXT_TURN`.
+- Do NOT use this recovery if the current customer reply clearly switches service/topic.
+
 ### Step 6 — Qualification & Routing
 - Apply `QUALIFICATION_ENGINE.md` (as defined/loaded via the Runtime Manifest)
 - Qualification MUST produce an explicit status signal (e.g., QUALIFICATION_STATUS)
@@ -352,6 +363,14 @@ For every incoming customer chat:
   - max questions
   - bilingual order (EN full, then AR full)
   - verbatim rendering where required
+
+# PHASE FINALIZATION CONTRACT (HARD)
+# After PHASE4_8_MESSAGE_ASSEMBLY_MAP selects selected_phrase_id:
+# - If selected_phrase_id starts with PHASE3B_ → phase MUST be PHASE_3
+# - If selected_phrase_id starts with PHASE4_ → phase MUST be PHASE_4
+# - If selected_phrase_id starts with PHASE5_ → phase MUST be PHASE_5
+# - This finalized phase value MUST override any earlier phase carried from Qualification / Route E.
+# - DEBUG_OUTPUT phase MUST use this finalized value.
 
 ### Step 6 — Output Formatting (STRUCTURE ONLY)
 - Apply `OUTPUT_RESPONSE_TEMPLATE.md` for final wrapper (timestamp, layout).
