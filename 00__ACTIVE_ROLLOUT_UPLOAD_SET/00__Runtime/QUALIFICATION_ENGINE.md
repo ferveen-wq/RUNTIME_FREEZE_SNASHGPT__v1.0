@@ -478,6 +478,8 @@ AND vehicle_year is present:
     OR previous assistant visible message contains "Sure, I'll share the price"
   ):
     - PHASE3A_PRICE_PUSH_STATE = REPEATED_PUSH
+    - CERAMIC_GOAL = UNKNOWN
+    - CERAMIC_WASH_PATTERN = UNKNOWN
     - phase3a_required = false
     - phase3a_complete = true
     - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
