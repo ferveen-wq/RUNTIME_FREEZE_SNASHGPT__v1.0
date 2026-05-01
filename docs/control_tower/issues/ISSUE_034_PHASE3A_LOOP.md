@@ -10,4 +10,7 @@ ROOT CAUSE:
 - No UNKNOWN fallback execution
 
 STATUS:
-IN_PROGRESS
+CLOSED
+
+VALIDATION:
+Manual project test passed: second repeated price push exits Phase3A and returns Phase3B ceramic pricing.
