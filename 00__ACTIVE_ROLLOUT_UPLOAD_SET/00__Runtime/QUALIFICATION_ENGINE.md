@@ -497,6 +497,14 @@ AND vehicle_year is present:
     - Do NOT advance to PHASE3A_Q_CERAMIC_WASH_PATTERN on this turn.
     - STOP IMMEDIATELY
 
+  # HARD CERAMIC BOUNDARY:
+  # Normal Ceramic Phase3A selector below MUST NOT run on PRICE_REQUEST turns.
+  # PRICE_REQUEST turns are fully owned by the Ceramic Phase3A price-push guard above.
+  IF request_type == PRICE_REQUEST:
+    - STOP IMMEDIATELY
+    - Do NOT run CERAMIC_GOAL selector.
+    - Do NOT run CERAMIC_WASH_PATTERN selector.
+
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
