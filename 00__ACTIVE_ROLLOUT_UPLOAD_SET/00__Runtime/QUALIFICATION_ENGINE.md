@@ -348,6 +348,26 @@ AND vehicle_year is present:
       - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
       - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
+  # Phase3A interruption detection (ACTIVE — single authority)
+  IF (
+    previous_turn.selected_phrase_id == phase3a_last_qualifier_id
+    AND request_type == PRICE_REQUEST
+    AND phase3a_last_qualifier_id is present
+    AND define_missing(phase3a_last_qualifier_id) == TRUE
+  ):
+    - customer_ignored_current_qualifier = TRUE
+
+    IF (phase3a_nudge_used != TRUE):
+      - phase3a_nudge_used = TRUE
+      - STOP
+
+    ELSE:
+      - phase3a_required = false
+      - phase3a_complete = true
+      - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+      - customer_ignored_current_qualifier = FALSE
+      - Continue to Phase3B / Route E pricing path
+
   - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
       - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
       - Treat the current user message as an answer attempt to that qualifier.

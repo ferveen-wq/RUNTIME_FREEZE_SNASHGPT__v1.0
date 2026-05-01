@@ -1294,3 +1294,12 @@ Current rollout truth is 00__ACTIVE_ROLLOUT_UPLOAD_SET only.
 
 Reference:
 docs/control_tower/ACTIVE_ROLLOUT_BASELINE_20260501.md
+
+
+
+LATEST LEARNING:
+Phase3A interruption logic MUST be implemented in QUALIFICATION_ENGINE first.
+Assembly-only patches do NOT change behavior.
+
+Also:
+Never rely on non-existent variables (example: last_normalization_result).

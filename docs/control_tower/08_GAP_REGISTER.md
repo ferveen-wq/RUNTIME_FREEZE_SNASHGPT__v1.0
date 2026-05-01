@@ -42,3 +42,13 @@ Reason:
 ## Rule
 - Do not reopen closed lanes without fresh failing active raw evidence.
 - Future gaps must come from active rollout evidence, real validation drift, or production-confirmed mismatch.
+
+
+
+GAP-021 — Phase3A interruption not executable
+STATUS: IN_PROGRESS
+ROOT_CAUSE:
+- Qualification engine missing ignored qualifier detection
+- Assembly patched before decision layer
+IMPACT:
+- Infinite qualifier loop on price push
