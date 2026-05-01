@@ -357,16 +357,16 @@ AND vehicle_year is present:
   ):
     - customer_ignored_current_qualifier = TRUE
 
-    IF (phase3a_nudge_used != TRUE):
-      - phase3a_nudge_used = TRUE
-      - STOP
-
-    ELSE:
+    IF previous assistant visible message matches PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER:
       - phase3a_required = false
       - phase3a_complete = true
       - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
       - customer_ignored_current_qualifier = FALSE
       - Continue to Phase3B / Route E pricing path
+
+    ELSE:
+      - phase3a_nudge_used = TRUE
+      - STOP
 
   - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
       - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
