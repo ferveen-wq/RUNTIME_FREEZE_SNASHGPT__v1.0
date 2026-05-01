@@ -66,9 +66,6 @@ Any failure at any step MUST immediately stop execution.
   - If that latest visible assistant message matches an approved `PHASE3A_Q_*` phrase from `PHASE4_6_HUMAN_PHRASE_LIBRARY.md`:
     - Set `previous_turn.selected_phrase_id` to that matched `PHASE3A_Q_*` ID.
     - Preserve service context, vehicle model, and vehicle year from the visible transcript when present.
-    - If the latest visible assistant message contains approved `PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER` wording:
-      - Set `PHASE3A_PRICE_PUSH_STATE = FIRST_PUSH`.
-      - Forward this recovered price-push state into `QUALIFICATION_ENGINE.md`.
     - Forward this recovered previous-turn state into `QUALIFICATION_ENGINE.md`.
 - This recovery MUST happen before Step 6 Qualification.
 - Do NOT require hidden memory or `STATE_SNAPSHOT_FOR_NEXT_TURN`.
