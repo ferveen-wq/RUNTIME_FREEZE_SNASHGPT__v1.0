@@ -466,6 +466,35 @@ AND vehicle_year is present:
 
   - phase3a_required = true
 
+  # Ceramic Phase3A price-push guard (ACTIVE)
+  IF request_type == PRICE_REQUEST
+  AND (
+    previous_turn.selected_phrase_id == PHASE3A_Q_CERAMIC_GOAL
+    OR previous assistant visible message contains "Do you want it to last longer"
+    OR previous assistant visible message contains "تبيها تدوم معاك فترة"
+  )
+  AND NOT (
+    previous assistant visible message contains "جاوبني على هالسؤال أول"
+    OR previous assistant visible message contains "Just answer this one first"
+  ):
+    - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
+    - phase3a_required = true
+    - phase3a_complete = false
+    - customer_ignored_current_qualifier = TRUE
+    - STOP
+
+  IF request_type == PRICE_REQUEST
+  AND (
+    previous assistant visible message contains "جاوبني على هالسؤال أول"
+    OR previous assistant visible message contains "Just answer this one first"
+  ):
+    - phase3a_required = false
+    - phase3a_complete = true
+    - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+    - phase3a_qualifier_id = null
+    - Continue to Phase3B / Route E pricing path
+    - STOP
+
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
     - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
