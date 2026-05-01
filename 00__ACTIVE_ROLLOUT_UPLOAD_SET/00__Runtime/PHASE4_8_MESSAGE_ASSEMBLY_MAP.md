@@ -327,9 +327,13 @@ AND phase3a_qualifier_id is present:
       - STOP
 
   IF phase3a_complete == true AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION:
-    - Proceed to Phase3B / Route E pricing path
-    - Do NOT render PHASE3A_Q_* again
-    - STOP this Phase3A gate and resume normal Phase3B routing
+    - suppress_price_ladder = FALSE
+    - PRICE_LADDER_ENGINE MUST execute.
+    - Route E MUST execute.
+    - selected_phrase_id MUST equal PHASE3B_CERAMIC_RANGE when service_intent == ceramic.
+    - Do NOT render PHASE3A_Q_* again.
+    - Do NOT continue to the generic Phase3A STOP block below.
+    - STOP this Phase3A gate and resume normal Phase3B pricing routing
 
   - suppress_hooks = TRUE
   - selected_phrase_id MUST equal phase3a_qualifier_id.
