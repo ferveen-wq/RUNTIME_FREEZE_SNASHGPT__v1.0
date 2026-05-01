@@ -449,6 +449,18 @@ IF service_intent == ceramic
 AND vehicle_model is present
 AND vehicle_year is present:
 
+  # Ceramic direct price request bypass (ACTIVE — single authority)
+  # Business rule: when vehicle is known and customer asks price, do not enter Phase3A.
+  # Give Phase3B / Route E price first, then guide after price if needed.
+  IF request_type == PRICE_REQUEST:
+    - phase3a_required = false
+    - phase3a_complete = true
+    - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+    - missing_fields = []
+    - phase3a_qualifier_id = null
+    - Continue to Phase3B / Route E pricing path
+    - STOP
+
   - phase3a_required = true
 
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
