@@ -288,6 +288,26 @@ Used By:
 
 ---
 
+### PARAMETER: PHASE3A_PRICE_PUSH_STATE
+Description: Tracks repeated customer price-push behavior while a Phase 3A qualifier is still pending.
+Allowed Values:
+- NONE
+- FIRST_PUSH
+- REPEATED_PUSH
+- UNKNOWN
+
+Notes:
+- NONE: no Phase 3A price push has happened for the current pending qualifier.
+- FIRST_PUSH: customer asked for price once while a Phase 3A qualifier was pending.
+- REPEATED_PUSH: customer asked for price again after the first nudge.
+- Reset to NONE when Phase 3A completes, service changes, or a new qualifier chain starts.
+
+Used By:
+- Qualification Engine
+- Message Assembly
+
+---
+
 ### PARAMETER: BOOKING_READINESS
 Description: Observed readiness to take next step (visit/booking/quote).
 Allowed Values:
