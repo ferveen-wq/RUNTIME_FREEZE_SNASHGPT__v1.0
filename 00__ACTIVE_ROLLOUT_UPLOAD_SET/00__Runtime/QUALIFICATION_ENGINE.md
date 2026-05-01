@@ -357,7 +357,10 @@ AND vehicle_year is present:
   ):
     - customer_ignored_current_qualifier = TRUE
 
-    IF previous_turn.request_type == PRICE_REQUEST:
+    IF (
+      previous assistant visible message contains "جاوبني على هالسؤال أول"
+      OR previous assistant visible message contains "Just answer this one first"
+):
       - phase3a_required = false
       - phase3a_complete = true
       - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
