@@ -357,7 +357,7 @@ AND vehicle_year is present:
   ):
     - customer_ignored_current_qualifier = TRUE
 
-    IF previous assistant visible message matches PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER:
+    IF previous_turn.request_type == PRICE_REQUEST:
       - phase3a_required = false
       - phase3a_complete = true
       - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
