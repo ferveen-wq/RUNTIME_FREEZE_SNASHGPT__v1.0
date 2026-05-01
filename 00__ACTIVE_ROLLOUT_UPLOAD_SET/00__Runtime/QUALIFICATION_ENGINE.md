@@ -344,21 +344,6 @@ AND vehicle_year is present:
   # - If the current user message is greeting-only / unrelated and does NOT answer:
   #   do NOT overwrite; keep the qualifier pending (nudge logic handles interruptions).
 
-  # Phase3A repeated price push exit (ACTIVE — pre-capture override)
-  IF (
-    request_type == PRICE_REQUEST
-    AND (
-      previous assistant visible message contains "جاوبني على هالسؤال أول"
-      OR previous assistant visible message contains "Just answer this one first"
-    )
-  ):
-    - phase3a_required = false
-    - phase3a_complete = true
-    - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
-    - customer_ignored_current_qualifier = FALSE
-    - Continue to Phase3B / Route E pricing path
-    - STOP Phase3A answer capture for this turn
-
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
       - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
       - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
