@@ -308,8 +308,7 @@ AND phase3a_qualifier_id is present:
   # Phase3A interruption handling (ACTIVE — aligned with decision matrix)
   IF (customer_ignored_current_qualifier == TRUE):
     IF (
-      PHASE3A_PRICE_PUSH_STATE == FIRST_PUSH
-      OR PHASE3A_PRICE_PUSH_STATE == REPEATED_PUSH
+      PHASE3A_PRICE_PUSH_STATE == REPEATED_PUSH
       OR previous assistant visible message contains "جاوبني على هالسؤال أول"
       OR previous assistant visible message contains "Just answer this one first"
     ):
