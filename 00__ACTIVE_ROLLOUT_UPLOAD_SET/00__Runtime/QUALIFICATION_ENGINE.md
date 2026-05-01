@@ -471,12 +471,7 @@ AND vehicle_year is present:
   # If this block matches, do NOT continue to define_missing(CERAMIC_GOAL) or define_missing(CERAMIC_WASH_PATTERN).
 
   IF request_type == PRICE_REQUEST
-  AND (
-    PHASE3A_PRICE_PUSH_STATE == FIRST_PUSH
-    OR previous assistant visible message contains "أكيد بعطيك السعر"
-    OR previous assistant visible message contains "Sure, I’ll share the price"
-    OR previous assistant visible message contains "Sure, I'll share the price"
-  ):
+  AND PHASE3A_PRICE_PUSH_STATE == FIRST_PUSH:
     - PHASE3A_PRICE_PUSH_STATE = REPEATED_PUSH
     - phase3a_required = false
     - phase3a_complete = true
