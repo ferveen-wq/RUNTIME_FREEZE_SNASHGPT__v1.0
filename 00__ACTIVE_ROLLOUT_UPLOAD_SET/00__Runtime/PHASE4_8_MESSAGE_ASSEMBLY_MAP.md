@@ -307,7 +307,16 @@ AND phase3a_qualifier_id is present:
 
   # Phase3A interruption handling (ACTIVE — aligned with decision matrix)
   IF (customer_ignored_current_qualifier == TRUE):
-    IF (phase3a_nudge_used != TRUE):
+    IF (
+      previous assistant visible message contains "جاوبني على هالسؤال أول"
+      OR previous assistant visible message contains "Just answer this one first"
+    ):
+      - Proceed to Phase3B / Route E pricing path
+      - Do NOT render PHASE3A_Q_* again
+      - Do NOT continue to the generic Phase3A STOP block below
+      - STOP this Phase3A gate and resume normal Phase3B routing
+
+    ELSE:
       - selected_phrase_id MUST remain the current phase3a_qualifier_id.
       - Also render PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER before the same PHASE3A_Q_* phrase block.
       - phase3a_nudge_used = TRUE
@@ -315,12 +324,6 @@ AND phase3a_qualifier_id is present:
       - suppress_hooks = TRUE
       - suppress_price_ladder = TRUE
       - STOP
-
-    ELSE:
-      - Proceed to Phase3B / Route E pricing path
-      - Do NOT render PHASE3A_Q_* again
-      - Do NOT continue to the generic Phase3A STOP block below
-      - STOP this Phase3A gate and resume normal Phase3B routing
 
   IF phase3a_complete == true AND QUALIFICATION_STATUS == READY_FOR_NEGOTIATION:
     - Proceed to Phase3B / Route E pricing path
