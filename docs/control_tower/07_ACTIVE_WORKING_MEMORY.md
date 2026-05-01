@@ -1285,3 +1285,12 @@ Next:
 - Move to M5 determinism expansion.
 - Do not patch runtime unless fresh deterministic owner defect appears.
 - In cost-control mode, run 1x first; use 3x only when marking a lane deterministic stable.
+
+## ACTIVE ROLLOUT BASELINE — 2026-05-01
+
+Current rollout truth is 00__ACTIVE_ROLLOUT_UPLOAD_SET only.
+
+00__LOCKED__UPLOAD_SET is legacy/reference only and must not be used as current authority.
+
+Reference:
+docs/control_tower/ACTIVE_ROLLOUT_BASELINE_20260501.md

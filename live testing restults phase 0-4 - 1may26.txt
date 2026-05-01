@@ -1,0 +1,18 @@
+PACK A — PHASE 0–2 RESULT: PASS
+Known Issues:
+- Over-confirmation loop
+- Slight over-explanation early stage
+
+PACK B — PHASE 3A RESULT: FAIL
+
+Failures:
+1. PPF Camry 2022 asked multi-option coverage question.
+2. Ceramic Camry 2022 lost known vehicle info and asked model/year again.
+3. Ceramic repeated the same model/year question.
+
+Root cause so far:
+QUALIFICATION_ENGINE has the correct “do not ask model/year again” rule, but it appears below Phase 3A selector logic and is weakly ordered.
+Likely fix: move or duplicate as an early bridge only if no equivalent earlier authority exists.
+
+Status:
+Diagnosis in progress. No patch applied yet.
