@@ -301,11 +301,19 @@ AND (current_user_message contains "what services do you offer" OR current_user_
 # LOCK_REASON: Phase 3A UAT passed; prevent legacy blocks overriding qualifier flow
 # CHANGE_CONTROL: Architecture approval required
 
-IF (phase == PHASE_3 OR phase == PHASE_3A)
-AND phase3a_required == true
+IF (phase == PHASE_3 OR phase == PHASE_3A OR request_type == PRICE_REQUEST)
+AND (phase3a_required == true OR phase3a_complete != true)
 AND phase3a_qualifier_id is present:
 
   - suppress_hooks = TRUE
+  - selected_phrase_id MUST equal phase3a_qualifier_id.
+  - suppress_price_ladder = TRUE.
+  - PRICE_LADDER_ENGINE MUST NOT execute.
+  - Route E MUST NOT execute.
+  - Do NOT answer price requests in this turn.
+  - Do NOT explain why price is unavailable.
+  - Do NOT ask an alternative price-routing question.
+  - STOP immediately after rendering the mapped PHASE3A_Q_* phrase block.
   - Output MUST be:
     - exactly 1 question
     - use ONLY the matching block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md
@@ -400,6 +408,11 @@ ACTIVE ROUTING (UNDER THIS LOCK):
 - Phase 4: signals map to PHASE4_* phrase IDs only (human copy), with no pricing mechanics changes.
 
 GLOBAL SERVICE–PHRASE CONSISTENCY (HARD):
+# PHASE LABEL CONTRACT — GLOBAL
+# If selected_phrase_id starts with PHASE3B_, runtime phase MUST be PHASE_3.
+# If selected_phrase_id starts with PHASE4_, runtime phase MUST be PHASE_4.
+# If selected_phrase_id starts with PHASE5_, runtime phase MUST be PHASE_5.
+
 - active_service_context is the service-family authority for selected_phrase_id after service confirmation.
 - selected_phrase_id MUST stay inside the phrase family for active_service_context.
 - If active_service_context == ppf:
@@ -643,6 +656,14 @@ Routing rules (select ONE block only):
   - If objection_repeat_count == 0:
     - Do NOT enter Phase 5.
     - Route to PHASE4_PPF_PRICE_PRESSURE_L1.
+    - Enforcement (HARD):
+      - selected_phrase_id MUST equal PHASE4_PPF_PRICE_PRESSURE_L1.
+      - MUST NOT select any PHASE4_CERAMIC_* blocks.
+      - MUST NOT select any PHASE4_TINT_* blocks.
+      - MUST NOT select any PHASE4_POLISH_* blocks.
+      - MUST NOT select any PHASE5_* blocks.
+      - MUST NOT select any PHASE3B_* blocks.
+      - STOP after PHASE4_PPF_PRICE_PRESSURE_L1; no fallback and no escalation.
   - If constraints includes brand_keyword_detected = true:
     - If objection_repeat_count == 1:
       - Use PHASE5_PPF_BRAND_WARRANTY_DEEPEN_L1
@@ -665,8 +686,11 @@ Routing rules (select ONE block only):
     - Enforcement (HARD):
       - selected_phrase_id MUST equal PHASE4_CERAMIC_PRICE_PRESSURE_L1.
       - MUST NOT select any PHASE4_PPF_* blocks.
+      - MUST NOT select any PHASE4_TINT_* blocks.
+      - MUST NOT select any PHASE4_POLISH_* blocks.
       - MUST NOT select any PHASE5_* blocks.
       - MUST NOT select any PHASE3B_* blocks.
+      - STOP after PHASE4_CERAMIC_PRICE_PRESSURE_L1; no fallback and no escalation.
   - If objection_repeat_count == 1:
     - Use PHASE5_CERAMIC_PRICE_GAP_DEEPEN_L1
   - If objection_repeat_count == 2:
@@ -683,6 +707,10 @@ Routing rules (select ONE block only):
       - MUST NOT select any PHASE4_PPF_* blocks.
       - MUST NOT select any PHASE5_* blocks.
       - MUST NOT select any PHASE3B_* blocks.
+      - MUST NOT select PHASE5_TINT_COMPARE_DEEPEN_L1.
+      - MUST NOT select PHASE5_TINT_PRICE_GAP_DEEPEN_L1.
+      - PHASE5_TINT_PRICE_GAP_DEEPEN_L1 is not an approved phrase ID and MUST NOT be emitted.
+      - STOP after PHASE4_TINT_PRICE_PRESSURE_L1; no fallback and no escalation.
   - If objection_repeat_count == 1:
     - Use PHASE5_TINT_COMPARE_DEEPEN_L1
   - If objection_repeat_count == 2:
@@ -699,6 +727,14 @@ Routing rules (select ONE block only):
   - If objection_repeat_count == 0:
     - Do NOT enter Phase 5.
     - Route to PHASE4_POLISH_PRICE_PRESSURE_L1.
+    - Enforcement (HARD):
+      - selected_phrase_id MUST equal PHASE4_POLISH_PRICE_PRESSURE_L1.
+      - MUST NOT select any PHASE4_PPF_* blocks.
+      - MUST NOT select any PHASE4_CERAMIC_* blocks.
+      - MUST NOT select any PHASE4_TINT_* blocks.
+      - MUST NOT select any PHASE5_* blocks.
+      - MUST NOT select any PHASE3B_* blocks.
+      - STOP after PHASE4_POLISH_PRICE_PRESSURE_L1; no fallback and no escalation.
   - If objection_repeat_count == 1:
     - Use PHASE5_POLISH_EXPECTATION_DEEPEN_L1
   - If objection_repeat_count == 2:
@@ -930,6 +966,11 @@ AND handover_reason == wrap_specialist_required:
 - STOP
 
 Route E — Price Ready / Phase 3B Entry (pricing allowed)
+
+Route E EXCLUSION — POST-PRICE OBJECTION (HARD)
+Route E MUST NOT run if constraints includes post_price_objection=true.
+Post-price objection turns must route to Phase 4 / Phase 5 objection handling, not Phase 3B pricing.
+This prevents SERVICE_CONFIRMED + READY_FOR_NEGOTIATION from preserving a PHASE_3 frame after a customer says "expensive" post-price.
 
 Route E MUST run when either condition set is true:
 
