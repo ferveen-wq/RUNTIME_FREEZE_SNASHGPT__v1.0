@@ -485,10 +485,7 @@ AND vehicle_year is present:
 
   IF request_type == PRICE_REQUEST
   AND (
-    previous assistant visible message contains "أكيد بعطيك السعر"
-    OR previous assistant visible message contains "Sure, I’ll share the price"
-    OR previous assistant visible message contains "Sure, I'll share the price"
-    OR previous assistant visible message contains "جاوبني على هالسؤال أول"
+    previous assistant visible message contains "جاوبني على هالسؤال أول"
     OR previous assistant visible message contains "Just answer this one first"
   ):
     - phase3a_required = false
