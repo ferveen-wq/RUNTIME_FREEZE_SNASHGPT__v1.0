@@ -348,6 +348,15 @@ AND vehicle_year is present:
       - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
       - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
 
+  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
+      - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
+      - Set previous_turn.selected_phrase_id = phase3a_last_qualifier_id for this turn.
+      - Treat the current user message as an answer attempt to that qualifier.
+      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
+      - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
+      - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
+      - Do NOT use this rule if the current user clearly switches service/topic.
+
   # Phase3A interruption detection (ACTIVE — single authority)
   IF (
     previous_turn.selected_phrase_id == phase3a_last_qualifier_id
@@ -370,14 +379,6 @@ AND vehicle_year is present:
     ELSE:
       - phase3a_nudge_used = TRUE
       - STOP
-
-  - ELSE IF previous assistant visible message matches any approved PHASE3A_Q_* phrase text:
-      - Resolve phase3a_last_qualifier_id from the matched phrase block in PHASE4_6_HUMAN_PHRASE_LIBRARY.md.
-      - Treat the current user message as an answer attempt to that qualifier.
-      - attempt_normalize_phase3a_answer(phase3a_last_qualifier_id, current_user_message)
-      - This applies to pasted WhatsApp / Instagram / Meta chat transcripts and normal live chat.
-      - Do NOT require hidden STATE_SNAPSHOT_FOR_NEXT_TURN for this capture.
-      - Do NOT use this rule if the current user clearly switches service/topic.
 
   # Normalization helper rules (strict, per Decision Matrix):
   #
