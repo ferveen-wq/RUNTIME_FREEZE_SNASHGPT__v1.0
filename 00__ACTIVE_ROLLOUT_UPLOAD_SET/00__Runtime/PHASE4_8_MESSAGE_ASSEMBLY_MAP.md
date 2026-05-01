@@ -305,6 +305,22 @@ IF (phase == PHASE_3 OR phase == PHASE_3A OR request_type == PRICE_REQUEST)
 AND (phase3a_required == true OR phase3a_complete != true)
 AND phase3a_qualifier_id is present:
 
+  # Phase3A interruption handling (ACTIVE — aligned with decision matrix)
+  IF (customer_ignored_current_qualifier == TRUE):
+    IF (phase3a_nudge_used != TRUE):
+      - selected_phrase_id MUST remain the current phase3a_qualifier_id.
+      - Also render PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER before the same PHASE3A_Q_* phrase block.
+      - phase3a_nudge_used = TRUE
+      - Ask SAME qualifier_id (do not change qualifier).
+      - suppress_hooks = TRUE
+      - suppress_price_ladder = TRUE
+      - STOP
+
+    ELSE:
+      - Set current qualifier value = UNKNOWN
+      - Proceed to next qualifier OR Phase3B (as per decision matrix)
+      - Continue normal routing (do NOT STOP here)
+
   - suppress_hooks = TRUE
   - selected_phrase_id MUST equal phase3a_qualifier_id.
   - suppress_price_ladder = TRUE.

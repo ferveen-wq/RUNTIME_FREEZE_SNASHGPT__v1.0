@@ -10,36 +10,40 @@ EN: What matters more to you right now — protection from road chips, or gloss 
 ## PHASE 3A — QUALIFIER QUESTIONS (ONE QUESTION ONLY)
 
 ### PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH
-EN: Before we proceed, has the car had any repaint work or deep scratches?
-AR: قبل ما نكمل، هل صار على السيارة رش/صبغ من قبل أو فيها خدوش عميقة؟
+EN: Any visible scratches or repaint before?
+AR: فيه خدوش واضحة أو رش قبل؟
 
 ### PHASE3A_Q_PPF_COVERAGE_INTENT
-EN: For PPF, do you want full-body protection or front protection?
-AR: بالنسبة للـ PPF، تبي حماية كاملة ولا حماية أمامية؟
+EN: Do you want front only or full car?
+AR: تبي حماية للواجهة بس ولا كامل السيارة؟
 
 ### PHASE3A_Q_PPF_COMPARISON_FOCUS
 EN: That makes sense. When you're comparing options, what matters most to you right now — the film brand/quality, the coverage level, or keeping the price lower?
 AR: مفهوم. لما تقارن بين الخيارات، شنو الأهم عندك حالياً — نوع الفيلم/الماركة، مستوى التغطية، أو تقليل السعر؟
 
 ### PHASE3A_Q_PPF_DRIVING_PATTERN
-EN: Is your driving mostly highway/travel (more stone chips), or mostly city (more parking/contact)?
-AR: قيادتك أغلبها على الخطوط/السفر (حصى أكثر)، ولا داخل المدينة (مواقف/احتكاك أكثر)؟
+EN: Do you mostly drive in the city or on highways?
+AR: استخدامك أكثر داخل المدينة ولا سفر وخطوط؟
 
 ### PHASE3A_Q_CERAMIC_GOAL
-EN: For ceramic, is your main goal long-term gloss and easier maintenance, or mainly to refresh the look for now?
-AR: بالنسبة للسيراميك، هدفك الأساسي لمعان ثابت وصيانة أسهل على المدى الطويل، أو أكثر شيء تبي تنعش الشكل حالياً؟
+EN: Do you want it to last longer, or just make it look better for now?
+AR: تبيها تدوم معاك فترة، أو بس تحسن شكلها حالياً؟
 
 ### PHASE3A_Q_CERAMIC_WASH_PATTERN
-EN: How do you usually arrange the car wash — bucket/hand wash, a brush/tunnel (automatic) wash, waterless wash, a professional wash center, or a mix?
-AR: شلون عادة ترتّب غسيل السيارة — غسيل يدوي/سطل، غسيل نفق/آلي (فرش/رول)، غسيل بدون ماء، مركز غسيل محترف، أو خليط؟
+EN: Do you usually take it to a washing center, or have someone nearby wash it for you?
+AR: عادة توديها مغسلة ولا في أحد قريب يغسلها لك؟
+
+### PHASE3A_PRICE_NUDGE_REPEAT_QUALIFIER
+EN: Sure, I’ll share the price. Just answer this one first so I don’t guide you to the wrong option.
+AR: أكيد بعطيك السعر. جاوبني على هالسؤال أول عشان ما أعطيك خيار غلط.
 
 ### PHASE3A_Q_TINT_GOAL
-EN: For tint, is your main goal heat comfort, privacy, or both?
-AR: للتظليل، هدفك الأساسي الراحة من الحرارة، الخصوصية، أو الاثنين معاً؟
+EN: What matters more to you — heat reduction or privacy?
+AR: بالنسبة للتظليل — يهمك أكثر الحرارة ولا الخصوصية؟
 
 ### PHASE3A_Q_TINT_COVERAGE
-EN: For tint, do you want front only, sides and rear, or full coverage?
-AR: للتظليل، تبي الأمامي فقط، الجوانب والخلف، أو تغطية كاملة؟
+EN: Do you want full tint or just certain parts?
+AR: تبي تظليل كامل ولا جزء معين؟
 
 ### PHASE3A_Q_WRAP_FINISH
 EN: For wrap, which finish are you leaning toward — gloss, satin, or matte?
@@ -54,8 +58,8 @@ EN: Got it. For wrapping, it needs a quick check with our specialist depending o
 AR: تمام. بالنسبة للتغليف، يحتاج تنسيق بسيط مع المختص حسب التصميم والتغطية. تقدر ترسل رقمك وبيكلمك الفريق على الواتساب؟ أو إذا تحب نحدد لك موعد زيارة سريعة.
 
 ### PHASE3A_Q_POLISHING_SCOPE
-EN: Just to understand your goal — are you mainly looking to improve the gloss of the exterior paint, or a full detailing that also includes the interior?
-AR: بس عشان أفهم هدفك — تبي تحسين لمعان الطلاء الخارجي فقط، أو ديتيلنج كامل يشمل الداخلي؟
+EN: Do you want exterior only, or interior + exterior?
+AR: تبي بس من بره، أو داخل وخارج؟
 
 ### Z_DEPRECATED__PHASE3B_WRAP_STANDARD__LEGACY (DO NOT ROUTE)
 EN: Got it. I’ll line up the suitable wrap options and move to pricing next.

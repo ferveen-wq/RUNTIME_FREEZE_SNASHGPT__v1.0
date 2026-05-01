@@ -85,7 +85,7 @@ DEBUG CONTRACT:
   - Do NOT output PHASE3A_Q_PAINT_CONDITION_REPAINT_SCRATCH.
   - Do NOT drop back to Phase 3A / NOT_READY.
   - Continue to the active runtime Phase 3B / Route E path.
-  - selected_phrase_id MUST equal PHASE3B_POLISHING_RANGE.
+  - selected_phrase_id MUST follow the active runtime Phase 3B / Route E selection rules.
   - selected_phrase_id MUST NOT be null.
   - PRICE_LADDER_ENGINE.md MUST execute before final output.
   - selected_skus MUST equal [POLISH_SILVER].
