@@ -626,6 +626,20 @@ Hard rule:
 
 FINAL OVERRIDE RULE:
 IF phase3a_required == true
+AND phase3a_qualifier_id is present
+AND request_type == PRICE_REQUEST
+AND (
+  previous assistant visible message contains "جاوبني على هالسؤال أول"
+  OR previous assistant visible message contains "Just answer this one first"
+):
+  - phase3a_required = false
+  - phase3a_complete = true
+  - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+  - phase3a_qualifier_id = null
+  - Continue to Phase3B / Route E pricing path
+  - STOP Phase3A final override for this turn
+
+ELSE IF phase3a_required == true
 AND phase3a_qualifier_id is present:
   - STOP
 
