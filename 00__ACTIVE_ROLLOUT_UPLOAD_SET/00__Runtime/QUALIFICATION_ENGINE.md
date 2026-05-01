@@ -466,7 +466,10 @@ AND vehicle_year is present:
 
   - phase3a_required = true
 
-  # Ceramic Phase3A price-push guard (ACTIVE — durable parameter)
+  # Ceramic Phase3A price-push guard (HARD PRE-SELECTOR OVERRIDE — durable parameter)
+  # This block MUST execute before CERAMIC_GOAL / CERAMIC_WASH_PATTERN selection below.
+  # If this block matches, do NOT continue to define_missing(CERAMIC_GOAL) or define_missing(CERAMIC_WASH_PATTERN).
+
   IF request_type == PRICE_REQUEST
   AND PHASE3A_PRICE_PUSH_STATE == FIRST_PUSH:
     - PHASE3A_PRICE_PUSH_STATE = REPEATED_PUSH
@@ -476,17 +479,16 @@ AND vehicle_year is present:
     - missing_fields = []
     - phase3a_qualifier_id = null
     - Continue to Phase3B / Route E pricing path
-    - STOP
+    - STOP IMMEDIATELY
 
-  IF request_type == PRICE_REQUEST
-  AND phase3a_required == true
-  AND PHASE3A_PRICE_PUSH_STATE != FIRST_PUSH:
+  ELSE IF request_type == PRICE_REQUEST:
     - PHASE3A_PRICE_PUSH_STATE = FIRST_PUSH
     - phase3a_qualifier_id = PHASE3A_Q_CERAMIC_GOAL
     - phase3a_required = true
     - phase3a_complete = false
     - customer_ignored_current_qualifier = TRUE
-    - STOP
+    - Do NOT advance to PHASE3A_Q_CERAMIC_WASH_PATTERN on this turn.
+    - STOP IMMEDIATELY
 
   - IF previous_turn.selected_phrase_id startswith "PHASE3A_Q_":
     - phase3a_last_qualifier_id = previous_turn.selected_phrase_id
