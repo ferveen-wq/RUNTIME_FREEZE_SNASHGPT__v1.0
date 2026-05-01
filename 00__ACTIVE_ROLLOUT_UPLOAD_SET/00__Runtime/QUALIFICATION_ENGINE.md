@@ -370,9 +370,14 @@ AND vehicle_year is present:
       previous assistant visible message contains "جاوبني على هالسؤال أول"
       OR previous assistant visible message contains "Just answer this one first"
 ):
+      - Set value for phase3a_last_qualifier_id = UNKNOWN
+      - If service_intent == ceramic:
+        - CERAMIC_GOAL = UNKNOWN if phase3a_last_qualifier_id == PHASE3A_Q_CERAMIC_GOAL
+        - CERAMIC_WASH_PATTERN = UNKNOWN if phase3a_last_qualifier_id == PHASE3A_Q_CERAMIC_WASH_PATTERN
       - phase3a_required = false
       - phase3a_complete = true
       - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+      - missing_fields = []
       - customer_ignored_current_qualifier = FALSE
       - Continue to Phase3B / Route E pricing path
 
