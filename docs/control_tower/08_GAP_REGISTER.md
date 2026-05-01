@@ -46,7 +46,7 @@ Reason:
 
 
 GAP-021 — Phase3A interruption not executable
-STATUS: CLOSED
+STATUS: REOPENED
 ROOT_CAUSE:
 - Qualification engine missing ignored qualifier detection
 - Assembly patched before decision layer
