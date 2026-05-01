@@ -784,17 +784,6 @@ this engine MUST also emit the following alias output:
 
 Mapping:
 - If constraints contains direct_price_request=true
-  AND service_intent == ceramic
-  AND vehicle_model is present
-  AND vehicle_year is present:
-  - phase3a_required = false
-  - phase3a_complete = true
-  - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
-  - missing_fields = []
-  - price_ladder_state = INITIAL
-  - Do allow READY_FOR_NEGOTIATION for direct ceramic price request when vehicle is known.
-
-- Else if constraints contains direct_price_request=true
   AND service_intent != unknown
   AND phase3a_complete != true:
   - QUALIFICATION_STATUS = NOT_READY
