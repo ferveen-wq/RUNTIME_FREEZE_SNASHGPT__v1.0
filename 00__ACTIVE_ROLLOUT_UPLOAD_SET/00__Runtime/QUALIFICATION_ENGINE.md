@@ -494,6 +494,7 @@ AND vehicle_year is present:
     - phase3a_required = false
     - phase3a_complete = true
     - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
+    - missing_fields = []
     - phase3a_qualifier_id = null
     - Continue to Phase3B / Route E pricing path
     - STOP
