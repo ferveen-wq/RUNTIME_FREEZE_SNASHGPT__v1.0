@@ -61,7 +61,7 @@ Any failure at any step MUST immediately stop execution.
 - Extract structured inputs from raw customer message
 
 ### Step 5.A — Visible Transcript Phase 3A Recovery (HARD)
-- If the input contains pasted chat history, screenshot text, or visible previous assistant/customer turns:
+- In normal live conversation, pasted chat history, screenshot text, or any visible previous assistant/customer turns:
   - Inspect the latest visible assistant message BEFORE the current customer reply.
   - If that latest visible assistant message matches an approved `PHASE3A_Q_*` phrase from `PHASE4_6_HUMAN_PHRASE_LIBRARY.md`:
     - Set `previous_turn.selected_phrase_id` to that matched `PHASE3A_Q_*` ID.
