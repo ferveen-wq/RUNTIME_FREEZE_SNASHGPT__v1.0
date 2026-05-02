@@ -14,7 +14,7 @@
       "vehicle_year": "2022",
       "phase3a_complete": "true",
       "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
-      "selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+      "phase": "PHASE_3"
     },
     "expect_contains_any": [
       "100",
@@ -25,6 +25,7 @@
       "تبيها تدوم معاك فترة",
       "Just answer this one first",
       "جاوبني على هالسؤال أول"
-    ]
+    ],
+    "expect_selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
   }
 ]
