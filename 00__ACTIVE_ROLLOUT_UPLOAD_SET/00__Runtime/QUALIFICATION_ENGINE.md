@@ -367,7 +367,10 @@ AND vehicle_year is present:
     - customer_ignored_current_qualifier = TRUE
 
     IF (
-      previous assistant visible message contains "جاوبني على هالسؤال أول"
+      previous assistant visible message contains "أكيد بعطيك السعر"
+      OR previous assistant visible message contains "Sure, I’ll share the price"
+      OR previous assistant visible message contains "Sure, I'll share the price"
+      OR previous assistant visible message contains "جاوبني على هالسؤال أول"
       OR previous assistant visible message contains "Just answer this one first"
 ):
       - Set value for phase3a_last_qualifier_id = UNKNOWN
