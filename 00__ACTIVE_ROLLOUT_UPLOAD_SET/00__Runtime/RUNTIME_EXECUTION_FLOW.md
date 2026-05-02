@@ -82,7 +82,13 @@ Any failure at any step MUST immediately stop execution.
 - Qualification output MUST include (for downstream routing/assembly):
   - active_service_context
   - detected_service_intent_in_message
-- These two fields MUST be forwarded into the Phase 4.8 Assembly Input set without mutation.
+  - phase3a_required
+  - phase3a_complete
+  - phase3a_qualifier_id
+  - customer_ignored_current_qualifier
+  - phase3a_nudge_used
+  - PHASE3A_NUDGE_STATE
+- These fields MUST be forwarded into the Phase 4.8 Assembly Input set without mutation.
 
 ### Step 6.A — Support-Lane Recognition (Governance Only)
 - If request_type == REENTERED_CONTINUE:
