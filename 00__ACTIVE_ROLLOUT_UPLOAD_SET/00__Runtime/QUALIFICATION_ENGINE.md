@@ -366,13 +366,7 @@ AND vehicle_year is present:
   ):
     - customer_ignored_current_qualifier = TRUE
 
-    IF (
-      previous assistant visible message contains "أكيد بعطيك السعر"
-      OR previous assistant visible message contains "Sure, I’ll share the price"
-      OR previous assistant visible message contains "Sure, I'll share the price"
-      OR previous assistant visible message contains "جاوبني على هالسؤال أول"
-      OR previous assistant visible message contains "Just answer this one first"
-):
+    IF PHASE3A_NUDGE_STATE == USED:
       - Set value for phase3a_last_qualifier_id = UNKNOWN
       - If service_intent == ceramic:
         - CERAMIC_GOAL = UNKNOWN if phase3a_last_qualifier_id == PHASE3A_Q_CERAMIC_GOAL
@@ -382,9 +376,11 @@ AND vehicle_year is present:
       - QUALIFICATION_STATUS = READY_FOR_NEGOTIATION
       - missing_fields = []
       - customer_ignored_current_qualifier = FALSE
+      - PHASE3A_NUDGE_STATE = NONE
       - Continue to Phase3B / Route E pricing path
 
     ELSE:
+      - PHASE3A_NUDGE_STATE = USED
       - phase3a_nudge_used = TRUE
       - STOP
 
