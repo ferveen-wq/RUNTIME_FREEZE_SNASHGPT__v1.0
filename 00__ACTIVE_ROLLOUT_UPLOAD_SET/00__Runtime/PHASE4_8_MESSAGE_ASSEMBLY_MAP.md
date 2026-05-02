@@ -308,7 +308,8 @@ AND phase3a_qualifier_id is present:
   # Phase3A interruption handling (ACTIVE — aligned with decision matrix)
   IF (customer_ignored_current_qualifier == TRUE):
     IF (
-      previous assistant visible message contains "جاوبني على هالسؤال أول"
+      PHASE3A_NUDGE_STATE == USED
+      OR previous assistant visible message contains "جاوبني على هالسؤال أول"
       OR previous assistant visible message contains "Just answer this one first"
     ):
       - Proceed to Phase3B / Route E pricing path
