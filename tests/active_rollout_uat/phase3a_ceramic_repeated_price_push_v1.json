@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "ceramic_repeated_price_push_exits_phase3a",
+    "turns": [
+      "ceramic camry 2022",
+      "price",
+      "price"
+    ],
+    "expect_debug": {
+      "service_intent": "ceramic",
+      "active_service_context": "ceramic",
+      "CANONICAL_MODEL": "Toyota Camry",
+      "VCB": "VCB_2",
+      "vehicle_year": "2022",
+      "phase3a_complete": "true",
+      "QUALIFICATION_STATUS": "READY_FOR_NEGOTIATION",
+      "selected_phrase_id": "PHASE3B_CERAMIC_RANGE"
+    },
+    "expect_contains_any": [
+      "100",
+      "130"
+    ],
+    "forbid_contains_any": [
+      "Do you want it to last longer",
+      "تبيها تدوم معاك فترة",
+      "Just answer this one first",
+      "جاوبني على هالسؤال أول"
+    ]
+  }
+]

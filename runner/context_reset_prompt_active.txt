@@ -41,6 +41,7 @@ DEBUG CONTRACT:
   phase3a_required: <true | false>
   phase3a_complete: <true | false>
   phase3a_qualifier_id: <runtime phase3a_qualifier_id or null>
+  PHASE3A_NUDGE_STATE: <NONE | USED | UNKNOWN | null>
   PPF_COVERAGE_INTENT: <FULL_FRONT | FULL_BODY | PARTIAL_OR_CUSTOM | UNSURE | UNKNOWN | null>
   PPF_DRIVING_PATTERN: <CITY | HIGHWAY | MIXED | UNKNOWN | null>
   PPF_BRAND_INTENT: <DEFAULT | XPEL | UNKNOWN | null>

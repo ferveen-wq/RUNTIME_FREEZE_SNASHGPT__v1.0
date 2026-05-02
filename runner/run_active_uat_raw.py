@@ -86,6 +86,8 @@ def extract_debug_and_messages(text):
             debug["QUALIFICATION_STATUS"] = ln.split(":",1)[1].strip()
         elif ln.startswith("price_ladder_state:"):
             debug["price_ladder_state"] = ln.split(":",1)[1].strip()
+        elif ln.startswith("PHASE3A_NUDGE_STATE:"):
+            debug["PHASE3A_NUDGE_STATE"] = ln.split(":",1)[1].strip()
         elif ln.startswith("service_intent:"):
             debug["service_intent"] = ln.split(":",1)[1].strip()
         elif ln.startswith("active_service_context:"):
@@ -404,6 +406,7 @@ def main():
                 "phase3a_required": parsed["debug"].get("phase3a_required"),
                 "phase3a_complete": parsed["debug"].get("phase3a_complete"),
                 "phase3a_qualifier_id": parsed["debug"].get("phase3a_qualifier_id"),
+                "PHASE3A_NUDGE_STATE": parsed["debug"].get("PHASE3A_NUDGE_STATE"),
                 "PPF_COVERAGE_INTENT": parsed["debug"].get("PPF_COVERAGE_INTENT"),
                 "PPF_DRIVING_PATTERN": parsed["debug"].get("PPF_DRIVING_PATTERN"),
                 "PPF_BRAND_INTENT": parsed["debug"].get("PPF_BRAND_INTENT"),
