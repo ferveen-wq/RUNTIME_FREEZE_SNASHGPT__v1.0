@@ -306,7 +306,10 @@ AND (phase3a_required == true OR phase3a_complete != true)
 AND phase3a_qualifier_id is present:
 
   # Phase3A interruption handling (ACTIVE — aligned with decision matrix)
-  IF (customer_ignored_current_qualifier == TRUE):
+  IF (
+    customer_ignored_current_qualifier == TRUE
+    OR PHASE3A_NUDGE_STATE == USED
+  ):
     IF (
       PHASE3A_NUDGE_STATE == USED
       OR previous assistant visible message contains "جاوبني على هالسؤال أول"
