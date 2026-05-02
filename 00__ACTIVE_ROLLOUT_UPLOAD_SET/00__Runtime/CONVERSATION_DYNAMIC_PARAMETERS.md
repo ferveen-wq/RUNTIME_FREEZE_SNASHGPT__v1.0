@@ -288,6 +288,25 @@ Used By:
 
 ---
 
+### PARAMETER: PHASE3A_NUDGE_STATE
+Description: Tracks whether the current pending Phase 3A qualifier has already received its one allowed price-push nudge.
+Allowed Values:
+- NONE
+- USED
+- UNKNOWN
+
+Notes:
+- NONE: no nudge has been used for the current pending qualifier.
+- USED: the customer already ignored the pending qualifier with a direct price request and received the one allowed nudge.
+- Reset to NONE when Phase 3A completes, service changes, or a new Phase 3A qualifier is selected.
+
+Used By:
+- Qualification Engine
+- Runtime Execution Flow
+- Message Assembly
+
+---
+
 ### PARAMETER: BOOKING_READINESS
 Description: Observed readiness to take next step (visit/booking/quote).
 Allowed Values:
