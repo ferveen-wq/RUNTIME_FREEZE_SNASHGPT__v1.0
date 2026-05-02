@@ -381,6 +381,11 @@ AND vehicle_year is present:
 
     ELSE:
       - PHASE3A_NUDGE_STATE = USED
+      - phase3a_qualifier_id = phase3a_last_qualifier_id
+      - phase3a_required = true
+      - phase3a_complete = false
+      - QUALIFICATION_STATUS = NOT_READY
+      - price_ladder_state = NONE
       - phase3a_nudge_used = TRUE
       - STOP
 
